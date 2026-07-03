@@ -4,6 +4,8 @@ This directory stores local upstream reference files used for focused review pas
 
 Repository-wide source-tier, snapshot, and promotion rules are documented in `docs/reference-policy.md`.
 
+Trait schema observations and future curated-data options for `mooncat_traits.json` are documented in `docs/traits.md`.
+
 ## Snapshot Metadata
 
 - Source refs: `mooncatrescue-upstream-readme`, `mooncatrescue-libmooncat-limited-js`, `mooncatrescue-mooncat-traits-json`, `mooncatrescue-mooncatparser-js`

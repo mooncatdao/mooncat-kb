@@ -66,6 +66,19 @@
       "notes": "Local policy for ranking source tiers, handling references/upstream snapshots, and promoting raw references into curated KB data. Not canonical MoonCat data."
     },
     {
+      "id": "repo-trait-data-strategy",
+      "label": "Trait Data Strategy",
+      "type": "local",
+      "path": "docs/traits.md",
+      "supports": [
+        "trait reference snapshot schema notes",
+        "trait data validation strategy",
+        "future trait data promotion options"
+      ],
+      "status": "active",
+      "notes": "Local strategy document for mooncat_traits.json review and future curated trait-data work. It does not import or canonicalize the full trait dataset."
+    },
+    {
       "id": "mooncatrescue-website",
       "label": "MoonCatRescue website",
       "type": "primary",
