@@ -296,6 +296,61 @@
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
+    },
+    {
+      "key": "mooncatRescueApi",
+      "label": "MoonCatRescue API",
+      "url": "https://api.mooncatrescue.com/",
+      "type": "api",
+      "status": "preferred",
+      "trustLevel": "official",
+      "sourceRefs": [
+        "mooncatrescue-api"
+      ]
+    },
+    {
+      "key": "mooncatRescueApiOpenApi",
+      "label": "MoonCatRescue API OpenAPI spec",
+      "url": "https://api.mooncatrescue.com/spec.yml",
+      "type": "api-docs",
+      "status": "preferred",
+      "trustLevel": "official",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ]
+    },
+    {
+      "key": "mooncatRescueApiSwagger",
+      "label": "MoonCatRescue API Swagger UI",
+      "url": "https://api.mooncatrescue.com/docs.html",
+      "type": "api-docs",
+      "status": "preferred",
+      "trustLevel": "official",
+      "sourceRefs": [
+        "mooncatrescue-api-swagger"
+      ]
+    },
+    {
+      "key": "mooncatCommunityApi",
+      "label": "MoonCatCommunity API",
+      "url": "https://api.mooncat.community/",
+      "type": "api",
+      "status": "legacy-valid",
+      "trustLevel": "official-legacy",
+      "sourceRefs": [
+        "mooncat-community-api"
+      ]
+    },
+    {
+      "key": "mooncatCommunityApiOpenApi",
+      "label": "MoonCatCommunity API OpenAPI spec",
+      "url": "https://gitlab.com/mooncatrescue/data-api-server/-/raw/master/spec.yml",
+      "type": "api-docs",
+      "status": "legacy-valid",
+      "trustLevel": "official-legacy",
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ]
     }
   ],
   "todos": [

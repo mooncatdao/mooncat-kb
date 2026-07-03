@@ -1,25 +1,745 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "needs-verification",
+  "status": "verified-partial",
   "provenance": {
     "sources": [
-      "repo-context"
+      "mooncatrescue-api",
+      "mooncatrescue-api-openapi",
+      "mooncatrescue-api-swagger",
+      "mooncat-community-api",
+      "mooncat-community-api-openapi"
     ],
-    "notes": "API endpoint scaffold only. No URLs or paths are verified."
+    "notes": "Concise endpoint metadata from verified API landing pages and OpenAPI path lists. Full OpenAPI schemas are intentionally not imported."
   },
-  "endpoints": [],
-  "fields": {
-    "key": "Stable local identifier.",
-    "baseUrl": "Verified base URL, or null until verified.",
-    "path": "Verified request path, or null until verified.",
-    "method": "HTTP method when verified.",
-    "supports": "What the endpoint is used for.",
-    "sourceRefs": "References to data/sources.json entries."
-  },
+  "apis": [
+    {
+      "key": "mooncatrescue",
+      "label": "MoonCatRescue API",
+      "baseUrl": "https://api.mooncatrescue.com",
+      "status": "preferred",
+      "trustLevel": "official",
+      "docs": {
+        "landing": "https://api.mooncatrescue.com/",
+        "openapi": "https://api.mooncatrescue.com/spec.yml",
+        "swagger": "https://api.mooncatrescue.com/docs.html"
+      },
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi",
+        "mooncatrescue-api-swagger"
+      ],
+      "notes": "Use this API for new integrations unless a legacy-only path is required."
+    },
+    {
+      "key": "mooncatCommunityLegacy",
+      "label": "MoonCatCommunity API",
+      "baseUrl": "https://api.mooncat.community",
+      "status": "legacy-valid",
+      "trustLevel": "official-legacy",
+      "docs": {
+        "landing": "https://api.mooncat.community/",
+        "openapi": "https://gitlab.com/mooncatrescue/data-api-server/-/raw/master/spec.yml"
+      },
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Older API that is still valid. Prefer the newer MoonCatRescue API for new integrations."
+    }
+  ],
+  "identifierConventions": [
+    {
+      "key": "catId_or_rescueIndex",
+      "status": "documented",
+      "acceptedIdentifiers": [
+        {
+          "kind": "mooncat-id",
+          "example": "0x00d8523a53"
+        },
+        {
+          "kind": "original-rescue-index",
+          "range": {
+            "min": 0,
+            "max": 25439
+          }
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncat-community-api"
+      ],
+      "notes": "The documented parameter can accept a valid MoonCat ID or an original rescue index. The API-documented `rescueIndex` accepts original rescue indexes in the range 0–25439. Local files may also use `rescue-order-index`; do not assume those conventions are equivalent until the mapping is explicitly documented."
+    },
+    {
+      "key": "ethAddress",
+      "status": "documented",
+      "acceptedIdentifiers": [
+        {
+          "kind": "ethereum-address"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncat-community-api"
+      ],
+      "notes": "Used by owner/profile and owned-MoonCat endpoints. Address normalization behavior is not documented here."
+    },
+    {
+      "key": "accessoryId",
+      "status": "documented",
+      "acceptedIdentifiers": [
+        {
+          "kind": "accessory-id"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncat-community-api"
+      ],
+      "notes": "Accessory ID format and validation rules are not imported in this pass."
+    }
+  ],
+  "endpoints": [
+    {
+      "key": "mooncatrescueMooncats",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/mooncats",
+      "category": "mooncats",
+      "supports": [
+        "search across MoonCat trait metadata"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Preferred API MoonCat search endpoint."
+    },
+    {
+      "key": "mooncatrescueMooncatTraits",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/mooncat/traits/:catId_or_rescueIndex",
+      "category": "mooncats",
+      "supports": [
+        "MoonCat trait metadata"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Preferred API trait endpoint. OpenAPI path uses {catId}; landing page documents catId_or_rescueIndex behavior."
+    },
+    {
+      "key": "mooncatrescueMooncatErc721Metadata",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/mooncat/erc721-metadata/:catId_or_rescueIndex",
+      "category": "mooncats",
+      "supports": [
+        "ERC721-style MoonCat metadata"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Preferred API ERC721 metadata endpoint. Schema fields are not imported here."
+    },
+    {
+      "key": "mooncatrescueMooncatImage",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/mooncat/image/:catId_or_rescueIndex",
+      "category": "mooncats",
+      "supports": [
+        "MoonCat image rendering"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Landing page lists SVG or PNG image support and says PNG renders are returned unless otherwise noted."
+    },
+    {
+      "key": "mooncatrescueOwnerProfile",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/owner-profile/:ethAddress",
+      "category": "owners",
+      "supports": [
+        "owner profile lookup"
+      ],
+      "inputIdentifiers": [
+        "ethAddress"
+      ],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "OpenAPI path uses {address}; landing page labels the path parameter as ethAddress."
+    },
+    {
+      "key": "mooncatrescueOwnerProfileSearch",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/owner-profile",
+      "category": "owners",
+      "supports": [
+        "owner profile lookup or search"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Query parameters are not imported in this pass."
+    },
+    {
+      "key": "mooncatrescueUserLists",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/user-lists",
+      "category": "owners",
+      "supports": [
+        "user lists"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "List fields and filters are not imported in this pass."
+    },
+    {
+      "key": "mooncatrescueAccessories",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/accessories",
+      "category": "accessories",
+      "supports": [
+        "accessory listing"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Accessory schema is not imported in this pass."
+    },
+    {
+      "key": "mooncatrescueAccessoriesSearch",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/accessories-search",
+      "category": "accessories",
+      "supports": [
+        "accessory search"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Search parameters are not imported in this pass."
+    },
+    {
+      "key": "mooncatrescueAccessoryTraits",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/accessory/traits/:accessoryId",
+      "category": "accessories",
+      "supports": [
+        "accessory trait metadata"
+      ],
+      "inputIdentifiers": [
+        "accessoryId"
+      ],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "OpenAPI path uses {id}; landing page labels the path parameter as accessoryId."
+    },
+    {
+      "key": "mooncatrescueAccessoryImage",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/accessory/image/:accessoryId",
+      "category": "accessories",
+      "supports": [
+        "accessory image rendering"
+      ],
+      "inputIdentifiers": [
+        "accessoryId"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Image format details are not imported beyond the landing page's general PNG note."
+    },
+    {
+      "key": "mooncatrescueAttestations",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/attestations",
+      "category": "blockchain",
+      "supports": [
+        "attestation data"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Request parameters and attestation schema are not imported in this pass."
+    },
+    {
+      "key": "mooncatrescueCheckAttestation",
+      "api": "mooncatrescue",
+      "method": "POST",
+      "path": "/check-attestation",
+      "category": "blockchain",
+      "supports": [
+        "attestation check"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Present in the preferred OpenAPI path list. The OpenAPI spec lists this as POST. Query parameters are not imported in this pass."
+    },
+    {
+      "key": "mooncatrescueEvents",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/events",
+      "category": "blockchain",
+      "supports": [
+        "blockchain events"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "notes": "Preferred API landing page lists this under Blockchain. Do not confuse with the legacy /events accessory/event-image context."
+    },
+    {
+      "key": "mooncatCommunityTraits",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/traits/:catId_or_rescueIndex",
+      "category": "mooncats",
+      "supports": [
+        "legacy MoonCat trait metadata"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy root-level trait endpoint."
+    },
+    {
+      "key": "mooncatCommunityContractDetails",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/contract-details/:catId_or_rescueIndex",
+      "category": "mooncats",
+      "supports": [
+        "legacy contract detail lookup"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy contract-details endpoint for a requested MoonCat."
+    },
+    {
+      "key": "mooncatCommunityContractDetailsOptions",
+      "api": "mooncatCommunityLegacy",
+      "method": "OPTIONS",
+      "path": "/contract-details",
+      "category": "mooncats",
+      "supports": [
+        "legacy contract detail options"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Present in the legacy OpenAPI path list as an OPTIONS endpoint."
+    },
+    {
+      "key": "mooncatCommunityImage",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/image/:catId_or_rescueIndex",
+      "category": "images",
+      "supports": [
+        "legacy MoonCat image rendering"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy general image endpoint."
+    },
+    {
+      "key": "mooncatCommunityCatImage",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/cat-image/:catId_or_rescueIndex",
+      "category": "images",
+      "supports": [
+        "legacy cat-only image rendering"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy image variant endpoint."
+    },
+    {
+      "key": "mooncatCommunityRegularImage",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/regular-image/:catId_or_rescueIndex",
+      "category": "images",
+      "supports": [
+        "legacy regular image rendering"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy image variant endpoint."
+    },
+    {
+      "key": "mooncatCommunityGlowImage",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/glow-image/:catId_or_rescueIndex",
+      "category": "images",
+      "supports": [
+        "legacy glow image rendering"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy image variant endpoint."
+    },
+    {
+      "key": "mooncatCommunityFaceImage",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/face-image/:catId_or_rescueIndex",
+      "category": "images",
+      "supports": [
+        "legacy face image rendering"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy image variant endpoint."
+    },
+    {
+      "key": "mooncatCommunityAccessorizedImage",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/accessorized-image/:catId_or_rescueIndex",
+      "category": "images",
+      "supports": [
+        "legacy accessorized image rendering"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy image variant endpoint."
+    },
+    {
+      "key": "mooncatCommunityEventImage",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/event-image/:catId_or_rescueIndex",
+      "category": "images",
+      "supports": [
+        "legacy event image rendering"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy event-image endpoint. Do not confuse with the preferred API blockchain /events endpoint."
+    },
+    {
+      "key": "mooncatCommunityCatWalk",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/cat-walk/:rescueIndex",
+      "category": "images",
+      "supports": [
+        "legacy walking animation sprite sheet"
+      ],
+      "inputIdentifiers": [
+        "rescueIndex"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "OpenAPI path uses rescueIndex. Do not confuse this with token IDs or rescue-order bucket indexes."
+    },
+    {
+      "key": "mooncatCommunityOwnedMooncats",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/owned-mooncats/:ethAddress",
+      "category": "owners",
+      "supports": [
+        "legacy owner MoonCat lookup"
+      ],
+      "inputIdentifiers": [
+        "ethAddress"
+      ],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "OpenAPI path uses {address}; landing page labels the path parameter as ethAddress."
+    },
+    {
+      "key": "mooncatCommunityAccessory",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/accessory/:accessoryId",
+      "category": "accessories",
+      "supports": [
+        "legacy accessory metadata"
+      ],
+      "inputIdentifiers": [
+        "accessoryId"
+      ],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy accessory metadata endpoint."
+    },
+    {
+      "key": "mooncatCommunityAccessoryImage",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/accessory-image/:accessoryId",
+      "category": "accessories",
+      "supports": [
+        "legacy accessory image rendering"
+      ],
+      "inputIdentifiers": [
+        "accessoryId"
+      ],
+      "responseKind": "image",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy accessory image endpoint."
+    },
+    {
+      "key": "mooncatCommunityDynamic",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/dynamic/:catId_or_rescueIndex",
+      "category": "html",
+      "supports": [
+        "legacy dynamic accessory image page"
+      ],
+      "inputIdentifiers": [
+        "catId_or_rescueIndex"
+      ],
+      "responseKind": "html",
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Present in the legacy OpenAPI path list. Landing page summary does not list this path."
+    },
+    {
+      "key": "mooncatCommunityCostumes",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/costumes",
+      "category": "accessories",
+      "supports": [
+        "legacy costume listing"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy endpoint for costume/accessory-related data."
+    },
+    {
+      "key": "mooncatCommunityEvents",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/events",
+      "category": "accessories",
+      "supports": [
+        "legacy event or holiday accessory context"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "json",
+      "sourceRefs": [
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Legacy API landing page describes upcoming events and holidays for image/accessory behavior. Do not confuse with preferred API blockchain /events."
+    },
+    {
+      "key": "mooncatCommunityInvalidate",
+      "api": "mooncatCommunityLegacy",
+      "method": "POST",
+      "path": "/invalidate",
+      "category": "maintenance",
+      "supports": [
+        "legacy cache or maintenance action"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "unknown",
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Present in the legacy OpenAPI path list as a POST endpoint. Behavior and authorization are not documented here."
+    },
+    {
+      "key": "mooncatCommunityLibMooncatdata",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/lib/mooncatdata.js",
+      "category": "library",
+      "supports": [
+        "legacy JavaScript library file"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "javascript",
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Present in the legacy OpenAPI path list. Library contents are not imported."
+    },
+    {
+      "key": "mooncatCommunityLibMooncatparser",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/lib/mooncatparser.js",
+      "category": "library",
+      "supports": [
+        "legacy JavaScript parser file"
+      ],
+      "inputIdentifiers": [],
+      "responseKind": "javascript",
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "notes": "Present in the legacy OpenAPI path list. Library contents are not imported."
+    }
+  ],
+  "migrationNotes": [
+    {
+      "key": "preferred-api",
+      "notes": "Use https://api.mooncatrescue.com for new integrations when possible."
+    },
+    {
+      "key": "legacy-api-valid",
+      "notes": "https://api.mooncat.community is recorded as legacy-valid, not broken. It may be deprecated later, so avoid new dependencies unless a legacy-only endpoint is required."
+    },
+    {
+      "key": "path-prefixes",
+      "notes": "The preferred API groups MoonCat paths under /mooncat/... while the legacy API uses root-level paths such as /traits/... and several image variant paths."
+    },
+    {
+      "key": "events-path",
+      "notes": "The preferred API /events endpoint is listed under Blockchain. The legacy API /events endpoint is tied to older event/holiday accessory behavior. Do not treat them as interchangeable."
+    },
+    {
+      "key": "identifier-conversion",
+      "notes": "Endpoint parameters that accept rescue indexes still require a verified conversion/mapping step before use with token IDs, bytes5 catIds, OpenSea IDs, or local rescue-order bucket indexes."
+    }
+  ],
   "todos": [
-    "Verify active endpoints before adding URLs.",
-    "Distinguish official APIs from DAO/community tools.",
-    "Document usage notes in docs/api-notes.md."
+    "Import full request and response schemas only in a focused schema pass.",
+    "Verify query parameters before building client code from these summaries.",
+    "Monitor whether the legacy API receives a formal deprecation notice.",
+    "Document any verified conversion between original rescue index, rescue-order index, bytes5 catId, and token-facing identifiers."
   ]
 }

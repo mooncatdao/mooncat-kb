@@ -429,6 +429,79 @@
         "MoonCat technical explanation"
       ],
       "notes": "Community article provided for future review. Verify technical claims against contract, parser, or official docs before import."
+    },
+    {
+      "id": "mooncatrescue-api",
+      "label": "MoonCatRescue API",
+      "type": "api",
+      "url": "https://api.mooncatrescue.com/",
+      "trustLevel": "official",
+      "status": "preferred",
+      "supports": [
+        "preferred API base",
+        "MoonCat metadata",
+        "MoonCat images",
+        "endpoint summary",
+        "catId_or_rescueIndex identifier convention"
+      ],
+      "notes": "Verified landing page for the preferred newer API. It states that the API serves MoonCat metadata and images, uses JSON for traits and metadata, and returns PNG renders unless otherwise noted."
+    },
+    {
+      "id": "mooncatrescue-api-openapi",
+      "label": "MoonCatRescue API OpenAPI spec",
+      "type": "openapi",
+      "url": "https://api.mooncatrescue.com/spec.yml",
+      "trustLevel": "official",
+      "status": "preferred",
+      "supports": [
+        "preferred API OpenAPI specification",
+        "endpoint paths",
+        "request and response details"
+      ],
+      "notes": "Verified reachable YAML OpenAPI spec for the preferred newer API. Do not import full schemas unless a focused schema pass is requested."
+    },
+    {
+      "id": "mooncatrescue-api-swagger",
+      "label": "MoonCatRescue API Swagger UI",
+      "type": "api-docs",
+      "url": "https://api.mooncatrescue.com/docs.html",
+      "trustLevel": "official",
+      "status": "preferred",
+      "supports": [
+        "interactive API documentation",
+        "preferred API exploration"
+      ],
+      "notes": "Verified reachable Swagger UI for the preferred newer API."
+    },
+    {
+      "id": "mooncat-community-api",
+      "label": "MoonCatCommunity API",
+      "type": "api",
+      "url": "https://api.mooncat.community/",
+      "trustLevel": "official-legacy",
+      "status": "legacy-valid",
+      "supports": [
+        "legacy API base",
+        "legacy endpoint summary",
+        "MoonCat metadata",
+        "MoonCat images",
+        "catId_or_rescueIndex identifier convention"
+      ],
+      "notes": "Verified landing page for the older API. Treat as still valid legacy infrastructure, not broken, while preferring the newer MoonCatRescue API for new integrations."
+    },
+    {
+      "id": "mooncat-community-api-openapi",
+      "label": "MoonCatCommunity API OpenAPI spec",
+      "type": "openapi",
+      "url": "https://gitlab.com/mooncatrescue/data-api-server/-/raw/master/spec.yml",
+      "trustLevel": "official-legacy",
+      "status": "legacy-valid",
+      "supports": [
+        "legacy API OpenAPI specification",
+        "legacy endpoint paths",
+        "request and response details"
+      ],
+      "notes": "Verified raw YAML OpenAPI spec linked from the legacy API landing page. Do not import full schemas unless a focused schema pass is requested."
     }
   ],
   "todos": [
