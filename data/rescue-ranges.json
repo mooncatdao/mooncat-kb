@@ -2,9 +2,13 @@
   "version": 1,
   "updated": "2026-07-03",
   "status": "partially-verified",
+  "bucketData": "data/rescue-buckets.json",
   "provenance": {
-    "sources": ["ponderware-mooncatrescue-sol-raw"],
-    "notes": "Supply counts are verified from contract constants. Rescue-order thresholds, blocks, timestamps, and community early-rescue ranges are not yet defined."
+    "sources": [
+      "ponderware-mooncatrescue-sol-raw",
+      "mooncat-rescueorder-by-category"
+    ],
+    "notes": "Supply counts are contract-derived. Materialized rescue/history bucket membership lives in data/rescue-buckets.json and is canonical-derived once the rescue-order-index convention and derivation method are accepted. Rescue-order indexes are not token IDs or bytes5 catIds."
   },
   "ranges": [
     {
@@ -14,7 +18,9 @@
       "count": 25344,
       "status": "verified-from-source",
       "criteria": "Initial remainingCats value in the contract source: 25600 - 256.",
-      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw"
+      ],
       "notes": "This is a supply count, not a rescue-order range or list of IDs."
     },
     {
@@ -24,7 +30,9 @@
       "count": 256,
       "status": "verified-from-source",
       "criteria": "Initial remainingGenesisCats value in the contract source.",
-      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw"
+      ],
       "notes": "This is a maximum/supply cap, not a list of Genesis IDs."
     },
     {
@@ -34,20 +42,24 @@
       "count": 25600,
       "status": "verified-from-source",
       "criteria": "totalSupply value in the contract source.",
-      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw"
+      ],
       "notes": "Normal rescue supply plus Genesis supply cap."
     }
   ],
   "fields": {
     "label": "Human-readable range name.",
-    "basis": "Whether the entry is based on contract constants, rescue order, block, timestamp, ID, or community convention.",
+    "basis": "Whether the entry is based on contract constants, rescue order, block, timestamp, ID, or derived chain data.",
     "count": "Verified count where applicable.",
     "criteria": "Plain-language membership or source rule.",
     "sourceRefs": "References to data/sources.json entries."
   },
   "todos": [
-    "Verify rescue history sources.",
+    "Document the exact derivation method/source query for rescue bucket membership.",
     "Define early-rescue ranges separately by rescue order, block, timestamp, or community convention.",
-    "Add exact ID membership only with source references."
-  ]
+    "Define any conversion from rescue-order-index to catId/token-facing identifiers before downstream use.",
+    "Keep materialized bucket arrays in data/rescue-buckets.json rather than duplicating them here."
+  ],
+  "bucketDataStatus": "canonical-derived-needs-method-note"
 }

@@ -3,7 +3,10 @@
   "updated": "2026-07-03",
   "status": "community-curated-partial",
   "provenance": {
-    "sources": ["repo-context", "rate-my-mooncat"],
+    "sources": [
+      "repo-context",
+      "rate-my-mooncat"
+    ],
     "notes": "Canonical MoonCat hue names and trait mappings are still not verified. Character-cat hue ranges are community-curated narrative ranges, not official protocol traits."
   },
   "canonicalHues": [],
@@ -11,7 +14,9 @@
   "characterHueRanges": {
     "status": "community-curated-partial",
     "canonical": false,
-    "sourceRefs": ["rate-my-mooncat"],
+    "sourceRefs": [
+      "rate-my-mooncat"
+    ],
     "data": "data/character-cats.json",
     "notes": "Use character-cat hue ranges only as curated narrative/filter data. Do not treat them as official coat traits."
   },

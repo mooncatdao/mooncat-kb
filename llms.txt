@@ -21,6 +21,7 @@ Plain-text and Markdown entrypoints:
 - /data/color-hues.json
 - /data/trait-index.json
 - /data/rescue-ranges.json
+- /data/rescue-buckets.json
 - /data/contracts.json
 - /data/ipfs-cids.json
 - /data/api-endpoints.json

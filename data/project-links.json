@@ -3,7 +3,11 @@
   "updated": "2026-07-03",
   "status": "partially-verified",
   "provenance": {
-    "sources": ["repo-context", "repo-source-map", "mooncatrescue-build"],
+    "sources": [
+      "repo-context",
+      "repo-source-map",
+      "mooncatrescue-build"
+    ],
     "notes": "Verified project URLs are recorded here. Unverified project labels remain explicit placeholders."
   },
   "links": [
@@ -14,7 +18,9 @@
       "type": "primary",
       "status": "verified",
       "trustLevel": "primary",
-      "sourceRefs": ["mooncatrescue-website"]
+      "sourceRefs": [
+        "mooncatrescue-website"
+      ]
     },
     {
       "key": "mooncatCommunityWebsite",
@@ -23,7 +29,9 @@
       "type": "community",
       "status": "verified",
       "trustLevel": "community-maintained",
-      "sourceRefs": ["mooncat-community-website"]
+      "sourceRefs": [
+        "mooncat-community-website"
+      ]
     },
     {
       "key": "mooncatRescueGitLab",
@@ -32,7 +40,9 @@
       "type": "source-code",
       "status": "verified",
       "trustLevel": "strong",
-      "sourceRefs": ["mooncatrescue-gitlab"]
+      "sourceRefs": [
+        "mooncatrescue-gitlab"
+      ]
     },
     {
       "key": "chainStationSource",
@@ -41,7 +51,9 @@
       "type": "source-code",
       "status": "verified",
       "trustLevel": "strong",
-      "sourceRefs": ["chainstation-source"]
+      "sourceRefs": [
+        "chainstation-source"
+      ]
     },
     {
       "key": "libMoonCat",
@@ -50,7 +62,9 @@
       "type": "source-code",
       "status": "verified",
       "trustLevel": "strong",
-      "sourceRefs": ["libmooncat"]
+      "sourceRefs": [
+        "libmooncat"
+      ]
     },
     {
       "key": "ponderwareGithub",
@@ -59,7 +73,9 @@
       "type": "source-code",
       "status": "verified",
       "trustLevel": "historical-primary",
-      "sourceRefs": ["ponderware-github"]
+      "sourceRefs": [
+        "ponderware-github"
+      ]
     },
     {
       "key": "mooncatParser",
@@ -68,7 +84,9 @@
       "type": "source-code",
       "status": "verified",
       "trustLevel": "historical-primary",
-      "sourceRefs": ["ponderware-mooncatparser"]
+      "sourceRefs": [
+        "ponderware-mooncatparser"
+      ]
     },
     {
       "key": "mooncatRescueContractSource",
@@ -77,7 +95,9 @@
       "type": "source-code",
       "status": "verified",
       "trustLevel": "historical-primary",
-      "sourceRefs": ["ponderware-contract"]
+      "sourceRefs": [
+        "ponderware-contract"
+      ]
     },
     {
       "key": "mooncatDaoRepositories",
@@ -86,7 +106,9 @@
       "type": "community-maintained",
       "status": "verified",
       "trustLevel": "community-maintained",
-      "sourceRefs": ["mooncat-dao-github"]
+      "sourceRefs": [
+        "mooncat-dao-github"
+      ]
     },
     {
       "key": "rateMyMooncat",
@@ -95,7 +117,9 @@
       "type": "community-tool",
       "status": "verified",
       "trustLevel": "community-curated",
-      "sourceRefs": ["rate-my-mooncat"]
+      "sourceRefs": [
+        "rate-my-mooncat"
+      ]
     },
     {
       "key": "mooncatDaoWiki",
@@ -104,7 +128,9 @@
       "type": "community-maintained",
       "status": "verified",
       "trustLevel": "community-maintained",
-      "sourceRefs": ["mooncat-dao-wiki"]
+      "sourceRefs": [
+        "mooncat-dao-wiki"
+      ]
     },
     {
       "key": "openseaAcclimatedMooncats",
@@ -113,7 +139,9 @@
       "type": "marketplace",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "looksrareAcclimatedMooncats",
@@ -122,7 +150,9 @@
       "type": "marketplace",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "blurAcclimatedMooncats",
@@ -131,7 +161,9 @@
       "type": "marketplace",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "mooncatPro",
@@ -140,7 +172,9 @@
       "type": "community-tool",
       "status": "needs-review",
       "trustLevel": "community-derived",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "mooncatZer0Twitter",
@@ -149,7 +183,9 @@
       "type": "social",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "ponderwareTwitter",
@@ -158,7 +194,9 @@
       "type": "social",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "mooncatRescueTwitter",
@@ -167,7 +205,9 @@
       "type": "social",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "mooncatDaoTwitter",
@@ -176,7 +216,9 @@
       "type": "social",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "mooncatRescueReddit",
@@ -185,7 +227,9 @@
       "type": "community",
       "status": "needs-review",
       "trustLevel": "community-maintained",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "rescuedMooncatsEasyzoom",
@@ -194,7 +238,9 @@
       "type": "visualization",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "brooksBoydTwitter",
@@ -203,7 +249,9 @@
       "type": "social",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "mooncatPool1OwnerPage",
@@ -212,7 +260,9 @@
       "type": "owner-page",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "mooncatPool2OwnerPage",
@@ -221,7 +271,9 @@
       "type": "owner-page",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "mooncat2017PoolOwnerPage",
@@ -230,7 +282,9 @@
       "type": "owner-page",
       "status": "needs-review",
       "trustLevel": "project-link",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     },
     {
       "key": "mooncatPoolsYoutubeExplainer",
@@ -239,7 +293,9 @@
       "type": "video",
       "status": "needs-review",
       "trustLevel": "supporting-context",
-      "sourceRefs": ["extracted-source-links-2026-07-02"]
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ]
     }
   ],
   "todos": [

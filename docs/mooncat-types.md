@@ -19,6 +19,9 @@ Related files:
 
 - `data/protocol-constants.json`
 - `data/special-cats.json`
+- `data/rescue-buckets.json`
+
+`data/rescue-buckets.json` includes a canonical-derived `genesis` rescue-order-index bucket. That bucket is not a bytes5 catId list and does not replace the contract-derived Genesis generation facts.
 
 ## Character Cats
 
@@ -62,4 +65,4 @@ Special categories may include protocol-defined, historical, or community-curate
 
 ## Notes
 
-“rescue-order-index” values are not interchangeable with catId/tokenId unless explicitly converted.
+“rescue-order-index” values are not interchangeable with catId/tokenId unless explicitly converted. The derivation method for rescue buckets still needs to be documented before downstream tools rely on the local artifact as reproducible.

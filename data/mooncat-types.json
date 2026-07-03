@@ -3,16 +3,28 @@
   "updated": "2026-07-03",
   "status": "partially-verified",
   "provenance": {
-    "sources": ["repo-context", "repo-agents", "rate-my-mooncat", "mooncats-faq-official-links", "mooncat-rescueorder-by-category"],
-    "notes": "Top-level category scaffold. Character cats have community-curated definitions and exact community-curated membership/index numbers, but they are not official protocol traits."
+    "sources": [
+      "repo-context",
+      "repo-agents",
+      "rate-my-mooncat",
+      "mooncats-faq-official-links",
+      "mooncat-rescueorder-by-category"
+    ],
+    "notes": "Top-level category scaffold. Rescue/history buckets are canonical-derived rescue-order-index membership artifacts; character cats remain community-curated and are not official protocol traits."
   },
   "types": {
     "genesis": {
       "label": "Genesis Cats",
       "status": "partially-verified",
       "ids": [],
-      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
-      "notes": "Genesis supply/generation are documented in data/special-cats.json and data/protocol-constants.json, but exact IDs are not materialized here yet."
+      "membershipData": "data/rescue-buckets.json#genesis",
+      "canonical": true,
+      "trustLevel": "canonical-derived",
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw",
+        "mooncat-rescueorder-by-category"
+      ],
+      "notes": "Genesis supply/generation are documented in data/special-cats.json and data/protocol-constants.json. Canonical-derived rescue-order-index membership lives in data/rescue-buckets.json; exact catIds are not materialized here."
     },
     "characterCats": {
       "label": "Character Cats",
@@ -23,7 +35,11 @@
       "docs": "docs/mooncat-types.md#character-cats",
       "canonical": false,
       "trustLevel": "community-curated",
-      "sourceRefs": ["rate-my-mooncat", "mooncats-faq-official-links", "mooncat-rescueorder-by-category"],
+      "sourceRefs": [
+        "rate-my-mooncat",
+        "mooncats-faq-official-links",
+        "mooncat-rescueorder-by-category"
+      ],
       "notes": "Community-curated narrative categories, not official protocol traits. Exact community-curated rescue-order index membership lives in data/character-cat-index.json; ids remain empty here to avoid duplicating large arrays."
     },
     "specialCats": {
@@ -31,14 +47,20 @@
       "status": "partially-verified",
       "ids": [],
       "data": "data/special-cats.json",
+      "bucketData": "data/rescue-buckets.json",
       "docs": "docs/mooncat-types.md#special-cats",
-      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
-      "notes": "Genesis source facts are partially verified; other special categories remain placeholders."
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw",
+        "mooncat-rescueorder-by-category"
+      ],
+      "notes": "Genesis source facts are partially verified; canonical-derived rescue/history bucket indexes live in data/rescue-buckets.json. Other special categories remain placeholders.",
+      "bucketDataStatus": "canonical-derived-needs-method-note"
     }
   },
   "todos": [
-    "Confirm the index convention used by data/character-cat-index.json before downstream UI/tool use.",
-    "Keep aggregate IDs synchronized with category-specific data files.",
+    "Confirm/document the index convention used by data/character-cat-index.json before downstream UI/tool use.",
+    "Document the derivation method for data/rescue-buckets.json before downstream UI/tool use.",
+    "Define conversion from rescue-order-index to catId/token-facing identifiers before using bucket values outside rescue-order context.",
     "Keep community-curated categories separate from official protocol traits."
   ]
 }

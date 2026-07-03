@@ -3,35 +3,307 @@
   "updated": "2026-07-03",
   "status": "incomplete",
   "provenance": {
-    "sources": ["extracted-source-links-2026-07-02"],
+    "sources": [
+      "extracted-source-links-2026-07-02"
+    ],
     "notes": "Preserved link index. Links may be useful for research, context, or navigation, but are not automatically canonical sources."
   },
   "links": [
-    {"key":"mooncat-zer0-twitter","label":"MoonCat Zer0 Twitter/X","url":"https://twitter.com/mooncatzer0","category":"social","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Preserved social link; not a canonical data source."},
-    {"key":"opensea-acclimated-mooncats","label":"OpenSea Acclimated MoonCats collection","url":"https://opensea.io/collection/acclimatedmooncats","category":"marketplace","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Marketplace navigation link; do not import collection facts without verification."},
-    {"key":"looksrare-acclimated-mooncats","label":"LooksRare Acclimated MoonCats collection","url":"https://looksrare.org/collections/0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69","category":"marketplace","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Marketplace navigation link; address-like URL value is preserved only as part of the URL."},
-    {"key":"blur-acclimated-mooncats","label":"Blur Acclimated MoonCats collection","url":"https://blur.io/eth/collection/acclimatedmooncats","category":"marketplace","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Marketplace navigation link."},
-    {"key":"ponderware-twitter","label":"ponderware Twitter/X","url":"https://twitter.com/ponderware","category":"social","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Preserved social link."},
-    {"key":"mooncatrescue-twitter","label":"MoonCatRescue Twitter/X","url":"https://twitter.com/mooncatrescue","category":"social","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Preserved social link."},
-    {"key":"mooncat-dao-twitter","label":"MoonCat DAO Twitter/X","url":"https://x.com/mooncat_dao","category":"social","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Preserved social link."},
-    {"key":"mooncatrescue-reddit","label":"MoonCatRescue Reddit community","url":"https://www.reddit.com/r/MoonCatRescue/","category":"social","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Community discussion link; not canonical without specific post review."},
-    {"key":"dune-mooncat-rescue","label":"Dune MoonCat Rescue dashboard","url":"https://dune.com/PlainviewResearch/MoonCat-Rescue","category":"analytics","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","dune-mooncat-rescue"],"notes":"Community-derived analytics dashboard preserved for future review."},
-    {"key":"mooncat-pro","label":"mooncat.pro","url":"https://mooncat.pro/","category":"tool","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Older rarity/statistics site preserved as a research link."},
-    {"key":"etherscan-original-contract","label":"Etherscan original MoonCatRescue contract page","url":"https://etherscan.io/address/0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6#code","category":"reference","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","etherscan-original-contract"],"notes":"Potential canonical contract reference; no address imported into contract data."},
-    {"key":"mooncat-pool-1-owner-page","label":"MoonCat pool 1 owner page","url":"https://mooncatrescue.com/owners/0x98968f0747E0A261532cAcC0BE296375F5c08398#mooncats","category":"owner-page","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Navigation link; address-like URL value is preserved only as part of the URL."},
-    {"key":"mooncat-pool-2-owner-page","label":"MoonCat pool 2 owner page","url":"https://mooncatrescue.com/owners/0xD4fe01ce79C84C68f9307D415B8f392D140c242C#mooncats","category":"owner-page","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Navigation link; address-like URL value is preserved only as part of the URL."},
-    {"key":"mooncat-2017-pool-owner-page","label":"2017 MoonCats pool owner page","url":"https://mooncatrescue.com/owners/0xA8b42C82a628DC43c2c2285205313e5106EA2853#mooncats","category":"owner-page","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Navigation link; address-like URL value is preserved only as part of the URL."},
-    {"key":"mooncat-pools-youtube-explainer","label":"MoonCat pools YouTube explainer","url":"https://www.youtube.com/watch?v=QinJ8OFsxJI&t=828s","category":"video","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Context video preserved for review."},
-    {"key":"mooncats-on-chain-guide","label":"MoonCats On-Chain Guide","url":"https://medium.com/mooncatrescue/mooncats-on-chain-guide-71d2b479fb72","category":"article","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","mooncats-on-chain-guide"],"notes":"Source-like article preserved for review."},
-    {"key":"of-mice-and-mooncats","label":"Of Mice and MoonCats","url":"https://medium.com/@masonmarcobello/of-mice-and-mooncats-inevitable-pursuits-in-pixelated-whiskerdom-a30fca025930","category":"article","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","of-mice-and-mooncats"],"notes":"Community article preserved for review."},
-    {"key":"on-chain-generative-art","label":"On Chain, Generative Art?","url":"https://medium.com/mooncatrescue/on-chain-generative-art-dd9cfc3e5fb4","category":"article","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","on-chain-generative-art"],"notes":"Source-like article preserved for review."},
-    {"key":"mooncat-explainer","label":"MoonCat Explainer","url":"https://bokkypoobah.github.io/MoonCatExplainer/","category":"reference","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","mooncat-explainer"],"notes":"Community reference preserved for review."},
-    {"key":"rescued-mooncats-easyzoom","label":"EasyZoom rescued MoonCats image","url":"https://www.easyzoom.com/imageaccess/b5b703d04cd24960ba2b5a74e7e88da4","category":"visualization","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Visualization link preserved; no image-derived data imported."},
-    {"key":"brooks-boyd-twitter","label":"Brooks Boyd / Midnight Lightning Twitter/X","url":"https://x.com/midnight426","category":"social","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02"],"notes":"Preserved social link."},
-    {"key":"cryptocopycats-mooncatrescue","label":"MoonCatRescue on the Blockchain GitHub repo","url":"https://github.com/cryptocopycats/mooncatrescue","category":"code","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","cryptocopycats-mooncatrescue"],"notes":"Older related code link preserved for review."},
-    {"key":"dune-mooncat-characters","label":"Dune MoonCat Characters dashboard","url":"https://dune.com/beautifooldata/mooncat-characters","category":"analytics","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","dune-mooncat-characters"],"notes":"Potential character-cat research link; no memberships imported."},
-    {"key":"dune-rare-mooncat","label":"Dune Rare Mooncat Dashboard","url":"https://dune.com/catdadkolt/rare-mooncat-dashboard","category":"analytics","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","dune-rare-mooncat"],"notes":"Potential rarity research link; no rarity claims imported."},
-    {"key":"mooncatrescue-medium","label":"MoonCatRescue Medium publication","url":"https://medium.com/mooncatrescue","category":"article","status":"needs-review","sourceRefs":["extracted-source-links-2026-07-02","mooncatrescue-medium"],"notes":"Publication index preserved for article discovery."},
-    {"key":"inside-ethereums-early-on-chain-generative-machinery","label":"MoonCats: Inside Ethereum's Early On-Chain Generative Machinery","url":"https://medium.com/@wassoshi_9389/mooncats-inside-ethereums-early-on-chain-generative-machinery-560e46378c07","category":"article","status":"needs-review","sourceRefs":["inside-ethereums-early-on-chain-generative-machinery"],"notes":"Community article preserved for future review; no facts imported."}
+    {
+      "key": "mooncat-zer0-twitter",
+      "label": "MoonCat Zer0 Twitter/X",
+      "url": "https://twitter.com/mooncatzer0",
+      "category": "social",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Preserved social link; not a canonical data source."
+    },
+    {
+      "key": "opensea-acclimated-mooncats",
+      "label": "OpenSea Acclimated MoonCats collection",
+      "url": "https://opensea.io/collection/acclimatedmooncats",
+      "category": "marketplace",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Marketplace navigation link; do not import collection facts without verification."
+    },
+    {
+      "key": "looksrare-acclimated-mooncats",
+      "label": "LooksRare Acclimated MoonCats collection",
+      "url": "https://looksrare.org/collections/0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "category": "marketplace",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Marketplace navigation link; address-like URL value is preserved only as part of the URL."
+    },
+    {
+      "key": "blur-acclimated-mooncats",
+      "label": "Blur Acclimated MoonCats collection",
+      "url": "https://blur.io/eth/collection/acclimatedmooncats",
+      "category": "marketplace",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Marketplace navigation link."
+    },
+    {
+      "key": "ponderware-twitter",
+      "label": "ponderware Twitter/X",
+      "url": "https://twitter.com/ponderware",
+      "category": "social",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Preserved social link."
+    },
+    {
+      "key": "mooncatrescue-twitter",
+      "label": "MoonCatRescue Twitter/X",
+      "url": "https://twitter.com/mooncatrescue",
+      "category": "social",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Preserved social link."
+    },
+    {
+      "key": "mooncat-dao-twitter",
+      "label": "MoonCat DAO Twitter/X",
+      "url": "https://x.com/mooncat_dao",
+      "category": "social",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Preserved social link."
+    },
+    {
+      "key": "mooncatrescue-reddit",
+      "label": "MoonCatRescue Reddit community",
+      "url": "https://www.reddit.com/r/MoonCatRescue/",
+      "category": "social",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Community discussion link; not canonical without specific post review."
+    },
+    {
+      "key": "dune-mooncat-rescue",
+      "label": "Dune MoonCat Rescue dashboard",
+      "url": "https://dune.com/PlainviewResearch/MoonCat-Rescue",
+      "category": "analytics",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "dune-mooncat-rescue"
+      ],
+      "notes": "Community-derived analytics dashboard preserved for future review."
+    },
+    {
+      "key": "mooncat-pro",
+      "label": "mooncat.pro",
+      "url": "https://mooncat.pro/",
+      "category": "tool",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Older rarity/statistics site preserved as a research link."
+    },
+    {
+      "key": "etherscan-original-contract",
+      "label": "Etherscan original MoonCatRescue contract page",
+      "url": "https://etherscan.io/address/0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6#code",
+      "category": "reference",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "etherscan-original-contract"
+      ],
+      "notes": "Potential canonical contract reference; no address imported into contract data."
+    },
+    {
+      "key": "mooncat-pool-1-owner-page",
+      "label": "MoonCat pool 1 owner page",
+      "url": "https://mooncatrescue.com/owners/0x98968f0747E0A261532cAcC0BE296375F5c08398#mooncats",
+      "category": "owner-page",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Navigation link; address-like URL value is preserved only as part of the URL."
+    },
+    {
+      "key": "mooncat-pool-2-owner-page",
+      "label": "MoonCat pool 2 owner page",
+      "url": "https://mooncatrescue.com/owners/0xD4fe01ce79C84C68f9307D415B8f392D140c242C#mooncats",
+      "category": "owner-page",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Navigation link; address-like URL value is preserved only as part of the URL."
+    },
+    {
+      "key": "mooncat-2017-pool-owner-page",
+      "label": "2017 MoonCats pool owner page",
+      "url": "https://mooncatrescue.com/owners/0xA8b42C82a628DC43c2c2285205313e5106EA2853#mooncats",
+      "category": "owner-page",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Navigation link; address-like URL value is preserved only as part of the URL."
+    },
+    {
+      "key": "mooncat-pools-youtube-explainer",
+      "label": "MoonCat pools YouTube explainer",
+      "url": "https://www.youtube.com/watch?v=QinJ8OFsxJI&t=828s",
+      "category": "video",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Context video preserved for review."
+    },
+    {
+      "key": "mooncats-on-chain-guide",
+      "label": "MoonCats On-Chain Guide",
+      "url": "https://medium.com/mooncatrescue/mooncats-on-chain-guide-71d2b479fb72",
+      "category": "article",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "mooncats-on-chain-guide"
+      ],
+      "notes": "Source-like article preserved for review."
+    },
+    {
+      "key": "of-mice-and-mooncats",
+      "label": "Of Mice and MoonCats",
+      "url": "https://medium.com/@masonmarcobello/of-mice-and-mooncats-inevitable-pursuits-in-pixelated-whiskerdom-a30fca025930",
+      "category": "article",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "of-mice-and-mooncats"
+      ],
+      "notes": "Community article preserved for review."
+    },
+    {
+      "key": "on-chain-generative-art",
+      "label": "On Chain, Generative Art?",
+      "url": "https://medium.com/mooncatrescue/on-chain-generative-art-dd9cfc3e5fb4",
+      "category": "article",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "on-chain-generative-art"
+      ],
+      "notes": "Source-like article preserved for review."
+    },
+    {
+      "key": "mooncat-explainer",
+      "label": "MoonCat Explainer",
+      "url": "https://bokkypoobah.github.io/MoonCatExplainer/",
+      "category": "reference",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "mooncat-explainer"
+      ],
+      "notes": "Community reference preserved for review."
+    },
+    {
+      "key": "rescued-mooncats-easyzoom",
+      "label": "EasyZoom rescued MoonCats image",
+      "url": "https://www.easyzoom.com/imageaccess/b5b703d04cd24960ba2b5a74e7e88da4",
+      "category": "visualization",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Visualization link preserved; no image-derived data imported."
+    },
+    {
+      "key": "brooks-boyd-twitter",
+      "label": "Brooks Boyd / Midnight Lightning Twitter/X",
+      "url": "https://x.com/midnight426",
+      "category": "social",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02"
+      ],
+      "notes": "Preserved social link."
+    },
+    {
+      "key": "cryptocopycats-mooncatrescue",
+      "label": "MoonCatRescue on the Blockchain GitHub repo",
+      "url": "https://github.com/cryptocopycats/mooncatrescue",
+      "category": "code",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "cryptocopycats-mooncatrescue"
+      ],
+      "notes": "Older related code link preserved for review."
+    },
+    {
+      "key": "dune-mooncat-characters",
+      "label": "Dune MoonCat Characters dashboard",
+      "url": "https://dune.com/beautifooldata/mooncat-characters",
+      "category": "analytics",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "dune-mooncat-characters"
+      ],
+      "notes": "Potential character-cat research link; no memberships imported."
+    },
+    {
+      "key": "dune-rare-mooncat",
+      "label": "Dune Rare Mooncat Dashboard",
+      "url": "https://dune.com/catdadkolt/rare-mooncat-dashboard",
+      "category": "analytics",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "dune-rare-mooncat"
+      ],
+      "notes": "Potential rarity research link; no rarity claims imported."
+    },
+    {
+      "key": "mooncatrescue-medium",
+      "label": "MoonCatRescue Medium publication",
+      "url": "https://medium.com/mooncatrescue",
+      "category": "article",
+      "status": "needs-review",
+      "sourceRefs": [
+        "extracted-source-links-2026-07-02",
+        "mooncatrescue-medium"
+      ],
+      "notes": "Publication index preserved for article discovery."
+    },
+    {
+      "key": "inside-ethereums-early-on-chain-generative-machinery",
+      "label": "MoonCats: Inside Ethereum's Early On-Chain Generative Machinery",
+      "url": "https://medium.com/@wassoshi_9389/mooncats-inside-ethereums-early-on-chain-generative-machinery-560e46378c07",
+      "category": "article",
+      "status": "needs-review",
+      "sourceRefs": [
+        "inside-ethereums-early-on-chain-generative-machinery"
+      ],
+      "notes": "Community article preserved for future review; no facts imported."
+    }
   ]
 }

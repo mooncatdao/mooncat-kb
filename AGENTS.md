@@ -30,6 +30,10 @@ This repository is a MoonCat technical knowledge base.
 
 ## File conventions
 
-- JSON files in `data/` should be valid and compact.
+- JSON files in `data/` should be valid and human-readable.
+- Use 2-space indentation for JSON.
+- Do not use minified or single-line JSON files.
+- Large numeric arrays may wrap across multiple lines; avoid giant single-line arrays.
+- Do not reformat unrelated files unless formatting is the task.
 - Markdown docs should use stable headings so links do not break.
 - Include sources/notes for non-obvious classifications.

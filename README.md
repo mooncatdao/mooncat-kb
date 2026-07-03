@@ -21,6 +21,7 @@ Start here:
 - `data/color-hues.json` — hue/coating scaffold plus community-curated character hue notes
 - `data/trait-index.json` — trait mapping placeholder scaffold
 - `data/rescue-ranges.json` — rescue range placeholder scaffold
+- `data/rescue-buckets.json` — canonical-derived rescue/history bucket membership arrays
 - `data/contracts.json` — contract placeholder scaffold
 - `data/ipfs-cids.json` — IPFS CID placeholder scaffold
 - `data/api-endpoints.json` — API endpoint placeholder scaffold

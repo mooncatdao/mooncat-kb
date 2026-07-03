@@ -3,7 +3,11 @@
   "updated": "2026-07-03",
   "status": "partially-verified",
   "provenance": {
-    "sources": ["mooncatrescue-contract-docs", "ponderware-contract", "ponderware-mooncatrescue-sol-raw"],
+    "sources": [
+      "mooncatrescue-contract-docs",
+      "ponderware-contract",
+      "ponderware-mooncatrescue-sol-raw"
+    ],
     "notes": "Original contract source is verified, but deployment address and network metadata are still intentionally unfilled."
   },
   "contracts": [
@@ -14,8 +18,14 @@
       "network": null,
       "address": null,
       "status": "source-verified-address-needed",
-      "sourceRefs": ["mooncatrescue-contract-docs", "ponderware-contract", "ponderware-mooncatrescue-sol-raw"],
-      "relatedData": ["data/protocol-constants.json"],
+      "sourceRefs": [
+        "mooncatrescue-contract-docs",
+        "ponderware-contract",
+        "ponderware-mooncatrescue-sol-raw"
+      ],
+      "relatedData": [
+        "data/protocol-constants.json"
+      ],
       "notes": "Original Solidity source is verified. Do not fill address/network without a verified deployment source."
     },
     {

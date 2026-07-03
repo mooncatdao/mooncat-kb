@@ -3,7 +3,9 @@
   "updated": "2026-07-03",
   "status": "needs-verification",
   "provenance": {
-    "sources": ["repo-context"],
+    "sources": [
+      "repo-context"
+    ],
     "notes": "API endpoint scaffold only. No URLs or paths are verified."
   },
   "endpoints": [],

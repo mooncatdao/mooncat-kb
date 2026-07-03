@@ -3,7 +3,10 @@
   "updated": "2026-07-03",
   "status": "partially-verified",
   "provenance": {
-    "sources": ["repo-context", "ponderware-mooncatrescue-sol-raw"],
+    "sources": [
+      "repo-context",
+      "ponderware-mooncatrescue-sol-raw"
+    ],
     "notes": "Genesis supply and generation pattern are sourced from the contract. Other special-category groupings remain placeholders."
   },
   "categories": {
@@ -11,15 +14,23 @@
       "label": "Genesis Cats",
       "status": "partially-verified",
       "ids": [],
+      "membershipData": "data/rescue-buckets.json#genesis",
       "count": 256,
       "generation": {
         "status": "verified-from-source",
         "formula": "(bytes5(genesisCatIndex) << 24) | 0xff00000ca7",
         "batchSize": 16,
-        "sourceRefs": ["ponderware-mooncatrescue-sol-raw"]
+        "sourceRefs": [
+          "ponderware-mooncatrescue-sol-raw"
+        ]
       },
-      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
-      "notes": "Supply cap and generation formula are verified, but exact ID list is not yet materialized in this repository."
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw",
+        "mooncat-rescueorder-by-category"
+      ],
+      "notes": "Supply cap and generation formula are verified from contract source. The canonical-derived genesis rescue-order-index bucket lives in data/rescue-buckets.json and is not a bytes5 catId list.",
+      "canonicalDerivedIndexCount": 96,
+      "membershipTrustLevel": "canonical-derived"
     },
     "earlyRescue": {
       "label": "Early Rescue Cats",
@@ -32,7 +43,9 @@
       "label": "Contract-defined Special Cats",
       "status": "partially-verified",
       "ids": [],
-      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw"
+      ],
       "notes": "Currently includes Genesis-related source facts only; add other contract-defined categories only after verification."
     },
     "communityCurated": {
@@ -46,6 +59,8 @@
   "todos": [
     "Separate canonical protocol categories from community-curated categories.",
     "Add exact membership only after source verification.",
-    "Materialize Genesis IDs only after deciding the repo convention for MoonCat ID strings."
+    "Materialize Genesis IDs only after deciding the repo convention for MoonCat ID strings.",
+    "Document the derivation method for the canonical-derived genesis rescue-order bucket before downstream use.",
+    "Define conversion from rescue-order-index to catId/token-facing identifiers if needed."
   ]
 }

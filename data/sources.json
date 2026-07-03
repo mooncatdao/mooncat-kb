@@ -8,7 +8,10 @@
       "label": "Repository README",
       "type": "local",
       "path": "README.md",
-      "supports": ["entrypoint", "repository structure"],
+      "supports": [
+        "entrypoint",
+        "repository structure"
+      ],
       "status": "active",
       "notes": "Local scaffold overview."
     },
@@ -17,7 +20,10 @@
       "label": "Agent Instructions",
       "type": "local",
       "path": "AGENTS.md",
-      "supports": ["agent workflow", "source-of-truth rules"],
+      "supports": [
+        "agent workflow",
+        "source-of-truth rules"
+      ],
       "status": "active",
       "notes": "Rules for maintaining this knowledge base."
     },
@@ -26,7 +32,10 @@
       "label": "Initial Context Notes",
       "type": "local",
       "path": "context.md",
-      "supports": ["initial structure", "background rationale"],
+      "supports": [
+        "initial structure",
+        "background rationale"
+      ],
       "status": "background",
       "notes": "Background notes used for the first scaffold; not canonical MoonCat data."
     },
@@ -35,7 +44,11 @@
       "label": "Source Map",
       "type": "local",
       "path": "docs/source-map.md",
-      "supports": ["source categories", "trust levels", "provenance rules"],
+      "supports": [
+        "source categories",
+        "trust levels",
+        "provenance rules"
+      ],
       "status": "active",
       "notes": "Local guidance for source classification; not canonical MoonCat data."
     },
@@ -46,7 +59,11 @@
       "url": "https://mooncatrescue.com/",
       "trustLevel": "primary",
       "status": "verified",
-      "supports": ["project overview", "current project pages", "developer documentation entrypoints"],
+      "supports": [
+        "project overview",
+        "current project pages",
+        "developer documentation entrypoints"
+      ],
       "notes": "Verified public MoonCatRescue site. Use as an entrypoint, not as a substitute for exact contract or parser data."
     },
     {
@@ -56,7 +73,11 @@
       "url": "https://mooncat.community/",
       "trustLevel": "community-maintained",
       "status": "verified",
-      "supports": ["community overview", "project history entrypoints", "links to MoonCatRescue pages"],
+      "supports": [
+        "community overview",
+        "project history entrypoints",
+        "links to MoonCatRescue pages"
+      ],
       "notes": "Verified community site. Treat as contextual unless a claim is backed by a primary source."
     },
     {
@@ -66,7 +87,12 @@
       "url": "https://mooncatrescue.com/build-with-mooncats",
       "trustLevel": "primary",
       "status": "verified",
-      "supports": ["developer source links", "contract documentation link", "IPFS support notes", "parser source link"],
+      "supports": [
+        "developer source links",
+        "contract documentation link",
+        "IPFS support notes",
+        "parser source link"
+      ],
       "notes": "Verified MoonCatRescue developer page. It points to source repositories, contract docs, and IPFS-related resources."
     },
     {
@@ -76,7 +102,10 @@
       "url": "https://mooncatrescue.com/contract-docs",
       "trustLevel": "primary",
       "status": "verified",
-      "supports": ["contract roles", "contract documentation entrypoint"],
+      "supports": [
+        "contract roles",
+        "contract documentation entrypoint"
+      ],
       "notes": "Verified contract documentation page. Exact addresses still need deliberate extraction before data files are filled."
     },
     {
@@ -86,7 +115,11 @@
       "url": "https://gitlab.com/mooncatrescue",
       "trustLevel": "strong",
       "status": "verified",
-      "supports": ["MoonCatRescue code repositories", "ChainStation source", "developer tooling"],
+      "supports": [
+        "MoonCatRescue code repositories",
+        "ChainStation source",
+        "developer tooling"
+      ],
       "notes": "Verified GitLab group for MoonCatRescue tools, websites, and contracts."
     },
     {
@@ -96,7 +129,11 @@
       "url": "https://gitlab.com/mooncatrescue/chainstation-web/",
       "trustLevel": "strong",
       "status": "verified",
-      "supports": ["MoonCatRescue website source", "web app behavior", "ecosystem contract interactions"],
+      "supports": [
+        "MoonCatRescue website source",
+        "web app behavior",
+        "ecosystem contract interactions"
+      ],
       "notes": "Verified GitLab repository for the ChainStation web application."
     },
     {
@@ -106,7 +143,11 @@
       "url": "https://gitlab.com/ponderware/libmooncat",
       "trustLevel": "strong",
       "status": "verified",
-      "supports": ["MoonCat parsing library", "MoonCat data handling", "accessory handling"],
+      "supports": [
+        "MoonCat parsing library",
+        "MoonCat data handling",
+        "accessory handling"
+      ],
       "notes": "Verified GitLab repository linked from the MoonCatRescue developer page."
     },
     {
@@ -116,7 +157,11 @@
       "url": "https://github.com/ponderware",
       "trustLevel": "historical-primary",
       "status": "verified",
-      "supports": ["historical MoonCatRescue repositories", "original parser repository", "original contract repository"],
+      "supports": [
+        "historical MoonCatRescue repositories",
+        "original parser repository",
+        "original contract repository"
+      ],
       "notes": "Verified GitHub account linked from the MoonCatRescue developer page for historical original-code context."
     },
     {
@@ -126,7 +171,10 @@
       "url": "https://github.com/ponderware/mooncatparser",
       "trustLevel": "historical-primary",
       "status": "verified",
-      "supports": ["original MoonCat generation parser", "catId-to-image parsing behavior"],
+      "supports": [
+        "original MoonCat generation parser",
+        "catId-to-image parsing behavior"
+      ],
       "notes": "Verified repository describing itself as the official MoonCat generation library. Do not derive trait mappings without a separate review."
     },
     {
@@ -136,7 +184,9 @@
       "url": "https://github.com/ponderware/MoonCatRescue-Contract",
       "trustLevel": "historical-primary",
       "status": "verified",
-      "supports": ["original MoonCatRescue contract source"],
+      "supports": [
+        "original MoonCatRescue contract source"
+      ],
       "notes": "Verified repository describing itself as the official MoonCatRescue Ethereum smart contract. Exact addresses remain intentionally unfilled."
     },
     {
@@ -146,7 +196,12 @@
       "url": "https://raw.githubusercontent.com/ponderware/MoonCatRescue-Contract/master/contracts/MoonCatRescue.sol",
       "trustLevel": "historical-primary",
       "status": "verified",
-      "supports": ["contract constants", "cat ID generation", "genesis cat generation", "parser MD5 reference"],
+      "supports": [
+        "contract constants",
+        "cat ID generation",
+        "genesis cat generation",
+        "parser MD5 reference"
+      ],
       "notes": "Raw Solidity source used for the first protocol-constants import pass."
     },
     {
@@ -156,7 +211,10 @@
       "url": "https://github.com/mooncatdao",
       "trustLevel": "community-maintained",
       "status": "verified",
-      "supports": ["DAO repositories", "community-maintained code and docs"],
+      "supports": [
+        "DAO repositories",
+        "community-maintained code and docs"
+      ],
       "notes": "Verified GitHub URL provided by the user. Treat repository contents according to their own provenance before deriving canonical data."
     },
     {
@@ -166,7 +224,11 @@
       "url": "https://ratemymoon.cat/",
       "trustLevel": "community-curated",
       "status": "verified",
-      "supports": ["character cat definitions", "community character-cat narratives", "curated character-cat chart links"],
+      "supports": [
+        "character cat definitions",
+        "community character-cat narratives",
+        "curated character-cat chart links"
+      ],
       "notes": "Verified reachable site. The site states its character-cat charts are subjective DAO/community narratives and not official traits."
     },
     {
@@ -176,7 +238,11 @@
       "url": "https://github.com/mooncatdao/mooncatdao-website/tree/main/public/wiki",
       "trustLevel": "community-maintained",
       "status": "verified",
-      "supports": ["old wiki pages", "community explanations", "historical DAO website content"],
+      "supports": [
+        "old wiki pages",
+        "community explanations",
+        "historical DAO website content"
+      ],
       "notes": "Verified reachable GitHub path. Treat as community-maintained historical context until individual pages are reviewed."
     },
     {
@@ -186,7 +252,11 @@
       "path": "mooncats-faq-official-links.md",
       "trustLevel": "supporting-context",
       "status": "needs-review",
-      "supports": ["Discord-derived FAQ context", "candidate official links", "candidate community links"],
+      "supports": [
+        "Discord-derived FAQ context",
+        "candidate official links",
+        "candidate community links"
+      ],
       "notes": "Local Discord-derived file supplied as mostly correct but potentially outdated. Use it to discover links, then verify each link before importing facts."
     },
     {
@@ -196,7 +266,11 @@
       "path": "extracted-source-links-2026-07-02.md",
       "trustLevel": "supporting-context",
       "status": "needs-review",
-      "supports": ["preserved extracted links", "candidate source links", "candidate project links"],
+      "supports": [
+        "preserved extracted links",
+        "candidate source links",
+        "candidate project links"
+      ],
       "notes": "Preserves links extracted from FAQ/Discord material. Each link should be verified before importing facts."
     },
     {
@@ -206,7 +280,10 @@
       "path": "mooncat_rescueOrder_by_category.json",
       "trustLevel": "community-curated",
       "status": "imported",
-      "supports": ["character-cat membership index numbers", "community-curated category membership"],
+      "supports": [
+        "character-cat membership index numbers",
+        "community-curated category membership"
+      ],
       "notes": "Local user-provided JSON file containing all character-cat index numbers. Premium index numbers are not included."
     },
     {
@@ -216,7 +293,10 @@
       "url": "https://etherscan.io/address/0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6#code",
       "trustLevel": "canonical",
       "status": "needs-review",
-      "supports": ["on-chain contract reference", "contract source verification"],
+      "supports": [
+        "on-chain contract reference",
+        "contract source verification"
+      ],
       "notes": "Candidate canonical contract reference from extracted links. Do not import addresses or constants without a focused verification pass."
     },
     {
@@ -226,7 +306,11 @@
       "url": "https://medium.com/mooncatrescue",
       "trustLevel": "supporting-context",
       "status": "needs-review",
-      "supports": ["project articles", "historical explanations", "candidate source links"],
+      "supports": [
+        "project articles",
+        "historical explanations",
+        "candidate source links"
+      ],
       "notes": "Publication index from extracted links. Individual articles should be reviewed before supporting facts."
     },
     {
@@ -236,7 +320,10 @@
       "url": "https://medium.com/mooncatrescue/mooncats-on-chain-guide-71d2b479fb72",
       "trustLevel": "supporting-context",
       "status": "needs-review",
-      "supports": ["on-chain explanation", "technical context"],
+      "supports": [
+        "on-chain explanation",
+        "technical context"
+      ],
       "notes": "Candidate explanatory source. Verify technical claims against contract, parser, or official docs before import."
     },
     {
@@ -246,7 +333,10 @@
       "url": "https://medium.com/mooncatrescue/on-chain-generative-art-dd9cfc3e5fb4",
       "trustLevel": "supporting-context",
       "status": "needs-review",
-      "supports": ["on-chain art context", "generative art context"],
+      "supports": [
+        "on-chain art context",
+        "generative art context"
+      ],
       "notes": "Candidate explanatory source. Do not treat as canonical trait or contract data."
     },
     {
@@ -256,7 +346,10 @@
       "url": "https://medium.com/@masonmarcobello/of-mice-and-mooncats-inevitable-pursuits-in-pixelated-whiskerdom-a30fca025930",
       "trustLevel": "supporting-context",
       "status": "needs-review",
-      "supports": ["community explanation", "historical context"],
+      "supports": [
+        "community explanation",
+        "historical context"
+      ],
       "notes": "Community article from extracted links. Treat as supporting context only."
     },
     {
@@ -266,7 +359,10 @@
       "url": "https://bokkypoobah.github.io/MoonCatExplainer/",
       "trustLevel": "community-maintained",
       "status": "needs-review",
-      "supports": ["technical explanation", "contract interaction context"],
+      "supports": [
+        "technical explanation",
+        "contract interaction context"
+      ],
       "notes": "Community reference from extracted links. Verify any imported facts against primary sources."
     },
     {
@@ -276,7 +372,10 @@
       "url": "https://github.com/cryptocopycats/mooncatrescue",
       "trustLevel": "community-maintained",
       "status": "needs-review",
-      "supports": ["older related code", "historical technical context"],
+      "supports": [
+        "older related code",
+        "historical technical context"
+      ],
       "notes": "Older related repository from extracted links. Review repository provenance before using for data imports."
     },
     {
@@ -286,7 +385,10 @@
       "url": "https://dune.com/PlainviewResearch/MoonCat-Rescue",
       "trustLevel": "community-derived",
       "status": "needs-review",
-      "supports": ["analytics context", "candidate derived rescue or market references"],
+      "supports": [
+        "analytics context",
+        "candidate derived rescue or market references"
+      ],
       "notes": "Community-derived analytics dashboard. Use only with query review and source confirmation."
     },
     {
@@ -296,7 +398,10 @@
       "url": "https://dune.com/beautifooldata/mooncat-characters",
       "trustLevel": "community-derived",
       "status": "needs-review",
-      "supports": ["candidate character-cat verification", "community-derived character references"],
+      "supports": [
+        "candidate character-cat verification",
+        "community-derived character references"
+      ],
       "notes": "Community-derived dashboard that may help future character-cat verification. Do not import memberships without review."
     },
     {
@@ -306,7 +411,10 @@
       "url": "https://dune.com/catdadkolt/rare-mooncat-dashboard",
       "trustLevel": "community-derived",
       "status": "needs-review",
-      "supports": ["rarity reference", "community-derived analytics"],
+      "supports": [
+        "rarity reference",
+        "community-derived analytics"
+      ],
       "notes": "Community-derived rarity dashboard. Do not import rarity claims without review."
     },
     {
@@ -316,7 +424,10 @@
       "url": "https://medium.com/@wassoshi_9389/mooncats-inside-ethereums-early-on-chain-generative-machinery-560e46378c07",
       "trustLevel": "supporting-context",
       "status": "needs-review",
-      "supports": ["on-chain generative art context", "MoonCat technical explanation"],
+      "supports": [
+        "on-chain generative art context",
+        "MoonCat technical explanation"
+      ],
       "notes": "Community article provided for future review. Verify technical claims against contract, parser, or official docs before import."
     }
   ],
