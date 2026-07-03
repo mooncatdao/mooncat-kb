@@ -36,6 +36,7 @@
       "key": "call-api-endpoints",
       "description": "Find API paths, methods, accepted identifier forms, params, and response kinds.",
       "primaryFiles": [
+        "data/api-examples.json",
         "data/api-endpoints.json"
       ],
       "optionalFiles": [
@@ -57,6 +58,7 @@
         "data/identifier-conventions.json"
       ],
       "optionalFiles": [
+        "data/api-examples.json",
         "docs/traits.md",
         "docs/reference-policy.md",
         "data/sources.json"
@@ -74,6 +76,7 @@
         "data/identifier-conventions.json"
       ],
       "optionalFiles": [
+        "data/api-examples.json",
         "data/protocol-constants.json",
         "docs/libmooncat.md",
         "data/sources.json"
