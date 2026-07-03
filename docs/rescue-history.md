@@ -13,7 +13,9 @@ Partially verified.
 
 The first import pass records contract-derived supply counts. A later local-source import adds canonical-derived rescue/history buckets such as `sub100`, `day1`, `week1`, calendar-year buckets, and a `genesis` bucket.
 
-These bucket arrays use `rescue-order-index` values. They are not interchangeable with token IDs, bytes5 catIds, OpenSea IDs, or contract call values unless a conversion is explicitly defined and verified.
+These bucket arrays use `rescue-order-index` values. Local bucket checks and preferred API samples verify that this convention aligns with the API rescueOrder/original rescue index convention.
+
+These indexes are not interchangeable with token IDs, bytes5 catIds, OpenSea IDs, or contract call values unless a separate conversion is explicitly defined and verified.
 
 ## Canonical vs Derived Artifacts
 
@@ -21,9 +23,9 @@ Canonical chain-derived facts come from protocol data, rescue order, and block t
 
 `data/rescue-buckets.json` is a local derived JSON artifact that materializes those buckets as arrays. Its bucket membership can be canonical-derived, but the repo still needs a written method note that documents the exact source query or derivation process.
 
-Downstream tools should treat `rescue-order-index` as its own identifier space. A separate mapping step is required before using these values as token-facing identifiers.
+Downstream tools can treat `rescue-order-index` as aligned with API rescueOrder/original rescue index for the checked convention. A separate mapping step is still required before using these values as token-facing identifiers.
 
-See `docs/identifier-conventions.md` before converting rescue-order indexes into API rescue indexes, bytes5 catIds, token-facing IDs, or marketplace IDs.
+See `docs/identifier-conventions.md` before converting rescue-order indexes into bytes5 catIds, token-facing IDs, or marketplace IDs.
 
 ## Verified from contract source
 
@@ -60,7 +62,6 @@ Calendar/year buckets are canonical-derived when based on verified UTC rescue ti
 
 ## Still needed
 
-- confirmation of the rescue-order-index convention
 - documentation of the exact derivation method/source query
 - early-rescue definitions
 - historical thresholds by block or timestamp

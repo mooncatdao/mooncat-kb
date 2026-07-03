@@ -13,6 +13,26 @@
     ],
     "notes": "First-pass identifier terminology reference. This file documents known identifier spaces and conversion status; it does not derive mappings."
   },
+  "verification": {
+    "apiOriginalRescueIndexToLocalRescueOrderIndex": {
+      "status": "verified-aligned-by-local-buckets-and-api-samples",
+      "checked": "2026-07-03",
+      "evidence": [
+        "Local source sub100 is exactly 0 through 99.",
+        "Local source day1 and week1 buckets are contiguous from 0.",
+        "Local year buckets are contiguous at 2017: 0-3364, 2018: 3365-5683, 2019: 5684-5754, and 2020: 5755-5757.",
+        "Imported rescue bucket arrays in data/rescue-buckets.json match mooncat_rescueOrder_by_category.json exactly.",
+        "Imported character-cat arrays in data/character-cat-index.json match mooncat_rescueOrder_by_category.json exactly for checked categories.",
+        "Preferred API samples for 0, 82, 3364, 3365, 5683, 5684, 5754, 5755, and 25439 returned rescueOrder equal to the requested numeric index.",
+        "Preferred API year-boundary samples returned rescueYear values matching local year bucket boundaries.",
+        "Preferred API genesis samples at 84 and 2891 returned genesis: true with rescueOrder equal to the requested index."
+      ],
+      "limitations": [
+        "This verifies numeric alignment for sampled API records and local bucket structure; it is not a full exhaustive API crawl.",
+        "This does not define conversion to bytes5 cat IDs, ERC-721 token IDs, OpenSea IDs, wrapper IDs, or contract call values."
+      ]
+    }
+  },
   "identifierKinds": [
     {
       "key": "mooncatIdBytes5",
@@ -58,10 +78,10 @@
       ],
       "conversionStatus": {
         "toMooncatIdBytes5": "needs-verification",
-        "toLocalRescueOrderIndex": "needs-verification",
+        "toLocalRescueOrderIndex": "verified-aligned-by-local-buckets-and-api-samples",
         "toTokenFacingIds": "needs-verification"
       },
-      "notes": "The API landing pages document rescueIndex values from 0 through 25439 for catId_or_rescueIndex. Do not assume these values are the same as local rescue-order-index values until a derivation or mapping is verified."
+      "notes": "The API landing pages document rescueIndex values from 0 through 25439 for catId_or_rescueIndex. Local bucket checks and preferred API samples support alignment between this API rescueOrder convention and local rescue-order-index values."
     },
     {
       "key": "localRescueOrderIndex",
@@ -77,11 +97,11 @@
         "mooncat-rescueorder-by-category"
       ],
       "conversionStatus": {
-        "toApiOriginalRescueIndex": "needs-verification",
+        "toApiOriginalRescueIndex": "verified-aligned-by-local-buckets-and-api-samples",
         "toMooncatIdBytes5": "needs-verification",
         "toTokenFacingIds": "needs-verification"
       },
-      "notes": "Local membership and rescue bucket files use indexKind rescue-order-index. These values are useful inside their local datasets but are not automatically API rescue indexes, token IDs, OpenSea IDs, bytes5 catIds, or contract call values."
+      "notes": "Local membership and rescue bucket files use indexKind rescue-order-index. Local bucket checks and preferred API samples support alignment with the API rescueOrder/original rescue index convention. These values are still not token IDs, OpenSea IDs, bytes5 catIds, or contract call values."
     },
     {
       "key": "erc721TokenId",
@@ -184,8 +204,14 @@
     {
       "from": "apiOriginalRescueIndex",
       "to": "localRescueOrderIndex",
-      "status": "needs-verification",
-      "notes": "Do not assume equivalence. These conventions may prove to align, but this repository does not yet document the method."
+      "status": "verified-aligned-by-local-buckets-and-api-samples",
+      "notes": "Local bucket structure and preferred API samples support numeric alignment between API rescueOrder/original rescue index and local rescue-order-index. This does not imply conversion to bytes5 catIds or token-facing IDs."
+    },
+    {
+      "from": "localRescueOrderIndex",
+      "to": "apiOriginalRescueIndex",
+      "status": "verified-aligned-by-local-buckets-and-api-samples",
+      "notes": "Local rescue-order-index values can be treated as API rescueOrder/original rescue index values for the checked convention. This does not make them token IDs, OpenSea IDs, bytes5 catIds, or contract call values."
     },
     {
       "from": "localRescueOrderIndex",

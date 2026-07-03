@@ -44,7 +44,9 @@ Where documented, `catId_or_rescueIndex` can accept either:
 - a valid MoonCat ID, for example `0x00d8523a53`
 - an original rescue index where `0 <= rescueIndex <= 25439`
 
-Do not confuse rescue indexes with token IDs, bytes5 cat IDs, OpenSea IDs, or local rescue-order bucket indexes. Any tool that crosses those identifier systems needs an explicit verified conversion step.
+Local checks and preferred API samples verify alignment between API rescueOrder/original rescue index values and local `rescue-order-index` values.
+
+Do not confuse these indexes with token IDs, bytes5 cat IDs, OpenSea IDs, or contract call values. Any tool that crosses those identifier systems needs an explicit verified conversion step.
 
 For the centralized terminology reference, see `docs/identifier-conventions.md`.
 

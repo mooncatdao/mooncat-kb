@@ -70,7 +70,7 @@
         "mooncatrescue-api",
         "mooncat-community-api"
       ],
-      "notes": "The documented parameter can accept a valid MoonCat ID or an original rescue index. The API-documented `rescueIndex` accepts original rescue indexes in the range 0–25439. Local files may also use `rescue-order-index`; do not assume those conventions are equivalent until the mapping is explicitly documented."
+      "notes": "The documented parameter can accept a valid MoonCat ID or an original rescue index. The API-documented `rescueIndex` accepts original rescue indexes in the range 0–25439. Local rescue-order-index values have been verified as aligned with API rescueOrder/original rescue index by local bucket checks and preferred API samples. These indexes are still not token IDs, OpenSea IDs, bytes5 catIds, or contract call values."
     },
     {
       "key": "ethAddress",

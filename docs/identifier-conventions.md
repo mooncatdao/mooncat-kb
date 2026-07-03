@@ -20,13 +20,15 @@ This repository does not yet define a complete parser-derived mapping from bytes
 
 The API landing pages document `catId_or_rescueIndex` as accepting an original rescue index where `0 <= rescueIndex <= 25439`.
 
-Treat this as an API input convention. Do not assume it is equivalent to local `rescue-order-index` values until that mapping is explicitly verified.
+Local bucket checks and preferred API samples support treating this numeric convention as aligned with local `rescue-order-index` values.
 
 ### Local Rescue-Order Index
 
 `data/character-cat-index.json` and `data/rescue-buckets.json` use `indexKind: "rescue-order-index"`.
 
-These values are local membership/index values. They are not automatically API rescue indexes, bytes5 cat IDs, ERC-721 token IDs, OpenSea IDs, or contract call values.
+These values are local membership/index values. They have been verified as aligned with the API `rescueOrder` / original rescue index convention by local bucket checks and preferred API samples.
+
+They are still not bytes5 cat IDs, ERC-721 token IDs, OpenSea IDs, or contract call values.
 
 ### ERC-721 or Wrapped Token ID
 
@@ -50,11 +52,13 @@ API accessory endpoints use `accessoryId` parameters. The accessory ID format, r
 
 ## Conversion Rules
 
-No identifier conversion is currently claimed unless it is already documented by an inspected source.
+No identifier conversion is currently claimed unless it is already documented by an inspected source or by a recorded verification pass.
 
-In particular, `apiOriginalRescueIndex` and `localRescueOrderIndex` must not be assumed equivalent. They may prove to align, but this repository still needs a source-backed method note or mapping.
+`apiOriginalRescueIndex` and `localRescueOrderIndex` are now recorded as aligned for the checked numeric convention. Evidence includes local contiguous bucket boundaries, exact source-to-import bucket matches, and preferred API samples where `rescueOrder` equals the requested numeric index.
 
 Any tool that uses local rescue-order arrays outside their local context needs a verified conversion step first.
+
+This alignment does not define conversion to bytes5 cat IDs, ERC-721 token IDs, OpenSea IDs, wrapper IDs, or contract call values.
 
 ## Related Files
 
@@ -67,7 +71,6 @@ Any tool that uses local rescue-order arrays outside their local context needs a
 ## Still Needed
 
 - exact derivation method for local rescue-order-index arrays
-- verification of whether API original rescue indexes and local rescue-order indexes align
 - source-backed conversion between rescue-order indexes and bytes5 cat IDs
 - token-facing ERC-721 or wrapped token ID convention
 - OpenSea token ID convention
