@@ -1,35 +1,365 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-07-03",
-  "status": "incomplete",
-  "provenance": {
-    "sources": [
-      "repo-context"
-    ],
-    "notes": "Trait index scaffold only. No exact trait mappings are included."
+  "status": "schema-metadata-not-trait-dataset",
+  "scope": "Compact field dictionary and validation summary for the local mooncat_traits.json upstream reference snapshot.",
+  "sourceRefs": [
+    "mooncatrescue-mooncat-traits-json"
+  ],
+  "relatedFiles": [
+    "docs/traits.md",
+    "data/identifier-conventions.json",
+    "references/upstream/mooncatrescue/mooncat_traits.json"
+  ],
+  "datasetShape": {
+    "container": "top-level array",
+    "rowCount": 25440,
+    "rowSemantics": "one observed row per MoonCat in rescueOrder array order",
+    "perCatRowsImported": false,
+    "sourceRefs": [
+      "mooncatrescue-mooncat-traits-json"
+    ]
   },
-  "traitTypes": [],
-  "mappings": [],
-  "fields": {
-    "mooncatId": {
-      "status": "placeholder",
-      "type": "integer-or-string",
-      "notes": "Exact ID format needs a sourced convention."
+  "requiredFields": [
+    {
+      "key": "rescueOrder",
+      "type": "integer",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "Array-backed rescue order index for the row.",
+      "observedRange": {
+        "min": 0,
+        "max": 25439
+      },
+      "identifierNotes": "Aligned with array index in the checked local snapshot. See data/identifier-conventions.json before using this with API or token-facing identifiers.",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
     },
-    "traits": {
-      "status": "placeholder",
-      "type": "array",
-      "notes": "Trait labels and namespaces need verified definitions."
+    {
+      "key": "rescueYear",
+      "type": "integer",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "Observed rescue year value in the upstream reference row.",
+      "observedValues": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
     },
-    "sourceRefs": {
-      "status": "placeholder",
-      "type": "array",
-      "notes": "Each mapping should cite data/sources.json entries."
+    {
+      "key": "catId",
+      "type": "string",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "0x-prefixed bytes5 MoonCat ID string.",
+      "format": "0x plus 10 hexadecimal characters",
+      "identifierNotes": "This is the bytes5 MoonCat ID form. Conversion to rescue order is array-backed by the reference snapshot, not a closed-form formula.",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "hueInt",
+      "type": "integer",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "Observed numeric hue value in the upstream reference row.",
+      "observedRange": {
+        "min": 0,
+        "max": 2000
+      },
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "hueName",
+      "type": "string",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "Observed hue label in the upstream reference row.",
+      "observedValuesRef": "observedValueSets.hueName",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "pale",
+      "type": "boolean",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "Observed pale/coating boolean in the upstream reference row.",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "facing",
+      "type": "string",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "Observed facing direction label.",
+      "observedValuesRef": "observedValueSets.facing",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "expression",
+      "type": "string",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "Observed expression label.",
+      "observedValuesRef": "observedValueSets.expression",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "pattern",
+      "type": "string",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "Observed body pattern label.",
+      "observedValuesRef": "observedValueSets.pattern",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "pose",
+      "type": "string",
+      "presence": "required",
+      "rowsPresent": 25440,
+      "meaning": "Observed pose label.",
+      "observedValuesRef": "observedValueSets.pose",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
     }
+  ],
+  "optionalFields": [
+    {
+      "key": "genesis",
+      "type": "boolean",
+      "presence": "optional",
+      "rowsPresent": 96,
+      "meaning": "Observed genesis marker in rows where present.",
+      "observedValues": [
+        true
+      ],
+      "limitations": [
+        "Absence is not normalized here into false."
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "nameRaw",
+      "type": "string",
+      "presence": "optional",
+      "rowsPresent": 1225,
+      "meaning": "Observed raw name value in rows where present.",
+      "limitations": [
+        "Name strings are not imported into this schema summary."
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "name",
+      "type": [
+        "string",
+        "boolean"
+      ],
+      "presence": "optional",
+      "rowsPresent": 1225,
+      "meaning": "Observed normalized or marker-style name field in rows where present.",
+      "observedTypeCounts": {
+        "string": 1207,
+        "boolean": 18
+      },
+      "limitations": [
+        "Name values and exact semantics are not curated in this pass."
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "namedOrder",
+      "type": "integer",
+      "presence": "optional",
+      "rowsPresent": 1225,
+      "meaning": "Observed name-order field in rows where present.",
+      "limitations": [
+        "Exact name event semantics are not curated in this pass."
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "namedYear",
+      "type": "integer",
+      "presence": "optional",
+      "rowsPresent": 1225,
+      "meaning": "Observed name-year field in rows where present.",
+      "observedValues": [
+        2017,
+        2018,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "limitations": [
+        "Exact name event semantics are not curated in this pass."
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "ownedAccessories",
+      "type": "integer",
+      "presence": "optional",
+      "rowsPresent": 4920,
+      "meaning": "Observed accessory-count-like field in rows where present.",
+      "limitations": [
+        "Freshness and update cadence are not verified in this pass.",
+        "Accessory ownership details are not imported here."
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    }
+  ],
+  "observedValueSets": {
+    "rescueYear": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2021
+    ],
+    "hueName": [
+      "black",
+      "blue",
+      "chartreuse",
+      "cyan",
+      "fuchsia",
+      "green",
+      "magenta",
+      "orange",
+      "purple",
+      "red",
+      "skyblue",
+      "teal",
+      "white",
+      "yellow"
+    ],
+    "facing": [
+      "left",
+      "right"
+    ],
+    "expression": [
+      "grumpy",
+      "pouting",
+      "shy",
+      "smiling"
+    ],
+    "pattern": [
+      "pure",
+      "spotted",
+      "tabby",
+      "tortie"
+    ],
+    "pose": [
+      "pouncing",
+      "sleeping",
+      "stalking",
+      "standing"
+    ]
   },
+  "validationSummary": {
+    "sourceFile": "references/upstream/mooncatrescue/mooncat_traits.json",
+    "jsonParses": true,
+    "rowCount": 25440,
+    "rescueOrder": {
+      "orderedByArrayIndex": true,
+      "min": 0,
+      "max": 25439
+    },
+    "catId": {
+      "allMatchCheckedBytes5Pattern": true,
+      "uniqueCount": 25440
+    },
+    "requiredFieldCoverage": {
+      "allRequiredFieldsPresentOnAllRows": true,
+      "fields": [
+        "rescueOrder",
+        "rescueYear",
+        "catId",
+        "hueInt",
+        "hueName",
+        "pale",
+        "facing",
+        "expression",
+        "pattern",
+        "pose"
+      ]
+    },
+    "optionalFieldCoverage": {
+      "genesis": 96,
+      "nameRaw": 1225,
+      "name": 1225,
+      "namedOrder": 1225,
+      "namedYear": 1225,
+      "ownedAccessories": 4920
+    },
+    "frequencyTablesIncluded": false,
+    "perCatMappingsIncluded": false,
+    "sourceRefs": [
+      "mooncatrescue-mooncat-traits-json"
+    ]
+  },
+  "supportingSourceRefs": [
+    {
+      "sourceRef": "mooncatrescue-libmooncat-limited-js",
+      "use": "supporting context for array-backed identifier lookup helpers; not a source for importing per-cat rows here"
+    },
+    {
+      "sourceRef": "etherscan-mooncat-traits",
+      "use": "supporting contract surface context for future trait accessor review; not a full imported trait mapping here"
+    },
+    {
+      "sourceRef": "mooncatrescue-api-openapi",
+      "use": "supporting API shape context for future endpoint compatibility checks; not used here to claim response schemas"
+    }
+  ],
+  "limitations": [
+    "This file is schema and validation metadata, not the full 25,440-row trait dataset.",
+    "No per-cat trait rows, catId mappings, names, accessory details, or frequency tables are imported.",
+    "Observed value sets describe the checked local reference snapshot and are not independently claimed as a canonical trait dictionary.",
+    "The local snapshot copied or retrieved date is not recorded in the reference README.",
+    "Freshness of API, ChainStation, name, and accessory-related data is not resolved here."
+  ],
   "todos": [
-    "Define trait namespaces.",
-    "Verify ID format and parser/metadata source.",
-    "Add mappings only from verified or explicitly curated data."
+    "Decide whether names and accessory-related fields need separate provenance or update cadence before any curated import.",
+    "If needed, create a separate generated validation report with aggregate counts and a reproducible command.",
+    "Define a curated trait data model before promoting any normalized per-cat fields into data/."
   ]
 }
