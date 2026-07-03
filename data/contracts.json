@@ -72,7 +72,17 @@
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-reference"
       ],
-      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatReference with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; contract internals are not yet summarized here."
+      "roleSummary": "On-chain documentation/reference registry for MoonCat-related contract pages.",
+      "functionSummary": [
+        "doc() and doc(address) expose stored name, description, and details records.",
+        "doc(uint256), contractAddressByIndex(uint256), and totalContracts() expose indexed registered contract documentation.",
+        "setDoc(...), batchSetDocs(...), and updateDetails(...) write or update documentation records.",
+        "owner(), transferOwnership(...), withdrawForeignERC20(...), and withdrawForeignERC721(...) provide ownership and asset-recovery administration."
+      ],
+      "limitations": [
+        "Summary is limited to Etherscan verified ABI/function surface; no stored documentation text is imported here."
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatReference with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
     },
     {
       "key": "mooncatTraits",
@@ -86,7 +96,19 @@
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-traits"
       ],
-      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatTraits with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; trait derivation or mapping behavior is not yet summarized here."
+      "roleSummary": "On-chain MoonCat trait parsing/reference contract.",
+      "functionSummary": [
+        "rescueYearOf(uint256) returns the calendar rescue year bucket for a rescue-order value.",
+        "kTraitsOf(bytes5) and kTraitsOf(uint256) expose compact trait fields for a cat ID or rescue order.",
+        "traitsOf(bytes5) and traitsOf(uint256) expose human-readable trait fields; the rescue-order overload also returns catId, rescueYear, and whether the original contract has a recorded name.",
+        "ownerOf(uint256), catIdOf(uint256), and nameOf(...) read owner, cat ID, and name data through the original MoonCatRescue contract, with owner lookup accounting for registered ERC-721 proxy ownership.",
+        "doc(), setERC721Proxy(...), setReferenceContract(...), transferOwnership(...), withdrawForeignERC20(...), and withdrawForeignERC721(...) provide documentation lookup and administration."
+      ],
+      "limitations": [
+        "No trait mapping table or bit-level derivation is imported here.",
+        "No identifier conversion rule is changed by this summary."
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatTraits with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
     },
     {
       "key": "mooncatColors",
@@ -100,7 +122,18 @@
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-colors"
       ],
-      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatColors with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; color data or color-generation behavior is not yet summarized here."
+      "roleSummary": "On-chain MoonCat and accessory color reference/palette-generation contract.",
+      "functionSummary": [
+        "RGBToHue(...), hueToRGB(...), and deriveColors(...) provide RGB/HSL hue and palette-generation helpers.",
+        "mapColors(...) records owner-managed hard-coded palettes for edge cases before finalization.",
+        "glowOf(...), colorsOf(...), accessoryColorsOf(...), colorAlpha(...), paletteOf(...), hueName(...), and hueIntOf(...) expose color, palette, alpha, and hue lookup functions for cat IDs or rescue orders.",
+        "doc(), finalize(), setReferenceContract(...), transferOwnership(...), withdrawForeignERC20(...), and withdrawForeignERC721(...) provide documentation lookup and administration."
+      ],
+      "limitations": [
+        "No color palette values, hue-name table, or accessory color data is imported here.",
+        "No color semantics beyond the source-level role/function surface are asserted."
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatColors with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
     },
     {
       "key": "mooncatSVGs",
@@ -114,7 +147,18 @@
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-svgs"
       ],
-      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatSVGs with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; SVG rendering behavior is not yet summarized here."
+      "roleSummary": "On-chain MoonCat SVG image-generation contract.",
+      "functionSummary": [
+        "flip(...), polygon(...), setPixel(...), pixelGroup(...), getPattern(...), colorGroup(...), glowGroup(...), getPixelData(...), svgTag(...), and boundingBox(...) assemble SVG pixel/shape groups from trait and color inputs.",
+        "imageOf(bytes5), imageOf(bytes5,bool), imageOf(uint256), and imageOf(uint256,bool) return SVG image strings for cat IDs or rescue orders, with overloads for explicit glow behavior.",
+        "uint2str(...) is a string-formatting helper used by SVG generation.",
+        "doc(), setReferenceContract(...), transferOwnership(...), withdrawForeignERC20(...), and withdrawForeignERC721(...) provide documentation lookup and administration."
+      ],
+      "limitations": [
+        "No SVG coordinate data, pattern arrays, or rendered output is imported here.",
+        "No image-generation correctness claim is made beyond the verified source function surface."
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatSVGs with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
     },
     {
       "key": "mooncatAccessoryImages",
@@ -128,11 +172,24 @@
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-accessory-images"
       ],
-      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatAccessoryImages with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; accessory image data or accessory ID behavior is not yet summarized here."
+      "roleSummary": "On-chain MoonCat accessory image composition and PNG helper contract.",
+      "functionSummary": [
+        "accessorizedImageOf(...) overloads return accessorized image strings for a rescue order, optionally with glow level, explicit accessory data, and an allowUnverified flag.",
+        "accessoryPNG(uint256,uint256,uint16) returns a PNG string for a rescue order, accessory ID, and palette index.",
+        "placementOf(...) returns placement metadata for a rescue order and accessory ID.",
+        "prepAccessories(...) prepares foreground/background accessory records containing z-index, placement, palette, and IDAT data.",
+        "crc32(...), generatePNGChunk(...), PNGHeader(), and PNGFooter() expose PNG construction helpers/constants.",
+        "doc(), setReferenceContract(...), transferOwnership(...), withdrawForeignERC20(...), and withdrawForeignERC721(...) provide documentation lookup and administration."
+      ],
+      "limitations": [
+        "Summary is limited to Etherscan verified ABI/function surface because the source text was not exposed in the fetched page.",
+        "No accessory ID taxonomy, placement table, PNG bytes, or accessory image data is imported here."
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatAccessoryImages with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
     }
   ],
   "todos": [
-    "Review internals of MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages before importing role details, function behavior, trait mappings, color data, SVG output behavior, or accessory image semantics.",
+    "Review detailed internals of MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages before importing trait mappings, color data, SVG output behavior, accessory image data, or accessory image semantics.",
     "Verify accessory ID format and related accessory contract behavior separately.",
     "Document ABI/source artifact URLs in a focused contract-source pass."
   ]

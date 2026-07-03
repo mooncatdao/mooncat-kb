@@ -12,7 +12,7 @@ The current Acclimated MoonCats ERC-721/ERC-998 wrapper address is also verified
 
 The MoonCatRescue log page `Chained to the Future` is registered as official context for on-chain materialization work. It links to MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages contract pages. Those five linked contract pages have now been verified on Etherscan for address and source identity, and are represented in `data/contracts.json`.
 
-This pass does **not** import or summarize the internals of those materialization contracts. Trait derivation, color data, SVG output behavior, accessory image data, accessory ID behavior, and ABI/source artifact details still need focused follow-up passes.
+The five materialization contract records now include conservative role/function summaries. These summaries describe the verified public function surface only. They do **not** import trait mappings, color palettes, SVG coordinate data, accessory image bytes, accessory ID taxonomy, ABI blobs, or identifier conversion rules.
 
 Imported source-derived protocol constants live in `data/protocol-constants.json`.
 
@@ -40,12 +40,23 @@ The original contract source verifies:
 
 The Acclimated contract source identifies itself as `MoonCatAcclimator`, describes wrapping original MoonCats into an ERC-721/ERC-998-compliant asset, references the original MoonCatRescue contract, and mints token IDs using rescue order.
 
+## Verified Materialization Function Surfaces
+
+- MoonCatReference: on-chain documentation/reference registry with `doc`, indexed contract lookup, documentation write/update, ownership, and asset-recovery functions.
+- MoonCatTraits: on-chain trait reference surface with compact and human-readable trait lookups, rescue-year/name/owner/catId lookup helpers, ERC-721 proxy ownership administration, documentation lookup, and owner administration.
+- MoonCatColors: on-chain color reference surface with RGB/hue helpers, palette/color/glow/accessory-color lookup functions, owner-managed color mapping/finalization, documentation lookup, and owner administration.
+- MoonCatSVGs: on-chain SVG image-generation surface with pixel/shape/SVG assembly helpers and `imageOf` overloads for cat IDs or rescue orders, plus documentation lookup and owner administration.
+- MoonCatAccessoryImages: on-chain accessory image composition/PNG helper surface with accessorized image overloads, accessory PNG/placement/preparation helpers, PNG chunk helpers/constants, documentation lookup, and owner administration.
+
+These are role/function-level summaries only. Detailed derivation logic and output data remain out of scope until specifically reviewed.
+
 ## Not yet verified here
 
-- ABI artifact source
-- block explorer URL
+- detailed ABI artifact source
 - accessory contract scope beyond MoonCatAccessoryImages address/source identity
-- on-chain materialization contract internals and exact role/function summaries
+- detailed on-chain materialization internals beyond role/function summaries
+- trait derivation tables or bit-level mappings
+- color palettes, hue-name tables, SVG coordinate data, accessory image bytes, and accessory ID taxonomy
 - older wrapper token ID convention
 
 ## Rules
