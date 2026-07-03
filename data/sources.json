@@ -350,7 +350,72 @@
           "url": "https://etherscan.io/address/0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14"
         }
       ],
-      "notes": "Verified MoonCatRescue log page titled Chained to the Future, dated 2022-01-14 / epoch 91999. The page links to on-chain materialization contract pages for MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages; those linked contract details still need a focused review before import into data/contracts.json."
+      "notes": "Verified MoonCatRescue log page titled Chained to the Future, dated 2022-01-14 / epoch 91999. The page links to on-chain materialization contract pages for MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages."
+    },
+    {
+      "id": "etherscan-mooncat-reference",
+      "label": "Etherscan MoonCatReference contract page",
+      "type": "primary",
+      "url": "https://etherscan.io/address/0x0B78C64bCE6d6d4447e58b09E53F3621f44A2a48#code",
+      "trustLevel": "canonical",
+      "status": "verified",
+      "supports": [
+        "MoonCatReference contract address",
+        "MoonCatReference contract source verification"
+      ],
+      "notes": "Verified Etherscan page for MoonCatReference at 0x0B78C64bCE6d6d4447e58b09E53F3621f44A2a48. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
+    },
+    {
+      "id": "etherscan-mooncat-traits",
+      "label": "Etherscan MoonCatTraits contract page",
+      "type": "primary",
+      "url": "https://etherscan.io/address/0x9330BbfBa0C8FdAf0D93717E4405a410a6103cC2#code",
+      "trustLevel": "canonical",
+      "status": "verified",
+      "supports": [
+        "MoonCatTraits contract address",
+        "MoonCatTraits contract source verification"
+      ],
+      "notes": "Verified Etherscan page for MoonCatTraits at 0x9330BbfBa0C8FdAf0D93717E4405a410a6103cC2. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
+    },
+    {
+      "id": "etherscan-mooncat-colors",
+      "label": "Etherscan MoonCatColors contract page",
+      "type": "primary",
+      "url": "https://etherscan.io/address/0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC#code",
+      "trustLevel": "canonical",
+      "status": "verified",
+      "supports": [
+        "MoonCatColors contract address",
+        "MoonCatColors contract source verification"
+      ],
+      "notes": "Verified Etherscan page for MoonCatColors at 0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
+    },
+    {
+      "id": "etherscan-mooncat-svgs",
+      "label": "Etherscan MoonCatSVGs contract page",
+      "type": "primary",
+      "url": "https://etherscan.io/address/0xB39C61fe6281324A23e079464f7E697F8Ba6968f#code",
+      "trustLevel": "canonical",
+      "status": "verified",
+      "supports": [
+        "MoonCatSVGs contract address",
+        "MoonCatSVGs contract source verification"
+      ],
+      "notes": "Verified Etherscan page for MoonCatSVGs at 0xB39C61fe6281324A23e079464f7E697F8Ba6968f. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
+    },
+    {
+      "id": "etherscan-mooncat-accessory-images",
+      "label": "Etherscan MoonCatAccessoryImages contract page",
+      "type": "primary",
+      "url": "https://etherscan.io/address/0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14#code",
+      "trustLevel": "canonical",
+      "status": "verified",
+      "supports": [
+        "MoonCatAccessoryImages contract address",
+        "MoonCatAccessoryImages contract source verification"
+      ],
+      "notes": "Verified Etherscan page for MoonCatAccessoryImages at 0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
     },
     {
       "id": "mooncatrescue-medium",

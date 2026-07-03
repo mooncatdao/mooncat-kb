@@ -9,9 +9,14 @@
       "ponderware-mooncatrescue-sol-raw",
       "etherscan-original-contract",
       "etherscan-acclimated-mooncats",
-      "mooncatrescue-log-onchain"
+      "mooncatrescue-log-onchain",
+      "etherscan-mooncat-reference",
+      "etherscan-mooncat-traits",
+      "etherscan-mooncat-colors",
+      "etherscan-mooncat-svgs",
+      "etherscan-mooncat-accessory-images"
     ],
-    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The MoonCatRescue on-chain log is registered as context for materialization contracts, but those linked contract details are not imported here yet."
+    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The MoonCatRescue on-chain log is registered as official context for on-chain materialization contracts, and the five linked Etherscan contract pages are now verified for address and source identity."
   },
   "contracts": [
     {
@@ -54,11 +59,81 @@
         "data/api-endpoints.json"
       ],
       "notes": "ERC-721/ERC-998 acclimated wrapper contract. Address appears in registered marketplace/project links and the registered Etherscan source. The Etherscan source shows MoonCatAcclimator wraps original MoonCats and mints tokenId equal to rescue order."
+    },
+    {
+      "key": "mooncatReference",
+      "label": "MoonCatReference contract",
+      "contractName": "MoonCatReference",
+      "network": "ethereum-mainnet",
+      "address": "0x0B78C64bCE6d6d4447e58b09E53F3621f44A2a48",
+      "status": "verified-address-and-source",
+      "trustLevel": "primary",
+      "sourceRefs": [
+        "mooncatrescue-log-onchain",
+        "etherscan-mooncat-reference"
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatReference with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; contract internals are not yet summarized here."
+    },
+    {
+      "key": "mooncatTraits",
+      "label": "MoonCatTraits contract",
+      "contractName": "MoonCatTraits",
+      "network": "ethereum-mainnet",
+      "address": "0x9330BbfBa0C8FdAf0D93717E4405a410a6103cC2",
+      "status": "verified-address-and-source",
+      "trustLevel": "primary",
+      "sourceRefs": [
+        "mooncatrescue-log-onchain",
+        "etherscan-mooncat-traits"
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatTraits with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; trait derivation or mapping behavior is not yet summarized here."
+    },
+    {
+      "key": "mooncatColors",
+      "label": "MoonCatColors contract",
+      "contractName": "MoonCatColors",
+      "network": "ethereum-mainnet",
+      "address": "0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC",
+      "status": "verified-address-and-source",
+      "trustLevel": "primary",
+      "sourceRefs": [
+        "mooncatrescue-log-onchain",
+        "etherscan-mooncat-colors"
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatColors with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; color data or color-generation behavior is not yet summarized here."
+    },
+    {
+      "key": "mooncatSVGs",
+      "label": "MoonCatSVGs contract",
+      "contractName": "MoonCatSVGs",
+      "network": "ethereum-mainnet",
+      "address": "0xB39C61fe6281324A23e079464f7E697F8Ba6968f",
+      "status": "verified-address-and-source",
+      "trustLevel": "primary",
+      "sourceRefs": [
+        "mooncatrescue-log-onchain",
+        "etherscan-mooncat-svgs"
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatSVGs with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; SVG rendering behavior is not yet summarized here."
+    },
+    {
+      "key": "mooncatAccessoryImages",
+      "label": "MoonCatAccessoryImages contract",
+      "contractName": "MoonCatAccessoryImages",
+      "network": "ethereum-mainnet",
+      "address": "0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14",
+      "status": "verified-address-and-source",
+      "trustLevel": "primary",
+      "sourceRefs": [
+        "mooncatrescue-log-onchain",
+        "etherscan-mooncat-accessory-images"
+      ],
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatAccessoryImages with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. This record verifies address and source identity only; accessory image data or accessory ID behavior is not yet summarized here."
     }
   ],
   "todos": [
-    "Verify accessory and other related contract addresses separately.",
-    "Review MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages in a focused on-chain materialization contracts pass.",
+    "Review internals of MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages before importing role details, function behavior, trait mappings, color data, SVG output behavior, or accessory image semantics.",
+    "Verify accessory ID format and related accessory contract behavior separately.",
     "Document ABI/source artifact URLs in a focused contract-source pass."
   ]
 }
