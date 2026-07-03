@@ -10,6 +10,7 @@ Plain-text and Markdown entrypoints:
 - /docs/mooncat-types.md
 - /docs/color-math.md
 - /docs/traits-and-ids.md
+- /docs/identifier-conventions.md
 - /docs/contracts.md
 - /docs/rescue-history.md
 - /docs/api-notes.md
@@ -20,6 +21,7 @@ Plain-text and Markdown entrypoints:
 - /data/special-cats.json
 - /data/color-hues.json
 - /data/trait-index.json
+- /data/identifier-conventions.json
 - /data/rescue-ranges.json
 - /data/rescue-buckets.json
 - /data/contracts.json

@@ -5,6 +5,7 @@
   "canonical": true,
   "trustLevel": "canonical-derived",
   "indexKind": "rescue-order-index",
+  "identifierConventionsRef": "data/identifier-conventions.json",
   "provenance": {
     "sources": ["mooncat-rescueorder-by-category"],
     "sourceFile": "mooncat_rescueOrder_by_category.json",

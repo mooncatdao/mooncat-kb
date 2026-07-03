@@ -2,6 +2,8 @@
 
 Machine-readable endpoint summaries live in `data/api-endpoints.json`.
 
+Identifier terminology and conversion status live in `data/identifier-conventions.json` and `docs/identifier-conventions.md`.
+
 ## Current Status
 
 Verified partial.
@@ -43,6 +45,8 @@ Where documented, `catId_or_rescueIndex` can accept either:
 - an original rescue index where `0 <= rescueIndex <= 25439`
 
 Do not confuse rescue indexes with token IDs, bytes5 cat IDs, OpenSea IDs, or local rescue-order bucket indexes. Any tool that crosses those identifier systems needs an explicit verified conversion step.
+
+For the centralized terminology reference, see `docs/identifier-conventions.md`.
 
 ## Source Use
 

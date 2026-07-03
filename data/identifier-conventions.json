@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "incomplete",
+  "provenance": {
+    "sources": [
+      "mooncatrescue-api",
+      "mooncat-community-api",
+      "mooncatrescue-api-openapi",
+      "mooncat-community-api-openapi",
+      "ponderware-mooncatrescue-sol-raw",
+      "mooncat-rescueorder-by-category"
+    ],
+    "notes": "First-pass identifier terminology reference. This file documents known identifier spaces and conversion status; it does not derive mappings."
+  },
+  "identifierKinds": [
+    {
+      "key": "mooncatIdBytes5",
+      "label": "bytes5 MoonCat ID",
+      "status": "verified-partial",
+      "canonical": true,
+      "format": "0x-prefixed 5-byte value",
+      "example": "0x00d8523a53",
+      "usedBy": [
+        "MoonCatRescue contract source",
+        "API catId_or_rescueIndex parameters",
+        "parser and image-generation workflows"
+      ],
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw",
+        "mooncatrescue-api",
+        "mooncat-community-api"
+      ],
+      "conversionStatus": {
+        "toApiOriginalRescueIndex": "needs-verification",
+        "toLocalRescueOrderIndex": "needs-verification",
+        "toTokenFacingIds": "needs-verification"
+      },
+      "notes": "The contract source uses bytes5 cat IDs. The API landing pages document a valid MoonCat ID example for catId_or_rescueIndex. This file does not define the full catId parser or any reverse mapping."
+    },
+    {
+      "key": "apiOriginalRescueIndex",
+      "label": "API original rescue index",
+      "status": "documented",
+      "canonical": true,
+      "range": {
+        "min": 0,
+        "max": 25439
+      },
+      "usedBy": [
+        "API catId_or_rescueIndex parameters",
+        "legacy /cat-walk/:rescueIndex path"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "conversionStatus": {
+        "toMooncatIdBytes5": "needs-verification",
+        "toLocalRescueOrderIndex": "needs-verification",
+        "toTokenFacingIds": "needs-verification"
+      },
+      "notes": "The API landing pages document rescueIndex values from 0 through 25439 for catId_or_rescueIndex. Do not assume these values are the same as local rescue-order-index values until a derivation or mapping is verified."
+    },
+    {
+      "key": "localRescueOrderIndex",
+      "label": "local rescue-order index",
+      "status": "local-derived-needs-method-note",
+      "canonical": false,
+      "rangeStatus": "not-defined-here",
+      "usedBy": [
+        "data/character-cat-index.json",
+        "data/rescue-buckets.json"
+      ],
+      "sourceRefs": [
+        "mooncat-rescueorder-by-category"
+      ],
+      "conversionStatus": {
+        "toApiOriginalRescueIndex": "needs-verification",
+        "toMooncatIdBytes5": "needs-verification",
+        "toTokenFacingIds": "needs-verification"
+      },
+      "notes": "Local membership and rescue bucket files use indexKind rescue-order-index. These values are useful inside their local datasets but are not automatically API rescue indexes, token IDs, OpenSea IDs, bytes5 catIds, or contract call values."
+    },
+    {
+      "key": "erc721TokenId",
+      "label": "ERC-721 or wrapped token ID",
+      "status": "needs-verification",
+      "canonical": false,
+      "usedBy": [
+        "token-facing integrations",
+        "wrapped MoonCat metadata"
+      ],
+      "sourceRefs": [],
+      "conversionStatus": {
+        "toMooncatIdBytes5": "needs-verification",
+        "toApiOriginalRescueIndex": "needs-verification",
+        "toLocalRescueOrderIndex": "needs-verification",
+        "toOpenSeaTokenId": "needs-verification"
+      },
+      "notes": "This repository has not yet verified the token ID convention for ERC-721 or wrapped MoonCat surfaces. Do not fill token-facing IDs from local index arrays."
+    },
+    {
+      "key": "openseaTokenId",
+      "label": "OpenSea token ID",
+      "status": "needs-verification",
+      "canonical": false,
+      "usedBy": [
+        "marketplace URLs",
+        "marketplace metadata references"
+      ],
+      "sourceRefs": [],
+      "conversionStatus": {
+        "toErc721TokenId": "needs-verification",
+        "toMooncatIdBytes5": "needs-verification",
+        "toApiOriginalRescueIndex": "needs-verification",
+        "toLocalRescueOrderIndex": "needs-verification"
+      },
+      "notes": "Marketplace token ID behavior has not been verified in this repository. Do not assume OpenSea IDs match rescue-order indexes, API rescue indexes, bytes5 catIds, or wrapped token IDs."
+    },
+    {
+      "key": "ethereumAddress",
+      "label": "Ethereum address",
+      "status": "documented",
+      "canonical": true,
+      "format": "0x-prefixed Ethereum address",
+      "usedBy": [
+        "preferred /owner-profile/:ethAddress path",
+        "legacy /owned-mooncats/:ethAddress path"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi",
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "conversionStatus": {
+        "normalization": "not-documented-here"
+      },
+      "notes": "Used for owner/profile and owned-MoonCat API lookups. This file does not document checksum, lowercase, or ENS normalization behavior."
+    },
+    {
+      "key": "accessoryId",
+      "label": "accessory ID",
+      "status": "documented-partial",
+      "canonical": true,
+      "usedBy": [
+        "preferred accessory API paths",
+        "legacy accessory API paths"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi",
+        "mooncat-community-api",
+        "mooncat-community-api-openapi"
+      ],
+      "conversionStatus": {
+        "format": "needs-verification",
+        "toContractIdentifier": "needs-verification"
+      },
+      "notes": "API paths document accessoryId parameters. This pass does not define accessory ID format, range, contract origin, or validation rules."
+    }
+  ],
+  "knownParameters": [
+    {
+      "key": "catId_or_rescueIndex",
+      "accepts": [
+        "mooncatIdBytes5",
+        "apiOriginalRescueIndex"
+      ],
+      "usedBy": [
+        "preferred MoonCat API paths",
+        "legacy MoonCat API paths"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncat-community-api"
+      ],
+      "notes": "API landing pages document this parameter as accepting either a valid MoonCat ID or original rescue index."
+    }
+  ],
+  "conversionRules": [
+    {
+      "from": "apiOriginalRescueIndex",
+      "to": "localRescueOrderIndex",
+      "status": "needs-verification",
+      "notes": "Do not assume equivalence. These conventions may prove to align, but this repository does not yet document the method."
+    },
+    {
+      "from": "localRescueOrderIndex",
+      "to": "mooncatIdBytes5",
+      "status": "needs-verification",
+      "notes": "A verified source query or parser-derived mapping is required before using local indexes as cat IDs."
+    },
+    {
+      "from": "localRescueOrderIndex",
+      "to": "erc721TokenId",
+      "status": "needs-verification",
+      "notes": "Do not use local rescue-order indexes as token-facing IDs without a verified mapping."
+    },
+    {
+      "from": "localRescueOrderIndex",
+      "to": "openseaTokenId",
+      "status": "needs-verification",
+      "notes": "Do not use local rescue-order indexes as OpenSea token IDs without a verified mapping."
+    }
+  ],
+  "relatedFiles": [
+    {
+      "path": "data/api-endpoints.json",
+      "relationship": "documents API parameters and endpoint usage"
+    },
+    {
+      "path": "data/character-cat-index.json",
+      "relationship": "uses local rescue-order-index membership arrays"
+    },
+    {
+      "path": "data/rescue-buckets.json",
+      "relationship": "uses local rescue-order-index rescue/history bucket arrays"
+    },
+    {
+      "path": "data/protocol-constants.json",
+      "relationship": "documents bytes5 cat ID generation facts from contract source"
+    }
+  ],
+  "todos": [
+    "Document the exact derivation method for local rescue-order-index arrays.",
+    "Verify whether API original rescue indexes and local rescue-order indexes align.",
+    "Verify token-facing ERC-721 or wrapped token ID conventions from primary sources.",
+    "Verify OpenSea token ID conventions before recording marketplace-specific IDs.",
+    "Document any source-backed conversion between bytes5 catIds and index-based identifiers."
+  ]
+}

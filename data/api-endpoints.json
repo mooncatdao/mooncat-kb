@@ -2,6 +2,7 @@
   "version": 1,
   "updated": "2026-07-03",
   "status": "verified-partial",
+  "identifierConventionsRef": "data/identifier-conventions.json",
   "provenance": {
     "sources": [
       "mooncatrescue-api",

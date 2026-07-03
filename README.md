@@ -10,6 +10,7 @@ Start here:
 - `docs/mooncat-types.md` — category definitions and status notes
 - `docs/color-math.md` — hue comparison method notes
 - `docs/traits-and-ids.md` — trait and ID mapping rules
+- `docs/identifier-conventions.md` — identifier terminology and conversion status
 - `docs/contracts.md` — contract placeholder notes
 - `docs/rescue-history.md` — rescue range placeholder notes
 - `docs/api-notes.md` — API endpoint placeholder notes
@@ -20,6 +21,7 @@ Start here:
 - `data/special-cats.json` — special-category placeholder scaffold
 - `data/color-hues.json` — hue/coating scaffold plus community-curated character hue notes
 - `data/trait-index.json` — trait mapping placeholder scaffold
+- `data/identifier-conventions.json` — identifier terminology and conversion-status reference
 - `data/rescue-ranges.json` — rescue range placeholder scaffold
 - `data/rescue-buckets.json` — canonical-derived rescue/history bucket membership arrays
 - `data/contracts.json` — contract placeholder scaffold

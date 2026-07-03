@@ -5,6 +5,7 @@
   "canonical": false,
   "trustLevel": "community-curated",
   "indexKind": "rescue-order-index",
+  "identifierConventionsRef": "data/identifier-conventions.json",
   "provenance": {
     "sources": ["mooncat-rescueorder-by-category", "rate-my-mooncat"],
     "sourceFile": "mooncat_rescueOrder_by_category.json",

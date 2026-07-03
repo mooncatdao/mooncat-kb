@@ -5,6 +5,8 @@ Machine-readable rescue data is split by purpose:
 - `data/rescue-ranges.json` stores definitions, counts, criteria, and source notes.
 - `data/rescue-buckets.json` stores materialized canonical-derived bucket membership arrays.
 
+Identifier terminology and conversion status live in `data/identifier-conventions.json` and `docs/identifier-conventions.md`.
+
 ## Current Status
 
 Partially verified.
@@ -20,6 +22,8 @@ Canonical chain-derived facts come from protocol data, rescue order, and block t
 `data/rescue-buckets.json` is a local derived JSON artifact that materializes those buckets as arrays. Its bucket membership can be canonical-derived, but the repo still needs a written method note that documents the exact source query or derivation process.
 
 Downstream tools should treat `rescue-order-index` as its own identifier space. A separate mapping step is required before using these values as token-facing identifiers.
+
+See `docs/identifier-conventions.md` before converting rescue-order indexes into API rescue indexes, bytes5 catIds, token-facing IDs, or marketplace IDs.
 
 ## Verified from contract source
 
