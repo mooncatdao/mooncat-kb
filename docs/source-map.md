@@ -4,6 +4,8 @@ This document explains how sources should be tracked in this knowledge base.
 
 Canonical source entries live in `data/sources.json`.
 
+Detailed source-tier, local upstream snapshot, and promotion rules live in `docs/reference-policy.md`.
+
 ## Source Categories
 
 - `primary`: original project, contract, metadata, or protocol source.
@@ -80,6 +82,7 @@ When adding a source:
 
 - Every non-obvious data claim should have a source.
 - Prefer on-chain data, official parser logic, official contract docs, and MoonCatRescue GitLab for canonical technical facts.
+- Apply `docs/reference-policy.md` when deciding whether a raw upstream artifact belongs in `references/` or should be promoted into curated `data/`.
 - Use Discord/community posts as supporting context unless explicitly marked as canonical.
 - Character-cat, early-rescue, and vibe-based classifications may be curated and should be marked as such.
 - Do not promote marketplace, social, video, visualization, or owner-page links into canonical sources only because they are useful to preserve.

@@ -53,6 +53,19 @@
       "notes": "Local guidance for source classification; not canonical MoonCat data."
     },
     {
+      "id": "repo-reference-policy",
+      "label": "Reference Policy",
+      "type": "local",
+      "path": "docs/reference-policy.md",
+      "supports": [
+        "source tiers",
+        "local upstream reference snapshot handling",
+        "promotion rules for curated data"
+      ],
+      "status": "active",
+      "notes": "Local policy for ranking source tiers, handling references/upstream snapshots, and promoting raw references into curated KB data. Not canonical MoonCat data."
+    },
+    {
       "id": "mooncatrescue-website",
       "label": "MoonCatRescue website",
       "type": "primary",

@@ -2,6 +2,16 @@
 
 This directory stores local upstream reference files used for focused review passes.
 
+Repository-wide source-tier, snapshot, and promotion rules are documented in `docs/reference-policy.md`.
+
+## Snapshot Metadata
+
+- Source refs: `mooncatrescue-upstream-readme`, `mooncatrescue-libmooncat-limited-js`, `mooncatrescue-mooncat-traits-json`, `mooncatrescue-mooncatparser-js`
+- Trust tier: local upstream reference snapshot
+- Copied/retrieved date: not recorded in these files
+- Validation recorded so far: `mooncat_traits.json` validates as JSON; checked dataset shape has 25,440 rows ordered by `rescueOrder` with unique `catId` values
+- Usage limit: reference input only; not curated KB data
+
 ## Files
 
 - `libmooncat-limited.js`: browser-oriented `LibMoonCat` bundle. In the checked snapshot it exposes `getMoonCatIdByRescueIndex`, `getCatId`, `getRescueOrder`, `parseCatId`, and typed `getTraits` helpers.
