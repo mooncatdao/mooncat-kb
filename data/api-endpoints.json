@@ -1,746 +1,1504 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-07-03",
-  "status": "verified-partial",
-  "identifierConventionsRef": "data/identifier-conventions.json",
-  "provenance": {
-    "sources": [
-      "mooncatrescue-api",
-      "mooncatrescue-api-openapi",
-      "mooncatrescue-api-swagger",
-      "mooncat-community-api",
-      "mooncat-community-api-openapi"
-    ],
-    "notes": "Concise endpoint metadata from verified API landing pages and OpenAPI path lists. Full OpenAPI schemas are intentionally not imported."
-  },
+  "status": "openapi-derived-compact",
+  "scope": "Compact agent-usable endpoint manifest derived from registered MoonCat OpenAPI sources.",
   "apis": [
     {
       "key": "mooncatrescue",
       "label": "MoonCatRescue API",
       "baseUrl": "https://api.mooncatrescue.com",
-      "status": "preferred",
-      "trustLevel": "official",
-      "docs": {
-        "landing": "https://api.mooncatrescue.com/",
-        "openapi": "https://api.mooncatrescue.com/spec.yml",
-        "swagger": "https://api.mooncatrescue.com/docs.html"
-      },
       "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncatrescue-api-openapi",
-        "mooncatrescue-api-swagger"
-      ],
-      "notes": "Use this API for new integrations unless a legacy-only path is required."
+        "mooncatrescue-api-openapi"
+      ]
     },
     {
       "key": "mooncatCommunityLegacy",
-      "label": "MoonCatCommunity API",
+      "label": "MoonCat community data API",
       "baseUrl": "https://api.mooncat.community",
-      "status": "legacy-valid",
-      "trustLevel": "official-legacy",
-      "docs": {
-        "landing": "https://api.mooncat.community/",
-        "openapi": "https://gitlab.com/mooncatrescue/data-api-server/-/raw/master/spec.yml"
-      },
       "sourceRefs": [
-        "mooncat-community-api",
         "mooncat-community-api-openapi"
-      ],
-      "notes": "Older API that is still valid. Prefer the newer MoonCatRescue API for new integrations."
+      ]
     }
   ],
-  "identifierConventions": [
+  "identifierForms": [
     {
-      "key": "catId_or_rescueIndex",
-      "status": "documented",
-      "acceptedIdentifiers": [
-        {
-          "kind": "mooncat-id",
-          "example": "0x00d8523a53"
-        },
-        {
-          "kind": "original-rescue-index",
-          "range": {
-            "min": 0,
-            "max": 25439
-          }
-        }
+      "key": "mooncatIdentifier",
+      "acceptedForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
       ],
+      "notes": "OpenAPI MoonCatIdentifier accepts either CatId or RescueIndex.",
       "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncat-community-api"
+        "mooncatrescue-api-openapi",
+        "mooncat-community-api-openapi"
+      ]
+    },
+    {
+      "key": "catId",
+      "acceptedForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)"
       ],
-      "notes": "The documented parameter can accept a valid MoonCat ID or an original rescue index. The API-documented `rescueIndex` accepts original rescue indexes in the range 0–25439. Local rescue-order-index values have been verified as aligned with API rescueOrder/original rescue index by local bucket checks and preferred API samples. These indexes are still not token IDs, OpenSea IDs, bytes5 catIds, or contract call values."
+      "notes": "OpenAPI CatId pattern is 0x plus 10 hex characters.",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi",
+        "mooncat-community-api-openapi"
+      ]
+    },
+    {
+      "key": "rescueIndex",
+      "acceptedForms": [
+        "decimal rescue index (0-25439)"
+      ],
+      "notes": "OpenAPI RescueIndex is an integer from 0 through 25439.",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi",
+        "mooncat-community-api-openapi"
+      ]
+    },
+    {
+      "key": "addressOrEns",
+      "acceptedForms": [
+        "Ethereum address",
+        "ENS name"
+      ],
+      "notes": "Used by preferred owner profile path parameters.",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ]
     },
     {
       "key": "ethAddress",
-      "status": "documented",
-      "acceptedIdentifiers": [
-        {
-          "kind": "ethereum-address"
-        }
+      "acceptedForms": [
+        "Ethereum address"
       ],
+      "notes": "Used by legacy owned-MoonCats endpoint and selected query filters.",
       "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncat-community-api"
-      ],
-      "notes": "Used by owner/profile and owned-MoonCat endpoints. Address normalization behavior is not documented here."
+        "mooncatrescue-api-openapi",
+        "mooncat-community-api-openapi"
+      ]
     },
     {
       "key": "accessoryId",
-      "status": "documented",
-      "acceptedIdentifiers": [
-        {
-          "kind": "accessory-id"
-        }
+      "acceptedForms": [
+        "accessory id integer"
       ],
+      "notes": "AccessoryId is represented as an integer in the OpenAPI specs.",
       "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncat-community-api"
+        "mooncatrescue-api-openapi",
+        "mooncat-community-api-openapi"
+      ]
+    },
+    {
+      "key": "attestationId",
+      "acceptedForms": [
+        "32-byte hex string"
       ],
-      "notes": "Accessory ID format and validation rules are not imported in this pass."
+      "notes": "Used by attestation filters and check-attestation.",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ]
     }
   ],
   "endpoints": [
     {
-      "key": "mooncatrescueMooncats",
-      "api": "mooncatrescue",
-      "method": "GET",
-      "path": "/mooncats",
-      "category": "mooncats",
-      "supports": [
-        "search across MoonCat trait metadata"
-      ],
-      "inputIdentifiers": [],
-      "responseKind": "json",
-      "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncatrescue-api-openapi"
-      ],
-      "notes": "Preferred API MoonCat search endpoint."
-    },
-    {
-      "key": "mooncatrescueMooncatTraits",
-      "api": "mooncatrescue",
-      "method": "GET",
-      "path": "/mooncat/traits/:catId_or_rescueIndex",
-      "category": "mooncats",
-      "supports": [
-        "MoonCat trait metadata"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "json",
-      "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncatrescue-api-openapi"
-      ],
-      "notes": "Preferred API trait endpoint. OpenAPI path uses {catId}; landing page documents catId_or_rescueIndex behavior."
-    },
-    {
-      "key": "mooncatrescueMooncatErc721Metadata",
-      "api": "mooncatrescue",
-      "method": "GET",
-      "path": "/mooncat/erc721-metadata/:catId_or_rescueIndex",
-      "category": "mooncats",
-      "supports": [
-        "ERC721-style MoonCat metadata"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "json",
-      "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncatrescue-api-openapi"
-      ],
-      "notes": "Preferred API ERC721 metadata endpoint. Samples for 0, 82, and 25439 returned name, description, image, external_url, and attributes including Rescue Index; no explicit tokenId, catId, or contract address fields were present in those samples."
-    },
-    {
-      "key": "mooncatrescueMooncatImage",
-      "api": "mooncatrescue",
-      "method": "GET",
-      "path": "/mooncat/image/:catId_or_rescueIndex",
-      "category": "mooncats",
-      "supports": [
-        "MoonCat image rendering"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncatrescue-api-openapi"
-      ],
-      "notes": "Landing page lists SVG or PNG image support and says PNG renders are returned unless otherwise noted."
-    },
-    {
-      "key": "mooncatrescueOwnerProfile",
-      "api": "mooncatrescue",
-      "method": "GET",
-      "path": "/owner-profile/:ethAddress",
-      "category": "owners",
-      "supports": [
-        "owner profile lookup"
-      ],
-      "inputIdentifiers": [
-        "ethAddress"
-      ],
-      "responseKind": "json",
-      "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncatrescue-api-openapi"
-      ],
-      "notes": "OpenAPI path uses {address}; landing page labels the path parameter as ethAddress."
-    },
-    {
-      "key": "mooncatrescueOwnerProfileSearch",
-      "api": "mooncatrescue",
-      "method": "GET",
-      "path": "/owner-profile",
-      "category": "owners",
-      "supports": [
-        "owner profile lookup or search"
-      ],
-      "inputIdentifiers": [],
-      "responseKind": "json",
-      "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncatrescue-api-openapi"
-      ],
-      "notes": "Query parameters are not imported in this pass."
-    },
-    {
-      "key": "mooncatrescueUserLists",
-      "api": "mooncatrescue",
-      "method": "GET",
-      "path": "/user-lists",
-      "category": "owners",
-      "supports": [
-        "user lists"
-      ],
-      "inputIdentifiers": [],
-      "responseKind": "json",
-      "sourceRefs": [
-        "mooncatrescue-api",
-        "mooncatrescue-api-openapi"
-      ],
-      "notes": "List fields and filters are not imported in this pass."
-    },
-    {
-      "key": "mooncatrescueAccessories",
+      "key": "mooncatrescue.get.accessories",
       "api": "mooncatrescue",
       "method": "GET",
       "path": "/accessories",
-      "category": "accessories",
-      "supports": [
-        "accessory listing"
+      "purpose": "Search MoonCat Accessories based on metadata filters",
+      "acceptedIdentifierForms": [
+        "Ethereum address"
       ],
-      "inputIdentifiers": [],
       "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "limit",
+          "in": "query",
+          "notes": "range: 1-500"
+        },
+        {
+          "name": "manager",
+          "in": "query",
+          "acceptedIdentifierForms": [
+            "Ethereum address"
+          ],
+          "notes": "pattern: ^0x[0-9a-fA-F]{40}$"
+        },
+        {
+          "name": "verified",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "for_sale",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "available",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "palettes_min",
+          "in": "query",
+          "notes": "range: 1-7"
+        },
+        {
+          "name": "pose",
+          "in": "query",
+          "notes": "enum: standing, sleeping, pouncing, stalking"
+        },
+        {
+          "name": "price_min",
+          "in": "query",
+          "notes": "range: 0-99999000000000000000000"
+        },
+        {
+          "name": "price_max",
+          "in": "query",
+          "notes": "range: 0-99999000000000000000000"
+        },
+        {
+          "name": "eligible_list",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "notes": "Field to sort the results on"
+        },
+        {
+          "name": "start_after",
+          "in": "query",
+          "notes": "Accessory to start after"
+        }
+      ],
       "sourceRefs": [
-        "mooncatrescue-api",
         "mooncatrescue-api-openapi"
       ],
-      "notes": "Accessory schema is not imported in this pass."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     },
     {
-      "key": "mooncatrescueAccessoriesSearch",
+      "key": "mooncatrescue.get.accessories-search",
       "api": "mooncatrescue",
       "method": "GET",
       "path": "/accessories-search",
-      "category": "accessories",
-      "supports": [
-        "accessory search"
-      ],
-      "inputIdentifiers": [],
+      "purpose": "Search MoonCat Accessories based on keyworkd matching",
+      "acceptedIdentifierForms": [],
       "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "limit",
+          "in": "query",
+          "notes": "range: 1-500"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "notes": "Accessory search result to start after.; min: 0"
+        },
+        {
+          "name": "search",
+          "in": "query",
+          "notes": "Text string to search Accessory names for"
+        }
+      ],
       "sourceRefs": [
-        "mooncatrescue-api",
         "mooncatrescue-api-openapi"
       ],
-      "notes": "Search parameters are not imported in this pass."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     },
     {
-      "key": "mooncatrescueAccessoryTraits",
+      "key": "mooncatrescue.get.accessory-image-id",
       "api": "mooncatrescue",
       "method": "GET",
-      "path": "/accessory/traits/:accessoryId",
-      "category": "accessories",
-      "supports": [
-        "accessory trait metadata"
+      "path": "/accessory/image/{id}",
+      "purpose": "Image of the requested Accessory worn by a MoonCat",
+      "acceptedIdentifierForms": [
+        "accessory id integer"
       ],
-      "inputIdentifiers": [
-        "accessoryId"
+      "responseKind": "image/png",
+      "importantParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "accessory id integer"
+          ],
+          "required": true,
+          "notes": "Accessory Id"
+        },
+        {
+          "name": "background",
+          "in": "query",
+          "notes": "What should the background fill of the image be? Supply a CSS color code, or blank for transparent"
+        },
+        {
+          "name": "padding",
+          "in": "query",
+          "notes": "How much extra padding should be given around the rendered image? If a single number is given, that is used as an amo..."
+        },
+        {
+          "name": "scale",
+          "in": "query",
+          "notes": "How much zoom to scale the image up by? Default value is \"3\" (each accessory pixel becomes a 3x3 pixel square in the...; range: 1-20; default: 3"
+        }
       ],
-      "responseKind": "json",
       "sourceRefs": [
-        "mooncatrescue-api",
         "mooncatrescue-api-openapi"
       ],
-      "notes": "OpenAPI path uses {id}; landing page labels the path parameter as accessoryId."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     },
     {
-      "key": "mooncatrescueAccessoryImage",
+      "key": "mooncatrescue.get.accessory-traits-id",
       "api": "mooncatrescue",
       "method": "GET",
-      "path": "/accessory/image/:accessoryId",
-      "category": "accessories",
-      "supports": [
-        "accessory image rendering"
+      "path": "/accessory/traits/{id}",
+      "purpose": "Information about a specific MoonCat Accessory",
+      "acceptedIdentifierForms": [
+        "accessory id integer"
       ],
-      "inputIdentifiers": [
-        "accessoryId"
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "accessory id integer"
+          ],
+          "required": true,
+          "notes": "Accessory Id"
+        }
       ],
-      "responseKind": "image",
       "sourceRefs": [
-        "mooncatrescue-api",
         "mooncatrescue-api-openapi"
       ],
-      "notes": "Image format details are not imported beyond the landing page's general PNG note."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     },
     {
-      "key": "mooncatrescueAttestations",
+      "key": "mooncatrescue.post.accessory-traits-id",
+      "api": "mooncatrescue",
+      "method": "POST",
+      "path": "/accessory/traits/{id}",
+      "purpose": "Update trait information for a specific MoonCat Accessory",
+      "acceptedIdentifierForms": [
+        "accessory id integer"
+      ],
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "id",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "accessory id integer"
+          ],
+          "required": true,
+          "notes": "Accessory Id"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Mutation or administrative behavior is not expanded beyond OpenAPI path/method metadata."
+      ]
+    },
+    {
+      "key": "mooncatrescue.get.attestations",
       "api": "mooncatrescue",
       "method": "GET",
       "path": "/attestations",
-      "category": "blockchain",
-      "supports": [
-        "attestation data"
+      "purpose": "Get Ethereum Attestation Service (EAS) offchain Attestations",
+      "acceptedIdentifierForms": [
+        "32-byte hex string",
+        "Ethereum address"
       ],
-      "inputIdentifiers": [],
       "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "limit",
+          "in": "query",
+          "notes": "range: 1-500"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "notes": "Only return Attestation records that match these IDs"
+        },
+        {
+          "name": "schema",
+          "in": "query",
+          "acceptedIdentifierForms": [
+            "32-byte hex string"
+          ],
+          "notes": "pattern: ^0x[0-9a-fA-F]{64}$"
+        },
+        {
+          "name": "address",
+          "in": "query",
+          "acceptedIdentifierForms": [
+            "Ethereum address"
+          ],
+          "notes": "pattern: ^0x[0-9a-fA-F]{40}$"
+        },
+        {
+          "name": "data_key",
+          "in": "query",
+          "notes": "Limit the result to only Attestation records with specific data in its payload"
+        },
+        {
+          "name": "data_value",
+          "in": "query",
+          "notes": "Must be paired with a `data_key` parameter"
+        },
+        {
+          "name": "revoked",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "start_after",
+          "in": "query",
+          "notes": "Attestation to start after"
+        }
+      ],
       "sourceRefs": [
-        "mooncatrescue-api",
         "mooncatrescue-api-openapi"
       ],
-      "notes": "Request parameters and attestation schema are not imported in this pass."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     },
     {
-      "key": "mooncatrescueCheckAttestation",
+      "key": "mooncatrescue.post.attestations",
+      "api": "mooncatrescue",
+      "method": "POST",
+      "path": "/attestations",
+      "purpose": "Submit an Ethereum Attestation Service (EAS) offchain Attestation to be stored in this repository",
+      "acceptedIdentifierForms": [],
+      "responseKind": "no response body",
+      "importantParams": [
+        {
+          "name": "requestBody",
+          "in": "body",
+          "required": true,
+          "notes": "content-type: application/json"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Mutation or administrative behavior is not expanded beyond OpenAPI path/method metadata."
+      ]
+    },
+    {
+      "key": "mooncatrescue.post.check-attestation",
       "api": "mooncatrescue",
       "method": "POST",
       "path": "/check-attestation",
-      "category": "blockchain",
-      "supports": [
-        "attestation check"
+      "purpose": "Check an Attestation to see if it's revoked",
+      "acceptedIdentifierForms": [
+        "32-byte hex string"
       ],
-      "inputIdentifiers": [],
       "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "acceptedIdentifierForms": [
+            "32-byte hex string"
+          ],
+          "notes": "pattern: ^0x[0-9a-fA-F]{64}$"
+        }
+      ],
       "sourceRefs": [
         "mooncatrescue-api-openapi"
       ],
-      "notes": "Present in the preferred OpenAPI path list. The OpenAPI spec lists this as POST. Query parameters are not imported in this pass."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Mutation or administrative behavior is not expanded beyond OpenAPI path/method metadata."
+      ]
     },
     {
-      "key": "mooncatrescueEvents",
+      "key": "mooncatrescue.get.events",
       "api": "mooncatrescue",
       "method": "GET",
       "path": "/events",
-      "category": "blockchain",
-      "supports": [
-        "blockchain events"
+      "purpose": "Get Blockchain Event data",
+      "acceptedIdentifierForms": [
+        "Ethereum address",
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
       ],
-      "inputIdentifiers": [],
       "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "limit",
+          "in": "query",
+          "notes": "range: 1-500"
+        },
+        {
+          "name": "contract",
+          "in": "query",
+          "acceptedIdentifierForms": [
+            "Ethereum address"
+          ],
+          "notes": "pattern: ^0x[0-9a-fA-F]{40}$"
+        },
+        {
+          "name": "event",
+          "in": "query",
+          "notes": "Only return event records that have this event name"
+        },
+        {
+          "name": "address",
+          "in": "query",
+          "acceptedIdentifierForms": [
+            "Ethereum address"
+          ],
+          "notes": "pattern: ^0x[0-9a-fA-F]{40}$"
+        },
+        {
+          "name": "mooncat",
+          "in": "query",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "notes": "Only return event records that involve a specific MoonCat."
+        },
+        {
+          "name": "accessory",
+          "in": "query",
+          "notes": "Only return event records that involve a specific Accessory."
+        },
+        {
+          "name": "start_after",
+          "in": "query",
+          "notes": "Block number and event log index, separated by a hypen"
+        }
+      ],
       "sourceRefs": [
-        "mooncatrescue-api",
         "mooncatrescue-api-openapi"
       ],
-      "notes": "Preferred API landing page lists this under Blockchain. Do not confuse with the legacy /events accessory/event-image context."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     },
     {
-      "key": "mooncatCommunityTraits",
-      "api": "mooncatCommunityLegacy",
+      "key": "mooncatrescue.get.mooncat-erc721-metadata-catId",
+      "api": "mooncatrescue",
       "method": "GET",
-      "path": "/traits/:catId_or_rescueIndex",
-      "category": "mooncats",
-      "supports": [
-        "legacy MoonCat trait metadata"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
+      "path": "/mooncat/erc721-metadata/{catId}",
+      "purpose": "ERC721-style metadata for the requested MoonCat",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
       ],
       "responseKind": "json",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
       ],
-      "notes": "Legacy root-level trait endpoint."
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     },
     {
-      "key": "mooncatCommunityContractDetails",
-      "api": "mooncatCommunityLegacy",
+      "key": "mooncatrescue.get.mooncat-image-catId",
+      "api": "mooncatrescue",
       "method": "GET",
-      "path": "/contract-details/:catId_or_rescueIndex",
-      "category": "mooncats",
-      "supports": [
-        "legacy contract detail lookup"
+      "path": "/mooncat/image/{catId}",
+      "purpose": "Image of the requested MoonCat",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
       ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
+      "responseKind": "image/svg+xml",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        },
+        {
+          "name": "format",
+          "in": "query",
+          "notes": "What format of image to generate; enum: svg, png"
+        },
+        {
+          "name": "acc",
+          "in": "query",
+          "notes": "maxItems: 200"
+        },
+        {
+          "name": "allowUnowned",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "background",
+          "in": "query",
+          "notes": "What should the background fill of the image be? Supply a CSS color code, or blank for transparent"
+        },
+        {
+          "name": "costumes",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "faceOnly",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "glow",
+          "in": "query",
+          "notes": "range: 0-20"
+        },
+        {
+          "name": "padding",
+          "in": "query",
+          "notes": "How much extra padding should be given around the rendered image? If a single number is given, that is used as an amo..."
+        },
+        {
+          "name": "scale",
+          "in": "query",
+          "notes": "How much zoom to scale the image up by?; range: 1-20; default: 3"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "OpenAPI response content lists image/svg+xml while the operation description mentions SVG or PNG selection."
+      ]
+    },
+    {
+      "key": "mooncatrescue.get.mooncat-traits-catId",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/mooncat/traits/{catId}",
+      "purpose": "Trait metadata for the requested MoonCat",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
       ],
       "responseKind": "json",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
       ],
-      "notes": "Legacy contract-details endpoint for a requested MoonCat."
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     },
     {
-      "key": "mooncatCommunityContractDetailsOptions",
+      "key": "mooncatrescue.post.mooncat-traits-catId",
+      "api": "mooncatrescue",
+      "method": "POST",
+      "path": "/mooncat/traits/{catId}",
+      "purpose": "Update trait information for a specific MoonCat",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "empty 204 response",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Mutation or administrative behavior is not expanded beyond OpenAPI path/method metadata."
+      ]
+    },
+    {
+      "key": "mooncatrescue.get.mooncats",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/mooncats",
+      "purpose": "Search across trait metadata for MoonCats",
+      "acceptedIdentifierForms": [],
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "limit",
+          "in": "query",
+          "notes": "range: 1-500"
+        },
+        {
+          "name": "rescueYear",
+          "in": "query",
+          "notes": "enum: 2017, 2018, 2019, 2020, 2021"
+        },
+        {
+          "name": "genesis",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "pale",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "facing",
+          "in": "query",
+          "notes": "enum: left, right"
+        },
+        {
+          "name": "expression",
+          "in": "query",
+          "notes": "enum: smiling, grumpy, pouting, shy"
+        },
+        {
+          "name": "pattern",
+          "in": "query",
+          "notes": "enum: pure, tabby, spotted, tortie"
+        },
+        {
+          "name": "pose",
+          "in": "query",
+          "notes": "enum: standing, sleeping, pouncing, stalking"
+        },
+        {
+          "name": "named",
+          "in": "query",
+          "notes": "enum: True, False, all"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "notes": "Field to sort the results on"
+        },
+        {
+          "name": "start_after",
+          "in": "query",
+          "notes": "Address to start after"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatrescue.get.owner-profile",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/owner-profile",
+      "purpose": "Search Ethereum addresses that have activity in the MoonCatRescue ecosystem",
+      "acceptedIdentifierForms": [],
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "limit",
+          "in": "query",
+          "notes": "range: 1-500"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "notes": "Field to sort the results on"
+        },
+        {
+          "name": "start_after",
+          "in": "query",
+          "notes": "Address to start after"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatrescue.get.owner-profile-address",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/owner-profile/{address}",
+      "purpose": "Information about a specific Ethereum Address",
+      "acceptedIdentifierForms": [
+        "ENS name",
+        "Ethereum address"
+      ],
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "address",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "ENS name",
+            "Ethereum address"
+          ],
+          "required": true,
+          "notes": "Ethereum Address"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatrescue.post.owner-profile-address",
+      "api": "mooncatrescue",
+      "method": "POST",
+      "path": "/owner-profile/{address}",
+      "purpose": "Update trait information for a specific Ethereum Address",
+      "acceptedIdentifierForms": [
+        "ENS name",
+        "Ethereum address"
+      ],
+      "responseKind": "empty 204 response",
+      "importantParams": [
+        {
+          "name": "address",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "ENS name",
+            "Ethereum address"
+          ],
+          "required": true,
+          "notes": "Ethereum Address"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Mutation or administrative behavior is not expanded beyond OpenAPI path/method metadata."
+      ]
+    },
+    {
+      "key": "mooncatrescue.get.user-lists",
+      "api": "mooncatrescue",
+      "method": "GET",
+      "path": "/user-lists",
+      "purpose": "Search User Lists created by MoonCat owners",
+      "acceptedIdentifierForms": [
+        "Ethereum address"
+      ],
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "limit",
+          "in": "query",
+          "notes": "range: 1-500"
+        },
+        {
+          "name": "owner",
+          "in": "query",
+          "acceptedIdentifierForms": [
+            "Ethereum address"
+          ],
+          "notes": "pattern: ^0x[0-9a-fA-F]{40}$"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "notes": "Field to sort the results on"
+        },
+        {
+          "name": "start_after",
+          "in": "query",
+          "notes": "User List to start after"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.accessorized-image-catId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/accessorized-image/{catId}",
+      "purpose": "Image in PNG format of requested MoonCat with worn accessories",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "image/png",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.accessory-image-accessoryId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/accessory-image/{accessoryId}",
+      "purpose": "Image in PNG format of requested Accessory (displayed on a random MoonCat)",
+      "acceptedIdentifierForms": [
+        "accessory id integer"
+      ],
+      "responseKind": "no response body",
+      "importantParams": [
+        {
+          "name": "accessoryId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "accessory id integer"
+          ],
+          "required": true,
+          "notes": "min: 0"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.accessory-accessoryId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/accessory/{accessoryId}",
+      "purpose": "Details of the given Accessory",
+      "acceptedIdentifierForms": [
+        "accessory id integer"
+      ],
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "accessoryId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "accessory id integer"
+          ],
+          "required": true,
+          "notes": "min: 0"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.cat-image-catId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/cat-image/{catId}",
+      "purpose": "Image in PNG format of the requested MoonCat by themselves",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "image/png",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.cat-walk-rescueIndex",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/cat-walk/{rescueIndex}",
+      "purpose": "Image in PNG format of requested MoonCat as a sprite sheet for 8-frame animation",
+      "acceptedIdentifierForms": [
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "image/png",
+      "importantParams": [
+        {
+          "name": "rescueIndex",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "range: 0-25439"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.post.contract-details",
+      "api": "mooncatCommunityLegacy",
+      "method": "POST",
+      "path": "/contract-details",
+      "purpose": "Contract-related trait metadata for multiple MoonCats at once",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "requestBody",
+          "in": "body",
+          "required": true,
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "notes": "schema refs: CatId, RescueIndex; content-type: application/json"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Mutation or administrative behavior is not expanded beyond OpenAPI path/method metadata."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.options.contract-details",
       "api": "mooncatCommunityLegacy",
       "method": "OPTIONS",
       "path": "/contract-details",
-      "category": "mooncats",
-      "supports": [
-        "legacy contract detail options"
-      ],
-      "inputIdentifiers": [],
-      "responseKind": "json",
+      "purpose": "OpenAPI endpoint; purpose not summarized in source.",
+      "acceptedIdentifierForms": [],
+      "responseKind": "text/plain",
+      "importantParams": [],
       "sourceRefs": [
         "mooncat-community-api-openapi"
       ],
-      "notes": "Present in the legacy OpenAPI path list as an OPTIONS endpoint."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Mutation or administrative behavior is not expanded beyond OpenAPI path/method metadata."
+      ]
     },
     {
-      "key": "mooncatCommunityImage",
+      "key": "mooncatCommunityLegacy.get.contract-details-catId",
       "api": "mooncatCommunityLegacy",
       "method": "GET",
-      "path": "/image/:catId_or_rescueIndex",
-      "category": "images",
-      "supports": [
-        "legacy MoonCat image rendering"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "Legacy general image endpoint."
-    },
-    {
-      "key": "mooncatCommunityCatImage",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/cat-image/:catId_or_rescueIndex",
-      "category": "images",
-      "supports": [
-        "legacy cat-only image rendering"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "Legacy image variant endpoint."
-    },
-    {
-      "key": "mooncatCommunityRegularImage",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/regular-image/:catId_or_rescueIndex",
-      "category": "images",
-      "supports": [
-        "legacy regular image rendering"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "Legacy image variant endpoint."
-    },
-    {
-      "key": "mooncatCommunityGlowImage",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/glow-image/:catId_or_rescueIndex",
-      "category": "images",
-      "supports": [
-        "legacy glow image rendering"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "Legacy image variant endpoint."
-    },
-    {
-      "key": "mooncatCommunityFaceImage",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/face-image/:catId_or_rescueIndex",
-      "category": "images",
-      "supports": [
-        "legacy face image rendering"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "Legacy image variant endpoint."
-    },
-    {
-      "key": "mooncatCommunityAccessorizedImage",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/accessorized-image/:catId_or_rescueIndex",
-      "category": "images",
-      "supports": [
-        "legacy accessorized image rendering"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "Legacy image variant endpoint."
-    },
-    {
-      "key": "mooncatCommunityEventImage",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/event-image/:catId_or_rescueIndex",
-      "category": "images",
-      "supports": [
-        "legacy event image rendering"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "Legacy event-image endpoint. Do not confuse with the preferred API blockchain /events endpoint."
-    },
-    {
-      "key": "mooncatCommunityCatWalk",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/cat-walk/:rescueIndex",
-      "category": "images",
-      "supports": [
-        "legacy walking animation sprite sheet"
-      ],
-      "inputIdentifiers": [
-        "rescueIndex"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "OpenAPI path uses rescueIndex. Do not confuse this with token IDs or rescue-order bucket indexes."
-    },
-    {
-      "key": "mooncatCommunityOwnedMooncats",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/owned-mooncats/:ethAddress",
-      "category": "owners",
-      "supports": [
-        "legacy owner MoonCat lookup"
-      ],
-      "inputIdentifiers": [
-        "ethAddress"
+      "path": "/contract-details/{catId}",
+      "purpose": "Contract-related trait metadata for the requested MoonCat",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
       ],
       "responseKind": "json",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
       ],
-      "notes": "OpenAPI path uses {address}; landing page labels the path parameter as ethAddress."
-    },
-    {
-      "key": "mooncatCommunityAccessory",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/accessory/:accessoryId",
-      "category": "accessories",
-      "supports": [
-        "legacy accessory metadata"
-      ],
-      "inputIdentifiers": [
-        "accessoryId"
-      ],
-      "responseKind": "json",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "Legacy accessory metadata endpoint."
-    },
-    {
-      "key": "mooncatCommunityAccessoryImage",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/accessory-image/:accessoryId",
-      "category": "accessories",
-      "supports": [
-        "legacy accessory image rendering"
-      ],
-      "inputIdentifiers": [
-        "accessoryId"
-      ],
-      "responseKind": "image",
-      "sourceRefs": [
-        "mooncat-community-api",
-        "mooncat-community-api-openapi"
-      ],
-      "notes": "Legacy accessory image endpoint."
-    },
-    {
-      "key": "mooncatCommunityDynamic",
-      "api": "mooncatCommunityLegacy",
-      "method": "GET",
-      "path": "/dynamic/:catId_or_rescueIndex",
-      "category": "html",
-      "supports": [
-        "legacy dynamic accessory image page"
-      ],
-      "inputIdentifiers": [
-        "catId_or_rescueIndex"
-      ],
-      "responseKind": "html",
       "sourceRefs": [
         "mooncat-community-api-openapi"
       ],
-      "notes": "Present in the legacy OpenAPI path list. Landing page summary does not list this path."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     },
     {
-      "key": "mooncatCommunityCostumes",
+      "key": "mooncatCommunityLegacy.get.costumes",
       "api": "mooncatCommunityLegacy",
       "method": "GET",
       "path": "/costumes",
-      "category": "accessories",
-      "supports": [
-        "legacy costume listing"
-      ],
-      "inputIdentifiers": [],
-      "responseKind": "json",
+      "purpose": "A list of accessories which have been marked as Costumes",
+      "acceptedIdentifierForms": [],
+      "responseKind": "javascript/json-like payload",
+      "importantParams": [],
       "sourceRefs": [
-        "mooncat-community-api",
         "mooncat-community-api-openapi"
       ],
-      "notes": "Legacy endpoint for costume/accessory-related data."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "OpenAPI serves this as application/javascript rather than application/json."
+      ]
     },
     {
-      "key": "mooncatCommunityEvents",
+      "key": "mooncatCommunityLegacy.get.dynamic-catId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/dynamic/{catId}",
+      "purpose": "An HTML page with functionality to toggle accessory images",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "html",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.event-image-catId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/event-image/{catId}",
+      "purpose": "Image in PNG format of requested MoonCat wearing accessories for the current event",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "image/png",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.events",
       "api": "mooncatCommunityLegacy",
       "method": "GET",
       "path": "/events",
-      "category": "accessories",
-      "supports": [
-        "legacy event or holiday accessory context"
-      ],
-      "inputIdentifiers": [],
-      "responseKind": "json",
+      "purpose": "A list of Events that have custom imagery associated with them",
+      "acceptedIdentifierForms": [],
+      "responseKind": "javascript/json-like payload",
+      "importantParams": [],
       "sourceRefs": [
-        "mooncat-community-api",
         "mooncat-community-api-openapi"
       ],
-      "notes": "Legacy API landing page describes upcoming events and holidays for image/accessory behavior. Do not confuse with preferred API blockchain /events."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "OpenAPI serves this as application/javascript rather than application/json."
+      ]
     },
     {
-      "key": "mooncatCommunityInvalidate",
+      "key": "mooncatCommunityLegacy.get.face-image-catId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/face-image/{catId}",
+      "purpose": "Image in PNG format of the requested MoonCat's face",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "image/png",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.glow-image-catId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/glow-image/{catId}",
+      "purpose": "Image in PNG format of the requested MoonCat with an Acclimated glow",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "image/png",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.image-catId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/image/{catId}",
+      "purpose": "Image in PNG format of requested MoonCat as returned by metadata",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "image/png",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        },
+        {
+          "name": "scale",
+          "in": "query",
+          "notes": "For each pixel of the MoonCat's design, how large should it be rendered on output; range: 1-20; default: 3"
+        },
+        {
+          "name": "padding",
+          "in": "query",
+          "notes": "How much additional transparent padding should be added around the rendered image; range: 0-200; default: 10"
+        },
+        {
+          "name": "backgroundColor",
+          "in": "query",
+          "notes": "default: transparent"
+        },
+        {
+          "name": "glowSize",
+          "in": "query",
+          "notes": "range: 0-20"
+        },
+        {
+          "name": "glowOpacity",
+          "in": "query",
+          "notes": "range: 0-1"
+        },
+        {
+          "name": "acc",
+          "in": "query",
+          "notes": "Of all the accessories owned by the MoonCat, only show these Accessories"
+        },
+        {
+          "name": "acc-inc",
+          "in": "query",
+          "notes": "Of all the accessories currently being worn by the MoonCat, only show these Accessories"
+        },
+        {
+          "name": "acc-exc",
+          "in": "query",
+          "notes": "Of all the accessories currently being worn by the MoonCat, don't show these Accessories"
+        },
+        {
+          "name": "fullSize",
+          "in": "query"
+        },
+        {
+          "name": "noCat",
+          "in": "query"
+        },
+        {
+          "name": "headOnly",
+          "in": "query"
+        },
+        {
+          "name": "noBackground",
+          "in": "query"
+        },
+        {
+          "name": "glow",
+          "in": "query"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.post.invalidate",
       "api": "mooncatCommunityLegacy",
       "method": "POST",
       "path": "/invalidate",
-      "category": "maintenance",
-      "supports": [
-        "legacy cache or maintenance action"
+      "purpose": "Invalidate specific items in the cache",
+      "acceptedIdentifierForms": [],
+      "responseKind": "text/plain",
+      "importantParams": [
+        {
+          "name": "type",
+          "in": "query",
+          "required": true,
+          "notes": "enum: accessory, lootprint, mooncat"
+        },
+        {
+          "name": "key",
+          "in": "query",
+          "required": true,
+          "notes": "The ID of the item in the Cache"
+        }
       ],
-      "inputIdentifiers": [],
-      "responseKind": "unknown",
       "sourceRefs": [
         "mooncat-community-api-openapi"
       ],
-      "notes": "Present in the legacy OpenAPI path list as a POST endpoint. Behavior and authorization are not documented here."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Mutation or administrative behavior is not expanded beyond OpenAPI path/method metadata."
+      ]
     },
     {
-      "key": "mooncatCommunityLibMooncatdata",
+      "key": "mooncatCommunityLegacy.get.lib-mooncatdata-js",
       "api": "mooncatCommunityLegacy",
       "method": "GET",
       "path": "/lib/mooncatdata.js",
-      "category": "library",
-      "supports": [
-        "legacy JavaScript library file"
-      ],
-      "inputIdentifiers": [],
-      "responseKind": "javascript",
+      "purpose": "the libmooncat library",
+      "acceptedIdentifierForms": [],
+      "responseKind": "text/plain",
+      "importantParams": [],
       "sourceRefs": [
         "mooncat-community-api-openapi"
       ],
-      "notes": "Present in the legacy OpenAPI path list. Library contents are not imported."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Library payload contents are not embedded in this manifest."
+      ]
     },
     {
-      "key": "mooncatCommunityLibMooncatparser",
+      "key": "mooncatCommunityLegacy.get.lib-mooncatparser-js",
       "api": "mooncatCommunityLegacy",
       "method": "GET",
       "path": "/lib/mooncatparser.js",
-      "category": "library",
-      "supports": [
-        "legacy JavaScript parser file"
-      ],
-      "inputIdentifiers": [],
-      "responseKind": "javascript",
+      "purpose": "Returns the MoonCat Parser JS",
+      "acceptedIdentifierForms": [],
+      "responseKind": "text/plain",
+      "importantParams": [],
       "sourceRefs": [
         "mooncat-community-api-openapi"
       ],
-      "notes": "Present in the legacy OpenAPI path list. Library contents are not imported."
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted.",
+        "Library payload contents are not embedded in this manifest."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.owned-mooncats-address",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/owned-mooncats/{address}",
+      "purpose": "List of Rescue Indexes owned by a given address",
+      "acceptedIdentifierForms": [
+        "Ethereum address"
+      ],
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "address",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "Ethereum address"
+          ],
+          "required": true,
+          "notes": "pattern: ^0x[0-9a-fA-F]{40}$"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.regular-image-catId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/regular-image/{catId}",
+      "purpose": "Image in PNG format of the requested MoonCat in an original state",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "image/png",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
+    },
+    {
+      "key": "mooncatCommunityLegacy.get.traits-catId",
+      "api": "mooncatCommunityLegacy",
+      "method": "GET",
+      "path": "/traits/{catId}",
+      "purpose": "Trait metadata for the requested MoonCat",
+      "acceptedIdentifierForms": [
+        "bytes5 catId (0x-prefixed 5-byte hex)",
+        "decimal rescue index (0-25439)"
+      ],
+      "responseKind": "json",
+      "importantParams": [
+        {
+          "name": "catId",
+          "in": "path",
+          "acceptedIdentifierForms": [
+            "bytes5 catId (0x-prefixed 5-byte hex)",
+            "decimal rescue index (0-25439)"
+          ],
+          "required": true,
+          "notes": "A unique identifier for a MoonCat; either a five-byte hex string, or a decimal index value"
+        }
+      ],
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "limitations": [
+        "Full OpenAPI request and response schemas intentionally omitted."
+      ]
     }
   ],
-  "migrationNotes": [
-    {
-      "key": "preferred-api",
-      "notes": "Use https://api.mooncatrescue.com for new integrations when possible."
-    },
-    {
-      "key": "legacy-api-valid",
-      "notes": "https://api.mooncat.community is recorded as legacy-valid, not broken. It may be deprecated later, so avoid new dependencies unless a legacy-only endpoint is required."
-    },
-    {
-      "key": "path-prefixes",
-      "notes": "The preferred API groups MoonCat paths under /mooncat/... while the legacy API uses root-level paths such as /traits/... and several image variant paths."
-    },
-    {
-      "key": "events-path",
-      "notes": "The preferred API /events endpoint is listed under Blockchain. The legacy API /events endpoint is tied to older event/holiday accessory behavior. Do not treat them as interchangeable."
-    },
-    {
-      "key": "identifier-conversion",
-      "notes": "Endpoint parameters that accept rescue indexes still require a verified conversion/mapping step before use with token IDs, bytes5 catIds, OpenSea IDs, or local rescue-order bucket indexes."
-    }
+  "limitations": [
+    "This manifest is a compact routing/reference aid and does not copy full OpenAPI schemas.",
+    "Response object shapes, complete enum lists, and detailed validation rules remain in the registered OpenAPI sources.",
+    "Identifier conversion details are documented separately; this file records accepted endpoint forms only."
   ],
   "todos": [
-    "Import full request and response schemas only in a focused schema pass.",
-    "Verify query parameters before building client code from these summaries.",
-    "Monitor whether the legacy API receives a formal deprecation notice.",
-    "Document any verified conversion between original rescue index, rescue-order index, bytes5 catId, and token-facing identifiers."
+    "Re-sync this manifest when either registered OpenAPI source changes.",
+    "Verify runtime behavior for endpoints where the OpenAPI content type differs from the operation description."
   ]
 }
