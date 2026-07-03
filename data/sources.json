@@ -188,6 +188,136 @@
       "status": "needs-review",
       "supports": ["Discord-derived FAQ context", "candidate official links", "candidate community links"],
       "notes": "Local Discord-derived file supplied as mostly correct but potentially outdated. Use it to discover links, then verify each link before importing facts."
+    },
+    {
+      "id": "extracted-source-links-2026-07-02",
+      "label": "Extracted source links, 2026-07-02",
+      "type": "local",
+      "path": "extracted-source-links-2026-07-02.md",
+      "trustLevel": "supporting-context",
+      "status": "needs-review",
+      "supports": ["preserved extracted links", "candidate source links", "candidate project links"],
+      "notes": "Preserves links extracted from FAQ/Discord material. Each link should be verified before importing facts."
+    },
+    {
+      "id": "mooncat-rescueorder-by-category",
+      "label": "MoonCat rescue order by category",
+      "type": "local",
+      "path": "mooncat_rescueOrder_by_category.json",
+      "trustLevel": "community-curated",
+      "status": "imported",
+      "supports": ["character-cat membership index numbers", "community-curated category membership"],
+      "notes": "Local user-provided JSON file containing all character-cat index numbers. Premium index numbers are not included."
+    },
+    {
+      "id": "etherscan-original-contract",
+      "label": "Etherscan original MoonCatRescue contract page",
+      "type": "primary",
+      "url": "https://etherscan.io/address/0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6#code",
+      "trustLevel": "canonical",
+      "status": "needs-review",
+      "supports": ["on-chain contract reference", "contract source verification"],
+      "notes": "Candidate canonical contract reference from extracted links. Do not import addresses or constants without a focused verification pass."
+    },
+    {
+      "id": "mooncatrescue-medium",
+      "label": "MoonCatRescue Medium publication",
+      "type": "article",
+      "url": "https://medium.com/mooncatrescue",
+      "trustLevel": "supporting-context",
+      "status": "needs-review",
+      "supports": ["project articles", "historical explanations", "candidate source links"],
+      "notes": "Publication index from extracted links. Individual articles should be reviewed before supporting facts."
+    },
+    {
+      "id": "mooncats-on-chain-guide",
+      "label": "MoonCats On-Chain Guide",
+      "type": "article",
+      "url": "https://medium.com/mooncatrescue/mooncats-on-chain-guide-71d2b479fb72",
+      "trustLevel": "supporting-context",
+      "status": "needs-review",
+      "supports": ["on-chain explanation", "technical context"],
+      "notes": "Candidate explanatory source. Verify technical claims against contract, parser, or official docs before import."
+    },
+    {
+      "id": "on-chain-generative-art",
+      "label": "On Chain, Generative Art?",
+      "type": "article",
+      "url": "https://medium.com/mooncatrescue/on-chain-generative-art-dd9cfc3e5fb4",
+      "trustLevel": "supporting-context",
+      "status": "needs-review",
+      "supports": ["on-chain art context", "generative art context"],
+      "notes": "Candidate explanatory source. Do not treat as canonical trait or contract data."
+    },
+    {
+      "id": "of-mice-and-mooncats",
+      "label": "Of Mice and MoonCats",
+      "type": "article",
+      "url": "https://medium.com/@masonmarcobello/of-mice-and-mooncats-inevitable-pursuits-in-pixelated-whiskerdom-a30fca025930",
+      "trustLevel": "supporting-context",
+      "status": "needs-review",
+      "supports": ["community explanation", "historical context"],
+      "notes": "Community article from extracted links. Treat as supporting context only."
+    },
+    {
+      "id": "mooncat-explainer",
+      "label": "MoonCat Explainer",
+      "type": "reference",
+      "url": "https://bokkypoobah.github.io/MoonCatExplainer/",
+      "trustLevel": "community-maintained",
+      "status": "needs-review",
+      "supports": ["technical explanation", "contract interaction context"],
+      "notes": "Community reference from extracted links. Verify any imported facts against primary sources."
+    },
+    {
+      "id": "cryptocopycats-mooncatrescue",
+      "label": "MoonCatRescue on the Blockchain GitHub repo",
+      "type": "source-code",
+      "url": "https://github.com/cryptocopycats/mooncatrescue",
+      "trustLevel": "community-maintained",
+      "status": "needs-review",
+      "supports": ["older related code", "historical technical context"],
+      "notes": "Older related repository from extracted links. Review repository provenance before using for data imports."
+    },
+    {
+      "id": "dune-mooncat-rescue",
+      "label": "Dune MoonCat Rescue dashboard",
+      "type": "analytics",
+      "url": "https://dune.com/PlainviewResearch/MoonCat-Rescue",
+      "trustLevel": "community-derived",
+      "status": "needs-review",
+      "supports": ["analytics context", "candidate derived rescue or market references"],
+      "notes": "Community-derived analytics dashboard. Use only with query review and source confirmation."
+    },
+    {
+      "id": "dune-mooncat-characters",
+      "label": "Dune MoonCat Characters dashboard",
+      "type": "analytics",
+      "url": "https://dune.com/beautifooldata/mooncat-characters",
+      "trustLevel": "community-derived",
+      "status": "needs-review",
+      "supports": ["candidate character-cat verification", "community-derived character references"],
+      "notes": "Community-derived dashboard that may help future character-cat verification. Do not import memberships without review."
+    },
+    {
+      "id": "dune-rare-mooncat",
+      "label": "Dune Rare Mooncat Dashboard",
+      "type": "analytics",
+      "url": "https://dune.com/catdadkolt/rare-mooncat-dashboard",
+      "trustLevel": "community-derived",
+      "status": "needs-review",
+      "supports": ["rarity reference", "community-derived analytics"],
+      "notes": "Community-derived rarity dashboard. Do not import rarity claims without review."
+    },
+    {
+      "id": "inside-ethereums-early-on-chain-generative-machinery",
+      "label": "MoonCats: Inside Ethereum's Early On-Chain Generative Machinery",
+      "type": "article",
+      "url": "https://medium.com/@wassoshi_9389/mooncats-inside-ethereums-early-on-chain-generative-machinery-560e46378c07",
+      "trustLevel": "supporting-context",
+      "status": "needs-review",
+      "supports": ["on-chain generative art context", "MoonCat technical explanation"],
+      "notes": "Community article provided for future review. Verify technical claims against contract, parser, or official docs before import."
     }
   ],
   "todos": [

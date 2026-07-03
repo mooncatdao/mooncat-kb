@@ -16,6 +16,7 @@ Start here:
 - `data/sources.json` — curated source/provenance index
 - `data/mooncat-types.json` — top-level category scaffold
 - `data/character-cats.json` — community-curated character-cat definitions and partial hue-range notes
+- `data/character-cat-index.json` — exact community-curated character-cat membership/index numbers
 - `data/special-cats.json` — special-category placeholder scaffold
 - `data/color-hues.json` — hue/coating scaffold plus community-curated character hue notes
 - `data/trait-index.json` — trait mapping placeholder scaffold
@@ -24,6 +25,7 @@ Start here:
 - `data/ipfs-cids.json` — IPFS CID placeholder scaffold
 - `data/api-endpoints.json` — API endpoint placeholder scaffold
 - `data/project-links.json` — project link placeholder scaffold
+- `data/link-index.json` — preserved research and navigation links
 - `data/protocol-constants.json` — first imported contract-derived protocol constants
 - `llms.txt` — compact entrypoint list for LLMs and crawlers
 - `AGENTS.md` — instructions for LLM/code agents

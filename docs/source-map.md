@@ -12,6 +12,8 @@ Canonical source entries live in `data/sources.json`.
 - `derived`: data generated from another source by script, analysis, or curation.
 - `unknown`: placeholder for a needed source that has not been verified.
 
+Use `data/link-index.json` for preserved research or navigation links that should not be promoted into `data/sources.json`.
+
 ## Current Sources
 
 ## Primary sources
@@ -33,6 +35,17 @@ Canonical source entries live in `data/sources.json`.
 - Rate My Mooncat: `rate-my-mooncat`
 - MoonCat DAO old wiki: `mooncat-dao-wiki`
 - MoonCats FAQ and official links local file: `mooncats-faq-official-links`
+- Extracted source links local file: `extracted-source-links-2026-07-02`
+- Etherscan original contract page: `etherscan-original-contract`
+- MoonCatRescue Medium publication: `mooncatrescue-medium`
+- MoonCats On-Chain Guide: `mooncats-on-chain-guide`
+- On Chain, Generative Art?: `on-chain-generative-art`
+- Of Mice and MoonCats: `of-mice-and-mooncats`
+- MoonCat Explainer: `mooncat-explainer`
+- MoonCatRescue on the Blockchain GitHub repo: `cryptocopycats-mooncatrescue`
+- Dune MoonCat Rescue dashboard: `dune-mooncat-rescue`
+- Dune MoonCat Characters dashboard: `dune-mooncat-characters`
+- Dune Rare Mooncat Dashboard: `dune-rare-mooncat`
 - Discord posts
 - DAO discussions
 - CatMoon implementation notes
@@ -48,6 +61,8 @@ Canonical source entries live in `data/sources.json`.
 - Strong: MoonCatRescue GitLab, ChainStation source, libMoonCat source
 - Community-maintained: DAO repos, curated Discord posts
 - Community-curated: subjective or narrative category sources, including character-cat charts
+- Community-derived: dashboards, analyses, or tools derived from another data source
+- Project-link: useful navigation, marketplace, social, visualization, or owner-page links
 - Supporting-context: local notes or Discord-derived references that need review before fact import
 - Experimental: CatMoon color filters, character-cat classifications, prototype notes
 
@@ -67,4 +82,5 @@ When adding a source:
 - Prefer on-chain data, official parser logic, official contract docs, and MoonCatRescue GitLab for canonical technical facts.
 - Use Discord/community posts as supporting context unless explicitly marked as canonical.
 - Character-cat, early-rescue, and vibe-based classifications may be curated and should be marked as such.
+- Do not promote marketplace, social, video, visualization, or owner-page links into canonical sources only because they are useful to preserve.
 - If a list is incomplete, mark it with `"status": "incomplete"` or say so in the related Markdown.

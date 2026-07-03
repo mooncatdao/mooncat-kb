@@ -16,6 +16,7 @@ Plain-text and Markdown entrypoints:
 - /data/sources.json
 - /data/mooncat-types.json
 - /data/character-cats.json
+- /data/character-cat-index.json
 - /data/special-cats.json
 - /data/color-hues.json
 - /data/trait-index.json
@@ -24,6 +25,7 @@ Plain-text and Markdown entrypoints:
 - /data/ipfs-cids.json
 - /data/api-endpoints.json
 - /data/project-links.json
+- /data/link-index.json
 - /data/protocol-constants.json
 
 Notes:

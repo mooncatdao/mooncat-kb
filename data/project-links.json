@@ -105,6 +105,141 @@
       "status": "verified",
       "trustLevel": "community-maintained",
       "sourceRefs": ["mooncat-dao-wiki"]
+    },
+    {
+      "key": "openseaAcclimatedMooncats",
+      "label": "OpenSea Acclimated MoonCats collection",
+      "url": "https://opensea.io/collection/acclimatedmooncats",
+      "type": "marketplace",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "looksrareAcclimatedMooncats",
+      "label": "LooksRare Acclimated MoonCats collection",
+      "url": "https://looksrare.org/collections/0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "type": "marketplace",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "blurAcclimatedMooncats",
+      "label": "Blur Acclimated MoonCats collection",
+      "url": "https://blur.io/eth/collection/acclimatedmooncats",
+      "type": "marketplace",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "mooncatPro",
+      "label": "mooncat.pro",
+      "url": "https://mooncat.pro/",
+      "type": "community-tool",
+      "status": "needs-review",
+      "trustLevel": "community-derived",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "mooncatZer0Twitter",
+      "label": "MoonCat Zer0 Twitter/X",
+      "url": "https://twitter.com/mooncatzer0",
+      "type": "social",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "ponderwareTwitter",
+      "label": "ponderware Twitter/X",
+      "url": "https://twitter.com/ponderware",
+      "type": "social",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "mooncatRescueTwitter",
+      "label": "MoonCatRescue Twitter/X",
+      "url": "https://twitter.com/mooncatrescue",
+      "type": "social",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "mooncatDaoTwitter",
+      "label": "MoonCat DAO Twitter/X",
+      "url": "https://x.com/mooncat_dao",
+      "type": "social",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "mooncatRescueReddit",
+      "label": "MoonCatRescue Reddit community",
+      "url": "https://www.reddit.com/r/MoonCatRescue/",
+      "type": "community",
+      "status": "needs-review",
+      "trustLevel": "community-maintained",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "rescuedMooncatsEasyzoom",
+      "label": "EasyZoom rescued MoonCats image",
+      "url": "https://www.easyzoom.com/imageaccess/b5b703d04cd24960ba2b5a74e7e88da4",
+      "type": "visualization",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "brooksBoydTwitter",
+      "label": "Brooks Boyd / Midnight Lightning Twitter/X",
+      "url": "https://x.com/midnight426",
+      "type": "social",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "mooncatPool1OwnerPage",
+      "label": "MoonCat pool 1 owner page",
+      "url": "https://mooncatrescue.com/owners/0x98968f0747E0A261532cAcC0BE296375F5c08398#mooncats",
+      "type": "owner-page",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "mooncatPool2OwnerPage",
+      "label": "MoonCat pool 2 owner page",
+      "url": "https://mooncatrescue.com/owners/0xD4fe01ce79C84C68f9307D415B8f392D140c242C#mooncats",
+      "type": "owner-page",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "mooncat2017PoolOwnerPage",
+      "label": "2017 MoonCats pool owner page",
+      "url": "https://mooncatrescue.com/owners/0xA8b42C82a628DC43c2c2285205313e5106EA2853#mooncats",
+      "type": "owner-page",
+      "status": "needs-review",
+      "trustLevel": "project-link",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
+    },
+    {
+      "key": "mooncatPoolsYoutubeExplainer",
+      "label": "MoonCat pools YouTube explainer",
+      "url": "https://www.youtube.com/watch?v=QinJ8OFsxJI&t=828s",
+      "type": "video",
+      "status": "needs-review",
+      "trustLevel": "supporting-context",
+      "sourceRefs": ["extracted-source-links-2026-07-02"]
     }
   ],
   "todos": [

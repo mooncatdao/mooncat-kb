@@ -6,6 +6,7 @@ Canonical or curated membership belongs in JSON, not prose:
 
 - `data/mooncat-types.json`
 - `data/character-cats.json`
+- `data/character-cat-index.json`
 - `data/special-cats.json`
 
 ## Genesis Cats
@@ -21,7 +22,7 @@ Related files:
 
 ## Character Cats
 
-Status: community-curated and incomplete.
+Status: community-curated.
 
 Character cats are community-recognized MoonCats that resemble cats or characters from popular media. They are not official protocol traits.
 
@@ -36,12 +37,20 @@ The current category shells are:
 - Golden Lucky Cat
 - Pikachu
 
-`data/character-cats.json` now records Rate My Mooncat as a community-curated source and imports partial hue-range notes where the current public page/change history gives enough information. It still contains no MoonCat IDs.
+`data/character-cats.json` records Rate My Mooncat as a community-curated source and imports partial hue-range notes where the current public page/change history gives enough information.
+
+`data/character-cat-index.json` contains exact community-curated membership/index numbers imported from the local user-provided `mooncat_rescueOrder_by_category.json` file.
+
+Definitions and materialized membership are intentionally separate:
+
+- `data/character-cats.json` defines category labels, hue ranges, `pale`, and `coat` filters.
+- `data/character-cat-index.json` stores the exact imported membership/index arrays.
 
 Important constraints:
 
 - Treat character-cat categories as community-curated narratives, not canonical traits.
-- Do not add exact MoonCat IDs without a separate derivation/import pass.
+- Do not treat the imported index numbers as official protocol traits.
+- Confirm the index convention before using the values in UI or import tooling.
 - Preserve whether a hue range wraps over zero, such as Pink Panther's all-range.
 - Keep premium/two-star ranges separate from all-range definitions.
 
@@ -50,3 +59,7 @@ Important constraints:
 Status: partially verified.
 
 Special categories may include protocol-defined, historical, or community-curated groupings. Keep those categories separate and mark their trust level clearly.
+
+## Notes
+
+“rescue-order-index” values are not interchangeable with catId/tokenId unless explicitly converted.

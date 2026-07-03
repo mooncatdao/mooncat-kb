@@ -3,8 +3,8 @@
   "updated": "2026-07-03",
   "status": "partially-verified",
   "provenance": {
-    "sources": ["repo-context", "repo-agents", "rate-my-mooncat", "mooncats-faq-official-links"],
-    "notes": "Top-level category scaffold. Character cats now have community-curated source context, but exact MoonCat IDs still require a separate derivation/import pass."
+    "sources": ["repo-context", "repo-agents", "rate-my-mooncat", "mooncats-faq-official-links", "mooncat-rescueorder-by-category"],
+    "notes": "Top-level category scaffold. Character cats have community-curated definitions and exact community-curated membership/index numbers, but they are not official protocol traits."
   },
   "types": {
     "genesis": {
@@ -19,9 +19,12 @@
       "status": "community-curated-incomplete",
       "ids": [],
       "data": "data/character-cats.json",
+      "membershipData": "data/character-cat-index.json",
       "docs": "docs/mooncat-types.md#character-cats",
-      "sourceRefs": ["rate-my-mooncat", "mooncats-faq-official-links"],
-      "notes": "Community-curated narrative categories, not official protocol traits. No IDs are materialized yet."
+      "canonical": false,
+      "trustLevel": "community-curated",
+      "sourceRefs": ["rate-my-mooncat", "mooncats-faq-official-links", "mooncat-rescueorder-by-category"],
+      "notes": "Community-curated narrative categories, not official protocol traits. Exact community-curated rescue-order index membership lives in data/character-cat-index.json; ids remain empty here to avoid duplicating large arrays."
     },
     "specialCats": {
       "label": "Special Cats",
@@ -34,7 +37,7 @@
     }
   },
   "todos": [
-    "Add IDs only with source references.",
+    "Confirm the index convention used by data/character-cat-index.json before downstream UI/tool use.",
     "Keep aggregate IDs synchronized with category-specific data files.",
     "Keep community-curated categories separate from official protocol traits."
   ]
