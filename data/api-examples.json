@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "compact-tested-and-manifest-derived-examples",
+  "scope": "Small read-only API call examples for agents constructing common MoonCat API requests.",
+  "sourceRefs": [
+    "mooncatrescue-api-openapi",
+    "mooncat-community-api-openapi"
+  ],
+  "relatedFiles": [
+    "data/api-endpoints.json",
+    "data/identifier-conventions.json",
+    "data/trait-index.json",
+    "docs/api-notes.md"
+  ],
+  "testPolicy": {
+    "checked": "2026-07-03",
+    "method": "GET status and response headers only; no response bodies, images, metadata payloads, or schemas were stored.",
+    "limitations": [
+      "Live checks cover only four preferred API examples using rescue index 0 or limit=1.",
+      "Placeholder examples are manifest-derived and should be filled by callers with real identifiers before use.",
+      "This file does not replace data/api-endpoints.json or the registered OpenAPI specs."
+    ]
+  },
+  "examples": [
+    {
+      "key": "preferred-get-mooncat-traits-by-rescue-index",
+      "purpose": "Fetch MoonCat trait metadata by decimal rescue index.",
+      "api": "mooncatrescue",
+      "baseUrl": "https://api.mooncatrescue.com",
+      "method": "GET",
+      "pathTemplate": "/mooncat/traits/{catId}",
+      "url": "https://api.mooncatrescue.com/mooncat/traits/0",
+      "samplePathValues": {
+        "catId": "0"
+      },
+      "sampleQueryParams": {},
+      "identifierFormsUsed": [
+        "decimal rescue index (0-25439)"
+      ],
+      "expectedResponseKind": "json",
+      "expectedContentType": "application/json",
+      "relatedEndpointKey": "mooncatrescue.get.mooncat-traits-catId",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "verification": {
+        "status": "live-checked",
+        "checked": "2026-07-03",
+        "observedStatus": 200,
+        "observedContentType": "application/json; charset=utf-8",
+        "responseBodyStored": false
+      }
+    },
+    {
+      "key": "preferred-get-erc721-metadata-by-rescue-index",
+      "purpose": "Fetch ERC721-style metadata by decimal rescue index.",
+      "api": "mooncatrescue",
+      "baseUrl": "https://api.mooncatrescue.com",
+      "method": "GET",
+      "pathTemplate": "/mooncat/erc721-metadata/{catId}",
+      "url": "https://api.mooncatrescue.com/mooncat/erc721-metadata/0",
+      "samplePathValues": {
+        "catId": "0"
+      },
+      "sampleQueryParams": {},
+      "identifierFormsUsed": [
+        "decimal rescue index (0-25439)"
+      ],
+      "expectedResponseKind": "json",
+      "expectedContentType": "application/json",
+      "relatedEndpointKey": "mooncatrescue.get.mooncat-erc721-metadata-catId",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "verification": {
+        "status": "live-checked",
+        "checked": "2026-07-03",
+        "observedStatus": 200,
+        "observedContentType": "application/json; charset=utf-8",
+        "responseBodyStored": false
+      }
+    },
+    {
+      "key": "preferred-get-mooncat-image-by-rescue-index",
+      "purpose": "Fetch a MoonCat image by decimal rescue index.",
+      "api": "mooncatrescue",
+      "baseUrl": "https://api.mooncatrescue.com",
+      "method": "GET",
+      "pathTemplate": "/mooncat/image/{catId}",
+      "url": "https://api.mooncatrescue.com/mooncat/image/0",
+      "samplePathValues": {
+        "catId": "0"
+      },
+      "sampleQueryParams": {},
+      "identifierFormsUsed": [
+        "decimal rescue index (0-25439)"
+      ],
+      "expectedResponseKind": "image/svg+xml",
+      "expectedContentType": "image/svg+xml",
+      "relatedEndpointKey": "mooncatrescue.get.mooncat-image-catId",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "verification": {
+        "status": "live-checked",
+        "checked": "2026-07-03",
+        "observedStatus": 200,
+        "observedContentType": "image/svg+xml; charset=utf-8",
+        "responseBodyStored": false
+      }
+    },
+    {
+      "key": "preferred-search-mooncats-limit-one",
+      "purpose": "Search MoonCats with a small result limit.",
+      "api": "mooncatrescue",
+      "baseUrl": "https://api.mooncatrescue.com",
+      "method": "GET",
+      "pathTemplate": "/mooncats",
+      "url": "https://api.mooncatrescue.com/mooncats?limit=1",
+      "samplePathValues": {},
+      "sampleQueryParams": {
+        "limit": "1"
+      },
+      "identifierFormsUsed": [],
+      "expectedResponseKind": "json",
+      "expectedContentType": "application/json",
+      "relatedEndpointKey": "mooncatrescue.get.mooncats",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "verification": {
+        "status": "live-checked",
+        "checked": "2026-07-03",
+        "observedStatus": 200,
+        "observedContentType": "application/json; charset=utf-8",
+        "responseBodyStored": false
+      }
+    },
+    {
+      "key": "preferred-get-owner-profile-placeholder",
+      "purpose": "Fetch an owner profile by Ethereum address or ENS name.",
+      "api": "mooncatrescue",
+      "baseUrl": "https://api.mooncatrescue.com",
+      "method": "GET",
+      "pathTemplate": "/owner-profile/{address}",
+      "urlTemplate": "https://api.mooncatrescue.com/owner-profile/{address}",
+      "samplePathValues": {
+        "address": "<ethAddress-or-ens>"
+      },
+      "sampleQueryParams": {},
+      "identifierFormsUsed": [
+        "Ethereum address",
+        "ENS name"
+      ],
+      "expectedResponseKind": "json",
+      "expectedContentType": "application/json",
+      "relatedEndpointKey": "mooncatrescue.get.owner-profile-address",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "verification": {
+        "status": "manifest-derived-placeholder-unchecked",
+        "reason": "No real owner address or ENS sample was selected in this pass."
+      }
+    },
+    {
+      "key": "legacy-owned-mooncats-placeholder",
+      "purpose": "Use the legacy API to list rescue indexes owned by an Ethereum address.",
+      "api": "mooncatCommunityLegacy",
+      "baseUrl": "https://api.mooncat.community",
+      "method": "GET",
+      "pathTemplate": "/owned-mooncats/{address}",
+      "urlTemplate": "https://api.mooncat.community/owned-mooncats/{address}",
+      "samplePathValues": {
+        "address": "<ethAddress>"
+      },
+      "sampleQueryParams": {},
+      "identifierFormsUsed": [
+        "Ethereum address"
+      ],
+      "expectedResponseKind": "json",
+      "expectedContentType": "application/json",
+      "relatedEndpointKey": "mooncatCommunityLegacy.get.owned-mooncats-address",
+      "sourceRefs": [
+        "mooncat-community-api-openapi"
+      ],
+      "verification": {
+        "status": "manifest-derived-placeholder-unchecked",
+        "reason": "No real owner address sample was selected in this pass."
+      }
+    },
+    {
+      "key": "preferred-get-accessory-details-placeholder",
+      "purpose": "Fetch metadata/details for a MoonCat accessory by accessory ID.",
+      "api": "mooncatrescue",
+      "baseUrl": "https://api.mooncatrescue.com",
+      "method": "GET",
+      "pathTemplate": "/accessory/traits/{id}",
+      "urlTemplate": "https://api.mooncatrescue.com/accessory/traits/{id}",
+      "samplePathValues": {
+        "id": "<accessoryId>"
+      },
+      "sampleQueryParams": {},
+      "identifierFormsUsed": [
+        "accessory id integer"
+      ],
+      "expectedResponseKind": "json",
+      "expectedContentType": "application/json",
+      "relatedEndpointKey": "mooncatrescue.get.accessory-traits-id",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "verification": {
+        "status": "manifest-derived-placeholder-unchecked",
+        "reason": "No sourced concrete accessory ID sample was selected in this pass."
+      }
+    },
+    {
+      "key": "preferred-get-accessory-image-placeholder",
+      "purpose": "Fetch a PNG accessory image by accessory ID.",
+      "api": "mooncatrescue",
+      "baseUrl": "https://api.mooncatrescue.com",
+      "method": "GET",
+      "pathTemplate": "/accessory/image/{id}",
+      "urlTemplate": "https://api.mooncatrescue.com/accessory/image/{id}",
+      "samplePathValues": {
+        "id": "<accessoryId>"
+      },
+      "sampleQueryParams": {},
+      "identifierFormsUsed": [
+        "accessory id integer"
+      ],
+      "expectedResponseKind": "image/png",
+      "expectedContentType": "image/png",
+      "relatedEndpointKey": "mooncatrescue.get.accessory-image-id",
+      "sourceRefs": [
+        "mooncatrescue-api-openapi"
+      ],
+      "verification": {
+        "status": "manifest-derived-placeholder-unchecked",
+        "reason": "No sourced concrete accessory ID sample was selected in this pass."
+      }
+    }
+  ],
+  "omittedExamples": [
+    {
+      "scope": "mutation-admin-post-endpoints",
+      "reason": "POST/update/admin endpoints are intentionally omitted from this read-only example file."
+    },
+    {
+      "scope": "full-response-payloads",
+      "reason": "Response bodies, image bytes, metadata JSON payloads, and OpenAPI schemas are intentionally not stored."
+    }
+  ],
+  "limitations": [
+    "Examples are for constructing calls, not for asserting full response shapes.",
+    "Placeholder path values must be replaced by callers before use.",
+    "Live checks recorded status and content type only."
+  ]
+}
