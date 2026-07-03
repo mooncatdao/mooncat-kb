@@ -7,9 +7,11 @@
       "mooncatrescue-contract-docs",
       "ponderware-contract",
       "ponderware-mooncatrescue-sol-raw",
-      "etherscan-original-contract"
+      "etherscan-original-contract",
+      "etherscan-acclimated-mooncats",
+      "mooncatrescue-log-onchain"
     ],
-    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and live Etherscan checks, but its Etherscan page still needs a registered source entry."
+    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The MoonCatRescue on-chain log is registered as context for materialization contracts, but those linked contract details are not imported here yet."
   },
   "contracts": [
     {
@@ -37,9 +39,11 @@
       "contractName": "MoonCatAcclimator",
       "network": "ethereum-mainnet",
       "address": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
-      "status": "verified-address-source-entry-needed",
+      "status": "verified-address-and-source",
       "trustLevel": "strong",
-      "sourceRefs": [],
+      "sourceRefs": [
+        "etherscan-acclimated-mooncats"
+      ],
       "projectLinkRefs": [
         "looksrareAcclimatedMooncats",
         "openseaAcclimatedMooncats",
@@ -49,12 +53,12 @@
         "data/identifier-conventions.json",
         "data/api-endpoints.json"
       ],
-      "notes": "ERC-721/ERC-998 acclimated wrapper contract. Address appears in registered marketplace/project links and was verified live on Etherscan. The Etherscan source shows MoonCatAcclimator wraps original MoonCats and mints tokenId equal to rescue order. Add a source entry for this Etherscan page in a follow-up before treating sourceRefs as complete."
+      "notes": "ERC-721/ERC-998 acclimated wrapper contract. Address appears in registered marketplace/project links and the registered Etherscan source. The Etherscan source shows MoonCatAcclimator wraps original MoonCats and mints tokenId equal to rescue order."
     }
   ],
   "todos": [
-    "Add a registered source entry for the Acclimated Mooncats Etherscan page.",
     "Verify accessory and other related contract addresses separately.",
+    "Review MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages in a focused on-chain materialization contracts pass.",
     "Document ABI/source artifact URLs in a focused contract-source pass."
   ]
 }

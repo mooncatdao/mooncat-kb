@@ -300,6 +300,59 @@
       "notes": "Candidate canonical contract reference from extracted links. Do not import addresses or constants without a focused verification pass."
     },
     {
+      "id": "etherscan-acclimated-mooncats",
+      "label": "Etherscan Acclimated MoonCats contract page",
+      "type": "primary",
+      "url": "https://etherscan.io/address/0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69#code",
+      "trustLevel": "canonical",
+      "status": "verified",
+      "supports": [
+        "Acclimated MoonCats contract address",
+        "Acclimated MoonCats contract source verification",
+        "Acclimated ERC-721 token ID convention"
+      ],
+      "notes": "Verified Etherscan page for the Acclimated MoonCats token contract at 0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69. Use for contract/source provenance; do not generalize token ID behavior to older wrappers or unrelated contracts."
+    },
+    {
+      "id": "mooncatrescue-log-onchain",
+      "label": "MoonCatRescue log: Chained to the Future",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/log/onchain",
+      "trustLevel": "official-context",
+      "status": "verified",
+      "supports": [
+        "on-chain materialization context",
+        "MoonCatReference contract page link",
+        "MoonCatTraits contract page link",
+        "MoonCatColors contract page link",
+        "MoonCatSVGs contract page link",
+        "MoonCatAccessoryImages contract page link"
+      ],
+      "linkedContractPages": [
+        {
+          "label": "MoonCatReference",
+          "url": "https://etherscan.io/address/0x0B78C64bCE6d6d4447e58b09E53F3621f44A2a48"
+        },
+        {
+          "label": "MoonCatTraits",
+          "url": "https://etherscan.io/address/0x9330BbfBa0C8FdAf0D93717E4405a410a6103cC2"
+        },
+        {
+          "label": "MoonCatColors",
+          "url": "https://etherscan.io/address/0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC"
+        },
+        {
+          "label": "MoonCatSVGs",
+          "url": "https://etherscan.io/address/0xB39C61fe6281324A23e079464f7E697F8Ba6968f"
+        },
+        {
+          "label": "MoonCatAccessoryImages",
+          "url": "https://etherscan.io/address/0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14"
+        }
+      ],
+      "notes": "Verified MoonCatRescue log page titled Chained to the Future, dated 2022-01-14 / epoch 91999. The page links to on-chain materialization contract pages for MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages; those linked contract details still need a focused review before import into data/contracts.json."
+    },
+    {
       "id": "mooncatrescue-medium",
       "label": "MoonCatRescue Medium publication",
       "type": "article",

@@ -52,7 +52,7 @@ Treat this as sampled evidence for the acclimated collection only. Do not assume
 
 The original MoonCatRescue contract address is verified as `0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6`.
 
-The current Acclimated MoonCats ERC-721 contract address is verified as `0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69`, but its Etherscan page still needs a registered source entry in `data/sources.json`.
+The current Acclimated MoonCats ERC-721 contract address is verified as `0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69` from registered marketplace/project links and the registered Etherscan source entry in `data/sources.json`.
 
 ### Ethereum Address
 
@@ -86,7 +86,6 @@ For the current Acclimated MoonCats ERC-721 contract, ERC-721 token IDs are resc
 
 - exact derivation method for local rescue-order-index arrays
 - source-backed conversion between rescue-order indexes and bytes5 cat IDs
-- registered source entry for the Acclimated Mooncats Etherscan page
 - older wrapper token ID convention
 - broader marketplace token ID behavior beyond sampled acclimated URLs
 - accessory ID format and validation rules

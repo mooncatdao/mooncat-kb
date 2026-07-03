@@ -8,7 +8,9 @@ Partially verified.
 
 The original `MoonCatRescue` Solidity source and Ethereum mainnet address are verified.
 
-The current Acclimated MoonCats ERC-721/ERC-998 wrapper address is also verified, but the Etherscan page for that contract still needs a registered source entry in `data/sources.json`.
+The current Acclimated MoonCats ERC-721/ERC-998 wrapper address is also verified from registered marketplace/project links and the registered Etherscan source entry in `data/sources.json`.
+
+The MoonCatRescue log page `Chained to the Future` is registered as official context for on-chain materialization work. It links to MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages contract pages, but those linked contract details still need a focused import/review pass before they are added to `data/contracts.json`.
 
 Imported source-derived protocol constants live in `data/protocol-constants.json`.
 
@@ -35,8 +37,8 @@ The Acclimated contract source identifies itself as `MoonCatAcclimator`, describ
 
 - ABI artifact source
 - block explorer URL
-- registered source entry for the Acclimated contract Etherscan page
 - accessory or other related contract scope
+- on-chain materialization contract roles and exact imported address/source records
 - older wrapper token ID convention
 
 ## Rules
