@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "canonical-derived-method-noted-limited-evidence",
+  "status": "canonical-derived-method-timestamps-verified",
   "canonical": true,
   "trustLevel": "canonical-derived",
   "indexKind": "rescue-order-index",
@@ -9,7 +9,7 @@
   "provenance": {
     "sources": ["mooncat-rescueorder-by-category"],
     "sourceFile": "mooncat_rescueOrder_by_category.json",
-    "notes": "Imported materialized rescue/history bucket membership arrays from the local JSON artifact. Values are rescue-order-index values, not token IDs, bytes5 catIds, OpenSea IDs, or contract call values. Current method note records UTC rescue-time boundary evidence from a user-provided MoonCat Discord FAQ note; this pass did not independently verify the transaction hashes on-chain."
+    "notes": "Imported materialized rescue/history bucket membership arrays from the local JSON artifact. Values are rescue-order-index values, not token IDs, bytes5 catIds, OpenSea IDs, or contract call values. Current method note records UTC rescue-time boundary evidence from a user-provided MoonCat Discord FAQ note; the four cutoff transaction timestamps were independently checked against public Etherscan transaction page metadata on 2026-07-03."
   },
   "import": {
     "includedSourceKeys": ["sub100", "day1", "week1", "2017", "2018", "2019", "2020", "genesis"],
@@ -606,19 +606,19 @@
     }
   },
   "todos": [
-    "Independently verify the Discord FAQ UTC cutoff transaction hashes/timestamps against chain data before upgrading this method evidence to canonical-onchain.",
+    "Verify rescue-order cutoff numbers or event context separately before treating the Discord FAQ ranges as fully canonical-onchain derivations.",
     "Define any conversion from rescue-order-index to catId, token ID, bytes5 catId, OpenSea ID, or contract-facing identifiers before downstream use.",
     "Keep these bucket arrays separate from character-cat membership arrays."
   ],
   "derivation": {
-    "status": "method-note-added-limited-evidence",
+    "status": "method-note-timestamps-verified",
     "identifierSpace": "rescue-order-index",
     "methodSummary": "Bucket arrays are materialized as rescue-order/rescue-index numbers. Calendar-year and first-week/day buckets use UTC rescue-time boundaries from the provided MoonCat Discord FAQ note, checked here only against existing contiguous array ranges.",
     "evidence": {
       "kind": "user-provided-mooncat-discord-faq-note",
-      "trustLevel": "limited-community-note-unverified-in-this-pass",
-      "independentlyVerifiedOnChain": false,
-      "notes": "Use as method/provenance evidence for the existing derived arrays, not as a newly registered canonical source."
+      "trustLevel": "community-note-with-etherscan-timestamp-verification",
+      "timestampVerifiedAgainstPublicExplorer": true,
+      "notes": "Use the Discord FAQ note as method/provenance evidence for the existing derived arrays. This pass verified the four listed transaction timestamps against public Etherscan transaction page metadata, but did not verify event logs or independently derive rescue-order numbers from chain data."
     },
     "yearCutoffsUtc": [
       {
@@ -626,6 +626,9 @@
         "lastRescueOrder": 3364,
         "utc": "2017-12-31T20:25:11Z",
         "txHash": "0x63a6cd6ef959b8681be4a2bff75c2347c955a14f7d01fab27902f400ea8ccbec",
+        "etherscanSourceRef": "etherscan-rescue-cutoff-2017-tx",
+        "observedEtherscanUtcText": "Dec-31-2017 08:25:11 PM (UTC)",
+        "timestampVerifiedAgainstEtherscan": true,
         "matchesExistingBucketMax": true
       },
       {
@@ -633,6 +636,9 @@
         "lastRescueOrder": 5683,
         "utc": "2018-12-28T02:06:22Z",
         "txHash": "0x07e99f08ee54ebf5b060a4754b23daef7c0a1bc7aff256feb7baa93c70a0736f",
+        "etherscanSourceRef": "etherscan-rescue-cutoff-2018-tx",
+        "observedEtherscanUtcText": "Dec-28-2018 02:06:22 AM (UTC)",
+        "timestampVerifiedAgainstEtherscan": true,
         "matchesExistingBucketMax": true
       },
       {
@@ -640,6 +646,9 @@
         "lastRescueOrder": 5754,
         "utc": "2019-11-19T04:17:26Z",
         "txHash": "0xc7ab1229b431ad6a1e1d438aa7898c04212ee3092d1882e25ee2f99d3670871b",
+        "etherscanSourceRef": "etherscan-rescue-cutoff-2019-tx",
+        "observedEtherscanUtcText": "Nov-19-2019 04:17:26 AM (UTC)",
+        "timestampVerifiedAgainstEtherscan": true,
         "matchesExistingBucketMax": true
       },
       {
@@ -647,6 +656,9 @@
         "lastRescueOrder": 5757,
         "utc": "2020-12-12T14:41:00Z",
         "txHash": "0xc1ddc08997fe5a3bf2df94980ba3e3bcf460c7742a651d4ce64dd90495720a9a",
+        "etherscanSourceRef": "etherscan-rescue-cutoff-2020-tx",
+        "observedEtherscanUtcText": "Dec-12-2020 02:41:00 PM (UTC)",
+        "timestampVerifiedAgainstEtherscan": true,
         "matchesExistingBucketMax": true
       }
     ],
@@ -668,7 +680,8 @@
       "rescued2020": {"expectedMin": 5755, "expectedMax": 5757, "matchesExistingBucketRange": true}
     },
     "limitations": [
-      "This pass did not verify transaction hashes or timestamps directly on-chain.",
+      "This pass verified the four transaction timestamp strings against public Etherscan transaction page metadata.",
+      "This pass did not import event logs or independently derive rescue-order numbers from chain data.",
       "The local source artifact and existing bucket arrays are unchanged.",
       "These values are rescue-order/rescue-index numbers only; use data/identifier-conventions.json before converting to bytes5 catIds, ERC-721 token IDs, OpenSea IDs, or contract call values."
     ]

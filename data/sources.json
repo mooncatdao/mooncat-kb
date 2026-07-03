@@ -881,6 +881,58 @@
         "request and response details"
       ],
       "notes": "Verified raw YAML OpenAPI spec linked from the legacy API landing page. Do not import full schemas unless a focused schema pass is requested."
+    },
+    {
+      "id": "etherscan-rescue-cutoff-2017-tx",
+      "label": "Etherscan transaction page for 2017 rescue cutoff",
+      "type": "transaction-page",
+      "url": "https://etherscan.io/tx/0x63a6cd6ef959b8681be4a2bff75c2347c955a14f7d01fab27902f400ea8ccbec",
+      "trustLevel": "primary-chain-explorer",
+      "status": "verified-timestamp",
+      "supports": [
+        "rescue cutoff transaction timestamp verification",
+        "2017 rescue-year UTC boundary evidence"
+      ],
+      "notes": "Checked 2026-07-03. Public Etherscan transaction page metadata reported Dec-31-2017 08:25:11 PM (UTC), matching 2017-12-31T20:25:11Z for the user-provided Discord FAQ cutoff note."
+    },
+    {
+      "id": "etherscan-rescue-cutoff-2018-tx",
+      "label": "Etherscan transaction page for 2018 rescue cutoff",
+      "type": "transaction-page",
+      "url": "https://etherscan.io/tx/0x07e99f08ee54ebf5b060a4754b23daef7c0a1bc7aff256feb7baa93c70a0736f",
+      "trustLevel": "primary-chain-explorer",
+      "status": "verified-timestamp",
+      "supports": [
+        "rescue cutoff transaction timestamp verification",
+        "2018 rescue-year UTC boundary evidence"
+      ],
+      "notes": "Checked 2026-07-03. Public Etherscan transaction page metadata reported Dec-28-2018 02:06:22 AM (UTC), matching 2018-12-28T02:06:22Z for the user-provided Discord FAQ cutoff note."
+    },
+    {
+      "id": "etherscan-rescue-cutoff-2019-tx",
+      "label": "Etherscan transaction page for 2019 rescue cutoff",
+      "type": "transaction-page",
+      "url": "https://etherscan.io/tx/0xc7ab1229b431ad6a1e1d438aa7898c04212ee3092d1882e25ee2f99d3670871b",
+      "trustLevel": "primary-chain-explorer",
+      "status": "verified-timestamp",
+      "supports": [
+        "rescue cutoff transaction timestamp verification",
+        "2019 rescue-year UTC boundary evidence"
+      ],
+      "notes": "Checked 2026-07-03. Public Etherscan transaction page metadata reported Nov-19-2019 04:17:26 AM (UTC), matching 2019-11-19T04:17:26Z for the user-provided Discord FAQ cutoff note."
+    },
+    {
+      "id": "etherscan-rescue-cutoff-2020-tx",
+      "label": "Etherscan transaction page for 2020 rescue cutoff",
+      "type": "transaction-page",
+      "url": "https://etherscan.io/tx/0xc1ddc08997fe5a3bf2df94980ba3e3bcf460c7742a651d4ce64dd90495720a9a",
+      "trustLevel": "primary-chain-explorer",
+      "status": "verified-timestamp",
+      "supports": [
+        "rescue cutoff transaction timestamp verification",
+        "2020 rescue-year UTC boundary evidence"
+      ],
+      "notes": "Checked 2026-07-03. Public Etherscan transaction page metadata reported Dec-12-2020 02:41:00 PM (UTC), matching 2020-12-12T14:41:00Z for the user-provided Discord FAQ cutoff note."
     }
   ],
   "todos": [
