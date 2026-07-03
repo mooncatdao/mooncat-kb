@@ -50,6 +50,12 @@ Do not confuse these indexes with token IDs, bytes5 cat IDs, OpenSea IDs, or con
 
 For the centralized terminology reference, see `docs/identifier-conventions.md`.
 
+## ERC721 Metadata Notes
+
+The preferred `/mooncat/erc721-metadata/:catId_or_rescueIndex` endpoint returns ERC721-style metadata. Samples for `0`, `82`, and `25439` include `name`, `description`, `image`, `external_url`, and `attributes`.
+
+Those samples include a `Rescue Index` attribute matching the requested numeric index, but do not include explicit `tokenId`, `catId`, or contract address fields.
+
 ## Source Use
 
 Use landing pages for concise human-readable endpoint summaries and status notes.

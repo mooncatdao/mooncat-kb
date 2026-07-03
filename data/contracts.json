@@ -6,41 +6,55 @@
     "sources": [
       "mooncatrescue-contract-docs",
       "ponderware-contract",
-      "ponderware-mooncatrescue-sol-raw"
+      "ponderware-mooncatrescue-sol-raw",
+      "etherscan-original-contract"
     ],
-    "notes": "Original contract source is verified, but deployment address and network metadata are still intentionally unfilled."
+    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and live Etherscan checks, but its Etherscan page still needs a registered source entry."
   },
   "contracts": [
     {
       "key": "mooncatRescue",
       "label": "MoonCatRescue contract",
       "contractName": "MoonCatRescue",
-      "network": null,
-      "address": null,
-      "status": "source-verified-address-needed",
+      "network": "ethereum-mainnet",
+      "address": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "status": "verified-address-and-source",
+      "trustLevel": "primary",
       "sourceRefs": [
         "mooncatrescue-contract-docs",
         "ponderware-contract",
-        "ponderware-mooncatrescue-sol-raw"
+        "ponderware-mooncatrescue-sol-raw",
+        "etherscan-original-contract"
       ],
       "relatedData": [
         "data/protocol-constants.json"
       ],
-      "notes": "Original Solidity source is verified. Do not fill address/network without a verified deployment source."
+      "notes": "Original MoonCatRescue contract. Address verified from registered Etherscan source; source code verified from the original repository/raw Solidity source and Etherscan source-code badge."
     },
     {
-      "key": "accessoryOrWrapperContracts",
-      "label": "Accessory or wrapper contracts",
-      "network": null,
-      "address": null,
-      "status": "definition-needed",
+      "key": "acclimatedMoonCats",
+      "label": "Acclimated MoonCats contract",
+      "contractName": "MoonCatAcclimator",
+      "network": "ethereum-mainnet",
+      "address": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "status": "verified-address-source-entry-needed",
+      "trustLevel": "strong",
       "sourceRefs": [],
-      "notes": "Scope needs definition before adding entries."
+      "projectLinkRefs": [
+        "looksrareAcclimatedMooncats",
+        "openseaAcclimatedMooncats",
+        "blurAcclimatedMooncats"
+      ],
+      "relatedData": [
+        "data/identifier-conventions.json",
+        "data/api-endpoints.json"
+      ],
+      "notes": "ERC-721/ERC-998 acclimated wrapper contract. Address appears in registered marketplace/project links and was verified live on Etherscan. The Etherscan source shows MoonCatAcclimator wraps original MoonCats and mints tokenId equal to rescue order. Add a source entry for this Etherscan page in a follow-up before treating sourceRefs as complete."
     }
   ],
   "todos": [
-    "Verify official deployed contract addresses and networks from primary sources.",
-    "Add ABI/source links only after URL verification.",
-    "Document contract roles in docs/contracts.md."
+    "Add a registered source entry for the Acclimated Mooncats Etherscan page.",
+    "Verify accessory and other related contract addresses separately.",
+    "Document ABI/source artifact URLs in a focused contract-source pass."
   ]
 }

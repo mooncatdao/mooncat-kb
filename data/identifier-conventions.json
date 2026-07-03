@@ -31,6 +31,25 @@
         "This verifies numeric alignment for sampled API records and local bucket structure; it is not a full exhaustive API crawl.",
         "This does not define conversion to bytes5 cat IDs, ERC-721 token IDs, OpenSea IDs, wrapper IDs, or contract call values."
       ]
+    },
+    "tokenFacingIdentifiers": {
+      "status": "partially-verified",
+      "checked": "2026-07-03",
+      "evidence": [
+        "Etherscan page for 0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6 identifies a verified contract address with public name tag MoonCatRescue: MoonCatRescue.",
+        "Etherscan page for 0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69 identifies Acclimated Mooncats as a verified token contract.",
+        "LooksRare collection URL uses 0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69 for MoonCats.",
+        "OpenSea item URLs sampled for token IDs 0, 82, and 25439 use the acclimated contract address and the numeric token ID in the URL.",
+        "Acclimated MoonCatAcclimator source says wrap(_rescueOrder) returns the ID/rescue order of the minted token.",
+        "Acclimated MoonCatAcclimator source mints _tokenId in _wrap(address _owner, uint256 _tokenId), where _tokenId is documented as the rescue order of the MoonCat.",
+        "Preferred API /mooncat/erc721-metadata/{index} samples for 0, 82, and 25439 returned ERC721-style metadata whose name, external_url, image URL, and Rescue Index attribute use the requested numeric rescue index."
+      ],
+      "limitations": [
+        "The Acclimated Mooncats Etherscan page is not yet registered in data/sources.json because this pass forbids source edits.",
+        "OpenSea token ID behavior is verified for sampled acclimated MoonCat item URLs, not for unrelated collections or historical wrappers.",
+        "This does not define conversion from rescue order/token ID to bytes5 catId.",
+        "This does not verify the older wrapper contract token ID convention beyond the source comment that an older wrapper existed at 0x7C40c3..."
+      ]
     }
   },
   "identifierKinds": [
@@ -105,39 +124,97 @@
     },
     {
       "key": "erc721TokenId",
-      "label": "ERC-721 or wrapped token ID",
-      "status": "needs-verification",
-      "canonical": false,
+      "label": "Acclimated ERC-721 token ID",
+      "status": "verified-for-acclimated-contract",
+      "canonical": true,
+      "format": "uint256 rescue-order token ID",
       "usedBy": [
-        "token-facing integrations",
-        "wrapped MoonCat metadata"
+        "Acclimated MoonCats ERC-721 contract",
+        "marketplace item URLs for the acclimated collection",
+        "preferred ERC721 metadata endpoint"
       ],
-      "sourceRefs": [],
+      "sourceRefs": [
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ],
+      "contractRefs": [
+        "acclimatedMoonCats"
+      ],
       "conversionStatus": {
         "toMooncatIdBytes5": "needs-verification",
-        "toApiOriginalRescueIndex": "needs-verification",
-        "toLocalRescueOrderIndex": "needs-verification",
-        "toOpenSeaTokenId": "needs-verification"
+        "toApiOriginalRescueIndex": "verified-same-numeric-convention-for-acclimated-contract",
+        "toLocalRescueOrderIndex": "verified-same-numeric-convention-for-acclimated-contract",
+        "toOpenSeaTokenId": "verified-for-sampled-acclimated-opensea-urls"
       },
-      "notes": "This repository has not yet verified the token ID convention for ERC-721 or wrapped MoonCat surfaces. Do not fill token-facing IDs from local index arrays."
+      "notes": "For the current Acclimated MoonCats contract, Etherscan source shows the ERC-721 tokenId is the MoonCat rescue order. This does not apply automatically to older wrappers or unrelated token-facing surfaces."
     },
     {
       "key": "openseaTokenId",
       "label": "OpenSea token ID",
-      "status": "needs-verification",
+      "status": "verified-for-sampled-acclimated-urls",
       "canonical": false,
       "usedBy": [
-        "marketplace URLs",
-        "marketplace metadata references"
+        "OpenSea item URLs for the acclimated MoonCats collection"
       ],
       "sourceRefs": [],
+      "contractRefs": [
+        "acclimatedMoonCats"
+      ],
       "conversionStatus": {
-        "toErc721TokenId": "needs-verification",
+        "toErc721TokenId": "verified-for-sampled-acclimated-opensea-urls",
         "toMooncatIdBytes5": "needs-verification",
-        "toApiOriginalRescueIndex": "needs-verification",
-        "toLocalRescueOrderIndex": "needs-verification"
+        "toApiOriginalRescueIndex": "verified-for-sampled-acclimated-opensea-urls",
+        "toLocalRescueOrderIndex": "verified-for-sampled-acclimated-opensea-urls"
       },
-      "notes": "Marketplace token ID behavior has not been verified in this repository. Do not assume OpenSea IDs match rescue-order indexes, API rescue indexes, bytes5 catIds, or wrapped token IDs."
+      "notes": "Sampled OpenSea item URLs use /item/ethereum/0xc3f733ca98e0dad0386979eb96fb1722a1a05e69/{tokenId}; token IDs 0, 82, and 25439 resolved to MoonCat pages with matching numeric names/metadata. Treat this as sampled evidence for the acclimated collection, not a blanket marketplace rule."
+    },
+    {
+      "key": "originalMoonCatRescueContractAddress",
+      "label": "Original MoonCatRescue contract address",
+      "status": "verified",
+      "canonical": true,
+      "format": "ethereum-address",
+      "value": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "usedBy": [
+        "original MoonCatRescue contract",
+        "Acclimated contract source reference"
+      ],
+      "sourceRefs": [
+        "etherscan-original-contract",
+        "ponderware-contract",
+        "ponderware-mooncatrescue-sol-raw"
+      ],
+      "contractRefs": [
+        "mooncatRescue"
+      ],
+      "conversionStatus": {
+        "toMooncatIdBytes5": "not-applicable",
+        "toTokenIds": "not-applicable"
+      },
+      "notes": "Verified as the Ethereum mainnet original MoonCatRescue contract address from the registered Etherscan source. This is a contract address, not a MoonCat identifier."
+    },
+    {
+      "key": "acclimatedMoonCatsContractAddress",
+      "label": "Acclimated MoonCats contract address",
+      "status": "verified-source-entry-needed",
+      "canonical": true,
+      "format": "ethereum-address",
+      "value": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "usedBy": [
+        "Acclimated MoonCats ERC-721 contract",
+        "OpenSea acclimated collection",
+        "LooksRare acclimated collection",
+        "Blur acclimated collection"
+      ],
+      "sourceRefs": [],
+      "contractRefs": [
+        "acclimatedMoonCats"
+      ],
+      "conversionStatus": {
+        "toErc721TokenId": "not-applicable",
+        "toMooncatIdBytes5": "not-applicable"
+      },
+      "notes": "Verified live from Etherscan and marketplace URLs, but the Etherscan page still needs a source entry in data/sources.json. This is a contract address, not a token ID."
     },
     {
       "key": "ethereumAddress",
@@ -222,14 +299,14 @@
     {
       "from": "localRescueOrderIndex",
       "to": "erc721TokenId",
-      "status": "needs-verification",
-      "notes": "Do not use local rescue-order indexes as token-facing IDs without a verified mapping."
+      "status": "verified-for-acclimated-contract",
+      "notes": "For the current Acclimated MoonCats ERC-721 contract, tokenId is the rescue order/local rescue-order index. This does not apply automatically to older wrappers or unrelated contracts."
     },
     {
       "from": "localRescueOrderIndex",
       "to": "openseaTokenId",
-      "status": "needs-verification",
-      "notes": "Do not use local rescue-order indexes as OpenSea token IDs without a verified mapping."
+      "status": "verified-for-sampled-acclimated-opensea-urls",
+      "notes": "Sampled OpenSea acclimated collection URLs use the acclimated contract address plus numeric token ID matching rescue order. This is sampled marketplace evidence, not a general OpenSea rule."
     }
   ],
   "relatedFiles": [
@@ -252,9 +329,8 @@
   ],
   "todos": [
     "Document the exact derivation method for local rescue-order-index arrays.",
-    "Verify whether API original rescue indexes and local rescue-order indexes align.",
-    "Verify token-facing ERC-721 or wrapped token ID conventions from primary sources.",
-    "Verify OpenSea token ID conventions before recording marketplace-specific IDs.",
+    "Add a registered source entry for the Acclimated Mooncats Etherscan page.",
+    "Verify older wrapper contract token ID conventions separately.",
     "Document any source-backed conversion between bytes5 catIds and index-based identifiers."
   ]
 }

@@ -6,7 +6,9 @@ Machine-readable contract data lives in `data/contracts.json`.
 
 Partially verified.
 
-The original `MoonCatRescue` Solidity source has been verified and linked, but this repository still does not define deployed contract addresses, networks, ABIs, deployment dates, or related wrapper/accessory contract scope.
+The original `MoonCatRescue` Solidity source and Ethereum mainnet address are verified.
+
+The current Acclimated MoonCats ERC-721/ERC-998 wrapper address is also verified, but the Etherscan page for that contract still needs a registered source entry in `data/sources.json`.
 
 Imported source-derived protocol constants live in `data/protocol-constants.json`.
 
@@ -22,16 +24,23 @@ The original contract source verifies:
 - `imageGenerationCodeMD5` for verifying `mooncatparser.js`
 - Genesis cat construction formula used by `addGenesisCatGroup()`
 
+## Verified Addresses
+
+- Original MoonCatRescue: `0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6`
+- Acclimated MoonCats: `0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69`
+
+The Acclimated contract source identifies itself as `MoonCatAcclimator`, describes wrapping original MoonCats into an ERC-721/ERC-998-compliant asset, references the original MoonCatRescue contract, and mints token IDs using rescue order.
+
 ## Not yet verified here
 
-- deployed contract address
-- deployment network metadata
 - ABI artifact source
 - block explorer URL
-- wrapper, accessory, or related contract scope
+- registered source entry for the Acclimated contract Etherscan page
+- accessory or other related contract scope
+- older wrapper token ID convention
 
 ## Rules
 
 - Prefer primary sources for addresses and networks.
 - Keep contract role notes separate from exact address data.
-- Do not add wrapper, accessory, or related contracts until their scope is defined.
+- Do not add accessory or related contracts until their scope is defined.

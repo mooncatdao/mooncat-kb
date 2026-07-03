@@ -155,7 +155,7 @@
         "mooncatrescue-api",
         "mooncatrescue-api-openapi"
       ],
-      "notes": "Preferred API ERC721 metadata endpoint. Schema fields are not imported here."
+      "notes": "Preferred API ERC721 metadata endpoint. Samples for 0, 82, and 25439 returned name, description, image, external_url, and attributes including Rescue Index; no explicit tokenId, catId, or contract address fields were present in those samples."
     },
     {
       "key": "mooncatrescueMooncatImage",

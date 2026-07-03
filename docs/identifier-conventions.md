@@ -32,15 +32,27 @@ They are still not bytes5 cat IDs, ERC-721 token IDs, OpenSea IDs, or contract c
 
 ### ERC-721 or Wrapped Token ID
 
-Token-facing IDs are not verified in this repository yet.
+For the current Acclimated MoonCats ERC-721 contract, token-facing IDs are verified as the MoonCat rescue order.
 
-Do not fill token-facing IDs from local index arrays unless a primary source or documented conversion method supports the mapping.
+Evidence:
+
+- the Acclimated contract source says `wrap(_rescueOrder)` returns the ID/rescue order of the minted token
+- `_wrap(address _owner, uint256 _tokenId)` mints `_tokenId`, where `_tokenId` is documented as the rescue order
+- sampled ERC721 metadata for `0`, `82`, and `25439` uses the requested number in the name, external URL, image URL, and `Rescue Index` attribute
+
+This does not verify older wrapper token IDs or any unrelated ERC-721 surface.
 
 ### OpenSea Token ID
 
-OpenSea token ID conventions are not verified in this repository yet.
+Sampled OpenSea item URLs for the acclimated MoonCats collection use the acclimated contract address and the same numeric token ID, for example `/item/ethereum/0xc3f733ca98e0dad0386979eb96fb1722a1a05e69/0`.
 
-Do not assume OpenSea IDs match rescue-order indexes, API rescue indexes, bytes5 cat IDs, or wrapped token IDs.
+Treat this as sampled evidence for the acclimated collection only. Do not assume the same rule for other marketplaces, old wrapper contracts, or unrelated collection URLs without checking.
+
+### Contract Addresses
+
+The original MoonCatRescue contract address is verified as `0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6`.
+
+The current Acclimated MoonCats ERC-721 contract address is verified as `0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69`, but its Etherscan page still needs a registered source entry in `data/sources.json`.
 
 ### Ethereum Address
 
@@ -58,7 +70,9 @@ No identifier conversion is currently claimed unless it is already documented by
 
 Any tool that uses local rescue-order arrays outside their local context needs a verified conversion step first.
 
-This alignment does not define conversion to bytes5 cat IDs, ERC-721 token IDs, OpenSea IDs, wrapper IDs, or contract call values.
+The API/local rescue-index alignment by itself does not define conversion to bytes5 cat IDs, wrapper IDs, marketplace IDs, or contract call values.
+
+For the current Acclimated MoonCats ERC-721 contract, ERC-721 token IDs are rescue-order indexes. That verified token-facing convention still does not define a conversion to bytes5 cat IDs.
 
 ## Related Files
 
@@ -72,6 +86,7 @@ This alignment does not define conversion to bytes5 cat IDs, ERC-721 token IDs, 
 
 - exact derivation method for local rescue-order-index arrays
 - source-backed conversion between rescue-order indexes and bytes5 cat IDs
-- token-facing ERC-721 or wrapped token ID convention
-- OpenSea token ID convention
+- registered source entry for the Acclimated Mooncats Etherscan page
+- older wrapper token ID convention
+- broader marketplace token ID behavior beyond sampled acclimated URLs
 - accessory ID format and validation rules
