@@ -52,6 +52,10 @@
       "relatedData": [
         "data/protocol-constants.json"
       ],
+      "identifierNotes": [
+        "Original source declares public bytes5[25600] rescueOrder; this supports rescue-order to bytes5 catId lookup.",
+        "The source does not expose a direct reverse bytes5 catId to rescue-order lookup."
+      ],
       "notes": "Original MoonCatRescue contract. Address verified from registered Etherscan source; source code verified from the original repository/raw Solidity source and Etherscan source-code badge."
     },
     {
@@ -149,7 +153,7 @@
       ],
       "limitations": [
         "No trait mapping table or bit-level derivation is imported here.",
-        "No identifier conversion rule is changed by this summary."
+        "Identifier conversion use is limited to the documented rescueOrder-to-catId lookup; no reverse on-chain lookup is documented here."
       ],
       "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatTraits with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
     },

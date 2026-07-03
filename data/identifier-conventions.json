@@ -10,9 +10,15 @@
       "mooncat-community-api-openapi",
       "ponderware-mooncatrescue-sol-raw",
       "mooncat-rescueorder-by-category",
-      "etherscan-acclimated-mooncats"
+      "etherscan-acclimated-mooncats",
+      "etherscan-mooncat-traits",
+      "etherscan-mooncat-svgs",
+      "mooncatrescue-upstream-readme",
+      "mooncatrescue-libmooncat-limited-js",
+      "mooncatrescue-mooncat-traits-json",
+      "mooncatrescue-mooncatparser-js"
     ],
-    "notes": "First-pass identifier terminology reference. This file documents known identifier spaces and conversion status; it does not derive mappings."
+    "notes": "Identifier terminology reference. This file documents known identifier spaces and conversion status; bytes5 rescue-order conversion is array-backed by reviewed library/dataset sources, not derived by formula."
   },
   "verification": {
     "apiOriginalRescueIndexToLocalRescueOrderIndex": {
@@ -50,6 +56,44 @@
         "This does not define conversion from rescue order/token ID to bytes5 catId.",
         "This does not verify the older wrapper contract token ID convention beyond the source comment that an older wrapper existed at 0x7C40c3..."
       ]
+    },
+    "bytes5CatIdLookup": {
+      "status": "verified-array-backed-library-and-dataset-conversion",
+      "checked": "2026-07-03",
+      "evidence": [
+        "Preferred API OpenAPI defines MoonCatIdentifier as either a five-byte hex string or decimal index value for /mooncat/traits/{catId}.",
+        "Preferred API samples for numeric inputs 0, 82, 84, and 25439 returned bytes5 catId values and matching rescueOrder values.",
+        "Preferred API samples for bytes5 inputs 0x00d658d50b, 0x0057774705, and 0x0076fe2589 returned the same catId and rescueOrder values 0, 82, and 25439.",
+        "Preferred API numeric sample 84 returned catId 0xff00000ca7 with genesis: true and rescueOrder 84.",
+        "Original MoonCatRescue source declares public bytes5[25600] rescueOrder and writes cat IDs into rescueOrder[rescueIndex] when cats are rescued or genesis cats are added.",
+        "MoonCatTraits catIdOf(uint256 rescueOrder) requires rescueOrder < 25440 and returns MCR.rescueOrder(rescueOrder).",
+        "MoonCatSVGs rescueOrder overloads require rescueOrder < 25440 and call MoonCatRescue.rescueOrder(rescueOrder) before using the bytes5 catId.",
+        "references/upstream/mooncatrescue/mooncat_traits.json validates as JSON with 25,440 rows; checked rows are ordered by rescueOrder and catId values are unique.",
+        "mooncat_traits.json samples match existing API samples for rescueOrder 0, 82, 84, and 25439.",
+        "references/upstream/mooncatrescue/libmooncat-limited.js exports getMoonCatIdByRescueIndex, getCatId, getRescueOrder, parseCatId, and typed getTraits helpers.",
+        "LibMoonCat getMoonCatIdByRescueIndex/getCatId samples map 0, 82, 84, and 25439 to 0x00d658d50b, 0x0057774705, 0xff00000ca7, and 0x0076fe2589.",
+        "LibMoonCat getRescueOrder samples map 0x00d658d50b, 0x0057774705, 0xff00000ca7, and 0x0076fe2589 back to 0, 82, 84, and 25439."
+      ],
+      "lookupMethods": [
+        {
+          "from": "apiOriginalRescueIndex",
+          "to": "mooncatIdBytes5",
+          "method": "Use an array-backed lookup: read mooncat_traits.json[rescueOrder].catId, call LibMoonCat.getMoonCatIdByRescueIndex(rescueOrder) / getCatId(rescueOrder), call preferred API /mooncat/traits/{catId_or_rescueIndex} with a decimal rescue index and read catId, or call MoonCatTraits.catIdOf(rescueOrder) / original MoonCatRescue.rescueOrder(rescueOrder)."
+        },
+        {
+          "from": "mooncatIdBytes5",
+          "to": "apiOriginalRescueIndex",
+          "method": "Use an array-backed reverse lookup over the reference dataset, call LibMoonCat.getRescueOrder(0x-prefixed catId), or call preferred API /mooncat/traits/{catId_or_rescueIndex} with a bytes5 catId and read rescueOrder."
+        }
+      ],
+      "limitations": [
+        "This verifies array-backed library/dataset conversion and sampled values, not a closed-form reverse formula from bytes5 catId to rescue order.",
+        "This does not import a full 25,440-entry mapping table.",
+        "The on-chain sources reviewed here expose rescueOrder-to-catId lookup; they do not establish an on-chain reverse lookup from bytes5 catId to rescue order.",
+        "The local upstream reference files are registered as reference copies, not curated KB data.",
+        "Checked LibMoonCat getRescueOrder calls resolved 0x-prefixed cat IDs; non-prefixed cat IDs should be normalized with parseCatId before relying on lookup behavior.",
+        "Token-facing conversion remains scoped to the current Acclimated MoonCats contract, where tokenId is already separately verified as rescue order."
+      ]
     }
   },
   "identifierKinds": [
@@ -63,19 +107,23 @@
       "usedBy": [
         "MoonCatRescue contract source",
         "API catId_or_rescueIndex parameters",
-        "parser and image-generation workflows"
+        "parser and image-generation workflows",
+        "LibMoonCat array-backed lookup helpers",
+        "mooncat_traits.json reference dataset"
       ],
       "sourceRefs": [
         "ponderware-mooncatrescue-sol-raw",
         "mooncatrescue-api",
-        "mooncat-community-api"
+        "mooncat-community-api",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncat-traits-json"
       ],
       "conversionStatus": {
-        "toApiOriginalRescueIndex": "needs-verification",
-        "toLocalRescueOrderIndex": "needs-verification",
-        "toTokenFacingIds": "needs-verification"
+        "toApiOriginalRescueIndex": "verified-array-backed-library-dataset-and-api-lookup",
+        "toLocalRescueOrderIndex": "verified-array-backed-library-dataset-api-and-local-alignment",
+        "toTokenFacingIds": "verified-array-backed-lookup-for-current-acclimated-contract"
       },
-      "notes": "The contract source uses bytes5 cat IDs. The API landing pages document a valid MoonCat ID example for catId_or_rescueIndex. This file does not define the full catId parser or any reverse mapping."
+      "notes": "The contract source uses bytes5 cat IDs. The API and OpenAPI docs document MoonCatIdentifier inputs as either bytes5 cat IDs or decimal rescue indexes. Preferred API samples, LibMoonCat helpers, and the mooncat_traits.json reference dataset verify array-backed bytes5 catId to rescueOrder lookup; the current Acclimated token ID convention then maps that rescue order to tokenId for the current wrapper only. This file does not define a closed-form reverse formula from bytes5 catId to rescue order."
     },
     {
       "key": "apiOriginalRescueIndex",
@@ -93,14 +141,16 @@
       "sourceRefs": [
         "mooncatrescue-api",
         "mooncat-community-api",
-        "mooncat-community-api-openapi"
+        "mooncat-community-api-openapi",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncat-traits-json"
       ],
       "conversionStatus": {
-        "toMooncatIdBytes5": "needs-verification",
+        "toMooncatIdBytes5": "verified-array-backed-library-dataset-api-and-contract-lookup",
         "toLocalRescueOrderIndex": "verified-aligned-by-local-buckets-and-api-samples",
-        "toTokenFacingIds": "needs-verification"
+        "toTokenFacingIds": "verified-for-current-acclimated-contract"
       },
-      "notes": "The API landing pages document rescueIndex values from 0 through 25439 for catId_or_rescueIndex. Local bucket checks and preferred API samples support alignment between this API rescueOrder convention and local rescue-order-index values."
+      "notes": "The API landing pages document rescueIndex values from 0 through 25439 for catId_or_rescueIndex. Local bucket checks and preferred API samples support alignment between this API rescueOrder convention and local rescue-order-index values. Preferred API samples, contract source paths, LibMoonCat helpers, and mooncat_traits.json verify lookup from this numeric convention to bytes5 catId, but not a standalone closed-form derivation."
     },
     {
       "key": "localRescueOrderIndex",
@@ -113,14 +163,16 @@
         "data/rescue-buckets.json"
       ],
       "sourceRefs": [
-        "mooncat-rescueorder-by-category"
+        "mooncat-rescueorder-by-category",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncat-traits-json"
       ],
       "conversionStatus": {
         "toApiOriginalRescueIndex": "verified-aligned-by-local-buckets-and-api-samples",
-        "toMooncatIdBytes5": "needs-verification",
-        "toTokenFacingIds": "needs-verification"
+        "toMooncatIdBytes5": "verified-array-backed-library-dataset-api-alignment-and-contract-lookup",
+        "toTokenFacingIds": "verified-for-current-acclimated-contract"
       },
-      "notes": "Local membership and rescue bucket files use indexKind rescue-order-index. Local bucket checks and preferred API samples support alignment with the API rescueOrder/original rescue index convention. These values are still not token IDs, OpenSea IDs, bytes5 catIds, or contract call values."
+      "notes": "Local membership and rescue bucket files use indexKind rescue-order-index. Local bucket checks and preferred API samples support alignment with the API rescueOrder/original rescue index convention. Use the verified array-backed lookup methods before using these values as bytes5 catIds. They are token IDs only for the current Acclimated MoonCats contract, not generic OpenSea IDs or generic contract-call values."
     },
     {
       "key": "erc721TokenId",
@@ -136,18 +188,20 @@
       "sourceRefs": [
         "mooncatrescue-api",
         "mooncatrescue-api-openapi",
-        "etherscan-acclimated-mooncats"
+        "etherscan-acclimated-mooncats",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncat-traits-json"
       ],
       "contractRefs": [
         "acclimatedMoonCats"
       ],
       "conversionStatus": {
-        "toMooncatIdBytes5": "needs-verification",
+        "toMooncatIdBytes5": "verified-array-backed-lookup-for-current-acclimated-contract",
         "toApiOriginalRescueIndex": "verified-same-numeric-convention-for-acclimated-contract",
         "toLocalRescueOrderIndex": "verified-same-numeric-convention-for-acclimated-contract",
         "toOpenSeaTokenId": "verified-for-sampled-acclimated-opensea-urls"
       },
-      "notes": "For the current Acclimated MoonCats contract, Etherscan source shows the ERC-721 tokenId is the MoonCat rescue order. This does not apply automatically to older wrappers or unrelated token-facing surfaces."
+      "notes": "For the current Acclimated MoonCats contract, Etherscan source shows the ERC-721 tokenId is the MoonCat rescue order. Because rescue order to bytes5 catId lookup is now verified through array-backed library/dataset, API, and contract sources, current Acclimated token IDs can be looked up to bytes5 catIds through that rescue-order convention. This does not apply automatically to older wrappers or unrelated token-facing surfaces."
     },
     {
       "key": "openseaTokenId",
@@ -296,8 +350,32 @@
     {
       "from": "localRescueOrderIndex",
       "to": "mooncatIdBytes5",
-      "status": "needs-verification",
-      "notes": "A verified source query or parser-derived mapping is required before using local indexes as cat IDs."
+      "status": "verified-array-backed-library-dataset-api-alignment-and-contract-lookup",
+      "notes": "Local rescue-order indexes are aligned with API rescueOrder/original rescue index values for the checked convention. A bytes5 catId can be looked up by array index in the registered mooncat_traits.json reference dataset, LibMoonCat getMoonCatIdByRescueIndex/getCatId, the preferred API, or the original MoonCatRescue rescueOrder(uint256) public array / MoonCatTraits catIdOf(uint256). This is array-backed lookup, not a closed-form derivation."
+    },
+    {
+      "from": "apiOriginalRescueIndex",
+      "to": "mooncatIdBytes5",
+      "status": "verified-array-backed-library-dataset-api-and-contract-lookup",
+      "notes": "mooncat_traits.json[rescueOrder].catId and LibMoonCat getMoonCatIdByRescueIndex/getCatId provide array-backed lookup; preferred API samples for numeric inputs returned catId fields, and MoonCatTraits.catIdOf(uint256) returns MCR.rescueOrder(rescueOrder). Numeric inputs must be valid rescue-order values under 25440."
+    },
+    {
+      "from": "mooncatIdBytes5",
+      "to": "apiOriginalRescueIndex",
+      "status": "verified-array-backed-library-dataset-and-api-lookup",
+      "notes": "The registered mooncat_traits.json reference dataset can be reverse-indexed by catId, LibMoonCat getRescueOrder resolves checked 0x-prefixed cat IDs, and preferred API samples for bytes5 catId inputs returned matching rescueOrder values. No on-chain reverse lookup or closed-form formula is documented here."
+    },
+    {
+      "from": "mooncatIdBytes5",
+      "to": "erc721TokenId",
+      "status": "verified-array-backed-lookup-for-current-acclimated-contract",
+      "notes": "For the current Acclimated MoonCats contract only, use array-backed dataset/library lookup or the preferred API to look up rescueOrder from bytes5 catId; that rescueOrder is the current Acclimated ERC-721 token ID by the separately verified token convention."
+    },
+    {
+      "from": "erc721TokenId",
+      "to": "mooncatIdBytes5",
+      "status": "verified-array-backed-lookup-for-current-acclimated-contract",
+      "notes": "For the current Acclimated MoonCats contract only, tokenId is rescue order; use array-backed dataset/library lookup, API lookup, or contract rescueOrder lookup to get the bytes5 catId. This does not apply to older wrappers."
     },
     {
       "from": "localRescueOrderIndex",
@@ -328,11 +406,19 @@
     {
       "path": "data/protocol-constants.json",
       "relationship": "documents bytes5 cat ID generation facts from contract source"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/libmooncat-limited.js",
+      "relationship": "registered upstream reference copy for LibMoonCat lookup helpers"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/mooncat_traits.json",
+      "relationship": "registered upstream reference copy for array-backed rescueOrder/catId lookup"
     }
   ],
   "todos": [
     "Document the exact derivation method for local rescue-order-index arrays.",
     "Verify older wrapper contract token ID conventions separately.",
-    "Document any source-backed conversion between bytes5 catIds and index-based identifiers."
+    "Do not import a full bytes5 catId mapping table unless a focused generated-data pass documents the source and method."
   ]
 }

@@ -14,13 +14,17 @@ This page distinguishes known MoonCat identifier spaces so future imports do not
 
 The original contract source uses `bytes5` cat IDs. The API landing pages also document a valid MoonCat ID example, `0x00d8523a53`, for `catId_or_rescueIndex`.
 
-This repository does not yet define a complete parser-derived mapping from bytes5 cat IDs to rescue indexes, rescue-order indexes, token-facing IDs, or marketplace IDs.
+This repository now records a verified array-backed lookup method between bytes5 cat IDs and rescue-order based identifiers. The registered upstream reference dataset `references/upstream/mooncatrescue/mooncat_traits.json` contains 25,440 rows ordered by `rescueOrder`, with a `catId` field per row. The registered `libmooncat-limited.js` reference exposes lookup helpers including `getMoonCatIdByRescueIndex`, `getCatId`, `getRescueOrder`, and `parseCatId`.
+
+The preferred API still provides independent lookup evidence: it accepts either a bytes5 cat ID or decimal rescue index for `/mooncat/traits/:catId_or_rescueIndex` and returns both `catId` and `rescueOrder` in sampled responses.
+
+This is array-backed library/dataset conversion, not a closed-form reverse formula. The KB registers the upstream reference files but does not import the full 25,440-entry mapping table into curated `data/` files.
 
 ### API Original Rescue Index
 
 The API landing pages document `catId_or_rescueIndex` as accepting an original rescue index where `0 <= rescueIndex <= 25439`.
 
-Local bucket checks and preferred API samples support treating this numeric convention as aligned with local `rescue-order-index` values.
+Local bucket checks and preferred API samples support treating this numeric convention as aligned with local `rescue-order-index` values. Preferred API samples, MoonCatTraits contract surface, `libmooncat-limited.js`, and `mooncat_traits.json` also verify array-backed lookup from this numeric convention to bytes5 cat IDs.
 
 ### Local Rescue-Order Index
 
@@ -28,7 +32,7 @@ Local bucket checks and preferred API samples support treating this numeric conv
 
 These values are local membership/index values. They have been verified as aligned with the API `rescueOrder` / original rescue index convention by local bucket checks and preferred API samples.
 
-They are still not bytes5 cat IDs, ERC-721 token IDs, OpenSea IDs, or contract call values.
+They are still not themselves bytes5 cat IDs. Use the verified array-backed lookup method before using a local rescue-order index as a cat ID. They are token IDs only for the current Acclimated MoonCats contract, not generic OpenSea IDs or generic contract-call values.
 
 ### ERC-721 or Wrapped Token ID
 
@@ -70,9 +74,23 @@ No identifier conversion is currently claimed unless it is already documented by
 
 Any tool that uses local rescue-order arrays outside their local context needs a verified conversion step first.
 
-The API/local rescue-index alignment by itself does not define conversion to bytes5 cat IDs, wrapper IDs, marketplace IDs, or contract call values.
+The verified bytes5 lookup evidence is:
 
-For the current Acclimated MoonCats ERC-721 contract, ERC-721 token IDs are rescue-order indexes. That verified token-facing convention still does not define a conversion to bytes5 cat IDs.
+- `mooncat_traits.json` validates as JSON with 25,440 rows ordered by `rescueOrder`, checked with unique `catId` values
+- `mooncat_traits.json` samples for rescue orders `0`, `82`, `84`, and `25439` match the existing API samples
+- `libmooncat-limited.js` exports `getMoonCatIdByRescueIndex`, `getCatId`, `getRescueOrder`, `parseCatId`, and typed `getTraits` helpers
+- `LibMoonCat.getMoonCatIdByRescueIndex` / `getCatId` samples map `0`, `82`, `84`, and `25439` to `0x00d658d50b`, `0x0057774705`, `0xff00000ca7`, and `0x0076fe2589`
+- `LibMoonCat.getRescueOrder` samples map those `0x`-prefixed cat IDs back to `0`, `82`, `84`, and `25439`
+- preferred API OpenAPI defines `MoonCatIdentifier` as either a five-byte hex string or decimal index value
+- preferred API numeric samples `0`, `82`, `84`, and `25439` returned bytes5 `catId` values with matching `rescueOrder`
+- preferred API bytes5 samples `0x00d658d50b`, `0x0057774705`, and `0x0076fe2589` returned matching `rescueOrder` values
+- the original MoonCatRescue source declares a public `bytes5[25600] rescueOrder` array and writes cat IDs into that array as cats are rescued or genesis cats are added
+- MoonCatTraits `catIdOf(uint256 rescueOrder)` returns `MCR.rescueOrder(rescueOrder)`
+- MoonCatSVGs rescue-order overloads call `MoonCatRescue.rescueOrder(rescueOrder)` before using the bytes5 cat ID
+
+For current Acclimated MoonCats ERC-721 token IDs, first use the verified current-contract rule that token ID equals rescue order, then use the rescue-order-to-catId lookup method. Do not apply that token-facing conversion to older wrappers or unrelated collections.
+
+The reverse bytes5-to-rescueOrder path is verified through array-backed dataset/library lookup and preferred API samples. No on-chain reverse lookup or closed-form reverse formula is documented here. Checked `LibMoonCat.getRescueOrder` calls used `0x`-prefixed cat IDs; normalize input with `parseCatId` before relying on non-prefixed input behavior.
 
 ## Related Files
 
@@ -81,11 +99,14 @@ For the current Acclimated MoonCats ERC-721 contract, ERC-721 token IDs are resc
 - `data/character-cat-index.json` stores community-curated membership arrays using `rescue-order-index`.
 - `data/rescue-buckets.json` stores canonical-derived rescue/history bucket arrays using `rescue-order-index`.
 - `data/protocol-constants.json` records contract-derived bytes5 cat ID generation notes.
+- `references/upstream/mooncatrescue/README.md` describes local upstream reference files and usage limits.
+- `references/upstream/mooncatrescue/libmooncat-limited.js` is a registered upstream reference copy for array-backed lookup helpers.
+- `references/upstream/mooncatrescue/mooncat_traits.json` is a registered upstream reference copy for the full rescueOrder/catId dataset.
 
 ## Still Needed
 
 - exact derivation method for local rescue-order-index arrays
-- source-backed conversion between rescue-order indexes and bytes5 cat IDs
 - older wrapper token ID convention
 - broader marketplace token ID behavior beyond sampled acclimated URLs
 - accessory ID format and validation rules
+- generated-data method if the full bytes5 catId mapping table is ever promoted from upstream reference copy into curated KB data

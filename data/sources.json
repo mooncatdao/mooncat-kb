@@ -151,6 +151,62 @@
       "notes": "Verified GitLab repository linked from the MoonCatRescue developer page."
     },
     {
+      "id": "mooncatrescue-upstream-readme",
+      "label": "MoonCatRescue upstream reference README",
+      "type": "local-reference",
+      "path": "references/upstream/mooncatrescue/README.md",
+      "trustLevel": "local-reference-index",
+      "status": "active",
+      "supports": [
+        "local upstream reference inventory",
+        "reference usage limits"
+      ],
+      "notes": "Local README for the upstream reference snapshot. It documents that these files are reference inputs, not curated KB data."
+    },
+    {
+      "id": "mooncatrescue-libmooncat-limited-js",
+      "label": "MoonCatRescue libmooncat-limited.js reference",
+      "type": "local-source-copy",
+      "path": "references/upstream/mooncatrescue/libmooncat-limited.js",
+      "trustLevel": "upstream-reference",
+      "status": "reference-copy",
+      "supports": [
+        "LibMoonCat browser bundle",
+        "array-backed rescue order to catId lookup",
+        "array-backed catId to rescue order lookup",
+        "MoonCat trait helper surfaces"
+      ],
+      "notes": "Local upstream reference copy. Checked exports include getMoonCatIdByRescueIndex, getCatId, getRescueOrder, parseCatId, and typed getTraits helpers. The embedded mapping supports lookup behavior; do not copy the full mapping into curated KB data without a focused generated-data pass."
+    },
+    {
+      "id": "mooncatrescue-mooncat-traits-json",
+      "label": "MoonCatRescue mooncat_traits.json reference",
+      "type": "local-dataset-copy",
+      "path": "references/upstream/mooncatrescue/mooncat_traits.json",
+      "trustLevel": "upstream-reference",
+      "status": "reference-copy",
+      "supports": [
+        "25,440-row MoonCat trait dataset",
+        "rescueOrder field",
+        "catId field",
+        "array-backed identifier conversion evidence"
+      ],
+      "notes": "Local upstream reference copy. Validated as JSON and structurally checked as 25,440 rows ordered by rescueOrder with unique catId values; this dataset is not imported into curated KB data."
+    },
+    {
+      "id": "mooncatrescue-mooncatparser-js",
+      "label": "MoonCatRescue mooncatparser.js reference",
+      "type": "local-source-copy",
+      "path": "references/upstream/mooncatrescue/mooncatparser.js",
+      "trustLevel": "upstream-reference",
+      "status": "reference-copy",
+      "supports": [
+        "bytes5 catId parsing input",
+        "MoonCat image parsing behavior"
+      ],
+      "notes": "Local upstream reference copy. Reviewed only for bytes5 catId parser input context in this pass; do not derive trait mappings from it without a separate review."
+    },
+    {
       "id": "ponderware-github",
       "label": "ponderware GitHub",
       "type": "source-code",

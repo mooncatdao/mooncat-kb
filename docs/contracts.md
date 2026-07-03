@@ -42,6 +42,8 @@ The original contract source verifies:
 
 The Acclimated contract source identifies itself as `MoonCatAcclimator`, describes wrapping original MoonCats into an ERC-721/ERC-998-compliant asset, references the original MoonCatRescue contract, and mints token IDs using rescue order.
 
+The original MoonCatRescue source exposes a public `rescueOrder` array that maps rescue-order indexes to bytes5 cat IDs. MoonCatTraits `catIdOf(uint256)` and MoonCatSVGs rescue-order overloads use that original-contract lookup. This verifies a rescue-order-to-catId lookup method, not a reverse on-chain lookup or full imported mapping table.
+
 ## Verified Materialization Function Surfaces
 
 - MoonCatReference: on-chain documentation/reference registry with `doc`, indexed contract lookup, documentation write/update, ownership, and asset-recovery functions.
