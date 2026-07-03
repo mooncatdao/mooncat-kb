@@ -87,6 +87,7 @@
       "key": "look-up-contracts",
       "description": "Find known contract entries, contract-derived constants, and source provenance.",
       "primaryFiles": [
+        "data/contract-surfaces.json",
         "data/contracts.json",
         "data/protocol-constants.json"
       ],
