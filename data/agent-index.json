@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "compact-routing-index",
+  "purpose": "Map common MoonCat technical tasks to the minimum repo files an agent should load.",
+  "defaults": {
+    "loadFirst": [
+      "AGENTS.md"
+    ],
+    "preferDataFiles": true,
+    "notes": [
+      "Use primaryFiles first and load optionalFiles only when the task needs explanation, provenance, or cross-checking.",
+      "This index routes to existing files and does not duplicate endpoint, contract, source, identifier, trait, or membership data.",
+      "If a referenced data file marks a category incomplete, preserve that incomplete status."
+    ]
+  },
+  "tasks": [
+    {
+      "key": "identify-mooncat-ids",
+      "description": "Choose the correct MoonCat identifier form and understand conversion limits.",
+      "primaryFiles": [
+        "data/identifier-conventions.json",
+        "data/protocol-constants.json"
+      ],
+      "optionalFiles": [
+        "docs/identifier-conventions.md",
+        "docs/libmooncat.md",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Do not treat rescue indexes, token IDs, OpenSea IDs, and bytes5 catIds as interchangeable.",
+        "Use docs only when the JSON summary is not enough to explain a conversion or limitation."
+      ]
+    },
+    {
+      "key": "call-api-endpoints",
+      "description": "Find API paths, methods, accepted identifier forms, params, and response kinds.",
+      "primaryFiles": [
+        "data/api-endpoints.json"
+      ],
+      "optionalFiles": [
+        "data/identifier-conventions.json",
+        "data/sources.json",
+        "docs/api-notes.md"
+      ],
+      "notes": [
+        "Use the endpoint manifest as a routing aid, not a substitute for full OpenAPI schemas.",
+        "Check identifier conventions before constructing MoonCat endpoint parameters."
+      ]
+    },
+    {
+      "key": "fetch-traits",
+      "description": "Plan trait lookups and understand current trait data coverage.",
+      "primaryFiles": [
+        "data/api-endpoints.json",
+        "data/trait-index.json",
+        "data/identifier-conventions.json"
+      ],
+      "optionalFiles": [
+        "docs/traits.md",
+        "docs/reference-policy.md",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Machine-readable trait mappings are incomplete in data/.",
+        "Do not import or assume the full upstream trait table unless a focused import pass creates curated data."
+      ]
+    },
+    {
+      "key": "render-images",
+      "description": "Find image-rendering API endpoints and image-related identifier requirements.",
+      "primaryFiles": [
+        "data/api-endpoints.json",
+        "data/identifier-conventions.json"
+      ],
+      "optionalFiles": [
+        "data/protocol-constants.json",
+        "docs/libmooncat.md",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Endpoint image response types and query parameters live in data/api-endpoints.json.",
+        "Parser or library behavior should be checked through optional context before making implementation claims."
+      ]
+    },
+    {
+      "key": "look-up-contracts",
+      "description": "Find known contract entries, contract-derived constants, and source provenance.",
+      "primaryFiles": [
+        "data/contracts.json",
+        "data/protocol-constants.json"
+      ],
+      "optionalFiles": [
+        "docs/contracts.md",
+        "data/sources.json",
+        "docs/source-map.md"
+      ],
+      "notes": [
+        "Do not invent or fill missing contract addresses.",
+        "Use sources.json before relying on non-obvious contract claims."
+      ]
+    },
+    {
+      "key": "check-source-provenance",
+      "description": "Find curated sourceRefs, trust notes, and reference handling policy.",
+      "primaryFiles": [
+        "data/sources.json"
+      ],
+      "optionalFiles": [
+        "docs/reference-policy.md",
+        "docs/source-map.md",
+        "docs/upstream-repositories.md",
+        "data/link-index.json"
+      ],
+      "notes": [
+        "Add or update source entries only in a source-focused pass.",
+        "If sources conflict, document the conflict instead of choosing silently."
+      ]
+    },
+    {
+      "key": "review-trait-schema-strategy",
+      "description": "Review trait-data strategy, observed upstream shape, and promotion limits.",
+      "primaryFiles": [
+        "docs/traits.md",
+        "data/trait-index.json"
+      ],
+      "optionalFiles": [
+        "docs/reference-policy.md",
+        "data/sources.json",
+        "data/identifier-conventions.json"
+      ],
+      "notes": [
+        "This task intentionally loads the Markdown strategy because curated machine-readable trait data is incomplete.",
+        "Avoid promoting full upstream mappings without a separate documented import and validation pass."
+      ]
+    },
+    {
+      "key": "work-with-character-cats",
+      "description": "Find community-curated character-cat definitions, exact memberships, and related hue notes.",
+      "primaryFiles": [
+        "data/character-cats.json",
+        "data/character-cat-index.json"
+      ],
+      "optionalFiles": [
+        "data/color-hues.json",
+        "data/mooncat-types.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Character-cat data is community-curated; preserve trust and coverage notes from the referenced files.",
+        "Use the index file for exact membership numbers rather than copying lists into prompts."
+      ]
+    },
+    {
+      "key": "work-with-rescue-buckets",
+      "description": "Find rescue/history bucket membership arrays and related identifier conventions.",
+      "primaryFiles": [
+        "data/rescue-buckets.json",
+        "data/identifier-conventions.json"
+      ],
+      "optionalFiles": [
+        "data/rescue-ranges.json",
+        "docs/rescue-history.md",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Use the bucket file for existing membership arrays.",
+        "Confirm index kind before mixing bucket memberships with API parameters or token-facing identifiers."
+      ]
+    },
+    {
+      "key": "classify-mooncat-types",
+      "description": "Find top-level MoonCat categories, special-category scaffolds, and color/hue context.",
+      "primaryFiles": [
+        "data/mooncat-types.json",
+        "data/special-cats.json"
+      ],
+      "optionalFiles": [
+        "docs/mooncat-types.md",
+        "data/color-hues.json",
+        "data/character-cats.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Respect incomplete category markers.",
+        "Use character-cat and hue files only when the classification task needs those narrower datasets."
+      ]
+    },
+    {
+      "key": "work-with-colors-and-hues",
+      "description": "Find hue/coating scaffolds, character hue notes, and color-comparison method context.",
+      "primaryFiles": [
+        "data/color-hues.json"
+      ],
+      "optionalFiles": [
+        "docs/color-math.md",
+        "data/character-cats.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Do not infer exact trait mappings from hue notes unless the referenced file explicitly provides them.",
+        "Use docs/color-math.md only when method explanation is needed."
+      ]
+    },
+    {
+      "key": "find-ipfs-and-artifact-urls",
+      "description": "Find curated CID placeholders, project links, and preserved navigation links.",
+      "primaryFiles": [
+        "data/ipfs-cids.json",
+        "data/project-links.json"
+      ],
+      "optionalFiles": [
+        "data/link-index.json",
+        "data/sources.json",
+        "docs/source-map.md"
+      ],
+      "notes": [
+        "Do not promote preserved navigation links into canonical sources without a source-focused review.",
+        "Leave unknown CIDs or URLs incomplete rather than guessing."
+      ]
+    }
+  ]
+}
