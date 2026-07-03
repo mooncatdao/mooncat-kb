@@ -4,6 +4,7 @@ Plain-text and Markdown entrypoints:
 
 - /README.md
 - /AGENTS.md
+- /data/agent-index.json
 - /docs/overview.md
 - /docs/source-map.md
 - /docs/glossary.md
@@ -33,6 +34,7 @@ Plain-text and Markdown entrypoints:
 
 Notes:
 
+- For task-specific agent context, load /data/agent-index.json before broader docs or data files.
 - Use /data/ for exact canonical or curated data.
 - Use /docs/ for explanations and reasoning.
 - Incomplete information is marked explicitly and should not be filled by guesswork.

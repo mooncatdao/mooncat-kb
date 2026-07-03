@@ -4,6 +4,7 @@ Plain-text and Markdown knowledge base for MoonCat technical facts, explanations
 
 Start here:
 
+- `data/agent-index.json` — preferred first load target for task-specific agent context routing
 - `docs/overview.md` — high-level context
 - `docs/source-map.md` — where to find canonical or supporting sources
 - `docs/glossary.md` — short definitions for recurring terms
