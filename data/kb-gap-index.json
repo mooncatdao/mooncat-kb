@@ -1,0 +1,280 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "audit-report",
+  "scope": "Compact agent-usability gap report for existing data files.",
+  "sourceFiles": [
+    "data/agent-index.json",
+    "data/api-endpoints.json",
+    "data/character-cat-index.json",
+    "data/character-cats.json",
+    "data/color-hues.json",
+    "data/contract-surfaces.json",
+    "data/contracts.json",
+    "data/identifier-conventions.json",
+    "data/ipfs-cids.json",
+    "data/link-index.json",
+    "data/mooncat-types.json",
+    "data/project-links.json",
+    "data/protocol-constants.json",
+    "data/rescue-buckets.json",
+    "data/rescue-ranges.json",
+    "data/sources.json",
+    "data/special-cats.json",
+    "data/trait-index.json"
+  ],
+  "method": {
+    "summary": "Reviewed data file status fields, TODO arrays, obvious empty placeholder structures, and data/agent-index.json routing coverage.",
+    "limitations": [
+      "This file does not add MoonCat facts or verify upstream freshness.",
+      "This file does not modify sourceRefs, import datasets, or resolve listed gaps.",
+      "Gap labels are derived from current repo metadata and should be revisited after focused data passes."
+    ]
+  },
+  "routingCoverage": {
+    "agentIndexFile": "data/agent-index.json",
+    "status": "all-current-data-files-routed",
+    "unroutedDataFiles": [],
+    "notes": [
+      "Every current data/*.json file except data/agent-index.json itself is referenced by at least one primaryFiles or optionalFiles route.",
+      "No data/agent-index.json update was needed in this audit."
+    ]
+  },
+  "fileGaps": [
+    {
+      "file": "data/api-endpoints.json",
+      "currentStatus": "openapi-derived-compact",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "freshness-risk",
+        "runtime-behavior-unverified"
+      ],
+      "agentUsabilityImpact": "Useful as a compact endpoint manifest, but agents should not treat it as full OpenAPI schema or verified runtime behavior for content-type edge cases.",
+      "nextDataPass": "Re-sync from registered OpenAPI sources and verify endpoints where declared content type differs from operation description."
+    },
+    {
+      "file": "data/character-cat-index.json",
+      "currentStatus": "community-curated",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "curation-scope-limited",
+        "identifier-convention-risk"
+      ],
+      "agentUsabilityImpact": "Useful for exact community-curated membership arrays, but agents need the index convention before downstream UI/tool use.",
+      "nextDataPass": "Confirm rescue-order-index convention and add premium tier index numbers only if a source file provides them."
+    },
+    {
+      "file": "data/character-cats.json",
+      "currentStatus": "community-curated-incomplete",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "incomplete",
+        "curation-scope-limited"
+      ],
+      "agentUsabilityImpact": "Useful for category definitions and notes, but incomplete for exact memberships and premium counts.",
+      "nextDataPass": "Keep definitions separate from membership arrays and add missing counts only from sourced data."
+    },
+    {
+      "file": "data/color-hues.json",
+      "currentStatus": "community-curated-partial",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "partial",
+        "placeholder-structures"
+      ],
+      "emptyStructures": [
+        "canonicalHues",
+        "specialCoats",
+        "paleHandling.rules",
+        "experimentalAdjustments"
+      ],
+      "agentUsabilityImpact": "Agents can use existing notes cautiously, but canonical hue/coating data is not yet filled.",
+      "nextDataPass": "Verify canonical coat hue names, degree values, special coat categories, and missing character hue ranges with sourceRefs."
+    },
+    {
+      "file": "data/contract-surfaces.json",
+      "currentStatus": "compact-contract-surface-index",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "intentional-compact-scope",
+        "artifact-details-not-imported"
+      ],
+      "agentUsabilityImpact": "Useful for choosing contract/source surfaces, but not a call-signature, ABI, source, bytecode, or internals index.",
+      "nextDataPass": "If exact call signatures are needed, create a separate ABI policy or artifact index instead of expanding this routing file."
+    },
+    {
+      "file": "data/contracts.json",
+      "currentStatus": "partially-verified",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "partial",
+        "internals-not-reviewed"
+      ],
+      "agentUsabilityImpact": "Useful for verified address/source identity records, but not for detailed materialization internals or imported artifact blobs.",
+      "nextDataPass": "Review materialization internals and accessory scope in focused passes before importing derived behavior or artifact references."
+    },
+    {
+      "file": "data/identifier-conventions.json",
+      "currentStatus": "incomplete",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "incomplete",
+        "identifier-convention-risk"
+      ],
+      "agentUsabilityImpact": "Useful for current identifier warnings, but older wrapper conventions and derivation methods remain unresolved.",
+      "nextDataPass": "Document exact local rescue-order-index derivation and separately verify older wrapper token ID conventions."
+    },
+    {
+      "file": "data/ipfs-cids.json",
+      "currentStatus": "needs-verification",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "needs-verification",
+        "placeholder-empty-data"
+      ],
+      "emptyStructures": [
+        "cids"
+      ],
+      "agentUsabilityImpact": "Not yet useful for CID lookup beyond indicating that CID data is unverified.",
+      "nextDataPass": "Verify CIDs from primary project, metadata, or repository sources and record what each CID contains."
+    },
+    {
+      "file": "data/link-index.json",
+      "currentStatus": "incomplete",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "incomplete",
+        "navigation-not-canonical"
+      ],
+      "agentUsabilityImpact": "Useful as preserved navigation/research links, but not a canonical fact source by itself.",
+      "nextDataPass": "Promote any link to sources.json only in a source-focused pass with trust and limitation notes."
+    },
+    {
+      "file": "data/mooncat-types.json",
+      "currentStatus": "partially-verified",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "partial",
+        "classification-boundary-risk"
+      ],
+      "agentUsabilityImpact": "Useful for top-level type scaffolding, but agents must keep community-curated categories separate from official protocol traits.",
+      "nextDataPass": "Clarify derivation methods and identifier conversions before using bucket/type values outside their source context."
+    },
+    {
+      "file": "data/project-links.json",
+      "currentStatus": "partially-verified",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "partial",
+        "trust-notes-incomplete"
+      ],
+      "agentUsabilityImpact": "Useful for project navigation, but not enough for canonical data values or trust-sensitive claims.",
+      "nextDataPass": "Add ownership and trust-level notes for each link while keeping links separate from canonical facts."
+    },
+    {
+      "file": "data/protocol-constants.json",
+      "currentStatus": "partially-verified",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "partial",
+        "derivation-scope-limited"
+      ],
+      "agentUsabilityImpact": "Useful for source-derived constants, but not enough to infer rescue ranges, category membership, or parser behavior beyond recorded constants.",
+      "nextDataPass": "Verify parser source and MD5 workflow before deriving image-generation or trait data."
+    },
+    {
+      "file": "data/rescue-buckets.json",
+      "currentStatus": "canonical-derived-needs-method-note",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "method-note-missing",
+        "identifier-convention-risk"
+      ],
+      "agentUsabilityImpact": "Useful for existing bucket arrays, but needs exact derivation method and identifier conversion boundaries before downstream tooling.",
+      "nextDataPass": "Document the exact source query or derivation method for the imported bucket arrays."
+    },
+    {
+      "file": "data/rescue-ranges.json",
+      "currentStatus": "partially-verified",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "partial",
+        "range-definition-incomplete"
+      ],
+      "agentUsabilityImpact": "Useful as range scaffolding, but early-rescue meanings and identifier conversions remain underspecified.",
+      "nextDataPass": "Define early-rescue ranges by rescue order, block, timestamp, or community convention before using them operationally."
+    },
+    {
+      "file": "data/sources.json",
+      "currentStatus": "incomplete",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "incomplete",
+        "source-method-gaps"
+      ],
+      "agentUsabilityImpact": "Core source index is usable, but source/method entries for derived data and future exact values remain incomplete.",
+      "nextDataPass": "Add derived data entries only after documenting the generating source or method."
+    },
+    {
+      "file": "data/special-cats.json",
+      "currentStatus": "partially-verified",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "partial",
+        "membership-incomplete"
+      ],
+      "agentUsabilityImpact": "Useful as special-category scaffold, but exact memberships and protocol/community boundaries are not fully materialized.",
+      "nextDataPass": "Separate canonical protocol categories from community-curated categories and add exact membership only after source verification."
+    },
+    {
+      "file": "data/trait-index.json",
+      "currentStatus": "schema-metadata-not-trait-dataset",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "intentional-schema-only",
+        "dataset-not-imported"
+      ],
+      "agentUsabilityImpact": "Useful for trait field schema and validation metadata, but not for per-cat trait lookup, frequencies, names, or accessory details.",
+      "nextDataPass": "Define a curated trait data model before promoting normalized per-cat fields into data/."
+    }
+  ],
+  "notableNonGaps": [
+    {
+      "file": "data/agent-index.json",
+      "status": "compact-routing-index",
+      "note": "Current data file routing is complete for data/*.json files present at audit time."
+    }
+  ],
+  "recommendedNextPasses": [
+    {
+      "key": "ipfs-cids-verification",
+      "priority": "high",
+      "reason": "data/ipfs-cids.json is needs-verification with an empty cids array."
+    },
+    {
+      "key": "rescue-bucket-method-note",
+      "priority": "high",
+      "reason": "data/rescue-buckets.json contains useful arrays but explicitly needs derivation/source method documentation."
+    },
+    {
+      "key": "identifier-derivation-boundaries",
+      "priority": "high",
+      "reason": "Several routed files depend on rescue-order/index/token/catId boundaries remaining explicit."
+    },
+    {
+      "key": "color-hue-curation",
+      "priority": "medium",
+      "reason": "data/color-hues.json still has empty canonical hue and special coat structures."
+    },
+    {
+      "key": "project-link-trust-notes",
+      "priority": "medium",
+      "reason": "data/project-links.json is useful navigation but lacks complete ownership and trust notes."
+    },
+    {
+      "key": "trait-curated-model-decision",
+      "priority": "medium",
+      "reason": "data/trait-index.json is schema metadata only; a separate model decision is needed before any curated trait import."
+    }
+  ]
+}
