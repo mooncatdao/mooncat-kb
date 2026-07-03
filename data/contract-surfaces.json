@@ -1,0 +1,374 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "compact-contract-surface-index",
+  "scope": "Agent-facing routing index for known MoonCat contract/source surfaces, derived from existing contract data and docs.",
+  "sourceRefs": [
+    "mooncatrescue-contract-docs",
+    "ponderware-mooncatrescue-sol-raw",
+    "etherscan-original-contract",
+    "etherscan-acclimated-mooncats",
+    "mooncatrescue-log-onchain",
+    "etherscan-mooncat-reference",
+    "etherscan-mooncat-traits",
+    "etherscan-mooncat-colors",
+    "etherscan-mooncat-svgs",
+    "etherscan-mooncat-accessory-images"
+  ],
+  "relatedFiles": [
+    "data/contracts.json",
+    "data/identifier-conventions.json",
+    "data/protocol-constants.json",
+    "data/sources.json",
+    "docs/contracts.md",
+    "docs/reference-policy.md"
+  ],
+  "defaults": {
+    "loadFirst": [
+      "data/contracts.json",
+      "data/identifier-conventions.json"
+    ],
+    "notes": [
+      "Use this file to choose the relevant contract/source surface, then verify exact details in data/contracts.json and the cited sourceRefs.",
+      "Full ABI JSON, Solidity source text, bytecode, constructor args, events, storage layout, CIDs, and artifact blobs are not imported here.",
+      "Function lists are compact lookup names already documented in data/contracts.json, not complete ABIs."
+    ]
+  },
+  "surfaces": [
+    {
+      "key": "original-rescue-lookup",
+      "task": "Look up original MoonCatRescue contract behavior, rescue-order to bytes5 catId lookup, and source-derived protocol constants.",
+      "contracts": [
+        {
+          "contractKey": "mooncatRescue",
+          "contractName": "MoonCatRescue",
+          "address": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+          "sourceRefs": [
+            "mooncatrescue-contract-docs",
+            "ponderware-contract",
+            "ponderware-mooncatrescue-sol-raw",
+            "etherscan-original-contract"
+          ]
+        }
+      ],
+      "role": "Original MoonCatRescue source and deployed mainnet contract.",
+      "usefulLookups": [
+        "rescueOrder"
+      ],
+      "relatedIdentifierForms": [
+        "mooncatIdBytes5",
+        "apiOriginalRescueIndex",
+        "localRescueOrderIndex"
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/protocol-constants.json",
+        "data/identifier-conventions.json"
+      ],
+      "limitations": [
+        "The original contract exposes rescue-order to bytes5 catId lookup through the public rescueOrder array.",
+        "No direct reverse bytes5 catId to rescue-order on-chain lookup is documented here.",
+        "Source and ABI artifacts are linked from data/contracts.json but not imported."
+      ]
+    },
+    {
+      "key": "acclimated-token-identity",
+      "task": "Check current Acclimated MoonCats token identity and wrapper/token-facing identifier scope.",
+      "contracts": [
+        {
+          "contractKey": "acclimatedMoonCats",
+          "contractName": "MoonCatAcclimator",
+          "address": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+          "sourceRefs": [
+            "etherscan-acclimated-mooncats"
+          ]
+        }
+      ],
+      "role": "ERC-721/ERC-998 acclimated wrapper contract for MoonCats.",
+      "usefulLookups": [
+        "wrap",
+        "_wrap"
+      ],
+      "relatedIdentifierForms": [
+        "acclimatedTokenId",
+        "apiOriginalRescueIndex"
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/identifier-conventions.json",
+        "data/api-endpoints.json"
+      ],
+      "limitations": [
+        "Token ID equals rescue order only within the checked Acclimated MoonCats contract scope documented in existing data.",
+        "Older wrapper token ID conventions are not verified here.",
+        "Wrapper source, ABI, and marketplace behavior are not duplicated in this index."
+      ]
+    },
+    {
+      "key": "onchain-reference-registry",
+      "task": "Find the on-chain documentation/reference registry for MoonCat materialization contracts.",
+      "contracts": [
+        {
+          "contractKey": "mooncatReference",
+          "contractName": "MoonCatReference",
+          "address": "0x0B78C64bCE6d6d4447e58b09E53F3621f44A2a48",
+          "sourceRefs": [
+            "mooncatrescue-log-onchain",
+            "etherscan-mooncat-reference"
+          ]
+        }
+      ],
+      "role": "On-chain documentation/reference registry for MoonCat-related contract pages.",
+      "usefulLookups": [
+        "doc",
+        "doc(address)",
+        "doc(uint256)",
+        "contractAddressByIndex",
+        "totalContracts"
+      ],
+      "relatedIdentifierForms": [
+        "contractAddress"
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/sources.json"
+      ],
+      "limitations": [
+        "Stored documentation records are not imported.",
+        "Write/admin functions are not expanded beyond names already summarized in data/contracts.json."
+      ]
+    },
+    {
+      "key": "onchain-traits",
+      "task": "Find on-chain trait lookup surface, compact/human-readable trait accessors, and catId/rescue-order helper context.",
+      "contracts": [
+        {
+          "contractKey": "mooncatTraits",
+          "contractName": "MoonCatTraits",
+          "address": "0x9330BbfBa0C8FdAf0D93717E4405a410a6103cC2",
+          "sourceRefs": [
+            "mooncatrescue-log-onchain",
+            "etherscan-mooncat-traits"
+          ]
+        }
+      ],
+      "role": "On-chain MoonCat trait parsing/reference contract.",
+      "usefulLookups": [
+        "rescueYearOf",
+        "kTraitsOf(bytes5)",
+        "kTraitsOf(uint256)",
+        "traitsOf(bytes5)",
+        "traitsOf(uint256)",
+        "ownerOf",
+        "catIdOf",
+        "nameOf"
+      ],
+      "relatedIdentifierForms": [
+        "mooncatIdBytes5",
+        "apiOriginalRescueIndex",
+        "localRescueOrderIndex"
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/identifier-conventions.json",
+        "data/trait-index.json"
+      ],
+      "limitations": [
+        "No trait mapping table, per-cat trait data, or bit-level derivation is imported.",
+        "Use data/trait-index.json for local reference snapshot schema metadata, not on-chain ABI details.",
+        "Reverse bytes5 catId to rescue-order lookup is not documented as an on-chain surface here."
+      ]
+    },
+    {
+      "key": "onchain-colors",
+      "task": "Find color, hue, glow, palette, and accessory-color helper surfaces.",
+      "contracts": [
+        {
+          "contractKey": "mooncatColors",
+          "contractName": "MoonCatColors",
+          "address": "0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC",
+          "sourceRefs": [
+            "mooncatrescue-log-onchain",
+            "etherscan-mooncat-colors"
+          ]
+        }
+      ],
+      "role": "On-chain MoonCat and accessory color reference/palette-generation contract.",
+      "usefulLookups": [
+        "RGBToHue",
+        "hueToRGB",
+        "deriveColors",
+        "mapColors",
+        "glowOf",
+        "colorsOf",
+        "accessoryColorsOf",
+        "colorAlpha",
+        "paletteOf",
+        "hueName",
+        "hueIntOf"
+      ],
+      "relatedIdentifierForms": [
+        "mooncatIdBytes5",
+        "apiOriginalRescueIndex",
+        "localRescueOrderIndex",
+        "accessoryId"
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/color-hues.json",
+        "data/identifier-conventions.json"
+      ],
+      "limitations": [
+        "No color palette values, hue-name table, or accessory color data is imported.",
+        "Color semantics beyond the documented function surface are out of scope."
+      ]
+    },
+    {
+      "key": "onchain-svg-rendering",
+      "task": "Find SVG image-generation surfaces for bytes5 cat IDs or rescue orders.",
+      "contracts": [
+        {
+          "contractKey": "mooncatSVGs",
+          "contractName": "MoonCatSVGs",
+          "address": "0xB39C61fe6281324A23e079464f7E697F8Ba6968f",
+          "sourceRefs": [
+            "mooncatrescue-log-onchain",
+            "etherscan-mooncat-svgs"
+          ]
+        }
+      ],
+      "role": "On-chain MoonCat SVG image-generation contract.",
+      "usefulLookups": [
+        "imageOf(bytes5)",
+        "imageOf(bytes5,bool)",
+        "imageOf(uint256)",
+        "imageOf(uint256,bool)",
+        "getPattern",
+        "getPixelData",
+        "svgTag",
+        "boundingBox"
+      ],
+      "relatedIdentifierForms": [
+        "mooncatIdBytes5",
+        "apiOriginalRescueIndex",
+        "localRescueOrderIndex"
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/identifier-conventions.json",
+        "data/api-endpoints.json"
+      ],
+      "limitations": [
+        "No SVG coordinate data, pattern arrays, or rendered output is imported.",
+        "Use API endpoint data separately when routing off-chain image requests."
+      ]
+    },
+    {
+      "key": "onchain-accessory-images",
+      "task": "Find accessory image composition, accessory PNG, placement, and PNG helper surfaces.",
+      "contracts": [
+        {
+          "contractKey": "mooncatAccessoryImages",
+          "contractName": "MoonCatAccessoryImages",
+          "address": "0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14",
+          "sourceRefs": [
+            "mooncatrescue-log-onchain",
+            "etherscan-mooncat-accessory-images"
+          ]
+        }
+      ],
+      "role": "On-chain MoonCat accessory image composition and PNG helper contract.",
+      "usefulLookups": [
+        "accessorizedImageOf",
+        "accessoryPNG",
+        "placementOf",
+        "prepAccessories",
+        "crc32",
+        "generatePNGChunk",
+        "PNGHeader",
+        "PNGFooter"
+      ],
+      "relatedIdentifierForms": [
+        "apiOriginalRescueIndex",
+        "localRescueOrderIndex",
+        "accessoryId"
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/identifier-conventions.json",
+        "data/api-endpoints.json"
+      ],
+      "limitations": [
+        "No accessory ID taxonomy, placement table, PNG bytes, accessory image data, or source internals are imported.",
+        "Accessory contract scope beyond MoonCatAccessoryImages remains a separate verification task."
+      ]
+    },
+    {
+      "key": "materialization-helper-review",
+      "task": "Choose which materialization helper contract to inspect before deeper internals work.",
+      "contracts": [
+        {
+          "contractKey": "mooncatReference",
+          "contractName": "MoonCatReference",
+          "address": "0x0B78C64bCE6d6d4447e58b09E53F3621f44A2a48"
+        },
+        {
+          "contractKey": "mooncatTraits",
+          "contractName": "MoonCatTraits",
+          "address": "0x9330BbfBa0C8FdAf0D93717E4405a410a6103cC2"
+        },
+        {
+          "contractKey": "mooncatColors",
+          "contractName": "MoonCatColors",
+          "address": "0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC"
+        },
+        {
+          "contractKey": "mooncatSVGs",
+          "contractName": "MoonCatSVGs",
+          "address": "0xB39C61fe6281324A23e079464f7E697F8Ba6968f"
+        },
+        {
+          "contractKey": "mooncatAccessoryImages",
+          "contractName": "MoonCatAccessoryImages",
+          "address": "0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14"
+        }
+      ],
+      "role": "Official on-chain materialization support surfaces linked from the MoonCatRescue Chained to the Future log and represented in data/contracts.json.",
+      "usefulLookups": [
+        "doc",
+        "setReferenceContract",
+        "transferOwnership",
+        "withdrawForeignERC20",
+        "withdrawForeignERC721"
+      ],
+      "relatedIdentifierForms": [
+        "contractAddress",
+        "mooncatIdBytes5",
+        "apiOriginalRescueIndex",
+        "localRescueOrderIndex",
+        "accessoryId"
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/sources.json",
+        "docs/contracts.md"
+      ],
+      "limitations": [
+        "This is a routing grouping only; it does not imply identical interfaces across all contracts.",
+        "Detailed internals, storage, and output data require a focused review of the cited sourceRefs."
+      ]
+    }
+  ],
+  "limitations": [
+    "This file is a compact routing index, not canonical contract data; canonical address records remain in data/contracts.json.",
+    "No full ABI JSON, Solidity source text, bytecode, constructor args, events, storage layout, CIDs, or contract artifacts are imported.",
+    "No new contract addresses or unregistered sourceRefs are introduced.",
+    "Function names are limited to names already summarized in data/contracts.json and docs/contracts.md.",
+    "Check data/sources.json and sourceRefs before relying on non-obvious contract claims."
+  ],
+  "todos": [
+    "If agents need exact call signatures, add a separate ABI policy or artifact index instead of expanding this routing file.",
+    "Review materialization internals in focused passes before importing trait derivation, color palette, SVG coordinate, or accessory image data.",
+    "Verify accessory contract scope separately before adding any additional accessory-related contract surfaces."
+  ]
+}
