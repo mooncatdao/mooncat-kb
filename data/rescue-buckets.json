@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "canonical-derived-needs-method-note",
+  "status": "canonical-derived-method-noted-limited-evidence",
   "canonical": true,
   "trustLevel": "canonical-derived",
   "indexKind": "rescue-order-index",
@@ -9,7 +9,7 @@
   "provenance": {
     "sources": ["mooncat-rescueorder-by-category"],
     "sourceFile": "mooncat_rescueOrder_by_category.json",
-    "notes": "Imported materialized rescue/history bucket membership arrays from the local JSON artifact. These buckets are deterministic/canonical-derived when derived from blockchain rescue order and timestamps, but this file is a derived artifact and still needs an explicit derivation method note. Values are rescue-order-index values, not token IDs, bytes5 catIds, OpenSea IDs, or contract call values."
+    "notes": "Imported materialized rescue/history bucket membership arrays from the local JSON artifact. Values are rescue-order-index values, not token IDs, bytes5 catIds, OpenSea IDs, or contract call values. Current method note records UTC rescue-time boundary evidence from a user-provided MoonCat Discord FAQ note; this pass did not independently verify the transaction hashes on-chain."
   },
   "import": {
     "includedSourceKeys": ["sub100", "day1", "week1", "2017", "2018", "2019", "2020", "genesis"],
@@ -605,10 +605,77 @@
       "notes": "Canonical-derived protocol/category bucket for Genesis rescue-order-index values. This is separate from protocol Genesis supply/generation constants and is not a bytes5 catId list."
     }
   },
-  "todos": ["Document the exact derivation method/source query that produced mooncat_rescueOrder_by_category.json.", "Define any conversion from rescue-order-index to catId, token ID, bytes5 catId, OpenSea ID, or contract-facing identifiers before downstream use.", "Keep these bucket arrays separate from character-cat membership arrays."],
+  "todos": [
+    "Independently verify the Discord FAQ UTC cutoff transaction hashes/timestamps against chain data before upgrading this method evidence to canonical-onchain.",
+    "Define any conversion from rescue-order-index to catId, token ID, bytes5 catId, OpenSea ID, or contract-facing identifiers before downstream use.",
+    "Keep these bucket arrays separate from character-cat membership arrays."
+  ],
   "derivation": {
-    "status": "needs-method-note",
-    "notes": "Document the exact chain/query method that produced mooncat_rescueOrder_by_category.json before downstream tools treat this artifact as fully reproducible."
+    "status": "method-note-added-limited-evidence",
+    "identifierSpace": "rescue-order-index",
+    "methodSummary": "Bucket arrays are materialized as rescue-order/rescue-index numbers. Calendar-year and first-week/day buckets use UTC rescue-time boundaries from the provided MoonCat Discord FAQ note, checked here only against existing contiguous array ranges.",
+    "evidence": {
+      "kind": "user-provided-mooncat-discord-faq-note",
+      "trustLevel": "limited-community-note-unverified-in-this-pass",
+      "independentlyVerifiedOnChain": false,
+      "notes": "Use as method/provenance evidence for the existing derived arrays, not as a newly registered canonical source."
+    },
+    "yearCutoffsUtc": [
+      {
+        "bucket": "rescued2017",
+        "lastRescueOrder": 3364,
+        "utc": "2017-12-31T20:25:11Z",
+        "txHash": "0x63a6cd6ef959b8681be4a2bff75c2347c955a14f7d01fab27902f400ea8ccbec",
+        "matchesExistingBucketMax": true
+      },
+      {
+        "bucket": "rescued2018",
+        "lastRescueOrder": 5683,
+        "utc": "2018-12-28T02:06:22Z",
+        "txHash": "0x07e99f08ee54ebf5b060a4754b23daef7c0a1bc7aff256feb7baa93c70a0736f",
+        "matchesExistingBucketMax": true
+      },
+      {
+        "bucket": "rescued2019",
+        "lastRescueOrder": 5754,
+        "utc": "2019-11-19T04:17:26Z",
+        "txHash": "0xc7ab1229b431ad6a1e1d438aa7898c04212ee3092d1882e25ee2f99d3670871b",
+        "matchesExistingBucketMax": true
+      },
+      {
+        "bucket": "rescued2020",
+        "lastRescueOrder": 5757,
+        "utc": "2020-12-12T14:41:00Z",
+        "txHash": "0xc1ddc08997fe5a3bf2df94980ba3e3bcf460c7742a651d4ce64dd90495720a9a",
+        "matchesExistingBucketMax": true
+      }
+    ],
+    "firstWeekUtcRanges": [
+      {"utcDate": "2017-08-10", "startRescueOrder": 0, "endRescueOrder": 491},
+      {"utcDate": "2017-08-11", "startRescueOrder": 492, "endRescueOrder": 903},
+      {"utcDate": "2017-08-12", "startRescueOrder": 904, "endRescueOrder": 1132},
+      {"utcDate": "2017-08-13", "startRescueOrder": 1133, "endRescueOrder": 1177},
+      {"utcDate": "2017-08-14", "startRescueOrder": 1178, "endRescueOrder": 1353},
+      {"utcDate": "2017-08-15", "startRescueOrder": 1354, "endRescueOrder": 1442},
+      {"utcDate": "2017-08-16", "startRescueOrder": 1443, "endRescueOrder": 1568}
+    ],
+    "rangeChecksAgainstExistingBuckets": {
+      "day1": {"expectedMin": 0, "expectedMax": 491, "matchesExistingBucketRange": true},
+      "week1": {"expectedMin": 0, "expectedMax": 1568, "matchesExistingBucketRange": true},
+      "rescued2017": {"expectedMin": 0, "expectedMax": 3364, "matchesExistingBucketRange": true},
+      "rescued2018": {"expectedMin": 3365, "expectedMax": 5683, "matchesExistingBucketRange": true},
+      "rescued2019": {"expectedMin": 5684, "expectedMax": 5754, "matchesExistingBucketRange": true},
+      "rescued2020": {"expectedMin": 5755, "expectedMax": 5757, "matchesExistingBucketRange": true}
+    },
+    "limitations": [
+      "This pass did not verify transaction hashes or timestamps directly on-chain.",
+      "The local source artifact and existing bucket arrays are unchanged.",
+      "These values are rescue-order/rescue-index numbers only; use data/identifier-conventions.json before converting to bytes5 catIds, ERC-721 token IDs, OpenSea IDs, or contract call values."
+    ]
   },
-  "warnings": ["rescue-order-index values are not interchangeable with token IDs, bytes5 catIds, OpenSea IDs, or contract call values.", "Downstream tools need a verified conversion or mapping step before using these values outside rescue-order context."]
+  "warnings": [
+    "Bucket indexes are rescue-order/rescue-index numbers, not bytes5 catIds, ERC-721 token IDs, OpenSea IDs, or contract call values.",
+    "rescue-order-index values are not interchangeable with token IDs, bytes5 catIds, OpenSea IDs, or contract call values.",
+    "Downstream tools need a verified conversion or mapping step before using these values outside rescue-order context."
+  ]
 }

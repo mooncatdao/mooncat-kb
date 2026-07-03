@@ -1,14 +1,14 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "partially-verified",
+  "status": "partially-verified-method-noted-limited-evidence",
   "bucketData": "data/rescue-buckets.json",
   "provenance": {
     "sources": [
       "ponderware-mooncatrescue-sol-raw",
       "mooncat-rescueorder-by-category"
     ],
-    "notes": "Supply counts are contract-derived. Materialized rescue/history bucket membership lives in data/rescue-buckets.json and is canonical-derived once the rescue-order-index convention and derivation method are accepted. Rescue-order indexes are not token IDs or bytes5 catIds."
+    "notes": "Supply counts are contract-derived. Materialized rescue/history bucket membership lives in data/rescue-buckets.json. Calendar-year and first-week/day bucket method notes now record UTC rescue-time boundary evidence from a user-provided MoonCat Discord FAQ note; this pass did not independently verify those transaction hashes on-chain. Rescue-order indexes are not token IDs or bytes5 catIds."
   },
   "ranges": [
     {
@@ -56,10 +56,80 @@
     "sourceRefs": "References to data/sources.json entries."
   },
   "todos": [
-    "Document the exact derivation method/source query for rescue bucket membership.",
-    "Define early-rescue ranges separately by rescue order, block, timestamp, or community convention.",
+    "Independently verify the Discord FAQ UTC cutoff transaction hashes/timestamps against chain data before upgrading this method evidence to canonical-onchain.",
+    "Define early-rescue ranges separately by rescue order, block, timestamp, or community convention where needed beyond existing bucket arrays.",
     "Define any conversion from rescue-order-index to catId/token-facing identifiers before downstream use.",
     "Keep materialized bucket arrays in data/rescue-buckets.json rather than duplicating them here."
   ],
-  "bucketDataStatus": "canonical-derived-needs-method-note"
+  "bucketDataStatus": "canonical-derived-method-noted-limited-evidence",
+  "bucketBoundaryMethod": {
+    "status": "limited-method-evidence-recorded",
+    "bucketData": "data/rescue-buckets.json",
+    "identifierSpace": "rescue-order-index",
+    "basis": "UTC rescue-time boundaries from user-provided MoonCat Discord FAQ note",
+    "trustLevel": "limited-community-note-unverified-in-this-pass",
+    "independentlyVerifiedOnChain": false,
+    "yearCutoffLastRescueOrders": {
+      "2017": 3364,
+      "2018": 5683,
+      "2019": 5754,
+      "2020": 5757
+    },
+    "firstWeekUtcRanges": [
+      {
+        "utcDate": "2017-08-10",
+        "range": [
+          0,
+          491
+        ]
+      },
+      {
+        "utcDate": "2017-08-11",
+        "range": [
+          492,
+          903
+        ]
+      },
+      {
+        "utcDate": "2017-08-12",
+        "range": [
+          904,
+          1132
+        ]
+      },
+      {
+        "utcDate": "2017-08-13",
+        "range": [
+          1133,
+          1177
+        ]
+      },
+      {
+        "utcDate": "2017-08-14",
+        "range": [
+          1178,
+          1353
+        ]
+      },
+      {
+        "utcDate": "2017-08-15",
+        "range": [
+          1354,
+          1442
+        ]
+      },
+      {
+        "utcDate": "2017-08-16",
+        "range": [
+          1443,
+          1568
+        ]
+      }
+    ],
+    "limitations": [
+      "This records method evidence for existing bucket arrays; it does not duplicate memberships from data/rescue-buckets.json.",
+      "This pass did not verify the Discord FAQ note against chain data.",
+      "Use data/identifier-conventions.json before converting rescue-order indexes to other identifier spaces."
+    ]
+  }
 }
