@@ -33,6 +33,22 @@
         "ponderware-mooncatrescue-sol-raw",
         "etherscan-original-contract"
       ],
+      "artifactUrls": [
+        {
+          "kind": "etherscan-source-and-abi-page",
+          "url": "https://etherscan.io/address/0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6#code",
+          "sourceRef": "etherscan-original-contract",
+          "checked": "2026-07-03",
+          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+        },
+        {
+          "kind": "raw-solidity-source",
+          "url": "https://raw.githubusercontent.com/ponderware/MoonCatRescue-Contract/master/contracts/MoonCatRescue.sol",
+          "sourceRef": "ponderware-mooncatrescue-sol-raw",
+          "checked": "2026-07-03",
+          "notes": "Raw Solidity source reference for the original contract. Source text is not duplicated in this file."
+        }
+      ],
       "relatedData": [
         "data/protocol-constants.json"
       ],
@@ -48,6 +64,15 @@
       "trustLevel": "strong",
       "sourceRefs": [
         "etherscan-acclimated-mooncats"
+      ],
+      "artifactUrls": [
+        {
+          "kind": "etherscan-source-and-abi-page",
+          "url": "https://etherscan.io/address/0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69#code",
+          "sourceRef": "etherscan-acclimated-mooncats",
+          "checked": "2026-07-03",
+          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+        }
       ],
       "projectLinkRefs": [
         "looksrareAcclimatedMooncats",
@@ -72,6 +97,15 @@
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-reference"
       ],
+      "artifactUrls": [
+        {
+          "kind": "etherscan-source-and-abi-page",
+          "url": "https://etherscan.io/address/0x0B78C64bCE6d6d4447e58b09E53F3621f44A2a48#code",
+          "sourceRef": "etherscan-mooncat-reference",
+          "checked": "2026-07-03",
+          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+        }
+      ],
       "roleSummary": "On-chain documentation/reference registry for MoonCat-related contract pages.",
       "functionSummary": [
         "doc() and doc(address) expose stored name, description, and details records.",
@@ -95,6 +129,15 @@
       "sourceRefs": [
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-traits"
+      ],
+      "artifactUrls": [
+        {
+          "kind": "etherscan-source-and-abi-page",
+          "url": "https://etherscan.io/address/0x9330BbfBa0C8FdAf0D93717E4405a410a6103cC2#code",
+          "sourceRef": "etherscan-mooncat-traits",
+          "checked": "2026-07-03",
+          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+        }
       ],
       "roleSummary": "On-chain MoonCat trait parsing/reference contract.",
       "functionSummary": [
@@ -122,6 +165,15 @@
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-colors"
       ],
+      "artifactUrls": [
+        {
+          "kind": "etherscan-source-and-abi-page",
+          "url": "https://etherscan.io/address/0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC#code",
+          "sourceRef": "etherscan-mooncat-colors",
+          "checked": "2026-07-03",
+          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+        }
+      ],
       "roleSummary": "On-chain MoonCat and accessory color reference/palette-generation contract.",
       "functionSummary": [
         "RGBToHue(...), hueToRGB(...), and deriveColors(...) provide RGB/HSL hue and palette-generation helpers.",
@@ -146,6 +198,15 @@
       "sourceRefs": [
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-svgs"
+      ],
+      "artifactUrls": [
+        {
+          "kind": "etherscan-source-and-abi-page",
+          "url": "https://etherscan.io/address/0xB39C61fe6281324A23e079464f7E697F8Ba6968f#code",
+          "sourceRef": "etherscan-mooncat-svgs",
+          "checked": "2026-07-03",
+          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+        }
       ],
       "roleSummary": "On-chain MoonCat SVG image-generation contract.",
       "functionSummary": [
@@ -172,6 +233,15 @@
         "mooncatrescue-log-onchain",
         "etherscan-mooncat-accessory-images"
       ],
+      "artifactUrls": [
+        {
+          "kind": "etherscan-source-and-abi-page",
+          "url": "https://etherscan.io/address/0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14#code",
+          "sourceRef": "etherscan-mooncat-accessory-images",
+          "checked": "2026-07-03",
+          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+        }
+      ],
       "roleSummary": "On-chain MoonCat accessory image composition and PNG helper contract.",
       "functionSummary": [
         "accessorizedImageOf(...) overloads return accessorized image strings for a rescue order, optionally with glow level, explicit accessory data, and an allowUnverified flag.",
@@ -191,6 +261,6 @@
   "todos": [
     "Review detailed internals of MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages before importing trait mappings, color data, SVG output behavior, accessory image data, or accessory image semantics.",
     "Verify accessory ID format and related accessory contract behavior separately.",
-    "Document ABI/source artifact URLs in a focused contract-source pass."
+    "Review whether direct Etherscan API artifact endpoints should be documented separately; this file currently records source-and-ABI page URLs, not API responses or artifact blobs."
   ]
 }

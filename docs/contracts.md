@@ -14,6 +14,8 @@ The MoonCatRescue log page `Chained to the Future` is registered as official con
 
 The five materialization contract records now include conservative role/function summaries. These summaries describe the verified public function surface only. They do **not** import trait mappings, color palettes, SVG coordinate data, accessory image bytes, accessory ID taxonomy, ABI blobs, or identifier conversion rules.
 
+The contract records also include `artifactUrls` metadata for checked source/ABI reference pages. These URLs point to Etherscan source-and-ABI pages, and for the original MoonCatRescue contract also to the registered raw GitHub Solidity source. The KB treats those URLs as references only; ABI JSON, Solidity source text, bytecode, constructor arguments, storage values, CIDs, and other artifact blobs are intentionally not imported.
+
 Imported source-derived protocol constants live in `data/protocol-constants.json`.
 
 ## Verified from source
@@ -52,7 +54,7 @@ These are role/function-level summaries only. Detailed derivation logic and outp
 
 ## Not yet verified here
 
-- detailed ABI artifact source
+- direct Etherscan API artifact endpoint policy beyond source-and-ABI page links
 - accessory contract scope beyond MoonCatAccessoryImages address/source identity
 - detailed on-chain materialization internals beyond role/function summaries
 - trait derivation tables or bit-level mappings
