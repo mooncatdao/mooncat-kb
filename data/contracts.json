@@ -1,20 +1,22 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "needs-verification",
+  "status": "partially-verified",
   "provenance": {
-    "sources": ["repo-context"],
-    "notes": "Contract names are placeholders from local planning context. No addresses are verified."
+    "sources": ["mooncatrescue-contract-docs", "ponderware-contract", "ponderware-mooncatrescue-sol-raw"],
+    "notes": "Original contract source is verified, but deployment address and network metadata are still intentionally unfilled."
   },
   "contracts": [
     {
       "key": "mooncatRescue",
       "label": "MoonCatRescue contract",
+      "contractName": "MoonCatRescue",
       "network": null,
       "address": null,
-      "status": "needs-verification",
-      "sourceRefs": [],
-      "notes": "Do not fill without a verified primary source."
+      "status": "source-verified-address-needed",
+      "sourceRefs": ["mooncatrescue-contract-docs", "ponderware-contract", "ponderware-mooncatrescue-sol-raw"],
+      "relatedData": ["data/protocol-constants.json"],
+      "notes": "Original Solidity source is verified. Do not fill address/network without a verified deployment source."
     },
     {
       "key": "accessoryOrWrapperContracts",
@@ -27,7 +29,7 @@
     }
   ],
   "todos": [
-    "Verify official contract addresses and networks from primary sources.",
+    "Verify official deployed contract addresses and networks from primary sources.",
     "Add ABI/source links only after URL verification.",
     "Document contract roles in docs/contracts.md."
   ]

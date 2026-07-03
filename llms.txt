@@ -24,6 +24,7 @@ Plain-text and Markdown entrypoints:
 - /data/ipfs-cids.json
 - /data/api-endpoints.json
 - /data/project-links.json
+- /data/protocol-constants.json
 
 Notes:
 

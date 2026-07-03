@@ -1,55 +1,95 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "needs-verification",
+  "status": "partially-verified",
   "provenance": {
-    "sources": ["repo-context", "repo-source-map"],
-    "notes": "Project link labels are placeholders. URLs must be verified before use."
+    "sources": ["repo-context", "repo-source-map", "mooncatrescue-build"],
+    "notes": "Verified project URLs are recorded here. Unverified project labels remain explicit placeholders."
   },
   "links": [
     {
       "key": "mooncatRescueWebsite",
       "label": "MoonCatRescue website",
-      "url": null,
+      "url": "https://mooncatrescue.com/",
       "type": "primary",
-      "status": "needs-verification",
-      "sourceRefs": []
+      "status": "verified",
+      "trustLevel": "primary",
+      "sourceRefs": ["mooncatrescue-website"]
+    },
+    {
+      "key": "mooncatCommunityWebsite",
+      "label": "MoonCatCommunity website",
+      "url": "https://mooncat.community/",
+      "type": "community",
+      "status": "verified",
+      "trustLevel": "community-maintained",
+      "sourceRefs": ["mooncat-community-website"]
     },
     {
       "key": "mooncatRescueGitLab",
       "label": "MoonCatRescue GitLab group",
-      "url": null,
-      "type": "primary",
-      "status": "needs-verification",
-      "sourceRefs": []
+      "url": "https://gitlab.com/mooncatrescue",
+      "type": "source-code",
+      "status": "verified",
+      "trustLevel": "strong",
+      "sourceRefs": ["mooncatrescue-gitlab"]
     },
     {
       "key": "chainStationSource",
       "label": "ChainStation source",
-      "url": null,
-      "type": "primary-or-strong",
-      "status": "needs-verification",
-      "sourceRefs": []
+      "url": "https://gitlab.com/mooncatrescue/chainstation-web/",
+      "type": "source-code",
+      "status": "verified",
+      "trustLevel": "strong",
+      "sourceRefs": ["chainstation-source"]
     },
     {
       "key": "libMoonCat",
       "label": "LibMoonCat",
-      "url": null,
-      "type": "primary-or-strong",
-      "status": "needs-verification",
-      "sourceRefs": []
+      "url": "https://gitlab.com/ponderware/libmooncat",
+      "type": "source-code",
+      "status": "verified",
+      "trustLevel": "strong",
+      "sourceRefs": ["libmooncat"]
+    },
+    {
+      "key": "ponderwareGithub",
+      "label": "ponderware GitHub",
+      "url": "https://github.com/ponderware",
+      "type": "source-code",
+      "status": "verified",
+      "trustLevel": "historical-primary",
+      "sourceRefs": ["ponderware-github"]
+    },
+    {
+      "key": "mooncatParser",
+      "label": "ponderware mooncatparser",
+      "url": "https://github.com/ponderware/mooncatparser",
+      "type": "source-code",
+      "status": "verified",
+      "trustLevel": "historical-primary",
+      "sourceRefs": ["ponderware-mooncatparser"]
+    },
+    {
+      "key": "mooncatRescueContractSource",
+      "label": "ponderware MoonCatRescue contract repository",
+      "url": "https://github.com/ponderware/MoonCatRescue-Contract",
+      "type": "source-code",
+      "status": "verified",
+      "trustLevel": "historical-primary",
+      "sourceRefs": ["ponderware-contract"]
     },
     {
       "key": "mooncatDaoRepositories",
       "label": "MoonCat DAO repositories",
-      "url": null,
+      "url": "https://github.com/mooncatdao",
       "type": "community-maintained",
-      "status": "needs-verification",
-      "sourceRefs": []
+      "status": "verified",
+      "trustLevel": "community-maintained",
+      "sourceRefs": ["mooncat-dao-github"]
     }
   ],
   "todos": [
-    "Verify URLs before filling them in.",
     "Add ownership and trust-level notes for each link.",
     "Keep project links separate from canonical data values."
   ]

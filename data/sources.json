@@ -38,10 +38,130 @@
       "supports": ["source categories", "trust levels", "provenance rules"],
       "status": "active",
       "notes": "Local guidance for source classification; not canonical MoonCat data."
+    },
+    {
+      "id": "mooncatrescue-website",
+      "label": "MoonCatRescue website",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/",
+      "trustLevel": "primary",
+      "status": "verified",
+      "supports": ["project overview", "current project pages", "developer documentation entrypoints"],
+      "notes": "Verified public MoonCatRescue site. Use as an entrypoint, not as a substitute for exact contract or parser data."
+    },
+    {
+      "id": "mooncat-community-website",
+      "label": "MoonCatCommunity website",
+      "type": "community",
+      "url": "https://mooncat.community/",
+      "trustLevel": "community-maintained",
+      "status": "verified",
+      "supports": ["community overview", "project history entrypoints", "links to MoonCatRescue pages"],
+      "notes": "Verified community site. Treat as contextual unless a claim is backed by a primary source."
+    },
+    {
+      "id": "mooncatrescue-build",
+      "label": "Build with MoonCats",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/build-with-mooncats",
+      "trustLevel": "primary",
+      "status": "verified",
+      "supports": ["developer source links", "contract documentation link", "IPFS support notes", "parser source link"],
+      "notes": "Verified MoonCatRescue developer page. It points to source repositories, contract docs, and IPFS-related resources."
+    },
+    {
+      "id": "mooncatrescue-contract-docs",
+      "label": "MoonCatRescue Contract Documentation",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/contract-docs",
+      "trustLevel": "primary",
+      "status": "verified",
+      "supports": ["contract roles", "contract documentation entrypoint"],
+      "notes": "Verified contract documentation page. Exact addresses still need deliberate extraction before data files are filled."
+    },
+    {
+      "id": "mooncatrescue-gitlab",
+      "label": "MoonCatRescue GitLab group",
+      "type": "source-code",
+      "url": "https://gitlab.com/mooncatrescue",
+      "trustLevel": "strong",
+      "status": "verified",
+      "supports": ["MoonCatRescue code repositories", "ChainStation source", "developer tooling"],
+      "notes": "Verified GitLab group for MoonCatRescue tools, websites, and contracts."
+    },
+    {
+      "id": "chainstation-source",
+      "label": "ChainStation source",
+      "type": "source-code",
+      "url": "https://gitlab.com/mooncatrescue/chainstation-web/",
+      "trustLevel": "strong",
+      "status": "verified",
+      "supports": ["MoonCatRescue website source", "web app behavior", "ecosystem contract interactions"],
+      "notes": "Verified GitLab repository for the ChainStation web application."
+    },
+    {
+      "id": "libmooncat",
+      "label": "libMoonCat",
+      "type": "source-code",
+      "url": "https://gitlab.com/ponderware/libmooncat",
+      "trustLevel": "strong",
+      "status": "verified",
+      "supports": ["MoonCat parsing library", "MoonCat data handling", "accessory handling"],
+      "notes": "Verified GitLab repository linked from the MoonCatRescue developer page."
+    },
+    {
+      "id": "ponderware-github",
+      "label": "ponderware GitHub",
+      "type": "source-code",
+      "url": "https://github.com/ponderware",
+      "trustLevel": "historical-primary",
+      "status": "verified",
+      "supports": ["historical MoonCatRescue repositories", "original parser repository", "original contract repository"],
+      "notes": "Verified GitHub account linked from the MoonCatRescue developer page for historical original-code context."
+    },
+    {
+      "id": "ponderware-mooncatparser",
+      "label": "ponderware mooncatparser",
+      "type": "source-code",
+      "url": "https://github.com/ponderware/mooncatparser",
+      "trustLevel": "historical-primary",
+      "status": "verified",
+      "supports": ["original MoonCat generation parser", "catId-to-image parsing behavior"],
+      "notes": "Verified repository describing itself as the official MoonCat generation library. Do not derive trait mappings without a separate review."
+    },
+    {
+      "id": "ponderware-contract",
+      "label": "ponderware MoonCatRescue contract repository",
+      "type": "source-code",
+      "url": "https://github.com/ponderware/MoonCatRescue-Contract",
+      "trustLevel": "historical-primary",
+      "status": "verified",
+      "supports": ["original MoonCatRescue contract source"],
+      "notes": "Verified repository describing itself as the official MoonCatRescue Ethereum smart contract. Exact addresses remain intentionally unfilled."
+    },
+    {
+      "id": "ponderware-mooncatrescue-sol-raw",
+      "label": "MoonCatRescue.sol raw source",
+      "type": "source-code",
+      "url": "https://raw.githubusercontent.com/ponderware/MoonCatRescue-Contract/master/contracts/MoonCatRescue.sol",
+      "trustLevel": "historical-primary",
+      "status": "verified",
+      "supports": ["contract constants", "cat ID generation", "genesis cat generation", "parser MD5 reference"],
+      "notes": "Raw Solidity source used for the first protocol-constants import pass."
+    },
+    {
+      "id": "mooncat-dao-github",
+      "label": "MoonCat DAO GitHub",
+      "type": "source-code",
+      "url": "https://github.com/mooncatdao",
+      "trustLevel": "community-maintained",
+      "status": "verified",
+      "supports": ["DAO repositories", "community-maintained code and docs"],
+      "notes": "Verified GitHub URL provided by the user. Treat repository contents according to their own provenance before deriving canonical data."
     }
   ],
   "todos": [
-    "Verify and add primary MoonCat protocol/project sources before adding exact IDs, contracts, CIDs, or trait mappings.",
+    "Extract exact contract addresses, CIDs, API endpoints, IDs, and trait mappings only in focused follow-up passes.",
     "Add derived data entries only after documenting the generating source or method."
   ]
 }

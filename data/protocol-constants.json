@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "partially-verified",
+  "provenance": {
+    "sources": ["ponderware-contract", "ponderware-mooncatrescue-sol-raw"],
+    "notes": "Initial protocol constants extracted from the original MoonCatRescue Solidity source. Deployment address is intentionally not included here."
+  },
+  "contractSource": {
+    "contractName": "MoonCatRescue",
+    "solidityVersion": "^0.4.13",
+    "sourceRefs": ["ponderware-mooncatrescue-sol-raw"]
+  },
+  "supply": {
+    "totalSupply": 25600,
+    "initialRemainingRescueCats": 25344,
+    "maxGenesisCats": 256,
+    "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+    "notes": "The source initializes totalSupply to 25,600, remainingCats to 25,600 - 256, and remainingGenesisCats to 256. A nearby source comment says '25,000 cats', but the numeric code is recorded here."
+  },
+  "catId": {
+    "type": "bytes5",
+    "normalCatGeneration": {
+      "status": "verified-from-source",
+      "summary": "Normal rescue cat IDs are derived from keccak256(seed, searchSeed) when the first three bytes of the hash are zero; the catId uses the last four bytes plus one byte to indicate genesis status.",
+      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"]
+    },
+    "genesisCatGeneration": {
+      "status": "verified-from-source",
+      "formula": "(bytes5(genesisCatIndex) << 24) | 0xff00000ca7",
+      "batchSize": 16,
+      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"]
+    }
+  },
+  "parserVerification": {
+    "imageGenerationCodeMD5": "0xdbad5c08ec98bec48490e3c196eec683",
+    "purpose": "The contract source says this MD5 is used to verify mooncatparser.js, the cat image data generation JavaScript file.",
+    "sourceRefs": ["ponderware-mooncatrescue-sol-raw"]
+  },
+  "contractState": {
+    "modes": ["Inactive", "Disabled", "Test", "Live"],
+    "initialMode": "Inactive",
+    "sourceRefs": ["ponderware-mooncatrescue-sol-raw"]
+  },
+  "todos": [
+    "Verify deployed contract address separately before adding it to data/contracts.json.",
+    "Verify parser source and MD5 workflow before deriving image-generation or trait data.",
+    "Do not infer exact rescue-order ranges or category membership from these constants alone."
+  ]
+}

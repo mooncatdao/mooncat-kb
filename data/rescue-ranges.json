@@ -1,22 +1,53 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "incomplete",
+  "status": "partially-verified",
   "provenance": {
-    "sources": ["repo-context"],
-    "notes": "No rescue ranges or historical thresholds are verified in this repository."
+    "sources": ["ponderware-mooncatrescue-sol-raw"],
+    "notes": "Supply counts are verified from contract constants. Rescue-order thresholds, blocks, timestamps, and community early-rescue ranges are not yet defined."
   },
-  "ranges": [],
+  "ranges": [
+    {
+      "key": "normalRescueSupply",
+      "label": "Normal rescue cat supply",
+      "basis": "contract-constant",
+      "count": 25344,
+      "status": "verified-from-source",
+      "criteria": "Initial remainingCats value in the contract source: 25600 - 256.",
+      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "notes": "This is a supply count, not a rescue-order range or list of IDs."
+    },
+    {
+      "key": "genesisSupply",
+      "label": "Genesis cat supply cap",
+      "basis": "contract-constant",
+      "count": 256,
+      "status": "verified-from-source",
+      "criteria": "Initial remainingGenesisCats value in the contract source.",
+      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "notes": "This is a maximum/supply cap, not a list of Genesis IDs."
+    },
+    {
+      "key": "totalSupply",
+      "label": "Total MoonCat supply",
+      "basis": "contract-constant",
+      "count": 25600,
+      "status": "verified-from-source",
+      "criteria": "totalSupply value in the contract source.",
+      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "notes": "Normal rescue supply plus Genesis supply cap."
+    }
+  ],
   "fields": {
     "label": "Human-readable range name.",
-    "startId": "Placeholder for first MoonCat ID when verified.",
-    "endId": "Placeholder for last MoonCat ID when verified.",
-    "criteria": "Plain-language membership rule.",
+    "basis": "Whether the entry is based on contract constants, rescue order, block, timestamp, ID, or community convention.",
+    "count": "Verified count where applicable.",
+    "criteria": "Plain-language membership or source rule.",
     "sourceRefs": "References to data/sources.json entries."
   },
   "todos": [
     "Verify rescue history sources.",
-    "Define whether ranges are by rescue order, ID, block, timestamp, or community convention.",
-    "Add exact values only with source references."
+    "Define early-rescue ranges separately by rescue order, block, timestamp, or community convention.",
+    "Add exact ID membership only with source references."
   ]
 }

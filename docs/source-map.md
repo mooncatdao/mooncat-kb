@@ -7,6 +7,7 @@ Canonical source entries live in `data/sources.json`.
 ## Source Categories
 
 - `primary`: original project, contract, metadata, or protocol source.
+- `source-code`: public repository for implementation, parser, contract, or site code.
 - `community`: community-maintained reference or explanation.
 - `derived`: data generated from another source by script, analysis, or curation.
 - `unknown`: placeholder for a needed source that has not been verified.
@@ -15,16 +16,20 @@ Canonical source entries live in `data/sources.json`.
 
 ## Primary sources
 
-- MoonCatRescue website
-- MoonCatRescue GitLab group
-- ChainStation source
-- LibMoonCat
-- Original MoonCat parser
-- Contract documentation
-- DAO GitHub repositories
+- MoonCatRescue website: `mooncatrescue-website`
+- Build with MoonCats developer page: `mooncatrescue-build`
+- MoonCatRescue contract documentation: `mooncatrescue-contract-docs`
+- MoonCatRescue GitLab group: `mooncatrescue-gitlab`
+- ChainStation source: `chainstation-source`
+- LibMoonCat: `libmooncat`
+- ponderware GitHub: `ponderware-github`
+- Original MoonCat parser: `ponderware-mooncatparser`
+- Original MoonCatRescue contract repository: `ponderware-contract`
 
 ## Community / derived sources
 
+- MoonCatCommunity website: `mooncat-community-website`
+- MoonCat DAO GitHub: `mooncat-dao-github`
 - Discord posts
 - DAO discussions
 - CatMoon implementation notes
@@ -36,7 +41,8 @@ Canonical source entries live in `data/sources.json`.
 ## Data trust levels
 
 - Canonical: on-chain, official parser, official contract docs
-- Strong: MoonCatRescue GitLab / ChainStation source
+- Historical-primary: original ponderware parser and contract repositories
+- Strong: MoonCatRescue GitLab, ChainStation source, libMoonCat source
 - Community-maintained: DAO repos, curated Discord posts
 - Experimental: CatMoon color filters, character-cat classifications, prototype notes
 

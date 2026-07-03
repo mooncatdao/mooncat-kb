@@ -1,18 +1,25 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "definition-needed",
+  "status": "partially-verified",
   "provenance": {
-    "sources": ["repo-context"],
-    "notes": "Placeholder for sourced special-category groupings."
+    "sources": ["repo-context", "ponderware-mooncatrescue-sol-raw"],
+    "notes": "Genesis supply and generation pattern are sourced from the contract. Other special-category groupings remain placeholders."
   },
   "categories": {
     "genesis": {
       "label": "Genesis Cats",
-      "status": "needs-verification",
+      "status": "partially-verified",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "Definition and exact IDs are not yet verified locally."
+      "count": 256,
+      "generation": {
+        "status": "verified-from-source",
+        "formula": "(bytes5(genesisCatIndex) << 24) | 0xff00000ca7",
+        "batchSize": 16,
+        "sourceRefs": ["ponderware-mooncatrescue-sol-raw"]
+      },
+      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "notes": "Supply cap and generation formula are verified, but exact ID list is not yet materialized in this repository."
     },
     "earlyRescue": {
       "label": "Early Rescue Cats",
@@ -23,10 +30,10 @@
     },
     "contractDefined": {
       "label": "Contract-defined Special Cats",
-      "status": "needs-verification",
+      "status": "partially-verified",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "Requires verified contract or parser source."
+      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "notes": "Currently includes Genesis-related source facts only; add other contract-defined categories only after verification."
     },
     "communityCurated": {
       "label": "Community-curated Special Cats",
@@ -38,6 +45,7 @@
   },
   "todos": [
     "Separate canonical protocol categories from community-curated categories.",
-    "Add exact membership only after source verification."
+    "Add exact membership only after source verification.",
+    "Materialize Genesis IDs only after deciding the repo convention for MoonCat ID strings."
   ]
 }

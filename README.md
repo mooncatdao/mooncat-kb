@@ -24,6 +24,7 @@ Start here:
 - `data/ipfs-cids.json` — IPFS CID placeholder scaffold
 - `data/api-endpoints.json` — API endpoint placeholder scaffold
 - `data/project-links.json` — project link placeholder scaffold
+- `data/protocol-constants.json` — first imported contract-derived protocol constants
 - `llms.txt` — compact entrypoint list for LLMs and crawlers
 - `AGENTS.md` — instructions for LLM/code agents
 - `context.md` — setup notes that informed this initial scaffold
