@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "needs-verification",
+  "provenance": {
+    "sources": ["repo-context"],
+    "notes": "API endpoint scaffold only. No URLs or paths are verified."
+  },
+  "endpoints": [],
+  "fields": {
+    "key": "Stable local identifier.",
+    "baseUrl": "Verified base URL, or null until verified.",
+    "path": "Verified request path, or null until verified.",
+    "method": "HTTP method when verified.",
+    "supports": "What the endpoint is used for.",
+    "sourceRefs": "References to data/sources.json entries."
+  },
+  "todos": [
+    "Verify active endpoints before adding URLs.",
+    "Distinguish official APIs from DAO/community tools.",
+    "Document usage notes in docs/api-notes.md."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "incomplete",
+  "sources": [
+    {
+      "id": "repo-readme",
+      "label": "Repository README",
+      "type": "local",
+      "path": "README.md",
+      "supports": ["entrypoint", "repository structure"],
+      "status": "active",
+      "notes": "Local scaffold overview."
+    },
+    {
+      "id": "repo-agents",
+      "label": "Agent Instructions",
+      "type": "local",
+      "path": "AGENTS.md",
+      "supports": ["agent workflow", "source-of-truth rules"],
+      "status": "active",
+      "notes": "Rules for maintaining this knowledge base."
+    },
+    {
+      "id": "repo-context",
+      "label": "Initial Context Notes",
+      "type": "local",
+      "path": "context.md",
+      "supports": ["initial structure", "background rationale"],
+      "status": "background",
+      "notes": "Background notes used for the first scaffold; not canonical MoonCat data."
+    },
+    {
+      "id": "repo-source-map",
+      "label": "Source Map",
+      "type": "local",
+      "path": "docs/source-map.md",
+      "supports": ["source categories", "trust levels", "provenance rules"],
+      "status": "active",
+      "notes": "Local guidance for source classification; not canonical MoonCat data."
+    }
+  ],
+  "todos": [
+    "Verify and add primary MoonCat protocol/project sources before adding exact IDs, contracts, CIDs, or trait mappings.",
+    "Add derived data entries only after documenting the generating source or method."
+  ]
+}

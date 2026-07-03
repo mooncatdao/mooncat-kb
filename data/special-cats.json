@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "definition-needed",
+  "provenance": {
+    "sources": ["repo-context"],
+    "notes": "Placeholder for sourced special-category groupings."
+  },
+  "categories": {
+    "genesis": {
+      "label": "Genesis Cats",
+      "status": "needs-verification",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "Definition and exact IDs are not yet verified locally."
+    },
+    "earlyRescue": {
+      "label": "Early Rescue Cats",
+      "status": "definition-needed",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "Range and membership rules need sourced definitions."
+    },
+    "contractDefined": {
+      "label": "Contract-defined Special Cats",
+      "status": "needs-verification",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "Requires verified contract or parser source."
+    },
+    "communityCurated": {
+      "label": "Community-curated Special Cats",
+      "status": "curated-incomplete",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "Requires explicit curator notes and source references."
+    }
+  },
+  "todos": [
+    "Separate canonical protocol categories from community-curated categories.",
+    "Add exact membership only after source verification."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "incomplete",
+  "provenance": {
+    "sources": ["repo-context"],
+    "notes": "Trait index scaffold only. No exact trait mappings are included."
+  },
+  "traitTypes": [],
+  "mappings": [],
+  "fields": {
+    "mooncatId": {
+      "status": "placeholder",
+      "type": "integer-or-string",
+      "notes": "Exact ID format needs a sourced convention."
+    },
+    "traits": {
+      "status": "placeholder",
+      "type": "array",
+      "notes": "Trait labels and namespaces need verified definitions."
+    },
+    "sourceRefs": {
+      "status": "placeholder",
+      "type": "array",
+      "notes": "Each mapping should cite data/sources.json entries."
+    }
+  },
+  "todos": [
+    "Define trait namespaces.",
+    "Verify ID format and parser/metadata source.",
+    "Add mappings only from verified or explicitly curated data."
+  ]
+}

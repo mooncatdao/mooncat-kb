@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "curated-incomplete",
+  "provenance": {
+    "sources": ["repo-context"],
+    "notes": "Character category names come from local planning context. No IDs are verified."
+  },
+  "categories": {
+    "garfield": {
+      "label": "Garfield",
+      "status": "curated-incomplete",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "No verified IDs in this repository."
+    },
+    "cheshire": {
+      "label": "Cheshire",
+      "status": "curated-incomplete",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "No verified IDs in this repository."
+    },
+    "pinkPanther": {
+      "label": "Pink Panther",
+      "status": "curated-incomplete",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "No verified IDs in this repository."
+    },
+    "alien": {
+      "label": "Alien",
+      "status": "curated-incomplete",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "No verified IDs in this repository."
+    },
+    "zombie": {
+      "label": "Zombie",
+      "status": "curated-incomplete",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "No verified IDs in this repository."
+    },
+    "simba": {
+      "label": "Simba",
+      "status": "curated-incomplete",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "No verified IDs in this repository."
+    },
+    "golden": {
+      "label": "Golden",
+      "status": "curated-incomplete",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "No verified IDs in this repository."
+    },
+    "pikachu": {
+      "label": "Pikachu",
+      "status": "curated-incomplete",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "No verified IDs in this repository."
+    }
+  },
+  "todos": [
+    "Define classification criteria for each category.",
+    "Add source notes before adding any MoonCat IDs.",
+    "Decide whether each category is canonical, community-curated, or experimental."
+  ]
+}

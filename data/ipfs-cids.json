@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "needs-verification",
+  "provenance": {
+    "sources": ["repo-context"],
+    "notes": "CID index scaffold only. No IPFS CIDs are verified."
+  },
+  "cids": [],
+  "fields": {
+    "key": "Stable local identifier.",
+    "cid": "Verified CID value, or null until verified.",
+    "kind": "metadata, image, parser, snapshot, or other sourced category.",
+    "sourceRefs": "References to data/sources.json entries."
+  },
+  "todos": [
+    "Verify CIDs from primary project, metadata, or repository sources.",
+    "Record what each CID contains and whether it is canonical or archival."
+  ]
+}

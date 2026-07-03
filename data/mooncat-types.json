@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "incomplete",
+  "provenance": {
+    "sources": ["repo-context", "repo-agents"],
+    "notes": "Category scaffold only. Exact MoonCat IDs require verified primary or curated sources."
+  },
+  "types": {
+    "genesis": {
+      "label": "Genesis Cats",
+      "status": "needs-verification",
+      "ids": [],
+      "sourceRefs": [],
+      "notes": "Definition and IDs not yet verified in this repository."
+    },
+    "characterCats": {
+      "label": "Character Cats",
+      "status": "curated-incomplete",
+      "ids": [],
+      "data": "data/character-cats.json",
+      "docs": "docs/mooncat-types.md#character-cats",
+      "sourceRefs": [],
+      "notes": "Vibe/category shell only; no IDs are canonical yet."
+    },
+    "specialCats": {
+      "label": "Special Cats",
+      "status": "definition-needed",
+      "ids": [],
+      "data": "data/special-cats.json",
+      "docs": "docs/mooncat-types.md#special-cats",
+      "sourceRefs": [],
+      "notes": "Placeholder for special categories once definitions are sourced."
+    }
+  },
+  "todos": [
+    "Verify source definitions for each type.",
+    "Add IDs only with source references.",
+    "Keep aggregate IDs synchronized with category-specific data files."
+  ]
+}

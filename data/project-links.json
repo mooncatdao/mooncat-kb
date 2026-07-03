@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "needs-verification",
+  "provenance": {
+    "sources": ["repo-context", "repo-source-map"],
+    "notes": "Project link labels are placeholders. URLs must be verified before use."
+  },
+  "links": [
+    {
+      "key": "mooncatRescueWebsite",
+      "label": "MoonCatRescue website",
+      "url": null,
+      "type": "primary",
+      "status": "needs-verification",
+      "sourceRefs": []
+    },
+    {
+      "key": "mooncatRescueGitLab",
+      "label": "MoonCatRescue GitLab group",
+      "url": null,
+      "type": "primary",
+      "status": "needs-verification",
+      "sourceRefs": []
+    },
+    {
+      "key": "chainStationSource",
+      "label": "ChainStation source",
+      "url": null,
+      "type": "primary-or-strong",
+      "status": "needs-verification",
+      "sourceRefs": []
+    },
+    {
+      "key": "libMoonCat",
+      "label": "LibMoonCat",
+      "url": null,
+      "type": "primary-or-strong",
+      "status": "needs-verification",
+      "sourceRefs": []
+    },
+    {
+      "key": "mooncatDaoRepositories",
+      "label": "MoonCat DAO repositories",
+      "url": null,
+      "type": "community-maintained",
+      "status": "needs-verification",
+      "sourceRefs": []
+    }
+  ],
+  "todos": [
+    "Verify URLs before filling them in.",
+    "Add ownership and trust-level notes for each link.",
+    "Keep project links separate from canonical data values."
+  ]
+}

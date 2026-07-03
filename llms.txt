@@ -1,0 +1,32 @@
+# MoonCat Knowledge Base
+
+Plain-text and Markdown entrypoints:
+
+- /README.md
+- /AGENTS.md
+- /docs/overview.md
+- /docs/source-map.md
+- /docs/glossary.md
+- /docs/mooncat-types.md
+- /docs/color-math.md
+- /docs/traits-and-ids.md
+- /docs/contracts.md
+- /docs/rescue-history.md
+- /docs/api-notes.md
+- /data/sources.json
+- /data/mooncat-types.json
+- /data/character-cats.json
+- /data/special-cats.json
+- /data/color-hues.json
+- /data/trait-index.json
+- /data/rescue-ranges.json
+- /data/contracts.json
+- /data/ipfs-cids.json
+- /data/api-endpoints.json
+- /data/project-links.json
+
+Notes:
+
+- Use /data/ for exact canonical or curated data.
+- Use /docs/ for explanations and reasoning.
+- Incomplete information is marked explicitly and should not be filled by guesswork.

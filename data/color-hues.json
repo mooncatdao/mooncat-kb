@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "incomplete",
+  "provenance": {
+    "sources": ["repo-context"],
+    "notes": "Structure only. No canonical hue degrees are verified in this repository."
+  },
+  "canonicalHues": [],
+  "specialCoats": [],
+  "paleHandling": {
+    "status": "experimental",
+    "canonical": false,
+    "rules": [],
+    "notes": "Pale coat handling is documented as a future method area, not a verified canonical rule."
+  },
+  "circularHueDistance": {
+    "status": "definition",
+    "canonical": false,
+    "formula": "min(abs(a-b)%360,360-(abs(a-b)%360))",
+    "inputs": "hue degrees a and b",
+    "notes": "Useful comparison method; canonical hue targets still need sources."
+  },
+  "experimentalAdjustments": [],
+  "todos": [
+    "Verify canonical coat hue names and degree values.",
+    "Document special non-hue coat categories with sources.",
+    "Add examples only after verified input values exist."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "incomplete",
+  "provenance": {
+    "sources": ["repo-context"],
+    "notes": "No rescue ranges or historical thresholds are verified in this repository."
+  },
+  "ranges": [],
+  "fields": {
+    "label": "Human-readable range name.",
+    "startId": "Placeholder for first MoonCat ID when verified.",
+    "endId": "Placeholder for last MoonCat ID when verified.",
+    "criteria": "Plain-language membership rule.",
+    "sourceRefs": "References to data/sources.json entries."
+  },
+  "todos": [
+    "Verify rescue history sources.",
+    "Define whether ranges are by rescue order, ID, block, timestamp, or community convention.",
+    "Add exact values only with source references."
+  ]
+}

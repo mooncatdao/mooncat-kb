@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "needs-verification",
+  "provenance": {
+    "sources": ["repo-context"],
+    "notes": "Contract names are placeholders from local planning context. No addresses are verified."
+  },
+  "contracts": [
+    {
+      "key": "mooncatRescue",
+      "label": "MoonCatRescue contract",
+      "network": null,
+      "address": null,
+      "status": "needs-verification",
+      "sourceRefs": [],
+      "notes": "Do not fill without a verified primary source."
+    },
+    {
+      "key": "accessoryOrWrapperContracts",
+      "label": "Accessory or wrapper contracts",
+      "network": null,
+      "address": null,
+      "status": "definition-needed",
+      "sourceRefs": [],
+      "notes": "Scope needs definition before adding entries."
+    }
+  ],
+  "todos": [
+    "Verify official contract addresses and networks from primary sources.",
+    "Add ABI/source links only after URL verification.",
+    "Document contract roles in docs/contracts.md."
+  ]
+}
