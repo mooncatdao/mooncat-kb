@@ -205,7 +205,93 @@
       "relatedSources": [
         "libmooncat"
       ],
-      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/libmooncat, default branch master, last activity 2023-02-08. GitLab metadata reports it is forked from ponderware/libmooncat. Content was not imported or reviewed in this pass."
+      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/libmooncat, default branch master, last activity 2023-02-08. GitLab metadata reports it is forked from ponderware/libmooncat. README, top-level tree, selected metadata files, and directory inventories were inspected without importing source code or generated data; see docs/libmooncat.md."
+    },
+    {
+      "id": "mooncatrescue-libmooncat-gitlab-api",
+      "label": "MoonCatRescue libMoonCat GitLab project API metadata",
+      "type": "repository-metadata",
+      "url": "https://gitlab.com/api/v4/projects/mooncatrescue%2Flibmooncat",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified",
+      "supports": [
+        "MoonCatRescue libMoonCat project metadata",
+        "fork relationship metadata",
+        "default branch and visibility metadata"
+      ],
+      "relatedSources": [
+        "mooncatrescue-libmooncat-gitlab",
+        "libmooncat"
+      ],
+      "notes": "Verified on 2026-07-03. Use for repository metadata only; do not infer library behavior from this endpoint."
+    },
+    {
+      "id": "mooncatrescue-libmooncat-readme-raw",
+      "label": "MoonCatRescue libMoonCat README raw",
+      "type": "raw-file",
+      "url": "https://gitlab.com/mooncatrescue/libmooncat/-/raw/master/README.md",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified",
+      "supports": [
+        "MoonCatRescue libMoonCat README",
+        "high-level repository role",
+        "library usage entrypoints"
+      ],
+      "relatedSources": [
+        "mooncatrescue-libmooncat-gitlab"
+      ],
+      "notes": "Raw README checked on 2026-07-03 for high-level repository role only. Do not import function behavior from README text without a focused API-surface review."
+    },
+    {
+      "id": "mooncatrescue-libmooncat-project-clj-raw",
+      "label": "MoonCatRescue libMoonCat project.clj raw",
+      "type": "raw-file",
+      "url": "https://gitlab.com/mooncatrescue/libmooncat/-/raw/master/project.clj",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified",
+      "supports": [
+        "Clojure project metadata",
+        "build target metadata",
+        "dependency metadata"
+      ],
+      "relatedSources": [
+        "mooncatrescue-libmooncat-gitlab"
+      ],
+      "notes": "Raw project.clj checked on 2026-07-03 for package/build metadata only. No source code or generated artifact was imported."
+    },
+    {
+      "id": "mooncatrescue-libmooncat-dist-js-readme-raw",
+      "label": "MoonCatRescue libMoonCat dist-js README raw",
+      "type": "raw-file",
+      "url": "https://gitlab.com/mooncatrescue/libmooncat/-/raw/master/dist-js/README.md",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified",
+      "supports": [
+        "browser distribution README",
+        "candidate JavaScript helper surface documentation",
+        "distribution variant notes"
+      ],
+      "relatedSources": [
+        "mooncatrescue-libmooncat-gitlab"
+      ],
+      "notes": "Raw dist-js README checked on 2026-07-03 for inventory planning only. Function signatures and behavior require a separate focused review before becoming KB facts."
+    },
+    {
+      "id": "mooncatrescue-libmooncat-dist-node-package-json-raw",
+      "label": "MoonCatRescue libMoonCat dist-node package.json raw",
+      "type": "raw-file",
+      "url": "https://gitlab.com/mooncatrescue/libmooncat/-/raw/master/dist-node/package.json",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified",
+      "supports": [
+        "node distribution package metadata",
+        "npm package name/version metadata",
+        "node dependency metadata"
+      ],
+      "relatedSources": [
+        "mooncatrescue-libmooncat-gitlab"
+      ],
+      "notes": "Raw dist-node package.json checked on 2026-07-03 for package metadata only. No package contents were imported."
     },
     {
       "id": "mooncatrescue-mooncatparser-gitlab",

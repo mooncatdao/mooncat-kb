@@ -23,6 +23,7 @@ Use `docs/reference-policy.md` when choosing a repository as evidence.
   - Verified public GitLab project under the MoonCatRescue namespace.
   - GitLab metadata reports it is forked from `ponderware/libmooncat`.
   - Intended use: entrypoint for current-maintainer libMoonCat reviews while preserving `libmooncat` as the Ponderware historical sourceRef.
+  - README/top-level inventory review: `docs/libmooncat.md`.
 - `mooncatrescue-mooncatparser-gitlab`: `https://gitlab.com/mooncatrescue/mooncatparser`
   - Verified public GitLab project under the MoonCatRescue namespace.
   - GitLab metadata describes it as a fork of the original Ponderware script for MoonCatRescue.
