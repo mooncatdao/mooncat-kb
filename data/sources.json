@@ -149,6 +149,20 @@
       "notes": "Verified GitLab group for MoonCatRescue tools, websites, and contracts."
     },
     {
+      "id": "mooncatrescue-contracts-gitlab",
+      "label": "MoonCatRescue Contracts GitLab repository",
+      "type": "source-code",
+      "url": "https://gitlab.com/mooncatrescue/contracts",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified-needs-content-review",
+      "supports": [
+        "current-maintainer contract repository entrypoint",
+        "candidate contract source artifacts",
+        "candidate on-chain tooling references"
+      ],
+      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/contracts, default branch master, last activity 2025-11-12. Content was not imported or reviewed in this pass; use only as an entrypoint until a focused contract-source review."
+    },
+    {
       "id": "chainstation-source",
       "label": "ChainStation source",
       "type": "source-code",
@@ -164,17 +178,96 @@
     },
     {
       "id": "libmooncat",
-      "label": "libMoonCat",
+      "label": "Ponderware libMoonCat",
       "type": "source-code",
       "url": "https://gitlab.com/ponderware/libmooncat",
-      "trustLevel": "strong",
+      "trustLevel": "historical-primary",
       "status": "verified",
       "supports": [
-        "MoonCat parsing library",
-        "MoonCat data handling",
-        "accessory handling"
+        "historical MoonCat parsing library",
+        "historical MoonCat data handling",
+        "historical accessory handling"
       ],
-      "notes": "Verified GitLab repository linked from the MoonCatRescue developer page."
+      "notes": "Verified Ponderware GitLab repository linked from the MoonCatRescue developer page. Preserved as a historical primary source; do not repoint this sourceRef to the MoonCatRescue fork. See mooncatrescue-libmooncat-gitlab for the current-maintainer namespace fork."
+    },
+    {
+      "id": "mooncatrescue-libmooncat-gitlab",
+      "label": "MoonCatRescue libMoonCat GitLab repository",
+      "type": "source-code",
+      "url": "https://gitlab.com/mooncatrescue/libmooncat",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified-fork-needs-content-review",
+      "supports": [
+        "current-maintainer libMoonCat repository entrypoint",
+        "candidate MoonCat library source",
+        "candidate trait and identifier helper source"
+      ],
+      "relatedSources": [
+        "libmooncat"
+      ],
+      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/libmooncat, default branch master, last activity 2023-02-08. GitLab metadata reports it is forked from ponderware/libmooncat. Content was not imported or reviewed in this pass."
+    },
+    {
+      "id": "mooncatrescue-mooncatparser-gitlab",
+      "label": "MoonCatRescue mooncatparser GitLab repository",
+      "type": "source-code",
+      "url": "https://gitlab.com/mooncatrescue/mooncatparser",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified-fork-needs-content-review",
+      "supports": [
+        "current-maintainer mooncatparser repository entrypoint",
+        "candidate parser source",
+        "candidate image-generation parser references"
+      ],
+      "relatedSources": [
+        "ponderware-mooncatparser"
+      ],
+      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/mooncatparser, default branch master, last activity 2023-06-01. GitLab description says it is a fork of the original script by Ponderware for the MoonCatRescue project. Content was not imported or reviewed in this pass."
+    },
+    {
+      "id": "mooncatrescue-contract-gitlab",
+      "label": "MoonCatRescue Contract GitLab repository",
+      "type": "source-code",
+      "url": "https://gitlab.com/mooncatrescue/MoonCatRescue-Contract",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified-fork-needs-content-review",
+      "supports": [
+        "current-maintainer MoonCatRescue contract repository entrypoint",
+        "candidate original contract source mirror",
+        "candidate historical contract reference"
+      ],
+      "relatedSources": [
+        "ponderware-contract"
+      ],
+      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/MoonCatRescue-Contract, default branch master, last activity 2023-06-01. GitLab description says it is a fork of the original Ponderware repository for the Solidity contract. Preserve the Ponderware original as historical primary; content was not imported or reviewed in this pass."
+    },
+    {
+      "id": "mooncatrescue-web-gitlab",
+      "label": "MoonCatRescue website archive GitLab repository",
+      "type": "source-code",
+      "url": "https://gitlab.com/mooncatrescue/mooncatrescue-web",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified-archive-fork-needs-content-review",
+      "supports": [
+        "MoonCatRescue website archive repository entrypoint",
+        "candidate historical website source",
+        "candidate official project context source"
+      ],
+      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/mooncatrescue-web, default branch master, last activity 2022-09-22. GitLab description says it is original content of mooncatrescue.com archive; metadata reports it is forked from ponderware/mooncatrescue-archive. Content was not imported or reviewed in this pass."
+    },
+    {
+      "id": "mooncatrescue-utility-contracts-gitlab",
+      "label": "MoonCatRescue Utility Contracts GitLab repository",
+      "type": "source-code",
+      "url": "https://gitlab.com/mooncatrescue/utility-contracts",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified-needs-content-review",
+      "supports": [
+        "current-maintainer utility contract repository entrypoint",
+        "candidate utility contract source artifacts",
+        "candidate supporting contract tooling references"
+      ],
+      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/utility-contracts, default branch master, last activity 2026-01-24. Content was not imported or reviewed in this pass; use only as an entrypoint until a focused utility-contract review."
     },
     {
       "id": "mooncatrescue-upstream-readme",

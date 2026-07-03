@@ -14,6 +14,8 @@ Use the narrowest source that directly supports the claim.
 
 If sources conflict, document the conflict and the source tier instead of silently choosing one.
 
+MoonCatRescue namespace forks or mirrors of older Ponderware repositories should be recorded as current-maintainer copies or archive entrypoints while preserving the original Ponderware repositories as historical primary sourceRefs.
+
 ## Local Upstream Snapshots
 
 Large or exact upstream artifacts may be copied into `references/upstream/` when a future pass needs repeatable local inspection, structural validation, or stable evidence without importing all data into `data/`.

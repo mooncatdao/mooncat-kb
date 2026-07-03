@@ -24,8 +24,15 @@ Use `data/link-index.json` for preserved research or navigation links that shoul
 - Build with MoonCats developer page: `mooncatrescue-build`
 - MoonCatRescue contract documentation: `mooncatrescue-contract-docs`
 - MoonCatRescue GitLab group: `mooncatrescue-gitlab`
+- MoonCatRescue GitLab repository map: `docs/upstream-repositories.md`
+- MoonCatRescue Contracts GitLab repository: `mooncatrescue-contracts-gitlab`
+- MoonCatRescue libMoonCat GitLab repository: `mooncatrescue-libmooncat-gitlab`
+- MoonCatRescue mooncatparser GitLab repository: `mooncatrescue-mooncatparser-gitlab`
+- MoonCatRescue Contract GitLab repository: `mooncatrescue-contract-gitlab`
+- MoonCatRescue website archive GitLab repository: `mooncatrescue-web-gitlab`
+- MoonCatRescue Utility Contracts GitLab repository: `mooncatrescue-utility-contracts-gitlab`
 - ChainStation source: `chainstation-source`
-- LibMoonCat: `libmooncat`
+- Ponderware libMoonCat: `libmooncat`
 - ponderware GitHub: `ponderware-github`
 - Original MoonCat parser: `ponderware-mooncatparser`
 - Original MoonCatRescue contract repository: `ponderware-contract`
@@ -59,8 +66,9 @@ Use `data/link-index.json` for preserved research or navigation links that shoul
 ## Data trust levels
 
 - Canonical: on-chain, official parser, official contract docs
+- Current-maintainer-technical: MoonCatRescue GitLab repositories and maintained technical artifacts, after checking the relevant files
 - Historical-primary: original ponderware parser and contract repositories
-- Strong: MoonCatRescue GitLab, ChainStation source, libMoonCat source
+- Strong: ChainStation source and other technical source-code entries explicitly marked with `trustLevel: "strong"`
 - Community-maintained: DAO repos, curated Discord posts
 - Community-curated: subjective or narrative category sources, including character-cat charts
 - Community-derived: dashboards, analyses, or tools derived from another data source
@@ -82,6 +90,7 @@ When adding a source:
 
 - Every non-obvious data claim should have a source.
 - Prefer on-chain data, official parser logic, official contract docs, and MoonCatRescue GitLab for canonical technical facts.
+- Keep MoonCatRescue namespace forks/mirrors distinct from original Ponderware historical sourceRefs.
 - Apply `docs/reference-policy.md` when deciding whether a raw upstream artifact belongs in `references/` or should be promoted into curated `data/`.
 - Use Discord/community posts as supporting context unless explicitly marked as canonical.
 - Character-cat, early-rescue, and vibe-based classifications may be curated and should be marked as such.
