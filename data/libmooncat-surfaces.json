@@ -1,0 +1,386 @@
+{
+  "version": 1,
+  "updated": "2026-07-03",
+  "status": "surface-index",
+  "scope": "Compact agent-facing index of observed LibMoonCat and local parser helper surfaces in registered upstream reference snapshots.",
+  "sourceRefs": [
+    "mooncatrescue-libmooncat-limited-js",
+    "mooncatrescue-mooncatparser-js"
+  ],
+  "relatedFiles": [
+    "docs/libmooncat.md",
+    "data/identifier-conventions.json",
+    "data/trait-index.json",
+    "data/sources.json",
+    "references/upstream/mooncatrescue/libmooncat-limited.js",
+    "references/upstream/mooncatrescue/mooncatparser.js"
+  ],
+  "observedExports": {
+    "libmooncatLimitedGlobal": "window.LibMoonCat",
+    "libmooncatLimitedVersion": "1.1.4",
+    "libmooncatLimitedFlag": true,
+    "libmooncatLimitedTotalMoonCats": 25440,
+    "mooncatparserExports": [
+      "mooncatparser",
+      "mooncatparser.noConflict",
+      "module.exports",
+      "exports.mooncatparser"
+    ]
+  },
+  "taskGroups": [
+    {
+      "key": "identifier-conversion",
+      "purpose": "Convert or normalize MoonCat identifier forms using observed LibMoonCat limited-bundle helpers.",
+      "helpers": [
+        {
+          "name": "parseCatId",
+          "observedSurface": "libmooncat.jslib.parseCatId and window.LibMoonCat.parseCatId",
+          "acceptedIdentifierForms": [
+            "MoonCat catId input accepted by the helper; exact accepted variants are not fully documented here"
+          ],
+          "outputForms": [
+            "string when parsing succeeds",
+            "null when parsing does not produce a string"
+          ],
+          "notes": "Observed wrapper returns a string or null. Use data/identifier-conventions.json before relying on normalization behavior."
+        },
+        {
+          "name": "getCatId",
+          "observedSurface": "libmooncat.jslib.getCatId and window.LibMoonCat.getCatId",
+          "acceptedIdentifierForms": [
+            "rescue-order/rescue-index number"
+          ],
+          "outputForms": [
+            "bytes5 MoonCat catId string"
+          ],
+          "notes": "Observed as an identifier lookup helper. Behavior is indexed/array-backed in related KB notes, not a closed-form conversion proof."
+        },
+        {
+          "name": "getMoonCatIdByRescueIndex",
+          "observedSurface": "window.LibMoonCat.getMoonCatIdByRescueIndex",
+          "acceptedIdentifierForms": [
+            "rescue-order/rescue-index number"
+          ],
+          "outputForms": [
+            "bytes5 MoonCat catId string",
+            "null for values outside the observed 0-25439 guard"
+          ],
+          "notes": "The local bundle also registers libmooncat.jslib.getMoonCatIdByRescueOrder before exporting the helper under getMoonCatIdByRescueIndex."
+        },
+        {
+          "name": "getRescueOrder",
+          "observedSurface": "libmooncat.jslib.getRescueOrder and window.LibMoonCat.getRescueOrder",
+          "acceptedIdentifierForms": [
+            "bytes5 MoonCat catId string"
+          ],
+          "outputForms": [
+            "rescue-order/rescue-index number"
+          ],
+          "notes": "Treat as an array-backed reverse lookup helper. Do not infer a closed-form bytes5-to-index formula."
+        },
+        {
+          "name": "generateMoonCatId",
+          "observedSurface": "libmooncat.jslib.generateMoonCatId and window.LibMoonCat.generateMoonCatId",
+          "acceptedIdentifierForms": [
+            "trait-like option map or object"
+          ],
+          "outputForms": [
+            "MoonCat catId string"
+          ],
+          "notes": "Observed helper name and export only. This index does not document generation semantics."
+        },
+        {
+          "name": "randomMoonCatId",
+          "observedSurface": "libmooncat.jslib.randomMoonCatId and window.LibMoonCat.randomMoonCatId",
+          "acceptedIdentifierForms": [
+            "optional option map or object"
+          ],
+          "outputForms": [
+            "MoonCat catId string"
+          ],
+          "notes": "Observed helper name and export only. Random generation behavior is not documented here."
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "limitations": [
+        "This group records observed helper names and conservative input/output forms only.",
+        "Identifier conversion boundaries remain governed by data/identifier-conventions.json."
+      ]
+    },
+    {
+      "key": "parser",
+      "purpose": "Parse a bytes5-style MoonCat catId into local color-grid data using the standalone parser snapshot.",
+      "helpers": [
+        {
+          "name": "mooncatparser",
+          "observedSurface": "root.mooncatparser, module.exports, and exports.mooncatparser",
+          "acceptedIdentifierForms": [
+            "hex catId string with 0x prefix",
+            "hex catId string without 0x prefix"
+          ],
+          "outputForms": [
+            "nested row/cell color data"
+          ],
+          "notes": "The observed parser strips a leading 0x before parsing. This index does not import design arrays or prove rendering correctness."
+        },
+        {
+          "name": "mooncatparser.noConflict",
+          "observedSurface": "mooncatparser.noConflict",
+          "acceptedIdentifierForms": [],
+          "outputForms": [
+            "mooncatparser function"
+          ],
+          "notes": "Observed browser global conflict helper."
+        },
+        {
+          "name": "hexToBytes",
+          "observedSurface": "local helper in mooncatparser.js",
+          "acceptedIdentifierForms": [
+            "hex string"
+          ],
+          "outputForms": [
+            "byte array"
+          ],
+          "notes": "Local helper name observed in parser snapshot; not exported as a public API surface."
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "limitations": [
+        "Parser internals, design tables, palettes, and output examples are not imported.",
+        "The parser snapshot is a reference input, not curated KB behavior proof."
+      ]
+    },
+    {
+      "key": "traits",
+      "purpose": "Access trait helper surfaces exposed by the LibMoonCat limited bundle.",
+      "helpers": [
+        {
+          "name": "getTraits",
+          "observedSurface": "libmooncat.jslib.getTraits and window.LibMoonCat.getTraits",
+          "acceptedIdentifierForms": [
+            "result type plus MoonCat catId input accepted by parseCatId"
+          ],
+          "outputForms": [
+            "basic trait shape",
+            "extended trait shape",
+            "erc721/ERC721 trait shape",
+            "error-like map for unrecognized result type"
+          ],
+          "notes": "Observed result type branches include basic, extended, erc721, and ERC721. This file does not define the returned fields; use data/trait-index.json for snapshot field metadata."
+        },
+        {
+          "name": "filterRescueOrders",
+          "observedSurface": "libmooncat.jslib.filterRescueOrders and window.LibMoonCat.filterRescueOrders",
+          "acceptedIdentifierForms": [
+            "filter arguments or option objects"
+          ],
+          "outputForms": [
+            "rescue-order/rescue-index collection"
+          ],
+          "notes": "Observed helper name/export only. Filter semantics are not documented here."
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "limitations": [
+        "No per-cat trait rows or full trait mappings are imported.",
+        "No claim is made that LibMoonCat output fields exactly match current API or on-chain trait surfaces."
+      ]
+    },
+    {
+      "key": "image-rendering",
+      "purpose": "Locate image/rendering helper categories exposed in the LibMoonCat limited bundle and parser snapshot.",
+      "helpers": [
+        {
+          "name": "generateImage",
+          "observedSurface": "libmooncat.jslib.generateImage and window.LibMoonCat.generateImage",
+          "acceptedIdentifierForms": [
+            "MoonCat catId input",
+            "optional rendering/options objects"
+          ],
+          "outputForms": [
+            "image/rendering output"
+          ],
+          "notes": "Observed arities allow one to three arguments. Exact output format is not documented in this surface index."
+        },
+        {
+          "name": "generateImageWithDimensions",
+          "observedSurface": "libmooncat.jslib.generateImageWithDimensions and window.LibMoonCat.generateImageWithDimensions",
+          "acceptedIdentifierForms": [
+            "MoonCat catId input",
+            "optional rendering/options objects"
+          ],
+          "outputForms": [
+            "image/rendering output with dimensions metadata"
+          ],
+          "notes": "Observed arities allow one to three arguments. Exact output shape is not imported."
+        },
+        {
+          "name": "fullPalette",
+          "observedSurface": "libmooncat.jslib.fullPalette and window.LibMoonCat.fullPalette",
+          "acceptedIdentifierForms": [
+            "optional MoonCat catId input"
+          ],
+          "outputForms": [
+            "palette-like data"
+          ],
+          "notes": "Observed default call uses a catId literal inside the bundle, but this index does not promote that value as a canonical sample."
+        },
+        {
+          "name": "RGBToHSL",
+          "observedSurface": "local helper in mooncatparser.js",
+          "acceptedIdentifierForms": [
+            "RGB components or RGB array"
+          ],
+          "outputForms": [
+            "HSL array"
+          ],
+          "notes": "Local parser helper, not an exported parser API."
+        },
+        {
+          "name": "HSLToRGB",
+          "observedSurface": "local helper in mooncatparser.js",
+          "acceptedIdentifierForms": [
+            "HSL components or HSL array"
+          ],
+          "outputForms": [
+            "RGB array"
+          ],
+          "notes": "Local parser helper, not an exported parser API."
+        },
+        {
+          "name": "RGBToHex",
+          "observedSurface": "local helper in mooncatparser.js",
+          "acceptedIdentifierForms": [
+            "RGB array"
+          ],
+          "outputForms": [
+            "hex color string"
+          ],
+          "notes": "Local parser helper, not an exported parser API."
+        },
+        {
+          "name": "derivePalette",
+          "observedSurface": "local helper in mooncatparser.js",
+          "acceptedIdentifierForms": [
+            "RGB components plus invert flag"
+          ],
+          "outputForms": [
+            "palette-like array"
+          ],
+          "notes": "Local parser helper, not an exported parser API."
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "limitations": [
+        "This group does not import design arrays, SVG/image output, color tables, or rendered examples.",
+        "Rendering behavior requires a separate focused review before being treated as canonical."
+      ]
+    },
+    {
+      "key": "accessory-and-eligibility",
+      "purpose": "Record additional observed LibMoonCat limited-bundle helper categories related to accessories, eligibility, contracts, and lootprints.",
+      "helpers": [
+        {
+          "name": "parseAccessoryMeta",
+          "observedSurface": "window.LibMoonCat.parseAccessoryMeta"
+        },
+        {
+          "name": "getTotalAccessories",
+          "observedSurface": "window.LibMoonCat.getTotalAccessories"
+        },
+        {
+          "name": "getAccessory",
+          "observedSurface": "window.LibMoonCat.getAccessory"
+        },
+        {
+          "name": "getMoonCatAccessory",
+          "observedSurface": "window.LibMoonCat.getMoonCatAccessory"
+        },
+        {
+          "name": "getDrawableMoonCatAccessory",
+          "observedSurface": "window.LibMoonCat.getDrawableMoonCatAccessory"
+        },
+        {
+          "name": "getManagedAccessoryIdByIndex",
+          "observedSurface": "window.LibMoonCat.getManagedAccessoryIdByIndex"
+        },
+        {
+          "name": "getTotalMoonCatAccessories",
+          "observedSurface": "window.LibMoonCat.getTotalMoonCatAccessories"
+        },
+        {
+          "name": "getTotalManagedAccessories",
+          "observedSurface": "window.LibMoonCat.getTotalManagedAccessories"
+        },
+        {
+          "name": "rescueOrdersToEligibleList",
+          "observedSurface": "window.LibMoonCat.rescueOrdersToEligibleList"
+        },
+        {
+          "name": "eligibleListToRescueOrders",
+          "observedSurface": "window.LibMoonCat.eligibleListToRescueOrders"
+        },
+        {
+          "name": "isEligibleListActive",
+          "observedSurface": "window.LibMoonCat.isEligibleListActive"
+        },
+        {
+          "name": "activateEligibleList",
+          "observedSurface": "window.LibMoonCat.activateEligibleList"
+        },
+        {
+          "name": "deactivateEligibleList",
+          "observedSurface": "window.LibMoonCat.deactivateEligibleList"
+        },
+        {
+          "name": "isEligible",
+          "observedSurface": "window.LibMoonCat.isEligible"
+        },
+        {
+          "name": "getContractDetails",
+          "observedSurface": "window.LibMoonCat.getContractDetails"
+        },
+        {
+          "name": "isAcclimated",
+          "observedSurface": "window.LibMoonCat.isAcclimated"
+        },
+        {
+          "name": "getLootprint",
+          "observedSurface": "window.LibMoonCat.getLootprint"
+        },
+        {
+          "name": "contracts",
+          "observedSurface": "window.LibMoonCat.contracts"
+        }
+      ],
+      "sourceRefs": [
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "limitations": [
+        "This group is a name inventory only.",
+        "Accessory, eligibility, contract, and lootprint semantics are not documented or imported here."
+      ]
+    }
+  ],
+  "limitations": [
+    "This file is a surface index, not source-code documentation or canonical behavior proof.",
+    "Helper names are listed only where directly observed in docs or local upstream snapshots.",
+    "No source code, generated bundle contents, design arrays, trait rows, accessory data, images, or response payloads are imported.",
+    "Accepted and output forms are conservative and should be verified in a focused behavior pass before tool implementation.",
+    "The local upstream snapshots are reference inputs under the repo reference policy, not curated KB data."
+  ],
+  "todos": [
+    "Review dist-js README and source-level jslib.cljs before promoting detailed JavaScript API behavior.",
+    "Add focused examples only after testing helper calls without importing large payloads.",
+    "Keep identifier conversion claims synchronized with data/identifier-conventions.json."
+  ]
+}

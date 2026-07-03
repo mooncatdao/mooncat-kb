@@ -23,6 +23,7 @@
         "data/protocol-constants.json"
       ],
       "optionalFiles": [
+        "data/libmooncat-surfaces.json",
         "docs/identifier-conventions.md",
         "docs/libmooncat.md",
         "data/sources.json"
@@ -59,6 +60,7 @@
       ],
       "optionalFiles": [
         "data/api-examples.json",
+        "data/libmooncat-surfaces.json",
         "docs/traits.md",
         "docs/reference-policy.md",
         "data/sources.json"
@@ -77,6 +79,7 @@
       ],
       "optionalFiles": [
         "data/api-examples.json",
+        "data/libmooncat-surfaces.json",
         "data/protocol-constants.json",
         "docs/libmooncat.md",
         "data/sources.json"
