@@ -87,6 +87,24 @@
       "status": "verified",
       "trustLevel": "community-maintained",
       "sourceRefs": ["mooncat-dao-github"]
+    },
+    {
+      "key": "rateMyMooncat",
+      "label": "Rate My Mooncat",
+      "url": "https://ratemymoon.cat/",
+      "type": "community-tool",
+      "status": "verified",
+      "trustLevel": "community-curated",
+      "sourceRefs": ["rate-my-mooncat"]
+    },
+    {
+      "key": "mooncatDaoWiki",
+      "label": "MoonCat DAO old wiki",
+      "url": "https://github.com/mooncatdao/mooncatdao-website/tree/main/public/wiki",
+      "type": "community-maintained",
+      "status": "verified",
+      "trustLevel": "community-maintained",
+      "sourceRefs": ["mooncat-dao-wiki"]
     }
   ],
   "todos": [

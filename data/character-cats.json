@@ -1,72 +1,101 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "curated-incomplete",
+  "status": "community-curated-incomplete",
   "provenance": {
-    "sources": ["repo-context"],
-    "notes": "Character category names come from local planning context. No IDs are verified."
+    "sources": ["repo-context", "rate-my-mooncat", "mooncats-faq-official-links"],
+    "notes": "Character category names and some hue-range notes are imported from community-curated sources. These are not official protocol traits and no MoonCat IDs are included."
+  },
+  "classification": {
+    "canonical": false,
+    "trustLevel": "community-curated",
+    "description": "Character cats are community-recognized MoonCats that resemble cats or characters from popular media. Rate My Mooncat says these charts document community narratives and are subjective rather than official traits.",
+    "sourceRefs": ["rate-my-mooncat", "mooncats-faq-official-links"]
   },
   "categories": {
     "garfield": {
       "label": "Garfield",
-      "status": "curated-incomplete",
+      "status": "community-curated-partial",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "No verified IDs in this repository."
+      "hueRanges": {
+        "all": [{"start": 20, "end": 45, "wrapsZero": false, "status": "community-curated"}],
+        "premium": []
+      },
+      "sourceRefs": ["rate-my-mooncat"],
+      "notes": "Rate My Mooncat change history lists the current all-range as 20-45. Premium range exists on the site but is not yet extracted into this file."
     },
     "cheshire": {
-      "label": "Cheshire",
-      "status": "curated-incomplete",
+      "label": "Cheshire Cat",
+      "status": "community-curated-partial",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "No verified IDs in this repository."
+      "hueRanges": {
+        "all": [{"start": 265, "end": 315, "wrapsZero": false, "status": "community-curated"}],
+        "premium": [{"start": 275, "end": 305, "wrapsZero": false, "status": "community-curated"}]
+      },
+      "sourceRefs": ["rate-my-mooncat"],
+      "notes": "Rate My Mooncat change history lists current all and premium ranges."
     },
     "pinkPanther": {
       "label": "Pink Panther",
-      "status": "curated-incomplete",
+      "status": "community-curated-partial",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "No verified IDs in this repository."
+      "hueRanges": {
+        "all": [{"start": 325, "end": 10, "wrapsZero": true, "status": "community-curated"}],
+        "premium": [{"start": 335, "end": 359, "wrapsZero": false, "status": "community-curated"}]
+      },
+      "sourceRefs": ["rate-my-mooncat"],
+      "notes": "Rate My Mooncat says OpenSea cannot filter hue ranges crossing zero and records Pink Panther all-range as 325-10. Premium range was introduced as 335-355 and later extended by adding 356-359."
     },
     "alien": {
       "label": "Alien",
-      "status": "curated-incomplete",
+      "status": "community-curated-needs-range-extraction",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "No verified IDs in this repository."
+      "hueRanges": {"all": [], "premium": []},
+      "sourceRefs": ["rate-my-mooncat"],
+      "notes": "Rate My Mooncat lists Alien all and premium categories, but this pass did not extract hue ranges."
     },
     "zombie": {
       "label": "Zombie",
-      "status": "curated-incomplete",
+      "status": "community-curated-partial",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "No verified IDs in this repository."
+      "hueRanges": {
+        "all": [{"start": 115, "end": 165, "wrapsZero": false, "status": "community-curated"}],
+        "premium": [{"start": 125, "end": 155, "wrapsZero": false, "status": "community-curated"}]
+      },
+      "sourceRefs": ["rate-my-mooncat"],
+      "notes": "Rate My Mooncat change history lists current all and premium ranges."
     },
     "simba": {
       "label": "Simba",
-      "status": "curated-incomplete",
+      "status": "community-curated-needs-range-extraction",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "No verified IDs in this repository."
+      "hueRanges": {"all": [], "premium": []},
+      "sourceRefs": ["rate-my-mooncat"],
+      "notes": "Rate My Mooncat lists Simba as a character category added in 2022, but this pass did not extract hue ranges."
     },
     "golden": {
-      "label": "Golden",
-      "status": "curated-incomplete",
+      "label": "Golden Lucky Cat",
+      "status": "community-curated-partial",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "No verified IDs in this repository."
+      "hueRanges": {
+        "all": [{"start": 46, "end": 58, "wrapsZero": false, "status": "community-curated"}],
+        "premium": []
+      },
+      "sourceRefs": ["rate-my-mooncat"],
+      "notes": "Rate My Mooncat change history lists Golden Lucky Cat all-range as 46-58."
     },
     "pikachu": {
       "label": "Pikachu",
-      "status": "curated-incomplete",
+      "status": "community-curated-needs-range-extraction",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "No verified IDs in this repository."
+      "hueRanges": {"all": [], "premium": []},
+      "sourceRefs": ["rate-my-mooncat"],
+      "notes": "Rate My Mooncat lists Pikachu as a character category added in 2023, but this pass did not extract hue ranges."
     }
   },
   "todos": [
-    "Define classification criteria for each category.",
-    "Add source notes before adding any MoonCat IDs.",
-    "Decide whether each category is canonical, community-curated, or experimental."
+    "Extract missing hue ranges from stable chart/filter sources where possible.",
+    "Decide whether and how to materialize MoonCat IDs from hue/category rules.",
+    "Keep all character-cat membership clearly marked as community-curated, not official traits."
   ]
 }

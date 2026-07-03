@@ -30,6 +30,9 @@ Canonical source entries live in `data/sources.json`.
 
 - MoonCatCommunity website: `mooncat-community-website`
 - MoonCat DAO GitHub: `mooncat-dao-github`
+- Rate My Mooncat: `rate-my-mooncat`
+- MoonCat DAO old wiki: `mooncat-dao-wiki`
+- MoonCats FAQ and official links local file: `mooncats-faq-official-links`
 - Discord posts
 - DAO discussions
 - CatMoon implementation notes
@@ -44,6 +47,8 @@ Canonical source entries live in `data/sources.json`.
 - Historical-primary: original ponderware parser and contract repositories
 - Strong: MoonCatRescue GitLab, ChainStation source, libMoonCat source
 - Community-maintained: DAO repos, curated Discord posts
+- Community-curated: subjective or narrative category sources, including character-cat charts
+- Supporting-context: local notes or Discord-derived references that need review before fact import
 - Experimental: CatMoon color filters, character-cat classifications, prototype notes
 
 ## Adding a Source

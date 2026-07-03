@@ -1,41 +1,41 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "incomplete",
+  "status": "partially-verified",
   "provenance": {
-    "sources": ["repo-context", "repo-agents"],
-    "notes": "Category scaffold only. Exact MoonCat IDs require verified primary or curated sources."
+    "sources": ["repo-context", "repo-agents", "rate-my-mooncat", "mooncats-faq-official-links"],
+    "notes": "Top-level category scaffold. Character cats now have community-curated source context, but exact MoonCat IDs still require a separate derivation/import pass."
   },
   "types": {
     "genesis": {
       "label": "Genesis Cats",
-      "status": "needs-verification",
+      "status": "partially-verified",
       "ids": [],
-      "sourceRefs": [],
-      "notes": "Definition and IDs not yet verified in this repository."
+      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "notes": "Genesis supply/generation are documented in data/special-cats.json and data/protocol-constants.json, but exact IDs are not materialized here yet."
     },
     "characterCats": {
       "label": "Character Cats",
-      "status": "curated-incomplete",
+      "status": "community-curated-incomplete",
       "ids": [],
       "data": "data/character-cats.json",
       "docs": "docs/mooncat-types.md#character-cats",
-      "sourceRefs": [],
-      "notes": "Vibe/category shell only; no IDs are canonical yet."
+      "sourceRefs": ["rate-my-mooncat", "mooncats-faq-official-links"],
+      "notes": "Community-curated narrative categories, not official protocol traits. No IDs are materialized yet."
     },
     "specialCats": {
       "label": "Special Cats",
-      "status": "definition-needed",
+      "status": "partially-verified",
       "ids": [],
       "data": "data/special-cats.json",
       "docs": "docs/mooncat-types.md#special-cats",
-      "sourceRefs": [],
-      "notes": "Placeholder for special categories once definitions are sourced."
+      "sourceRefs": ["ponderware-mooncatrescue-sol-raw"],
+      "notes": "Genesis source facts are partially verified; other special categories remain placeholders."
     }
   },
   "todos": [
-    "Verify source definitions for each type.",
     "Add IDs only with source references.",
-    "Keep aggregate IDs synchronized with category-specific data files."
+    "Keep aggregate IDs synchronized with category-specific data files.",
+    "Keep community-curated categories separate from official protocol traits."
   ]
 }

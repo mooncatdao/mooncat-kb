@@ -158,6 +158,36 @@
       "status": "verified",
       "supports": ["DAO repositories", "community-maintained code and docs"],
       "notes": "Verified GitHub URL provided by the user. Treat repository contents according to their own provenance before deriving canonical data."
+    },
+    {
+      "id": "rate-my-mooncat",
+      "label": "Rate My Mooncat",
+      "type": "community",
+      "url": "https://ratemymoon.cat/",
+      "trustLevel": "community-curated",
+      "status": "verified",
+      "supports": ["character cat definitions", "community character-cat narratives", "curated character-cat chart links"],
+      "notes": "Verified reachable site. The site states its character-cat charts are subjective DAO/community narratives and not official traits."
+    },
+    {
+      "id": "mooncat-dao-wiki",
+      "label": "MoonCat DAO old wiki",
+      "type": "community",
+      "url": "https://github.com/mooncatdao/mooncatdao-website/tree/main/public/wiki",
+      "trustLevel": "community-maintained",
+      "status": "verified",
+      "supports": ["old wiki pages", "community explanations", "historical DAO website content"],
+      "notes": "Verified reachable GitHub path. Treat as community-maintained historical context until individual pages are reviewed."
+    },
+    {
+      "id": "mooncats-faq-official-links",
+      "label": "MoonCats FAQ and official links",
+      "type": "local",
+      "path": "mooncats-faq-official-links.md",
+      "trustLevel": "supporting-context",
+      "status": "needs-review",
+      "supports": ["Discord-derived FAQ context", "candidate official links", "candidate community links"],
+      "notes": "Local Discord-derived file supplied as mostly correct but potentially outdated. Use it to discover links, then verify each link before importing facts."
     }
   ],
   "todos": [

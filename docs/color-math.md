@@ -4,9 +4,11 @@ Color and hue data belongs in `data/color-hues.json`.
 
 ## Current Status
 
-Incomplete.
+Partially documented.
 
-No canonical MoonCat hue names, hue degrees, special coat categories, or pale-coat adjustments are verified in this repository yet.
+Canonical MoonCat hue names, coat trait mappings, special coat categories, and pale-coat adjustments are still not verified in this repository.
+
+Community-curated character-cat hue ranges are referenced from `data/character-cats.json`. These are narrative/filter ranges, not official protocol traits.
 
 ## Circular Hue Distance
 
@@ -20,6 +22,12 @@ function hueDistance(a, b) {
 ```
 
 This formula is a useful method note, not a verified canonical MoonCat trait mapping.
+
+## Hue ranges that wrap over zero
+
+Some character-cat filter ranges may cross from high hue values back to zero. Store these with `wrapsZero: true` in JSON rather than splitting or silently dropping the wrapped portion.
+
+Example: Pink Panther's community-curated all-range is recorded as `325-10` with `wrapsZero: true`.
 
 ## Pale Handling
 

@@ -1,13 +1,20 @@
 {
   "version": 1,
   "updated": "2026-07-03",
-  "status": "incomplete",
+  "status": "community-curated-partial",
   "provenance": {
-    "sources": ["repo-context"],
-    "notes": "Structure only. No canonical hue degrees are verified in this repository."
+    "sources": ["repo-context", "rate-my-mooncat"],
+    "notes": "Canonical MoonCat hue names and trait mappings are still not verified. Character-cat hue ranges are community-curated narrative ranges, not official protocol traits."
   },
   "canonicalHues": [],
   "specialCoats": [],
+  "characterHueRanges": {
+    "status": "community-curated-partial",
+    "canonical": false,
+    "sourceRefs": ["rate-my-mooncat"],
+    "data": "data/character-cats.json",
+    "notes": "Use character-cat hue ranges only as curated narrative/filter data. Do not treat them as official coat traits."
+  },
   "paleHandling": {
     "status": "experimental",
     "canonical": false,
@@ -25,6 +32,6 @@
   "todos": [
     "Verify canonical coat hue names and degree values.",
     "Document special non-hue coat categories with sources.",
-    "Add examples only after verified input values exist."
+    "Extract or derive missing character-cat hue ranges only with source references."
   ]
 }

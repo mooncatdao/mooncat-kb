@@ -15,9 +15,9 @@ Start here:
 - `docs/api-notes.md` — API endpoint placeholder notes
 - `data/sources.json` — curated source/provenance index
 - `data/mooncat-types.json` — top-level category scaffold
-- `data/character-cats.json` — curated character-cat category shells
+- `data/character-cats.json` — community-curated character-cat definitions and partial hue-range notes
 - `data/special-cats.json` — special-category placeholder scaffold
-- `data/color-hues.json` — hue and coat-data placeholder scaffold
+- `data/color-hues.json` — hue/coating scaffold plus community-curated character hue notes
 - `data/trait-index.json` — trait mapping placeholder scaffold
 - `data/rescue-ranges.json` — rescue range placeholder scaffold
 - `data/contracts.json` — contract placeholder scaffold

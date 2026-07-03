@@ -10,29 +10,43 @@ Canonical or curated membership belongs in JSON, not prose:
 
 ## Genesis Cats
 
-Status: needs verification.
+Status: partially verified.
 
-This scaffold does not define the exact Genesis Cat IDs. Add them only after a primary or explicitly accepted curated source is recorded.
+The contract source verifies the Genesis supply cap and generation pattern, but this repository does not yet materialize the exact Genesis Cat ID list.
+
+Related files:
+
+- `data/protocol-constants.json`
+- `data/special-cats.json`
 
 ## Character Cats
 
-Status: curated and incomplete.
+Status: community-curated and incomplete.
 
-The initial category shells are:
+Character cats are community-recognized MoonCats that resemble cats or characters from popular media. They are not official protocol traits.
+
+The current category shells are:
 
 - Garfield
-- Cheshire
+- Cheshire Cat
 - Pink Panther
 - Alien
 - Zombie
 - Simba
-- Golden
+- Golden Lucky Cat
 - Pikachu
 
-These categories currently contain no MoonCat IDs. Do not treat them as canonical classifications until criteria and sources are documented.
+`data/character-cats.json` now records Rate My Mooncat as a community-curated source and imports partial hue-range notes where the current public page/change history gives enough information. It still contains no MoonCat IDs.
+
+Important constraints:
+
+- Treat character-cat categories as community-curated narratives, not canonical traits.
+- Do not add exact MoonCat IDs without a separate derivation/import pass.
+- Preserve whether a hue range wraps over zero, such as Pink Panther's all-range.
+- Keep premium/two-star ranges separate from all-range definitions.
 
 ## Special Cats
 
-Status: definition needed.
+Status: partially verified.
 
 Special categories may include protocol-defined, historical, or community-curated groupings. Keep those categories separate and mark their trust level clearly.
