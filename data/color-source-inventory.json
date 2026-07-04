@@ -6,6 +6,7 @@
   "sourceRefs": [
     "mooncatrescue-adr-0017-color-math",
     "mooncatrescue-mooncatparser-js",
+    "mooncatrescue-libmooncat-limited-js",
     "etherscan-mooncat-colors",
     "etherscan-mooncat-svgs",
     "mooncats-on-chain-guide",
@@ -43,6 +44,10 @@
     "hue-name-bucket-boundaries",
     "accessory-complementary-colors",
     "onchain-8-color-output",
+    "mooncatcolors-colorsof-ordering",
+    "mooncatcolors-accessory-palette-composition",
+    "mooncatcolors-mapcolors-edge-cases",
+    "mooncatcolors-hue-and-alpha-helpers",
     "parser-source-code-evidence",
     "community-visual-classification"
   ],
@@ -141,27 +146,38 @@
         "onchain-8-color-output",
         "hue-extraction",
         "palette-derivation",
-        "accessory-complementary-colors"
+        "accessory-complementary-colors",
+        "mooncatcolors-colorsof-ordering",
+        "mooncatcolors-accessory-palette-composition",
+        "mooncatcolors-mapcolors-edge-cases",
+        "mooncatcolors-hue-and-alpha-helpers"
       ],
       "extractedClaims": [
         "Existing contract summaries record MoonCatColors as an on-chain color reference and palette-generation contract.",
         "Existing function surfaces include RGBToHue, hueToRGB, deriveColors, mapColors, colorsOf, accessoryColorsOf, colorAlpha, paletteOf, hueName, and hueIntOf.",
-        "The registered LibMoonCat snapshot includes ABI surface evidence that colorsOf returns uint8[24] and accessoryColorsOf returns uint8[45]."
+        "The registered LibMoonCat snapshot includes ABI surface evidence that colorsOf returns uint8[24] and accessoryColorsOf returns uint8[45].",
+        "Verified contract source review confirms colorsOf returns 8 RGB triples ordered as glow/original DNA color, five MoonCat appearance colors, and two complement colors.",
+        "Verified contract source review confirms accessoryColorsOf returns 15 RGB triples by reusing colorsOf values and repeated complements.",
+        "Verified contract source review confirms paletteOf concatenates the 113-color BasePalette with accessoryColorsOf output.",
+        "Verified contract source review confirms mapColors stores owner-managed packed overrides for JavaScript/Solidity edge cases and that colorsOf applies those overrides only to appearance color components, not glow or complements.",
+        "Verified contract source review confirms hueName handles white=2000 and black=1000 before ADR-aligned hue buckets, and colorAlpha has explicit alpha bands for accessory palette IDs."
       ],
       "sourceEvidence": [
         "data/contracts.json and data/contract-surfaces.json summarize MoonCatColors role and function names.",
         "references/upstream/mooncatrescue/libmooncat-limited.js includes a MoonCatColors ABI entry with colorsOf and deriveColors surfaces.",
-        "No ABI JSON or source code is imported into this inventory."
+        "Etherscan verified source page for MoonCatColors was reviewed on 2026-07-04 for compact function internals.",
+        "No ABI JSON, full Solidity source, BasePalette values, mapColors keys/values, or generated palette outputs are imported into this inventory."
       ],
       "relatedFiles": [
         "data/contracts.json",
         "data/contract-surfaces.json",
-        "data/libmooncat-surfaces.json"
+        "data/libmooncat-surfaces.json",
+        "data/color-hues.json"
       ],
-      "canonicality": "verified-function-surface-not-output-model",
+      "canonicality": "verified-contract-source-semantics-without-data-import",
       "limitations": [
-        "No palette values, hue-name table, edge-case mappings, or source internals are imported.",
-        "Function names and output widths are surface evidence, not a full color model."
+        "No palette values, BasePalette values, edge-case mapping keys/values, full source internals, or generated outputs are imported.",
+        "See data/color-hues.json moonCatColorsInternals for compact reviewed semantics."
       ]
     },
     {
@@ -410,8 +426,8 @@
         "etherscan-mooncat-colors",
         "mooncatrescue-libmooncat-limited-js"
       ],
-      "status": "strong-surface-evidence-promoted-to-color-hues",
-      "notes": "data/color-hues.json now records the 8-color / 24-number output shape as strong surface evidence. Exact color semantics still need a focused contract/source review."
+      "status": "verified-contract-source-semantics-promoted-to-color-hues",
+      "notes": "data/color-hues.json now records the 8-color / 24-number output shape and compact colorsOf ordering from verified contract source."
     },
     {
       "category": "accessory-complementary-colors",
@@ -422,6 +438,41 @@
       ],
       "status": "explanatory-and-surface-evidence",
       "notes": "Do not infer exact accessory color formulas or palettes from this inventory."
+    },
+    {
+      "category": "mooncatcolors-colorsof-ordering",
+      "bestCurrentSources": [
+        "etherscan-mooncat-colors",
+        "mooncats-on-chain-guide"
+      ],
+      "status": "verified-contract-source-semantics-promoted-to-color-hues",
+      "notes": "Verified contract source supports compact colorsOf RGB triple ordering; no per-cat palettes or output values are imported."
+    },
+    {
+      "category": "mooncatcolors-accessory-palette-composition",
+      "bestCurrentSources": [
+        "etherscan-mooncat-colors"
+      ],
+      "status": "verified-contract-source-semantics-promoted-to-color-hues",
+      "notes": "Verified contract source supports accessoryColorsOf and paletteOf output composition; BasePalette RGB values are not imported."
+    },
+    {
+      "category": "mooncatcolors-mapcolors-edge-cases",
+      "bestCurrentSources": [
+        "etherscan-mooncat-colors",
+        "mooncatrescue-adr-0017-color-math"
+      ],
+      "status": "purpose-and-application-reviewed-values-not-imported",
+      "notes": "Verified contract source and ADR support mapColors as edge-case override machinery. No override keys, values, transaction inputs, or counts are imported."
+    },
+    {
+      "category": "mooncatcolors-hue-and-alpha-helpers",
+      "bestCurrentSources": [
+        "etherscan-mooncat-colors",
+        "mooncatrescue-adr-0017-color-math"
+      ],
+      "status": "verified-contract-source-semantics-promoted-to-color-hues",
+      "notes": "Verified contract source supports hueName/hueIntOf special values and colorAlpha bands; exact fixed-point hue arithmetic remains in source."
     },
     {
       "category": "hue-name-bucket-boundaries",
@@ -443,9 +494,15 @@
     },
     {
       "key": "mooncatcolors-source-internals",
-      "status": "not-imported",
+      "status": "reviewed-compact-semantics-imported",
       "neededFor": "Exact on-chain derivation, edge-case mapColors values, and palette semantics.",
-      "notes": "Existing KB has contract/source identity and function surface summaries only."
+      "notes": "Compact semantics for colorsOf, deriveColors ordering, accessoryColorsOf, paletteOf, mapColors purpose/application, hue helpers, and colorAlpha are now recorded in data/color-hues.json. Full source, BasePalette values, and mapColors override values remain unimported."
+    },
+    {
+      "key": "mooncatcolors-mapcolors-values",
+      "status": "not-imported",
+      "neededFor": "Specific MoonCat override keys, packed override values, and override count.",
+      "notes": "A dedicated transaction/storage review would be needed before importing any exact mapColors values."
     },
     {
       "key": "full-parser-model",

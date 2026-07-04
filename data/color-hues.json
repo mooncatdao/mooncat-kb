@@ -711,7 +711,7 @@
     ]
   },
   "onchainEightColorStatus": {
-    "status": "strong-surface-evidence",
+    "status": "verified-contract-internals-reviewed",
     "canonical": false,
     "sourceRefs": [
       "etherscan-mooncat-colors",
@@ -722,7 +722,8 @@
       "function": "colorsOf",
       "surfaceOutput": "uint8[24]",
       "interpretedAs": "8 RGB color triples",
-      "sourceRefForInterpretation": "mooncats-on-chain-guide"
+      "sourceRefForInterpretation": "mooncats-on-chain-guide",
+      "verifiedInContractSource": true
     },
     "relatedSurfaces": [
       "glowOf",
@@ -733,9 +734,251 @@
       "hueIntOf"
     ],
     "limitations": [
-      "This file does not import ABI JSON, contract source internals, color values, accessory palettes, or edge-case mapColors data.",
-      "The 8-color semantic order is article-supported context and should be verified against contract/source internals before exact canonical use."
+      "This file does not import ABI JSON, full contract source, generated color values, accessory BasePalette values, or edge-case mapColors data.",
+      "Use moonCatColorsInternals for compact reviewed semantics; use the registered Etherscan source for exact source code."
     ]
+  },
+  "moonCatColorsInternals": {
+    "status": "compact-verified-internals",
+    "canonicality": "verified-contract-source-semantics-without-data-import",
+    "checkedDate": "2026-07-04",
+    "sourceRefs": [
+      "etherscan-mooncat-colors",
+      "mooncatrescue-libmooncat-limited-js",
+      "mooncats-on-chain-guide",
+      "mooncatrescue-adr-0017-color-math"
+    ],
+    "sourceSurface": {
+      "contractName": "MoonCatColors",
+      "address": "0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC",
+      "sourceStatus": "Etherscan source exact-match verified",
+      "reviewBoundary": "Function internals were reviewed from the verified source page; full Solidity source, ABI JSON, bytecode, BasePalette values, mapped override values, and generated outputs are not imported."
+    },
+    "colorsOf": {
+      "status": "verified-output-order",
+      "inputs": [
+        "bytes5 catId",
+        "uint256 rescueOrder overload"
+      ],
+      "output": "uint8[24]",
+      "triples": [
+        {
+          "tripleIndex": 0,
+          "componentIndexes": [
+            0,
+            1,
+            2
+          ],
+          "meaning": "glow/original DNA RGB color"
+        },
+        {
+          "tripleIndex": 1,
+          "componentIndexes": [
+            3,
+            4,
+            5
+          ],
+          "meaning": "MoonCat border/glow-outline color"
+        },
+        {
+          "tripleIndex": 2,
+          "componentIndexes": [
+            6,
+            7,
+            8
+          ],
+          "meaning": "MoonCat pattern color"
+        },
+        {
+          "tripleIndex": 3,
+          "componentIndexes": [
+            9,
+            10,
+            11
+          ],
+          "meaning": "MoonCat coat color"
+        },
+        {
+          "tripleIndex": 4,
+          "componentIndexes": [
+            12,
+            13,
+            14
+          ],
+          "meaning": "MoonCat belly/whiskers color"
+        },
+        {
+          "tripleIndex": 5,
+          "componentIndexes": [
+            15,
+            16,
+            17
+          ],
+          "meaning": "MoonCat nose/ears/feet color"
+        },
+        {
+          "tripleIndex": 6,
+          "componentIndexes": [
+            18,
+            19,
+            20
+          ],
+          "meaning": "MoonCat complement 1 color"
+        },
+        {
+          "tripleIndex": 7,
+          "componentIndexes": [
+            21,
+            22,
+            23
+          ],
+          "meaning": "MoonCat complement 2 color"
+        }
+      ],
+      "genesisHandling": "The verified source has a genesis/special branch that returns GenesisWhite or GenesisBlack palettes before dynamic derivation.",
+      "mappedOverrideHandling": "If MappedColors[catId] is nonzero, colorsOf replaces component indexes 3 through 17 from packed mapped bytes; glow/original DNA components and complement components are not replaced by that loop.",
+      "limitations": [
+        "GenesisWhite and GenesisBlack component values are not duplicated here.",
+        "MappedColors override keys and packed values are not imported."
+      ]
+    },
+    "deriveColors": {
+      "status": "verified-ordering-no-output-values-imported",
+      "summary": "deriveColors takes RGB plus invert, computes a primary hue, a hue shifted backward 40 degrees, and a complement hue, then fills the same 8 RGB triples returned by colorsOf.",
+      "nonInvertOrder": [
+        "original RGB",
+        "primary hue at low lightness",
+        "primary hue at lower-mid lightness",
+        "primary hue at mid lightness",
+        "primary hue at high lightness",
+        "shifted hue at high lightness",
+        "complement hue at mid lightness",
+        "complement hue at high lightness"
+      ],
+      "invertOrder": [
+        "original RGB",
+        "primary hue at low lightness",
+        "primary hue at high lightness",
+        "shifted hue at high lightness",
+        "primary hue at lower-mid lightness",
+        "primary hue at mid lightness",
+        "complement hue at mid lightness",
+        "complement hue at high lightness"
+      ],
+      "limitations": [
+        "This is a compact ordering summary, not a reusable implementation spec.",
+        "Exact fixed-point arithmetic and RGB output values remain in the verified source, not this KB file."
+      ]
+    },
+    "accessoryColorsOf": {
+      "status": "verified-output-composition",
+      "output": "uint8[45]",
+      "meaning": "15 RGB triples used for MoonCat-specific accessory colors.",
+      "composition": [
+        "component indexes 0 through 17 copy the first six colors from colorsOf",
+        "component indexes 18 through 20 repeat colorsOf indexes 3 through 5 for eyes",
+        "component indexes 21 through 32 repeat complement 1 four times for accessory palette variants",
+        "component indexes 33 through 44 repeat complement 2 four times for accessory palette variants"
+      ],
+      "limitations": [
+        "Accessory image semantics and exact accessory IDs are outside this file.",
+        "No accessory palette RGB values are imported."
+      ]
+    },
+    "paletteOf": {
+      "status": "verified-output-composition",
+      "output": "uint8[384]",
+      "composition": [
+        "first 339 values copy the 113-color BasePalette as RGB triples",
+        "last 45 values append accessoryColorsOf(catId)"
+      ],
+      "limitations": [
+        "The 339 BasePalette values are intentionally not copied into this compact KB file.",
+        "Use the verified contract source for exact BasePalette values."
+      ]
+    },
+    "mapColors": {
+      "status": "verified-purpose-and-application-no-values-imported",
+      "sourceBackedPurpose": "Owner-managed hard-coded color palettes for edge cases where JavaScript and Solidity color conversion differ.",
+      "writeGuards": [
+        "onlyOwner",
+        "requires finalized to be false",
+        "requires equal keys and vals lengths"
+      ],
+      "storageShape": "mapping(bytes5 => uint128) internal MappedColors",
+      "readSemantics": [
+        "colorsOf applies nonzero mapped values to component indexes 3 through 17",
+        "hueIntOf uses the mapped value least-significant bit as a one-degree offset flag"
+      ],
+      "limitations": [
+        "No keys, values, transaction inputs, or override count are imported.",
+        "Whether all deployed mapped values are complete/final is not reviewed here."
+      ]
+    },
+    "hueHelpers": {
+      "status": "verified-compact-semantics",
+      "RGBToHue": "Converts RGB input to a fixed-point HSL hue value in the verified Solidity source.",
+      "hueToRGB": "Converts hue plus lightness to RGB components using the contract's fixed-point arithmetic.",
+      "hueIntOf": "Returns 2000 for GenesisWhite, 1000 for GenesisBlack, otherwise derives integer hue from RGBToHue with a correction factor and optional mapped offset.",
+      "hueName": "Returns white for 2000, black for 1000, then uses ADR-aligned integer hue buckets for red through fuchsia, with skyblue as the compact string.",
+      "limitations": [
+        "Exact fixed-point arithmetic is not restated here.",
+        "Use hueBucketModel for compact bucket boundaries."
+      ]
+    },
+    "colorAlpha": {
+      "status": "verified-compact-lookup",
+      "rules": [
+        {
+          "id": 0,
+          "alpha": 0
+        },
+        {
+          "idRange": "1-70",
+          "alpha": 255
+        },
+        {
+          "idRange": "71-91",
+          "alpha": 200
+        },
+        {
+          "idRange": "92-105",
+          "alpha": 128
+        },
+        {
+          "idRange": "106-112",
+          "alpha": 200
+        },
+        {
+          "ids": [
+            121,
+            125
+          ],
+          "alpha": 127
+        },
+        {
+          "ids": [
+            122,
+            126
+          ],
+          "alpha": 102
+        },
+        {
+          "ids": [
+            123,
+            127
+          ],
+          "alpha": 76
+        },
+        {
+          "fallback": true,
+          "alpha": 255
+        }
+      ],
+      "limitations": [
+        "This records alpha behavior only, not accessory rendering or image composition."
+      ]
+    }
   },
   "circularHueDistance": {
     "status": "definition",
@@ -790,12 +1033,12 @@
     },
     {
       "key": "mapColors-edge-cases",
-      "status": "unresolved",
+      "status": "purpose-reviewed-values-not-imported",
       "sourceRefs": [
         "mooncatrescue-adr-0017-color-math",
         "etherscan-mooncat-colors"
       ],
-      "notes": "ADR says mapColors compensates for Solidity/JavaScript math differences; no edge-case mapping values are imported."
+      "notes": "Verified source confirms mapColors purpose, write guards, packed storage shape, colorsOf override application, and hueIntOf offset flag. No deployed override keys or values are imported."
     }
   ],
   "limitations": [

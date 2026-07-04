@@ -207,6 +207,21 @@
         "hueName",
         "hueIntOf"
       ],
+      "reviewedInternals": {
+        "status": "compact-internals-reviewed",
+        "checked": "2026-07-04",
+        "sourceRefs": [
+          "etherscan-mooncat-colors"
+        ],
+        "summary": [
+          "colorsOf returns uint8[24] as 8 RGB triples for glow/original DNA, five MoonCat appearance colors, and two complement colors.",
+          "accessoryColorsOf returns uint8[45] as 15 RGB triples derived from colorsOf, including repeated complement colors for accessory palette variants.",
+          "paletteOf returns uint8[384] by concatenating the 113-color BasePalette with accessoryColorsOf output.",
+          "mapColors stores owner-managed packed overrides for JavaScript/Solidity color edge cases before finalization; override keys/values are not imported.",
+          "hueName handles 2000 as white and 1000 as black, then uses ADR-aligned hue buckets."
+        ],
+        "detailsFile": "data/color-hues.json"
+      },
       "relatedIdentifierForms": [
         "mooncatIdBytes5",
         "apiOriginalRescueIndex",
@@ -219,8 +234,8 @@
         "data/identifier-conventions.json"
       ],
       "limitations": [
-        "No color palette values, hue-name table, or accessory color data is imported.",
-        "Color semantics beyond the documented function surface are out of scope."
+        "No color palette values, BasePalette values, mapColors keys/values, ABI JSON, or full Solidity source is imported.",
+        "Detailed compact color semantics live in data/color-hues.json; this file remains a contract surface router."
       ]
     },
     {

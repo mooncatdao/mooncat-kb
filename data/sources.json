@@ -662,9 +662,13 @@
       "status": "verified",
       "supports": [
         "MoonCatColors contract address",
-        "MoonCatColors contract source verification"
+        "MoonCatColors contract source verification",
+        "MoonCatColors colorsOf ordering",
+        "MoonCatColors accessoryColorsOf and paletteOf composition",
+        "MoonCatColors mapColors edge-case machinery",
+        "MoonCatColors hueName, hueIntOf, colorAlpha internals"
       ],
-      "notes": "Verified Etherscan page for MoonCatColors at 0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
+      "notes": "Verified Etherscan page for MoonCatColors at 0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. Reviewed on 2026-07-04 for compact color internals only; full Solidity source, ABI JSON, BasePalette values, mapColors keys/values, generated palettes, and per-cat outputs are not imported."
     },
     {
       "id": "etherscan-mooncat-svgs",
