@@ -11,10 +11,26 @@
     "notes": [
       "Use primaryFiles first and load optionalFiles only when the task needs explanation, provenance, or cross-checking.",
       "This index routes to existing files and does not duplicate endpoint, contract, source, identifier, trait, or membership data.",
-      "If a referenced data file marks a category incomplete, preserve that incomplete status."
+      "If a referenced data file marks a category incomplete, preserve that incomplete status.",
+      "Use data/task-recipes.json when the task needs a workflow sequence, guardrails, or stop conditions across multiple files."
     ]
   },
   "tasks": [
+    {
+      "key": "use-task-recipes",
+      "description": "Find workflow sequences, guardrails, and stop conditions for common MoonCat KB tasks.",
+      "primaryFiles": [
+        "data/task-recipes.json"
+      ],
+      "optionalFiles": [
+        "data/agent-index.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Use recipes for sequencing existing files, not as a replacement for the underlying data files.",
+        "Recipes do not add endpoint, contract, trait, color, identifier, source, or per-cat facts."
+      ]
+    },
     {
       "key": "identify-mooncat-ids",
       "description": "Choose the correct MoonCat identifier form and understand conversion limits.",
