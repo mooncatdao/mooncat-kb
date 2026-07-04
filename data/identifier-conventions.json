@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updated": "2026-07-03",
+  "version": 2,
+  "updated": "2026-07-04",
   "status": "incomplete",
   "provenance": {
     "sources": [
@@ -18,7 +18,7 @@
       "mooncatrescue-mooncat-traits-json",
       "mooncatrescue-mooncatparser-js"
     ],
-    "notes": "Identifier terminology reference. This file documents known identifier spaces and conversion status; bytes5 rescue-order conversion is array-backed by reviewed library/dataset sources, not derived by formula."
+    "notes": "Identifier terminology reference. This file documents known identifier spaces and conversion status; bytes5 rescue-order conversion is array-backed by reviewed library/dataset/API/contract sources, not derived by formula. Current Acclimated ERC-721 token ID behavior is scoped to that contract only; older wrapper token ID conventions remain unverified."
   },
   "verification": {
     "apiOriginalRescueIndexToLocalRescueOrderIndex": {
@@ -54,7 +54,7 @@
       "limitations": [
         "OpenSea token ID behavior is verified for sampled acclimated MoonCat item URLs, not for unrelated collections or historical wrappers.",
         "This does not define conversion from rescue order/token ID to bytes5 catId.",
-        "This does not verify the older wrapper contract token ID convention beyond the source comment that an older wrapper existed at 0x7C40c3..."
+        "This does not verify the older wrapper contract token ID convention beyond the Acclimated source context that an older wrapper existed."
       ]
     },
     "bytes5CatIdLookup": {
@@ -121,7 +121,8 @@
       "conversionStatus": {
         "toApiOriginalRescueIndex": "verified-array-backed-library-dataset-and-api-lookup",
         "toLocalRescueOrderIndex": "verified-array-backed-library-dataset-api-and-local-alignment",
-        "toTokenFacingIds": "verified-array-backed-lookup-for-current-acclimated-contract"
+        "toAcclimatedErc721TokenId": "verified-array-backed-lookup-for-current-acclimated-contract",
+        "toOlderWrapperTokenId": "needs-verification"
       },
       "notes": "The contract source uses bytes5 cat IDs. The API and OpenAPI docs document MoonCatIdentifier inputs as either bytes5 cat IDs or decimal rescue indexes. Preferred API samples, LibMoonCat helpers, and the mooncat_traits.json reference dataset verify array-backed bytes5 catId to rescueOrder lookup; the current Acclimated token ID convention then maps that rescue order to tokenId for the current wrapper only. This file does not define a closed-form reverse formula from bytes5 catId to rescue order."
     },
@@ -148,7 +149,8 @@
       "conversionStatus": {
         "toMooncatIdBytes5": "verified-array-backed-library-dataset-api-and-contract-lookup",
         "toLocalRescueOrderIndex": "verified-aligned-by-local-buckets-and-api-samples",
-        "toTokenFacingIds": "verified-for-current-acclimated-contract"
+        "toAcclimatedErc721TokenId": "verified-for-current-acclimated-contract",
+        "toOlderWrapperTokenId": "needs-verification"
       },
       "notes": "The API landing pages document rescueIndex values from 0 through 25439 for catId_or_rescueIndex. Local bucket checks and preferred API samples support alignment between this API rescueOrder convention and local rescue-order-index values. Preferred API samples, contract source paths, LibMoonCat helpers, and mooncat_traits.json verify lookup from this numeric convention to bytes5 catId, but not a standalone closed-form derivation."
     },
@@ -170,7 +172,8 @@
       "conversionStatus": {
         "toApiOriginalRescueIndex": "verified-aligned-by-local-buckets-and-api-samples",
         "toMooncatIdBytes5": "verified-array-backed-library-dataset-api-alignment-and-contract-lookup",
-        "toTokenFacingIds": "verified-for-current-acclimated-contract"
+        "toAcclimatedErc721TokenId": "verified-for-current-acclimated-contract",
+        "toOlderWrapperTokenId": "needs-verification"
       },
       "notes": "Local membership and rescue bucket files use indexKind rescue-order-index. Local bucket checks and preferred API samples support alignment with the API rescueOrder/original rescue index convention. Use the verified array-backed lookup methods before using these values as bytes5 catIds. They are token IDs only for the current Acclimated MoonCats contract, not generic OpenSea IDs or generic contract-call values."
     },
@@ -204,6 +207,38 @@
       "notes": "For the current Acclimated MoonCats contract, Etherscan source shows the ERC-721 tokenId is the MoonCat rescue order. Because rescue order to bytes5 catId lookup is now verified through array-backed library/dataset, API, and contract sources, current Acclimated token IDs can be looked up to bytes5 catIds through that rescue-order convention. This does not apply automatically to older wrappers or unrelated token-facing surfaces."
     },
     {
+      "key": "olderWrapperTokenId",
+      "label": "older wrapper token ID",
+      "status": "needs-verification",
+      "canonical": false,
+      "format": "unknown",
+      "usedBy": [
+        "older MoonCat wrapper surfaces when specifically identified"
+      ],
+      "sourceRefs": [
+        "etherscan-acclimated-mooncats"
+      ],
+      "contractRefs": [],
+      "conversionStatus": {
+        "toMooncatIdBytes5": "needs-verification",
+        "toApiOriginalRescueIndex": "needs-verification",
+        "toLocalRescueOrderIndex": "needs-verification",
+        "toAcclimatedErc721TokenId": "not-interchangeable-without-source"
+      },
+      "evidenceNeeded": [
+        "exact older wrapper contract address",
+        "verified source or ABI for that wrapper",
+        "mint/wrap/unwrap token ID code path or contract documentation",
+        "sampled marketplace/API evidence tied to that exact contract if marketplace behavior is being claimed"
+      ],
+      "warnings": [
+        "Do not reuse the current Acclimated MoonCats tokenId equals rescue order rule for older wrappers.",
+        "Do not assume older wrapper token IDs match rescue order, bytes5 catId, OpenSea URL IDs, or local rescue-order indexes.",
+        "Do not convert older wrapper token IDs without first identifying the exact contract and source-backed convention."
+      ],
+      "notes": "The allowed existing sources for this pass do not verify an older wrapper token ID convention. This kind is included to prevent accidental generalization from the current Acclimated contract."
+    },
+    {
       "key": "openseaTokenId",
       "label": "OpenSea token ID",
       "status": "verified-for-sampled-acclimated-urls",
@@ -219,7 +254,8 @@
         "toErc721TokenId": "verified-for-sampled-acclimated-opensea-urls",
         "toMooncatIdBytes5": "needs-verification",
         "toApiOriginalRescueIndex": "verified-for-sampled-acclimated-opensea-urls",
-        "toLocalRescueOrderIndex": "verified-for-sampled-acclimated-opensea-urls"
+        "toLocalRescueOrderIndex": "verified-for-sampled-acclimated-opensea-urls",
+        "toOlderWrapperTokenId": "needs-verification"
       },
       "notes": "Sampled OpenSea item URLs use /item/ethereum/0xc3f733ca98e0dad0386979eb96fb1722a1a05e69/{tokenId}; token IDs 0, 82, and 25439 resolved to MoonCat pages with matching numeric names/metadata. Treat this as sampled evidence for the acclimated collection, not a blanket marketplace rule."
     },
@@ -334,6 +370,125 @@
       "notes": "API landing pages document this parameter as accepting either a valid MoonCat ID or original rescue index."
     }
   ],
+  "crossSurfaceBoundaries": [
+    {
+      "key": "api-mooncatidentifier",
+      "identifierKind": "catId_or_rescueIndex",
+      "acceptedBy": [
+        "preferred MoonCat API paths",
+        "legacy MoonCat API paths"
+      ],
+      "acceptedForms": [
+        "mooncatIdBytes5",
+        "apiOriginalRescueIndex"
+      ],
+      "notAcceptedUnlessEndpointSaysSo": [
+        "erc721TokenId",
+        "openseaTokenId",
+        "olderWrapperTokenId",
+        "localRescueOrderIndex"
+      ],
+      "warnings": [
+        "Local rescue-order indexes are numerically aligned with API rescueOrder/original rescue index for checked data, but agents should still name the API form when constructing API requests.",
+        "Do not pass token-facing IDs to catId_or_rescueIndex parameters unless the token ID has first been verified as the same rescue-order convention for the exact surface."
+      ],
+      "sourceRefs": [
+        "mooncatrescue-api-openapi",
+        "mooncat-community-api-openapi",
+        "mooncatrescue-api",
+        "mooncat-community-api"
+      ]
+    },
+    {
+      "key": "current-acclimated-wrapper",
+      "identifierKind": "erc721TokenId",
+      "acceptedBy": [
+        "Acclimated MoonCats ERC-721 contract",
+        "sampled marketplace item URLs for the acclimated collection",
+        "preferred ERC721 metadata endpoint"
+      ],
+      "exampleShape": "decimal uint256 rescue-order token ID",
+      "conversionStatus": {
+        "fromRescueOrder": "verified-for-acclimated-contract",
+        "toMooncatIdBytes5": "verified-array-backed-lookup-for-current-acclimated-contract",
+        "toOlderWrapperTokenId": "not-interchangeable-without-source"
+      },
+      "warnings": [
+        "This is the only token-facing wrapper convention currently verified in this file.",
+        "Do not generalize this convention to older wrappers, unrelated ERC-721 contracts, or marketplace pages for other collections."
+      ],
+      "sourceRefs": [
+        "etherscan-acclimated-mooncats",
+        "mooncatrescue-api",
+        "mooncatrescue-api-openapi"
+      ]
+    },
+    {
+      "key": "older-wrapper",
+      "identifierKind": "olderWrapperTokenId",
+      "acceptedBy": [],
+      "exampleShape": "unknown",
+      "conversionStatus": {
+        "fromRescueOrder": "needs-verification",
+        "toMooncatIdBytes5": "needs-verification",
+        "toOpenSeaTokenId": "needs-verification",
+        "toAcclimatedErc721TokenId": "not-interchangeable-without-source"
+      },
+      "warnings": [
+        "No older wrapper token ID mapping is verified from the allowed existing sources.",
+        "An older wrapper contract address alone would not be enough; the token ID mint/wrap convention must be reviewed."
+      ],
+      "sourceRefs": [
+        "etherscan-acclimated-mooncats"
+      ],
+      "limitations": [
+        "The sourceRef only supports the boundary warning that Acclimated evidence should not be generalized; it does not verify older wrapper behavior."
+      ]
+    },
+    {
+      "key": "marketplace-url-token",
+      "identifierKind": "openseaTokenId",
+      "acceptedBy": [
+        "sampled OpenSea item URLs for the acclimated MoonCats collection"
+      ],
+      "exampleShape": "collection contract address plus decimal URL token segment",
+      "conversionStatus": {
+        "toAcclimatedErc721TokenId": "verified-for-sampled-acclimated-opensea-urls",
+        "toOlderWrapperTokenId": "needs-verification",
+        "toGenericMarketplaceTokenId": "not-defined"
+      },
+      "warnings": [
+        "Marketplace URL token segments are scoped to the collection contract in the URL.",
+        "Do not infer broader OpenSea, LooksRare, Blur, or older-wrapper token behavior from sampled Acclimated OpenSea URLs."
+      ],
+      "sourceRefs": []
+    },
+    {
+      "key": "local-array-index",
+      "identifierKind": "localRescueOrderIndex",
+      "acceptedBy": [
+        "data/character-cat-index.json",
+        "data/rescue-buckets.json"
+      ],
+      "exampleShape": "local numeric rescue-order-index value",
+      "conversionStatus": {
+        "toApiOriginalRescueIndex": "verified-aligned-by-local-buckets-and-api-samples",
+        "toMooncatIdBytes5": "verified-array-backed-library-dataset-api-alignment-and-contract-lookup",
+        "toAcclimatedErc721TokenId": "verified-for-acclimated-contract",
+        "toOlderWrapperTokenId": "needs-verification"
+      },
+      "warnings": [
+        "Local array indexes are not bytes5 cat IDs.",
+        "Local array indexes are not generic token IDs.",
+        "Apply the target-surface conversion rule before using local values outside curated local data files."
+      ],
+      "sourceRefs": [
+        "mooncat-rescueorder-by-category",
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js"
+      ]
+    }
+  ],
   "conversionRules": [
     {
       "from": "apiOriginalRescueIndex",
@@ -388,6 +543,24 @@
       "to": "openseaTokenId",
       "status": "verified-for-sampled-acclimated-opensea-urls",
       "notes": "Sampled OpenSea acclimated collection URLs use the acclimated contract address plus numeric token ID matching rescue order. This is sampled marketplace evidence, not a general OpenSea rule."
+    },
+    {
+      "from": "olderWrapperTokenId",
+      "to": "mooncatIdBytes5",
+      "status": "needs-verification",
+      "notes": "No older wrapper token ID convention is verified from the allowed existing sources. Identify the exact older wrapper contract and review its source/ABI or documented token ID semantics before attempting conversion."
+    },
+    {
+      "from": "apiOriginalRescueIndex",
+      "to": "olderWrapperTokenId",
+      "status": "needs-verification",
+      "notes": "Do not assume rescue order is the older wrapper token ID. The rescue-order token convention is verified only for the current Acclimated MoonCats contract."
+    },
+    {
+      "from": "olderWrapperTokenId",
+      "to": "erc721TokenId",
+      "status": "not-interchangeable-without-source",
+      "notes": "The current Acclimated ERC-721 token ID and any older wrapper token ID are separate contract-scoped identifier spaces unless a reviewed source proves an equivalence."
     }
   ],
   "relatedFiles": [
@@ -418,7 +591,7 @@
   ],
   "todos": [
     "Document the exact derivation method for local rescue-order-index arrays.",
-    "Verify older wrapper contract token ID conventions separately.",
+    "Verify older wrapper contract token ID conventions separately by exact contract address and source/ABI review.",
     "Do not import a full bytes5 catId mapping table unless a focused generated-data pass documents the source and method."
   ]
 }
