@@ -40,3 +40,14 @@ Repository conventions:
 - `docs/` contains explanations, reasoning, and source notes.
 - `data/` contains exact canonical or curated data.
 - Incomplete information is marked explicitly instead of guessed.
+
+## Validation
+
+Run the structural KB validator from the repo root:
+
+```sh
+python scripts/validate-kb.py
+```
+
+It checks `data/*.json` parsing, required routed file references, and `sourceRef` consistency.
+The script locates the repo root automatically when invoked by path from a subdirectory.

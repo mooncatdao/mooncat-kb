@@ -149,6 +149,15 @@
         "data/sources.json"
       ],
       "notes": "MoonCatColors internals now record compact verified semantics for colorsOf ordering, deriveColors ordering summary, accessoryColorsOf composition, paletteOf composition, mapColors purpose/application, hue helpers, and colorAlpha bands. Exact BasePalette values, mapColors keys/values, generated palettes, and per-cat outputs remain intentionally unimported."
+    },
+    {
+      "key": "initial-kb-functionality-pass",
+      "status": "resolved-as-validator",
+      "files": [
+        "scripts/validate-kb.py",
+        "README.md"
+      ],
+      "notes": "A zero-dependency read-only Python validator now checks data/*.json parsing, required routed file references, kb-gap sourceFiles, sourceRef consistency, and relatedFiles warnings."
     }
   ],
   "fileGaps": [
@@ -409,11 +418,6 @@
     }
   ],
   "recommendedNextPasses": [
-    {
-      "key": "initial-kb-functionality-pass",
-      "priority": "high",
-      "reason": "Before the first push, the KB would benefit from a lightweight functionality layer such as validation/check scripts or a starter query guide so users and agents can verify JSON, sourceRefs, route coverage, and common task entry points."
-    },
     {
       "key": "trait-curated-model-decision",
       "priority": "medium",
