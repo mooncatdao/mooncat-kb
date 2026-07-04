@@ -6,9 +6,50 @@ This page documents what was observed in that snapshot, which resources can supp
 
 ## Current Status
 
-Incomplete strategy pass.
+Curated model decision recorded; curated per-cat trait data is still not imported.
 
 `mooncat_traits.json` is a reference input under `docs/reference-policy.md`, not a curated KB dataset. It may be used as evidence for schema and validation planning, but future imports should promote only deliberate, normalized outputs into `data/`.
+
+## Curated Trait Model Decision
+
+Curated per-cat trait data is recommended only as a future focused generated-data pass. The KB should not hand-copy or directly promote the full upstream `mooncat_traits.json` table into `data/`.
+
+If a curated per-cat trait artifact is created later, the preferred primary key is `catId` in the 0x-prefixed bytes5 MoonCat ID form. `rescueOrder` may be included as a required secondary lookup/index field when it is sourced from the validated row or array-backed lookup method and used according to `data/identifier-conventions.json`.
+
+Allowed fields for the first visual-trait artifact:
+
+- `catId`
+- `rescueOrder`
+- `rescueYear`
+- visual traits: `hueInt`, `hueName`, `pale`, `facing`, `expression`, `pattern`, `pose`, and `genesis`
+- artifact-level `sourceRefs`
+- generation and validation metadata such as `generatedBy` and `validatedAt`
+
+Reference-only or disallowed fields for the first visual-trait artifact:
+
+- names: `nameRaw`, `name`, `namedOrder`, and `namedYear`
+- accessory-related fields such as `ownedAccessories` or accessory ownership details
+- full upstream rows, frequency tables, rendered images, palette values, and API response bodies
+
+Names and accessory-related fields may have different freshness, event semantics, or update cadence. They should stay reference-only until a separate provenance and model decision exists.
+
+Required provenance and method:
+
+- use sourceRefs registered in `data/sources.json`
+- record the exact source snapshot or live source surface used
+- document the generation command or script
+- document row count, identifier alignment checks, and optional-field normalization
+- mark complete, partial, stale-risk, or update-cadence-bound coverage explicitly
+
+Validation for any future generated artifact should check JSON syntax, one row per included `catId`, no duplicate `catId` values, bytes5 `catId` format, `rescueOrder` range and uniqueness for complete datasets, rescue-order alignment, required visual trait fields, allowed value sets, explicit `genesis` handling, and sourceRef resolution.
+
+Open questions before import:
+
+- whether the first curated artifact should include all 25,440 cats or a smaller generated lookup optimized for common KB tasks
+- whether generated per-cat rows should be committed directly or produced by script from reference snapshots
+- whether visual traits should be versioned separately from API/name/accessory fields
+- what freshness policy should apply if current API or ChainStation-maintained trait artifacts diverge from the local upstream snapshot
+- whether any consumer needs rescueOrder-primary shape despite bytes5 `catId` being the preferred primary key
 
 ## Observed Snapshot Shape
 
@@ -83,7 +124,7 @@ Recommended next passes, in increasing scope:
 - Validation report: generate a small report with row count, required-field coverage, optional-field coverage, catId uniqueness, rescueOrder range, and checked enum values. This should not include all 25,440 rows.
 - Small schema file: create a compact machine-readable schema for `mooncat_traits.json` fields and validation rules. Include sourceRefs and mark it as schema metadata, not trait data.
 - Frequency summary: generate aggregate counts for selected fields such as hue, expression, pattern, pose, pale, genesis, and accessory/name presence. This is derived data and should document the exact command or script.
-- Generated curated trait data: promote selected normalized fields into `data/` only if a focused pass defines the target model, sourceRefs, generation method, validation checks, update process, and size limits.
+- Generated curated trait data: promote selected normalized visual-trait fields into `data/` only through the model decision above and only if a focused pass defines the generated artifact, sourceRefs, generation method, validation checks, update process, and size limits.
 
 Before any curated import, decide whether names, accessory counts, and derived relation fields belong in the same dataset as visual traits. They may need separate provenance or update cadence.
 

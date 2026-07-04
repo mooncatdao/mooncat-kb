@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "updated": "2026-07-03",
-  "status": "schema-metadata-not-trait-dataset",
+  "updated": "2026-07-04",
+  "status": "schema-metadata-with-curated-model-decision",
   "scope": "Compact field dictionary and validation summary for the local mooncat_traits.json upstream reference snapshot.",
   "sourceRefs": [
     "mooncatrescue-mooncat-traits-json"
@@ -350,6 +350,122 @@
       "use": "supporting API shape context for future endpoint compatibility checks; not used here to claim response schemas"
     }
   ],
+  "curatedTraitModelDecision": {
+    "status": "recommended-for-future-focused-generated-data-pass",
+    "summary": "Curated per-cat trait data may be useful for lookups, validation, and downstream tools, but it should not be imported until a focused pass defines the generated artifact, source method, validation command, update process, and size limits.",
+    "recommendedStorage": {
+      "kind": "generated-curated-json",
+      "location": "future data/ file, not this schema metadata file",
+      "importFullUpstreamSnapshot": false,
+      "notes": [
+        "Keep references/upstream/mooncatrescue/mooncat_traits.json as reference input, not curated KB data.",
+        "Prefer a generated artifact with repeatable validation over hand-edited per-cat rows."
+      ]
+    },
+    "preferredIdentifierKey": {
+      "key": "catId",
+      "identifierKind": "mooncatIdBytes5",
+      "rationale": "bytes5 catId is the MoonCat-native identifier and remains stable across token-facing wrapper conventions.",
+      "secondaryLookupKey": "rescueOrder",
+      "secondaryIdentifierKind": "apiOriginalRescueIndex",
+      "secondaryUse": "Allowed as a lookup/index field only when explicitly sourced from array order or the upstream row and checked against data/identifier-conventions.json."
+    },
+    "allowedFields": [
+      {
+        "key": "catId",
+        "requirement": "required primary key"
+      },
+      {
+        "key": "rescueOrder",
+        "requirement": "required secondary lookup key"
+      },
+      {
+        "key": "rescueYear",
+        "requirement": "allowed if sourced from the same validated row"
+      },
+      {
+        "key": "visualTraits",
+        "fields": [
+          "hueInt",
+          "hueName",
+          "pale",
+          "facing",
+          "expression",
+          "pattern",
+          "pose",
+          "genesis"
+        ],
+        "requirement": "allowed as normalized visual traits when value sets and optional-field handling are validated"
+      },
+      {
+        "key": "sourceRefs",
+        "requirement": "required at artifact level and allowed at field group level when sources differ"
+      },
+      {
+        "key": "generatedBy",
+        "requirement": "required method metadata for generated artifacts"
+      },
+      {
+        "key": "validatedAt",
+        "requirement": "required validation metadata for generated artifacts"
+      }
+    ],
+    "disallowedFields": [
+      {
+        "fieldGroup": "names",
+        "fields": [
+          "nameRaw",
+          "name",
+          "namedOrder",
+          "namedYear"
+        ],
+        "reason": "Name-related fields have different freshness and event semantics; keep reference-only until a separate provenance and update-cadence decision is made."
+      },
+      {
+        "fieldGroup": "accessories",
+        "fields": [
+          "ownedAccessories",
+          "accessory ownership details"
+        ],
+        "reason": "Accessory-related data may change or depend on current ownership surfaces; keep reference-only until a separate accessory data model exists."
+      },
+      {
+        "fieldGroup": "large-or-derived-reference-data",
+        "fields": [
+          "full upstream rows",
+          "frequency tables",
+          "rendered images",
+          "palette values",
+          "API response bodies"
+        ],
+        "reason": "These require separate generated-data or domain-specific passes and should not be copied into curated per-cat trait rows by default."
+      }
+    ],
+    "requiredProvenanceAndMethod": [
+      "Use sourceRefs registered in data/sources.json before relying on external or upstream references.",
+      "Record the exact source snapshot or live source surface, generation command or script, checked row count, identifier alignment checks, and optional-field normalization policy.",
+      "Document whether the generated artifact is complete, partial, stale-risk, or update-cadence-bound.",
+      "If sources conflict, document the conflict rather than silently choosing one source."
+    ],
+    "validationStrategy": [
+      "Validate generated JSON syntax.",
+      "Check one row per included catId and no duplicate catId values.",
+      "Check catId format as 0x-prefixed bytes5.",
+      "Check rescueOrder range and uniqueness for any complete dataset.",
+      "Check rescueOrder alignment against array index or documented lookup method.",
+      "Check required visual trait fields and allowed value sets.",
+      "Check optional genesis handling explicitly rather than converting absence silently.",
+      "Check every sourceRef resolves through data/sources.json.",
+      "Keep aggregate reports separate unless the pass explicitly creates derived summaries."
+    ],
+    "openQuestions": [
+      "Whether the first curated artifact should include all 25,440 cats or a smaller generated lookup optimized for common KB tasks.",
+      "Whether generated per-cat rows should be committed directly or produced by a script from reference snapshots.",
+      "Whether visual trait fields should be versioned separately from API/name/accessory-related fields.",
+      "What freshness policy should apply if current API or ChainStation-maintained trait artifacts diverge from the local upstream snapshot.",
+      "Whether any consumer needs rescueOrder-primary shape despite bytes5 catId being the preferred primary key."
+    ]
+  },
   "limitations": [
     "This file is schema and validation metadata, not the full 25,440-row trait dataset.",
     "No per-cat trait rows, catId mappings, names, accessory details, or frequency tables are imported.",
@@ -360,6 +476,6 @@
   "todos": [
     "Decide whether names and accessory-related fields need separate provenance or update cadence before any curated import.",
     "If needed, create a separate generated validation report with aggregate counts and a reproducible command.",
-    "Define a curated trait data model before promoting any normalized per-cat fields into data/."
+    "If needed, implement the curated per-cat visual trait artifact only through a focused generated-data pass using curatedTraitModelDecision."
   ]
 }

@@ -151,6 +151,15 @@
       "notes": "MoonCatColors internals now record compact verified semantics for colorsOf ordering, deriveColors ordering summary, accessoryColorsOf composition, paletteOf composition, mapColors purpose/application, hue helpers, and colorAlpha bands. Exact BasePalette values, mapColors keys/values, generated palettes, and per-cat outputs remain intentionally unimported."
     },
     {
+      "key": "trait-curated-model-decision",
+      "status": "partially-resolved-as-model-decision",
+      "files": [
+        "data/trait-index.json",
+        "docs/traits.md"
+      ],
+      "notes": "A compact curated per-cat trait model decision now recommends a future generated visual-trait artifact keyed by bytes5 catId with rescueOrder as a secondary lookup field, allowed visual fields, reference-only name/accessory fields, provenance requirements, validation strategy, and open questions. No per-cat rows, full trait table, large arrays, exact trait mappings, frequencies, names, or accessory details were imported."
+    },
+    {
       "key": "initial-kb-functionality-pass",
       "status": "resolved-as-validator",
       "files": [
@@ -385,14 +394,15 @@
     },
     {
       "file": "data/trait-index.json",
-      "currentStatus": "schema-metadata-not-trait-dataset",
+      "currentStatus": "schema-metadata-with-curated-model-decision",
       "routedFromAgentIndex": true,
       "gapTypes": [
         "intentional-schema-only",
-        "dataset-not-imported"
+        "dataset-not-imported",
+        "generated-import-not-implemented"
       ],
-      "agentUsabilityImpact": "Useful for trait field schema and validation metadata, but not for per-cat trait lookup, full frequencies, names, or accessory details.",
-      "nextDataPass": "Define a curated trait data model before promoting normalized per-cat fields into data/."
+      "agentUsabilityImpact": "Useful for trait field schema, validation metadata, and a future curated per-cat visual trait model decision, but not for per-cat trait lookup, full frequencies, names, or accessory details.",
+      "nextDataPass": "Implement any curated per-cat visual trait artifact only through a focused generated-data pass with sourceRefs, generation method, validation checks, update process, and size limits."
     }
   ],
   "notableNonGaps": [
@@ -418,11 +428,6 @@
     }
   ],
   "recommendedNextPasses": [
-    {
-      "key": "trait-curated-model-decision",
-      "priority": "medium",
-      "reason": "data/trait-index.json is schema metadata only; a separate model decision is needed before any curated per-cat trait import."
-    },
     {
       "key": "mooncat-svg-internals-review",
       "priority": "medium",
