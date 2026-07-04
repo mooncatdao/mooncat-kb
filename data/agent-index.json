@@ -32,6 +32,22 @@
       ]
     },
     {
+      "key": "review-kb-gaps",
+      "description": "Find current KB usability gaps, resolved gaps, routing coverage, and recommended next passes.",
+      "primaryFiles": [
+        "data/kb-gap-index.json"
+      ],
+      "optionalFiles": [
+        "data/agent-index.json",
+        "data/task-recipes.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Use this route for planning, audits, gap review, and next-pass prioritization.",
+        "Do not treat gap notes as MoonCat facts; use the referenced data files and sources for technical claims."
+      ]
+    },
+    {
       "key": "identify-mooncat-ids",
       "description": "Choose the correct MoonCat identifier form and understand conversion limits.",
       "primaryFiles": [
