@@ -2,7 +2,7 @@
   "version": 2,
   "updated": "2026-07-04",
   "status": "refreshed-audit-report",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, color-hue improvements, task recipes, routing updates, IPFS/CID verification, and identifier-boundary cleanup."
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, and MoonCatColors internals review.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/api-endpoints.json",
@@ -73,12 +73,14 @@
     },
     {
       "key": "color-hue-placeholders-improved",
-      "status": "partially-resolved",
+      "status": "resolved-as-source-reconciled-aggregate-guidance",
       "files": [
         "data/color-hues.json",
+        "data/color-source-inventory.json",
+        "data/contract-surfaces.json",
         "data/trait-index.json"
       ],
-      "notes": "Previous empty hue/special/pale structures are replaced by aggregate observed snapshot data and guardrails; canonical rendering, per-cat mappings, and exact palettes remain unresolved."
+      "notes": "Previous empty hue/special/pale structures are replaced by ADR-aligned hue buckets, aggregate observed snapshot data, color source inventory, MoonCatColors internals summaries, and guardrails; per-cat mappings, exact RGB/hex palettes, full renderer behavior, BasePalette values, and mapColors override values remain out of scope."
     },
     {
       "key": "task-recipes-added",
@@ -125,6 +127,28 @@
         "data/identifier-conventions.json"
       ],
       "notes": "Identifier guidance now more clearly separates bytes5 catId, rescue-order indexes, local indexes, current Acclimated ERC-721 token IDs, sampled Acclimated OpenSea URL token IDs, and older wrapper token IDs. Older wrapper token ID behavior remains needs-verification rather than guessed."
+    }
+    ,
+    {
+      "key": "color-source-inventory",
+      "status": "resolved-as-source-inventory",
+      "files": [
+        "data/color-source-inventory.json",
+        "data/sources.json",
+        "data/agent-index.json"
+      ],
+      "notes": "Color sources and claims are now inventoried separately from canonical color data, including ADR 0017, parser/source references, MoonCatColors surfaces, official guide context, MidnightLightning Reddit/Discord explanations, and observed trait snapshot context."
+    },
+    {
+      "key": "mooncatcolors-internals-review",
+      "status": "partially-resolved-as-compact-semantics",
+      "files": [
+        "data/color-hues.json",
+        "data/color-source-inventory.json",
+        "data/contract-surfaces.json",
+        "data/sources.json"
+      ],
+      "notes": "MoonCatColors internals now record compact verified semantics for colorsOf ordering, deriveColors ordering summary, accessoryColorsOf composition, paletteOf composition, mapColors purpose/application, hue helpers, and colorAlpha bands. Exact BasePalette values, mapColors keys/values, generated palettes, and per-cat outputs remain intentionally unimported."
     }
   ],
   "fileGaps": [
@@ -175,15 +199,15 @@
     },
     {
       "file": "data/color-hues.json",
-      "currentStatus": "observed-snapshot-and-community-context",
+      "currentStatus": "source-reconciled-aggregate-color-guidance",
       "routedFromAgentIndex": true,
       "gapTypes": [
-        "canonical-color-unverified",
         "per-cat-mapping-not-imported",
-        "rendering-behavior-not-proven"
+        "exact-palette-values-not-imported",
+        "renderer-behavior-still-scoped"
       ],
-      "agentUsabilityImpact": "Much more useful for aggregate observed hue/color context, but not a canonical rendering, exact palette, or per-cat color lookup source.",
-      "nextDataPass": "Review parser/rendering or canonical color sources separately before adding exact palettes, formulas, or per-cat mappings."
+      "agentUsabilityImpact": "Useful for ADR-aligned hue buckets, aggregate observed hue/color context, compact MoonCatColors internals, parser/on-chain surface guidance, and guardrails. Still not a per-cat color table, exact RGB/hex palette source, full renderer spec, or generated image source.",
+      "nextDataPass": "Only add exact palette values, mapColors overrides, or per-cat mappings through a dedicated generated-data or storage-review pass with repeatable validation."
     },
     {
       "file": "data/contract-surfaces.json",
@@ -191,10 +215,11 @@
       "routedFromAgentIndex": true,
       "gapTypes": [
         "intentional-compact-scope",
-        "artifact-details-not-imported"
+        "artifact-details-not-imported",
+        "some-internals-reviewed-by-domain"
       ],
-      "agentUsabilityImpact": "Useful for choosing contract/source surfaces, but not a call-signature, ABI, source, bytecode, or internals index.",
-      "nextDataPass": "If exact call signatures are needed, create a separate ABI policy or artifact index instead of expanding this routing file."
+      "agentUsabilityImpact": "Useful for choosing contract/source surfaces and now includes a compact MoonCatColors reviewed-internals pointer, but it is still not a full call-signature, ABI, source, bytecode, or storage-layout index.",
+      "nextDataPass": "If exact call signatures or artifact details are needed, create a separate ABI/artifact policy instead of expanding this routing file."
     },
     {
       "file": "data/contracts.json",
@@ -385,24 +410,9 @@
   ],
   "recommendedNextPasses": [
     {
-      "key": "color-source-inventory",
+      "key": "initial-kb-functionality-pass",
       "priority": "high",
-      "reason": "Color rendering work would benefit from a source inventory that separates official MoonCatRescue documentation, parser/source evidence, on-chain color contracts, Discord/community notes, and unverified explanatory material before changing canonical color data."
-    },
-    {
-      "key": "color-rendering-review",
-      "priority": "medium",
-      "reason": "data/color-hues.json now has aggregate observed hue data, but canonical palettes, exact rendering behavior, and per-cat mappings remain out of scope."
-    },
-    {
-      "key": "older-wrapper-contract-review",
-      "priority": "medium",
-      "reason": "data/identifier-conventions.json now marks older wrapper token ID behavior as needs-verification; exact older wrapper contract/source review is still needed before adding mappings."
-    },
-    {
-      "key": "ipfs-payload-availability-check",
-      "priority": "low",
-      "reason": "data/ipfs-cids.json now has source-observed CIDs, but payload availability, file counts, schemas, pinning status, and hash validation remain intentionally unchecked."
+      "reason": "Before the first push, the KB would benefit from a lightweight functionality layer such as validation/check scripts or a starter query guide so users and agents can verify JSON, sourceRefs, route coverage, and common task entry points."
     },
     {
       "key": "trait-curated-model-decision",
@@ -410,9 +420,24 @@
       "reason": "data/trait-index.json is schema metadata only; a separate model decision is needed before any curated per-cat trait import."
     },
     {
+      "key": "mooncat-svg-internals-review",
+      "priority": "medium",
+      "reason": "MoonCatColors internals are compactly reviewed; MoonCatSVGs remains a surface-only rendering contract and should be reviewed separately before stronger image-rendering claims."
+    },
+    {
+      "key": "older-wrapper-contract-review",
+      "priority": "medium",
+      "reason": "data/identifier-conventions.json marks older wrapper token ID behavior as needs-verification; exact older wrapper contract/source review is still needed before adding mappings."
+    },
+    {
       "key": "source-method-completion",
       "priority": "medium",
       "reason": "data/sources.json remains incomplete for some future exact values and derived-data methods."
+    },
+    {
+      "key": "ipfs-payload-availability-check",
+      "priority": "low",
+      "reason": "data/ipfs-cids.json has source-observed CIDs, but payload availability, file counts, schemas, pinning status, and hash validation remain intentionally unchecked."
     },
     {
       "key": "project-link-trust-notes",
