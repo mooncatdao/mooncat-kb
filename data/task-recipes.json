@@ -1,0 +1,392 @@
+{
+  "version": 1,
+  "updated": "2026-07-04",
+  "status": "compact-workflow-index",
+  "scope": "Agent-facing workflow recipes for sequencing common MoonCat KB tasks by loading existing data files. This file routes and orders work; it does not add endpoint, contract, trait, color, identifier, source, or per-cat facts.",
+  "sourceRefs": [],
+  "relatedFiles": [
+    "data/agent-index.json",
+    "data/api-examples.json",
+    "data/api-endpoints.json",
+    "data/identifier-conventions.json",
+    "data/libmooncat-surfaces.json",
+    "data/trait-index.json",
+    "data/color-hues.json",
+    "data/rescue-buckets.json",
+    "data/rescue-ranges.json",
+    "data/contract-surfaces.json",
+    "data/contracts.json",
+    "data/sources.json",
+    "data/kb-gap-index.json"
+  ],
+  "defaults": {
+    "loadFirst": [
+      "AGENTS.md",
+      "data/agent-index.json"
+    ],
+    "useDataFilesFor": [
+      "exact IDs",
+      "numeric values",
+      "canonical or curated indexes",
+      "compact machine-readable manifests"
+    ],
+    "loadOptionalFilesOnlyWhen": [
+      "the task needs explanation beyond compact JSON",
+      "the primary file points to an incomplete status",
+      "the answer needs provenance, source trust, or conflict handling",
+      "the task asks for implementation behavior rather than routing"
+    ]
+  },
+  "commonGuardrails": [
+    "Do not invent MoonCat IDs, contract addresses, CIDs, URLs, dates, exact trait mappings, endpoint behavior, or source claims.",
+    "Do not mix rescue-order indexes, bytes5 catIds, ERC-721 token IDs, OpenSea IDs, local array indexes, accessory IDs, Ethereum addresses, and ENS names without checking data/identifier-conventions.json and the task-specific manifest.",
+    "If a loaded file marks data incomplete, partial, community-curated, sampled, or reference-only, preserve that limitation in the answer.",
+    "Use examples as construction aids only; use manifests and registered sources for coverage and limitations.",
+    "Do not import per-cat rows, generated response bodies, full OpenAPI schemas, full trait tables, or large source mappings into a response or curated data file unless a dedicated task allows it."
+  ],
+  "recipes": [
+    {
+      "key": "choose-mooncat-identifier-form",
+      "purpose": "Choose the correct identifier form before calling APIs, using libraries, reading buckets, or discussing token-facing surfaces.",
+      "loadOrder": [
+        "data/identifier-conventions.json",
+        "data/agent-index.json",
+        "data/libmooncat-surfaces.json"
+      ],
+      "optionalFiles": [
+        "data/api-endpoints.json",
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Identify the source and target surface: API, contract, wrapper token, marketplace URL, local bucket, or library helper.",
+        "Read the matching identifier kind and conversionStatus in data/identifier-conventions.json.",
+        "If a library helper is involved, cross-check accepted and output forms in data/libmooncat-surfaces.json.",
+        "If an API path is involved, check the endpoint manifest acceptedIdentifierForms before constructing parameters.",
+        "Return the chosen identifier form and the limitation status, not a guessed conversion."
+      ],
+      "outputs": [
+        "recommended identifier form",
+        "files consulted",
+        "conversion status or stop reason",
+        "guardrails to preserve"
+      ],
+      "guardrails": [
+        "Do not treat rescue-order indexes, bytes5 catIds, ERC-721 token IDs, OpenSea IDs, and local array indexes as interchangeable.",
+        "Treat bytes5 conversion as array-backed/library/dataset/API/contract lookup where documented, not as a closed-form formula.",
+        "Token-facing guidance is scoped by the referenced contract and source limitations."
+      ],
+      "stopConditions": [
+        "Stop if the needed identifier surface is not listed in data/identifier-conventions.json.",
+        "Stop if the conversion status is needs-verification and no allowed source-backed lookup is available."
+      ]
+    },
+    {
+      "key": "fetch-traits-safely",
+      "purpose": "Plan trait lookups while respecting the current split between API manifests, examples, trait schema metadata, and upstream reference snapshots.",
+      "loadOrder": [
+        "data/api-endpoints.json",
+        "data/identifier-conventions.json",
+        "data/trait-index.json"
+      ],
+      "optionalFiles": [
+        "data/api-examples.json",
+        "data/libmooncat-surfaces.json",
+        "data/color-hues.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Choose the identifier form with data/identifier-conventions.json before building the request or helper call.",
+        "Use data/api-endpoints.json to find accepted forms, params, response kind, and endpoint limitations.",
+        "Use data/api-examples.json only for example construction or known checked request shape.",
+        "Use data/trait-index.json for schema metadata and observed field vocabulary, not as a per-cat lookup table.",
+        "Load color or library files only if the trait question specifically touches hue, pale, genesis, or helper surfaces."
+      ],
+      "outputs": [
+        "safe lookup path",
+        "identifier form to use",
+        "expected response kind or helper output category",
+        "trait coverage limitations"
+      ],
+      "guardrails": [
+        "Do not import or reproduce the full upstream trait table.",
+        "Do not infer exact trait mappings for a specific MoonCat unless an allowed source provides that specific lookup.",
+        "Do not treat example responses as stored canonical data; examples do not replace endpoint manifests or OpenAPI specs."
+      ],
+      "stopConditions": [
+        "Stop if the requested per-cat trait answer requires data that is not present in curated KB files and live/API/source inspection is out of scope.",
+        "Stop if the identifier form cannot be verified for the target endpoint or helper."
+      ]
+    },
+    {
+      "key": "render-or-fetch-mooncat-image",
+      "purpose": "Choose between API image fetching, parser/helper review, or contract surface review for image-related MoonCat tasks.",
+      "loadOrder": [
+        "data/api-endpoints.json",
+        "data/identifier-conventions.json",
+        "data/api-examples.json"
+      ],
+      "optionalFiles": [
+        "data/libmooncat-surfaces.json",
+        "data/contract-surfaces.json",
+        "data/contracts.json",
+        "data/color-hues.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Decide whether the task asks for an API image response, local helper/parser surface, or on-chain rendering contract surface.",
+        "For API fetching, load endpoint and example files, then verify accepted identifier forms before constructing a request.",
+        "For local helper work, load data/libmooncat-surfaces.json and then inspect registered reference snapshots only if the task allows implementation review.",
+        "For on-chain rendering questions, route through data/contract-surfaces.json and data/contracts.json.",
+        "For color interpretation, load data/color-hues.json without treating it as a palette or per-cat image source."
+      ],
+      "outputs": [
+        "selected image/rendering path",
+        "files to consult next",
+        "identifier and response-kind constraints",
+        "implementation review boundary"
+      ],
+      "guardrails": [
+        "Do not copy image response bodies, generated outputs, parser internals, design arrays, palettes, or source code into this KB layer.",
+        "Do not convert hueInt to hex colors from data/color-hues.json.",
+        "Do not claim rendering behavior from helper names alone."
+      ],
+      "stopConditions": [
+        "Stop if the task needs exact rendering output but only surface indexes are in scope.",
+        "Stop if a requested image path requires an identifier form not accepted by the endpoint or helper surface."
+      ]
+    },
+    {
+      "key": "use-api-examples",
+      "purpose": "Use checked and manifest-derived examples to construct small API requests without treating examples as complete API documentation.",
+      "loadOrder": [
+        "data/api-examples.json",
+        "data/api-endpoints.json",
+        "data/identifier-conventions.json"
+      ],
+      "optionalFiles": [
+        "data/sources.json",
+        "data/trait-index.json"
+      ],
+      "steps": [
+        "Start with data/api-examples.json to find a relevant construction pattern.",
+        "Cross-check relatedEndpointKey, accepted forms, important params, and limitations in data/api-endpoints.json.",
+        "Check identifier conventions before replacing placeholders or sample values.",
+        "Use data/sources.json only when provenance or OpenAPI source status matters.",
+        "State whether the example was live-checked or manifest-derived if that affects confidence."
+      ],
+      "outputs": [
+        "request construction pattern",
+        "endpoint manifest key",
+        "identifier form requirements",
+        "example verification status"
+      ],
+      "guardrails": [
+        "Examples are construction aids and do not replace the endpoint manifest or registered OpenAPI specs.",
+        "Do not store or infer response bodies from examples unless an allowed task explicitly verifies and records them.",
+        "Do not use placeholder examples as if they were live-checked examples."
+      ],
+      "stopConditions": [
+        "Stop if the task requires full schema details omitted from data/api-endpoints.json.",
+        "Stop if no real identifier or placeholder policy is available for the target request."
+      ]
+    },
+    {
+      "key": "look-up-rescue-bucket-or-year",
+      "purpose": "Use curated rescue bucket arrays and range/method notes without mixing bucket memberships with unrelated identifier spaces.",
+      "loadOrder": [
+        "data/rescue-buckets.json",
+        "data/identifier-conventions.json",
+        "data/rescue-ranges.json"
+      ],
+      "optionalFiles": [
+        "data/sources.json",
+        "data/trait-index.json",
+        "data/api-endpoints.json"
+      ],
+      "steps": [
+        "Read the indexKind and provenance in data/rescue-buckets.json before using a membership array.",
+        "Use data/rescue-ranges.json when the task asks for range, supply, timestamp, or bucket-boundary context.",
+        "Use data/identifier-conventions.json before translating bucket values to API, token, or bytes5 contexts.",
+        "Load API or trait files only if the task needs a lookup or field vocabulary beyond bucket membership."
+      ],
+      "outputs": [
+        "bucket or range source file",
+        "index kind",
+        "membership or boundary limitation",
+        "identifier conversion note"
+      ],
+      "guardrails": [
+        "Do not treat local bucket values as bytes5 catIds.",
+        "Do not treat local bucket values as generic token IDs outside the documented identifier context.",
+        "Do not create new bucket memberships or year ranges without a source-backed update task."
+      ],
+      "stopConditions": [
+        "Stop if the requested bucket is not present or is marked incomplete.",
+        "Stop if the requested conversion crosses into a surface with needs-verification status."
+      ]
+    },
+    {
+      "key": "interpret-color-hue-data",
+      "purpose": "Use the compact color/hue reference for observed aggregate color fields while preserving uncertainty around canonical rendering and per-cat mappings.",
+      "loadOrder": [
+        "data/color-hues.json",
+        "data/trait-index.json"
+      ],
+      "optionalFiles": [
+        "data/character-cats.json",
+        "data/character-cat-index.json",
+        "data/libmooncat-surfaces.json",
+        "data/api-endpoints.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Read data/color-hues.json concepts, observedHueNames, aggregateCounts, paleHandling, specialCoats, and limitations.",
+        "Use data/trait-index.json for trait field metadata and observed value vocabulary.",
+        "Load character-cat files only for community-curated character color context.",
+        "Load LibMoonCat or API files only if the task asks for helper surfaces or live/API lookup planning.",
+        "Report observed aggregate status separately from canonical rendering or per-cat lookup status."
+      ],
+      "outputs": [
+        "observed hue/color context",
+        "aggregate-only count or range summary when needed",
+        "color-specific limitations",
+        "optional files for next lookup"
+      ],
+      "guardrails": [
+        "Do not infer pale from hueName.",
+        "Do not treat black or white hueInt values as hue degrees.",
+        "Do not treat observed aggregates as per-cat mappings.",
+        "Do not infer exact hex colors, palettes, or canonical rendering formulas from data/color-hues.json."
+      ],
+      "stopConditions": [
+        "Stop if the task asks for a specific catId-to-color mapping and no allowed lookup source is in scope.",
+        "Stop if the task asks for canonical palette/rendering behavior that has not been reviewed in the allowed files."
+      ]
+    },
+    {
+      "key": "use-libmooncat-helper-surfaces",
+      "purpose": "Route helper-surface questions through the compact LibMoonCat/parser index while keeping behavior claims tied to reviewed reference files.",
+      "loadOrder": [
+        "data/libmooncat-surfaces.json",
+        "data/identifier-conventions.json",
+        "data/trait-index.json"
+      ],
+      "optionalFiles": [
+        "data/color-hues.json",
+        "data/api-endpoints.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Pick the taskGroup in data/libmooncat-surfaces.json: identifier conversion, parser, traits, or image-rendering.",
+        "Check helper names, accepted identifier forms, output forms, sourceRefs, and limitations.",
+        "Use data/identifier-conventions.json before relying on any conversion helper.",
+        "Use data/trait-index.json or data/color-hues.json only when the helper task intersects trait fields or color fields.",
+        "Inspect registered upstream snapshots only when the task explicitly allows source review."
+      ],
+      "outputs": [
+        "helper group and helper names",
+        "accepted input and output forms",
+        "sourceRefs to inspect if needed",
+        "behavior-proof limitations"
+      ],
+      "guardrails": [
+        "Helper names are surface evidence, not complete source-code documentation.",
+        "Do not infer parser internals, palette details, generation semantics, or trait output fields beyond the indexed surfaces.",
+        "Do not use LibMoonCat lookup helpers as proof of a closed-form bytes5 conversion formula."
+      ],
+      "stopConditions": [
+        "Stop if the requested helper is not listed in data/libmooncat-surfaces.json.",
+        "Stop if exact behavior would require inspecting forbidden reference files in the current task."
+      ]
+    },
+    {
+      "key": "choose-contract-surface",
+      "purpose": "Select the right contract/source surface for on-chain, materialization, trait, color, SVG, accessory, or token identity questions.",
+      "loadOrder": [
+        "data/contract-surfaces.json",
+        "data/contracts.json",
+        "data/identifier-conventions.json"
+      ],
+      "optionalFiles": [
+        "data/api-endpoints.json",
+        "data/libmooncat-surfaces.json",
+        "data/sources.json",
+        "data/kb-gap-index.json"
+      ],
+      "steps": [
+        "Choose the closest surface key in data/contract-surfaces.json.",
+        "Load data/contracts.json for known contract entries and status.",
+        "Check data/identifier-conventions.json before translating between rescue order, bytes5 catId, and token-facing IDs.",
+        "Use data/sources.json when a non-obvious contract or source claim needs provenance.",
+        "Use data/kb-gap-index.json only to check known missing or incomplete KB areas."
+      ],
+      "outputs": [
+        "contract surface key",
+        "contract data file to consult",
+        "identifier boundary",
+        "source or gap follow-up"
+      ],
+      "guardrails": [
+        "Do not invent missing contract addresses, ABIs, source URLs, or behavior.",
+        "Do not generalize token ID behavior across contracts without the scoped evidence in identifier conventions and contract surfaces.",
+        "Do not answer materialization internals beyond the reviewed surface summaries unless a source-review task allows it."
+      ],
+      "stopConditions": [
+        "Stop if the surface key or contract entry needed for the answer is missing.",
+        "Stop if source provenance is required but the relevant sourceRef is absent or marked incomplete."
+      ]
+    },
+    {
+      "key": "check-source-provenance",
+      "purpose": "Confirm whether a fact, URL, local reference, or external artifact is backed by the curated source index and current gap notes.",
+      "loadOrder": [
+        "data/sources.json",
+        "data/agent-index.json",
+        "data/kb-gap-index.json"
+      ],
+      "optionalFiles": [
+        "data/api-endpoints.json",
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/identifier-conventions.json",
+        "data/trait-index.json",
+        "data/color-hues.json"
+      ],
+      "steps": [
+        "Look up the relevant sourceRef in data/sources.json before relying on a non-obvious fact.",
+        "Use data/agent-index.json to find which compact file should carry the fact.",
+        "Check data/kb-gap-index.json for known placeholders, stale files, incomplete areas, or unrouted useful files.",
+        "Load optional domain files only when the provenance question is about that domain.",
+        "If sources conflict or are missing, preserve the conflict or gap instead of silently choosing."
+      ],
+      "outputs": [
+        "sourceRef status",
+        "trust or limitation note",
+        "owning KB file",
+        "gap or follow-up if unresolved"
+      ],
+      "guardrails": [
+        "Do not add or promote sourceRefs in this recipe file.",
+        "Do not promote preserved navigation links into canonical provenance without a source-focused pass.",
+        "Do not rely on an external reference that is not registered unless the current task explicitly permits source registration."
+      ],
+      "stopConditions": [
+        "Stop if the fact requires a sourceRef that is missing and source registration is out of scope.",
+        "Stop if two registered sources conflict and no conflict note exists in the relevant KB file."
+      ]
+    }
+  ],
+  "limitations": [
+    "This file is a workflow index only and intentionally duplicates no endpoint paths, contract addresses, trait rows, hue formulas, response bodies, CIDs, or source records.",
+    "Recipes may become stale if referenced compact data files change without updating this routing layer.",
+    "This file does not supersede data/agent-index.json; it adds sequencing, guardrails, and stop conditions for common tasks.",
+    "Optional docs and reference snapshots are mentioned only through existing data-file relationships; this pass does not inspect or import their full contents."
+  ],
+  "todos": [
+    "Add new recipes only when a repeated agent task is not covered by data/agent-index.json plus these workflows.",
+    "Update recipes after any future curated per-cat trait, image, color, or source import changes the accepted workflow.",
+    "Consider routing data/task-recipes.json from data/agent-index.json in a separate task if the user wants this file discoverable through the main index."
+  ]
+}
