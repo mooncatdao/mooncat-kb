@@ -1,16 +1,299 @@
 {
-  "version": 1,
-  "updated": "2026-07-03",
-  "status": "community-curated-partial",
+  "version": 2,
+  "updated": "2026-07-04",
+  "status": "observed-snapshot-and-community-context",
+  "scope": "Compact agent-facing reference for MoonCat hue/color fields and adjacent color context. This file records aggregate observations from local reference snapshots and curated character-cat context; it is not a per-cat trait dataset, rendering palette, or canonical protocol proof.",
+  "sourceRefs": [
+    "mooncatrescue-mooncat-traits-json",
+    "mooncatrescue-mooncatparser-js",
+    "rate-my-mooncat"
+  ],
+  "relatedFiles": [
+    "data/trait-index.json",
+    "data/character-cats.json",
+    "data/character-cat-index.json",
+    "data/mooncat-types.json",
+    "data/special-cats.json",
+    "docs/color-math.md",
+    "references/upstream/mooncatrescue/mooncat_traits.json",
+    "references/upstream/mooncatrescue/mooncatparser.js"
+  ],
   "provenance": {
     "sources": [
-      "repo-context",
+      "mooncatrescue-mooncat-traits-json",
+      "mooncatrescue-mooncatparser-js",
       "rate-my-mooncat"
     ],
-    "notes": "Canonical MoonCat hue names and trait mappings are still not verified. Character-cat hue ranges are community-curated narrative ranges, not official protocol traits."
+    "notes": "Observed hue names, hueInt ranges, pale counts, and genesis coverage are aggregate-only observations from the local mooncat_traits.json reference snapshot. Character-cat hue ranges remain community-curated narrative/filter data. Parser helper names are observed in the local mooncatparser.js reference copy and are not treated here as canonical rendering documentation."
   },
-  "canonicalHues": [],
-  "specialCoats": [],
+  "observedSnapshot": {
+    "status": "local-upstream-reference-aggregate",
+    "sourceRef": "mooncatrescue-mooncat-traits-json",
+    "sourceFile": "references/upstream/mooncatrescue/mooncat_traits.json",
+    "rowCount": 25440,
+    "fieldsUsed": [
+      "hueName",
+      "hueInt",
+      "pale",
+      "genesis"
+    ],
+    "fieldCoverage": {
+      "hueName": {
+        "presentRows": 25440,
+        "missingRows": 0
+      },
+      "hueInt": {
+        "presentRows": 25440,
+        "missingRows": 0
+      },
+      "pale": {
+        "presentRows": 25440,
+        "missingRows": 0
+      },
+      "genesis": {
+        "presentRows": 96,
+        "missingRows": 25344,
+        "observedValues": {
+          "true": 96
+        }
+      }
+    },
+    "limitations": [
+      "The full 25,440-row source dataset is not imported into this curated data file.",
+      "Counts and ranges are aggregate snapshot observations, not a guarantee of current API or on-chain behavior.",
+      "hueInt values for black and white are recorded as observed special numeric values, not as hue degrees."
+    ]
+  },
+  "concepts": {
+    "hueName": {
+      "status": "observed-trait-field",
+      "description": "Name-like color bucket observed on every row in the local mooncat_traits.json snapshot.",
+      "doNotInfer": [
+        "Do not treat this file as a complete per-cat hueName lookup.",
+        "Do not infer pale, genesis, or rendering palette from hueName alone."
+      ]
+    },
+    "hueInt": {
+      "status": "observed-trait-field",
+      "description": "Numeric color value observed on every row in the local mooncat_traits.json snapshot.",
+      "degreeLikeRange": "Most non-special hue names use observed values in 0-359 degree-like ranges.",
+      "specialValues": {
+        "black": 1000,
+        "white": 2000
+      },
+      "doNotInfer": [
+        "Do not convert hueInt directly to hex colors from this file.",
+        "Do not treat black=1000 or white=2000 as hue degrees."
+      ]
+    },
+    "pale": {
+      "status": "observed-trait-field",
+      "description": "Boolean trait metadata field observed on every row in the local mooncat_traits.json snapshot.",
+      "doNotInfer": [
+        "Do not infer pale from hueName.",
+        "Do not apply a rendering adjustment unless a separate rendering source is being used."
+      ]
+    },
+    "genesis": {
+      "status": "observed-optional-field",
+      "description": "Optional boolean field observed as true on 96 rows in the local mooncat_traits.json snapshot.",
+      "doNotInfer": [
+        "Do not use this file as a genesis catId list.",
+        "Use data/mooncat-types.json and data/special-cats.json for curated genesis context."
+      ]
+    }
+  },
+  "observedHueNames": [
+    {
+      "hueName": "black",
+      "count": 48,
+      "hueIntRange": {
+        "min": 1000,
+        "max": 1000
+      },
+      "handling": "observed-special-numeric-value",
+      "notes": "Observed hueInt is a non-degree special value in the local snapshot."
+    },
+    {
+      "hueName": "blue",
+      "count": 2225,
+      "hueIntRange": {
+        "min": 226,
+        "max": 255
+      }
+    },
+    {
+      "hueName": "chartreuse",
+      "count": 1913,
+      "hueIntRange": {
+        "min": 76,
+        "max": 105
+      }
+    },
+    {
+      "hueName": "cyan",
+      "count": 2191,
+      "hueIntRange": {
+        "min": 166,
+        "max": 195
+      }
+    },
+    {
+      "hueName": "fuchsia",
+      "count": 2118,
+      "hueIntRange": {
+        "min": 316,
+        "max": 345
+      }
+    },
+    {
+      "hueName": "green",
+      "count": 1904,
+      "hueIntRange": {
+        "min": 106,
+        "max": 135
+      }
+    },
+    {
+      "hueName": "magenta",
+      "count": 2049,
+      "hueIntRange": {
+        "min": 286,
+        "max": 315
+      }
+    },
+    {
+      "hueName": "orange",
+      "count": 2225,
+      "hueIntRange": {
+        "min": 16,
+        "max": 45
+      }
+    },
+    {
+      "hueName": "purple",
+      "count": 2167,
+      "hueIntRange": {
+        "min": 256,
+        "max": 285
+      }
+    },
+    {
+      "hueName": "red",
+      "count": 2258,
+      "hueIntRange": {
+        "min": 0,
+        "max": 359,
+        "wrapsZero": true
+      },
+      "notes": "Observed values cross the 359-to-0 boundary; do not interpret min/max as a continuous full-circle range."
+    },
+    {
+      "hueName": "skyblue",
+      "count": 2217,
+      "hueIntRange": {
+        "min": 196,
+        "max": 225
+      }
+    },
+    {
+      "hueName": "teal",
+      "count": 1949,
+      "hueIntRange": {
+        "min": 136,
+        "max": 165
+      }
+    },
+    {
+      "hueName": "white",
+      "count": 48,
+      "hueIntRange": {
+        "min": 2000,
+        "max": 2000
+      },
+      "handling": "observed-special-numeric-value",
+      "notes": "Observed hueInt is a non-degree special value in the local snapshot."
+    },
+    {
+      "hueName": "yellow",
+      "count": 2128,
+      "hueIntRange": {
+        "min": 46,
+        "max": 75
+      }
+    }
+  ],
+  "aggregateCounts": {
+    "status": "derived-from-local-reference-snapshot",
+    "sourceRef": "mooncatrescue-mooncat-traits-json",
+    "rowCount": 25440,
+    "hueName": {
+      "black": 48,
+      "blue": 2225,
+      "chartreuse": 1913,
+      "cyan": 2191,
+      "fuchsia": 2118,
+      "green": 1904,
+      "magenta": 2049,
+      "orange": 2225,
+      "purple": 2167,
+      "red": 2258,
+      "skyblue": 2217,
+      "teal": 1949,
+      "white": 48,
+      "yellow": 2128
+    },
+    "pale": {
+      "true": 12516,
+      "false": 12924
+    },
+    "genesis": {
+      "true": 96,
+      "missingField": 25344
+    }
+  },
+  "canonicalHues": {
+    "status": "not-canonicalized",
+    "canonical": false,
+    "observedInventory": "observedHueNames",
+    "notes": [
+      "The observed hueName inventory is useful for agents, but this file does not independently prove canonical MoonCat coat categories.",
+      "Exact rendering palettes, hex values, and canonical hue formulas remain out of scope for this pass."
+    ]
+  },
+  "specialCoats": {
+    "status": "observed-special-context",
+    "canonical": false,
+    "observed": [
+      {
+        "key": "black",
+        "field": "hueName",
+        "hueInt": 1000,
+        "count": 48,
+        "sourceRef": "mooncatrescue-mooncat-traits-json",
+        "notes": "Observed as a hueName with a non-degree hueInt value in the local snapshot."
+      },
+      {
+        "key": "white",
+        "field": "hueName",
+        "hueInt": 2000,
+        "count": 48,
+        "sourceRef": "mooncatrescue-mooncat-traits-json",
+        "notes": "Observed as a hueName with a non-degree hueInt value in the local snapshot."
+      },
+      {
+        "key": "genesis",
+        "field": "genesis",
+        "count": 96,
+        "sourceRef": "mooncatrescue-mooncat-traits-json",
+        "notes": "Observed as optional genesis=true rows in the local snapshot. Use curated type/special-cat files for genesis context instead of treating this file as a membership list."
+      }
+    ],
+    "limitations": [
+      "This section does not define official special coat categories.",
+      "This section does not provide catId membership lists."
+    ]
+  },
   "characterHueRanges": {
     "status": "community-curated-partial",
     "canonical": false,
@@ -18,25 +301,82 @@
       "rate-my-mooncat"
     ],
     "data": "data/character-cats.json",
-    "notes": "Use character-cat hue ranges only as curated narrative/filter data. Do not treat them as official coat traits."
+    "relatedIndex": "data/character-cat-index.json",
+    "fieldsToLoad": [
+      "pale",
+      "coat",
+      "hueRanges"
+    ],
+    "notes": [
+      "Use character-cat hue ranges only as curated narrative/filter data. Do not treat them as official coat traits.",
+      "Some character-cat hue ranges wrap over zero and should use wrapsZero: true rather than being read as simple min-to-max intervals."
+    ]
   },
   "paleHandling": {
-    "status": "experimental",
+    "status": "observed-field-not-rendering-rule",
     "canonical": false,
-    "rules": [],
-    "notes": "Pale coat handling is documented as a future method area, not a verified canonical rule."
+    "sourceRef": "mooncatrescue-mooncat-traits-json",
+    "observedCounts": {
+      "true": 12516,
+      "false": 12924
+    },
+    "rules": [
+      {
+        "key": "separate-field",
+        "rule": "Treat pale as a separate boolean metadata field when it is present."
+      },
+      {
+        "key": "not-from-hue-name",
+        "rule": "Do not infer pale from hueName alone."
+      },
+      {
+        "key": "no-rendering-adjustment-here",
+        "rule": "Do not apply or document a pale rendering adjustment from this file; keep rendering behavior tied to a reviewed rendering source."
+      }
+    ],
+    "notes": "docs/color-math.md still treats pale adjustment behavior as experimental until source data and expected behavior are documented."
+  },
+  "parserColorMath": {
+    "status": "helper-surface-observed-not-canonical-rendering-proof",
+    "canonical": false,
+    "sourceRef": "mooncatrescue-mooncatparser-js",
+    "sourceFile": "references/upstream/mooncatrescue/mooncatparser.js",
+    "observedHelperNames": [
+      "RGBToHSL",
+      "HSLToRGB",
+      "RGBToHex",
+      "derivePalette"
+    ],
+    "notes": [
+      "These helper names are observed in the local parser reference snapshot.",
+      "This file does not copy parser source code, palette constants, or generated image output.",
+      "Use docs/color-math.md for the repo's current circular hue-distance method note."
+    ]
   },
   "circularHueDistance": {
     "status": "definition",
     "canonical": false,
     "formula": "min(abs(a-b)%360,360-(abs(a-b)%360))",
     "inputs": "hue degrees a and b",
-    "notes": "Useful comparison method; canonical hue targets still need sources."
+    "notes": "Useful comparison method from docs/color-math.md; canonical hue targets still need sources."
   },
-  "experimentalAdjustments": [],
+  "agentUsageNotes": [
+    "For aggregate observed color buckets, load this file and data/trait-index.json before consulting the full upstream snapshot.",
+    "For character-cat matching context, load data/character-cats.json and data/character-cat-index.json; keep that context separate from official protocol trait claims.",
+    "For genesis context, load data/mooncat-types.json and data/special-cats.json; do not use this file as a genesis catId list.",
+    "For rendering/parser implementation questions, inspect references/upstream/mooncatrescue/mooncatparser.js directly; this file is only a surface and aggregate index.",
+    "Do not mix catId/rescue-order identifier conversion rules into hue interpretation. Identifier conversion is handled by separate identifier and LibMoonCat references."
+  ],
+  "limitations": [
+    "No per-cat rows, catId-to-color mappings, exact hex palettes, or generated image colors are included.",
+    "Observed aggregate counts and ranges come from a local upstream reference snapshot and may not be sufficient to answer canonical protocol questions.",
+    "Canonical coat category definitions and pale rendering behavior remain unverified in this repository.",
+    "Character-cat color ranges are community-curated and incomplete."
+  ],
   "todos": [
-    "Verify canonical coat hue names and degree values.",
-    "Document special non-hue coat categories with sources.",
-    "Extract or derive missing character-cat hue ranges only with source references."
+    "Verify canonical coat hue names and degree values against primary or reviewed upstream sources.",
+    "Document official special non-hue coat categories only after source-backed review.",
+    "Review parser/rendering behavior separately before adding exact palette or hex-color references.",
+    "Keep any future per-cat color import in a separate generated-data pass rather than expanding this compact agent index."
   ]
 }
