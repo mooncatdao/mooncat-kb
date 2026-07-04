@@ -359,8 +359,8 @@
         "mooncatrescue-mooncatparser-js",
         "midnightlightning-discord-color-blurb-2024-01-06"
       ],
-      "status": "source-evidence-exists-not-promoted-to-color-model",
-      "notes": "ADR and parser source are stronger than Discord explanation for implementation claims."
+      "status": "promoted-as-compact-guidance-in-color-hues",
+      "notes": "ADR and parser source are stronger than Discord explanation for implementation claims. data/color-hues.json now records compact source-backed guidance without importing parser internals."
     },
     {
       "category": "HSL-HSV-terminology",
@@ -369,8 +369,8 @@
         "midnightlightning-reddit-hue-wheel",
         "midnightlightning-discord-color-blurb-2024-01-06"
       ],
-      "status": "terminology-needs-reconciliation",
-      "notes": "Reddit uses HSV framing; parser/ADR/Discord use HSL or HLS wording. A future canonical model should name the source-specific terminology."
+      "status": "source-specific-terminology-preserved",
+      "notes": "data/color-hues.json records ADR HLS/HSL wording and parser HSL helper surfaces while preserving Reddit HSV as explanatory context."
     },
     {
       "category": "palette-derivation",
@@ -380,8 +380,8 @@
         "midnightlightning-discord-color-blurb-2024-01-06",
         "mooncats-on-chain-guide"
       ],
-      "status": "source-evidence-exists-not-promoted-to-exact-palette",
-      "notes": "Do not add exact palette values or formulas to data/color-hues.json from this inventory alone."
+      "status": "surface-guidance-promoted-exact-palette-not-promoted",
+      "notes": "data/color-hues.json records parser and guide surfaces for palette derivation, but still does not add exact palette values or formulas."
     },
     {
       "category": "pale-behavior",
@@ -410,8 +410,8 @@
         "etherscan-mooncat-colors",
         "mooncatrescue-libmooncat-limited-js"
       ],
-      "status": "strong-surface-evidence",
-      "notes": "Article explains 8-color meaning; contract/ABI surfaces support uint8[24] output shape. Exact color semantics still need a focused contract/source review."
+      "status": "strong-surface-evidence-promoted-to-color-hues",
+      "notes": "data/color-hues.json now records the 8-color / 24-number output shape as strong surface evidence. Exact color semantics still need a focused contract/source review."
     },
     {
       "category": "accessory-complementary-colors",
@@ -430,8 +430,8 @@
         "midnightlightning-reddit-hue-wheel",
         "data/color-hues.json"
       ],
-      "status": "strong-current-maintainer-documentation-exists",
-      "notes": "ADR 0017 now gives a stronger source for future boundary work, but data/color-hues.json was intentionally left unchanged in this pass."
+      "status": "adr-ranges-promoted-in-color-hues",
+      "notes": "data/color-hues.json now records ADR-defined hue bucket boundaries and reconciles them with observed hueName/hueInt aggregate ranges."
     }
   ],
   "unresolvedSources": [
@@ -464,12 +464,10 @@
     "This file is not a canonical color model.",
     "No code snippets, parser tables, ABI JSON, images, article bodies, Reddit threads, Discord messages, exact palettes, or per-cat mappings are imported.",
     "The user-supplied Discord blurb is high confidence by attribution but not independently URL-verified here.",
-    "data/color-hues.json remains unchanged by this source inventory pass."
+    "Canonical or near-canonical compact color guidance belongs in data/color-hues.json; this file remains the source and claim inventory."
   ],
   "todos": [
-    "Use this inventory to plan a focused color-model update to data/color-hues.json.",
     "Confirm pale rendering behavior against parser and/or on-chain source before canonicalizing.",
-    "If exact hue ranges are promoted, cite ADR 0017 and reconcile them with observed hueName/hueInt snapshot ranges.",
     "Review MoonCatColors source internals before importing edge-case mapColors or exact palette semantics."
   ]
 }

@@ -1,15 +1,26 @@
 {
   "version": 2,
   "updated": "2026-07-04",
-  "status": "observed-snapshot-and-community-context",
-  "scope": "Compact agent-facing reference for MoonCat hue/color fields and adjacent color context. This file records aggregate observations from local reference snapshots and curated character-cat context; it is not a per-cat trait dataset, rendering palette, or canonical protocol proof.",
+  "status": "source-reconciled-aggregate-color-guidance",
+  "scope": "Compact agent-facing reference for MoonCat hue/color fields and adjacent color-model context. This file records source-reconciled guidance, ADR-defined hue bucket ranges, aggregate observations from local reference snapshots, and curated character-cat context; it is not a per-cat trait dataset, exact rendering palette, contract ABI, parser source import, or generated image dataset.",
   "sourceRefs": [
+    "mooncatrescue-adr-0017-color-math",
     "mooncatrescue-mooncat-traits-json",
     "mooncatrescue-mooncatparser-js",
+    "mooncatrescue-libmooncat-limited-js",
+    "etherscan-mooncat-colors",
+    "mooncats-on-chain-guide",
+    "midnightlightning-discord-color-blurb-2024-01-06",
+    "midnightlightning-reddit-hue-wheel",
+    "repo-color-math-doc",
     "rate-my-mooncat"
   ],
   "relatedFiles": [
+    "data/color-source-inventory.json",
     "data/trait-index.json",
+    "data/libmooncat-surfaces.json",
+    "data/contracts.json",
+    "data/contract-surfaces.json",
     "data/character-cats.json",
     "data/character-cat-index.json",
     "data/mooncat-types.json",
@@ -20,11 +31,284 @@
   ],
   "provenance": {
     "sources": [
+      "mooncatrescue-adr-0017-color-math",
       "mooncatrescue-mooncat-traits-json",
       "mooncatrescue-mooncatparser-js",
+      "mooncatrescue-libmooncat-limited-js",
+      "etherscan-mooncat-colors",
+      "mooncats-on-chain-guide",
+      "midnightlightning-discord-color-blurb-2024-01-06",
+      "midnightlightning-reddit-hue-wheel",
+      "repo-color-math-doc",
       "rate-my-mooncat"
     ],
-    "notes": "Observed hue names, hueInt ranges, pale counts, and genesis coverage are aggregate-only observations from the local mooncat_traits.json reference snapshot. Character-cat hue ranges remain community-curated narrative/filter data. Parser helper names are observed in the local mooncatparser.js reference copy and are not treated here as canonical rendering documentation."
+    "notes": "ADR 0017 is the strongest reviewed current-maintainer technical source for hue truncation, parser canonicality, and human-friendly hue bucket boundaries. Observed hue names, hueInt ranges, pale counts, and genesis coverage are aggregate-only observations from the local mooncat_traits.json reference snapshot. Character-cat hue ranges remain community-curated narrative/filter data. Parser and on-chain helper names are compact surface evidence only; exact palette values, generated image output, source internals, and per-cat mappings are not imported."
+  },
+  "colorModelSummary": {
+    "status": "source-reconciled-compact-guidance",
+    "canonicality": "partial",
+    "sourceRefs": [
+      "mooncatrescue-adr-0017-color-math",
+      "mooncatrescue-mooncatparser-js",
+      "etherscan-mooncat-colors",
+      "mooncats-on-chain-guide",
+      "mooncatrescue-mooncat-traits-json"
+    ],
+    "claims": [
+      "ADR 0017 defines current-maintainer technical guidance: original JavaScript mooncatparser behavior, including RGBToHSL output, is canonical for true MoonCat color.",
+      "ADR 0017 says hue values are truncated to integer values before use.",
+      "ADR 0017 defines twelve human-friendly HLS/HSL wheel labels as 30-degree buckets with lower-exclusive and upper-inclusive boundaries.",
+      "The local mooncat_traits.json snapshot aggregate aligns with those ADR bucket boundaries for observed non-special hueName/hueInt ranges.",
+      "The local parser snapshot supports HSL-based hue extraction and palette derivation at a source-surface level, but this file does not import exact parser formulas or output palettes.",
+      "MoonCatColors contract surfaces and the MoonCats On-Chain Guide support an 8-color / 24-number color output shape, but this file does not define exact color semantics or palette values."
+    ],
+    "notPromoted": [
+      "No per-cat color mappings are imported.",
+      "No exact RGB or hex palettes are imported.",
+      "No full parser source, ABI, contract source, image output, or generated data is imported.",
+      "Pale rendering behavior remains guarded because reviewed strong sources confirm the pale field and high-confidence explanation, but exact rendering semantics still need parser/contract confirmation."
+    ]
+  },
+  "sourceBackedClaims": [
+    {
+      "key": "parser-is-canonical-for-true-color",
+      "status": "current-maintainer-technical",
+      "sourceRefs": [
+        "mooncatrescue-adr-0017-color-math",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "claim": "ADR 0017 says MoonCatRescue projects shall treat original JavaScript mooncatparser behavior, including RGBToHSL output, as canonical for true MoonCat color.",
+      "limitations": [
+        "This file does not import parser source internals or edge-case overrides."
+      ]
+    },
+    {
+      "key": "hue-values-are-truncated",
+      "status": "current-maintainer-technical",
+      "sourceRefs": [
+        "mooncatrescue-adr-0017-color-math"
+      ],
+      "claim": "ADR 0017 says hue values are truncated to integer values before use.",
+      "limitations": [
+        "Floating-point edge cases can require implementation-specific care; this file does not list per-cat overrides."
+      ]
+    },
+    {
+      "key": "observed-trait-snapshot-aligns-with-adr-buckets",
+      "status": "reconciled-observed-aggregate",
+      "sourceRefs": [
+        "mooncatrescue-adr-0017-color-math",
+        "mooncatrescue-mooncat-traits-json"
+      ],
+      "claim": "Observed hueName/hueInt aggregate ranges in the local trait snapshot match ADR-defined integer bucket ranges for non-special hue names.",
+      "limitations": [
+        "The aggregate snapshot is not a per-cat lookup and does not prove rendering output."
+      ]
+    },
+    {
+      "key": "onchain-colors-eight-color-shape",
+      "status": "strong-surface-evidence",
+      "sourceRefs": [
+        "etherscan-mooncat-colors",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncats-on-chain-guide"
+      ],
+      "claim": "Reviewed contract and library surfaces support colorsOf returning 24 uint8 values, and the MoonCats On-Chain Guide explains that as RGB values for 8 colors.",
+      "limitations": [
+        "Exact color ordering, palette semantics, and edge-case mapColors values should be reviewed in contract/source internals before canonical import."
+      ]
+    }
+  ],
+  "hueBucketModel": {
+    "status": "adr-defined-and-observed-snapshot-aligned",
+    "canonicality": "current-maintainer-technical-for-bucket-boundaries",
+    "sourceRefs": [
+      "mooncatrescue-adr-0017-color-math",
+      "mooncatrescue-mooncat-traits-json"
+    ],
+    "boundaryRule": {
+      "unit": "integer hue value",
+      "lowerBound": "exclusive",
+      "upperBound": "inclusive",
+      "wrapsAt": 360,
+      "notes": [
+        "ADR 0017 defines labels as equal 30-degree HLS/HSL wheel divisions.",
+        "ADR 0017 says hue values are truncated to integers before use.",
+        "Observed snapshot ranges below reconcile those ADR boundaries with aggregate hueName/hueInt values."
+      ]
+    },
+    "buckets": [
+      {
+        "label": "red",
+        "adrExpression": "345 < hue <= 15",
+        "integerRanges": [
+          {
+            "min": 346,
+            "max": 359
+          },
+          {
+            "min": 0,
+            "max": 15
+          }
+        ],
+        "wrapsZero": true,
+        "observedHueName": "red",
+        "observedRangeRef": "observedHueNames.red"
+      },
+      {
+        "label": "orange",
+        "adrExpression": "15 < hue <= 45",
+        "integerRanges": [
+          {
+            "min": 16,
+            "max": 45
+          }
+        ],
+        "observedHueName": "orange",
+        "observedRangeRef": "observedHueNames.orange"
+      },
+      {
+        "label": "yellow",
+        "adrExpression": "45 < hue <= 75",
+        "integerRanges": [
+          {
+            "min": 46,
+            "max": 75
+          }
+        ],
+        "observedHueName": "yellow",
+        "observedRangeRef": "observedHueNames.yellow"
+      },
+      {
+        "label": "chartreuse",
+        "adrExpression": "75 < hue <= 105",
+        "integerRanges": [
+          {
+            "min": 76,
+            "max": 105
+          }
+        ],
+        "observedHueName": "chartreuse",
+        "observedRangeRef": "observedHueNames.chartreuse"
+      },
+      {
+        "label": "green",
+        "adrExpression": "105 < hue <= 135",
+        "integerRanges": [
+          {
+            "min": 106,
+            "max": 135
+          }
+        ],
+        "observedHueName": "green",
+        "observedRangeRef": "observedHueNames.green"
+      },
+      {
+        "label": "teal",
+        "adrExpression": "135 < hue <= 165",
+        "integerRanges": [
+          {
+            "min": 136,
+            "max": 165
+          }
+        ],
+        "observedHueName": "teal",
+        "observedRangeRef": "observedHueNames.teal"
+      },
+      {
+        "label": "cyan",
+        "adrExpression": "165 < hue <= 195",
+        "integerRanges": [
+          {
+            "min": 166,
+            "max": 195
+          }
+        ],
+        "observedHueName": "cyan",
+        "observedRangeRef": "observedHueNames.cyan"
+      },
+      {
+        "label": "sky blue",
+        "adrExpression": "195 < hue <= 225",
+        "integerRanges": [
+          {
+            "min": 196,
+            "max": 225
+          }
+        ],
+        "observedHueName": "skyblue",
+        "observedRangeRef": "observedHueNames.skyblue",
+        "notes": "ADR uses the display label Sky Blue; the observed local trait snapshot uses skyblue as the compact field value."
+      },
+      {
+        "label": "blue",
+        "adrExpression": "225 < hue <= 255",
+        "integerRanges": [
+          {
+            "min": 226,
+            "max": 255
+          }
+        ],
+        "observedHueName": "blue",
+        "observedRangeRef": "observedHueNames.blue"
+      },
+      {
+        "label": "purple",
+        "adrExpression": "255 < hue <= 285",
+        "integerRanges": [
+          {
+            "min": 256,
+            "max": 285
+          }
+        ],
+        "observedHueName": "purple",
+        "observedRangeRef": "observedHueNames.purple"
+      },
+      {
+        "label": "magenta",
+        "adrExpression": "285 < hue <= 315",
+        "integerRanges": [
+          {
+            "min": 286,
+            "max": 315
+          }
+        ],
+        "observedHueName": "magenta",
+        "observedRangeRef": "observedHueNames.magenta"
+      },
+      {
+        "label": "fuchsia",
+        "adrExpression": "315 < hue <= 345",
+        "integerRanges": [
+          {
+            "min": 316,
+            "max": 345
+          }
+        ],
+        "observedHueName": "fuchsia",
+        "observedRangeRef": "observedHueNames.fuchsia"
+      }
+    ],
+    "specialObservedValues": [
+      {
+        "label": "black",
+        "hueInt": 1000,
+        "observedCount": 48,
+        "sourceRef": "mooncatrescue-mooncat-traits-json",
+        "status": "observed-special-non-degree-value"
+      },
+      {
+        "label": "white",
+        "hueInt": 2000,
+        "observedCount": 48,
+        "sourceRef": "mooncatrescue-mooncat-traits-json",
+        "status": "observed-special-non-degree-value"
+      }
+    ],
+    "reconciliationNotes": [
+      "The observed non-special hueName ranges already match ADR integer buckets, including the red wrap over zero.",
+      "Black and white are observed snapshot labels with non-degree hueInt values; they are not ADR 30-degree hue buckets."
+    ]
   },
   "observedSnapshot": {
     "status": "local-upstream-reference-aggregate",
@@ -253,12 +537,18 @@
     }
   },
   "canonicalHues": {
-    "status": "not-canonicalized",
-    "canonical": false,
+    "status": "adr-buckets-promoted-observed-ranges-preserved",
+    "canonical": true,
     "observedInventory": "observedHueNames",
+    "canonicalRangeRef": "hueBucketModel",
+    "sourceRefs": [
+      "mooncatrescue-adr-0017-color-math",
+      "mooncatrescue-mooncat-traits-json"
+    ],
     "notes": [
-      "The observed hueName inventory is useful for agents, but this file does not independently prove canonical MoonCat coat categories.",
-      "Exact rendering palettes, hex values, and canonical hue formulas remain out of scope for this pass."
+      "ADR-defined hue bucket boundaries are promoted as current-maintainer technical guidance in hueBucketModel.",
+      "The observed hueName inventory remains aggregate snapshot evidence and is not a per-cat lookup.",
+      "Exact rendering palettes, hex values, edge-color tidbits, and per-cat overrides remain out of scope for this file."
     ]
   },
   "specialCoats": {
@@ -313,9 +603,13 @@
     ]
   },
   "paleHandling": {
-    "status": "observed-field-not-rendering-rule",
+    "status": "observed-field-plus-high-confidence-explanation-not-canonical-rendering-rule",
     "canonical": false,
-    "sourceRef": "mooncatrescue-mooncat-traits-json",
+    "sourceRefs": [
+      "mooncatrescue-mooncat-traits-json",
+      "midnightlightning-discord-color-blurb-2024-01-06",
+      "repo-color-math-doc"
+    ],
     "observedCounts": {
       "true": 12516,
       "false": 12924
@@ -331,15 +625,27 @@
       },
       {
         "key": "no-rendering-adjustment-here",
-        "rule": "Do not apply or document a pale rendering adjustment from this file; keep rendering behavior tied to a reviewed rendering source."
+        "rule": "Do not apply a pale rendering adjustment from this file; keep exact rendering behavior tied to a focused parser or contract-source review."
       }
     ],
-    "notes": "docs/color-math.md still treats pale adjustment behavior as experimental until source data and expected behavior are documented."
+    "highConfidenceExplanation": {
+      "sourceRef": "midnightlightning-discord-color-blurb-2024-01-06",
+      "status": "user-supplied-transcript-not-source-code-proof",
+      "summary": "The attributed Discord explanation says pale MoonCats use the derived palette differently from standard MoonCats.",
+      "limitations": [
+        "No raw Discord export or URL was reviewed.",
+        "The exact pale rendering rule is not promoted as canonical here."
+      ]
+    },
+    "notes": "Observed pale is source-backed as a trait field; exact pale rendering behavior remains unresolved in this compact model."
   },
   "parserColorMath": {
-    "status": "helper-surface-observed-not-canonical-rendering-proof",
-    "canonical": false,
-    "sourceRef": "mooncatrescue-mooncatparser-js",
+    "status": "source-backed-parser-surface",
+    "canonical": true,
+    "sourceRefs": [
+      "mooncatrescue-adr-0017-color-math",
+      "mooncatrescue-mooncatparser-js"
+    ],
     "sourceFile": "references/upstream/mooncatrescue/mooncatparser.js",
     "observedHelperNames": [
       "RGBToHSL",
@@ -347,10 +653,88 @@
       "RGBToHex",
       "derivePalette"
     ],
+    "surfaceClaims": [
+      "The parser snapshot contains RGBToHSL, HSLToRGB, RGBToHex, and derivePalette helpers.",
+      "The parser snapshot uses RGBToHSL inside derivePalette and uses HSLToRGB for palette entries.",
+      "The parser snapshot has special genesis color arrays before falling back to derivePalette for non-genesis parsing."
+    ],
     "notes": [
-      "These helper names are observed in the local parser reference snapshot.",
+      "ADR 0017 promotes original JavaScript mooncatparser behavior as canonical for true MoonCat color.",
       "This file does not copy parser source code, palette constants, or generated image output.",
       "Use docs/color-math.md for the repo's current circular hue-distance method note."
+    ]
+  },
+  "paletteDerivationStatus": {
+    "status": "parser-surface-confirmed-exact-palette-not-imported",
+    "canonical": false,
+    "sourceRefs": [
+      "mooncatrescue-adr-0017-color-math",
+      "mooncatrescue-mooncatparser-js",
+      "midnightlightning-discord-color-blurb-2024-01-06",
+      "mooncats-on-chain-guide"
+    ],
+    "summary": "Source review supports that MoonCat color rendering derives palettes from RGB/HSL-style helper logic, but this compact file does not define the full palette formula or exact output colors.",
+    "promotedSurfaceFacts": [
+      "Original parser behavior is the current-maintainer canonical reference for true color.",
+      "Local parser snapshot contains derivePalette and HSL conversion helper surfaces.",
+      "The on-chain guide describes a single embedded color code being expanded into image and accessory colors."
+    ],
+    "notPromoted": [
+      "Exact lightness values or hue-shift constants as reusable formulas.",
+      "Exact RGB/hex palette values.",
+      "Per-cat palette outputs.",
+      "Contract mapColors override values."
+    ]
+  },
+  "genesisColorStatus": {
+    "status": "observed-special-values-plus-parser-surface",
+    "canonical": false,
+    "sourceRefs": [
+      "mooncatrescue-mooncat-traits-json",
+      "mooncatrescue-mooncatparser-js",
+      "midnightlightning-reddit-hue-wheel"
+    ],
+    "observedSnapshot": {
+      "genesisTrueRows": 96,
+      "blackRows": 48,
+      "whiteRows": 48
+    },
+    "promotedSurfaceFacts": [
+      "The local trait snapshot observes 96 genesis=true rows, 48 black hueName rows, and 48 white hueName rows.",
+      "The local parser snapshot contains a genesis branch with special color arrays.",
+      "Reddit explanation supports black/white visual categorization as maintainer/community context."
+    ],
+    "limitations": [
+      "This file does not provide genesis catId membership.",
+      "Black and white are observed special non-degree values, not ADR hue-wheel buckets.",
+      "Genesis rendering details are not fully canonicalized here."
+    ]
+  },
+  "onchainEightColorStatus": {
+    "status": "strong-surface-evidence",
+    "canonical": false,
+    "sourceRefs": [
+      "etherscan-mooncat-colors",
+      "mooncatrescue-libmooncat-limited-js",
+      "mooncats-on-chain-guide"
+    ],
+    "outputShape": {
+      "function": "colorsOf",
+      "surfaceOutput": "uint8[24]",
+      "interpretedAs": "8 RGB color triples",
+      "sourceRefForInterpretation": "mooncats-on-chain-guide"
+    },
+    "relatedSurfaces": [
+      "glowOf",
+      "deriveColors",
+      "accessoryColorsOf",
+      "paletteOf",
+      "hueName",
+      "hueIntOf"
+    ],
+    "limitations": [
+      "This file does not import ABI JSON, contract source internals, color values, accessory palettes, or edge-case mapColors data.",
+      "The 8-color semantic order is article-supported context and should be verified against contract/source internals before exact canonical use."
     ]
   },
   "circularHueDistance": {
@@ -361,22 +745,69 @@
     "notes": "Useful comparison method from docs/color-math.md; canonical hue targets still need sources."
   },
   "agentUsageNotes": [
+    "Use hueBucketModel for ADR-defined current-maintainer hue bucket boundaries.",
     "For aggregate observed color buckets, load this file and data/trait-index.json before consulting the full upstream snapshot.",
+    "For source provenance and unresolved claim categories, load data/color-source-inventory.json before changing this file.",
     "For character-cat matching context, load data/character-cats.json and data/character-cat-index.json; keep that context separate from official protocol trait claims.",
     "For genesis context, load data/mooncat-types.json and data/special-cats.json; do not use this file as a genesis catId list.",
     "For rendering/parser implementation questions, inspect references/upstream/mooncatrescue/mooncatparser.js directly; this file is only a surface and aggregate index.",
     "Do not mix catId/rescue-order identifier conversion rules into hue interpretation. Identifier conversion is handled by separate identifier and LibMoonCat references."
   ],
+  "guardrails": [
+    "Do not derive per-cat hueName, hueInt, pale status, or palette values from this compact file.",
+    "Do not treat black=1000 or white=2000 as hue degrees.",
+    "Do not use Reddit or Discord explanations alone for canonical formulas or exact rendering behavior.",
+    "Do not copy full parser source, contract ABI/source, generated images, or mooncat_traits.json rows into this file.",
+    "If a future source conflicts with ADR 0017 or the observed snapshot ranges, document the conflict with sourceRefs instead of silently overwriting."
+  ],
+  "unresolvedRenderingQuestions": [
+    {
+      "key": "pale-exact-rendering-rule",
+      "status": "unresolved",
+      "neededSources": [
+        "parser internals",
+        "contract/source internals"
+      ],
+      "notes": "High-confidence maintainer explanation exists, but exact behavior is not promoted from transcript alone."
+    },
+    {
+      "key": "pure-pattern-invisible-color",
+      "status": "partially-supported-by-adr",
+      "sourceRefs": [
+        "mooncatrescue-adr-0017-color-math",
+        "midnightlightning-discord-color-blurb-2024-01-06"
+      ],
+      "notes": "ADR supports ignoring pure coat pattern color for clone/littermate visual matching. This file does not generalize that into a complete rendering rule."
+    },
+    {
+      "key": "dna-glow-visual-use",
+      "status": "unresolved",
+      "sourceRefs": [
+        "midnightlightning-discord-color-blurb-2024-01-06",
+        "mooncats-on-chain-guide"
+      ],
+      "notes": "The guide and transcript discuss glow/original color context, but exact visual use across all renderers is not canonicalized here."
+    },
+    {
+      "key": "mapColors-edge-cases",
+      "status": "unresolved",
+      "sourceRefs": [
+        "mooncatrescue-adr-0017-color-math",
+        "etherscan-mooncat-colors"
+      ],
+      "notes": "ADR says mapColors compensates for Solidity/JavaScript math differences; no edge-case mapping values are imported."
+    }
+  ],
   "limitations": [
     "No per-cat rows, catId-to-color mappings, exact hex palettes, or generated image colors are included.",
-    "Observed aggregate counts and ranges come from a local upstream reference snapshot and may not be sufficient to answer canonical protocol questions.",
-    "Canonical coat category definitions and pale rendering behavior remain unverified in this repository.",
+    "Observed aggregate counts come from a local upstream reference snapshot and are not per-cat lookup data.",
+    "ADR-defined hue bucket boundaries are source-backed, but exact rendering palettes and pale rendering behavior remain unresolved in this repository.",
     "Character-cat color ranges are community-curated and incomplete."
   ],
   "todos": [
-    "Verify canonical coat hue names and degree values against primary or reviewed upstream sources.",
-    "Document official special non-hue coat categories only after source-backed review.",
     "Review parser/rendering behavior separately before adding exact palette or hex-color references.",
+    "Review MoonCatColors internals before importing mapColors overrides, paletteOf semantics, or exact color ordering.",
+    "Document official special non-hue coat categories only after a focused source-backed review.",
     "Keep any future per-cat color import in a separate generated-data pass rather than expanding this compact agent index."
   ]
 }
