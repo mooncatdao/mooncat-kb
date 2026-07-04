@@ -79,6 +79,20 @@
       "notes": "Local strategy document for mooncat_traits.json review and future curated trait-data work. It does not import or canonicalize the full trait dataset."
     },
     {
+      "id": "repo-color-math-doc",
+      "label": "Color Math Notes",
+      "type": "local",
+      "path": "docs/color-math.md",
+      "supports": [
+        "local color math status",
+        "circular hue-distance method note",
+        "pale handling uncertainty",
+        "character hue range caution"
+      ],
+      "status": "active",
+      "notes": "Local color-math status note. Use as repo guidance and TODO context, not as a primary MoonCat color source."
+    },
+    {
       "id": "mooncatrescue-website",
       "label": "MoonCatRescue website",
       "type": "primary",
@@ -698,12 +712,14 @@
       "type": "article",
       "url": "https://medium.com/mooncatrescue/mooncats-on-chain-guide-71d2b479fb72",
       "trustLevel": "supporting-context",
-      "status": "needs-review",
+      "status": "reviewed-for-color-source-inventory",
       "supports": [
         "on-chain explanation",
-        "technical context"
+        "technical context",
+        "MoonCatColors 8-color output explanation",
+        "MoonCatSVGs on-chain rendering context"
       ],
-      "notes": "Candidate explanatory source. Verify technical claims against contract, parser, or official docs before import."
+      "notes": "Reviewed on 2026-07-04 for color-source inventory only. The article explains MoonCatColors colorsOf as 24 RGB numbers for 8 colors and describes MoonCatSVGs on-chain rendering context. Treat as high-confidence MoonCatRescue publication context, but verify exact function surfaces against contract/source entries before canonical data import."
     },
     {
       "id": "on-chain-generative-art",
@@ -950,6 +966,56 @@
         "mooncatrescue-build"
       ],
       "notes": "Checked on 2026-07-04. The official Build with MoonCats page links to this page for IPFS supporting content; the public Contribute page Skills tab lists CIDs for parser, sprite, explainer, voxel, moments, and MoonCat Pop artifacts. This source supports the presence and project description of listed CIDs, not payload validation."
+    },
+    {
+      "id": "midnightlightning-reddit-hue-wheel",
+      "label": "MidnightLightning Reddit hue wheel explanation",
+      "type": "community",
+      "url": "https://www.reddit.com/r/MoonCatRescue/comments/m4h7lx/visual_of_the_huebased_color_whee_how_mooncats/",
+      "trustLevel": "high-confidence-maintainer-explanation",
+      "status": "reviewed-for-color-source-inventory",
+      "supports": [
+        "MoonCat hue wheel explanation",
+        "HSV/hue colorization context",
+        "standard and inverted palette explanation",
+        "hue bucket boundary discussion",
+        "genesis black/white categorization discussion"
+      ],
+      "notes": "Reviewed on 2026-07-04 for color-source inventory only. Reddit post and comments are by MidnightLightning and discuss hue wheel colorization, palette categories, shifted bucket boundaries, and genesis black/white categorization. Treat as high-confidence maintainer/community explanation, not source-code proof."
+    },
+    {
+      "id": "mooncatrescue-adr-0017-color-math",
+      "label": "MoonCatRescue ADR 0017 MoonCat Color Math",
+      "type": "current-maintainer-technical",
+      "url": "https://gitlab.com/mooncatrescue/dev-environment/-/raw/master/adr/0017-mooncat-color-math.md",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified",
+      "supports": [
+        "MoonCat color math decision record",
+        "mooncatparser canonicality for color",
+        "integer hue truncation",
+        "human-friendly hue labels",
+        "hue-name range boundaries",
+        "pure coat visual matching caveat",
+        "MoonCatColors mapColors edge-case context"
+      ],
+      "notes": "Raw GitLab ADR checked on 2026-07-04. ADR 0017 is marked Accepted and updated 2025-09-17. Use as current-maintainer technical documentation for color-source inventory, while keeping exact canonical data changes in separate focused passes."
+    },
+    {
+      "id": "midnightlightning-discord-color-blurb-2024-01-06",
+      "label": "MidnightLightning Discord color explanation, 2024-01-06",
+      "type": "user-supplied-transcript",
+      "trustLevel": "high-confidence-maintainer-explanation",
+      "status": "user-supplied-unverified-transcript",
+      "supports": [
+        "RGB to HSL explanation",
+        "palette derivation explanation",
+        "pale MoonCat color-use explanation",
+        "standard MoonCat color-use explanation",
+        "accessory complementary color explanation",
+        "on-chain 8-color palette explanation"
+      ],
+      "notes": "User supplied a Discord blurb attributed to MidnightLightning / MoonCatRescue Team dated 2024-01-06. No canonical URL or raw Discord export was reviewed in this pass. Treat as high-confidence maintainer explanation that needs confirmation from official/source-code records before canonical color model changes."
     }
   ],
   "todos": [

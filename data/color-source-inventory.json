@@ -1,0 +1,475 @@
+{
+  "version": 1,
+  "updated": "2026-07-04",
+  "status": "source-inventory-not-color-model",
+  "scope": "Compact inventory of MoonCat color-related sources and claims. This file records evidence levels and source claims; it does not define canonical hue ranges, exact palettes, formulas, rendering behavior, or per-cat mappings.",
+  "sourceRefs": [
+    "mooncatrescue-adr-0017-color-math",
+    "mooncatrescue-mooncatparser-js",
+    "etherscan-mooncat-colors",
+    "etherscan-mooncat-svgs",
+    "mooncats-on-chain-guide",
+    "midnightlightning-reddit-hue-wheel",
+    "midnightlightning-discord-color-blurb-2024-01-06",
+    "mooncatrescue-mooncat-traits-json",
+    "repo-color-math-doc",
+    "repo-reference-policy"
+  ],
+  "relatedFiles": [
+    "data/color-hues.json",
+    "data/trait-index.json",
+    "data/contract-surfaces.json",
+    "data/contracts.json",
+    "data/libmooncat-surfaces.json",
+    "data/sources.json",
+    "docs/color-math.md",
+    "references/upstream/mooncatrescue/mooncatparser.js"
+  ],
+  "trustTiers": {
+    "current-maintainer-technical": "Current MoonCatRescue technical documentation or maintained source/code surface.",
+    "local-upstream-reference": "Local upstream source snapshot registered in data/sources.json; reference input, not curated KB data.",
+    "verified-onchain-source-surface": "Verified contract/source identity and compact function surface, without importing ABI/source internals.",
+    "high-confidence-maintainer-explanation": "Maintainer-authored or user-supplied maintainer explanation; useful for interpretation but not source-code proof by itself.",
+    "official-publication-context": "MoonCatRescue publication or article context; verify exact behavior against contract/source records before canonical import.",
+    "local-policy-or-summary": "Repo-local policy, scaffold, or compact summary."
+  },
+  "claimCategories": [
+    "hue-extraction",
+    "HSL-HSV-terminology",
+    "palette-derivation",
+    "standard-non-pale-behavior",
+    "pale-behavior",
+    "genesis-black-white-behavior",
+    "hue-name-bucket-boundaries",
+    "accessory-complementary-colors",
+    "onchain-8-color-output",
+    "parser-source-code-evidence",
+    "community-visual-classification"
+  ],
+  "sources": [
+    {
+      "key": "adr-0017-mooncat-color-math",
+      "title": "ADR 0017 - MoonCat Color Math",
+      "sourceType": "current-maintainer-technical-document",
+      "sourceRef": "mooncatrescue-adr-0017-color-math",
+      "sourceUrl": "https://gitlab.com/mooncatrescue/dev-environment/-/raw/master/adr/0017-mooncat-color-math.md",
+      "trustLevel": "current-maintainer-technical",
+      "status": "verified",
+      "authorOrOrigin": "MoonCatRescue GitLab dev-environment ADR",
+      "checkedDate": "2026-07-04",
+      "colorTopics": [
+        "hue-extraction",
+        "HSL-HSV-terminology",
+        "hue-name-bucket-boundaries",
+        "parser-source-code-evidence",
+        "standard-non-pale-behavior"
+      ],
+      "extractedClaims": [
+        "The original JavaScript mooncatparser script is treated by this ADR as canonical for true MoonCat color, including RGBToHSL output.",
+        "Hue values are truncated to integer values before use.",
+        "Twelve human-friendly color labels are defined as 30-degree divisions around the HSL color wheel in the ADR.",
+        "The ADR states pure-coated MoonCats ignore the coat-pattern color when determining visual clone/littermate matching because that color is not visually used.",
+        "The ADR notes MoonCatColors mapColors records edge cases where Solidity color math does not dynamically match JavaScript behavior."
+      ],
+      "sourceEvidence": [
+        "Raw GitLab ADR fetched successfully on 2026-07-04.",
+        "ADR status is Accepted and updated 2025-09-17.",
+        "ADR lists integer hue ranges and explains JavaScript floating-point caveats."
+      ],
+      "relatedFiles": [
+        "data/color-hues.json",
+        "data/contract-surfaces.json",
+        "data/contracts.json",
+        "references/upstream/mooncatrescue/mooncatparser.js"
+      ],
+      "canonicality": "strong-current-maintainer-evidence-for-future-color-model-review",
+      "limitations": [
+        "This inventory records ADR claims but does not update data/color-hues.json.",
+        "Exact hue ranges and edge-case overrides should be promoted only in a separate color-model pass.",
+        "ADR claims should still be reconciled with local parser and on-chain source surfaces before curated canonical data changes."
+      ]
+    },
+    {
+      "key": "local-mooncatparser-reference",
+      "title": "Local mooncatparser.js reference snapshot",
+      "sourceType": "local-upstream-reference-source",
+      "sourceRef": "mooncatrescue-mooncatparser-js",
+      "sourceUrl": null,
+      "trustLevel": "local-upstream-reference",
+      "status": "reference-copy-reviewed-for-surface",
+      "authorOrOrigin": "MoonCatRescue upstream reference snapshot",
+      "checkedDate": "2026-07-04",
+      "colorTopics": [
+        "hue-extraction",
+        "palette-derivation",
+        "parser-source-code-evidence",
+        "standard-non-pale-behavior"
+      ],
+      "extractedClaims": [
+        "The local parser snapshot directly contains RGBToHSL, HSLToRGB, RGBToHex, and derivePalette helper names.",
+        "derivePalette reads HSL from RGB input and uses hue-like values to produce five palette entries.",
+        "The local parser snapshot has explicit special color arrays for black/white genesis-like branches before falling back to derivePalette."
+      ],
+      "sourceEvidence": [
+        "references/upstream/mooncatrescue/mooncatparser.js lines around derivePalette show RGBToHSL and HSLToRGB helper use.",
+        "The parser snippet around the color branch shows derivePalette(r, g, b, invert) used for non-special cases.",
+        "No code body or large parser table is imported into this inventory."
+      ],
+      "relatedFiles": [
+        "data/libmooncat-surfaces.json",
+        "data/color-hues.json",
+        "references/upstream/mooncatrescue/mooncatparser.js"
+      ],
+      "canonicality": "source-code-reference-input",
+      "limitations": [
+        "The snapshot is a reference input, not normalized curated data.",
+        "This inventory does not copy source code, palette arrays, generated images, or parser internals.",
+        "The parser snapshot by itself does not define human-friendly hue labels."
+      ]
+    },
+    {
+      "key": "mooncatcolors-contract-surface",
+      "title": "MoonCatColors contract surface",
+      "sourceType": "verified-onchain-contract-surface",
+      "sourceRef": "etherscan-mooncat-colors",
+      "sourceUrl": "https://etherscan.io/address/0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC#code",
+      "trustLevel": "verified-onchain-source-surface",
+      "status": "verified-address-and-source-surface",
+      "authorOrOrigin": "MoonCatColors verified contract surface",
+      "checkedDate": "2026-07-04",
+      "colorTopics": [
+        "onchain-8-color-output",
+        "hue-extraction",
+        "palette-derivation",
+        "accessory-complementary-colors"
+      ],
+      "extractedClaims": [
+        "Existing contract summaries record MoonCatColors as an on-chain color reference and palette-generation contract.",
+        "Existing function surfaces include RGBToHue, hueToRGB, deriveColors, mapColors, colorsOf, accessoryColorsOf, colorAlpha, paletteOf, hueName, and hueIntOf.",
+        "The registered LibMoonCat snapshot includes ABI surface evidence that colorsOf returns uint8[24] and accessoryColorsOf returns uint8[45]."
+      ],
+      "sourceEvidence": [
+        "data/contracts.json and data/contract-surfaces.json summarize MoonCatColors role and function names.",
+        "references/upstream/mooncatrescue/libmooncat-limited.js includes a MoonCatColors ABI entry with colorsOf and deriveColors surfaces.",
+        "No ABI JSON or source code is imported into this inventory."
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/libmooncat-surfaces.json"
+      ],
+      "canonicality": "verified-function-surface-not-output-model",
+      "limitations": [
+        "No palette values, hue-name table, edge-case mappings, or source internals are imported.",
+        "Function names and output widths are surface evidence, not a full color model."
+      ]
+    },
+    {
+      "key": "mooncat-on-chain-guide",
+      "title": "MoonCats On-Chain Guide",
+      "sourceType": "official-publication-context",
+      "sourceRef": "mooncats-on-chain-guide",
+      "sourceUrl": "https://medium.com/mooncatrescue/mooncats-on-chain-guide-71d2b479fb72",
+      "trustLevel": "official-publication-context",
+      "status": "reviewed-for-color-source-inventory",
+      "authorOrOrigin": "Brooks Boyd / MoonCatRescue Medium publication",
+      "checkedDate": "2026-07-04",
+      "colorTopics": [
+        "onchain-8-color-output",
+        "palette-derivation",
+        "accessory-complementary-colors"
+      ],
+      "extractedClaims": [
+        "The article says each rescued MoonCat has one embedded color code that is extrapolated into a five-color main image palette plus accessory complement colors.",
+        "The article says MoonCatColors colorsOf returns 24 numbers: RGB values for 8 colors.",
+        "The article describes the order as glow/original color code, five base image colors, and two complimentary colors.",
+        "The article describes MoonCatSVGs as assembling SVG images on-demand from on-chain data."
+      ],
+      "sourceEvidence": [
+        "Medium page lines for MoonCatColors describe colorsOf and the 24-number/8-color return shape.",
+        "Medium page lines for MoonCatSVGs describe imageOf as outputting SVG data as a text string."
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/color-hues.json"
+      ],
+      "canonicality": "high-confidence-official-context",
+      "limitations": [
+        "Article claims should be checked against contract source/ABI before canonical data import.",
+        "The article does not provide exact RGB palettes or per-cat mappings in this inventory."
+      ]
+    },
+    {
+      "key": "midnightlightning-reddit-hue-wheel",
+      "title": "Visual of the Hue-based color wheel; how MoonCats are colorized",
+      "sourceType": "reddit-maintainer-community-explanation",
+      "sourceRef": "midnightlightning-reddit-hue-wheel",
+      "sourceUrl": "https://www.reddit.com/r/MoonCatRescue/comments/m4h7lx/visual_of_the_huebased_color_whee_how_mooncats/",
+      "trustLevel": "high-confidence-maintainer-explanation",
+      "status": "reviewed-for-color-source-inventory",
+      "authorOrOrigin": "MidnightLightning on r/MoonCatRescue",
+      "checkedDate": "2026-07-04",
+      "colorTopics": [
+        "HSL-HSV-terminology",
+        "community-visual-classification",
+        "hue-name-bucket-boundaries",
+        "genesis-black-white-behavior",
+        "standard-non-pale-behavior"
+      ],
+      "extractedClaims": [
+        "The post explains MoonCat image colorization using hue-wheel language and an HSV framing.",
+        "The post distinguishes standard and inverted palette examples in the visualization.",
+        "A follow-up comment says prior 30-degree color classification buckets should likely be shifted down 15 degrees to better match human perception.",
+        "A follow-up comment says black and white categories would be logical for genesis cats when bucketing by what the human eye sees."
+      ],
+      "sourceEvidence": [
+        "Reddit page shows author MidnightLightning and the hue-wheel post title.",
+        "Reddit comments by MidnightLightning discuss HSV/hue wheel, standard/inverted palettes, shifted bucket boundaries, and genesis black/white categorization."
+      ],
+      "relatedFiles": [
+        "data/color-hues.json",
+        "docs/color-math.md"
+      ],
+      "canonicality": "high-confidence-community-explanation-not-source-code-proof",
+      "limitations": [
+        "Reddit content is explanatory and visual-classification oriented.",
+        "Do not promote bucket boundaries or genesis categorization to canonical data from this source alone.",
+        "The post uses HSV wording, while source/parser/ADR language also uses HSL/HLS; terminology must be reconciled in a later color-model pass."
+      ]
+    },
+    {
+      "key": "midnightlightning-discord-color-blurb-2024-01-06",
+      "title": "MidnightLightning Discord color explanation, 2024-01-06",
+      "sourceType": "user-supplied-discord-transcript",
+      "sourceRef": "midnightlightning-discord-color-blurb-2024-01-06",
+      "sourceUrl": null,
+      "trustLevel": "high-confidence-maintainer-explanation",
+      "status": "user-supplied-unverified-transcript",
+      "authorOrOrigin": "User-supplied Discord blurb attributed to MidnightLightning / MoonCatRescue Team",
+      "checkedDate": "2026-07-04",
+      "colorTopics": [
+        "hue-extraction",
+        "palette-derivation",
+        "standard-non-pale-behavior",
+        "pale-behavior",
+        "accessory-complementary-colors",
+        "onchain-8-color-output"
+      ],
+      "extractedClaims": [
+        "The blurb says RGB color is converted to HSL and only hue is kept.",
+        "It says palette colors are derived with max saturation and fixed lightness values.",
+        "It says standard MoonCats use a spread of the same hue for border, pattern, fur, and belly, with nose/toes/ears shifted backward 40 degrees.",
+        "It says pale MoonCats use the palette differently, with the vibrant DNA/glow hue used as pattern and the base fur becoming the shifted color.",
+        "It says the accessory system adds two complementary colors opposite the wheel and on-chain metadata contracts expose 8 palette colors.",
+        "It says DNA/glow color is not visually used for all MoonCats, and pure-patterned MoonCats have a calculated pattern color that is not visually used."
+      ],
+      "sourceEvidence": [
+        "The prompt for this run supplied the blurb summary and date.",
+        "No raw Discord URL, message export, or official mirror was reviewed in this pass."
+      ],
+      "relatedFiles": [
+        "data/color-hues.json",
+        "data/contracts.json",
+        "references/upstream/mooncatrescue/mooncatparser.js"
+      ],
+      "canonicality": "high-confidence-maintainer-explanation-pending-source-confirmation",
+      "limitations": [
+        "This is not raw source-code proof.",
+        "Claims should be confirmed against ADR, parser, and on-chain source before changing canonical color data.",
+        "The original Discord text was not imported verbatim."
+      ]
+    },
+    {
+      "key": "observed-trait-snapshot-color-fields",
+      "title": "mooncat_traits.json observed color fields",
+      "sourceType": "local-upstream-reference-dataset",
+      "sourceRef": "mooncatrescue-mooncat-traits-json",
+      "sourceUrl": null,
+      "trustLevel": "local-upstream-reference",
+      "status": "aggregate-observed-in-color-hues",
+      "authorOrOrigin": "MoonCatRescue upstream reference snapshot",
+      "checkedDate": "2026-07-04",
+      "colorTopics": [
+        "hue-name-bucket-boundaries",
+        "genesis-black-white-behavior",
+        "pale-behavior"
+      ],
+      "extractedClaims": [
+        "data/color-hues.json records aggregate observed hueName, hueInt, pale, and genesis fields from the local 25,440-row snapshot.",
+        "Observed black and white hueInt values are recorded as non-degree special numeric values in data/color-hues.json.",
+        "Observed pale is a separate boolean field and should not be inferred from hueName alone."
+      ],
+      "sourceEvidence": [
+        "data/color-hues.json version 2 records aggregate counts and limitations.",
+        "data/trait-index.json records schema metadata for hueInt, hueName, pale, and genesis fields."
+      ],
+      "relatedFiles": [
+        "data/color-hues.json",
+        "data/trait-index.json",
+        "references/upstream/mooncatrescue/mooncat_traits.json"
+      ],
+      "canonicality": "observed-snapshot-not-rendering-proof",
+      "limitations": [
+        "This source does not define exact palettes, parser behavior, or per-cat mappings in curated KB data.",
+        "The full upstream trait table remains a reference snapshot, not imported curated data."
+      ]
+    },
+    {
+      "key": "repo-color-math-note",
+      "title": "Repo color math note",
+      "sourceType": "local-summary-doc",
+      "sourceRef": "repo-color-math-doc",
+      "sourceUrl": null,
+      "trustLevel": "local-policy-or-summary",
+      "status": "local-summary",
+      "authorOrOrigin": "mooncat-kb docs/color-math.md",
+      "checkedDate": "2026-07-04",
+      "colorTopics": [
+        "hue-name-bucket-boundaries",
+        "pale-behavior",
+        "community-visual-classification"
+      ],
+      "extractedClaims": [
+        "docs/color-math.md says canonical MoonCat hue names, coat trait mappings, special coat categories, and pale-coat adjustments were still not fully verified in the repo at that point.",
+        "docs/color-math.md records circular hue-distance as a method note and warns that character-cat hue ranges are community-curated narrative/filter ranges.",
+        "docs/color-math.md says pale adjustment rules should remain experimental until source data and behavior are documented."
+      ],
+      "sourceEvidence": [
+        "Local docs inspected during this pass.",
+        "The doc is used as repo-local status context rather than external proof."
+      ],
+      "relatedFiles": [
+        "docs/color-math.md",
+        "data/color-hues.json",
+        "data/character-cats.json"
+      ],
+      "canonicality": "local-status-note",
+      "limitations": [
+        "This is a local status summary, not a primary color source.",
+        "It should be superseded by source-backed data if later color-model work promotes verified claims."
+      ]
+    }
+  ],
+  "claimIndex": [
+    {
+      "category": "hue-extraction",
+      "bestCurrentSources": [
+        "mooncatrescue-adr-0017-color-math",
+        "mooncatrescue-mooncatparser-js",
+        "midnightlightning-discord-color-blurb-2024-01-06"
+      ],
+      "status": "source-evidence-exists-not-promoted-to-color-model",
+      "notes": "ADR and parser source are stronger than Discord explanation for implementation claims."
+    },
+    {
+      "category": "HSL-HSV-terminology",
+      "bestCurrentSources": [
+        "mooncatrescue-adr-0017-color-math",
+        "midnightlightning-reddit-hue-wheel",
+        "midnightlightning-discord-color-blurb-2024-01-06"
+      ],
+      "status": "terminology-needs-reconciliation",
+      "notes": "Reddit uses HSV framing; parser/ADR/Discord use HSL or HLS wording. A future canonical model should name the source-specific terminology."
+    },
+    {
+      "category": "palette-derivation",
+      "bestCurrentSources": [
+        "mooncatrescue-mooncatparser-js",
+        "mooncatrescue-adr-0017-color-math",
+        "midnightlightning-discord-color-blurb-2024-01-06",
+        "mooncats-on-chain-guide"
+      ],
+      "status": "source-evidence-exists-not-promoted-to-exact-palette",
+      "notes": "Do not add exact palette values or formulas to data/color-hues.json from this inventory alone."
+    },
+    {
+      "category": "pale-behavior",
+      "bestCurrentSources": [
+        "midnightlightning-discord-color-blurb-2024-01-06",
+        "mooncatrescue-mooncat-traits-json",
+        "docs/color-math.md"
+      ],
+      "status": "explanation-plus-observed-field-not-canonical-rendering-proof",
+      "notes": "Observed pale is a separate boolean field; rendering behavior still needs parser/contract confirmation before canonicalization."
+    },
+    {
+      "category": "genesis-black-white-behavior",
+      "bestCurrentSources": [
+        "midnightlightning-reddit-hue-wheel",
+        "mooncatrescue-mooncat-traits-json",
+        "data/color-hues.json"
+      ],
+      "status": "community-explanation-plus-observed-snapshot",
+      "notes": "Observed snapshot has black/white special values; Reddit provides explanatory categorization, not final canonical policy."
+    },
+    {
+      "category": "onchain-8-color-output",
+      "bestCurrentSources": [
+        "mooncats-on-chain-guide",
+        "etherscan-mooncat-colors",
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "status": "strong-surface-evidence",
+      "notes": "Article explains 8-color meaning; contract/ABI surfaces support uint8[24] output shape. Exact color semantics still need a focused contract/source review."
+    },
+    {
+      "category": "accessory-complementary-colors",
+      "bestCurrentSources": [
+        "mooncats-on-chain-guide",
+        "midnightlightning-discord-color-blurb-2024-01-06",
+        "etherscan-mooncat-colors"
+      ],
+      "status": "explanatory-and-surface-evidence",
+      "notes": "Do not infer exact accessory color formulas or palettes from this inventory."
+    },
+    {
+      "category": "hue-name-bucket-boundaries",
+      "bestCurrentSources": [
+        "mooncatrescue-adr-0017-color-math",
+        "midnightlightning-reddit-hue-wheel",
+        "data/color-hues.json"
+      ],
+      "status": "strong-current-maintainer-documentation-exists",
+      "notes": "ADR 0017 now gives a stronger source for future boundary work, but data/color-hues.json was intentionally left unchanged in this pass."
+    }
+  ],
+  "unresolvedSources": [
+    {
+      "key": "discord-original-message",
+      "status": "not-reviewed",
+      "neededFor": "Raw provenance for the 2024-01-06 Discord blurb.",
+      "notes": "Only the user-supplied summary was available in this pass."
+    },
+    {
+      "key": "mooncatcolors-source-internals",
+      "status": "not-imported",
+      "neededFor": "Exact on-chain derivation, edge-case mapColors values, and palette semantics.",
+      "notes": "Existing KB has contract/source identity and function surface summaries only."
+    },
+    {
+      "key": "full-parser-model",
+      "status": "not-imported",
+      "neededFor": "Exact parser palette behavior beyond the small reviewed helper surface.",
+      "notes": "The parser snapshot was inspected narrowly; no source code or generated outputs were imported."
+    }
+  ],
+  "agentGuidance": [
+    "Load this file before changing data/color-hues.json or claiming canonical MoonCat color behavior.",
+    "Use ADR and parser/on-chain sources for implementation evidence; use Reddit, Medium, and Discord explanations as interpretation aids with their recorded limits.",
+    "Do not promote exact hue ranges, palette formulas, or per-cat color mappings from this inventory without a focused color-model pass.",
+    "Preserve HSL/HSV terminology differences instead of normalizing them silently."
+  ],
+  "limitations": [
+    "This file is not a canonical color model.",
+    "No code snippets, parser tables, ABI JSON, images, article bodies, Reddit threads, Discord messages, exact palettes, or per-cat mappings are imported.",
+    "The user-supplied Discord blurb is high confidence by attribution but not independently URL-verified here.",
+    "data/color-hues.json remains unchanged by this source inventory pass."
+  ],
+  "todos": [
+    "Use this inventory to plan a focused color-model update to data/color-hues.json.",
+    "Confirm pale rendering behavior against parser and/or on-chain source before canonicalizing.",
+    "If exact hue ranges are promoted, cite ADR 0017 and reconcile them with observed hueName/hueInt snapshot ranges.",
+    "Review MoonCatColors source internals before importing edge-case mapColors or exact palette semantics."
+  ]
+}

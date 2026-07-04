@@ -232,11 +232,13 @@
         "data/color-hues.json"
       ],
       "optionalFiles": [
+        "data/color-source-inventory.json",
         "docs/color-math.md",
         "data/character-cats.json",
         "data/sources.json"
       ],
       "notes": [
+        "Use data/color-source-inventory.json before changing canonical color/hue data or claiming rendering behavior.",
         "Do not infer exact trait mappings from hue notes unless the referenced file explicitly provides them.",
         "Use docs/color-math.md only when method explanation is needed."
       ]
