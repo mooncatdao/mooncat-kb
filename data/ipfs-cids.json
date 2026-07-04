@@ -207,7 +207,7 @@
       "result": "No CIDs found; reference snapshot README remains useful for local upstream file boundaries."
     },
     {
-      "sourceRef": "project-and-link-indexes",
+      "methodRef": "project-and-link-indexes",
       "paths": [
         "data/project-links.json",
         "data/link-index.json"
