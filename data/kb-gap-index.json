@@ -2,7 +2,7 @@
   "version": 2,
   "updated": "2026-07-04",
   "status": "refreshed-audit-report",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, color-hue improvements, task recipes, routing updates, and IPFS/CID verification.",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, color-hue improvements, task recipes, routing updates, IPFS/CID verification, and identifier-boundary cleanup."
   "sourceFiles": [
     "data/agent-index.json",
     "data/api-endpoints.json",
@@ -117,6 +117,15 @@
       ],
       "notes": "data/kb-gap-index.json is now directly discoverable from data/agent-index.json through the review-kb-gaps route."
     }
+    ,
+    {
+      "key": "identifier-older-wrapper-boundaries",
+      "status": "partially-resolved",
+      "files": [
+        "data/identifier-conventions.json"
+      ],
+      "notes": "Identifier guidance now more clearly separates bytes5 catId, rescue-order indexes, local indexes, current Acclimated ERC-721 token IDs, sampled Acclimated OpenSea URL token IDs, and older wrapper token IDs. Older wrapper token ID behavior remains needs-verification rather than guessed."
+    }
   ],
   "fileGaps": [
     {
@@ -200,14 +209,14 @@
     },
     {
       "file": "data/identifier-conventions.json",
-      "currentStatus": "incomplete",
+      "currentStatus": "incomplete-with-verified-boundaries",
       "routedFromAgentIndex": true,
       "gapTypes": [
-        "incomplete",
-        "identifier-convention-risk"
+        "older-wrapper-still-unverified",
+        "scope-boundary-risk"
       ],
-      "agentUsabilityImpact": "Useful for current identifier warnings and verified lookup boundaries, but older wrapper conventions and some derivation boundaries remain unresolved.",
-      "nextDataPass": "Separately verify older wrapper token ID conventions and keep bytes5 conversion described as array-backed lookup, not formula."
+      "agentUsabilityImpact": "Useful for current identifier warnings, verified lookup-backed bytes5/rescue-order boundaries, current Acclimated token ID boundaries, and explicit older-wrapper unknowns. Older wrapper token ID behavior is still not verified by exact wrapper contract/source review.",
+      "nextDataPass": "Verify older wrapper token ID conventions only after identifying exact older wrapper contract addresses and reviewing source/ABI or documentation."
     },
     {
       "file": "data/ipfs-cids.json",
@@ -376,19 +385,24 @@
   ],
   "recommendedNextPasses": [
     {
-      "key": "identifier-older-wrapper-boundaries",
+      "key": "color-source-inventory",
       "priority": "high",
-      "reason": "Identifier guidance is improved, but older wrapper token ID conventions and some cross-surface boundaries remain unresolved."
+      "reason": "Color rendering work would benefit from a source inventory that separates official MoonCatRescue documentation, parser/source evidence, on-chain color contracts, Discord/community notes, and unverified explanatory material before changing canonical color data."
+    },
+    {
+      "key": "color-rendering-review",
+      "priority": "medium",
+      "reason": "data/color-hues.json now has aggregate observed hue data, but canonical palettes, exact rendering behavior, and per-cat mappings remain out of scope."
+    },
+    {
+      "key": "older-wrapper-contract-review",
+      "priority": "medium",
+      "reason": "data/identifier-conventions.json now marks older wrapper token ID behavior as needs-verification; exact older wrapper contract/source review is still needed before adding mappings."
     },
     {
       "key": "ipfs-payload-availability-check",
       "priority": "low",
       "reason": "data/ipfs-cids.json now has source-observed CIDs, but payload availability, file counts, schemas, pinning status, and hash validation remain intentionally unchecked."
-    }, 
-    {
-      "key": "color-rendering-review",
-      "priority": "medium",
-      "reason": "data/color-hues.json now has aggregate observed hue data, but canonical palettes, exact rendering behavior, and per-cat mappings remain out of scope."
     },
     {
       "key": "trait-curated-model-decision",
