@@ -2,7 +2,7 @@
   "version": 2,
   "updated": "2026-07-04",
   "status": "refreshed-audit-report",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, color-hue improvements, task recipes, and routing updates.",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, color-hue improvements, task recipes, routing updates, and IPFS/CID verification.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/api-endpoints.json",
@@ -37,20 +37,18 @@
   },
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
-    "status": "one-current-data-file-not-directly-routed",
+    "status": "all-current-route-candidates-directly-routed",
     "dataFileCount": 22,
     "routeCandidates": 21,
-    "directlyRoutedCandidateCount": 20,
-    "directlyUnroutedDataFiles": [
-      "data/kb-gap-index.json"
-    ],
+    "directlyRoutedCandidateCount": 21,
+    "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
       "data/agent-index.json"
     ],
     "notes": [
-      "data/task-recipes.json is now directly routed by data/agent-index.json.",
-      "data/kb-gap-index.json is indirectly mentioned by data/task-recipes.json, but it is not directly routed from data/agent-index.json.",
-      "No routing changes were made in this pass because data/agent-index.json was out of scope."
+      "data/task-recipes.json is directly routed by data/agent-index.json.",
+      "data/kb-gap-index.json is now directly routed by data/agent-index.json through the review-kb-gaps task.",
+      "Current route candidates are directly discoverable from data/agent-index.json."
     ]
   },
   "resolvedOrPartiallyResolvedGaps": [
@@ -99,6 +97,25 @@
         "data/rescue-ranges.json"
       ],
       "notes": "Rescue bucket status now records method/timestamp verification; identifier conversion and downstream-use boundaries still need caution."
+    }
+    ,
+    {
+      "key": "ipfs-cids-verification",
+      "status": "partially-resolved-as-source-observed-index",
+      "files": [
+        "data/ipfs-cids.json",
+        "data/sources.json"
+      ],
+      "notes": "data/ipfs-cids.json now records eight official MoonCatRescue source-observed CIDs/artifact folders and a supporting sourceRef; payload availability, file counts, schemas, and hash validation remain out of scope."
+    },
+    {
+      "key": "direct-route-gap-index",
+      "status": "resolved",
+      "files": [
+        "data/agent-index.json",
+        "data/kb-gap-index.json"
+      ],
+      "notes": "data/kb-gap-index.json is now directly discoverable from data/agent-index.json through the review-kb-gaps route."
     }
   ],
   "fileGaps": [
@@ -194,27 +211,24 @@
     },
     {
       "file": "data/ipfs-cids.json",
-      "currentStatus": "needs-verification",
+      "currentStatus": "verified-compact",
       "routedFromAgentIndex": true,
       "gapTypes": [
-        "needs-verification",
-        "placeholder-empty-data"
+        "payload-not-validated",
+        "scope-limited"
       ],
-      "emptyStructures": [
-        "cids"
-      ],
-      "agentUsabilityImpact": "Not yet useful for CID lookup beyond indicating that CID data is unverified.",
-      "nextDataPass": "Verify CIDs from primary project, metadata, or repository sources and record what each CID contains."
+      "agentUsabilityImpact": "Useful for source-observed MoonCatRescue CID/artifact references, but not for payload availability, file counts, metadata schemas, pinning status, or hash validation.",
+      "nextDataPass": "Optionally verify selected CID payload availability with HEAD/range-safe checks in a focused pass without importing payload bodies."
     },
     {
       "file": "data/kb-gap-index.json",
       "currentStatus": "refreshed-audit-report",
-      "routedFromAgentIndex": false,
+      "routedFromAgentIndex": true,
       "gapTypes": [
-        "not-directly-routed"
+        "audit-report-staleness-risk"
       ],
-      "agentUsabilityImpact": "Useful as an audit report, but agents relying only on data/agent-index.json will not discover it directly.",
-      "nextDataPass": "Add a direct data/agent-index.json route to this gap index in a routing-focused pass if desired."
+      "agentUsabilityImpact": "Useful as an audit report and now directly discoverable from data/agent-index.json, but it can become stale after source or data passes.",
+      "nextDataPass": "Refresh this gap index after future substantial data/source imports."
     },
     {
       "file": "data/libmooncat-surfaces.json",
@@ -342,7 +356,7 @@
     {
       "file": "data/agent-index.json",
       "status": "compact-routing-index",
-      "note": "Routes all current data/*.json files except itself and data/kb-gap-index.json."
+      "note": "Routes all current data/*.json files except itself; data/kb-gap-index.json is routed through review-kb-gaps."
     },
     {
       "file": "data/api-examples.json",
@@ -362,20 +376,15 @@
   ],
   "recommendedNextPasses": [
     {
-      "key": "ipfs-cids-verification",
-      "priority": "high",
-      "reason": "data/ipfs-cids.json is still needs-verification with an empty cids array."
-    },
-    {
-      "key": "direct-route-gap-index",
-      "priority": "medium",
-      "reason": "data/kb-gap-index.json is the only current data file, besides data/agent-index.json itself, not directly routed from data/agent-index.json."
-    },
-    {
       "key": "identifier-older-wrapper-boundaries",
-      "priority": "medium",
+      "priority": "high",
       "reason": "Identifier guidance is improved, but older wrapper token ID conventions and some cross-surface boundaries remain unresolved."
     },
+    {
+      "key": "ipfs-payload-availability-check",
+      "priority": "low",
+      "reason": "data/ipfs-cids.json now has source-observed CIDs, but payload availability, file counts, schemas, pinning status, and hash validation remain intentionally unchecked."
+    }, 
     {
       "key": "color-rendering-review",
       "priority": "medium",
