@@ -1,22 +1,247 @@
 {
-  "version": 1,
-  "updated": "2026-07-03",
-  "status": "needs-verification",
+  "version": 2,
+  "updated": "2026-07-04",
+  "status": "verified-compact",
+  "scope": "Compact source-backed index of MoonCat-related IPFS CIDs and artifact folders directly observed in reviewed MoonCatRescue source pages.",
   "provenance": {
     "sources": [
-      "repo-context"
+      "mooncatrescue-build",
+      "mooncatrescue-contribute-ipfs"
     ],
-    "notes": "CID index scaffold only. No IPFS CIDs are verified."
+    "notes": "Entries are limited to CIDs directly observed on the official MoonCatRescue Build and Contribute pages. This file records source-backed CID/artifact descriptions only; it does not fetch, validate, pin, hash-check, or import payload contents."
   },
-  "cids": [],
+  "cids": [
+    {
+      "key": "mooncatrescue-javascript-parser",
+      "cid": "bafybeifl4bvfa5qv3s4peni6fwdyggdfbcykm2xe77z5bfpmureec2x7oq",
+      "uri": "ipfs://bafybeifl4bvfa5qv3s4peni6fwdyggdfbcykm2xe77z5bfpmureec2x7oq",
+      "url": null,
+      "kind": "parser-source-file",
+      "description": "MoonCatRescue JavaScript Parser",
+      "contains": "Original JavaScript implementation used for converting MoonCat hexadecimal IDs into traits/visualization, according to the reviewed MoonCatRescue pages.",
+      "sourceRefs": [
+        "mooncatrescue-build",
+        "mooncatrescue-contribute-ipfs"
+      ],
+      "sourceEvidence": [
+        "Build with MoonCats links MoonCatRescue JavaScript Parser to ipfs://bafybeifl4bvfa5qv3s4peni6fwdyggdfbcykm2xe77z5bfpmureec2x7oq.",
+        "Contribute page Skills/IPFS Pinning list labels the same CID as mooncatparser.js."
+      ],
+      "verificationStatus": "source-observed-not-payload-validated",
+      "canonicality": "official-project-ipfs-reference",
+      "trustLevel": "primary",
+      "limitations": [
+        "Payload bytes were not fetched or hash-validated in this pass.",
+        "This entry does not replace parser behavior notes in data/libmooncat-surfaces.json or references/upstream/mooncatrescue/mooncatparser.js."
+      ]
+    },
+    {
+      "key": "mooncat-walk-sprites",
+      "cid": "bafybeib5iedrzr7unbp4zq6rkrab3caik7nw7rfzlcfvu4xqs6bfk7dgje",
+      "uri": "ipfs://bafybeib5iedrzr7unbp4zq6rkrab3caik7nw7rfzlcfvu4xqs6bfk7dgje",
+      "url": null,
+      "kind": "image-sprite-folder",
+      "description": "MoonCat Walk Sprites",
+      "contains": "Folder described as containing one PNG sprite-sheet file for each rescued MoonCat formatted for a walk animation.",
+      "sourceRefs": [
+        "mooncatrescue-contribute-ipfs"
+      ],
+      "sourceEvidence": [
+        "Contribute page Skills/IPFS Pinning list labels this CID as MoonCat Walk Sprites."
+      ],
+      "verificationStatus": "source-observed-not-payload-validated",
+      "canonicality": "official-project-artifact-reference",
+      "trustLevel": "primary",
+      "limitations": [
+        "Folder contents and count were not fetched or validated.",
+        "The listed generator repository was not reviewed in this pass."
+      ]
+    },
+    {
+      "key": "mooncat-hex-explainers",
+      "cid": "bafybeibsfarvkx7cowc2uta55mw76aczjqkund6htjiq5pzvg4ljr7yeqi",
+      "uri": "ipfs://bafybeibsfarvkx7cowc2uta55mw76aczjqkund6htjiq5pzvg4ljr7yeqi",
+      "url": null,
+      "kind": "image-card-folder",
+      "description": "MoonCat Hex Explainers",
+      "contains": "Folder described as containing one PNG explanatory card for each rescued MoonCat covering five-byte identifier traits.",
+      "sourceRefs": [
+        "mooncatrescue-contribute-ipfs"
+      ],
+      "sourceEvidence": [
+        "Contribute page Skills/IPFS Pinning list labels this CID as MoonCat Hex Explainers."
+      ],
+      "verificationStatus": "source-observed-not-payload-validated",
+      "canonicality": "official-project-artifact-reference",
+      "trustLevel": "primary",
+      "limitations": [
+        "Folder contents and count were not fetched or validated.",
+        "This entry does not verify the explanatory trait claims on the cards."
+      ]
+    },
+    {
+      "key": "mooncat-3d-voxel-models",
+      "cid": "bafybeifxqtzf635xy3q3lrp2cygrz2vatregvtnfe2dsl4jskjyuneexzu",
+      "uri": "ipfs://bafybeifxqtzf635xy3q3lrp2cygrz2vatregvtnfe2dsl4jskjyuneexzu",
+      "url": null,
+      "kind": "voxel-model-folder",
+      "description": "MoonCat 3D Voxel models",
+      "contains": "Folder described as containing VOX files for rescued MoonCats in various poses and animation stages.",
+      "sourceRefs": [
+        "mooncatrescue-contribute-ipfs"
+      ],
+      "sourceEvidence": [
+        "Contribute page Skills/IPFS Pinning list labels this CID as MoonCat 3D Voxel models."
+      ],
+      "verificationStatus": "source-observed-not-payload-validated",
+      "canonicality": "official-project-artifact-reference",
+      "trustLevel": "primary",
+      "limitations": [
+        "Folder contents and count were not fetched or validated.",
+        "The referenced isotile project context was not reviewed in this pass."
+      ]
+    },
+    {
+      "key": "mooncat-moments-public-metadata",
+      "cid": "bafybeif6zs3hyywy5tuftfo3srfmgpdfpkphdodikchsaunex6bcsb4w3e",
+      "uri": "ipfs://bafybeif6zs3hyywy5tuftfo3srfmgpdfpkphdodikchsaunex6bcsb4w3e",
+      "url": null,
+      "kind": "metadata-folder",
+      "description": "MoonCat Moments public metadata",
+      "contains": "Folder described as containing public metadata for the MoonCat Moments collection.",
+      "sourceRefs": [
+        "mooncatrescue-contribute-ipfs"
+      ],
+      "sourceEvidence": [
+        "Contribute page Skills/IPFS Pinning list labels this CID as MoonCat Moments public metadata."
+      ],
+      "verificationStatus": "source-observed-not-payload-validated",
+      "canonicality": "official-project-artifact-reference",
+      "trustLevel": "primary",
+      "limitations": [
+        "Metadata files were not fetched, counted, or schema-validated.",
+        "This entry does not define MoonCat Moments collection metadata fields."
+      ]
+    },
+    {
+      "key": "mooncat-pop-json-metadata",
+      "cid": "bafybeigygqykfizjo7mulfu5nwmfnehfff6dl52byt3ycude5j4jpufdt4",
+      "uri": "ipfs://bafybeigygqykfizjo7mulfu5nwmfnehfff6dl52byt3ycude5j4jpufdt4",
+      "url": null,
+      "kind": "metadata-folder",
+      "description": "MoonCat Pop JSON metadata",
+      "contains": "Folder described as JSON metadata for MoonCat Pop derivative art pieces.",
+      "sourceRefs": [
+        "mooncatrescue-contribute-ipfs"
+      ],
+      "sourceEvidence": [
+        "Contribute page Skills/IPFS Pinning list labels this CID as MoonCat Pop JSON metadata."
+      ],
+      "verificationStatus": "source-observed-not-payload-validated",
+      "canonicality": "official-project-artifact-reference",
+      "trustLevel": "primary",
+      "limitations": [
+        "Metadata files were not fetched, counted, or schema-validated.",
+        "This entry does not define MoonCat Pop collection metadata fields."
+      ]
+    },
+    {
+      "key": "mooncat-pop-still-thumbnails",
+      "cid": "bafybeiazpg4ahet2rbarshsehriyxpepaqbpr2zdrmtvy55dzqxsupcs4u",
+      "uri": "ipfs://bafybeiazpg4ahet2rbarshsehriyxpepaqbpr2zdrmtvy55dzqxsupcs4u",
+      "url": null,
+      "kind": "image-folder",
+      "description": "MoonCat Pop still thumbnails",
+      "contains": "Folder described as still thumbnail imagery for MoonCat Pop derivative art pieces.",
+      "sourceRefs": [
+        "mooncatrescue-contribute-ipfs"
+      ],
+      "sourceEvidence": [
+        "Contribute page Skills/IPFS Pinning list labels this CID as MoonCat Pop still thumbnails."
+      ],
+      "verificationStatus": "source-observed-not-payload-validated",
+      "canonicality": "official-project-artifact-reference",
+      "trustLevel": "primary",
+      "limitations": [
+        "Image files were not fetched, counted, or decoded.",
+        "This entry does not validate image dimensions or generated artwork."
+      ]
+    },
+    {
+      "key": "mooncat-pop-animated-videos",
+      "cid": "bafybeiec32zgd2zn7betyzl4tnbx72gvgxwjlkjy2v5qxhqdqcu7wvhdnq",
+      "uri": "ipfs://bafybeiec32zgd2zn7betyzl4tnbx72gvgxwjlkjy2v5qxhqdqcu7wvhdnq",
+      "url": null,
+      "kind": "video-folder",
+      "description": "MoonCat Pop animated videos",
+      "contains": "Folder described as animated videos for MoonCat Pop derivative art pieces.",
+      "sourceRefs": [
+        "mooncatrescue-contribute-ipfs"
+      ],
+      "sourceEvidence": [
+        "Contribute page Skills/IPFS Pinning list labels this CID as MoonCat Pop animated videos."
+      ],
+      "verificationStatus": "source-observed-not-payload-validated",
+      "canonicality": "official-project-artifact-reference",
+      "trustLevel": "primary",
+      "limitations": [
+        "Video files were not fetched, counted, or decoded.",
+        "This entry does not validate codecs, duration, or generated artwork."
+      ]
+    }
+  ],
+  "checkedSources": [
+    {
+      "sourceRef": "mooncatrescue-build",
+      "url": "https://mooncatrescue.com/build-with-mooncats",
+      "result": "Found direct ipfs:// link for MoonCatRescue JavaScript Parser and link to the Contribute page IPFS supporting content list."
+    },
+    {
+      "sourceRef": "mooncatrescue-contribute-ipfs",
+      "url": "https://mooncatrescue.com/team/contribute#skills",
+      "result": "Found official Skills/IPFS Pinning list with eight CIDs."
+    },
+    {
+      "sourceRef": "mooncatrescue-upstream-readme",
+      "path": "references/upstream/mooncatrescue/README.md",
+      "result": "No CIDs found; reference snapshot README remains useful for local upstream file boundaries."
+    },
+    {
+      "sourceRef": "project-and-link-indexes",
+      "paths": [
+        "data/project-links.json",
+        "data/link-index.json"
+      ],
+      "result": "No verified CIDs found; these files remain navigation/context sources."
+    }
+  ],
+  "candidateCids": [],
   "fields": {
-    "key": "Stable local identifier.",
-    "cid": "Verified CID value, or null until verified.",
-    "kind": "metadata, image, parser, snapshot, or other sourced category.",
-    "sourceRefs": "References to data/sources.json entries."
+    "key": "Stable local identifier for the CID/artifact record.",
+    "cid": "Directly observed CID string.",
+    "uri": "ipfs:// URI for the CID when a bare CID is verified.",
+    "url": "Gateway or artifact URL when directly verified; null when only the bare CID/ipfs URI is recorded.",
+    "kind": "Compact artifact category such as parser-source-file, metadata-folder, image-folder, video-folder, or voxel-model-folder.",
+    "description": "Short source-backed label.",
+    "contains": "Compact source-backed description of what the CID is said to contain.",
+    "sourceRefs": "References to data/sources.json entries that support this record.",
+    "sourceEvidence": "Short evidence notes from the reviewed source surface.",
+    "verificationStatus": "Source/payload verification boundary for this pass.",
+    "canonicality": "Whether this is an official project reference, artifact reference, community reference, or other scoped status.",
+    "trustLevel": "Trust tier inherited from supporting sourceRefs.",
+    "limitations": "Record-specific cautions."
   },
+  "limitations": [
+    "CID payloads were not fetched, decoded, counted, schema-validated, or re-hashed.",
+    "Gateway availability and pinning status were not checked.",
+    "Only CIDs directly observed in reviewed MoonCatRescue source pages were recorded.",
+    "This file does not establish canonical NFT metadata, image, video, parser, or collection behavior beyond the reviewed source descriptions.",
+    "No CIDs from community links, marketplace pages, API responses, or contract artifacts were promoted in this pass."
+  ],
   "todos": [
-    "Verify CIDs from primary project, metadata, or repository sources.",
-    "Record what each CID contains and whether it is canonical or archival."
+    "Optionally verify selected CID payload availability with HEAD/range-safe checks in a focused pass without importing payload bodies.",
+    "If exact metadata schemas or asset counts are needed, create a separate generated-data method before importing derived summaries.",
+    "Review whether contract-recorded parser hash evidence should be cross-linked to this CID entry in a contract-focused pass.",
+    "Continue to leave unobserved CIDs unknown rather than guessing from marketplace or gateway URLs."
   ]
 }

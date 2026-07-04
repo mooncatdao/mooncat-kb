@@ -933,6 +933,23 @@
         "2020 rescue-year UTC boundary evidence"
       ],
       "notes": "Checked 2026-07-03. Public Etherscan transaction page metadata reported Dec-12-2020 02:41:00 PM (UTC), matching 2020-12-12T14:41:00Z for the user-provided Discord FAQ cutoff note."
+    },
+    {
+      "id": "mooncatrescue-contribute-ipfs",
+      "label": "MoonCatRescue Contribute page IPFS pinning list",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/team/contribute#skills",
+      "trustLevel": "primary",
+      "status": "verified",
+      "supports": [
+        "official IPFS pinning list",
+        "MoonCat ecosystem CID inventory",
+        "artifact descriptions for pinned CIDs"
+      ],
+      "relatedSources": [
+        "mooncatrescue-build"
+      ],
+      "notes": "Checked on 2026-07-04. The official Build with MoonCats page links to this page for IPFS supporting content; the public Contribute page Skills tab lists CIDs for parser, sprite, explainer, voxel, moments, and MoonCat Pop artifacts. This source supports the presence and project description of listed CIDs, not payload validation."
     }
   ],
   "todos": [
