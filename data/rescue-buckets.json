@@ -8,7 +8,7 @@
   "identifierConventionsRef": "data/identifier-conventions.json",
   "provenance": {
     "sources": ["mooncat-rescueorder-by-category"],
-    "sourceFile": "mooncat_rescueOrder_by_category.json",
+    "sourceFile": "references/derived/mooncat_rescueOrder_by_category.json",
     "notes": "Imported materialized rescue/history bucket membership arrays from the local JSON artifact. Values are rescue-order-index values, not token IDs, bytes5 catIds, OpenSea IDs, or contract call values. Current method note records UTC rescue-time boundary evidence from a user-provided MoonCat Discord FAQ note; the four cutoff transaction timestamps were independently checked against public Etherscan transaction page metadata on 2026-07-03."
   },
   "import": {

@@ -37,7 +37,7 @@ These are supply constants, not rescue-history ranges.
 
 ## Canonical-derived buckets
 
-`data/rescue-buckets.json` imports materialized bucket arrays from `mooncat_rescueOrder_by_category.json`.
+`data/rescue-buckets.json` imports materialized bucket arrays from `references/derived/mooncat_rescueOrder_by_category.json`.
 
 Imported buckets:
 

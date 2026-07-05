@@ -42,7 +42,7 @@ The current category shells are:
 
 `data/character-cats.json` records Rate My Mooncat as a community-curated source and imports partial hue-range notes where the current public page/change history gives enough information.
 
-`data/character-cat-index.json` contains exact community-curated membership/index numbers imported from the local user-provided `mooncat_rescueOrder_by_category.json` file.
+`data/character-cat-index.json` contains exact community-curated membership/index numbers imported from the local user-provided `references/derived/mooncat_rescueOrder_by_category.json` file.
 
 Definitions and materialized membership are intentionally separate:
 

@@ -524,7 +524,7 @@
       "id": "mooncats-faq-official-links",
       "label": "MoonCats FAQ and official links",
       "type": "local",
-      "path": "mooncats-faq-official-links.md",
+      "path": "references/research-notes/mooncats-faq-official-links.md",
       "trustLevel": "supporting-context",
       "status": "needs-review",
       "supports": [
@@ -538,7 +538,7 @@
       "id": "extracted-source-links-2026-07-02",
       "label": "Extracted source links, 2026-07-02",
       "type": "local",
-      "path": "extracted-source-links-2026-07-02.md",
+      "path": "references/research-notes/extracted-source-links-2026-07-02.md",
       "trustLevel": "supporting-context",
       "status": "needs-review",
       "supports": [
@@ -552,7 +552,7 @@
       "id": "mooncat-rescueorder-by-category",
       "label": "MoonCat rescue order by category",
       "type": "local",
-      "path": "mooncat_rescueOrder_by_category.json",
+      "path": "references/derived/mooncat_rescueOrder_by_category.json",
       "trustLevel": "community-curated",
       "status": "imported",
       "supports": [

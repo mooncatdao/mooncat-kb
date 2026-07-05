@@ -8,7 +8,7 @@
   "identifierConventionsRef": "data/identifier-conventions.json",
   "provenance": {
     "sources": ["mooncat-rescueorder-by-category", "rate-my-mooncat"],
-    "sourceFile": "mooncat_rescueOrder_by_category.json",
+    "sourceFile": "references/derived/mooncat_rescueOrder_by_category.json",
     "notes": "Imported exact community-curated character-cat membership/index numbers from the local user-provided JSON file. These are not official protocol traits."
   },
   "categories": {

@@ -28,8 +28,8 @@
         "Local source sub100 is exactly 0 through 99.",
         "Local source day1 and week1 buckets are contiguous from 0.",
         "Local year buckets are contiguous at 2017: 0-3364, 2018: 3365-5683, 2019: 5684-5754, and 2020: 5755-5757.",
-        "Imported rescue bucket arrays in data/rescue-buckets.json match mooncat_rescueOrder_by_category.json exactly.",
-        "Imported character-cat arrays in data/character-cat-index.json match mooncat_rescueOrder_by_category.json exactly for checked categories.",
+        "Imported rescue bucket arrays in data/rescue-buckets.json match references/derived/mooncat_rescueOrder_by_category.json exactly.",
+        "Imported character-cat arrays in data/character-cat-index.json match references/derived/mooncat_rescueOrder_by_category.json exactly for checked categories.",
         "Preferred API samples for 0, 82, 3364, 3365, 5683, 5684, 5754, 5755, and 25439 returned rescueOrder equal to the requested numeric index.",
         "Preferred API year-boundary samples returned rescueYear values matching local year bucket boundaries.",
         "Preferred API genesis samples at 84 and 2891 returned genesis: true with rescueOrder equal to the requested index."
