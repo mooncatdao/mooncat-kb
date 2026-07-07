@@ -2,7 +2,7 @@
   "version": 2,
   "updated": "2026-07-07",
   "status": "refreshed-audit-report",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, MoonCatColors internals review, and original rescue-mining reference work.",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, MoonCatColors internals review, original rescue-mining reference work, and MoonCatSVGs internals review.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/api-endpoints.json",
@@ -17,6 +17,7 @@
     "data/kb-gap-index.json",
     "data/libmooncat-surfaces.json",
     "data/link-index.json",
+    "data/mooncat-svg-internals.json",
     "data/mooncat-types.json",
     "data/project-links.json",
     "data/protocol-constants.json",
@@ -39,9 +40,9 @@
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
     "status": "all-current-route-candidates-directly-routed",
-    "dataFileCount": 23,
-    "routeCandidates": 22,
-    "directlyRoutedCandidateCount": 22,
+    "dataFileCount": 24,
+    "routeCandidates": 23,
+    "directlyRoutedCandidateCount": 23,
     "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
       "data/agent-index.json"
@@ -50,6 +51,7 @@
       "data/task-recipes.json is directly routed by data/agent-index.json.",
       "data/kb-gap-index.json is now directly routed by data/agent-index.json through the review-kb-gaps task.",
       "data/rescue-mining.json is now directly routed by data/agent-index.json through the understand-rescue-mining task.",
+      "data/mooncat-svg-internals.json is now directly routed by data/agent-index.json through render-images and look-up-contracts.",
       "Current route candidates are directly discoverable from data/agent-index.json."
     ]
   },
@@ -188,6 +190,18 @@
         "data/task-recipes.json"
       ],
       "notes": "Original browser rescue/mining behavior is now documented from the reviewed local mooncatrescue-web mirror files public/scan.html, public/js/mine.js, and public/js/mine-worker.js, cross-checked against data/protocol-constants.json. Wallet-free snippet and embeddable widget examples were added without importing frontend bundles, original image assets, Web3, workers, or transaction submission behavior; the widget now renders found catIds through the registered mooncatparser.js reference."
+    },
+    {
+      "key": "mooncat-svg-internals-review",
+      "status": "resolved-as-compact-source-review",
+      "files": [
+        "data/mooncat-svg-internals.json",
+        "docs/mooncat-svgs.md",
+        "data/contract-surfaces.json",
+        "data/contracts.json",
+        "data/sources.json"
+      ],
+      "notes": "MoonCatSVGs internals now record compact verified semantics for source identity, dependency interfaces, imageOf overload behavior, rescue-order conversion, default glow selection, SVG string assembly, output wrapper properties, and conceptual geometry/pattern surfaces. Full Solidity source, ABI JSON, coordinate constants, pattern arrays, generated SVG outputs, per-cat outputs, and accessory image composition remain intentionally unimported."
     }
   ],
   "fileGaps": [
@@ -462,9 +476,9 @@
   ],
   "recommendedNextPasses": [
     {
-      "key": "mooncat-svg-internals-review",
+      "key": "mooncat-accessory-images-internals-review",
       "priority": "medium",
-      "reason": "MoonCatColors internals are compactly reviewed; MoonCatSVGs remains a surface-only rendering contract and should be reviewed separately before stronger image-rendering claims."
+      "reason": "MoonCatSVGs base SVG internals are compactly reviewed; MoonCatAccessoryImages remains surface-level and should be reviewed separately before stronger accessory rendering or PNG materialization claims."
     },
     {
       "key": "older-wrapper-contract-review",

@@ -270,11 +270,30 @@
       ],
       "relatedFiles": [
         "data/contracts.json",
+        "data/mooncat-svg-internals.json",
         "data/identifier-conventions.json",
-        "data/api-endpoints.json"
+        "data/api-endpoints.json",
+        "docs/mooncat-svgs.md"
       ],
+      "reviewedInternals": {
+        "status": "compact-internals-reviewed",
+        "checked": "2026-07-07",
+        "sourceRefs": [
+          "etherscan-mooncat-svgs",
+          "mooncatrescue-log-onchain"
+        ],
+        "summary": [
+          "imageOf(bytes5,bool) consumes MoonCatTraits.kTraitsOf(catId) and MoonCatColors.colorsOf(catId), then assembles an SVG string from svgTag, generated pixel data, and a closing svg tag.",
+          "imageOf(bytes5) derives default glow by comparing MoonCatRescue.catOwners(catId) with the stored Acclimated contract address.",
+          "rescue-order imageOf overloads require rescueOrder < 25440 and convert through MoonCatRescue.rescueOrder(rescueOrder).",
+          "The source exposes public geometry/pattern surfaces such as CatBox, Face, Border, Coat, Tummy, Skin, Whiskers, Eyes, and Patterns, but their values are not imported.",
+          "Accessory image composition is not handled by this review; MoonCatAccessoryImages remains a separate surface."
+        ],
+        "detailsFile": "data/mooncat-svg-internals.json"
+      },
       "limitations": [
         "No SVG coordinate data, pattern arrays, or rendered output is imported.",
+        "Detailed compact SVG semantics live in data/mooncat-svg-internals.json; this file remains a contract surface router.",
         "Use API endpoint data separately when routing off-chain image requests."
       ]
     },

@@ -710,9 +710,12 @@
       "status": "verified",
       "supports": [
         "MoonCatSVGs contract address",
-        "MoonCatSVGs contract source verification"
+        "MoonCatSVGs contract source verification",
+        "MoonCatSVGs imageOf rendering flow",
+        "MoonCatSVGs dependency interfaces",
+        "MoonCatSVGs SVG output wrapper behavior"
       ],
-      "notes": "Verified Etherscan page for MoonCatSVGs at 0xB39C61fe6281324A23e079464f7E697F8Ba6968f. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
+      "notes": "Verified Etherscan page for MoonCatSVGs at 0xB39C61fe6281324A23e079464f7E697F8Ba6968f. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. Reviewed on 2026-07-07 for compact SVG internals only; full Solidity source, ABI JSON, coordinate constants, pattern arrays, generated SVG outputs, and per-cat outputs are not imported."
     },
     {
       "id": "etherscan-mooncat-accessory-images",

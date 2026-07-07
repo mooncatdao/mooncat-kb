@@ -132,6 +132,7 @@
         "data/libmooncat-surfaces.json",
         "data/contract-surfaces.json",
         "data/contracts.json",
+        "data/mooncat-svg-internals.json",
         "data/color-hues.json",
         "data/sources.json"
       ],
@@ -139,7 +140,7 @@
         "Decide whether the task asks for an API image response, local helper/parser surface, or on-chain rendering contract surface.",
         "For API fetching, load endpoint and example files, then verify accepted identifier forms before constructing a request.",
         "For local helper work, load data/libmooncat-surfaces.json and then inspect registered reference snapshots only if the task allows implementation review.",
-        "For on-chain rendering questions, route through data/contract-surfaces.json and data/contracts.json.",
+        "For on-chain SVG rendering questions, route through data/contract-surfaces.json, data/contracts.json, and data/mooncat-svg-internals.json when compact internals are needed.",
         "For color interpretation, load data/color-hues.json without treating it as a palette or per-cat image source."
       ],
       "outputs": [
@@ -149,7 +150,7 @@
         "implementation review boundary"
       ],
       "guardrails": [
-        "Do not copy image response bodies, generated outputs, parser internals, design arrays, palettes, or source code into this KB layer.",
+        "Do not copy image response bodies, generated outputs, parser internals, design arrays, SVG coordinate constants, palettes, or source code into this KB layer.",
         "Do not convert hueInt to hex colors from data/color-hues.json.",
         "Do not claim rendering behavior from helper names alone."
       ],
@@ -361,6 +362,7 @@
       "optionalFiles": [
         "data/api-endpoints.json",
         "data/libmooncat-surfaces.json",
+        "data/mooncat-svg-internals.json",
         "data/sources.json",
         "data/kb-gap-index.json"
       ],
@@ -380,7 +382,7 @@
       "guardrails": [
         "Do not invent missing contract addresses, ABIs, source URLs, or behavior.",
         "Do not generalize token ID behavior across contracts without the scoped evidence in identifier conventions and contract surfaces.",
-        "Do not answer materialization internals beyond the reviewed surface summaries unless a source-review task allows it."
+        "Do not answer materialization internals beyond the reviewed surface summaries and compact internals files unless a source-review task allows it."
       ],
       "stopConditions": [
         "Stop if the surface key or contract entry needed for the answer is missing.",

@@ -216,14 +216,17 @@
       "functionSummary": [
         "flip(...), polygon(...), setPixel(...), pixelGroup(...), getPattern(...), colorGroup(...), glowGroup(...), getPixelData(...), svgTag(...), and boundingBox(...) assemble SVG pixel/shape groups from trait and color inputs.",
         "imageOf(bytes5), imageOf(bytes5,bool), imageOf(uint256), and imageOf(uint256,bool) return SVG image strings for cat IDs or rescue orders, with overloads for explicit glow behavior.",
+        "Source review confirms imageOf(bytes5,bool) reads MoonCatTraits.kTraitsOf(catId) and MoonCatColors.colorsOf(catId), builds pixel data, optionally applies glowGroup with the first colorsOf RGB triple, computes a bounding box, and returns an SVG string.",
+        "Source review confirms rescue-order overloads require rescueOrder < 25440 and use MoonCatRescue.rescueOrder(rescueOrder), while imageOf(bytes5) derives default glow from MoonCatRescue.catOwners(catId) compared with the stored Acclimated contract address.",
         "uint2str(...) is a string-formatting helper used by SVG generation.",
         "doc(), setReferenceContract(...), transferOwnership(...), withdrawForeignERC20(...), and withdrawForeignERC721(...) provide documentation lookup and administration."
       ],
       "limitations": [
         "No SVG coordinate data, pattern arrays, or rendered output is imported here.",
-        "No image-generation correctness claim is made beyond the verified source function surface."
+        "No image-generation correctness claim is made beyond the verified source function surface and compact review in data/mooncat-svg-internals.json.",
+        "Accessory image composition remains scoped to MoonCatAccessoryImages and is not covered by the MoonCatSVGs internals review."
       ],
-      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatSVGs with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatSVGs with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. Compact internals review is recorded in data/mooncat-svg-internals.json."
     },
     {
       "key": "mooncatAccessoryImages",

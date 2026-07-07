@@ -112,13 +112,15 @@
       "optionalFiles": [
         "data/api-examples.json",
         "data/libmooncat-surfaces.json",
+        "data/mooncat-svg-internals.json",
         "data/protocol-constants.json",
         "docs/libmooncat.md",
+        "docs/mooncat-svgs.md",
         "data/sources.json"
       ],
       "notes": [
         "Endpoint image response types and query parameters live in data/api-endpoints.json.",
-        "Parser or library behavior should be checked through optional context before making implementation claims."
+        "Parser, library, or on-chain SVG behavior should be checked through optional context before making implementation claims."
       ]
     },
     {
@@ -131,6 +133,8 @@
       ],
       "optionalFiles": [
         "docs/contracts.md",
+        "docs/mooncat-svgs.md",
+        "data/mooncat-svg-internals.json",
         "data/sources.json",
         "docs/source-map.md"
       ],

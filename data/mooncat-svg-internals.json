@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "updated": "2026-07-07",
+  "status": "compact-source-review",
+  "scope": "Compact reviewed internals for the MoonCatSVGs on-chain SVG materialization contract. This file documents role, source provenance, dependencies, public rendering surfaces, and limitations without importing Solidity source, ABI JSON, coordinate constants, generated SVG output, or per-cat outputs.",
+  "sourceRefs": [
+    "mooncatrescue-log-onchain",
+    "etherscan-mooncat-svgs",
+    "etherscan-mooncat-reference",
+    "etherscan-mooncat-traits",
+    "etherscan-mooncat-colors",
+    "etherscan-original-contract"
+  ],
+  "relatedFiles": [
+    "docs/mooncat-svgs.md",
+    "docs/contracts.md",
+    "data/contracts.json",
+    "data/contract-surfaces.json",
+    "data/sources.json",
+    "data/color-hues.json"
+  ],
+  "contract": {
+    "key": "mooncatSVGs",
+    "contractName": "MoonCatSVGs",
+    "address": "0xB39C61fe6281324A23e079464f7E697F8Ba6968f",
+    "network": "ethereum-mainnet",
+    "sourceVerification": {
+      "sourceRef": "etherscan-mooncat-svgs",
+      "status": "verified-exact-match",
+      "compiler": "v0.8.1+commit.df193b15",
+      "optimization": "enabled with 200 runs",
+      "license": "GNU AGPLv3",
+      "submittedForVerification": "2022-01-14"
+    },
+    "officialContext": {
+      "sourceRef": "mooncatrescue-log-onchain",
+      "notes": "The MoonCatRescue Chained to the Future log links MoonCatSVGs as one of the official on-chain materialization contracts."
+    }
+  },
+  "role": {
+    "summary": "On-chain SVG image-generation contract for base MoonCat appearance.",
+    "sourceConfirmed": [
+      "The verified source title and notice describe MoonCatSVGs as on-chain MoonCat image generation that builds SVGs of MoonCat images.",
+      "imageOf returns string SVG output for bytes5 cat IDs or rescue-order inputs.",
+      "The contract assembles SVG pixel/shape groups from trait and color inputs."
+    ],
+    "notIncluded": [
+      "Accessory image composition is not handled in this review; MoonCatAccessoryImages is a separate contract surface.",
+      "Generated SVG strings, per-cat outputs, coordinate arrays, pattern arrays, and full Solidity source are not imported."
+    ]
+  },
+  "dependencies": [
+    {
+      "name": "MoonCatRescue",
+      "type": "fixed-address interface",
+      "sourceRef": "etherscan-original-contract",
+      "sourceConfirmedUse": [
+        "rescueOrder(uint256) converts rescue-order inputs to bytes5 cat IDs.",
+        "catOwners(bytes5) is compared with the Acclimated contract address to choose default glow behavior for bytes5 imageOf(catId)."
+      ]
+    },
+    {
+      "name": "MoonCatReference",
+      "type": "constructor-supplied interface",
+      "sourceRef": "etherscan-mooncat-reference",
+      "sourceConfirmedUse": [
+        "doc() delegates to MoonCatReference.doc(address(this)).",
+        "setReferenceContract(address) can update the reference contract through owner-only administration."
+      ]
+    },
+    {
+      "name": "MoonCatTraits",
+      "type": "constructor-supplied interface",
+      "sourceRef": "etherscan-mooncat-traits",
+      "sourceConfirmedUse": [
+        "imageOf(bytes5,bool) calls kTraitsOf(catId) and uses facing, expression, pattern, and pose for SVG assembly."
+      ]
+    },
+    {
+      "name": "MoonCatColors",
+      "type": "constructor-supplied interface",
+      "sourceRef": "etherscan-mooncat-colors",
+      "sourceConfirmedUse": [
+        "imageOf(bytes5,bool) calls colorsOf(catId) to obtain uint8[24] color data.",
+        "If glow is enabled, colors[0], colors[1], and colors[2] are used as the glow RGB inputs."
+      ]
+    },
+    {
+      "name": "MoonCatAcclimatorAddress",
+      "type": "fixed address constant-like field",
+      "sourceConfirmedUse": [
+        "The no-explicit-glow bytes5 imageOf(catId) overload treats a cat as glowing when MoonCatRescue.catOwners(catId) equals the stored Acclimated contract address."
+      ]
+    }
+  ],
+  "publicReadSurfaces": {
+    "imageOf": [
+      {
+        "signature": "imageOf(bytes5,bool)",
+        "behavior": "Builds SVG output for a bytes5 cat ID with caller-specified glow."
+      },
+      {
+        "signature": "imageOf(bytes5)",
+        "behavior": "Builds SVG output for a bytes5 cat ID and derives glow by checking whether the original owner is the stored Acclimated contract address."
+      },
+      {
+        "signature": "imageOf(uint256,bool)",
+        "behavior": "Requires rescueOrder < 25440, converts rescue order through MoonCatRescue.rescueOrder(rescueOrder), then builds SVG output with caller-specified glow."
+      },
+      {
+        "signature": "imageOf(uint256)",
+        "behavior": "Requires rescueOrder < 25440, converts rescue order through MoonCatRescue.rescueOrder(rescueOrder), then uses the default bytes5 glow behavior."
+      }
+    ],
+    "assemblyHelpers": [
+      "flip(bytes)",
+      "polygon(string,uint8[3])",
+      "setPixel(bytes,uint8,uint8,uint8)",
+      "pixelGroup(uint8[],uint8)",
+      "getPattern(uint8,uint8)",
+      "colorGroup(bytes,uint8,uint8,uint8)",
+      "glowGroup(bytes,uint8,uint8,uint8)",
+      "getPixelData(uint8,uint8,uint8,uint8,uint8[24])",
+      "svgTag(uint8,uint8,uint8,uint8)",
+      "boundingBox(uint8,uint8)",
+      "uint2str(uint256)"
+    ],
+    "publicConstantsOrArrays": [
+      "CatBox",
+      "Face",
+      "Border",
+      "Coat",
+      "Tummy",
+      "Skin",
+      "Whiskers",
+      "Eyes",
+      "Patterns"
+    ],
+    "documentationAndAdmin": [
+      "doc()",
+      "owner()",
+      "transferOwnership(address)",
+      "setReferenceContract(address)",
+      "withdrawForeignERC20(address)",
+      "withdrawForeignERC721(address,uint256)"
+    ]
+  },
+  "renderingFlow": [
+    "imageOf(bytes5,bool) obtains facing, expression, pattern, and pose from MoonCatTraits.kTraitsOf(catId).",
+    "imageOf(bytes5,bool) obtains uint8[24] colors from MoonCatColors.colorsOf(catId).",
+    "getPixelData(facing, expression, pose, pattern, colors) builds the base SVG pixel data.",
+    "When glow is true, glowGroup wraps or augments the pixel data using the first RGB triple from colorsOf.",
+    "boundingBox(facing, pose) derives the viewBox dimensions from CatBox and adjusts x for facing == 1.",
+    "svgTag(x, y, width, height), pixel data, and the closing svg tag are concatenated into the returned string."
+  ],
+  "outputFormat": {
+    "sourceConfirmed": "imageOf returns a string assembled from an opening SVG tag, generated pixel data, and a closing </svg> tag.",
+    "svgTagProperties": [
+      "xmlns is http://www.w3.org/2000/svg",
+      "preserveAspectRatio is xMidYMid slice",
+      "viewBox is derived from boundingBox",
+      "width and height are five times the computed viewBox width and height",
+      "shape-rendering is crispEdges",
+      "style includes image-rendering:pixelated",
+      "defs include a rect with id r, width 2, and height 2"
+    ],
+    "limitations": [
+      "No generated SVG output is stored.",
+      "No exact coordinate, pattern, or polygon data is imported.",
+      "No claim is made that a rendered output has been independently reproduced from this KB file."
+    ]
+  },
+  "conceptualStorageAndConstants": [
+    "Stores interface references for MoonCatReference, MoonCatTraits, and MoonCatColors.",
+    "Uses a fixed MoonCatRescue address and a fixed Acclimated contract address.",
+    "Contains compact public arrays and strings for base MoonCat geometry and pattern assembly, including CatBox, Face, Border, Coat, Tummy, Skin, Whiskers, Eyes, and Patterns.",
+    "CatBox is used by boundingBox to derive SVG viewBox dimensions."
+  ],
+  "limitations": [
+    "This is not a full ABI, full Solidity source, bytecode, constructor-argument, storage-layout, or generated-output import.",
+    "This file does not include coordinate constants, pattern arrays, polygon strings, per-cat SVGs, generated images, or per-cat materialization outputs.",
+    "This review covers base MoonCat SVG assembly only; accessory PNG/image composition remains in MoonCatAccessoryImages and needs a separate internals pass before stronger accessory claims.",
+    "Trait derivation and exact trait mappings remain owned by MoonCatTraits and the separate trait data strategy; they are not derived here.",
+    "Color derivation and exact palette values remain owned by MoonCatColors and color files; this file only records how MoonCatSVGs consumes colorsOf output.",
+    "No current ownership or current chain-state claim is made beyond the source-confirmed catOwners check used for default glow behavior."
+  ]
+}
