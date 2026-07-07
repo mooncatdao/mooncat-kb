@@ -16,12 +16,18 @@
   <body>
     <div id="mooncat-miner"></div>
     <script src="vendor/sha3.min.js"></script>
+    <script src="vendor/mooncatparser.js"></script>
+    <script src="mooncat-render-adapter.js"></script>
     <script src="rescue-mining-widget.js"></script>
     <script>
-      mountMoonCatRescueMiner("#mooncat-miner", {
-        difficultyPrefix: "000000",
+      const params = new URLSearchParams(window.location.search);
+      const miner = mountMoonCatRescueMiner("#mooncat-miner", {
+        difficultyPrefix: params.get("difficultyPrefix") || "000000",
         knownRescuedCatIds: []
       });
+      if (params.get("autostart") === "1") {
+        miner.start();
+      }
     </script>
   </body>
 </html>

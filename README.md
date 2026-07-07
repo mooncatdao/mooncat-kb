@@ -65,4 +65,4 @@ Suggested attribution:
 > Uses data and documentation from MoonCat KB.
 > https://github.com/mooncatdao/mooncat-kb
 
-Reference files under `references/` may have upstream licenses or terms and are not automatically relicensed under CC0.
+Reference files under `references/` and vendored files under `examples/**/vendor/` may have upstream licenses or terms and are not automatically relicensed under CC0.

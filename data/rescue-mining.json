@@ -5,6 +5,7 @@
   "scope": "Compact reference for the original browser-side normal MoonCat rescue/mining operation, a reusable wallet-free example snippet, and an embeddable wallet-free widget example.",
   "sourceRefs": [
     "mooncatrescue-web-gitlab",
+    "mooncatrescue-mooncatparser-js",
     "ponderware-mooncatrescue-sol-raw"
   ],
     "relatedFiles": [
@@ -14,7 +15,9 @@
       "examples/rescue-mining-widget/index.html",
       "examples/rescue-mining-widget/rescue-mining-widget.js",
       "examples/rescue-mining-widget/rescue-mining-widget.css",
+      "examples/rescue-mining-widget/mooncat-render-adapter.js",
       "examples/rescue-mining-widget/vendor/sha3.min.js",
+      "examples/rescue-mining-widget/vendor/mooncatparser.js",
       "data/protocol-constants.json",
     "data/contracts.json",
     "data/contract-surfaces.json",
@@ -92,8 +95,21 @@
       "The vendored sha3.min.js header identifies js-sha3 0.6.1 by Chen, Yi-Cyuan under MIT and is preserved.",
       "Hash provider order is options.keccak256(bytes), global js-sha3 keccak_256, then the internal Ethereum Keccak-256 fallback.",
       "Each hash provider path hashes raw bytes equivalent to seedBytes || searchSeedBytes.",
-      "No Web3 dependency, worker file, parser code, image asset, remote asset, or unrelated frontend code is imported."
+      "mooncatparser.js is vendored separately for widget-local rendering; no Web3 dependency, worker file, image asset, remote asset, or unrelated frontend code is imported."
     ],
+    "rendering": {
+      "parserPath": "examples/rescue-mining-widget/vendor/mooncatparser.js",
+      "parserSource": "references/upstream/mooncatrescue/mooncatparser.js",
+      "sourceComparison": "The registered parser reference is byte-identical to the local original site mirror file public/js/mooncatparser.js.",
+      "adapterPath": "examples/rescue-mining-widget/mooncat-render-adapter.js",
+      "adapterBehavior": "Calls mooncatparser(catId) and draws each returned color cell into a canvas using the same loop shape as public/scan.html drawCat(catId, size).",
+      "inputIdentifier": "found bytes5 catId string such as 0x00 plus the final four hash bytes",
+      "parserHeaderStatus": "No header or license comment was present in the inspected parser file.",
+      "limitations": [
+        "Rendering the found catId does not check chain state, ownership, current rescue availability, or transaction success.",
+        "Rendered pixels are not promoted to curated trait mappings or parser-behavior claims beyond the inspected rendering adapter."
+      ]
+    },
     "difficulty": {
       "defaultDifficultyPrefix": "000000",
       "defaultBehavior": "Original reviewed rescue-mining behavior; valid when the hash starts with 000000.",
@@ -106,7 +122,8 @@
     "visualNotes": [
       "Recreates the original scanner-style idle, scanning, and found states using plain HTML/CSS/canvas.",
       "Recreates a simple moon/space scanner visual in CSS/canvas instead of using the original lunar image or background assets.",
-      "Uses a placeholder candidate cat display derived from the found catId bytes; this is not original MoonCat parser rendering and must not be treated as a trait or image source."
+      "Uses mooncatparser.js plus a small adapter to render the found catId into a canvas.",
+      "The rendered MoonCat image is a visual output only and must not be treated as a source for trait mappings, ownership, current availability, or chain state."
     ],
     "knownRescuedCatIds": {
       "acceptedTypes": [
@@ -167,6 +184,16 @@
       ]
     },
     {
+      "sourceRef": "mooncatrescue-mooncatparser-js",
+      "path": "references/upstream/mooncatrescue/mooncatparser.js",
+      "notes": [
+        "Copied into examples/rescue-mining-widget/vendor/mooncatparser.js for widget-local rendering.",
+        "The registered local reference is byte-identical to the local original site mirror file public/js/mooncatparser.js.",
+        "The inspected parser file has no header or license comment.",
+        "The adapter uses the same parser output drawing loop shape as public/scan.html drawCat(catId, size)."
+      ]
+    },
+    {
       "sourceRef": "mooncatrescue-web-gitlab",
       "path": "repository root and public/js/sha3.min.js",
       "notes": [
@@ -194,9 +221,9 @@
     "The widget default difficultyPrefix is 000000 for original behavior; demo difficultyPrefix 0000 is only for faster local testing and is not original rescue difficulty.",
     "The widget does not check current chain state and labels optional filtered results as valid unlisted candidates, not currently rescuable cats.",
     "The widget does not include a rescued-cat dataset; knownRescuedCatIds must be supplied by the caller if filtering is desired.",
-    "The widget candidate cat display is a placeholder visualization derived from catId bytes, not original MoonCat parser rendering.",
+    "The widget candidate cat display uses mooncatparser.js rendering for the found catId, but this does not add trait, ownership, current availability, or chain-state claims.",
     "The original scanner animation credits were preserved, but the widget does not hotlink or copy the credited remote assets.",
-    "The widget vendors only public/js/sha3.min.js from the original mirror; Web3, workers, parser code, images, and unrelated frontend code remain excluded.",
+    "The widget vendors only public/js/sha3.min.js from the original mirror and mooncatparser.js from the registered parser reference; Web3, workers, images, and unrelated frontend code remain excluded.",
     "The reviewed mining behavior does not define image rendering, traits, parser behavior, rescue-order membership, ownership, or current availability of rescuable cats.",
     "Random candidate generation was observed in the original browser worker; no seed increment behavior was observed in the reviewed files."
   ]

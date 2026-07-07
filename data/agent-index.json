@@ -221,6 +221,8 @@
         "examples/rescue-mining-widget/index.html",
         "examples/rescue-mining-widget/rescue-mining-widget.js",
         "examples/rescue-mining-widget/rescue-mining-widget.css",
+        "examples/rescue-mining-widget/mooncat-render-adapter.js",
+        "examples/rescue-mining-widget/vendor/mooncatparser.js",
         "data/contracts.json",
         "data/contract-surfaces.json",
         "data/sources.json"
@@ -228,7 +230,7 @@
       "notes": [
         "Use this route for searchSeed, seed candidate generation, keccak valid-hash checks, catId derivation, and rescueCat transaction-boundary context.",
         "The snippet and widget are wallet-free and network-free; do not add private-key, provider, account, gas, or transaction-submission code.",
-        "Do not infer image rendering, traits, parser behavior, rescue-order membership, ownership, or current rescue availability from rescue mining alone."
+        "The widget renders found catIds with mooncatparser.js, but do not infer traits, ownership, rescue-order membership, current availability, or chain state from rescue mining alone."
       ]
     },
     {

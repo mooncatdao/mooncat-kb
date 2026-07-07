@@ -243,6 +243,8 @@
         "examples/rescue-mining-widget/index.html",
         "examples/rescue-mining-widget/rescue-mining-widget.js",
         "examples/rescue-mining-widget/rescue-mining-widget.css",
+        "examples/rescue-mining-widget/mooncat-render-adapter.js",
+        "examples/rescue-mining-widget/vendor/mooncatparser.js",
         "data/contracts.json",
         "data/contract-surfaces.json"
       ],
@@ -251,7 +253,7 @@
         "Cross-check normal-cat hash and catId rules against data/protocol-constants.json.",
         "Use docs/rescue-mining.md when a human-readable explanation is needed.",
         "Use examples/rescue-mining.js only as a wallet-free seed-search snippet; it intentionally stops before rescueCat transaction submission.",
-        "Use examples/rescue-mining-widget/ only as an embeddable wallet-free UI example; its candidate cat display is not original parser rendering.",
+        "Use examples/rescue-mining-widget/ only as an embeddable wallet-free UI example; it renders found catIds with mooncatparser.js but does not add trait, ownership, availability, or chain-state claims.",
         "Load contract files only when the task needs the original contract identity or transaction-boundary context."
       ],
       "outputs": [
@@ -266,7 +268,7 @@
         "Do not add wallet, private-key, provider, account, gas, or transaction submission code.",
         "Do not import the original frontend, bundled libraries, minified files, parser, images, or unrelated UI code.",
         "Do not claim byte-for-byte original behavior unless a future task verifies it directly.",
-        "Do not treat the widget candidate cat drawing as MoonCat image rendering, traits, parser output, ownership, or current availability.",
+        "Do not treat the widget candidate cat drawing as trait data, ownership, current availability, current chain state, or a general parser-behavior proof.",
         "Do not infer image rendering, traits, parser behavior, rescue-order buckets, ownership, or current rescue availability from rescue mining alone."
       ],
       "stopConditions": [

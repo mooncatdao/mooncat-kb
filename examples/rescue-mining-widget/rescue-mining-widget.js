@@ -183,7 +183,7 @@
       resultType.textContent = knownRescued ?
         "Valid unlisted candidate found." :
         "Valid candidate found.";
-      drawCandidateCat(catCanvas, found.catId);
+      renderCandidateCat(catCanvas, found.catId);
       showStage(stages, "found");
       if (typeof settings.onFound === "function") {
         settings.onFound(Object.assign({ iterations: state.iterations, seconds: seconds }, found));
@@ -415,40 +415,14 @@
     ctx.restore();
   }
 
-  function drawCandidateCat(canvas, catId) {
-    var ctx = canvas.getContext("2d");
-    clearCanvas(canvas);
-    ctx.fillStyle = "#080824";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    var bytes = hexToBytes(catId);
-    var colors = ["#88ee88", "#bbffbb", "#f2f2f2", "#55aa55"];
-    var pixel = 10;
-    var ox = 35;
-    var oy = 45;
-    var body = [
-      "0011111100",
-      "0121111210",
-      "1111111111",
-      "1111111111",
-      "1111111111",
-      "0111111110",
-      "0011001100",
-      "0011001100"
-    ];
-    for (var y = 0; y < body.length; y += 1) {
-      for (var x = 0; x < body[y].length; x += 1) {
-        var value = Number(body[y][x]);
-        if (!value) {
-          continue;
-        }
-        ctx.fillStyle = colors[(value + bytes[(x + y) % bytes.length]) % colors.length];
-        ctx.fillRect(ox + x * pixel, oy + y * pixel, pixel, pixel);
-      }
+  function renderCandidateCat(canvas, catId) {
+    if (
+      !global.MoonCatRenderAdapter ||
+      typeof global.MoonCatRenderAdapter.renderMoonCatToCanvas !== "function"
+    ) {
+      throw new Error("mooncat-render-adapter.js must be loaded before rescue-mining-widget.js");
     }
-    ctx.fillStyle = "#202020";
-    ctx.fillRect(ox + 30, oy + 30, pixel, pixel);
-    ctx.fillRect(ox + 60, oy + 30, pixel, pixel);
+    global.MoonCatRenderAdapter.renderMoonCatToCanvas(canvas, catId, { pixelSize: 10 });
   }
 
   function clearCanvas(canvas) {
