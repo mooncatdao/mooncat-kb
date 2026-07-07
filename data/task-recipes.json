@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-04",
+  "updated": "2026-07-07",
   "status": "compact-workflow-index",
   "scope": "Agent-facing workflow recipes for sequencing common MoonCat KB tasks by loading existing data files. This file routes and orders work; it does not add endpoint, contract, trait, color, identifier, source, or per-cat facts.",
   "sourceRefs": [],
@@ -13,6 +13,7 @@
     "data/trait-index.json",
     "data/color-hues.json",
     "data/rescue-buckets.json",
+    "data/rescue-mining.json",
     "data/rescue-ranges.json",
     "data/contract-surfaces.json",
     "data/contracts.json",
@@ -225,6 +226,45 @@
       "stopConditions": [
         "Stop if the requested bucket is not present or is marked incomplete.",
         "Stop if the requested conversion crosses into a surface with needs-verification status."
+      ]
+    },
+    {
+      "key": "understand-rescue-mining",
+      "purpose": "Explain or reuse the original browser-side normal MoonCat rescue/mining seed search without adding wallet or transaction code.",
+      "loadOrder": [
+        "data/rescue-mining.json",
+        "data/protocol-constants.json",
+        "data/sources.json"
+      ],
+      "optionalFiles": [
+        "docs/rescue-mining.md",
+        "examples/rescue-mining.js",
+        "data/contracts.json",
+        "data/contract-surfaces.json"
+      ],
+      "steps": [
+        "Use data/rescue-mining.json for the reviewed algorithm, reviewed source paths, example path, and limitations.",
+        "Cross-check normal-cat hash and catId rules against data/protocol-constants.json.",
+        "Use docs/rescue-mining.md when a human-readable explanation is needed.",
+        "Use examples/rescue-mining.js only as a wallet-free seed-search snippet; it intentionally stops before rescueCat transaction submission.",
+        "Load contract files only when the task needs the original contract identity or transaction-boundary context."
+      ],
+      "outputs": [
+        "searchSeed and seed-search summary",
+        "hash and valid-cat check",
+        "catId derivation",
+        "snippet path",
+        "transaction-boundary and limitation notes"
+      ],
+      "guardrails": [
+        "Do not add wallet, private-key, provider, account, gas, or transaction submission code.",
+        "Do not import the original frontend, bundled libraries, minified files, parser, images, or unrelated UI code.",
+        "Do not claim byte-for-byte original behavior unless a future task verifies it directly.",
+        "Do not infer image rendering, traits, parser behavior, rescue-order buckets, ownership, or current rescue availability from rescue mining alone."
+      ],
+      "stopConditions": [
+        "Stop if the task requires submitting a transaction or checking current chain state.",
+        "Stop if the requested claim needs source files beyond the reviewed rescue-mining files and the current task does not permit more source review."
       ]
     },
     {

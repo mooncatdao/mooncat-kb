@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
+  "updated": "2026-07-07",
   "status": "compact-routing-index",
   "purpose": "Map common MoonCat technical tasks to the minimum repo files an agent should load.",
   "defaults": {
@@ -205,6 +205,26 @@
       "notes": [
         "Use the bucket file for existing membership arrays.",
         "Confirm index kind before mixing bucket memberships with API parameters or token-facing identifiers."
+      ]
+    },
+    {
+      "key": "understand-rescue-mining",
+      "description": "Review original browser-side normal MoonCat rescue/mining seed search and the wallet-free example snippet.",
+      "primaryFiles": [
+        "data/rescue-mining.json",
+        "data/protocol-constants.json"
+      ],
+      "optionalFiles": [
+        "docs/rescue-mining.md",
+        "examples/rescue-mining.js",
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Use this route for searchSeed, seed candidate generation, keccak valid-hash checks, catId derivation, and rescueCat transaction-boundary context.",
+        "The example is wallet-free and network-free; do not add private-key, provider, account, gas, or transaction-submission code.",
+        "Do not infer image rendering, traits, parser behavior, rescue-order membership, ownership, or current rescue availability from rescue mining alone."
       ]
     },
     {

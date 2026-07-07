@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "updated": "2026-07-07",
+  "status": "original-browser-reviewed-contract-compatible-example",
+  "scope": "Compact reference for the original browser-side normal MoonCat rescue/mining operation and a reusable wallet-free example snippet.",
+  "sourceRefs": [
+    "mooncatrescue-web-gitlab",
+    "ponderware-mooncatrescue-sol-raw"
+  ],
+  "relatedFiles": [
+    "docs/rescue-mining.md",
+    "examples/rescue-mining.js",
+    "data/protocol-constants.json",
+    "data/contracts.json",
+    "data/contract-surfaces.json",
+    "docs/rescue-history.md"
+  ],
+  "algorithm": {
+    "name": "normal MoonCat rescue seed search",
+    "reviewStatus": "original-browser-verified-for-reviewed-files-and-contract-compatible",
+    "searchSeed": {
+      "value": "0xd14b1349b8662386a0002c6dbc7f8ced11312226af1da67a1be7b28f66fed6cd",
+      "sourceRef": "mooncatrescue-web-gitlab",
+      "sourcePath": "public/scan.html",
+      "notes": "The reviewed browser page passes this value into createMiner(searchSeed)."
+    },
+    "candidateSeed": {
+      "sizeBytes": 32,
+      "generationObserved": "random 32-byte array using Math.random in the reviewed browser worker",
+      "incrementBehaviorObserved": false,
+      "notes": "No sequential increment loop was observed in the reviewed browser worker; it repeatedly generates random candidates."
+    },
+    "hashOperation": {
+      "operation": "keccak256(seedBytes || searchSeedBytes)",
+      "inputEncoding": "concatenated 32-byte seed candidate followed by 32-byte searchSeed",
+      "sourceRef": "mooncatrescue-web-gitlab",
+      "sourcePath": "public/js/mine-worker.js"
+    },
+    "validCatCheck": {
+      "condition": "hash hex string starts with 000000",
+      "meaning": "The first three bytes of the hash are zero.",
+      "contractCrossCheck": "data/protocol-constants.json records the same normal-cat valid-hash rule from the original MoonCatRescue Solidity source."
+    },
+    "catIdDerivation": {
+      "operation": "0x00 || last 4 bytes of hash",
+      "browserExpression": "\"0x00\" + hash.slice(-8)",
+      "notes": "The leading 0x00 byte marks the normal, non-genesis catId form in this context."
+    },
+    "rescueCallBoundary": {
+      "operation": "mcr.rescueCat(catSeed)",
+      "sourceRef": "mooncatrescue-web-gitlab",
+      "sourcePath": "public/scan.html",
+      "notes": "The reusable example intentionally stops before this transaction boundary and does not include wallet, provider, account, or transaction code."
+    }
+  },
+  "example": {
+    "path": "examples/rescue-mining.js",
+    "runtime": "JavaScript",
+    "networkRequired": false,
+    "walletRequired": false,
+    "privateKeyRequired": false,
+    "dependencyNotes": [
+      "Caller must provide an Ethereum-compatible keccak256 implementation.",
+      "The keccak function should hash raw bytes equivalent to Solidity packed bytes32 seed plus bytes32 searchSeed.",
+      "Libraries such as js-sha3, ethers, or viem can be adapted by passing a small wrapper."
+    ],
+    "returns": [
+      "seed",
+      "hash",
+      "catId",
+      "iterations"
+    ]
+  },
+  "reviewedSourceNotes": [
+    {
+      "sourceRef": "mooncatrescue-web-gitlab",
+      "path": "public/scan.html",
+      "notes": [
+        "Defines the browser searchSeed.",
+        "Creates a miner with createMiner(searchSeed).",
+        "Receives mining result fields including catSeed and catId.",
+        "Calls mcr.rescueCat(catSeed) only after a candidate is chosen."
+      ]
+    },
+    {
+      "sourceRef": "mooncatrescue-web-gitlab",
+      "path": "public/js/mine.js",
+      "notes": [
+        "Strips a leading 0x from searchSeed before posting it to web workers.",
+        "Starts one worker per requested worker slot and stops workers when the first result returns."
+      ]
+    },
+    {
+      "sourceRef": "mooncatrescue-web-gitlab",
+      "path": "public/js/mine-worker.js",
+      "notes": [
+        "Converts searchSeed hex to bytes.",
+        "Generates random 32-byte candidate seeds.",
+        "Hashes seed bytes concatenated with searchSeed bytes using keccak256.",
+        "Accepts the first hash with leading 000000.",
+        "Derives catId as 0x00 plus the final eight hex characters of the hash."
+      ]
+    },
+    {
+      "sourceRef": "ponderware-mooncatrescue-sol-raw",
+      "path": "data/protocol-constants.json cross-check",
+      "notes": [
+        "The KB already records the original contract rule that normal rescue cat IDs are derived from keccak256(seed, searchSeed) when the first three bytes of the hash are zero."
+      ]
+    }
+  ],
+  "limitations": [
+    "This is a compact reviewed summary and reusable snippet, not an import of the original website frontend.",
+    "Only public/scan.html, public/js/mine.js, and public/js/mine-worker.js were reviewed for browser rescue-mining behavior.",
+    "The snippet does not include wallet, private-key, provider, account, gas, transaction submission, or rescueCat calling code.",
+    "No transaction is submitted and no network access is required.",
+    "The snippet is source-bounded and contract-compatible, but it is not claimed to be a byte-for-byte reproduction of the original browser worker.",
+    "The reviewed mining behavior does not define image rendering, traits, parser behavior, rescue-order membership, ownership, or current availability of rescuable cats.",
+    "Random candidate generation was observed in the original browser worker; no seed increment behavior was observed in the reviewed files."
+  ]
+}

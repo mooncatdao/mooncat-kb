@@ -14,6 +14,7 @@ Start here:
 - `docs/identifier-conventions.md` — identifier terminology and conversion status
 - `docs/contracts.md` — contract placeholder notes
 - `docs/rescue-history.md` — rescue range placeholder notes
+- `docs/rescue-mining.md` — original browser rescue/mining seed-search notes
 - `docs/api-notes.md` — API endpoint placeholder notes
 - `data/sources.json` — curated source/provenance index
 - `data/mooncat-types.json` — top-level category scaffold
@@ -25,6 +26,7 @@ Start here:
 - `data/identifier-conventions.json` — identifier terminology and conversion-status reference
 - `data/rescue-ranges.json` — rescue range placeholder scaffold
 - `data/rescue-buckets.json` — canonical-derived rescue/history bucket membership arrays
+- `data/rescue-mining.json` — compact rescue/mining algorithm reference
 - `data/contracts.json` — contract placeholder scaffold
 - `data/ipfs-cids.json` — IPFS CID placeholder scaffold
 - `data/api-endpoints.json` — API endpoint placeholder scaffold
@@ -34,6 +36,7 @@ Start here:
 - `llms.txt` — compact entrypoint list for LLMs and crawlers
 - `AGENTS.md` — instructions for LLM/code agents
 - `context.md` — setup notes that informed this initial scaffold
+- `examples/rescue-mining.js` — wallet-free normal MoonCat seed-search example
 
 Repository conventions:
 

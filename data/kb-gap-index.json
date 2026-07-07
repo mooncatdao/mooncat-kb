@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "updated": "2026-07-04",
+  "updated": "2026-07-07",
   "status": "refreshed-audit-report",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, and MoonCatColors internals review.",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, MoonCatColors internals review, and original rescue-mining reference work.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/api-endpoints.json",
@@ -21,6 +21,7 @@
     "data/project-links.json",
     "data/protocol-constants.json",
     "data/rescue-buckets.json",
+    "data/rescue-mining.json",
     "data/rescue-ranges.json",
     "data/sources.json",
     "data/special-cats.json",
@@ -38,9 +39,9 @@
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
     "status": "all-current-route-candidates-directly-routed",
-    "dataFileCount": 22,
-    "routeCandidates": 21,
-    "directlyRoutedCandidateCount": 21,
+    "dataFileCount": 23,
+    "routeCandidates": 22,
+    "directlyRoutedCandidateCount": 22,
     "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
       "data/agent-index.json"
@@ -48,6 +49,7 @@
     "notes": [
       "data/task-recipes.json is directly routed by data/agent-index.json.",
       "data/kb-gap-index.json is now directly routed by data/agent-index.json through the review-kb-gaps task.",
+      "data/rescue-mining.json is now directly routed by data/agent-index.json through the understand-rescue-mining task.",
       "Current route candidates are directly discoverable from data/agent-index.json."
     ]
   },
@@ -167,6 +169,19 @@
         "README.md"
       ],
       "notes": "A zero-dependency read-only Python validator now checks data/*.json parsing, required routed file references, kb-gap sourceFiles, sourceRef consistency, and relatedFiles warnings."
+    },
+    {
+      "key": "original-rescue-mining-reference",
+      "status": "resolved-as-compact-reviewed-reference",
+      "files": [
+        "data/rescue-mining.json",
+        "docs/rescue-mining.md",
+        "examples/rescue-mining.js",
+        "data/sources.json",
+        "data/agent-index.json",
+        "data/task-recipes.json"
+      ],
+      "notes": "Original browser rescue/mining behavior is now documented from the reviewed local mooncatrescue-web mirror files public/scan.html, public/js/mine.js, and public/js/mine-worker.js, cross-checked against data/protocol-constants.json. A wallet-free reusable seed-search snippet was added without importing frontend code or transaction submission behavior."
     }
   ],
   "fileGaps": [
@@ -347,6 +362,18 @@
       ],
       "agentUsabilityImpact": "Useful for existing bucket arrays with improved method context, but values still need identifier-boundary checks before API, token, or bytes5 use.",
       "nextDataPass": "Use data/identifier-conventions.json and task recipes before applying bucket values outside rescue-order-index contexts."
+    },
+    {
+      "file": "data/rescue-mining.json",
+      "currentStatus": "original-browser-reviewed-contract-compatible-example",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "compact-scope",
+        "transaction-submission-out-of-scope",
+        "current-chain-state-unverified"
+      ],
+      "agentUsabilityImpact": "Useful for original browser searchSeed, random seed candidate generation, keccak valid-hash check, normal catId derivation, rescueCat boundary, and a wallet-free example snippet; not useful for submitting rescues, current ownership, current availability, image rendering, traits, or parser behavior.",
+      "nextDataPass": "Only expand this area with focused source review or current-chain checks; do not import the original frontend or add transaction code to the example."
     },
     {
       "file": "data/rescue-ranges.json",
