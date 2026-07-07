@@ -87,6 +87,8 @@ check chain state, ownership, rescue availability, or traits.
 
 A local mirror of mooncatrescue-web was inspected for this widget:
 
+Inspected revision: `941cabe56315efeb5cb0d97966419b59acc14115`
+
 - `public/scan.html`
 - `public/js/mine.js`
 - `public/js/mine-worker.js`

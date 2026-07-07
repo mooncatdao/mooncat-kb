@@ -24,6 +24,8 @@ The local clone of `https://gitlab.com/mooncatrescue/mooncatrescue-web` was insp
 - `public/js/mine.js`
 - `public/js/mine-worker.js`
 
+The inspected local clone revision was `941cabe56315efeb5cb0d97966419b59acc14115`.
+
 The reviewed page defines this `searchSeed`:
 
 ```text
@@ -33,6 +35,16 @@ The reviewed page defines this `searchSeed`:
 `scan.html` passes that value into `createMiner(searchSeed)`. `mine.js` removes the leading `0x` and starts web workers. `mine-worker.js` converts the search seed to bytes, repeatedly generates random 32-byte candidate seeds, hashes the candidate seed concatenated with the search seed, accepts a hash whose first three bytes are zero, and derives the normal `catId` from the hash tail.
 
 No sequential seed increment behavior was observed in the reviewed browser worker. Candidate generation in the reviewed worker is random.
+
+## Implementation Checklist
+
+- Candidate seed is 32 bytes.
+- `searchSeed` is 32 bytes.
+- Strip a leading `0x` before converting hex strings to bytes.
+- Hash input order is `seedBytes` followed by `searchSeedBytes`.
+- Use Ethereum Keccak-256, not NIST SHA3-256.
+- A candidate is valid when the first 3 hash bytes are zero, equivalent to hex prefix `000000`.
+- Normal `catId` is `0x00` plus the final 4 bytes of the hash.
 
 ## Hash And Cat ID Relationship
 
@@ -45,6 +57,12 @@ catId = 0x00 || last 4 bytes of hash
 ```
 
 The contract-side rule already recorded in `data/protocol-constants.json` matches this shape: normal rescue cat IDs are derived from `keccak256(seed, searchSeed)` when the first three bytes of the hash are zero, and the `catId` uses the last four bytes plus a byte indicating genesis status. For the normal browser-mined case, the leading byte is `0x00`.
+
+Original difficulty math:
+
+```text
+prefix 000000 = 16^6 = 16,777,216 expected average attempts
+```
 
 ## Reusable Example
 
@@ -84,6 +102,15 @@ The widget also vendors `mooncatparser.js` from `references/upstream/mooncatresc
 The widget defaults to `difficultyPrefix: "000000"`, the original reviewed rescue difficulty, with an expected average of about 16.8M attempts. It also includes a visible demo-mode control for `difficultyPrefix: "0000"` so local UI testing can finish faster. Demo mode has an expected average of about 65,536 attempts and is not the original rescue difficulty.
 
 `knownRescuedCatIds` may be an array or `Set`. When supplied, the widget continues scanning until the valid `catId` is not in that set, then labels the result as a valid unlisted candidate. It still does not check current chain state and must not be used to claim that a cat is currently rescuable.
+
+## Original vs Widget
+
+| Area | Original reviewed site | Widget example |
+| --- | --- | --- |
+| Search loop | Browser worker flow with observed `Math.random` seed generation. | Same candidate/hash/`catId` rule, but prefers modern random bytes. |
+| Difficulty | Fixed original `000000` hash prefix. | Defaults to `000000`; includes demo difficulty for faster local UI testing. |
+| Transaction boundary | Page can call `rescueCat` after a candidate is found. | Omits `rescueCat` and all wallet, provider, gas, and transaction code. |
+| Rendering and state | Original page renders a found cat in the site UI. | Renders with mooncatparser.js but does not check chain state, ownership, or rescue availability. |
 
 ## Limitations
 

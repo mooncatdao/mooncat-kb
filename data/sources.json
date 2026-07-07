@@ -383,7 +383,8 @@
           "checked": "2026-07-07"
         }
       ],
-      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/mooncatrescue-web, default branch master, last activity 2022-09-22. GitLab description says it is original content of mooncatrescue.com archive; metadata reports it is forked from ponderware/mooncatrescue-archive. Focused local clone review on 2026-07-07 inspected only public/scan.html, public/js/mine.js, and public/js/mine-worker.js for rescue-mining behavior; unrelated frontend code and bundled/minified files were not imported."
+      "reviewedRevision": "941cabe56315efeb5cb0d97966419b59acc14115",
+      "notes": "Verified by GitLab project metadata on 2026-07-03: public project mooncatrescue/mooncatrescue-web, default branch master, last activity 2022-09-22. GitLab description says it is original content of mooncatrescue.com archive; metadata reports it is forked from ponderware/mooncatrescue-archive. Focused local clone review on 2026-07-07 inspected only public/scan.html, public/js/mine.js, and public/js/mine-worker.js for rescue-mining behavior at commit 941cabe56315efeb5cb0d97966419b59acc14115; unrelated frontend code and bundled/minified files were not imported."
     },
     {
       "id": "mooncatrescue-utility-contracts-gitlab",

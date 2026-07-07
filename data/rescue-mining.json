@@ -8,6 +8,11 @@
     "mooncatrescue-mooncatparser-js",
     "ponderware-mooncatrescue-sol-raw"
   ],
+  "reviewedSourceRevision": {
+    "sourceRef": "mooncatrescue-web-gitlab",
+    "commit": "941cabe56315efeb5cb0d97966419b59acc14115",
+    "notes": "Recorded from the inspected mooncatrescue-web clone with git rev-parse HEAD on 2026-07-07."
+  },
     "relatedFiles": [
       "docs/rescue-mining.md",
       "examples/rescue-mining.js",
@@ -61,6 +66,42 @@
       "notes": "The reusable example intentionally stops before this transaction boundary and does not include wallet, provider, account, or transaction code."
     }
   },
+  "implementationChecklist": [
+    "Candidate seed is 32 bytes.",
+    "searchSeed is 32 bytes.",
+    "Strip a leading 0x before converting hex strings to bytes.",
+    "Hash input order is seedBytes followed by searchSeedBytes.",
+    "Use Ethereum Keccak-256, not NIST SHA3-256.",
+    "A candidate is valid when the first 3 hash bytes are zero, equivalent to hex prefix 000000.",
+    "Normal catId is 0x00 plus the final 4 bytes of the hash."
+  ],
+  "originalDifficultyMath": {
+    "prefix": "000000",
+    "expression": "16^6",
+    "expectedAverageAttempts": 16777216
+  },
+  "originalVsWidget": [
+    {
+      "area": "search loop",
+      "original": "Browser worker flow with observed Math.random seed generation.",
+      "widget": "Same candidate/hash/catId rule, but prefers modern random bytes."
+    },
+    {
+      "area": "difficulty",
+      "original": "Fixed original 000000 hash prefix.",
+      "widget": "Defaults to 000000; includes demo difficulty for faster local UI testing."
+    },
+    {
+      "area": "transaction boundary",
+      "original": "Page can call rescueCat after a candidate is found.",
+      "widget": "Omits rescueCat and all wallet, provider, gas, and transaction code."
+    },
+    {
+      "area": "rendering and state",
+      "original": "Original page renders a found cat in the site UI.",
+      "widget": "Renders with mooncatparser.js but does not check chain state, ownership, or rescue availability."
+    }
+  ],
   "example": {
     "path": "examples/rescue-mining.js",
     "runtime": "JavaScript",
