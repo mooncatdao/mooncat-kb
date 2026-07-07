@@ -51,3 +51,14 @@ python scripts/validate-kb.py
 
 It checks `data/*.json` parsing, required routed file references, and `sourceRef` consistency.
 The script locates the repo root automatically when invoked by path from a subdirectory.
+
+## License
+
+This knowledge base is released under CC0 1.0 Universal (`CC0-1.0`) unless otherwise noted. Attribution is not required, but appreciated.
+
+Suggested attribution:
+
+> Uses data and documentation from MoonCat KB.
+> https://github.com/mooncatdao/mooncat-kb
+
+Reference files under `references/` may have upstream licenses or terms and are not automatically relicensed under CC0.
