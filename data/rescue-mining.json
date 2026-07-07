@@ -2,15 +2,20 @@
   "version": 1,
   "updated": "2026-07-07",
   "status": "original-browser-reviewed-contract-compatible-example",
-  "scope": "Compact reference for the original browser-side normal MoonCat rescue/mining operation and a reusable wallet-free example snippet.",
+  "scope": "Compact reference for the original browser-side normal MoonCat rescue/mining operation, a reusable wallet-free example snippet, and an embeddable wallet-free widget example.",
   "sourceRefs": [
     "mooncatrescue-web-gitlab",
     "ponderware-mooncatrescue-sol-raw"
   ],
-  "relatedFiles": [
-    "docs/rescue-mining.md",
-    "examples/rescue-mining.js",
-    "data/protocol-constants.json",
+    "relatedFiles": [
+      "docs/rescue-mining.md",
+      "examples/rescue-mining.js",
+      "examples/rescue-mining-widget/README.md",
+      "examples/rescue-mining-widget/index.html",
+      "examples/rescue-mining-widget/rescue-mining-widget.js",
+      "examples/rescue-mining-widget/rescue-mining-widget.css",
+      "examples/rescue-mining-widget/vendor/sha3.min.js",
+      "data/protocol-constants.json",
     "data/contracts.json",
     "data/contract-surfaces.json",
     "docs/rescue-history.md"
@@ -71,6 +76,48 @@
       "iterations"
     ]
   },
+  "widgetExample": {
+    "path": "examples/rescue-mining-widget/",
+    "entrypoint": "examples/rescue-mining-widget/index.html",
+    "script": "examples/rescue-mining-widget/rescue-mining-widget.js",
+    "stylesheet": "examples/rescue-mining-widget/rescue-mining-widget.css",
+    "mountFunction": "mountMoonCatRescueMiner(target, options)",
+    "runtime": "browser JavaScript",
+    "networkRequired": false,
+    "walletRequired": false,
+    "privateKeyRequired": false,
+    "transactionCodeIncluded": false,
+    "dependencyNotes": [
+      "The widget vendors the original site's public/js/sha3.min.js at examples/rescue-mining-widget/vendor/sha3.min.js.",
+      "The vendored sha3.min.js header identifies js-sha3 0.6.1 by Chen, Yi-Cyuan under MIT and is preserved.",
+      "Hash provider order is options.keccak256(bytes), global js-sha3 keccak_256, then the internal Ethereum Keccak-256 fallback.",
+      "Each hash provider path hashes raw bytes equivalent to seedBytes || searchSeedBytes.",
+      "No Web3 dependency, worker file, parser code, image asset, remote asset, or unrelated frontend code is imported."
+    ],
+    "difficulty": {
+      "defaultDifficultyPrefix": "000000",
+      "defaultBehavior": "Original reviewed rescue-mining behavior; valid when the hash starts with 000000.",
+      "defaultExpectedAverageAttempts": "about 16.8M",
+      "demoDifficultyPrefix": "0000",
+      "demoBehavior": "Visible widget control and options.difficultyPrefix support faster local UI testing.",
+      "demoExpectedAverageAttempts": "about 65,536",
+      "demoLimitation": "Demo mode is not original rescue difficulty and must not be used for protocol claims."
+    },
+    "visualNotes": [
+      "Recreates the original scanner-style idle, scanning, and found states using plain HTML/CSS/canvas.",
+      "Recreates a simple moon/space scanner visual in CSS/canvas instead of using the original lunar image or background assets.",
+      "Uses a placeholder candidate cat display derived from the found catId bytes; this is not original MoonCat parser rendering and must not be treated as a trait or image source."
+    ],
+    "knownRescuedCatIds": {
+      "acceptedTypes": [
+        "array",
+        "Set"
+      ],
+      "behavior": "When supplied, valid candidate catIds that appear in the set are skipped and scanning continues until a valid unlisted candidate is found.",
+      "labeling": "The widget labels filtered results as valid unlisted candidates, not as currently rescuable cats.",
+      "datasetIncluded": false
+    }
+  },
   "reviewedSourceNotes": [
     {
       "sourceRef": "mooncatrescue-web-gitlab",
@@ -102,6 +149,34 @@
       ]
     },
     {
+      "sourceRef": "mooncatrescue-web-gitlab",
+      "path": "public/js/search.js",
+      "notes": [
+        "Inspected for scanner animation credits and UI visual context only.",
+        "Contains credits for a moon image URL and a 3d sphere mapping URL.",
+        "The widget preserves those credits in examples/rescue-mining-widget/README.md but does not copy the original lunar image or sphere mapping implementation."
+      ]
+    },
+    {
+      "sourceRef": "mooncatrescue-web-gitlab",
+      "path": "public/css/site.css, public/js/background.js, public/img/bg0.png, public/img/bg2.png, public/img/lunarsurface.jpg",
+      "notes": [
+        "Inspected for nearby scan/mining UI styling and local asset context.",
+        "The widget adapts the scanner-style panels, buttons, status flow, and space/moon visual direction with new CSS/canvas code.",
+        "The original image/font assets were not copied or referenced at runtime."
+      ]
+    },
+    {
+      "sourceRef": "mooncatrescue-web-gitlab",
+      "path": "repository root and public/js/sha3.min.js",
+      "notes": [
+        "No repo-root LICENSE, COPYING, README, or package metadata file was present in the local mirror.",
+        "public/js/sha3.min.js identifies js-sha3 0.6.1 by Chen, Yi-Cyuan under MIT.",
+        "Only public/js/sha3.min.js was copied into examples/rescue-mining-widget/vendor/sha3.min.js from the original mirror.",
+        "The widget can use the vendored global js-sha3 keccak_256, accepts a caller-supplied keccak256 function, and keeps an internal Ethereum Keccak-256 fallback."
+      ]
+    },
+    {
       "sourceRef": "ponderware-mooncatrescue-sol-raw",
       "path": "data/protocol-constants.json cross-check",
       "notes": [
@@ -113,8 +188,15 @@
     "This is a compact reviewed summary and reusable snippet, not an import of the original website frontend.",
     "Only public/scan.html, public/js/mine.js, and public/js/mine-worker.js were reviewed for browser rescue-mining behavior.",
     "The snippet does not include wallet, private-key, provider, account, gas, transaction submission, or rescueCat calling code.",
+    "The embeddable widget does not include wallet, private-key, provider, account, gas, transaction submission, or rescueCat calling code.",
     "No transaction is submitted and no network access is required.",
-    "The snippet is source-bounded and contract-compatible, but it is not claimed to be a byte-for-byte reproduction of the original browser worker.",
+    "The snippet and widget are source-bounded and contract-compatible, but they are not claimed to be byte-for-byte reproductions of the original browser worker or scanner UI.",
+    "The widget default difficultyPrefix is 000000 for original behavior; demo difficultyPrefix 0000 is only for faster local testing and is not original rescue difficulty.",
+    "The widget does not check current chain state and labels optional filtered results as valid unlisted candidates, not currently rescuable cats.",
+    "The widget does not include a rescued-cat dataset; knownRescuedCatIds must be supplied by the caller if filtering is desired.",
+    "The widget candidate cat display is a placeholder visualization derived from catId bytes, not original MoonCat parser rendering.",
+    "The original scanner animation credits were preserved, but the widget does not hotlink or copy the credited remote assets.",
+    "The widget vendors only public/js/sha3.min.js from the original mirror; Web3, workers, parser code, images, and unrelated frontend code remain excluded.",
     "The reviewed mining behavior does not define image rendering, traits, parser behavior, rescue-order membership, ownership, or current availability of rescuable cats.",
     "Random candidate generation was observed in the original browser worker; no seed increment behavior was observed in the reviewed files."
   ]

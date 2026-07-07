@@ -177,11 +177,15 @@
         "data/rescue-mining.json",
         "docs/rescue-mining.md",
         "examples/rescue-mining.js",
+        "examples/rescue-mining-widget/README.md",
+        "examples/rescue-mining-widget/index.html",
+        "examples/rescue-mining-widget/rescue-mining-widget.js",
+        "examples/rescue-mining-widget/rescue-mining-widget.css",
         "data/sources.json",
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "Original browser rescue/mining behavior is now documented from the reviewed local mooncatrescue-web mirror files public/scan.html, public/js/mine.js, and public/js/mine-worker.js, cross-checked against data/protocol-constants.json. A wallet-free reusable seed-search snippet was added without importing frontend code or transaction submission behavior."
+      "notes": "Original browser rescue/mining behavior is now documented from the reviewed local mooncatrescue-web mirror files public/scan.html, public/js/mine.js, and public/js/mine-worker.js, cross-checked against data/protocol-constants.json. Wallet-free snippet and embeddable widget examples were added without importing frontend bundles, original image assets, parser rendering, or transaction submission behavior."
     }
   ],
   "fileGaps": [
@@ -372,8 +376,8 @@
         "transaction-submission-out-of-scope",
         "current-chain-state-unverified"
       ],
-      "agentUsabilityImpact": "Useful for original browser searchSeed, random seed candidate generation, keccak valid-hash check, normal catId derivation, rescueCat boundary, and a wallet-free example snippet; not useful for submitting rescues, current ownership, current availability, image rendering, traits, or parser behavior.",
-      "nextDataPass": "Only expand this area with focused source review or current-chain checks; do not import the original frontend or add transaction code to the example."
+      "agentUsabilityImpact": "Useful for original browser searchSeed, random seed candidate generation, keccak valid-hash check, normal catId derivation, rescueCat boundary, a wallet-free snippet, and an embeddable wallet-free widget; not useful for submitting rescues, current ownership, current availability, image rendering, traits, or parser behavior.",
+      "nextDataPass": "Only expand this area with focused source review or current-chain checks; do not import the original frontend, rescued-cat dataset, parser rendering, or transaction code to the examples."
     },
     {
       "file": "data/rescue-ranges.json",

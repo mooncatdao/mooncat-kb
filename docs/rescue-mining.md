@@ -57,10 +57,37 @@ Use `examples/rescue-mining.js` when you need a small, wallet-free seed search e
 
 It does not submit a rescue transaction.
 
+## Embeddable Widget Example
+
+Use `examples/rescue-mining-widget/` for a plain HTML/CSS/JS widget that can be mounted into an existing page:
+
+```html
+<div id="mooncat-miner"></div>
+<script src="vendor/sha3.min.js"></script>
+<script src="rescue-mining-widget.js"></script>
+<script>
+  mountMoonCatRescueMiner("#mooncat-miner", {
+    difficultyPrefix: "000000",
+    knownRescuedCatIds: []
+  });
+</script>
+```
+
+The widget keeps the original scanner-style start/stop/found flow and recreates the space/moon scanner visual with CSS and canvas. It does not hotlink the original remote credit URLs and does not import the original lunar image, star backgrounds, fonts, MoonCat parser, Web3 code, workers, or transaction code.
+
+The widget example vendors the original site's `public/js/sha3.min.js` as `examples/rescue-mining-widget/vendor/sha3.min.js`. That file identifies js-sha3 0.6.1 by Chen, Yi-Cyuan under MIT and preserves its upstream header. Hash provider selection is: host-supplied `options.keccak256(bytes)`, then global js-sha3 `keccak_256`, then the widget's internal Ethereum Keccak-256 fallback. Each path hashes raw bytes equivalent to `seedBytes || searchSeedBytes`.
+
+The widget defaults to `difficultyPrefix: "000000"`, the original reviewed rescue difficulty, with an expected average of about 16.8M attempts. It also includes a visible demo-mode control for `difficultyPrefix: "0000"` so local UI testing can finish faster. Demo mode has an expected average of about 65,536 attempts and is not the original rescue difficulty.
+
+`knownRescuedCatIds` may be an array or `Set`. When supplied, the widget continues scanning until the valid `catId` is not in that set, then labels the result as a valid unlisted candidate. It still does not check current chain state and must not be used to claim that a cat is currently rescuable.
+
 ## Limitations
 
 - This is not a byte-for-byte copy of the original browser worker.
 - The full original website frontend, bundled libraries, minified files, UI code, wallet code, and transaction code are not imported.
+- The embeddable widget recreates scanner styling and a placeholder candidate cat display; it does not import or reproduce the original MoonCat parser/image rendering.
+- The widget does not rely on dead remote assets at runtime; original moon/sphere credits are preserved in the widget README and data notes only.
+- The widget vendors only the original site's js-sha3 dependency; it does not import Web3, workers, parser code, images, or unrelated frontend code.
 - The example does not prove that any cat is still rescuable or that a transaction would succeed.
 - This does not define image rendering, parser behavior, traits, rescue-order membership, current ownership, or current API behavior.
 - The reviewed files support the browser mining operation and transaction boundary only.

@@ -209,7 +209,7 @@
     },
     {
       "key": "understand-rescue-mining",
-      "description": "Review original browser-side normal MoonCat rescue/mining seed search and the wallet-free example snippet.",
+      "description": "Review original browser-side normal MoonCat rescue/mining seed search, the wallet-free snippet, and the embeddable widget example.",
       "primaryFiles": [
         "data/rescue-mining.json",
         "data/protocol-constants.json"
@@ -217,13 +217,17 @@
       "optionalFiles": [
         "docs/rescue-mining.md",
         "examples/rescue-mining.js",
+        "examples/rescue-mining-widget/README.md",
+        "examples/rescue-mining-widget/index.html",
+        "examples/rescue-mining-widget/rescue-mining-widget.js",
+        "examples/rescue-mining-widget/rescue-mining-widget.css",
         "data/contracts.json",
         "data/contract-surfaces.json",
         "data/sources.json"
       ],
       "notes": [
         "Use this route for searchSeed, seed candidate generation, keccak valid-hash checks, catId derivation, and rescueCat transaction-boundary context.",
-        "The example is wallet-free and network-free; do not add private-key, provider, account, gas, or transaction-submission code.",
+        "The snippet and widget are wallet-free and network-free; do not add private-key, provider, account, gas, or transaction-submission code.",
         "Do not infer image rendering, traits, parser behavior, rescue-order membership, ownership, or current rescue availability from rescue mining alone."
       ]
     },

@@ -37,6 +37,7 @@ Start here:
 - `AGENTS.md` — instructions for LLM/code agents
 - `context.md` — setup notes that informed this initial scaffold
 - `examples/rescue-mining.js` — wallet-free normal MoonCat seed-search example
+- `examples/rescue-mining-widget/` — embeddable wallet-free rescue-mining widget example
 
 Repository conventions:
 

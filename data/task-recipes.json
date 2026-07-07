@@ -230,7 +230,7 @@
     },
     {
       "key": "understand-rescue-mining",
-      "purpose": "Explain or reuse the original browser-side normal MoonCat rescue/mining seed search without adding wallet or transaction code.",
+      "purpose": "Explain or reuse the original browser-side normal MoonCat rescue/mining seed search, snippet, or embeddable widget without adding wallet or transaction code.",
       "loadOrder": [
         "data/rescue-mining.json",
         "data/protocol-constants.json",
@@ -239,14 +239,19 @@
       "optionalFiles": [
         "docs/rescue-mining.md",
         "examples/rescue-mining.js",
+        "examples/rescue-mining-widget/README.md",
+        "examples/rescue-mining-widget/index.html",
+        "examples/rescue-mining-widget/rescue-mining-widget.js",
+        "examples/rescue-mining-widget/rescue-mining-widget.css",
         "data/contracts.json",
         "data/contract-surfaces.json"
       ],
       "steps": [
-        "Use data/rescue-mining.json for the reviewed algorithm, reviewed source paths, example path, and limitations.",
+        "Use data/rescue-mining.json for the reviewed algorithm, reviewed source paths, snippet path, widget path, and limitations.",
         "Cross-check normal-cat hash and catId rules against data/protocol-constants.json.",
         "Use docs/rescue-mining.md when a human-readable explanation is needed.",
         "Use examples/rescue-mining.js only as a wallet-free seed-search snippet; it intentionally stops before rescueCat transaction submission.",
+        "Use examples/rescue-mining-widget/ only as an embeddable wallet-free UI example; its candidate cat display is not original parser rendering.",
         "Load contract files only when the task needs the original contract identity or transaction-boundary context."
       ],
       "outputs": [
@@ -254,12 +259,14 @@
         "hash and valid-cat check",
         "catId derivation",
         "snippet path",
+        "widget path when relevant",
         "transaction-boundary and limitation notes"
       ],
       "guardrails": [
         "Do not add wallet, private-key, provider, account, gas, or transaction submission code.",
         "Do not import the original frontend, bundled libraries, minified files, parser, images, or unrelated UI code.",
         "Do not claim byte-for-byte original behavior unless a future task verifies it directly.",
+        "Do not treat the widget candidate cat drawing as MoonCat image rendering, traits, parser output, ownership, or current availability.",
         "Do not infer image rendering, traits, parser behavior, rescue-order buckets, ownership, or current rescue availability from rescue mining alone."
       ],
       "stopConditions": [
