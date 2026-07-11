@@ -14,7 +14,9 @@ Detailed source-tier, local upstream snapshot, and promotion rules live in `docs
 - `derived`: data generated from another source by script, analysis, or curation.
 - `unknown`: placeholder for a needed source that has not been verified.
 
-Use `data/link-index.json` for preserved research or navigation links that should not be promoted into `data/sources.json`.
+Use `data/project-links.json` for classified project/navigation links and its single trust/ownership vocabulary. Use `data/link-index.json` for broader preserved research or navigation links that should not be promoted into `data/sources.json`.
+
+Project-link `trustLevel` values are navigation classifications, not canonical-source tiers. Keep `official`, `official-context`, `community-maintained`, `community-curated`, `historical`, `preserved-research-link`, and `ownership-unverified` separate from source promotion decisions. Unknown ownership must remain explicit.
 
 ## Current Sources
 

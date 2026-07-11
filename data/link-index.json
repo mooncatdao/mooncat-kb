@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
-  "status": "incomplete",
+  "updated": "2026-07-11",
+  "status": "preserved-research-index",
   "provenance": {
     "sources": [
       "extracted-source-links-2026-07-02"
     ],
-    "notes": "Preserved link index. Links may be useful for research, context, or navigation, but are not automatically canonical sources."
+    "notes": "Preserved link index. Links may be useful for research, context, or navigation, but are not automatically canonical sources. Project-link classifications and ownership/trust vocabulary live separately in data/project-links.json; this file remains a broader preservation index."
   },
   "links": [
     {

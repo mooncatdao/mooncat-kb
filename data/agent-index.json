@@ -295,6 +295,7 @@
       ],
       "notes": [
         "Do not promote preserved navigation links into canonical sources without a source-focused review.",
+        "Use data/project-links.json trustLevel, ownershipStatus, and trustNotes for classified links; use data/link-index.json for broader preserved research links.",
         "Leave unknown CIDs or URLs incomplete rather than guessing."
       ]
     }

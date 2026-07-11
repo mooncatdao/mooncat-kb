@@ -1,14 +1,30 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
-  "status": "partially-verified",
+  "updated": "2026-07-11",
+  "status": "classified-navigation-links",
   "provenance": {
     "sources": [
       "repo-context",
       "repo-source-map",
       "mooncatrescue-build"
     ],
-    "notes": "Verified project URLs are recorded here. Unverified project labels remain explicit placeholders."
+    "notes": "Project links are navigation records, not canonical fact sources. Registered sourceRefs support classifications where available; extracted or third-party links remain explicitly unverified.",
+    "trustVocabulary": {
+      "official": "Registered first-party project or service entrypoint supported by an official sourceRef; this does not make every linked page canonical data.",
+      "official-context": "First-party or official-domain context useful for navigation, but not independently sufficient for exact facts.",
+      "community-maintained": "Community-operated or community-maintained project/resource with ownership treated as community scope.",
+      "community-curated": "Community tool or collection curated by its maintainers; not a canonical MoonCat source unless separately registered.",
+      "historical": "Historical project, maintainer, or source context; current ownership or maintenance is not implied.",
+      "preserved-research-link": "Retained for research or navigation from an extracted link set; ownership and claims are unverified.",
+      "ownership-unverified": "A useful link whose current owner, maintainer, or endorsement is not established by the registered evidence."
+    },
+    "ownershipVocabulary": {
+      "current-project-context": "Registered as a current project or first-party context source.",
+      "community-context": "Community-maintained or community-curated context; no official endorsement implied.",
+      "historical-context": "Historical maintainer/project context; current ownership is not asserted.",
+      "third-party-service": "Third-party marketplace or hosted service; collection/project ownership is not inferred.",
+      "ownership-unverified": "The link is preserved, but the owner or maintainer was not established in this pass."
+    }
   },
   "links": [
     {
@@ -17,7 +33,10 @@
       "url": "https://mooncatrescue.com/",
       "type": "primary",
       "status": "verified",
-      "trustLevel": "primary",
+      "trustLevel": "official",
+      "role": "Official MoonCatRescue project website entrypoint.",
+      "ownershipStatus": "current-project-context",
+      "trustNotes": "Registered official website source; navigation value is supported, but exact protocol facts still require their dedicated source records.",
       "sourceRefs": [
         "mooncatrescue-website"
       ]
@@ -29,6 +48,9 @@
       "type": "community",
       "status": "verified",
       "trustLevel": "community-maintained",
+      "role": "Community project and information website.",
+      "ownershipStatus": "community-context",
+      "trustNotes": "Registered community-maintained source; useful for context and links, not a substitute for primary contract or protocol sources.",
       "sourceRefs": [
         "mooncat-community-website"
       ]
@@ -39,7 +61,10 @@
       "url": "https://gitlab.com/mooncatrescue",
       "type": "source-code",
       "status": "verified",
-      "trustLevel": "strong",
+      "trustLevel": "official",
+      "role": "Current-maintainer GitLab group and project navigation entrypoint.",
+      "ownershipStatus": "current-project-context",
+      "trustNotes": "Registered MoonCatRescue group source supports project-code navigation; individual repositories still require their own source review.",
       "sourceRefs": [
         "mooncatrescue-gitlab"
       ]
@@ -50,7 +75,10 @@
       "url": "https://gitlab.com/mooncatrescue/chainstation-web/",
       "type": "source-code",
       "status": "verified",
-      "trustLevel": "strong",
+      "trustLevel": "official",
+      "role": "Current-maintainer ChainStation source repository.",
+      "ownershipStatus": "current-project-context",
+      "trustNotes": "Registered source supports the repository entrypoint; repository contents and deployment state are separate questions.",
       "sourceRefs": [
         "chainstation-source"
       ]
@@ -61,7 +89,10 @@
       "url": "https://gitlab.com/ponderware/libmooncat",
       "type": "source-code",
       "status": "verified",
-      "trustLevel": "strong",
+      "trustLevel": "historical",
+      "role": "Historical LibMoonCat source-code repository.",
+      "ownershipStatus": "historical-context",
+      "trustNotes": "Registered historical-primary source; preserve its historical/library role and do not infer current maintenance or endorsement.",
       "sourceRefs": [
         "libmooncat"
       ]
@@ -72,7 +103,10 @@
       "url": "https://github.com/ponderware",
       "type": "source-code",
       "status": "verified",
-      "trustLevel": "historical-primary",
+      "trustLevel": "historical",
+      "role": "Historical Ponderware organization entrypoint.",
+      "ownershipStatus": "historical-context",
+      "trustNotes": "Registered historical source context; current organization ownership and activity are not asserted.",
       "sourceRefs": [
         "ponderware-github"
       ]
@@ -83,7 +117,10 @@
       "url": "https://github.com/ponderware/mooncatparser",
       "type": "source-code",
       "status": "verified",
-      "trustLevel": "historical-primary",
+      "trustLevel": "historical",
+      "role": "Historical MoonCat parser source repository.",
+      "ownershipStatus": "historical-context",
+      "trustNotes": "Registered historical-primary parser source; use for historical implementation context and preserve current-maintenance uncertainty.",
       "sourceRefs": [
         "ponderware-mooncatparser"
       ]
@@ -94,7 +131,10 @@
       "url": "https://github.com/ponderware/MoonCatRescue-Contract",
       "type": "source-code",
       "status": "verified",
-      "trustLevel": "historical-primary",
+      "trustLevel": "historical",
+      "role": "Historical MoonCatRescue contract source repository.",
+      "ownershipStatus": "historical-context",
+      "trustNotes": "Registered historical-primary contract source; exact deployed facts should use verified contract/source records.",
       "sourceRefs": [
         "ponderware-contract"
       ]
@@ -106,6 +146,9 @@
       "type": "community-maintained",
       "status": "verified",
       "trustLevel": "community-maintained",
+      "role": "Community-maintained MoonCat DAO repository group.",
+      "ownershipStatus": "community-context",
+      "trustNotes": "Registered community-maintained source; no official project endorsement or canonical fact status is implied.",
       "sourceRefs": [
         "mooncat-dao-github"
       ]
@@ -117,6 +160,9 @@
       "type": "community-tool",
       "status": "verified",
       "trustLevel": "community-curated",
+      "role": "Community-curated MoonCat rating/tool website.",
+      "ownershipStatus": "community-context",
+      "trustNotes": "Registered community-curated tool; outputs and classifications require separate provenance before becoming KB facts.",
       "sourceRefs": [
         "rate-my-mooncat"
       ]
@@ -128,6 +174,9 @@
       "type": "community-maintained",
       "status": "verified",
       "trustLevel": "community-maintained",
+      "role": "Historical/community-maintained MoonCat DAO wiki navigation.",
+      "ownershipStatus": "community-context",
+      "trustNotes": "Registered community-maintained wiki link; preserve its historical/community context and do not treat pages as canonical automatically.",
       "sourceRefs": [
         "mooncat-dao-wiki"
       ]
@@ -138,7 +187,10 @@
       "url": "https://opensea.io/collection/acclimatedmooncats",
       "type": "marketplace",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "ownership-unverified",
+      "role": "Third-party marketplace collection navigation.",
+      "ownershipStatus": "third-party-service",
+      "trustNotes": "Preserved from extracted links; marketplace presence does not establish collection ownership, endorsement, current support, or canonical metadata.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -149,7 +201,10 @@
       "url": "https://looksrare.org/collections/0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
       "type": "marketplace",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "ownership-unverified",
+      "role": "Third-party marketplace collection navigation.",
+      "ownershipStatus": "third-party-service",
+      "trustNotes": "The URL contains a collection address, but this navigation record does not independently verify ownership, endorsement, or current marketplace behavior.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -160,7 +215,10 @@
       "url": "https://blur.io/eth/collection/acclimatedmooncats",
       "type": "marketplace",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "ownership-unverified",
+      "role": "Third-party marketplace collection navigation.",
+      "ownershipStatus": "third-party-service",
+      "trustNotes": "Preserved for navigation only; no collection ownership, endorsement, or current support claim is made.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -171,7 +229,10 @@
       "url": "https://mooncat.pro/",
       "type": "community-tool",
       "status": "needs-review",
-      "trustLevel": "community-derived",
+      "trustLevel": "community-curated",
+      "role": "Community-derived MoonCat research/tool website.",
+      "ownershipStatus": "ownership-unverified",
+      "trustNotes": "Preserved from extracted links; maintainer identity and current status are not established by the registered evidence.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -182,7 +243,10 @@
       "url": "https://twitter.com/mooncatzer0",
       "type": "social",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "ownership-unverified",
+      "role": "Social/profile navigation link.",
+      "ownershipStatus": "ownership-unverified",
+      "trustNotes": "Preserved from extracted links; handle identity, current control, and project endorsement are not verified here.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -193,7 +257,10 @@
       "url": "https://twitter.com/ponderware",
       "type": "social",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "ownership-unverified",
+      "role": "Historical maintainer social/profile navigation link.",
+      "ownershipStatus": "historical-context",
+      "trustNotes": "The handle is preserved as historical project context; current ownership, activity, and endorsement are not asserted.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -204,7 +271,10 @@
       "url": "https://twitter.com/mooncatrescue",
       "type": "social",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "ownership-unverified",
+      "role": "Social/profile navigation link associated with MoonCatRescue.",
+      "ownershipStatus": "ownership-unverified",
+      "trustNotes": "Preserved from extracted links; current account control and official status are not verified in this pass.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -215,7 +285,10 @@
       "url": "https://x.com/mooncat_dao",
       "type": "social",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "ownership-unverified",
+      "role": "Community/social navigation link.",
+      "ownershipStatus": "ownership-unverified",
+      "trustNotes": "Preserved from extracted links; account ownership and project endorsement are not established.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -227,6 +300,9 @@
       "type": "community",
       "status": "needs-review",
       "trustLevel": "community-maintained",
+      "role": "Community discussion and navigation forum.",
+      "ownershipStatus": "community-context",
+      "trustNotes": "Community-maintained discussion link; posts are not canonical sources without specific post-level review.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -237,7 +313,10 @@
       "url": "https://www.easyzoom.com/imageaccess/b5b703d04cd24960ba2b5a74e7e88da4",
       "type": "visualization",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "preserved-research-link",
+      "role": "Preserved third-party visualization link.",
+      "ownershipStatus": "ownership-unverified",
+      "trustNotes": "Retained for research/navigation only; no image-derived data, ownership, or current availability claim is made.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -248,7 +327,10 @@
       "url": "https://x.com/midnight426",
       "type": "social",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "ownership-unverified",
+      "role": "Historical/community social-profile navigation link.",
+      "ownershipStatus": "ownership-unverified",
+      "trustNotes": "Preserved from extracted links; identity, current ownership, and project endorsement are not verified.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -259,7 +341,10 @@
       "url": "https://mooncatrescue.com/owners/0x98968f0747E0A261532cAcC0BE296375F5c08398#mooncats",
       "type": "owner-page",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "official-context",
+      "role": "MoonCatRescue-domain owner-page navigation.",
+      "ownershipStatus": "current-project-context",
+      "trustNotes": "The official-domain URL supports navigation context only; the linked address, ownership, and page contents are not independently verified here.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -270,7 +355,10 @@
       "url": "https://mooncatrescue.com/owners/0xD4fe01ce79C84C68f9307D415B8f392D140c242C#mooncats",
       "type": "owner-page",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "official-context",
+      "role": "MoonCatRescue-domain owner-page navigation.",
+      "ownershipStatus": "current-project-context",
+      "trustNotes": "Official-domain navigation record; no ownership or pool-membership fact is promoted from the URL alone.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -281,7 +369,10 @@
       "url": "https://mooncatrescue.com/owners/0xA8b42C82a628DC43c2c2285205313e5106EA2853#mooncats",
       "type": "owner-page",
       "status": "needs-review",
-      "trustLevel": "project-link",
+      "trustLevel": "official-context",
+      "role": "MoonCatRescue-domain owner-page navigation.",
+      "ownershipStatus": "current-project-context",
+      "trustNotes": "Official-domain navigation record; address and page contents remain unverified in this pass.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -292,7 +383,10 @@
       "url": "https://www.youtube.com/watch?v=QinJ8OFsxJI&t=828s",
       "type": "video",
       "status": "needs-review",
-      "trustLevel": "supporting-context",
+      "trustLevel": "preserved-research-link",
+      "role": "Preserved explanatory video/navigation link.",
+      "ownershipStatus": "ownership-unverified",
+      "trustNotes": "Retained as supporting context; creator, current availability, and factual claims require separate review.",
       "sourceRefs": [
         "extracted-source-links-2026-07-02"
       ]
@@ -304,6 +398,9 @@
       "type": "api",
       "status": "preferred",
       "trustLevel": "official",
+      "role": "Preferred official MoonCatRescue API entrypoint.",
+      "ownershipStatus": "current-project-context",
+      "trustNotes": "Registered official API source; endpoint facts belong in the API manifests and source records rather than this navigation file.",
       "sourceRefs": [
         "mooncatrescue-api"
       ]
@@ -315,6 +412,9 @@
       "type": "api-docs",
       "status": "preferred",
       "trustLevel": "official",
+      "role": "Preferred official MoonCatRescue API specification.",
+      "ownershipStatus": "current-project-context",
+      "trustNotes": "Registered official API documentation; use as navigation to the spec and keep exact endpoint facts in dedicated data files.",
       "sourceRefs": [
         "mooncatrescue-api-openapi"
       ]
@@ -326,6 +426,9 @@
       "type": "api-docs",
       "status": "preferred",
       "trustLevel": "official",
+      "role": "Preferred official MoonCatRescue API documentation UI.",
+      "ownershipStatus": "current-project-context",
+      "trustNotes": "Registered official documentation entrypoint; this project-links record does not replace the checked endpoint manifest.",
       "sourceRefs": [
         "mooncatrescue-api-swagger"
       ]
@@ -336,7 +439,10 @@
       "url": "https://api.mooncat.community/",
       "type": "api",
       "status": "legacy-valid",
-      "trustLevel": "official-legacy",
+      "trustLevel": "historical",
+      "role": "Legacy MoonCatCommunity API entrypoint.",
+      "ownershipStatus": "historical-context",
+      "trustNotes": "Registered official-legacy API source; retain for legacy integration context while preferring the newer official API for new work.",
       "sourceRefs": [
         "mooncat-community-api"
       ]
@@ -347,14 +453,17 @@
       "url": "https://gitlab.com/mooncatrescue/data-api-server/-/raw/master/spec.yml",
       "type": "api-docs",
       "status": "legacy-valid",
-      "trustLevel": "official-legacy",
+      "trustLevel": "historical",
+      "role": "Legacy MoonCatCommunity API specification.",
+      "ownershipStatus": "historical-context",
+      "trustNotes": "Registered official-legacy specification; preserve its historical role and do not infer current API behavior beyond checked manifests.",
       "sourceRefs": [
         "mooncat-community-api-openapi"
       ]
     }
   ],
   "todos": [
-    "Add ownership and trust-level notes for each link.",
+    "Recheck ownership or maintenance only for high-value links when a dedicated verification pass is justified; do not infer status from branding or URL shape.",
     "Keep project links separate from canonical data values."
   ]
 }

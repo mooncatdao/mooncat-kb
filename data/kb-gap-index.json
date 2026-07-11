@@ -374,14 +374,14 @@
     },
     {
       "file": "data/project-links.json",
-      "currentStatus": "partially-verified",
+      "currentStatus": "classified-navigation-links",
       "routedFromAgentIndex": true,
       "gapTypes": [
-        "partial",
-        "trust-notes-incomplete"
+        "classified",
+        "ownership-unknown-on-preserved-links"
       ],
-      "agentUsabilityImpact": "Useful for project navigation, but not enough for canonical data values or trust-sensitive claims.",
-      "nextDataPass": "Add ownership and trust-level notes for each link while keeping links separate from canonical facts."
+      "agentUsabilityImpact": "Useful for distinguishing official, historical, community, third-party, and ownership-unverified project/navigation links without promoting them into canonical sources.",
+      "nextDataPass": "Recheck only high-value ambiguous links in a dedicated verification pass; preserve unknown ownership and do not infer status from branding or URL shape."
     },
     {
       "file": "data/protocol-constants.json",
@@ -511,11 +511,6 @@
       "key": "ipfs-payload-availability-check",
       "priority": "low",
       "reason": "data/ipfs-cids.json has source-observed CIDs, but payload availability, file counts, schemas, pinning status, and hash validation remain intentionally unchecked."
-    },
-    {
-      "key": "project-link-trust-notes",
-      "priority": "low",
-      "reason": "data/project-links.json is useful navigation but still lacks complete ownership and trust notes."
     }
   ]
 }
