@@ -12,7 +12,7 @@ The current Acclimated MoonCats ERC-721/ERC-998 wrapper address is also verified
 
 The MoonCatRescue log page `Chained to the Future` is registered as official context for on-chain materialization work. It links to MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages contract pages. Those five linked contract pages have now been verified on Etherscan for address and source identity, and are represented in `data/contracts.json`.
 
-The five materialization contract records now include conservative role/function summaries. MoonCatColors and MoonCatSVGs also have compact internals reviews in data files. These summaries and compact reviews do **not** import trait mappings, color palettes, SVG coordinate data, accessory image bytes, accessory ID taxonomy, ABI blobs, or identifier conversion rules.
+The five materialization contract records now include conservative role/function summaries. MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages also have compact internals reviews in data files. These summaries and compact reviews do **not** import trait mappings, color palettes, SVG coordinate data, accessory image bytes, accessory ID taxonomy, ABI blobs, or identifier conversion rules.
 
 The contract records also include `artifactUrls` metadata for checked source/ABI reference pages. These URLs point to Etherscan source-and-ABI pages, and for the original MoonCatRescue contract also to the registered raw GitHub Solidity source. The KB treats those URLs as references only; ABI JSON, Solidity source text, bytecode, constructor arguments, storage values, CIDs, and other artifact blobs are intentionally not imported.
 
@@ -50,7 +50,7 @@ The original MoonCatRescue source exposes a public `rescueOrder` array that maps
 - MoonCatTraits: on-chain trait reference surface with compact and human-readable trait lookups, rescue-year/name/owner/catId lookup helpers, ERC-721 proxy ownership administration, documentation lookup, and owner administration.
 - MoonCatColors: on-chain color reference surface with RGB/hue helpers, palette/color/glow/accessory-color lookup functions, owner-managed color mapping/finalization, documentation lookup, and owner administration.
 - MoonCatSVGs: on-chain SVG image-generation surface with pixel/shape/SVG assembly helpers and `imageOf` overloads for cat IDs or rescue orders, plus documentation lookup and owner administration. Compact internals are documented in `docs/mooncat-svgs.md` and `data/mooncat-svg-internals.json`.
-- MoonCatAccessoryImages: on-chain accessory image composition/PNG helper surface with accessorized image overloads, accessory PNG/placement/preparation helpers, PNG chunk helpers/constants, documentation lookup, and owner administration.
+- MoonCatAccessoryImages: on-chain accessory image composition/PNG helper surface with accessorized SVG overloads, accessory PNG/placement/preparation helpers, PNG chunk helpers/constants, documentation lookup, and owner administration. Compact internals are documented in `docs/mooncat-accessory-images.md` and `data/mooncat-accessory-images-internals.json`.
 
 These are role/function-level summaries only. Detailed derivation logic and output data remain out of scope until specifically reviewed.
 
@@ -58,13 +58,19 @@ These are role/function-level summaries only. Detailed derivation logic and outp
 
 The MoonCatSVGs source review confirms that `imageOf(bytes5,bool)` reads trait fields from MoonCatTraits, reads `uint8[24]` color data from MoonCatColors, builds base pixel data, optionally applies glow from the first color triple, computes a bounding box, and returns an SVG string. Rescue-order overloads require `rescueOrder < 25440` and convert through the original MoonCatRescue `rescueOrder` lookup. The no-explicit-glow bytes5 overload derives glow by comparing original `catOwners(catId)` with the stored Acclimated contract address.
 
-No SVG coordinate constants, pattern arrays, generated SVGs, per-cat images, or accessory composition details are imported. Accessory image behavior remains scoped to MoonCatAccessoryImages until separately reviewed.
+The MoonCatSVGs review imports no SVG coordinate constants, pattern arrays, generated SVGs, per-cat images, or accessory composition details. Accessory image behavior is documented separately in `docs/mooncat-accessory-images.md` and remains outside the MoonCatSVGs review scope.
+
+## MoonCatAccessoryImages Compact Internals
+
+The MoonCatAccessoryImages source review confirms that its public image entrypoints accept a numeric rescue order, use the original MoonCatRescue lookup to obtain a bytes5 cat ID in the guarded composition path, then combine MoonCatTraits/MoonCatColors/MoonCatSVGs base MoonCat data with accessory data read through a separate MoonCatAccessories interface. The source prepares source-owned accessories into background and foreground records, emits inline base64 PNG image snippets around base MoonCat pixels, and expands the SVG bounding box to cover prepared placement.
+
+`accessoryPNG` returns a `data:image/png;base64` string assembled from PNG chunks, source accessory image data, and MoonCatColors palette/alpha helpers. The separate MoonCatAccessories implementation, accessory taxonomy, palette values, accessory state, PNG bytes, and rendered results are not included. See `docs/mooncat-accessory-images.md` for the compact source-confirmed flow and identifier boundaries.
 
 ## Not yet verified here
 
 - direct Etherscan API artifact endpoint policy beyond source-and-ABI page links
-- accessory contract scope beyond MoonCatAccessoryImages address/source identity
-- detailed on-chain materialization internals beyond the compact MoonCatColors and MoonCatSVGs reviews
+- separate MoonCatAccessories contract implementation, taxonomy, state, and lifecycle
+- detailed on-chain materialization internals beyond the compact MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages reviews
 - trait derivation tables or bit-level mappings
 - color palettes, hue-name tables, SVG coordinate data, accessory image bytes, and accessory ID taxonomy
 - older wrapper token ID convention

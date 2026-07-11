@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
+  "updated": "2026-07-11",
   "status": "compact-contract-surface-index",
   "scope": "Agent-facing routing index for known MoonCat contract/source surfaces, derived from existing contract data and docs.",
   "sourceRefs": [
@@ -330,11 +330,28 @@
       "relatedFiles": [
         "data/contracts.json",
         "data/identifier-conventions.json",
-        "data/api-endpoints.json"
+        "data/api-endpoints.json",
+        "data/mooncat-accessory-images-internals.json",
+        "docs/mooncat-accessory-images.md"
       ],
+      "reviewedInternals": {
+        "status": "compact-internals-reviewed",
+        "checked": "2026-07-11",
+        "sourceRefs": [
+          "etherscan-mooncat-accessory-images",
+          "mooncatrescue-log-onchain"
+        ],
+        "summary": [
+          "accessorizedImageOf accepts numeric rescue-order inputs and composes source-derived base MoonCat pixels with accessory PNG SVG image snippets.",
+          "The reviewed source prepares owned accessories, separates foreground/background records, expands the bounding box, and uses distinct glow handling for zero, one, and other glow-level values.",
+          "accessoryPNG returns a base64 PNG data URI; exact accessory data, palette values, PNG bytes, current state, and rendered output remain unimported."
+        ],
+        "detailsFile": "data/mooncat-accessory-images-internals.json"
+      },
       "limitations": [
-        "No accessory ID taxonomy, placement table, PNG bytes, accessory image data, or source internals are imported.",
-        "Accessory contract scope beyond MoonCatAccessoryImages remains a separate verification task."
+        "No accessory ID taxonomy, placement table, palette values, PNG bytes, accessory image data, current state, or rendered output is imported.",
+        "Detailed compact semantics live in data/mooncat-accessory-images-internals.json; this file remains a contract surface router.",
+        "The separate MoonCatAccessories dependency implementation and state remain outside this review."
       ]
     },
     {

@@ -1,0 +1,218 @@
+{
+  "version": 1,
+  "updated": "2026-07-11",
+  "status": "compact-source-review",
+  "scope": "Compact reviewed internals for the MoonCatAccessoryImages on-chain accessory-composition and PNG materialization contract. This file documents source provenance, dependencies, public rendering surfaces, source-confirmed composition behavior, and limitations without importing Solidity source, ABI JSON, accessory data, PNG bytes, or generated outputs.",
+  "sourceRefs": [
+    "mooncatrescue-log-onchain",
+    "etherscan-mooncat-accessory-images",
+    "etherscan-original-contract",
+    "etherscan-mooncat-reference",
+    "etherscan-mooncat-traits",
+    "etherscan-mooncat-colors",
+    "etherscan-mooncat-svgs"
+  ],
+  "relatedFiles": [
+    "docs/mooncat-accessory-images.md",
+    "docs/contracts.md",
+    "data/contracts.json",
+    "data/contract-surfaces.json",
+    "data/identifier-conventions.json",
+    "data/sources.json",
+    "data/mooncat-svg-internals.json",
+    "data/color-hues.json"
+  ],
+  "contract": {
+    "key": "mooncatAccessoryImages",
+    "contractName": "MoonCatAccessoryImages",
+    "address": "0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14",
+    "network": "ethereum-mainnet",
+    "sourceVerification": {
+      "sourceRef": "etherscan-mooncat-accessory-images",
+      "status": "verified-exact-match",
+      "compiler": "v0.8.1+commit.df193b15",
+      "optimization": "enabled with 200 runs",
+      "license": "GNU AGPLv3"
+    },
+    "officialContext": {
+      "sourceRef": "mooncatrescue-log-onchain",
+      "notes": "The MoonCatRescue Chained to the Future log links MoonCatAccessoryImages as one of the official on-chain materialization contracts."
+    }
+  },
+  "role": {
+    "summary": "On-chain contract that composes accessorized MoonCat SVG strings and constructs accessory PNG data URIs for use within those SVGs.",
+    "sourceConfirmed": [
+      "Public accessorizedImageOf overloads accept a uint256 rescueOrder, with optional glow level, allowUnverified flag, or caller-supplied OwnedAccessory list.",
+      "The reviewed composition path derives base MoonCat pixel data from MoonCatTraits, MoonCatColors, and MoonCatSVGs, then layers accessory PNG image snippets around it.",
+      "accessoryPNG returns a data:image/png;base64 string built from source-provided accessory image data and color/palette helpers."
+    ],
+    "notIncluded": [
+      "Accessory IDs are accepted as numeric values but their taxonomy, enumeration, and lifecycle are not established by this review.",
+      "No accessory data, palette values, PNG bytes, SVG strings, or rendered per-cat output is imported."
+    ]
+  },
+  "dependencies": [
+    {
+      "name": "MoonCatRescue",
+      "type": "fixed-address interface",
+      "sourceRef": "etherscan-original-contract",
+      "sourceConfirmedUse": [
+        "The explicit-accessory composition path and accessoryPNG require rescueOrder < 25440 and convert a rescue order through rescueOrder(rescueOrder) to obtain a bytes5 cat ID.",
+        "placementOf also converts its rescueOrder input through rescueOrder(rescueOrder); its reviewed source body has no separate range require."
+      ]
+    },
+    {
+      "name": "MoonCatAccessories",
+      "type": "fixed-address interface referenced by the reviewed source",
+      "sourceConfirmedUse": [
+        "balanceOf(rescueOrder) and ownedAccessoryByIndex(rescueOrder,index) supply the live OwnedAccessory list for the lookup overloads.",
+        "doesMoonCatOwnAccessory(rescueOrder,accessoryId) is required for every caller-supplied accessory prepared by prepAccessories.",
+        "accessoryImageData(accessoryId) supplies position, palette, dimensions, metadata, and IDAT inputs to the reviewed materialization path."
+      ],
+      "limitations": [
+        "This review records only the MoonCatAccessoryImages source-level interface use. It does not review a separate MoonCatAccessories contract artifact, accessory state, or accessory taxonomy."
+      ]
+    },
+    {
+      "name": "MoonCatReference",
+      "type": "constructor-supplied interface",
+      "sourceRef": "etherscan-mooncat-reference",
+      "sourceConfirmedUse": [
+        "doc() delegates to MoonCatReference.doc(address(this)).",
+        "setReferenceContract(address) can update the reference contract through owner-only administration."
+      ]
+    },
+    {
+      "name": "MoonCatTraits",
+      "type": "constructor-supplied interface",
+      "sourceRef": "etherscan-mooncat-traits",
+      "sourceConfirmedUse": [
+        "The composition path calls kTraitsOf(catId) and consumes facing, expression, pattern, and pose to build base MoonCat pixels and accessory placement."
+      ]
+    },
+    {
+      "name": "MoonCatColors",
+      "type": "constructor-supplied interface",
+      "sourceRef": "etherscan-mooncat-colors",
+      "sourceConfirmedUse": [
+        "The composition path calls colorsOf(catId) for base MoonCat pixels and accessoryColorsOf(catId) for accessory PNG materialization.",
+        "assemblePNG calls BasePalette and colorAlpha while resolving the selected accessory palette."
+      ]
+    },
+    {
+      "name": "MoonCatSVGs",
+      "type": "constructor-supplied interface",
+      "sourceRef": "etherscan-mooncat-svgs",
+      "sourceConfirmedUse": [
+        "The composition path calls getPixelData, boundingBox, svgTag, glowGroup, flip, and uint2str.",
+        "Base SVG construction remains owned by MoonCatSVGs; this contract adds accessory materialization and composition around that base path."
+      ]
+    }
+  ],
+  "identifierInputs": {
+    "rescueOrder": {
+      "type": "uint256",
+      "usedBy": [
+        "all public accessorizedImageOf overloads",
+        "accessoryPNG",
+        "placementOf",
+        "prepAccessories"
+      ],
+      "boundary": "This contract's reviewed public image entrypoints use the numeric rescue-order convention. The explicit accessory composition path and accessoryPNG enforce rescueOrder < 25440 before converting to a bytes5 cat ID. Do not substitute a bytes5 catId, ERC-721 token ID, local array index, or accessory ID without the separately documented conversion context."
+    },
+    "accessoryId": {
+      "type": "uint256 at accessoryPNG and placementOf; uint232 within the caller-supplied OwnedAccessory struct",
+      "boundary": "The reviewed source passes accessory IDs to the MoonCatAccessories interface. It does not establish a curated accessory ID taxonomy, mapping, or equivalence with any cat identifier."
+    },
+    "ownedAccessory": {
+      "fields": [
+        "accessoryId: uint232",
+        "paletteIndex: uint8",
+        "zIndex: uint16"
+      ],
+      "boundary": "This struct is accepted by the explicit-accessory accessorizedImageOf overload and prepAccessories. The source confirms ownership is checked per supplied accessory; it does not make supplied data a claim about current accessory state."
+    },
+    "glowLevel": {
+      "type": "uint8",
+      "boundary": "The reviewed assembly distinguishes zero, one, and other values. No broader semantic range is asserted here."
+    }
+  },
+  "publicReadSurfaces": {
+    "accessorizedImageOf": [
+      {
+        "signature": "accessorizedImageOf(uint256,IMoonCatAccessories.OwnedAccessory[],uint8,bool)",
+        "behavior": "Requires rescueOrder < 25440, derives base MoonCat data, prepares the supplied owned-accessory records, and returns an accessorized SVG string."
+      },
+      {
+        "signature": "accessorizedImageOf(uint256,uint8,bool)",
+        "behavior": "Reads the current OwnedAccessory list through the MoonCatAccessories interface, then delegates to the explicit-accessory overload."
+      },
+      {
+        "signature": "accessorizedImageOf(uint256,uint8)",
+        "behavior": "Delegates with allowUnverified set to false."
+      },
+      {
+        "signature": "accessorizedImageOf(uint256)",
+        "behavior": "Delegates with glowLevel 0 and allowUnverified set to false."
+      }
+    ],
+    "accessoryPNG": {
+      "signature": "accessoryPNG(uint256,uint256,uint16)",
+      "behavior": "Requires rescueOrder < 25440, obtains cat-specific accessory colors and source accessory image data, then returns a base64 PNG data URI."
+    },
+    "placementOf": {
+      "signature": "placementOf(uint256,uint256)",
+      "behavior": "Returns source-computed offset, dimensions, mirror, and background values from the rescue-order-derived trait inputs and accessory image metadata."
+    },
+    "prepAccessories": {
+      "signature": "prepAccessories(uint256,uint8,uint8,bool,IMoonCatAccessories.OwnedAccessory[])",
+      "behavior": "Checks supplied accessory ownership, prepares render records, separates background and foreground records, sorts each by zIndex, and returns both lists."
+    },
+    "pngHelpers": [
+      "crc32(bytes)",
+      "generatePNGChunk(string,bytes)",
+      "PNGHeader()",
+      "PNGFooter()"
+    ],
+    "documentationAndAdmin": [
+      "doc()",
+      "owner()",
+      "transferOwnership(address)",
+      "setReferenceContract(address)",
+      "withdrawForeignERC20(address)",
+      "withdrawForeignERC721(address,uint256)"
+    ]
+  },
+  "compositionFlow": [
+    "The explicit-accessory accessorizedImageOf path enforces rescueOrder < 25440, converts the rescue order to a bytes5 cat ID, reads colorsOf and kTraitsOf, and calls MoonCatSVGs.getPixelData for the base MoonCat pixels.",
+    "It reads accessoryColorsOf for cat-specific accessory color input, then calls prepAccessories with the source-derived facing and pose.",
+    "prepAccessories requires source-level ownership for each supplied accessory, omits zero z-index entries, splits prepared records into background and foreground lists, and sorts each list by zIndex.",
+    "Each prepared accessory is converted to PNG bytes by assemblePNG, base64-encoded into an SVG image snippet, and passed through MoonCatSVGs.flip when its prepared record requires mirroring.",
+    "The composition path expands the base MoonCatSVGs bounding box to cover prepared accessory placement before emitting the SVG wrapper.",
+    "assembleSVG emits background snippets, base MoonCat pixels, and foreground snippets around the same MoonCatSVGs svgTag wrapper. With glowLevel 0 it emits no glow; with glowLevel 1 it applies glow to base MoonCat pixels; with other values it applies glow to the assembled background, base, and foreground bytes."
+  ],
+  "pngMaterialization": {
+    "sourceConfirmed": [
+      "assemblePNG creates a PNG byte sequence with a PNG header, IHDR, PLTE, tRNS, IDAT, and PNG footer.",
+      "The selected eight-byte accessory palette is resolved through MoonCatColors BasePalette or accessoryColorsOf output, with alpha values from colorAlpha.",
+      "accessoryPNG wraps the assembled bytes in a data:image/png;base64 URI, and accessorySVGSnippet embeds the same kind of URI in an SVG image element."
+    ],
+    "limitations": [
+      "No palette values, color thresholds, IDAT data, PNG bytes, dimensions, or generated data URIs are imported.",
+      "This source review does not independently reproduce, render, or validate exact PNG or SVG output."
+    ]
+  },
+  "guardsAndStateBoundaries": [
+    "The explicit-accessory accessorizedImageOf path and accessoryPNG require rescueOrder < 25440. The lookup overloads delegate into the explicit path; placementOf has no separate range require in its reviewed body.",
+    "prepAccessories requires MoonCatAccessories.doesMoonCatOwnAccessory for each supplied accessory before preparing it.",
+    "When allowUnverified is false, the reviewed preparation path uses accessory metadata to suppress entries not marked approved by that source-level check. This does not establish an accessory approval taxonomy or current approval state.",
+    "The lookup overload reads the current accessory list when invoked, but this review makes no current ownership, wearing, availability, or chain-state claim."
+  ],
+  "limitations": [
+    "This is not a full ABI, full Solidity source, bytecode, constructor-argument, storage-layout, or generated-output import.",
+    "No accessory ID taxonomy, accessory contract artifact, placement table, palette value, color threshold, IDAT data, PNG bytes, SVG strings, or per-cat output is included.",
+    "The source confirms how this contract calls the MoonCatAccessories interface, but the separate dependency's state, implementation, and lifecycle are not reviewed here.",
+    "This review distinguishes rescue-order inputs from bytes5 cat IDs and accessory IDs, but it does not create a new identifier conversion rule or treat rescue order as a generic token ID.",
+    "No current ownership, current accessories, approval state, availability, or exact rendered result is asserted."
+  ]
+}

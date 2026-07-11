@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-07",
+  "updated": "2026-07-11",
   "status": "incomplete",
   "sources": [
     {
@@ -726,9 +726,10 @@
       "status": "verified",
       "supports": [
         "MoonCatAccessoryImages contract address",
-        "MoonCatAccessoryImages contract source verification"
+        "MoonCatAccessoryImages contract source verification",
+        "MoonCatAccessoryImages compact source review"
       ],
-      "notes": "Verified Etherscan page for MoonCatAccessoryImages at 0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
+      "notes": "Verified Etherscan page for MoonCatAccessoryImages at 0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. The verified source was reviewed for the compact source-confirmed behavior summary in data/mooncat-accessory-images-internals.json; source text and output artifacts are not imported."
     },
     {
       "id": "mooncatrescue-medium",

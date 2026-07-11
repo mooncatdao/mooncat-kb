@@ -113,9 +113,11 @@
         "data/api-examples.json",
         "data/libmooncat-surfaces.json",
         "data/mooncat-svg-internals.json",
+        "data/mooncat-accessory-images-internals.json",
         "data/protocol-constants.json",
         "docs/libmooncat.md",
         "docs/mooncat-svgs.md",
+        "docs/mooncat-accessory-images.md",
         "data/sources.json"
       ],
       "notes": [
@@ -135,6 +137,8 @@
         "docs/contracts.md",
         "docs/mooncat-svgs.md",
         "data/mooncat-svg-internals.json",
+        "docs/mooncat-accessory-images.md",
+        "data/mooncat-accessory-images-internals.json",
         "data/sources.json",
         "docs/source-map.md"
       ],

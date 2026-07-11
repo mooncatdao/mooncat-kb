@@ -133,6 +133,7 @@
         "data/contract-surfaces.json",
         "data/contracts.json",
         "data/mooncat-svg-internals.json",
+        "data/mooncat-accessory-images-internals.json",
         "data/color-hues.json",
         "data/sources.json"
       ],
@@ -140,7 +141,7 @@
         "Decide whether the task asks for an API image response, local helper/parser surface, or on-chain rendering contract surface.",
         "For API fetching, load endpoint and example files, then verify accepted identifier forms before constructing a request.",
         "For local helper work, load data/libmooncat-surfaces.json and then inspect registered reference snapshots only if the task allows implementation review.",
-        "For on-chain SVG rendering questions, route through data/contract-surfaces.json, data/contracts.json, and data/mooncat-svg-internals.json when compact internals are needed.",
+        "For on-chain base SVG or accessory composition questions, route through data/contract-surfaces.json and data/contracts.json, then load the matching compact internals file when available.",
         "For color interpretation, load data/color-hues.json without treating it as a palette or per-cat image source."
       ],
       "outputs": [
@@ -363,6 +364,7 @@
         "data/api-endpoints.json",
         "data/libmooncat-surfaces.json",
         "data/mooncat-svg-internals.json",
+        "data/mooncat-accessory-images-internals.json",
         "data/sources.json",
         "data/kb-gap-index.json"
       ],

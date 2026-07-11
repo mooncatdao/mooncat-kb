@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
+  "updated": "2026-07-11",
   "status": "partially-verified",
   "provenance": {
     "sources": [
@@ -16,7 +16,7 @@
       "etherscan-mooncat-svgs",
       "etherscan-mooncat-accessory-images"
     ],
-    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The MoonCatRescue on-chain log is registered as official context for on-chain materialization contracts, and the five linked Etherscan contract pages are now verified for address and source identity."
+    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The MoonCatRescue on-chain log is registered as official context for on-chain materialization contracts, and the five linked Etherscan contract pages are verified for address and source identity. MoonCatSVGs and MoonCatAccessoryImages now also have compact source reviews; their data files retain only source-confirmed behavior and limitations."
   },
   "contracts": [
     {
@@ -251,18 +251,18 @@
       ],
       "roleSummary": "On-chain MoonCat accessory image composition and PNG helper contract.",
       "functionSummary": [
-        "accessorizedImageOf(...) overloads return accessorized image strings for a rescue order, optionally with glow level, explicit accessory data, and an allowUnverified flag.",
-        "accessoryPNG(uint256,uint256,uint16) returns a PNG string for a rescue order, accessory ID, and palette index.",
-        "placementOf(...) returns placement metadata for a rescue order and accessory ID.",
-        "prepAccessories(...) prepares foreground/background accessory records containing z-index, placement, palette, and IDAT data.",
+        "accessorizedImageOf(...) overloads return accessorized SVG strings for a rescue order, optionally with glow level, explicit OwnedAccessory data, and an allowUnverified flag.",
+        "accessoryPNG(uint256,uint256,uint16) returns a base64 PNG data URI for a rescue order, accessory ID, and palette index.",
+        "placementOf(...) returns source-computed placement metadata for a rescue order and accessory ID.",
+        "prepAccessories(...) verifies supplied accessory ownership, prepares foreground/background records, and sorts each list by z-index.",
         "crc32(...), generatePNGChunk(...), PNGHeader(), and PNGFooter() expose PNG construction helpers/constants.",
         "doc(), setReferenceContract(...), transferOwnership(...), withdrawForeignERC20(...), and withdrawForeignERC721(...) provide documentation lookup and administration."
       ],
       "limitations": [
-        "Summary is limited to Etherscan verified ABI/function surface because the source text was not exposed in the fetched page.",
-        "No accessory ID taxonomy, placement table, PNG bytes, or accessory image data is imported here."
+        "Detailed compact semantics are limited to the verified source review in data/mooncat-accessory-images-internals.json; this contract index does not import source text, ABI JSON, PNG bytes, or output artifacts.",
+        "No accessory ID taxonomy, placement table, palette values, accessory image data, current state, or exact rendered output is imported."
       ],
-      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatAccessoryImages with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license."
+      "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatAccessoryImages with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. Compact source review is recorded in data/mooncat-accessory-images-internals.json."
     }
   ],
   "todos": [
