@@ -438,6 +438,6 @@
   "todos": [
     "Add new recipes only when a repeated agent task is not covered by data/agent-index.json plus these workflows.",
     "Update recipes after any future curated per-cat trait, image, color, or source import changes the accepted workflow.",
-    "Consider routing data/task-recipes.json from data/agent-index.json in a separate task if the user wants this file discoverable through the main index."
+    "Confirm routing and recipe coverage when future workflow files are added."
   ]
 }
