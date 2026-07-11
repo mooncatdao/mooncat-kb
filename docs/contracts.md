@@ -10,6 +10,8 @@ The original `MoonCatRescue` Solidity source and Ethereum mainnet address are ve
 
 The current Acclimated MoonCats ERC-721/ERC-998 wrapper address is also verified from registered marketplace/project links and the registered Etherscan source entry in `data/sources.json`.
 
+The historical `MoonCatsWrapped` / `Wrapped MoonCatsRescue` (`WMCR`) wrapper address and verified source are now registered separately. Its token IDs are counter-allocated and mapping-backed; that source does not use rescue order.
+
 The MoonCatRescue log page `Chained to the Future` is registered as official context for on-chain materialization work. It links to MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages contract pages. Those five linked contract pages have now been verified on Etherscan for address and source identity, and are represented in `data/contracts.json`.
 
 The five materialization contract records now include conservative role/function summaries. MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages also have compact internals reviews in data files. These summaries and compact reviews do **not** import trait mappings, color palettes, SVG coordinate data, accessory image bytes, accessory ID taxonomy, ABI blobs, or identifier conversion rules.
@@ -39,6 +41,7 @@ The original contract source verifies:
 - MoonCatColors: `0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC`
 - MoonCatSVGs: `0xB39C61fe6281324A23e079464f7E697F8Ba6968f`
 - MoonCatAccessoryImages: `0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14`
+- MoonCatsWrapped: `0x7C40c393DC0f283F318791d746d894DdD3693572`
 
 The Acclimated contract source identifies itself as `MoonCatAcclimator`, describes wrapping original MoonCats into an ERC-721/ERC-998-compliant asset, references the original MoonCatRescue contract, and mints token IDs using rescue order.
 
@@ -51,6 +54,7 @@ The original MoonCatRescue source exposes a public `rescueOrder` array that maps
 - MoonCatColors: on-chain color reference surface with RGB/hue helpers, palette/color/glow/accessory-color lookup functions, owner-managed color mapping/finalization, documentation lookup, and owner administration.
 - MoonCatSVGs: on-chain SVG image-generation surface with pixel/shape/SVG assembly helpers and `imageOf` overloads for cat IDs or rescue orders, plus documentation lookup and owner administration. Compact internals are documented in `docs/mooncat-svgs.md` and `data/mooncat-svg-internals.json`.
 - MoonCatAccessoryImages: on-chain accessory image composition/PNG helper surface with accessorized SVG overloads, accessory PNG/placement/preparation helpers, PNG chunk helpers/constants, documentation lookup, and owner administration. Compact internals are documented in `docs/mooncat-accessory-images.md` and `data/mooncat-accessory-images-internals.json`.
+- MoonCatsWrapped: historical unofficial ERC-721 wrapper surface with `wrap(bytes5)`, `unwrap(uint256)`, and public cat-ID/token-ID mappings. Compact identifier behavior is documented in `docs/older-wrapper-contracts.md` and `data/older-wrapper-internals.json`.
 
 These are role/function-level summaries only. Detailed derivation logic and output data remain out of scope until specifically reviewed.
 
@@ -66,6 +70,10 @@ The MoonCatAccessoryImages source review confirms that its public image entrypoi
 
 `accessoryPNG` returns a `data:image/png;base64` string assembled from PNG chunks, source accessory image data, and MoonCatColors palette/alpha helpers. The separate MoonCatAccessories implementation, accessory taxonomy, palette values, accessory state, PNG bytes, and rendered results are not included. See `docs/mooncat-accessory-images.md` for the compact source-confirmed flow and identifier boundaries.
 
+## MoonCatsWrapped Identifier Internals
+
+The verified `MoonCatsWrapped` source accepts a bytes5 `catId` in `wrap`, then assigns a separate ERC-721 token ID from a contract-local counter and stores `_catIDToTokenID` and `_tokenIDToCatID` mappings. `unwrap` uses the reverse mapping to return the cat through the original MoonCatRescue contract. The source contains no `rescueOrder` field or conversion, so WMCR token IDs are not source-confirmed rescue-order values and are not interchangeable with current Acclimated token IDs. See `docs/older-wrapper-contracts.md` and `data/older-wrapper-internals.json`.
+
 ## Not yet verified here
 
 - direct Etherscan API artifact endpoint policy beyond source-and-ABI page links
@@ -73,7 +81,7 @@ The MoonCatAccessoryImages source review confirms that its public image entrypoi
 - detailed on-chain materialization internals beyond the compact MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages reviews
 - trait derivation tables or bit-level mappings
 - color palettes, hue-name tables, SVG coordinate data, accessory image bytes, and accessory ID taxonomy
-- older wrapper token ID convention
+- complete inventory and source review of additional historical or unofficial wrapper contracts
 
 ## Rules
 

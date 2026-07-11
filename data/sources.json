@@ -620,6 +620,23 @@
       "notes": "Verified Etherscan page for the Acclimated MoonCats token contract at 0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69. Use for contract/source provenance; do not generalize token ID behavior to older wrappers or unrelated contracts."
     },
     {
+      "id": "etherscan-mooncats-wrapped",
+      "label": "Etherscan Wrapped MoonCatsRescue contract page",
+      "type": "primary",
+      "url": "https://etherscan.io/address/0x7C40c393DC0f283F318791d746d894DdD3693572#code",
+      "trustLevel": "canonical",
+      "status": "verified",
+      "supports": [
+        "MoonCatsWrapped contract address",
+        "MoonCatsWrapped source verification",
+        "Wrapped MoonCatsRescue WMCR identity",
+        "bytes5 catId to wrapper tokenID mapping behavior",
+        "wrapper tokenID to bytes5 catId mapping behavior",
+        "original MoonCatRescue dependency address"
+      ],
+      "notes": "Verified Etherscan page for MoonCatsWrapped at 0x7C40c393DC0f283F318791d746d894DdD3693572. Etherscan reports exact-match source verification, contract name MoonCatsWrapped, Solidity compiler v0.7.6, optimization disabled with a 1000-runs setting, and no declared license. The source was reviewed for the compact mapping-backed token identifier summary in data/older-wrapper-internals.json; full artifacts and mapping contents are not imported."
+    },
+    {
       "id": "mooncatrescue-log-onchain",
       "label": "MoonCatRescue log: Chained to the Future",
       "type": "primary",

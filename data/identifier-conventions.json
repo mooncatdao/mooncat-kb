@@ -1,7 +1,7 @@
 {
-  "version": 2,
-  "updated": "2026-07-04",
-  "status": "incomplete",
+  "version": 3,
+  "updated": "2026-07-11",
+  "status": "partially-verified",
   "provenance": {
     "sources": [
       "mooncatrescue-api",
@@ -11,6 +11,7 @@
       "ponderware-mooncatrescue-sol-raw",
       "mooncat-rescueorder-by-category",
       "etherscan-acclimated-mooncats",
+      "etherscan-mooncats-wrapped",
       "etherscan-mooncat-traits",
       "etherscan-mooncat-svgs",
       "mooncatrescue-upstream-readme",
@@ -18,7 +19,7 @@
       "mooncatrescue-mooncat-traits-json",
       "mooncatrescue-mooncatparser-js"
     ],
-    "notes": "Identifier terminology reference. This file documents known identifier spaces and conversion status; bytes5 rescue-order conversion is array-backed by reviewed library/dataset/API/contract sources, not derived by formula. Current Acclimated ERC-721 token ID behavior is scoped to that contract only; older wrapper token ID conventions remain unverified."
+    "notes": "Identifier terminology reference. This file documents known identifier spaces and conversion status; bytes5 rescue-order conversion is array-backed by reviewed library/dataset/API/contract sources, not derived by formula. Current Acclimated ERC-721 token ID behavior remains scoped to that contract only. MoonCatsWrapped is now reviewed separately as a mapping-backed historical wrapper; other older wrappers remain unverified."
   },
   "verification": {
     "apiOriginalRescueIndexToLocalRescueOrderIndex": {
@@ -54,7 +55,25 @@
       "limitations": [
         "OpenSea token ID behavior is verified for sampled acclimated MoonCat item URLs, not for unrelated collections or historical wrappers.",
         "This does not define conversion from rescue order/token ID to bytes5 catId.",
-        "This does not verify the older wrapper contract token ID convention beyond the Acclimated source context that an older wrapper existed."
+        "The exact MoonCatsWrapped contract is now reviewed separately; this does not generalize its token-ID behavior to other older wrappers."
+      ]
+    },
+    "moonCatsWrappedTokenIdentifiers": {
+      "status": "verified-for-exact-mooncats-wrapped-contract",
+      "checked": "2026-07-11",
+      "sourceRefs": [
+        "etherscan-mooncats-wrapped"
+      ],
+      "evidence": [
+        "Etherscan identifies 0x7C40c393DC0f283F318791d746d894DdD3693572 as the verified MoonCatsWrapped contract named Wrapped MoonCatsRescue with symbol WMCR.",
+        "The source accepts bytes5 catId in wrap(bytes5), maintains public _catIDToTokenID(bytes5) and _tokenIDToCatID(uint256) mappings, and emits Wrapped/Unwrapped events containing both catId and tokenID.",
+        "A private Counters.Counter supplies new token IDs from its default zero value and increments after assignment.",
+        "The reviewed source references the original MoonCatRescue adoption/giveCat interface but contains no rescueOrder field or rescue-order conversion."
+      ],
+      "limitations": [
+        "This verifies one exact wrapper contract, not all historical or unofficial wrappers.",
+        "The mapping contents and event history are not imported, so no per-token or current-state conversion is claimed.",
+        "A wrapper tokenID can be related to a bytes5 catId through this contract's mapping or event context; rescue-order/API conversion still requires the separately documented bytes5 lookup."
       ]
     },
     "bytes5CatIdLookup": {
@@ -216,7 +235,8 @@
         "older MoonCat wrapper surfaces when specifically identified"
       ],
       "sourceRefs": [
-        "etherscan-acclimated-mooncats"
+        "etherscan-acclimated-mooncats",
+        "etherscan-mooncats-wrapped"
       ],
       "contractRefs": [],
       "conversionStatus": {
@@ -236,7 +256,31 @@
         "Do not assume older wrapper token IDs match rescue order, bytes5 catId, OpenSea URL IDs, or local rescue-order indexes.",
         "Do not convert older wrapper token IDs without first identifying the exact contract and source-backed convention."
       ],
-      "notes": "The allowed existing sources for this pass do not verify an older wrapper token ID convention. This kind is included to prevent accidental generalization from the current Acclimated contract."
+      "notes": "This generic kind remains unresolved for older wrappers that have not been identified and source-reviewed. The exact MoonCatsWrapped contract is represented separately by moonCatsWrappedTokenId; do not generalize that contract's mapping-backed behavior to this broader kind."
+    },
+    {
+      "key": "moonCatsWrappedTokenId",
+      "label": "MoonCatsWrapped WMCR token ID",
+      "status": "verified-for-exact-mooncats-wrapped-contract",
+      "canonical": false,
+      "format": "uint256 sequential wrapper token ID with explicit mapping to bytes5 catId",
+      "usedBy": [
+        "MoonCatsWrapped contract at 0x7C40c393DC0f283F318791d746d894DdD3693572"
+      ],
+      "sourceRefs": [
+        "etherscan-mooncats-wrapped"
+      ],
+      "contractRefs": [
+        "moonCatsWrapped"
+      ],
+      "conversionStatus": {
+        "toMooncatIdBytes5": "verified-mapping-backed-for-exact-contract",
+        "toApiOriginalRescueIndex": "separate-bytes5-lookup-required",
+        "toLocalRescueOrderIndex": "separate-bytes5-lookup-required",
+        "toAcclimatedErc721TokenId": "not-interchangeable-without-separate-contract-context",
+        "toOpenSeaTokenId": "needs-verification"
+      },
+      "notes": "MoonCatsWrapped allocates wrapper token IDs from a counter starting at zero and stores explicit _tokenIDToCatID/_catIDToTokenID mappings. Its source does not use rescue order. Query the exact mapping or source-defined wrap/unwrap event context before relating a WMCR token ID to a bytes5 catId; then use the separate array-backed bytes5 lookup if an API or rescue-order value is needed."
     },
     {
       "key": "openseaTokenId",
@@ -426,7 +470,9 @@
     {
       "key": "older-wrapper",
       "identifierKind": "olderWrapperTokenId",
-      "acceptedBy": [],
+      "acceptedBy": [
+        "historical wrapper surfaces when the exact contract is identified"
+      ],
       "exampleShape": "unknown",
       "conversionStatus": {
         "fromRescueOrder": "needs-verification",
@@ -435,14 +481,36 @@
         "toAcclimatedErc721TokenId": "not-interchangeable-without-source"
       },
       "warnings": [
-        "No older wrapper token ID mapping is verified from the allowed existing sources.",
-        "An older wrapper contract address alone would not be enough; the token ID mint/wrap convention must be reviewed."
+        "The exact MoonCatsWrapped contract is reviewed separately, but no complete inventory of older wrappers is asserted.",
+        "An older wrapper contract address alone is not enough; each token ID mint/wrap convention must be reviewed separately."
       ],
       "sourceRefs": [
-        "etherscan-acclimated-mooncats"
+        "etherscan-mooncats-wrapped"
       ],
       "limitations": [
-        "The sourceRef only supports the boundary warning that Acclimated evidence should not be generalized; it does not verify older wrapper behavior."
+        "This generic surface remains unresolved for historical wrappers other than the exact MoonCatsWrapped contract reviewed in data/older-wrapper-internals.json."
+      ]
+    },
+    {
+      "key": "mooncatwrapped-token",
+      "identifierKind": "moonCatsWrappedTokenId",
+      "acceptedBy": [
+        "MoonCatsWrapped at 0x7C40c393DC0f283F318791d746d894DdD3693572"
+      ],
+      "exampleShape": "decimal uint256 wrapper token ID allocated by a contract-local counter",
+      "conversionStatus": {
+        "toMooncatIdBytes5": "verified-mapping-backed-for-exact-contract",
+        "toApiOriginalRescueIndex": "separate-bytes5-lookup-required",
+        "toAcclimatedErc721TokenId": "not-interchangeable-without-separate-contract-context",
+        "toOpenSeaTokenId": "needs-verification"
+      },
+      "warnings": [
+        "WMCR token IDs are not source-confirmed as rescue order and are not current Acclimated token IDs.",
+        "Use _tokenIDToCatID or source-defined wrap/unwrap event context for the exact wrapper mapping.",
+        "Do not generalize this mapping-backed behavior to another wrapper contract."
+      ],
+      "sourceRefs": [
+        "etherscan-mooncats-wrapped"
       ]
     },
     {
@@ -548,13 +616,31 @@
       "from": "olderWrapperTokenId",
       "to": "mooncatIdBytes5",
       "status": "needs-verification",
-      "notes": "No older wrapper token ID convention is verified from the allowed existing sources. Identify the exact older wrapper contract and review its source/ABI or documented token ID semantics before attempting conversion."
+      "notes": "This generic conversion remains unresolved for older wrappers not yet identified and source-reviewed. For the exact MoonCatsWrapped contract, use its explicit _tokenIDToCatID mapping instead."
+    },
+    {
+      "from": "moonCatsWrappedTokenId",
+      "to": "mooncatIdBytes5",
+      "status": "verified-mapping-backed-for-exact-contract",
+      "notes": "For MoonCatsWrapped at 0x7C40c393DC0f283F318791d746d894DdD3693572 only, use _tokenIDToCatID(uint256) or source-defined wrap/unwrap event context. This is a mapping lookup, not a bytes5 encoding or formula."
+    },
+    {
+      "from": "moonCatsWrappedTokenId",
+      "to": "apiOriginalRescueIndex",
+      "status": "separate-bytes5-lookup-required",
+      "notes": "MoonCatsWrapped source has no rescueOrder conversion. First resolve the bytes5 catId through the exact wrapper mapping, then use the separately documented bytes5-to-rescue-order lookup if an API original rescue index is required."
+    },
+    {
+      "from": "moonCatsWrappedTokenId",
+      "to": "erc721TokenId",
+      "status": "not-interchangeable-without-separate-contract-context",
+      "notes": "WMCR token IDs and current Acclimated ERC-721 token IDs belong to separate contracts. The current Acclimated tokenId-equals-rescue-order rule does not apply to MoonCatsWrapped."
     },
     {
       "from": "apiOriginalRescueIndex",
       "to": "olderWrapperTokenId",
       "status": "needs-verification",
-      "notes": "Do not assume rescue order is the older wrapper token ID. The rescue-order token convention is verified only for the current Acclimated MoonCats contract."
+      "notes": "Do not assume rescue order is an older wrapper token ID. For MoonCatsWrapped, the source allocates a separate counter-based token ID and stores an explicit catId mapping."
     },
     {
       "from": "olderWrapperTokenId",
@@ -581,6 +667,14 @@
       "relationship": "documents bytes5 cat ID generation facts from contract source"
     },
     {
+      "path": "data/older-wrapper-internals.json",
+      "relationship": "records exact MoonCatsWrapped mapping-backed token identifier behavior"
+    },
+    {
+      "path": "docs/older-wrapper-contracts.md",
+      "relationship": "explains the reviewed historical wrapper and its identifier boundaries"
+    },
+    {
       "path": "references/upstream/mooncatrescue/libmooncat-limited.js",
       "relationship": "registered upstream reference copy for LibMoonCat lookup helpers"
     },
@@ -591,7 +685,7 @@
   ],
   "todos": [
     "Document the exact derivation method for local rescue-order-index arrays.",
-    "Verify older wrapper contract token ID conventions separately by exact contract address and source/ABI review.",
+    "Identify and review any additional historical or unofficial wrapper contracts separately; the exact MoonCatsWrapped contract is covered by data/older-wrapper-internals.json.",
     "Do not import a full bytes5 catId mapping table unless a focused generated-data pass documents the source and method."
   ]
 }

@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "updated": "2026-07-11",
+  "status": "compact-source-review",
+  "scope": "Compact source review of the exact historical Wrapped MoonCatsRescue ERC-721 contract identified as MoonCatsWrapped. This file documents the reviewed contract's token-ID allocation and mapping behavior without importing full Solidity source, ABI JSON, bytecode, storage dumps, ownership lists, or per-token data. It is not an exhaustive inventory of all historical MoonCat wrappers.",
+  "sourceRefs": [
+    "etherscan-mooncats-wrapped"
+  ],
+  "relatedFiles": [
+    "docs/older-wrapper-contracts.md",
+    "docs/identifier-conventions.md",
+    "docs/contracts.md",
+    "data/identifier-conventions.json",
+    "data/contracts.json",
+    "data/contract-surfaces.json",
+    "data/sources.json"
+  ],
+  "contracts": [
+    {
+      "key": "moonCatsWrapped",
+      "contractName": "MoonCatsWrapped",
+      "collectionName": "Wrapped MoonCatsRescue",
+      "symbol": "WMCR",
+      "address": "0x7C40c393DC0f283F318791d746d894DdD3693572",
+      "network": "ethereum-mainnet",
+      "status": "historical-unofficial-wrapper",
+      "sourceVerification": {
+        "sourceRef": "etherscan-mooncats-wrapped",
+        "status": "verified-exact-match",
+        "compiler": "v0.7.6+commit.7338295f",
+        "optimization": "disabled; Etherscan reports 1000 runs setting",
+        "license": "not declared by Etherscan"
+      },
+      "sourceConfirmedRole": "ERC-721 wrapper for original MoonCatsRescue adoption offers, with wrap(bytes5 catId) and unwrap(uint256 tokenID) entrypoints.",
+      "dependencies": [
+        {
+          "name": "MoonCatsRescue",
+          "type": "fixed-address interface",
+          "address": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+          "sourceRef": "etherscan-mooncats-wrapped",
+          "sourceConfirmedUse": [
+            "wrap(bytes5) reads adoptionOffers(catId), accepts the offer through acceptAdoptionOffer(catId), and requires the offer seller to be the caller.",
+            "unwrap(uint256) resolves the mapped bytes5 catId and calls giveCat(catId, owner)."
+          ]
+        }
+      ],
+      "tokenIdentifierBehavior": {
+        "input": "wrap(bytes5 catId) accepts a bytes5 MoonCat ID directly.",
+        "allocation": "A private Counters.Counter starts at its default zero value. When the cat has no assigned mapping, the source assigns the current counter value as tokenID, increments the counter, and stores both mapping directions.",
+        "mapping": "_catIDToTokenID maps bytes5 catId to uint256 tokenID, while _tokenIDToCatID maps uint256 tokenID back to bytes5 catId. The source exposes both mappings as public getters.",
+        "reverseOperation": "unwrap(uint256 tokenID) reads _tokenIDToCatID[tokenID], verifies the ERC-721 owner, returns the mapped cat through MoonCatsRescue.giveCat, burns the token, and emits Unwrapped.",
+        "rescueOrderRelation": "The reviewed MoonCatsWrapped source contains no rescueOrder field, lookup, or rescue-order conversion. Its tokenID is therefore not source-confirmed as a rescue order and must not be treated as the current Acclimated token-ID convention.",
+        "bytes5Relation": "A wrapper tokenID can be related to a bytes5 catId only through the contract's mapping getter or reviewed wrap/unwrap event data; it is not a bytes5 encoding or closed-form numeric conversion.",
+        "zeroSentinelBoundary": "The allocation branch treats _catIDToTokenID[catId] == 0 as unassigned even though the counter begins at tokenID 0. Re-wrap/lifecycle behavior around tokenID 0 is not generalized beyond this source-level observation."
+      },
+      "publicSurfaces": {
+        "wrap": "wrap(bytes5 catId)",
+        "unwrap": "unwrap(uint256 tokenID)",
+        "mappingGetters": [
+          "_catIDToTokenID(bytes5)",
+          "_tokenIDToCatID(uint256)"
+        ],
+        "erc721Identity": [
+          "name()",
+          "symbol()",
+          "ownerOf(uint256)",
+          "tokenURI(uint256)",
+          "totalSupply()",
+          "tokenByIndex(uint256)",
+          "tokenOfOwnerByIndex(address,uint256)"
+        ],
+        "administration": [
+          "setBaseURI(string)",
+          "renounceOwnership()"
+        ]
+      },
+      "comparisonWithCurrentAcclimated": {
+        "sourceRef": "etherscan-acclimated-mooncats",
+        "currentAcclimatedRule": "The current MoonCatAcclimator source documents its minted tokenId as the rescue order.",
+        "olderWrapperRule": "MoonCatsWrapped assigns sequential wrapper tokenIDs and stores explicit catId mappings; its source does not use rescue order.",
+        "conversionBoundary": "Do not equate WMCR tokenID, current Acclimated ERC-721 tokenId, API original rescue index, local rescue-order index, or OpenSea URL ID without a contract-specific mapping and source-backed context."
+      },
+      "limitations": [
+        "This review covers the exact MoonCatsWrapped contract only; it does not identify or generalize every historical or unofficial wrapper.",
+        "No full mapping contents, event history, current ownership, supply, activity, marketplace support, or per-token relationship is imported.",
+        "The source provides a mapping-backed route from wrapper tokenID to bytes5 catId, but no direct wrapper tokenID-to-rescue-order rule. A separate bytes5 lookup is required if an API or rescue-order value is needed.",
+        "Marketplace URL implications are not promoted to canonical behavior by this review."
+      ]
+    }
+  ],
+  "unresolved": [
+    "Whether other historical MoonCat wrappers existed beyond MoonCatsWrapped at the exact address reviewed here.",
+    "Any direct relationship between this wrapper's tokenID sequence and rescue order or marketplace URL token segments.",
+    "Current token ownership, supply, wrapper activity, and mapping contents."
+  ]
+}

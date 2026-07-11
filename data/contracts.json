@@ -9,6 +9,7 @@
       "ponderware-mooncatrescue-sol-raw",
       "etherscan-original-contract",
       "etherscan-acclimated-mooncats",
+      "etherscan-mooncats-wrapped",
       "mooncatrescue-log-onchain",
       "etherscan-mooncat-reference",
       "etherscan-mooncat-traits",
@@ -16,7 +17,7 @@
       "etherscan-mooncat-svgs",
       "etherscan-mooncat-accessory-images"
     ],
-    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The MoonCatRescue on-chain log is registered as official context for on-chain materialization contracts, and the five linked Etherscan contract pages are verified for address and source identity. MoonCatSVGs and MoonCatAccessoryImages now also have compact source reviews; their data files retain only source-confirmed behavior and limitations."
+    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The historical MoonCatsWrapped address/source is now verified separately for its wrapper token mapping behavior. The MoonCatRescue on-chain log is registered as official context for on-chain materialization contracts, and the linked Etherscan contract pages are verified for address and source identity. MoonCatSVGs and MoonCatAccessoryImages also have compact source reviews; their data files retain only source-confirmed behavior and limitations."
   },
   "contracts": [
     {
@@ -88,6 +89,48 @@
         "data/api-endpoints.json"
       ],
       "notes": "ERC-721/ERC-998 acclimated wrapper contract. Address appears in registered marketplace/project links and the registered Etherscan source. The Etherscan source shows MoonCatAcclimator wraps original MoonCats and mints tokenId equal to rescue order."
+    },
+    {
+      "key": "moonCatsWrapped",
+      "label": "Wrapped MoonCatsRescue contract",
+      "contractName": "MoonCatsWrapped",
+      "network": "ethereum-mainnet",
+      "address": "0x7C40c393DC0f283F318791d746d894DdD3693572",
+      "status": "verified-address-and-source",
+      "trustLevel": "primary",
+      "sourceRefs": [
+        "etherscan-mooncats-wrapped"
+      ],
+      "artifactUrls": [
+        {
+          "kind": "etherscan-source-and-abi-page",
+          "url": "https://etherscan.io/address/0x7C40c393DC0f283F318791d746d894DdD3693572#code",
+          "sourceRef": "etherscan-mooncats-wrapped",
+          "checked": "2026-07-11",
+          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, storage values, and mapping contents are not imported."
+        }
+      ],
+      "relatedData": [
+        "data/identifier-conventions.json",
+        "data/older-wrapper-internals.json"
+      ],
+      "roleSummary": "Historical unofficial ERC-721 wrapper for original MoonCatsRescue, named Wrapped MoonCatsRescue with symbol WMCR.",
+      "functionSummary": [
+        "wrap(bytes5) accepts a bytes5 cat ID, consumes its adoption offer, assigns a sequential wrapper token ID when the mapping is unassigned, and stores both cat-to-token and token-to-cat mappings.",
+        "unwrap(uint256) resolves the mapped bytes5 cat ID, returns it through the original MoonCatRescue contract, burns the wrapper token, and emits the source-defined event.",
+        "_catIDToTokenID(bytes5) and _tokenIDToCatID(uint256) expose the mapping-backed identifier relationship.",
+        "name(), symbol(), ownerOf(...), tokenURI(...), totalSupply(), tokenByIndex(...), and tokenOfOwnerByIndex(...) expose the ERC-721 surface."
+      ],
+      "identifierNotes": [
+        "The source accepts bytes5 cat IDs directly and assigns wrapper token IDs from a counter starting at zero.",
+        "The source contains no rescueOrder field or conversion; WMCR token IDs must not be treated as rescue order or as current Acclimated token IDs.",
+        "Relating a WMCR token ID to a bytes5 cat ID requires the contract's explicit mapping getter or source-defined wrap/unwrap event context."
+      ],
+      "limitations": [
+        "This exact contract review does not establish behavior for other historical or unofficial wrappers.",
+        "No full mapping contents, event history, current ownership, supply, marketplace activity, or per-token dataset is imported."
+      ],
+      "notes": "Historical unofficial ERC-721 wrapper. Etherscan verifies the source as an exact match for MoonCatsWrapped with Solidity compiler v0.7.6 and optimization disabled. Compact mapping-backed token identifier behavior is recorded in data/older-wrapper-internals.json."
     },
     {
       "key": "mooncatReference",

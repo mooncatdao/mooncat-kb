@@ -4,7 +4,7 @@ Machine-readable terminology lives in `data/identifier-conventions.json`.
 
 ## Current Status
 
-Incomplete.
+Partially verified.
 
 This page distinguishes known MoonCat identifier spaces so future imports do not mix API rescue indexes, local rescue-order indexes, bytes5 cat IDs, token-facing IDs, OpenSea IDs, owner addresses, or accessory IDs.
 
@@ -45,6 +45,14 @@ Evidence:
 - sampled ERC721 metadata for `0`, `82`, and `25439` uses the requested number in the name, external URL, image URL, and `Rescue Index` attribute
 
 This does not verify older wrapper token IDs or any unrelated ERC-721 surface.
+
+### Historical MoonCatsWrapped WMCR Token ID
+
+The exact historical `MoonCatsWrapped` contract at `0x7C40c393DC0f283F318791d746d894DdD3693572` is now source-reviewed. Its verified source names the ERC-721 collection `Wrapped MoonCatsRescue` (`WMCR`) and accepts a bytes5 `catId` in `wrap(bytes5)`.
+
+The wrapper allocates a separate `uint256` token ID from a contract-local counter starting at zero, then stores explicit `_catIDToTokenID` and `_tokenIDToCatID` mappings. `unwrap(tokenID)` uses the reverse mapping to return the bytes5 cat through the original MoonCatRescue contract. The source contains no `rescueOrder` field or conversion.
+
+Therefore, WMCR token IDs are mapping-backed wrapper identifiers, not bytes5 encodings and not source-confirmed rescue-order values. Resolve a WMCR token ID through the exact contract mapping or its source-defined wrap/unwrap event context. If an API original rescue index is needed afterward, use the separately documented bytes5 lookup. Do not apply the current Acclimated tokenId-equals-rescue-order rule to WMCR.
 
 ### OpenSea Token ID
 
@@ -106,7 +114,7 @@ The reverse bytes5-to-rescueOrder path is verified through array-backed dataset/
 ## Still Needed
 
 - exact derivation method for local rescue-order-index arrays
-- older wrapper token ID convention
+- exact inventory and source review for any additional historical or unofficial wrapper contracts
 - broader marketplace token ID behavior beyond sampled acclimated URLs
 - accessory ID format and validation rules
 - generated-data method if the full bytes5 catId mapping table is ever promoted from upstream reference copy into curated KB data

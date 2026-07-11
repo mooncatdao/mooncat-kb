@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-07",
+  "updated": "2026-07-11",
   "status": "compact-routing-index",
   "purpose": "Map common MoonCat technical tasks to the minimum repo files an agent should load.",
   "defaults": {
@@ -58,6 +58,8 @@
         "data/libmooncat-surfaces.json",
         "docs/identifier-conventions.md",
         "docs/libmooncat.md",
+        "data/older-wrapper-internals.json",
+        "docs/older-wrapper-contracts.md",
         "data/sources.json"
       ],
       "notes": [
@@ -139,6 +141,8 @@
         "data/mooncat-svg-internals.json",
         "docs/mooncat-accessory-images.md",
         "data/mooncat-accessory-images-internals.json",
+        "docs/older-wrapper-contracts.md",
+        "data/older-wrapper-internals.json",
         "data/sources.json",
         "docs/source-map.md"
       ],

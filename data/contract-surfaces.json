@@ -8,6 +8,7 @@
     "ponderware-mooncatrescue-sol-raw",
     "etherscan-original-contract",
     "etherscan-acclimated-mooncats",
+    "etherscan-mooncats-wrapped",
     "mooncatrescue-log-onchain",
     "etherscan-mooncat-reference",
     "etherscan-mooncat-traits",
@@ -102,6 +103,59 @@
         "Token ID equals rescue order only within the checked Acclimated MoonCats contract scope documented in existing data.",
         "Older wrapper token ID conventions are not verified here.",
         "Wrapper source, ABI, and marketplace behavior are not duplicated in this index."
+      ]
+    },
+    {
+      "key": "older-wrapper-token-identity",
+      "task": "Review exact historical MoonCat wrapper contracts and determine whether wrapper token IDs encode bytes5 cat IDs, use rescue order, or require an explicit lookup.",
+      "contracts": [
+        {
+          "contractKey": "moonCatsWrapped",
+          "contractName": "MoonCatsWrapped",
+          "address": "0x7C40c393DC0f283F318791d746d894DdD3693572",
+          "sourceRefs": [
+            "etherscan-mooncats-wrapped"
+          ]
+        }
+      ],
+      "role": "Historical unofficial ERC-721 wrapper with mapping-backed WMCR token identifiers.",
+      "usefulLookups": [
+        "wrap",
+        "unwrap",
+        "_catIDToTokenID",
+        "_tokenIDToCatID"
+      ],
+      "relatedIdentifierForms": [
+        "mooncatIdBytes5",
+        "olderWrapperTokenId",
+        "apiOriginalRescueIndex",
+        "erc721TokenId",
+        "openseaTokenId"
+      ],
+      "relatedFiles": [
+        "data/contracts.json",
+        "data/identifier-conventions.json",
+        "data/older-wrapper-internals.json",
+        "docs/older-wrapper-contracts.md",
+        "data/sources.json"
+      ],
+      "reviewedInternals": {
+        "status": "compact-internals-reviewed",
+        "checked": "2026-07-11",
+        "sourceRefs": [
+          "etherscan-mooncats-wrapped"
+        ],
+        "summary": [
+          "MoonCatsWrapped accepts bytes5 catId in wrap and maps it to a sequential uint256 wrapper tokenID through _catIDToTokenID and _tokenIDToCatID.",
+          "The source has no rescueOrder lookup or conversion, so its wrapper tokenID is not source-confirmed as rescue order or current Acclimated token ID.",
+          "A separate bytes5 lookup is required for any API or rescue-order value; other historical wrappers remain outside this exact-contract review."
+        ],
+        "detailsFile": "data/older-wrapper-internals.json"
+      },
+      "limitations": [
+        "No complete inventory of historical or unofficial wrappers is asserted.",
+        "No full mapping contents, event history, current chain state, marketplace behavior, or per-token data is imported.",
+        "Do not generalize this wrapper's sequential mapping behavior to other wrapper contracts."
       ]
     },
     {

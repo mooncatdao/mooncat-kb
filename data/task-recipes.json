@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-07",
+  "updated": "2026-07-11",
   "status": "compact-workflow-index",
   "scope": "Agent-facing workflow recipes for sequencing common MoonCat KB tasks by loading existing data files. This file routes and orders work; it does not add endpoint, contract, trait, color, identifier, source, or per-cat facts.",
   "sourceRefs": [],
@@ -17,6 +17,7 @@
     "data/rescue-ranges.json",
     "data/contract-surfaces.json",
     "data/contracts.json",
+    "data/older-wrapper-internals.json",
     "data/sources.json",
     "data/kb-gap-index.json"
   ],
@@ -58,6 +59,8 @@
         "data/api-endpoints.json",
         "data/contracts.json",
         "data/contract-surfaces.json",
+        "data/older-wrapper-internals.json",
+        "docs/older-wrapper-contracts.md",
         "data/sources.json"
       ],
       "steps": [
@@ -65,6 +68,7 @@
         "Read the matching identifier kind and conversionStatus in data/identifier-conventions.json.",
         "If a library helper is involved, cross-check accepted and output forms in data/libmooncat-surfaces.json.",
         "If an API path is involved, check the endpoint manifest acceptedIdentifierForms before constructing parameters.",
+        "For an older wrapper, identify the exact contract and load its compact review before treating token IDs as mapped, sequential, rescue-order-based, or unresolved.",
         "Return the chosen identifier form and the limitation status, not a guessed conversion."
       ],
       "outputs": [
@@ -365,6 +369,7 @@
         "data/libmooncat-surfaces.json",
         "data/mooncat-svg-internals.json",
         "data/mooncat-accessory-images-internals.json",
+        "data/older-wrapper-internals.json",
         "data/sources.json",
         "data/kb-gap-index.json"
       ],
@@ -383,7 +388,7 @@
       ],
       "guardrails": [
         "Do not invent missing contract addresses, ABIs, source URLs, or behavior.",
-        "Do not generalize token ID behavior across contracts without the scoped evidence in identifier conventions and contract surfaces.",
+        "Do not generalize token ID behavior across contracts without the scoped evidence in identifier conventions, contract surfaces, and any exact-wrapper review.",
         "Do not answer materialization internals beyond the reviewed surface summaries and compact internals files unless a source-review task allows it."
       ],
       "stopConditions": [
