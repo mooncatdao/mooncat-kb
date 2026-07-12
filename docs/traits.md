@@ -24,6 +24,7 @@ Allowed fields for the first visual-trait artifact:
 - `rescueOrder`
 - `rescueYear`
 - visual traits: `hueInt`, `hueName`, `pale`, `facing`, `expression`, `pattern`, `pose`, and `genesis`
+- derived human-facing color metadata: `colorClassification`, generated from a separately versioned policy while retaining the raw color fields
 - artifact-level `sourceRefs`
 - generation and validation metadata such as `generatedBy` and `validatedAt`
 
@@ -44,6 +45,8 @@ Required provenance and method:
 - mark complete, partial, stale-risk, or update-cadence-bound coverage explicitly
 
 Validation for any future generated artifact should check JSON syntax, one row per included `catId`, no duplicate `catId` values, bytes5 `catId` format, `rescueOrder` range and uniqueness for complete datasets, rescue-order alignment, required visual trait fields, allowed value sets, explicit `genesis` handling, and sourceRef resolution.
+
+The bounded prototype's `colorClassification` object is derived display metadata for search, filtering, and labels. It is generated from `data/color-classification.json`, follows reviewed ADR-shifted integer hue intervals, and handles source-backed Genesis black/white sentinels before circular hue bucketing. It does not alter raw hue fields or prove palettes, RGB values, rendering, rarity, or canonical on-chain trait vocabulary. See `docs/color-classification.md`.
 
 Open questions before a full import:
 

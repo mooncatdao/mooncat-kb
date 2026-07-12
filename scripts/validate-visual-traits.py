@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT = ROOT / "data/mooncat-visual-traits.sample.json"
 SOURCES = ROOT / "data/sources.json"
+COLOR_POLICY = ROOT / "data/color-classification.json"
 CAT_ID = re.compile(r"^0x[0-9a-f]{10}$")
 ENUMS = {
     "facing": {"left", "right"},
@@ -26,6 +27,7 @@ def fail(message: str) -> None:
 
 def main() -> int:
     data = json.loads(ARTIFACT.read_text())
+    policy = json.loads(COLOR_POLICY.read_text())
     source_ids = {item["id"] for item in json.loads(SOURCES.read_text())["sources"]}
     if len(data.get("rows", [])) != 64:
         fail("sample must contain exactly 64 rows")
@@ -35,6 +37,7 @@ def main() -> int:
     mismatch_links = 0
     coverage = {key: set() for key in ENUMS}
     coverage.update({"pale": set(), "genesis": set()})
+    color_kinds, color_buckets, special_categories = set(), set(), set()
     for row in data["rows"]:
         cat_id, order = row["catId"], row["rescueOrder"]
         if not CAT_ID.fullmatch(cat_id) or cat_id in cat_ids:
@@ -53,6 +56,20 @@ def main() -> int:
             coverage[field].add(traits[field])
         if not isinstance(traits.get("hueInt"), int) or not isinstance(traits.get("hueName"), str):
             fail(f"invalid hue fields for {cat_id}")
+        classification = row.get("colorClassification")
+        if not isinstance(classification, dict):
+            fail(f"missing colorClassification for {cat_id}")
+        if classification.get("schemeId") != policy["scheme"]["id"] or classification.get("schemeVersion") != policy["scheme"]["version"]:
+            fail(f"wrong color classification scheme for {cat_id}")
+        if classification.get("modifiers", {}).get("pale") is not traits["pale"] or classification.get("modifiers", {}).get("genesis") is not traits["genesis"]:
+            fail(f"color modifiers do not preserve raw fields for {cat_id}")
+        if classification.get("modifiers", {}).get("paletteOrientation") != "not-classified":
+            fail(f"color classification overclaims palette orientation for {cat_id}")
+        color_kinds.add(classification.get("kind"))
+        if classification.get("baseBucket"):
+            color_buckets.add(classification["baseBucket"])
+        if classification.get("specialCategory"):
+            special_categories.add(classification["specialCategory"])
         if not all(row["identifierChecks"].values()):
             fail(f"identifier round trip failed for {cat_id}")
         parser_check = row["parserCheck"]
@@ -71,10 +88,15 @@ def main() -> int:
             fail(f"sample does not cover all {field} values")
     if coverage["pale"] != {False, True} or coverage["genesis"] != {False, True}:
         fail("sample does not cover pale and genesis boolean edges")
+    expected_buckets = {bucket["key"] for bucket in policy["normalHueClassification"]["buckets"]}
+    if color_buckets != expected_buckets or color_kinds != {"circular-hue", "genesis-special"}:
+        fail("sample does not cover all selected normal buckets and Genesis classification kinds")
+    if special_categories != {"genesis-black", "genesis-white"}:
+        fail("sample does not cover both Genesis sentinel categories")
     report = data["mismatchReport"]
     if report["count"] != len(report["items"]) or report["count"] != mismatch_links:
         fail("mismatch counts are inconsistent")
-    print(f"OK: 64 rows, {report['count']} explicit mismatches, identifier and coverage checks passed")
+    print(f"OK: 64 rows, {report['count']} explicit mismatches, identifier and color coverage checks passed")
     return 0
 
 

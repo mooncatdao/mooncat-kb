@@ -46,6 +46,8 @@ The prototype currently reports eight comparisons rather than coercing them:
 
 The direct snapshot value is retained because that source supplies the artifact's declared field vocabulary. These differences are semantic or normalization candidates, but remain unresolved until a focused model decision defines a shared representation.
 
+The generated `colorClassification` object is a separate, versioned human-facing display policy. It preserves `hueInt`, `hueName`, `pale`, and `genesis`, uses the reviewed ADR-shifted integer buckets, and gives source-backed Genesis black/white sentinels special treatment before circular hue handling. Its `Sky Blue` label is a display normalization of source `skyblue`, not a mismatch. It does not claim palettes, RGB/hex values, rendering output, rarity, or canonical on-chain traits. See `docs/color-classification.md`.
+
 ## Validation
 
 The dedicated validator checks row count, unique and formatted bytes5 IDs, unique in-range rescue orders, required types and enums, pale/Genesis edge coverage, all identifier round trips, parser output, sourceRef resolution, and mismatch-link/count consistency. Generator `--check` rebuilds the complete artifact in memory and compares exact bytes, including input hashes.

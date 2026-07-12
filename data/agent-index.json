@@ -147,6 +147,27 @@
       ]
     },
     {
+      "key": "classify-mooncat-colors",
+      "description": "Apply or review deterministic human-facing MoonCat color labels without changing raw trait fields.",
+      "primaryFiles": [
+        "data/color-classification.json",
+        "docs/color-classification.md"
+      ],
+      "optionalFiles": [
+        "data/color-hues.json",
+        "data/color-source-inventory.json",
+        "data/mooncat-visual-traits.sample.json",
+        "scripts/generate-visual-traits.py",
+        "scripts/validate-color-classification.py",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Use derived labels only for search, filtering, and display; preserve hueInt, hueName, pale, and genesis.",
+        "Do not turn labels into palette, RGB, rendering, rarity, or canonical on-chain trait claims.",
+        "Genesis black and white require their source-backed sentinel fields and are not circular hue values."
+      ]
+    },
+    {
       "key": "render-images",
       "description": "Find image-rendering API endpoints and image-related identifier requirements.",
       "primaryFiles": [

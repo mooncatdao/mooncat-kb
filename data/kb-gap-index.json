@@ -1,8 +1,8 @@
 {
-  "version": 2,
-  "updated": "2026-07-11",
-  "status": "refreshed-audit-report-with-upstream-snapshot-provenance",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
+  "version": 3,
+  "updated": "2026-07-12",
+  "status": "refreshed-audit-report-with-derived-color-classification",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/api-endpoints.json",
@@ -10,6 +10,7 @@
     "data/character-cat-index.json",
     "data/character-cats.json",
     "data/color-hues.json",
+    "data/color-classification.json",
     "data/contract-surfaces.json",
     "data/contracts.json",
     "data/identifier-conventions.json",
@@ -45,9 +46,9 @@
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
     "status": "all-current-route-candidates-directly-routed",
-    "dataFileCount": 24,
-    "routeCandidates": 23,
-    "directlyRoutedCandidateCount": 23,
+    "dataFileCount": 25,
+    "routeCandidates": 24,
+    "directlyRoutedCandidateCount": 24,
     "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
       "data/agent-index.json"
@@ -92,6 +93,18 @@
         "data/trait-index.json"
       ],
       "notes": "Previous empty hue/special/pale structures are replaced by ADR-aligned hue buckets, aggregate observed snapshot data, color source inventory, MoonCatColors internals summaries, and guardrails; per-cat mappings, exact RGB/hex palettes, full renderer behavior, BasePalette values, and mapColors override values remain out of scope."
+    },
+    {
+      "key": "derived-human-facing-color-classification",
+      "status": "resolved-as-versioned-derived-label-policy",
+      "files": [
+        "data/color-classification.json",
+        "docs/color-classification.md",
+        "scripts/validate-color-classification.py",
+        "scripts/generate-visual-traits.py",
+        "data/mooncat-visual-traits.sample.json"
+      ],
+      "notes": "A deterministic, source-backed policy now maps normal integer hues to ADR-shifted human-facing labels and handles Genesis black/white sentinels before circular hue handling. Raw hue fields remain untouched, pale remains a separate modifier, and palette/rendering claims remain out of scope."
     },
     {
       "key": "task-recipes-added",

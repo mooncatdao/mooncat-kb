@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TRAITS_PATH = ROOT / "references/upstream/mooncatrescue/mooncat_traits.json"
 LIB_PATH = ROOT / "references/upstream/mooncatrescue/libmooncat-limited.js"
 PARSER_PATH = ROOT / "references/upstream/mooncatrescue/mooncatparser.js"
+COLOR_CLASSIFICATION_PATH = ROOT / "data/color-classification.json"
 OUTPUT_PATH = ROOT / "data/mooncat-visual-traits.sample.json"
 TARGET_ROWS = 64
 ANCHORS = [0, 1, 82, 84, 95, 96, 2891, 5757, 25439]
@@ -43,6 +44,71 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def classify_color(source_row: dict, policy: dict) -> dict:
+    """Return derived display metadata without changing source trait values."""
+    traits = {
+        "hueInt": source_row["hueInt"],
+        "hueName": source_row["hueName"],
+        "pale": source_row["pale"],
+        "genesis": source_row.get("genesis", False),
+    }
+    scheme = policy["scheme"]
+    provenance = {
+        "category": policy["outputContract"]["provenanceCategory"],
+        "sourceRefs": policy["sourceRefs"],
+        "policySourceRef": "mooncat-color-classification",
+    }
+    modifiers = {
+        "pale": traits["pale"],
+        "genesis": traits["genesis"],
+        "paletteOrientation": policy["modifierPolicy"]["paletteOrientation"]["value"],
+    }
+    for category in policy["specialClassification"]["genesisCategories"]:
+        if all(traits[key] == value for key, value in category["requiredRawValues"].items()):
+            return {
+                "schemeId": scheme["id"],
+                "schemeVersion": scheme["version"],
+                "kind": "genesis-special",
+                "label": category["label"],
+                "baseBucket": None,
+                "specialCategory": category["key"],
+                "modifiers": modifiers,
+                "method": "genesis-sentinel-before-circular-hue-v1",
+                "sourceHueNameRelation": "genesis-special-aligned",
+                "provenance": provenance,
+            }
+    if traits["hueInt"] in {1000, 2000}:
+        return {
+            "schemeId": scheme["id"],
+            "schemeVersion": scheme["version"],
+            "kind": "unresolved-special-sentinel",
+            "label": None,
+            "baseBucket": None,
+            "specialCategory": "unresolved-special-sentinel",
+            "modifiers": modifiers,
+            "method": "special-sentinel-no-modulo-v1",
+            "sourceHueNameRelation": "unresolved",
+            "provenance": provenance,
+        }
+    hue = traits["hueInt"] % 360
+    for bucket in policy["normalHueClassification"]["buckets"]:
+        if any(start <= hue < end for start, end in bucket["intervals"]):
+            relation = "direct-match" if traits["hueName"] == bucket["key"] else "display-normalization"
+            return {
+                "schemeId": scheme["id"],
+                "schemeVersion": scheme["version"],
+                "kind": "circular-hue",
+                "label": bucket["label"],
+                "baseBucket": bucket["key"],
+                "specialCategory": None,
+                "modifiers": modifiers,
+                "method": policy["outputContract"]["method"],
+                "sourceHueNameRelation": relation,
+                "provenance": provenance,
+            }
+    raise ValueError(f"color policy did not classify hueInt {traits['hueInt']}")
 
 
 def select_rows(rows: list[dict]) -> tuple[list[dict], dict]:
@@ -125,6 +191,7 @@ process.stdout.write(JSON.stringify(out));
 
 def generate() -> dict:
     rows = json.loads(TRAITS_PATH.read_text())
+    color_policy = json.loads(COLOR_CLASSIFICATION_PATH.read_text())
     if len(rows) != 25440:
         raise ValueError(f"expected 25440 upstream rows, found {len(rows)}")
     selected, selection = select_rows(rows)
@@ -177,6 +244,7 @@ def generate() -> dict:
                 "pose": source_row["pose"],
                 "genesis": source_row.get("genesis", False),
             },
+            "colorClassification": classify_color(source_row, color_policy),
             "provenance": {
                 "valueSourceRef": "mooncatrescue-mooncat-traits-json",
                 "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -192,8 +260,8 @@ def generate() -> dict:
         })
 
     return {
-        "version": 1,
-        "updated": "2026-07-11",
+        "version": 2,
+        "updated": "2026-07-12",
         "status": "generated-representative-prototype",
         "scope": "Deterministic 64-row visual-trait sample; not a complete MoonCat trait dataset.",
         "primaryKey": {"field": "catId", "identifierKind": "mooncatIdBytes5"},
@@ -206,11 +274,13 @@ def generate() -> dict:
             "mooncatrescue-mooncat-traits-json",
             "mooncatrescue-libmooncat-limited-js",
             "mooncatrescue-mooncatparser-js",
+            "mooncat-color-classification",
         ],
         "sourceFiles": [
             {"path": str(TRAITS_PATH.relative_to(ROOT)), "sha256": sha256(TRAITS_PATH), "role": "priority value source"},
             {"path": str(LIB_PATH.relative_to(ROOT)), "sha256": sha256(LIB_PATH), "role": "independent trait and identifier comparison"},
             {"path": str(PARSER_PATH.relative_to(ROOT)), "sha256": sha256(PARSER_PATH), "role": "bytes5 renderability check only"},
+            {"path": str(COLOR_CLASSIFICATION_PATH.relative_to(ROOT)), "sha256": sha256(COLOR_CLASSIFICATION_PATH), "role": "derived human-facing color-label policy"},
         ],
         "generation": {
             "script": "scripts/generate-visual-traits.py",
@@ -223,6 +293,7 @@ def generate() -> dict:
             "Compare every selected row with LibMoonCat extended traits and bidirectional lookup helpers; report disagreement without overwriting either value.",
             "Use mooncatparser.js only to confirm the catId produces a non-empty pixel matrix; it supplies no selected trait values.",
             "Normalize absent optional genesis markers to false and record that normalization; do not normalize any other mismatch.",
+            "Derive colorClassification from the registered color policy after preserving raw hueInt, hueName, pale, and genesis values.",
         ],
         "fieldProvenance": {
             "catId": {"category": "direct", "sourceRef": "mooncatrescue-mooncat-traits-json"},
@@ -236,6 +307,7 @@ def generate() -> dict:
             "visualTraits.pattern": {"category": "direct", "sourceRef": "mooncatrescue-mooncat-traits-json"},
             "visualTraits.pose": {"category": "direct", "sourceRef": "mooncatrescue-mooncat-traits-json"},
             "visualTraits.genesis": {"category": "direct-when-present; normalized-false-when-absent", "sourceRef": "mooncatrescue-mooncat-traits-json"},
+            "colorClassification": {"category": "derived", "sourceRefs": ["mooncat-color-classification", "mooncatrescue-adr-0017-color-math", "mooncatrescue-mooncat-traits-json"]},
             "identifierChecks": {"category": "derived", "sourceRef": "mooncatrescue-libmooncat-limited-js"},
             "parserCheck": {"category": "derived", "sourceRef": "mooncatrescue-mooncatparser-js"},
             "mismatches": {"category": "unresolved", "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js"]},
@@ -251,6 +323,7 @@ def generate() -> dict:
             "The local source snapshots have no recorded retrieval date, so upstream freshness is unresolved.",
             "No names, accessories, ownership, market data, palettes, RGB/hex values, or current chain state are included.",
             "LibMoonCat hueValue and mooncat_traits.json hueInt have different Genesis sentinel semantics; mismatches remain explicit.",
+            "colorClassification is derived display metadata only; it does not prove canonical traits, rarity, palette orientation, or rendering output.",
         ],
     }
 

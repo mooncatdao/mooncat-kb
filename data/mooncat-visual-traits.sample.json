@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updated": "2026-07-11",
+  "version": 2,
+  "updated": "2026-07-12",
   "status": "generated-representative-prototype",
   "scope": "Deterministic 64-row visual-trait sample; not a complete MoonCat trait dataset.",
   "primaryKey": {
@@ -15,7 +15,8 @@
   "sourceRefs": [
     "mooncatrescue-mooncat-traits-json",
     "mooncatrescue-libmooncat-limited-js",
-    "mooncatrescue-mooncatparser-js"
+    "mooncatrescue-mooncatparser-js",
+    "mooncat-color-classification"
   ],
   "sourceFiles": [
     {
@@ -32,6 +33,11 @@
       "path": "references/upstream/mooncatrescue/mooncatparser.js",
       "sha256": "39dffc7894473b631cde4037d9f174844cfc78777134511b6b8ef44105928d59",
       "role": "bytes5 renderability check only"
+    },
+    {
+      "path": "data/color-classification.json",
+      "sha256": "79963fade6364a16e09eecb2bf4e0c161cde768f5c057557affa44e1922c7d68",
+      "role": "derived human-facing color-label policy"
     }
   ],
   "generation": {
@@ -168,7 +174,8 @@
     "Use direct fields from mooncat_traits.json for artifact values because it provides explicit per-row rescueOrder/catId alignment and the requested field vocabulary.",
     "Compare every selected row with LibMoonCat extended traits and bidirectional lookup helpers; report disagreement without overwriting either value.",
     "Use mooncatparser.js only to confirm the catId produces a non-empty pixel matrix; it supplies no selected trait values.",
-    "Normalize absent optional genesis markers to false and record that normalization; do not normalize any other mismatch."
+    "Normalize absent optional genesis markers to false and record that normalization; do not normalize any other mismatch.",
+    "Derive colorClassification from the registered color policy after preserving raw hueInt, hueName, pale, and genesis values."
   ],
   "fieldProvenance": {
     "catId": {
@@ -214,6 +221,14 @@
     "visualTraits.genesis": {
       "category": "direct-when-present; normalized-false-when-absent",
       "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "colorClassification": {
+      "category": "derived",
+      "sourceRefs": [
+        "mooncat-color-classification",
+        "mooncatrescue-adr-0017-color-math",
+        "mooncatrescue-mooncat-traits-json"
+      ]
     },
     "identifierChecks": {
       "category": "derived",
@@ -335,6 +350,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -369,6 +409,31 @@
         "pattern": "tortie",
         "pose": "stalking",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Sky Blue",
+        "baseBucket": "sky-blue",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "display-normalization",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -410,6 +475,31 @@
         "pose": "stalking",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -444,6 +534,31 @@
         "pattern": "tortie",
         "pose": "pouncing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Fuchsia",
+        "baseBucket": "fuchsia",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -480,6 +595,31 @@
         "pose": "stalking",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Blue",
+        "baseBucket": "blue",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -514,6 +654,31 @@
         "pattern": "tortie",
         "pose": "sleeping",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Yellow",
+        "baseBucket": "yellow",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -550,6 +715,31 @@
         "pose": "standing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Magenta",
+        "baseBucket": "magenta",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -584,6 +774,31 @@
         "pattern": "tabby",
         "pose": "sleeping",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Orange",
+        "baseBucket": "orange",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -620,6 +835,31 @@
         "pose": "standing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -654,6 +894,31 @@
         "pattern": "pure",
         "pose": "standing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Red",
+        "baseBucket": "red",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -690,6 +955,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Teal",
+        "baseBucket": "teal",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -724,6 +1014,31 @@
         "pattern": "tortie",
         "pose": "sleeping",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Green",
+        "baseBucket": "green",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -760,6 +1075,31 @@
         "pose": "stalking",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Purple",
+        "baseBucket": "purple",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -794,6 +1134,31 @@
         "pattern": "tortie",
         "pose": "stalking",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -830,6 +1195,31 @@
         "pose": "stalking",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Orange",
+        "baseBucket": "orange",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -864,6 +1254,31 @@
         "pattern": "pure",
         "pose": "standing",
         "genesis": true
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "genesis-special",
+        "label": "Black",
+        "baseBucket": null,
+        "specialCategory": "genesis-black",
+        "modifiers": {
+          "pale": false,
+          "genesis": true,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "genesis-sentinel-before-circular-hue-v1",
+        "sourceHueNameRelation": "genesis-special-aligned",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -905,6 +1320,31 @@
         "pose": "sleeping",
         "genesis": true
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "genesis-special",
+        "label": "White",
+        "baseBucket": null,
+        "specialCategory": "genesis-white",
+        "modifiers": {
+          "pale": true,
+          "genesis": true,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "genesis-sentinel-before-circular-hue-v1",
+        "sourceHueNameRelation": "genesis-special-aligned",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -944,6 +1384,31 @@
         "pattern": "spotted",
         "pose": "stalking",
         "genesis": true
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "genesis-special",
+        "label": "White",
+        "baseBucket": null,
+        "specialCategory": "genesis-white",
+        "modifiers": {
+          "pale": true,
+          "genesis": true,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "genesis-sentinel-before-circular-hue-v1",
+        "sourceHueNameRelation": "genesis-special-aligned",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -985,6 +1450,31 @@
         "pose": "standing",
         "genesis": true
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "genesis-special",
+        "label": "Black",
+        "baseBucket": null,
+        "specialCategory": "genesis-black",
+        "modifiers": {
+          "pale": false,
+          "genesis": true,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "genesis-sentinel-before-circular-hue-v1",
+        "sourceHueNameRelation": "genesis-special-aligned",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1025,6 +1515,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1059,6 +1574,31 @@
         "pattern": "spotted",
         "pose": "stalking",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Orange",
+        "baseBucket": "orange",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1095,6 +1635,31 @@
         "pose": "stalking",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1129,6 +1694,31 @@
         "pattern": "tabby",
         "pose": "stalking",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1165,6 +1755,31 @@
         "pose": "standing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Green",
+        "baseBucket": "green",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1199,6 +1814,31 @@
         "pattern": "pure",
         "pose": "pouncing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Orange",
+        "baseBucket": "orange",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1235,6 +1875,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1269,6 +1934,31 @@
         "pattern": "tortie",
         "pose": "stalking",
         "genesis": true
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "genesis-special",
+        "label": "White",
+        "baseBucket": null,
+        "specialCategory": "genesis-white",
+        "modifiers": {
+          "pale": true,
+          "genesis": true,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "genesis-sentinel-before-circular-hue-v1",
+        "sourceHueNameRelation": "genesis-special-aligned",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1310,6 +2000,31 @@
         "pose": "stalking",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Purple",
+        "baseBucket": "purple",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1344,6 +2059,31 @@
         "pattern": "spotted",
         "pose": "stalking",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1380,6 +2120,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Purple",
+        "baseBucket": "purple",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1414,6 +2179,31 @@
         "pattern": "spotted",
         "pose": "sleeping",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Green",
+        "baseBucket": "green",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1450,6 +2240,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1484,6 +2299,31 @@
         "pattern": "tortie",
         "pose": "stalking",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Teal",
+        "baseBucket": "teal",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1520,6 +2360,31 @@
         "pose": "standing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Green",
+        "baseBucket": "green",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1554,6 +2419,31 @@
         "pattern": "tortie",
         "pose": "sleeping",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Yellow",
+        "baseBucket": "yellow",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1590,6 +2480,31 @@
         "pose": "sleeping",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Purple",
+        "baseBucket": "purple",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1624,6 +2539,31 @@
         "pattern": "spotted",
         "pose": "standing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1660,6 +2600,31 @@
         "pose": "standing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Blue",
+        "baseBucket": "blue",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1695,6 +2660,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Yellow",
+        "baseBucket": "yellow",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1729,6 +2719,31 @@
         "pattern": "tabby",
         "pose": "standing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Sky Blue",
+        "baseBucket": "sky-blue",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "display-normalization",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1770,6 +2785,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Magenta",
+        "baseBucket": "magenta",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1804,6 +2844,31 @@
         "pattern": "tortie",
         "pose": "sleeping",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Green",
+        "baseBucket": "green",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1840,6 +2905,31 @@
         "pose": "stalking",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Purple",
+        "baseBucket": "purple",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1874,6 +2964,31 @@
         "pattern": "tabby",
         "pose": "stalking",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Orange",
+        "baseBucket": "orange",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1910,6 +3025,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -1944,6 +3084,31 @@
         "pattern": "spotted",
         "pose": "pouncing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Orange",
+        "baseBucket": "orange",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -1980,6 +3145,31 @@
         "pose": "sleeping",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Blue",
+        "baseBucket": "blue",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2014,6 +3204,31 @@
         "pattern": "pure",
         "pose": "pouncing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -2050,6 +3265,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Yellow",
+        "baseBucket": "yellow",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2084,6 +3324,31 @@
         "pattern": "pure",
         "pose": "standing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Sky Blue",
+        "baseBucket": "sky-blue",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "display-normalization",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -2125,6 +3390,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Fuchsia",
+        "baseBucket": "fuchsia",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2159,6 +3449,31 @@
         "pattern": "tortie",
         "pose": "stalking",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -2195,6 +3510,31 @@
         "pose": "sleeping",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Red",
+        "baseBucket": "red",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2229,6 +3569,31 @@
         "pattern": "tortie",
         "pose": "sleeping",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Blue",
+        "baseBucket": "blue",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -2265,6 +3630,31 @@
         "pose": "sleeping",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2299,6 +3689,31 @@
         "pattern": "pure",
         "pose": "standing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -2335,6 +3750,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Fuchsia",
+        "baseBucket": "fuchsia",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2369,6 +3809,31 @@
         "pattern": "spotted",
         "pose": "standing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -2405,6 +3870,31 @@
         "pose": "stalking",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2439,6 +3929,31 @@
         "pattern": "pure",
         "pose": "stalking",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Teal",
+        "baseBucket": "teal",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -2475,6 +3990,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Purple",
+        "baseBucket": "purple",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2509,6 +4049,31 @@
         "pattern": "tabby",
         "pose": "pouncing",
         "genesis": false
+      },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Cyan",
+        "baseBucket": "cyan",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
       },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
@@ -2545,6 +4110,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Orange",
+        "baseBucket": "orange",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": true,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2580,6 +4170,31 @@
         "pose": "pouncing",
         "genesis": false
       },
+      "colorClassification": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "kind": "circular-hue",
+        "label": "Fuchsia",
+        "baseBucket": "fuchsia",
+        "specialCategory": null,
+        "modifiers": {
+          "pale": false,
+          "genesis": false,
+          "paletteOrientation": "not-classified"
+        },
+        "method": "integer-hue-half-open-interval-v1",
+        "sourceHueNameRelation": "direct-match",
+        "provenance": {
+          "category": "derived",
+          "sourceRefs": [
+            "mooncatrescue-adr-0017-color-math",
+            "mooncatrescue-mooncat-traits-json",
+            "mooncatrescue-mooncatparser-js",
+            "etherscan-mooncat-colors"
+          ],
+          "policySourceRef": "mooncat-color-classification"
+        }
+      },
       "provenance": {
         "valueSourceRef": "mooncatrescue-mooncat-traits-json",
         "valueMethod": "direct except genesis=false normalized from an absent optional marker",
@@ -2606,6 +4221,7 @@
     "Only 64 representative rows are curated; the remaining population is intentionally absent.",
     "The local source snapshots have no recorded retrieval date, so upstream freshness is unresolved.",
     "No names, accessories, ownership, market data, palettes, RGB/hex values, or current chain state are included.",
-    "LibMoonCat hueValue and mooncat_traits.json hueInt have different Genesis sentinel semantics; mismatches remain explicit."
+    "LibMoonCat hueValue and mooncat_traits.json hueInt have different Genesis sentinel semantics; mismatches remain explicit.",
+    "colorClassification is derived display metadata only; it does not prove canonical traits, rarity, palette orientation, or rendering output."
   ]
 }

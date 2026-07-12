@@ -1,7 +1,7 @@
 {
-  "version": 1,
-  "updated": "2026-07-04",
-  "status": "source-inventory-not-color-model",
+  "version": 2,
+  "updated": "2026-07-12",
+  "status": "source-inventory-with-derived-label-policy-decision",
   "scope": "Compact inventory of MoonCat color-related sources and claims. This file records evidence levels and source claims; it does not define canonical hue ranges, exact palettes, formulas, rendering behavior, or per-cat mappings.",
   "sourceRefs": [
     "mooncatrescue-adr-0017-color-math",
@@ -18,12 +18,14 @@
   ],
   "relatedFiles": [
     "data/color-hues.json",
+    "data/color-classification.json",
     "data/trait-index.json",
     "data/contract-surfaces.json",
     "data/contracts.json",
     "data/libmooncat-surfaces.json",
     "data/sources.json",
     "docs/color-math.md",
+    "docs/color-classification.md",
     "references/upstream/mooncatrescue/mooncatparser.js"
   ],
   "trustTiers": {
@@ -33,6 +35,18 @@
     "high-confidence-maintainer-explanation": "Maintainer-authored or user-supplied maintainer explanation; useful for interpretation but not source-code proof by itself.",
     "official-publication-context": "MoonCatRescue publication or article context; verify exact behavior against contract/source records before canonical import.",
     "local-policy-or-summary": "Repo-local policy, scaffold, or compact summary."
+  },
+  "derivedLabelPolicyDecision": {
+    "status": "accepted-as-derived-metadata",
+    "file": "data/color-classification.json",
+    "sourceRef": "mooncat-color-classification",
+    "selection": "ADR-shifted 30-degree integer hue buckets, represented as half-open intervals, with source-backed Genesis black/white sentinels evaluated before circular hue handling.",
+    "notClaimed": [
+      "canonical on-chain trait vocabulary",
+      "rarity or collection taxonomy",
+      "RGB, hex, palette, or rendered-image output",
+      "normal or inverted palette orientation"
+    ]
   },
   "claimCategories": [
     "hue-extraction",

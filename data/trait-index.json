@@ -1,7 +1,7 @@
 {
-  "version": 3,
-  "updated": "2026-07-11",
-  "status": "schema-metadata-with-generated-prototype",
+  "version": 4,
+  "updated": "2026-07-12",
+  "status": "schema-metadata-with-generated-prototype-and-color-label-policy",
   "scope": "Compact field dictionary and validation summary for the local mooncat_traits.json upstream reference snapshot.",
   "sourceRefs": [
     "mooncatrescue-mooncat-traits-json"
@@ -9,6 +9,8 @@
   "relatedFiles": [
     "docs/traits.md",
     "docs/generated-trait-data.md",
+    "data/color-classification.json",
+    "docs/color-classification.md",
     "data/mooncat-visual-traits.sample.json",
     "data/identifier-conventions.json",
     "references/upstream/mooncatrescue/mooncat_traits.json"
@@ -403,6 +405,10 @@
       {
         "key": "sourceRefs",
         "requirement": "required at artifact level and allowed at field group level when sources differ"
+      },
+      {
+        "key": "colorClassification",
+        "requirement": "allowed only as separately versioned derived display metadata; preserve raw hueInt, hueName, pale, and genesis and record source-backed policy provenance"
       },
       {
         "key": "generatedBy",

@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "updated": "2026-07-12",
+  "status": "accepted-derived-human-facing-label-scheme",
+  "scope": "Deterministic human-facing color labels derived from raw MoonCat hue fields for search, filtering, and display. This is not a replacement for hueInt, hueName, pale, genesis, on-chain traits, palettes, RGB values, or rendering output.",
+  "sourceRefs": [
+    "mooncatrescue-adr-0017-color-math",
+    "mooncatrescue-mooncat-traits-json",
+    "mooncatrescue-mooncatparser-js",
+    "etherscan-mooncat-colors"
+  ],
+  "scheme": {
+    "id": "mooncat-human-hue-v1",
+    "version": 1,
+    "label": "MoonCat human hue labels v1",
+    "selection": "adr-shifted-30-degree-integer-buckets-with-genesis-sentinels",
+    "derivedField": "colorClassification",
+    "purpose": [
+      "search",
+      "filtering",
+      "display"
+    ],
+    "rawFieldsPreserved": [
+      "hueInt",
+      "hueName",
+      "pale",
+      "genesis"
+    ]
+  },
+  "candidateSchemes": [
+    {
+      "key": "source-hueName",
+      "status": "not-selected-as-derived-display-scheme",
+      "description": "Use the raw snapshot hueName directly.",
+      "decision": "Retain as a source field and compare it where useful, but do not make its compact vocabulary the derived display policy.",
+      "limitations": [
+        "skyblue is a compact source value while the selected display label is Sky Blue.",
+        "black and white are special non-degree values rather than circular hue buckets."
+      ]
+    },
+    {
+      "key": "unshifted-30-degree-buckets",
+      "status": "rejected",
+      "description": "Use twelve [0,30), [30,60), and subsequent unshifted 30-degree intervals.",
+      "decision": "Rejected because the reviewed ADR defines 15-degree-shifted named boundaries instead."
+    },
+    {
+      "key": "adr-shifted-30-degree-integer-buckets",
+      "status": "selected",
+      "description": "Use the ADR's twelve equal 30-degree labels after integer hue truncation, represented as exact half-open integer intervals.",
+      "sourceRefs": [
+        "mooncatrescue-adr-0017-color-math",
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    {
+      "key": "genesis-black-white-categories",
+      "status": "selected-as-special-case",
+      "description": "Classify source-backed Genesis black and white sentinels before circular hue bucketing.",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-mooncatparser-js",
+        "etherscan-mooncat-colors"
+      ]
+    }
+  ],
+  "normalHueClassification": {
+    "input": "integer hueInt after special-sentinel handling",
+    "normalization": "hueInt modulo 360",
+    "intervalConvention": "start-inclusive, end-exclusive integer intervals after modulo normalization",
+    "sourceBoundaryTranslation": "ADR lower-exclusive/upper-inclusive integer boundaries are represented equivalently as [previousUpper+1, nextUpper+1).",
+    "buckets": [
+      {"key": "red", "label": "Red", "intervals": [[0, 16], [346, 360]], "sourceHueNames": ["red"]},
+      {"key": "orange", "label": "Orange", "intervals": [[16, 46]], "sourceHueNames": ["orange"]},
+      {"key": "yellow", "label": "Yellow", "intervals": [[46, 76]], "sourceHueNames": ["yellow"]},
+      {"key": "chartreuse", "label": "Chartreuse", "intervals": [[76, 106]], "sourceHueNames": ["chartreuse"]},
+      {"key": "green", "label": "Green", "intervals": [[106, 136]], "sourceHueNames": ["green"]},
+      {"key": "teal", "label": "Teal", "intervals": [[136, 166]], "sourceHueNames": ["teal"]},
+      {"key": "cyan", "label": "Cyan", "intervals": [[166, 196]], "sourceHueNames": ["cyan"]},
+      {"key": "sky-blue", "label": "Sky Blue", "intervals": [[196, 226]], "sourceHueNames": ["skyblue"]},
+      {"key": "blue", "label": "Blue", "intervals": [[226, 256]], "sourceHueNames": ["blue"]},
+      {"key": "purple", "label": "Purple", "intervals": [[256, 286]], "sourceHueNames": ["purple"]},
+      {"key": "magenta", "label": "Magenta", "intervals": [[286, 316]], "sourceHueNames": ["magenta"]},
+      {"key": "fuchsia", "label": "Fuchsia", "intervals": [[316, 346]], "sourceHueNames": ["fuchsia"]}
+    ]
+  },
+  "specialClassification": {
+    "precedence": "Evaluate genesis marker and exact hueInt/hueName sentinel pair before normal hue modulo handling.",
+    "genesisCategories": [
+      {
+        "key": "genesis-black",
+        "label": "Black",
+        "requiredRawValues": {"genesis": true, "hueInt": 1000, "hueName": "black"},
+        "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-mooncatparser-js", "etherscan-mooncat-colors"]
+      },
+      {
+        "key": "genesis-white",
+        "label": "White",
+        "requiredRawValues": {"genesis": true, "hueInt": 2000, "hueName": "white"},
+        "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-mooncatparser-js", "etherscan-mooncat-colors"]
+      }
+    ],
+    "unresolvedSentinelPolicy": "A 1000/2000 hueInt without the corresponding Genesis marker and source hueName remains unresolved; do not force it through modulo hue classification."
+  },
+  "modifierPolicy": {
+    "pale": {
+      "selection": "separate-boolean-modifier",
+      "displayLabelEffect": "none",
+      "reason": "The source-backed pale field is preserved, but reviewed material does not justify a derived rendering or palette adjustment in this scheme.",
+      "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-adr-0017-color-math"]
+    },
+    "genesis": {
+      "selection": "separate-boolean-modifier-and-special-category-when-sentinel-pair-matches"
+    },
+    "paletteOrientation": {
+      "value": "not-classified",
+      "reason": "This scheme does not claim normal/inverted palette orientation or rendering behavior."
+    }
+  },
+  "outputContract": {
+    "fields": ["schemeId", "schemeVersion", "kind", "label", "baseBucket", "specialCategory", "modifiers", "method", "sourceHueNameRelation", "provenance"],
+    "method": "integer-hue-half-open-interval-v1",
+    "provenanceCategory": "derived"
+  },
+  "examples": [
+    {
+      "raw": {"hueInt": 15, "hueName": "red", "pale": false, "genesis": false},
+      "derived": {"label": "Red", "baseBucket": "red", "kind": "circular-hue"}
+    },
+    {
+      "raw": {"hueInt": 16, "hueName": "orange", "pale": true, "genesis": false},
+      "derived": {"label": "Orange", "baseBucket": "orange", "kind": "circular-hue", "paleModifier": true}
+    },
+    {
+      "raw": {"hueInt": 196, "hueName": "skyblue", "pale": false, "genesis": false},
+      "derived": {"label": "Sky Blue", "baseBucket": "sky-blue", "sourceHueNameRelation": "display-normalization"}
+    },
+    {
+      "raw": {"hueInt": 1000, "hueName": "black", "pale": false, "genesis": true},
+      "derived": {"label": "Black", "specialCategory": "genesis-black", "kind": "genesis-special"}
+    }
+  ],
+  "unresolvedQuestions": [
+    "Whether a future reviewed renderer/palette pass should add an independently sourced palette-orientation field; this policy intentionally leaves it not classified.",
+    "Whether a full-population generated artifact should expose labels as stored rows, build-time output, or a query-time calculation; the current decision is limited to the 64-row prototype.",
+    "How a future source should classify inconsistent non-Genesis 1000/2000 sentinel combinations if they occur; this version leaves them unresolved."
+  ],
+  "limitations": [
+    "The labels are human-facing derived metadata, not canonical on-chain traits or rarity categories.",
+    "This scheme does not provide RGB, hex, palette, mapColors, or rendered-image proof.",
+    "The 64-row prototype is representative only and does not establish full-population coverage or current upstream freshness.",
+    "Unknown or inconsistent special-sentinel combinations remain unresolved rather than being guessed."
+  ]
+}

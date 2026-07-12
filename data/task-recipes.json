@@ -12,6 +12,7 @@
     "data/libmooncat-surfaces.json",
     "data/trait-index.json",
     "data/color-hues.json",
+    "data/color-classification.json",
     "data/rescue-buckets.json",
     "data/rescue-mining.json",
     "data/rescue-ranges.json",
@@ -334,6 +335,7 @@
       ],
       "steps": [
         "Read data/color-hues.json concepts, observedHueNames, aggregateCounts, paleHandling, specialCoats, and limitations.",
+        "When human-facing labels are needed, load data/color-classification.json and preserve its derived-only boundary.",
         "Use data/trait-index.json for trait field metadata and observed value vocabulary.",
         "Load character-cat files only for community-curated character color context.",
         "Load LibMoonCat or API files only if the task asks for helper surfaces or live/API lookup planning.",
@@ -357,6 +359,43 @@
       ]
     },
     {
+      "key": "classify-mooncat-colors",
+      "purpose": "Generate or consume deterministic human-facing color labels without overwriting source trait semantics.",
+      "loadOrder": [
+        "data/color-classification.json",
+        "docs/color-classification.md",
+        "data/color-hues.json"
+      ],
+      "optionalFiles": [
+        "data/color-source-inventory.json",
+        "data/mooncat-visual-traits.sample.json",
+        "scripts/generate-visual-traits.py",
+        "scripts/validate-color-classification.py",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Preserve raw hueInt, hueName, pale, and genesis before deriving any label.",
+        "Use the versioned policy's half-open integer intervals after special Genesis sentinel handling.",
+        "Keep pale as a separate modifier and report palette orientation as not classified.",
+        "Run python scripts/validate-color-classification.py before changing the policy or regenerating the sample."
+      ],
+      "outputs": [
+        "derived display label",
+        "base bucket or Genesis special category",
+        "modifier and provenance metadata",
+        "policy limitations"
+      ],
+      "guardrails": [
+        "Do not use derived labels as canonical on-chain trait, rarity, palette, RGB, hex, or rendering evidence.",
+        "Do not force 1000 or 2000 sentinels through modulo circular hue handling.",
+        "Do not treat display vocabulary normalization as a source mismatch."
+      ],
+      "stopConditions": [
+        "Stop if a special sentinel lacks the source-backed Genesis and hueName pair required by the policy.",
+        "Stop if a requested result requires an unreviewed palette or rendered-image claim."
+      ]
+    },
+    {
       "key": "generate-or-validate-visual-trait-sample",
       "purpose": "Regenerate or validate the bounded per-cat visual-trait prototype from checked-in sources without crossing identifier or provenance boundaries.",
       "loadOrder": [
@@ -366,12 +405,13 @@
       ],
       "optionalFiles": [
         "data/trait-index.json",
+        "data/color-classification.json",
         "data/libmooncat-surfaces.json",
         "data/sources.json"
       ],
       "steps": [
         "Run python scripts/generate-visual-traits.py --check to compare the committed artifact with a fresh in-memory generation.",
-        "Run python scripts/validate-visual-traits.py for schema, coverage, identifier, sourceRef, parser, and mismatch checks.",
+        "Run python scripts/validate-visual-traits.py for schema, coverage, identifier, sourceRef, parser, color-classification, and mismatch checks.",
         "Read sourcePriority, fieldProvenance, and mismatchReport before consuming values or interpreting differences.",
         "Use catId as the primary key and rescueOrder only as the source-backed secondary lookup field.",
         "Regenerate with python scripts/generate-visual-traits.py only when the checked-in source snapshots or generation policy deliberately change."

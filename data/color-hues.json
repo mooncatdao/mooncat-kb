@@ -1,7 +1,7 @@
 {
-  "version": 2,
-  "updated": "2026-07-04",
-  "status": "source-reconciled-aggregate-color-guidance",
+  "version": 3,
+  "updated": "2026-07-12",
+  "status": "source-reconciled-aggregate-guidance-with-derived-label-policy",
   "scope": "Compact agent-facing reference for MoonCat hue/color fields and adjacent color-model context. This file records source-reconciled guidance, ADR-defined hue bucket ranges, aggregate observations from local reference snapshots, and curated character-cat context; it is not a per-cat trait dataset, exact rendering palette, contract ABI, parser source import, or generated image dataset.",
   "sourceRefs": [
     "mooncatrescue-adr-0017-color-math",
@@ -17,6 +17,7 @@
   ],
   "relatedFiles": [
     "data/color-source-inventory.json",
+    "data/color-classification.json",
     "data/trait-index.json",
     "data/libmooncat-surfaces.json",
     "data/contracts.json",
@@ -26,6 +27,7 @@
     "data/mooncat-types.json",
     "data/special-cats.json",
     "docs/color-math.md",
+    "docs/color-classification.md",
     "references/upstream/mooncatrescue/mooncat_traits.json",
     "references/upstream/mooncatrescue/mooncatparser.js"
   ],
@@ -68,6 +70,12 @@
       "No full parser source, ABI, contract source, image output, or generated data is imported.",
       "Pale rendering behavior remains guarded because reviewed strong sources confirm the pale field and high-confidence explanation, but exact rendering semantics still need parser/contract confirmation."
     ]
+  },
+  "derivedLabelPolicy": {
+    "status": "accepted-human-facing-metadata",
+    "sourceRef": "mooncat-color-classification",
+    "file": "data/color-classification.json",
+    "notes": "Use the registered policy for deterministic search, filter, and display labels only. Preserve hueInt, hueName, pale, and genesis as source fields; do not treat the derived labels as palette, RGB, rarity, or rendering evidence."
   },
   "sourceBackedClaims": [
     {

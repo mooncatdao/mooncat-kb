@@ -1086,6 +1086,20 @@
       "notes": "Reviewed on 2026-07-04 for color-source inventory only. Reddit post and comments are by MidnightLightning and discuss hue wheel colorization, palette categories, shifted bucket boundaries, and genesis black/white categorization. Treat as high-confidence maintainer/community explanation, not source-code proof."
     },
     {
+      "id": "mooncat-color-classification",
+      "label": "MoonCat derived color-classification policy",
+      "type": "local-derived",
+      "path": "data/color-classification.json",
+      "trustLevel": "derived",
+      "status": "active",
+      "supports": [
+        "deterministic human-facing color labels",
+        "Genesis black and white sentinel classification",
+        "visual trait sample derived color metadata"
+      ],
+      "notes": "Local derived policy built from registered color sources. It preserves raw hue traits and does not establish canonical on-chain traits, palettes, RGB values, rarity, or rendering behavior. Validate with scripts/validate-color-classification.py."
+    },
+    {
       "id": "mooncatrescue-adr-0017-color-math",
       "label": "MoonCatRescue ADR 0017 MoonCat Color Math",
       "type": "current-maintainer-technical",
