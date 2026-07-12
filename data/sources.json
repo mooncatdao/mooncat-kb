@@ -414,6 +414,21 @@
       "notes": "Local README for the upstream reference snapshot. It documents that these files are reference inputs, not curated KB data."
     },
     {
+      "id": "mooncat-visual-traits-sample",
+      "label": "Generated MoonCat visual-trait sample",
+      "type": "generated-curated-data",
+      "path": "data/mooncat-visual-traits.sample.json",
+      "trustLevel": "derived-from-registered-local-references",
+      "status": "bounded-prototype",
+      "supports": [
+        "64-row representative per-cat visual-trait prototype",
+        "explicit source-priority and field-provenance metadata",
+        "LibMoonCat identifier and trait mismatch reporting",
+        "mooncatparser bytes5 renderability checks"
+      ],
+      "notes": "Generated deterministically by scripts/generate-visual-traits.py from the three registered checked-in MoonCatRescue reference inputs. Validate with scripts/validate-visual-traits.py. This is not a complete 25,440-row dataset and does not establish live-source freshness."
+    },
+    {
       "id": "mooncatrescue-libmooncat-limited-js",
       "label": "MoonCatRescue libmooncat-limited.js reference",
       "type": "local-source-copy",

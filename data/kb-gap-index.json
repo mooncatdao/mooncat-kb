@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-07-11",
-  "status": "refreshed-audit-report",
+  "status": "refreshed-audit-report-with-visual-trait-prototype",
   "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
   "sourceFiles": [
     "data/agent-index.json",
@@ -18,6 +18,7 @@
     "data/libmooncat-surfaces.json",
     "data/link-index.json",
     "data/mooncat-accessory-images-internals.json",
+    "data/mooncat-visual-traits.sample.json",
     "data/older-wrapper-internals.json",
     "data/mooncat-svg-internals.json",
     "data/mooncat-types.json",
@@ -165,12 +166,24 @@
     },
     {
       "key": "trait-curated-model-decision",
-      "status": "partially-resolved-as-model-decision",
+      "status": "resolved-as-model-decision-and-bounded-prototype",
       "files": [
         "data/trait-index.json",
         "docs/traits.md"
       ],
-      "notes": "A compact curated per-cat trait model decision now recommends a future generated visual-trait artifact keyed by bytes5 catId with rescueOrder as a secondary lookup field, allowed visual fields, reference-only name/accessory fields, provenance requirements, validation strategy, and open questions. No per-cat rows, full trait table, large arrays, exact trait mappings, frequencies, names, or accessory details were imported."
+      "notes": "The curated model decision is implemented as a 64-row generated visual-trait prototype keyed by bytes5 catId with rescueOrder as a source-backed secondary lookup field. The full trait table, frequencies, names, and accessory details remain unimported."
+    },
+    {
+      "key": "visual-trait-generated-prototype",
+      "status": "resolved-as-bounded-generated-prototype",
+      "files": [
+        "data/mooncat-visual-traits.sample.json",
+        "scripts/generate-visual-traits.py",
+        "scripts/validate-visual-traits.py",
+        "docs/generated-trait-data.md",
+        "data/trait-index.json"
+      ],
+      "notes": "A deterministic 64-row representative sample now provides source-backed per-cat visual traits, catId-primary and rescueOrder-secondary boundaries, per-field provenance categories, LibMoonCat comparisons, explicit mismatches, parser renderability checks, and dedicated validation. Full-population coverage and live freshness remain open."
     },
     {
       "key": "initial-kb-functionality-pass",
@@ -362,6 +375,18 @@
       "nextDataPass": "Promote any link to sources.json only in a source-focused pass with trust and limitation notes."
     },
     {
+      "file": "data/mooncat-visual-traits.sample.json",
+      "currentStatus": "generated-representative-prototype",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "bounded-sample-only",
+        "full-population-not-imported",
+        "upstream-freshness-unresolved"
+      ],
+      "agentUsabilityImpact": "Provides 64 validated per-cat visual-trait rows with explicit provenance and mismatch reporting, but must not be used as complete population coverage.",
+      "nextDataPass": "Decide whether scale needs justify a full generated artifact, sharding, build-only output, and a snapshot update policy."
+    },
+    {
       "file": "data/mooncat-types.json",
       "currentStatus": "partially-verified",
       "routedFromAgentIndex": true,
@@ -463,15 +488,15 @@
     },
     {
       "file": "data/trait-index.json",
-      "currentStatus": "schema-metadata-with-curated-model-decision",
+      "currentStatus": "schema-metadata-with-generated-prototype",
       "routedFromAgentIndex": true,
       "gapTypes": [
-        "intentional-schema-only",
-        "dataset-not-imported",
-        "generated-import-not-implemented"
+        "full-dataset-not-imported",
+        "prototype-bounded-to-64-rows",
+        "freshness-policy-open"
       ],
-      "agentUsabilityImpact": "Useful for trait field schema, validation metadata, and a future curated per-cat visual trait model decision, but not for per-cat trait lookup, full frequencies, names, or accessory details.",
-      "nextDataPass": "Implement any curated per-cat visual trait artifact only through a focused generated-data pass with sourceRefs, generation method, validation checks, update process, and size limits."
+      "agentUsabilityImpact": "Useful for trait field schema, validation metadata, and the implemented bounded per-cat prototype model, but not for full-population lookup, frequencies, names, or accessory details.",
+      "nextDataPass": "Evaluate full-population need and update cadence using the prototype's documented scaling and mismatch constraints."
     }
   ],
   "notableNonGaps": [

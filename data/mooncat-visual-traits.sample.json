@@ -1,0 +1,2611 @@
+{
+  "version": 1,
+  "updated": "2026-07-11",
+  "status": "generated-representative-prototype",
+  "scope": "Deterministic 64-row visual-trait sample; not a complete MoonCat trait dataset.",
+  "primaryKey": {
+    "field": "catId",
+    "identifierKind": "mooncatIdBytes5"
+  },
+  "secondaryLookup": {
+    "field": "rescueOrder",
+    "identifierKind": "apiOriginalRescueIndex",
+    "method": "direct upstream row plus array and LibMoonCat lookup checks; never arithmetically derived from catId"
+  },
+  "sourceRefs": [
+    "mooncatrescue-mooncat-traits-json",
+    "mooncatrescue-libmooncat-limited-js",
+    "mooncatrescue-mooncatparser-js"
+  ],
+  "sourceFiles": [
+    {
+      "path": "references/upstream/mooncatrescue/mooncat_traits.json",
+      "sha256": "18dcb262c13e316c61051b59c1944a3265a163aed05ed429f48874caaf38abd8",
+      "role": "priority value source"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/libmooncat-limited.js",
+      "sha256": "b4d36703a58ce07c61606518010aad05b0e89dc3d11ce0f33a241a7ab35ac85e",
+      "role": "independent trait and identifier comparison"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/mooncatparser.js",
+      "sha256": "39dffc7894473b631cde4037d9f174844cfc78777134511b6b8ef44105928d59",
+      "role": "bytes5 renderability check only"
+    }
+  ],
+  "generation": {
+    "script": "scripts/generate-visual-traits.py",
+    "command": "python scripts/generate-visual-traits.py",
+    "networkDependency": "none",
+    "sampleSelection": {
+      "targetRowCount": 64,
+      "anchorRescueOrders": [
+        0,
+        1,
+        82,
+        84,
+        95,
+        96,
+        2891,
+        5757,
+        25439
+      ],
+      "coverageFirstOccurrences": {
+        "hueName": {
+          "chartreuse": 0,
+          "skyblue": 1,
+          "fuchsia": 3,
+          "blue": 4,
+          "yellow": 5,
+          "magenta": 6,
+          "orange": 8,
+          "red": 12,
+          "teal": 14,
+          "green": 25,
+          "purple": 27,
+          "cyan": 31,
+          "black": 84,
+          "white": 85
+        },
+        "facing": {
+          "right": 0,
+          "left": 1
+        },
+        "expression": {
+          "grumpy": 0,
+          "smiling": 1,
+          "pouting": 2,
+          "shy": 4
+        },
+        "pattern": {
+          "tabby": 0,
+          "tortie": 1,
+          "spotted": 6,
+          "pure": 11
+        },
+        "pose": {
+          "pouncing": 0,
+          "stalking": 1,
+          "sleeping": 5,
+          "standing": 6
+        },
+        "pale": {
+          "true": 0,
+          "false": 1
+        }
+      },
+      "fillMethod": "inclusive evenly spaced rescue-order positions using round(position * 25439 / 63)",
+      "selectedRescueOrders": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        11,
+        12,
+        14,
+        25,
+        27,
+        31,
+        82,
+        84,
+        85,
+        95,
+        96,
+        404,
+        808,
+        1211,
+        1615,
+        2019,
+        2423,
+        2827,
+        2891,
+        3230,
+        3634,
+        4038,
+        4442,
+        4846,
+        5249,
+        5653,
+        5757,
+        6057,
+        6461,
+        6864,
+        7268,
+        7672,
+        8076,
+        8480,
+        8883,
+        9287,
+        9691,
+        10095,
+        10499,
+        10902,
+        11306,
+        11710,
+        12114,
+        12518,
+        12921,
+        13325,
+        13729,
+        14133,
+        14537,
+        14940,
+        15344,
+        15748,
+        16152,
+        16556,
+        16959,
+        25439
+      ]
+    }
+  },
+  "sourcePriority": [
+    "Use direct fields from mooncat_traits.json for artifact values because it provides explicit per-row rescueOrder/catId alignment and the requested field vocabulary.",
+    "Compare every selected row with LibMoonCat extended traits and bidirectional lookup helpers; report disagreement without overwriting either value.",
+    "Use mooncatparser.js only to confirm the catId produces a non-empty pixel matrix; it supplies no selected trait values.",
+    "Normalize absent optional genesis markers to false and record that normalization; do not normalize any other mismatch."
+  ],
+  "fieldProvenance": {
+    "catId": {
+      "category": "direct",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "rescueOrder": {
+      "category": "direct-and-cross-checked",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "visualTraits.rescueYear": {
+      "category": "direct",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "visualTraits.hueInt": {
+      "category": "direct",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "visualTraits.hueName": {
+      "category": "direct",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "visualTraits.pale": {
+      "category": "direct",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "visualTraits.facing": {
+      "category": "direct",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "visualTraits.expression": {
+      "category": "direct",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "visualTraits.pattern": {
+      "category": "direct",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "visualTraits.pose": {
+      "category": "direct",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "visualTraits.genesis": {
+      "category": "direct-when-present; normalized-false-when-absent",
+      "sourceRef": "mooncatrescue-mooncat-traits-json"
+    },
+    "identifierChecks": {
+      "category": "derived",
+      "sourceRef": "mooncatrescue-libmooncat-limited-js"
+    },
+    "parserCheck": {
+      "category": "derived",
+      "sourceRef": "mooncatrescue-mooncatparser-js"
+    },
+    "mismatches": {
+      "category": "unresolved",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js"
+      ]
+    }
+  },
+  "mismatchReport": {
+    "count": 8,
+    "byField": {
+      "hueInt": 5,
+      "hueName": 3
+    },
+    "items": [
+      {
+        "catId": "0x000f53c2fd",
+        "rescueOrder": 1,
+        "field": "hueName",
+        "selectedValue": "skyblue",
+        "selectedSourceRef": "mooncatrescue-mooncat-traits-json",
+        "comparedValue": "skyBlue",
+        "comparedSourceRef": "mooncatrescue-libmooncat-limited-js",
+        "resolution": "unresolved-semantic-difference; direct snapshot value retained"
+      },
+      {
+        "catId": "0xff00000ca7",
+        "rescueOrder": 84,
+        "field": "hueInt",
+        "selectedValue": 1000,
+        "selectedSourceRef": "mooncatrescue-mooncat-traits-json",
+        "comparedValue": -1,
+        "comparedSourceRef": "mooncatrescue-libmooncat-limited-js",
+        "resolution": "unresolved-semantic-difference; direct snapshot value retained"
+      },
+      {
+        "catId": "0xff01000ca7",
+        "rescueOrder": 85,
+        "field": "hueInt",
+        "selectedValue": 2000,
+        "selectedSourceRef": "mooncatrescue-mooncat-traits-json",
+        "comparedValue": -2,
+        "comparedSourceRef": "mooncatrescue-libmooncat-limited-js",
+        "resolution": "unresolved-semantic-difference; direct snapshot value retained"
+      },
+      {
+        "catId": "0xff0b000ca7",
+        "rescueOrder": 95,
+        "field": "hueInt",
+        "selectedValue": 2000,
+        "selectedSourceRef": "mooncatrescue-mooncat-traits-json",
+        "comparedValue": -2,
+        "comparedSourceRef": "mooncatrescue-libmooncat-limited-js",
+        "resolution": "unresolved-semantic-difference; direct snapshot value retained"
+      },
+      {
+        "catId": "0xff0c000ca7",
+        "rescueOrder": 96,
+        "field": "hueInt",
+        "selectedValue": 1000,
+        "selectedSourceRef": "mooncatrescue-mooncat-traits-json",
+        "comparedValue": -1,
+        "comparedSourceRef": "mooncatrescue-libmooncat-limited-js",
+        "resolution": "unresolved-semantic-difference; direct snapshot value retained"
+      },
+      {
+        "catId": "0xff5f000ca7",
+        "rescueOrder": 2891,
+        "field": "hueInt",
+        "selectedValue": 2000,
+        "selectedSourceRef": "mooncatrescue-mooncat-traits-json",
+        "comparedValue": -2,
+        "comparedSourceRef": "mooncatrescue-libmooncat-limited-js",
+        "resolution": "unresolved-semantic-difference; direct snapshot value retained"
+      },
+      {
+        "catId": "0x00b4124afe",
+        "rescueOrder": 7672,
+        "field": "hueName",
+        "selectedValue": "skyblue",
+        "selectedSourceRef": "mooncatrescue-mooncat-traits-json",
+        "comparedValue": "skyBlue",
+        "comparedSourceRef": "mooncatrescue-libmooncat-limited-js",
+        "resolution": "unresolved-semantic-difference; direct snapshot value retained"
+      },
+      {
+        "catId": "0x00c021abe6",
+        "rescueOrder": 11710,
+        "field": "hueName",
+        "selectedValue": "skyblue",
+        "selectedSourceRef": "mooncatrescue-mooncat-traits-json",
+        "comparedValue": "skyBlue",
+        "comparedSourceRef": "mooncatrescue-libmooncat-limited-js",
+        "resolution": "unresolved-semantic-difference; direct snapshot value retained"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "catId": "0x00d658d50b",
+      "rescueOrder": 0,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 97,
+        "hueName": "chartreuse",
+        "pale": true,
+        "facing": "right",
+        "expression": "grumpy",
+        "pattern": "tabby",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x000f53c2fd",
+      "rescueOrder": 1,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 200,
+        "hueName": "skyblue",
+        "pale": false,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "tortie",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": [
+        {
+          "field": "hueName",
+          "reportIndex": 0
+        }
+      ]
+    },
+    {
+      "catId": "0x0027518528",
+      "rescueOrder": 2,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 93,
+        "hueName": "chartreuse",
+        "pale": false,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "tabby",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00aeea3b67",
+      "rescueOrder": 3,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 344,
+        "hueName": "fuchsia",
+        "pale": true,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "tortie",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00ff7b7493",
+      "rescueOrder": 4,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 253,
+        "hueName": "blue",
+        "pale": true,
+        "facing": "right",
+        "expression": "shy",
+        "pattern": "tortie",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00cd6a5c05",
+      "rescueOrder": 5,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 51,
+        "hueName": "yellow",
+        "pale": true,
+        "facing": "right",
+        "expression": "smiling",
+        "pattern": "tortie",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00d8523a53",
+      "rescueOrder": 6,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 297,
+        "hueName": "magenta",
+        "pale": true,
+        "facing": "right",
+        "expression": "grumpy",
+        "pattern": "spotted",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x0095f2783b",
+      "rescueOrder": 8,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 20,
+        "hueName": "orange",
+        "pale": true,
+        "facing": "left",
+        "expression": "grumpy",
+        "pattern": "tabby",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00304c8e29",
+      "rescueOrder": 11,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 99,
+        "hueName": "chartreuse",
+        "pale": false,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "pure",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x0080ea1503",
+      "rescueOrder": 12,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 4,
+        "hueName": "red",
+        "pale": true,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "pure",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00ba50ecb2",
+      "rescueOrder": 14,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 157,
+        "hueName": "teal",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "spotted",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x005d219414",
+      "rescueOrder": 25,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 113,
+        "hueName": "green",
+        "pale": false,
+        "facing": "right",
+        "expression": "grumpy",
+        "pattern": "tortie",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00a33f036d",
+      "rescueOrder": 27,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 273,
+        "hueName": "purple",
+        "pale": true,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "pure",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00bf1f8787",
+      "rescueOrder": 31,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 180,
+        "hueName": "cyan",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "tortie",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x0057774705",
+      "rescueOrder": 82,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 34,
+        "hueName": "orange",
+        "pale": false,
+        "facing": "right",
+        "expression": "grumpy",
+        "pattern": "tabby",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0xff00000ca7",
+      "rescueOrder": 84,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 1000,
+        "hueName": "black",
+        "pale": false,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "pure",
+        "pose": "standing",
+        "genesis": true
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": [
+        {
+          "field": "hueInt",
+          "reportIndex": 1
+        }
+      ]
+    },
+    {
+      "catId": "0xff01000ca7",
+      "rescueOrder": 85,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 2000,
+        "hueName": "white",
+        "pale": true,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "pure",
+        "pose": "sleeping",
+        "genesis": true
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": [
+        {
+          "field": "hueInt",
+          "reportIndex": 2
+        }
+      ]
+    },
+    {
+      "catId": "0xff0b000ca7",
+      "rescueOrder": 95,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 2000,
+        "hueName": "white",
+        "pale": true,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "spotted",
+        "pose": "stalking",
+        "genesis": true
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": [
+        {
+          "field": "hueInt",
+          "reportIndex": 3
+        }
+      ]
+    },
+    {
+      "catId": "0xff0c000ca7",
+      "rescueOrder": 96,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 1000,
+        "hueName": "black",
+        "pale": false,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "tortie",
+        "pose": "standing",
+        "genesis": true
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": [
+        {
+          "field": "hueInt",
+          "reportIndex": 4
+        }
+      ]
+    },
+    {
+      "catId": "0x006a427b04",
+      "rescueOrder": 404,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 88,
+        "hueName": "chartreuse",
+        "pale": false,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "spotted",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x004bfeac1d",
+      "rescueOrder": 808,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 38,
+        "hueName": "orange",
+        "pale": false,
+        "facing": "right",
+        "expression": "smiling",
+        "pattern": "spotted",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00bb008298",
+      "rescueOrder": 1211,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 188,
+        "hueName": "cyan",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "spotted",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x004790ed3e",
+      "rescueOrder": 1615,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 91,
+        "hueName": "chartreuse",
+        "pale": false,
+        "facing": "right",
+        "expression": "smiling",
+        "pattern": "tabby",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00d448d432",
+      "rescueOrder": 2019,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 111,
+        "hueName": "green",
+        "pale": true,
+        "facing": "right",
+        "expression": "grumpy",
+        "pattern": "tabby",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00e2150e0a",
+      "rescueOrder": 2423,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 21,
+        "hueName": "orange",
+        "pale": true,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "pure",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x000e68ed29",
+      "rescueOrder": 2827,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 100,
+        "hueName": "chartreuse",
+        "pale": false,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "tortie",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0xff5f000ca7",
+      "rescueOrder": 2891,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 2000,
+        "hueName": "white",
+        "pale": true,
+        "facing": "right",
+        "expression": "grumpy",
+        "pattern": "tortie",
+        "pose": "stalking",
+        "genesis": true
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": [
+        {
+          "field": "hueInt",
+          "reportIndex": 5
+        }
+      ]
+    },
+    {
+      "catId": "0x0083684bb6",
+      "rescueOrder": 3230,
+      "visualTraits": {
+        "rescueYear": 2017,
+        "hueInt": 256,
+        "hueName": "purple",
+        "pale": true,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "pure",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00eb04b1d3",
+      "rescueOrder": 3634,
+      "visualTraits": {
+        "rescueYear": 2018,
+        "hueInt": 189,
+        "hueName": "cyan",
+        "pale": true,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "spotted",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x006228213b",
+      "rescueOrder": 4038,
+      "visualTraits": {
+        "rescueYear": 2018,
+        "hueInt": 256,
+        "hueName": "purple",
+        "pale": false,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "pure",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00b99efe81",
+      "rescueOrder": 4442,
+      "visualTraits": {
+        "rescueYear": 2018,
+        "hueInt": 106,
+        "hueName": "green",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "spotted",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00a628b294",
+      "rescueOrder": 4846,
+      "visualTraits": {
+        "rescueYear": 2018,
+        "hueInt": 166,
+        "hueName": "cyan",
+        "pale": true,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "tabby",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00af51de92",
+      "rescueOrder": 5249,
+      "visualTraits": {
+        "rescueYear": 2018,
+        "hueInt": 147,
+        "hueName": "teal",
+        "pale": true,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "tortie",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00b45e8963",
+      "rescueOrder": 5653,
+      "visualTraits": {
+        "rescueYear": 2018,
+        "hueInt": 126,
+        "hueName": "green",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "tabby",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x006debf21e",
+      "rescueOrder": 5757,
+      "visualTraits": {
+        "rescueYear": 2020,
+        "hueInt": 61,
+        "hueName": "yellow",
+        "pale": false,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "tortie",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00497414ff",
+      "rescueOrder": 6057,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 264,
+        "hueName": "purple",
+        "pale": false,
+        "facing": "right",
+        "expression": "smiling",
+        "pattern": "spotted",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x008844b0cd",
+      "rescueOrder": 6461,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 192,
+        "hueName": "cyan",
+        "pale": true,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "spotted",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00ac8b79ce",
+      "rescueOrder": 6864,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 252,
+        "hueName": "blue",
+        "pale": true,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "tortie",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00e2d5bc1d",
+      "rescueOrder": 7268,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 51,
+        "hueName": "yellow",
+        "pale": true,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "pure",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00b4124afe",
+      "rescueOrder": 7672,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 225,
+        "hueName": "skyblue",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "tabby",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": [
+        {
+          "field": "hueName",
+          "reportIndex": 6
+        }
+      ]
+    },
+    {
+      "catId": "0x0052fd09e1",
+      "rescueOrder": 8076,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 306,
+        "hueName": "magenta",
+        "pale": false,
+        "facing": "right",
+        "expression": "grumpy",
+        "pattern": "pure",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x002d7fdd8d",
+      "rescueOrder": 8480,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 128,
+        "hueName": "green",
+        "pale": false,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "tortie",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x001b460d6b",
+      "rescueOrder": 8883,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 276,
+        "hueName": "purple",
+        "pale": false,
+        "facing": "left",
+        "expression": "grumpy",
+        "pattern": "spotted",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x0037be810e",
+      "rescueOrder": 9287,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 39,
+        "hueName": "orange",
+        "pale": false,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "tabby",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00625f8795",
+      "rescueOrder": 9691,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 195,
+        "hueName": "cyan",
+        "pale": false,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "pure",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00cad7a502",
+      "rescueOrder": 10095,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 45,
+        "hueName": "orange",
+        "pale": true,
+        "facing": "right",
+        "expression": "smiling",
+        "pattern": "spotted",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00753d21fb",
+      "rescueOrder": 10499,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 247,
+        "hueName": "blue",
+        "pale": false,
+        "facing": "right",
+        "expression": "shy",
+        "pattern": "tabby",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x005275a010",
+      "rescueOrder": 10902,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 77,
+        "hueName": "chartreuse",
+        "pale": false,
+        "facing": "right",
+        "expression": "grumpy",
+        "pattern": "pure",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00b28fbb09",
+      "rescueOrder": 11306,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 74,
+        "hueName": "yellow",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "pure",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00c021abe6",
+      "rescueOrder": 11710,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 197,
+        "hueName": "skyblue",
+        "pale": true,
+        "facing": "right",
+        "expression": "smiling",
+        "pattern": "pure",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": [
+        {
+          "field": "hueName",
+          "reportIndex": 7
+        }
+      ]
+    },
+    {
+      "catId": "0x00a2eb77b5",
+      "rescueOrder": 12114,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 327,
+        "hueName": "fuchsia",
+        "pale": true,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "pure",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00ef0ea6a2",
+      "rescueOrder": 12518,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 178,
+        "hueName": "cyan",
+        "pale": true,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "tortie",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00bdd792a1",
+      "rescueOrder": 12921,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 346,
+        "hueName": "red",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "tortie",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00cd1844e8",
+      "rescueOrder": 13325,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 227,
+        "hueName": "blue",
+        "pale": true,
+        "facing": "right",
+        "expression": "smiling",
+        "pattern": "tortie",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x002d5ca9a9",
+      "rescueOrder": 13729,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 180,
+        "hueName": "cyan",
+        "pale": false,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "tortie",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 14,
+        "maxWidth": 14,
+        "nonNullPixels": 210
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x001099d559",
+      "rescueOrder": 14133,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 89,
+        "hueName": "chartreuse",
+        "pale": false,
+        "facing": "left",
+        "expression": "grumpy",
+        "pattern": "pure",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x0066821e4a",
+      "rescueOrder": 14537,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 333,
+        "hueName": "fuchsia",
+        "pale": false,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "tabby",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00a883cacb",
+      "rescueOrder": 14940,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 180,
+        "hueName": "cyan",
+        "pale": true,
+        "facing": "left",
+        "expression": "pouting",
+        "pattern": "spotted",
+        "pose": "standing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 21,
+        "minWidth": 17,
+        "maxWidth": 17,
+        "nonNullPixels": 243
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00bf4cd916",
+      "rescueOrder": 15344,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 103,
+        "hueName": "chartreuse",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "tortie",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00b3187f45",
+      "rescueOrder": 15748,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 146,
+        "hueName": "teal",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "pure",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 20,
+        "minWidth": 21,
+        "maxWidth": 21,
+        "nonNullPixels": 300
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x00e6442769",
+      "rescueOrder": 16152,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 266,
+        "hueName": "purple",
+        "pale": true,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "tabby",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x004607848b",
+      "rescueOrder": 16556,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 183,
+        "hueName": "cyan",
+        "pale": false,
+        "facing": "right",
+        "expression": "smiling",
+        "pattern": "tabby",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x009eb0854e",
+      "rescueOrder": 16959,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 33,
+        "hueName": "orange",
+        "pale": true,
+        "facing": "left",
+        "expression": "grumpy",
+        "pattern": "tortie",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    },
+    {
+      "catId": "0x0076fe2589",
+      "rescueOrder": 25439,
+      "visualTraits": {
+        "rescueYear": 2021,
+        "hueInt": 332,
+        "hueName": "fuchsia",
+        "pale": false,
+        "facing": "right",
+        "expression": "shy",
+        "pattern": "tabby",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "provenance": {
+        "valueSourceRef": "mooncatrescue-mooncat-traits-json",
+        "valueMethod": "direct except genesis=false normalized from an absent optional marker",
+        "comparisonSourceRef": "mooncatrescue-libmooncat-limited-js"
+      },
+      "identifierChecks": {
+        "arrayIndexMatchesRescueOrder": true,
+        "libParseRoundTrip": true,
+        "libRescueOrderLookupMatches": true,
+        "libReverseLookupMatches": true
+      },
+      "parserCheck": {
+        "sourceRef": "mooncatrescue-mooncatparser-js",
+        "method": "derived renderability check only; parser output is not used as trait data",
+        "rowCount": 17,
+        "minWidth": 22,
+        "maxWidth": 22,
+        "nonNullPixels": 247
+      },
+      "mismatches": []
+    }
+  ],
+  "limitations": [
+    "Only 64 representative rows are curated; the remaining population is intentionally absent.",
+    "The local source snapshots have no recorded retrieval date, so upstream freshness is unresolved.",
+    "No names, accessories, ownership, market data, palettes, RGB/hex values, or current chain state are included.",
+    "LibMoonCat hueValue and mooncat_traits.json hueInt have different Genesis sentinel semantics; mismatches remain explicit."
+  ]
+}

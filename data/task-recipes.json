@@ -321,6 +321,43 @@
       ]
     },
     {
+      "key": "generate-or-validate-visual-trait-sample",
+      "purpose": "Regenerate or validate the bounded per-cat visual-trait prototype from checked-in sources without crossing identifier or provenance boundaries.",
+      "loadOrder": [
+        "docs/generated-trait-data.md",
+        "data/mooncat-visual-traits.sample.json",
+        "data/identifier-conventions.json"
+      ],
+      "optionalFiles": [
+        "data/trait-index.json",
+        "data/libmooncat-surfaces.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Run python scripts/generate-visual-traits.py --check to compare the committed artifact with a fresh in-memory generation.",
+        "Run python scripts/validate-visual-traits.py for schema, coverage, identifier, sourceRef, parser, and mismatch checks.",
+        "Read sourcePriority, fieldProvenance, and mismatchReport before consuming values or interpreting differences.",
+        "Use catId as the primary key and rescueOrder only as the source-backed secondary lookup field.",
+        "Regenerate with python scripts/generate-visual-traits.py only when the checked-in source snapshots or generation policy deliberately change."
+      ],
+      "outputs": [
+        "determinism status",
+        "sample validation status",
+        "explicit mismatch count and fields",
+        "bounded-coverage limitations"
+      ],
+      "guardrails": [
+        "Do not hand-edit generated rows or silently normalize source disagreements.",
+        "Do not derive rescueOrder arithmetically from bytes5 catId.",
+        "Do not treat the 64 rows as complete population coverage.",
+        "Do not add names, accessories, ownership, markets, palettes, or live state to this artifact."
+      ],
+      "stopConditions": [
+        "Stop if a required registered source snapshot is missing or its format no longer passes generation checks.",
+        "Stop if generator output changes unexpectedly; inspect hashes, selection metadata, and mismatch details before replacing the artifact."
+      ]
+    },
+    {
       "key": "use-libmooncat-helper-surfaces",
       "purpose": "Route helper-surface questions through the compact LibMoonCat/parser index while keeping behavior claims tied to reviewed reference files.",
       "loadOrder": [

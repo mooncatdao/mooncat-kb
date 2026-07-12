@@ -1,13 +1,15 @@
 {
-  "version": 2,
-  "updated": "2026-07-04",
-  "status": "schema-metadata-with-curated-model-decision",
+  "version": 3,
+  "updated": "2026-07-11",
+  "status": "schema-metadata-with-generated-prototype",
   "scope": "Compact field dictionary and validation summary for the local mooncat_traits.json upstream reference snapshot.",
   "sourceRefs": [
     "mooncatrescue-mooncat-traits-json"
   ],
   "relatedFiles": [
     "docs/traits.md",
+    "docs/generated-trait-data.md",
+    "data/mooncat-visual-traits.sample.json",
     "data/identifier-conventions.json",
     "references/upstream/mooncatrescue/mooncat_traits.json"
   ],
@@ -15,7 +17,7 @@
     "container": "top-level array",
     "rowCount": 25440,
     "rowSemantics": "one observed row per MoonCat in rescueOrder array order",
-    "perCatRowsImported": false,
+    "perCatRowsImported": "64-row representative prototype only",
     "sourceRefs": [
       "mooncatrescue-mooncat-traits-json"
     ]
@@ -351,15 +353,16 @@
     }
   ],
   "curatedTraitModelDecision": {
-    "status": "recommended-for-future-focused-generated-data-pass",
-    "summary": "Curated per-cat trait data may be useful for lookups, validation, and downstream tools, but it should not be imported until a focused pass defines the generated artifact, source method, validation command, update process, and size limits.",
+    "status": "implemented-as-bounded-generated-prototype",
+    "summary": "A deterministic 64-row representative visual-trait prototype now tests the model with explicit source priority, per-field provenance categories, identifier round trips, and mismatch reporting; full-population import remains undecided.",
     "recommendedStorage": {
-      "kind": "generated-curated-json",
-      "location": "future data/ file, not this schema metadata file",
+      "kind": "generated-curated-json-prototype",
+      "location": "data/mooncat-visual-traits.sample.json",
       "importFullUpstreamSnapshot": false,
       "notes": [
         "Keep references/upstream/mooncatrescue/mooncat_traits.json as reference input, not curated KB data.",
-        "Prefer a generated artifact with repeatable validation over hand-edited per-cat rows."
+        "Use scripts/generate-visual-traits.py and scripts/validate-visual-traits.py rather than hand-editing per-cat rows.",
+        "See docs/generated-trait-data.md for source priority, selection, mismatch, and scaling decisions."
       ]
     },
     "preferredIdentifierKey": {
@@ -459,8 +462,8 @@
       "Keep aggregate reports separate unless the pass explicitly creates derived summaries."
     ],
     "openQuestions": [
-      "Whether the first curated artifact should include all 25,440 cats or a smaller generated lookup optimized for common KB tasks.",
-      "Whether generated per-cat rows should be committed directly or produced by a script from reference snapshots.",
+      "Whether a future artifact should include all 25,440 cats or retain a smaller generated lookup optimized for common KB tasks.",
+      "Whether a full generated artifact should be committed directly, sharded, or produced only at build time.",
       "Whether visual trait fields should be versioned separately from API/name/accessory-related fields.",
       "What freshness policy should apply if current API or ChainStation-maintained trait artifacts diverge from the local upstream snapshot.",
       "Whether any consumer needs rescueOrder-primary shape despite bytes5 catId being the preferred primary key."
@@ -468,7 +471,7 @@
   },
   "limitations": [
     "This file is schema and validation metadata, not the full 25,440-row trait dataset.",
-    "No per-cat trait rows, catId mappings, names, accessory details, or frequency tables are imported.",
+    "Only 64 representative per-cat rows are imported; names, accessory details, and frequency tables remain excluded.",
     "Observed value sets describe the checked local reference snapshot and are not independently claimed as a canonical trait dictionary.",
     "The local snapshot copied or retrieved date is not recorded in the reference README.",
     "Freshness of API, ChainStation, name, and accessory-related data is not resolved here."
@@ -476,6 +479,6 @@
   "todos": [
     "Decide whether names and accessory-related fields need separate provenance or update cadence before any curated import.",
     "If needed, create a separate generated validation report with aggregate counts and a reproducible command.",
-    "If needed, implement the curated per-cat visual trait artifact only through a focused generated-data pass using curatedTraitModelDecision."
+    "Decide whether the bounded prototype should ever scale to a full generated population artifact."
   ]
 }

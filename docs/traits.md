@@ -1,20 +1,22 @@
 # Trait Data Strategy
 
-Machine-readable trait data is not yet curated in `data/`. The current full trait dataset lives only as a local upstream reference snapshot at `references/upstream/mooncatrescue/mooncat_traits.json`.
+Machine-readable trait data now includes a bounded generated prototype at `data/mooncat-visual-traits.sample.json`. The full trait dataset remains only a local upstream reference snapshot at `references/upstream/mooncatrescue/mooncat_traits.json`.
 
 This page documents what was observed in that snapshot, which resources can support future trait work, and what should happen before any normalized trait data is promoted into curated KB files.
 
 ## Current Status
 
-Curated model decision recorded; curated per-cat trait data is still not imported.
+Curated model decision implemented as a deterministic 64-row representative prototype. Full-population per-cat trait data is not imported.
+
+See `docs/generated-trait-data.md` for sample selection, source priority, mismatch reporting, generation, validation, and scaling guidance.
 
 `mooncat_traits.json` is a reference input under `docs/reference-policy.md`, not a curated KB dataset. It may be used as evidence for schema and validation planning, but future imports should promote only deliberate, normalized outputs into `data/`.
 
 ## Curated Trait Model Decision
 
-Curated per-cat trait data is recommended only as a future focused generated-data pass. The KB should not hand-copy or directly promote the full upstream `mooncat_traits.json` table into `data/`.
+The bounded curated prototype was created through a focused generated-data pass. The KB should not hand-copy or directly promote the full upstream `mooncat_traits.json` table into `data/`.
 
-If a curated per-cat trait artifact is created later, the preferred primary key is `catId` in the 0x-prefixed bytes5 MoonCat ID form. `rescueOrder` may be included as a required secondary lookup/index field when it is sourced from the validated row or array-backed lookup method and used according to `data/identifier-conventions.json`.
+The prototype uses `catId` in the 0x-prefixed bytes5 MoonCat ID form as its primary key. `rescueOrder` is a required secondary lookup/index field sourced from the validated row and checked through array-backed and LibMoonCat lookup methods according to `data/identifier-conventions.json`.
 
 Allowed fields for the first visual-trait artifact:
 
@@ -43,10 +45,10 @@ Required provenance and method:
 
 Validation for any future generated artifact should check JSON syntax, one row per included `catId`, no duplicate `catId` values, bytes5 `catId` format, `rescueOrder` range and uniqueness for complete datasets, rescue-order alignment, required visual trait fields, allowed value sets, explicit `genesis` handling, and sourceRef resolution.
 
-Open questions before import:
+Open questions before a full import:
 
-- whether the first curated artifact should include all 25,440 cats or a smaller generated lookup optimized for common KB tasks
-- whether generated per-cat rows should be committed directly or produced by script from reference snapshots
+- whether a future artifact should include all 25,440 cats or remain a smaller generated lookup optimized for common KB tasks
+- whether a full generated artifact should be committed directly, sharded, or produced only at build time
 - whether visual traits should be versioned separately from API/name/accessory fields
 - what freshness policy should apply if current API or ChainStation-maintained trait artifacts diverge from the local upstream snapshot
 - whether any consumer needs rescueOrder-primary shape despite bytes5 `catId` being the preferred primary key
@@ -130,4 +132,4 @@ Before any curated import, decide whether names, accessory counts, and derived r
 
 ## Limits
 
-This pass does not import the full 25,440-row mapping into `data/`, does not create trait frequencies, does not claim a canonical trait dictionary, and does not resolve freshness of current API or ChainStation trait artifacts.
+The prototype does not import the full 25,440-row mapping into `data/`, does not create trait frequencies, does not claim a canonical trait dictionary, and does not resolve freshness of current API or ChainStation trait artifacts. It includes 64 generated rows and an explicit mismatch report only.

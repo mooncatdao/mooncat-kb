@@ -94,14 +94,37 @@
       ],
       "optionalFiles": [
         "data/api-examples.json",
+        "data/mooncat-visual-traits.sample.json",
         "data/libmooncat-surfaces.json",
+        "docs/generated-trait-data.md",
         "docs/traits.md",
         "docs/reference-policy.md",
         "data/sources.json"
       ],
       "notes": [
-        "Machine-readable trait mappings are incomplete in data/.",
-        "Do not import or assume the full upstream trait table unless a focused import pass creates curated data."
+        "Machine-readable per-cat traits are limited to the generated 64-row representative sample in data/.",
+        "Do not treat the sample as full-population coverage or import the full upstream trait table without a focused generated-data pass."
+      ]
+    },
+    {
+      "key": "generate-visual-trait-sample",
+      "description": "Regenerate, validate, or interpret the bounded per-cat visual-trait prototype.",
+      "primaryFiles": [
+        "data/mooncat-visual-traits.sample.json",
+        "docs/generated-trait-data.md"
+      ],
+      "optionalFiles": [
+        "data/trait-index.json",
+        "data/identifier-conventions.json",
+        "data/libmooncat-surfaces.json",
+        "data/sources.json",
+        "scripts/generate-visual-traits.py",
+        "scripts/validate-visual-traits.py"
+      ],
+      "notes": [
+        "The artifact has 64 deterministic representative rows and is not complete population coverage.",
+        "Use the generator --check mode and dedicated validator; do not hand-edit rows.",
+        "Preserve direct, normalized, derived, and unresolved provenance categories and all mismatch originals."
       ]
     },
     {
