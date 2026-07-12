@@ -51,6 +51,13 @@
       ]
     },
     {
+      "key": "use-agent-context-packs",
+      "description": "Select or maintain minimal generated context packs for realistic MoonCat coding-agent tasks.",
+      "primaryFiles": ["data/agent-query-cases.json", "docs/agent-usage.md"],
+      "optionalFiles": ["data/agent-context-packs.json", "data/agent-coding-patterns.json", "data/agent-index.json", "data/task-recipes.json", "data/kb-gap-index.json", "data/sources.json", "scripts/generate-agent-context-packs.py", "scripts/validate-agent-routing.py"],
+      "notes": ["Packs reference minimal local files and guardrails; they do not contain copied source content or full-KB prompts.", "Run generator --check and routing validation after changing a route, case, or pack policy.", "Preserve each case's required warnings, forbidden claims, and stop conditions rather than guessing unsupported facts."]
+    },
+    {
       "key": "review-kb-gaps",
       "description": "Find current KB usability gaps, resolved gaps, routing coverage, and recommended next passes.",
       "primaryFiles": [

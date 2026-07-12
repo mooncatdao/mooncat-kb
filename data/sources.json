@@ -1086,6 +1086,16 @@
       "notes": "Reviewed on 2026-07-04 for color-source inventory only. Reddit post and comments are by MidnightLightning and discuss hue wheel colorization, palette categories, shifted bucket boundaries, and genesis black/white categorization. Treat as high-confidence maintainer/community explanation, not source-code proof."
     },
     {
+      "id": "repo-agent-query-benchmark",
+      "label": "Coding-agent query benchmark and generated context packs",
+      "type": "local-derived",
+      "path": "data/agent-query-cases.json",
+      "trustLevel": "derived",
+      "status": "active",
+      "supports": ["task-specific coding-agent routing", "minimal context-pack contracts", "forbidden-claim regression checks", "tested coding-pattern discovery"],
+      "notes": "Local zero-network benchmark derived from existing routes, recipes, sources, and checked-in validation scripts. It measures routing/context completeness rather than model quality, live behavior, or source truth."
+    },
+    {
       "id": "repo-materialization-parity-fixtures",
       "label": "Materialization parity fixtures and generated results",
       "type": "local-derived",

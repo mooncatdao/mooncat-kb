@@ -5,6 +5,18 @@ Plain-text and Markdown entrypoints:
 - /README.md
 - /AGENTS.md
 - /data/agent-index.json
+- /data/agent-query-cases.json
+- /data/agent-context-packs.json
+- /data/agent-coding-patterns.json
+- /docs/agent-usage.md
+- /data/task-recipes.json
+- /data/kb-gap-index.json
+- /docs/identifier-verification.md
+- /docs/color-classification.md
+- /docs/materialization-parity.md
+- /data/upstream-snapshot-manifest.json
+- /data/mooncat-accessories-internals.json
+- /data/mooncat-accessory-images-internals.json
 - /docs/overview.md
 - /docs/source-map.md
 - /docs/glossary.md
@@ -35,6 +47,7 @@ Plain-text and Markdown entrypoints:
 Notes:
 
 - For task-specific agent context, load /data/agent-index.json before broader docs or data files.
+- For covered coding tasks, load the matching generated pack from /data/agent-context-packs.json; then inspect only the referenced underlying files.
 - Use /data/ for exact canonical or curated data.
 - Use /docs/ for explanations and reasoning.
 - Incomplete information is marked explicitly and should not be filled by guesswork.

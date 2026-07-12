@@ -85,6 +85,16 @@
       ]
     },
     {
+      "key": "use-agent-context-packs",
+      "purpose": "Choose or maintain deterministic minimal context packs for MoonCat coding-agent work without loading the whole KB.",
+      "loadOrder": ["data/agent-query-cases.json", "data/agent-context-packs.json", "docs/agent-usage.md", "data/agent-index.json"],
+      "optionalFiles": ["data/agent-coding-patterns.json", "data/task-recipes.json", "data/kb-gap-index.json", "data/sources.json", "scripts/generate-agent-context-packs.py", "scripts/validate-agent-routing.py"],
+      "steps": ["Match the query to a benchmark case and route.", "Load route primary files first, then only case-explicit optional files.", "Preserve required warnings, forbidden claims, and stop conditions in the implementation plan.", "Run the pack validation commands before and after route/case changes."],
+      "outputs": ["minimal file load list", "implementation guardrails", "known limitations", "validation command set", "context size metrics"],
+      "guardrails": ["Do not create a universal full-KB prompt or inline upstream/source content into a pack.", "Do not treat benchmark contracts as model-quality scores or complete domain answers.", "Do not omit unsafe-inference warnings merely to make a task look implementable."],
+      "stopConditions": ["Stop if no route can supply explicit facts, warnings, forbidden claims, stop conditions, and validation commands.", "Stop if the required claim is marked incomplete, current-state-dependent, or unsupported by the selected pack."]
+    },
+    {
       "key": "choose-mooncat-identifier-form",
       "purpose": "Choose the correct identifier form before calling APIs, using libraries, reading buckets, or discussing token-facing surfaces.",
       "loadOrder": [

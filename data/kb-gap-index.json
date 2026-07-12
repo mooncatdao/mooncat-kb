@@ -1,8 +1,8 @@
 {
-  "version": 4,
+  "version": 5,
   "updated": "2026-07-12",
-  "status": "refreshed-audit-report-with-materialization-parity-fixtures",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
+  "status": "refreshed-audit-report-with-agent-query-context-packs",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/api-endpoints.json",
@@ -15,6 +15,9 @@
     "data/materialization-internals.json",
     "data/materialization-parity-cases.json",
     "data/materialization-parity-results.json",
+    "data/agent-query-cases.json",
+    "data/agent-context-packs.json",
+    "data/agent-coding-patterns.json",
     "data/contract-surfaces.json",
     "data/contracts.json",
     "data/identifier-conventions.json",
@@ -50,9 +53,9 @@
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
     "status": "all-current-route-candidates-directly-routed",
-    "dataFileCount": 35,
-    "routeCandidates": 34,
-    "directlyRoutedCandidateCount": 34,
+    "dataFileCount": 38,
+    "routeCandidates": 37,
+    "directlyRoutedCandidateCount": 37,
     "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
       "data/agent-index.json"
@@ -135,6 +138,12 @@
         "scripts/validate-materialization-parity.py"
       ],
       "notes": "Eight fixed fixtures now verify explicit rescueOrder/catIdBytes5 identity, source-trait parity, and deterministic parser structure while retaining five documented trait differences. Per-cat MoonCatColors palette output, exact SVG serialization, and accessory composition remain explicitly unavailable, documented-only, or deferred rather than inferred."
+    },
+    {
+      "key": "agent-query-benchmark-and-context-packs",
+      "status": "resolved-as-deterministic-routing-contracts",
+      "files": ["data/agent-query-cases.json", "data/agent-context-packs.json", "data/agent-coding-patterns.json", "docs/agent-usage.md", "scripts/generate-agent-context-packs.py", "scripts/validate-agent-routing.py"],
+      "notes": "Thirteen realistic coding-agent cases now generate minimal route-backed packs with explicit warnings, forbidden claims, stop conditions, commands, and size metrics. The suite validates routing/context contracts and dangerous-conflation coverage without network or subjective model scoring."
     },
     {
       "key": "task-recipes-added",

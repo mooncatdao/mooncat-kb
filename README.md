@@ -5,6 +5,9 @@ Plain-text and Markdown knowledge base for MoonCat technical facts, explanations
 Start here:
 
 - `data/agent-index.json` — preferred first load target for task-specific agent context routing
+- `data/agent-query-cases.json` and `data/agent-context-packs.json` — deterministic coding-agent benchmark and minimal generated context packs
+- `docs/agent-usage.md` — route/pack selection, uncertainty, and validation workflow
+- `data/agent-coding-patterns.json` — pointers to tested local coding patterns and validators
 - `docs/overview.md` — high-level context
 - `docs/source-map.md` — where to find canonical or supporting sources
 - `docs/glossary.md` — short definitions for recurring terms
@@ -61,6 +64,8 @@ python scripts/validate-kb.py
 
 It checks `data/*.json` parsing, required routed file references, and `sourceRef` consistency.
 The script locates the repo root automatically when invoked by path from a subdirectory.
+
+For coding-agent route/pack changes, also run `python scripts/generate-agent-context-packs.py --check` and `python scripts/validate-agent-routing.py`.
 
 ## License
 

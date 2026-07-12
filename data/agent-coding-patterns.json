@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "updated": "2026-07-12",
+  "status": "tested-coding-pattern-catalog",
+  "scope": "Pointers to small checked-in patterns and validators for coding agents. This catalog does not duplicate upstream implementations or make live-state claims.",
+  "patterns": [
+    {"key": "rescue-order-catid-round-trip", "purpose": "Use array-backed rescueOrder and catIdBytes5 conversion fixtures.", "files": ["data/identifier-conversion-cases.json", "scripts/validate-identifier-conversions.py"], "command": "python scripts/validate-identifier-conversions.py", "guardrail": "No closed-form conversion or WMCR generalization."},
+    {"key": "catid-normalization", "purpose": "Apply strict lowercase 0x-prefixed bytes5 handling with tested malformed/unknown cases.", "files": ["docs/identifier-verification.md", "scripts/validate-identifier-conversions.py"], "command": "python scripts/validate-identifier-conversions.py", "guardrail": "Normalize only within the documented Cat ID policy."},
+    {"key": "local-parser-structure", "purpose": "Check deterministic local parser structure without claiming SVG/on-chain parity.", "files": ["data/materialization-parity-results.json", "scripts/validate-materialization-parity.py"], "command": "python scripts/validate-materialization-parity.py", "guardrail": "Structural fingerprints are not palette or exact serialization proof."},
+    {"key": "api-request-construction", "purpose": "Construct small requests from manifest-derived examples and identifier rules.", "files": ["data/api-examples.json", "data/api-endpoints.json", "data/identifier-conventions.json"], "command": "python scripts/validate-kb.py", "guardrail": "Examples do not replace schemas or live validation."},
+    {"key": "derived-color-labels", "purpose": "Use versioned display labels while retaining raw hue fields.", "files": ["data/color-classification.json", "scripts/validate-color-classification.py"], "command": "python scripts/validate-color-classification.py", "guardrail": "Labels are not RGB, palette, rarity, or rendering proof."},
+    {"key": "wallet-free-rescue-mining", "purpose": "Reuse the bounded local seed-search pattern.", "files": ["data/rescue-mining.json", "examples/rescue-mining.js", "docs/rescue-mining.md"], "command": "python scripts/validate-kb.py", "guardrail": "No wallet, transaction submission, current availability, or ownership claim."},
+    {"key": "zero-network-kb-validation", "purpose": "Validate JSON, routing, generated artifacts, and source references after an implementation change.", "files": ["scripts/validate-kb.py", "data/task-recipes.json", "data/kb-gap-index.json"], "command": "python scripts/validate-kb.py", "guardrail": "Run task-specific validators as well as the structural KB validator."}
+  ]
+}

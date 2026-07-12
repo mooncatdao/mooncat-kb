@@ -1,0 +1,1084 @@
+{
+  "version": 1,
+  "updated": "2026-07-12",
+  "status": "generated-minimal-agent-context-packs",
+  "scope": "Task-specific references, guardrails, limits, and commands generated from routing and benchmark contracts. No source contents, snapshots, model calls, token counts, or live state are included.",
+  "sourceRefs": [
+    "repo-agent-query-benchmark"
+  ],
+  "generation": {
+    "script": "scripts/generate-agent-context-packs.py",
+    "command": "python scripts/generate-agent-context-packs.py",
+    "networkDependency": "none",
+    "caseCount": 13,
+    "sizePolicy": {
+      "softFileLimit": 7,
+      "softEstimatedByteLimit": 200000,
+      "rationale": "Packs load route primary files first and include optional files only when the benchmark case explicitly needs them; 200 KB permits the existing 64-row generated trait artifact with its identifier/schema limits, not broad snapshot loading."
+    }
+  },
+  "packs": [
+    {
+      "caseId": "local-parser-rendering",
+      "category": "local-rendering",
+      "taskSummary": "Add a local MoonCat preview from a known bytes5 Cat ID without using network services.",
+      "route": "verify-materialization-parity",
+      "recipe": "verify-materialization-parity",
+      "primaryFiles": [
+        "data/materialization-parity-cases.json",
+        "data/materialization-parity-results.json",
+        "docs/materialization-parity.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/materialization-internals.json",
+        "data/libmooncat-surfaces.json"
+      ],
+      "filesToLoad": [
+        "data/materialization-parity-cases.json",
+        "data/materialization-parity-results.json",
+        "docs/materialization-parity.md",
+        "data/materialization-internals.json",
+        "data/libmooncat-surfaces.json"
+      ],
+      "terminology": [
+        "catIdBytes5",
+        "rescueOrder",
+        "structuralRender"
+      ],
+      "requiredFacts": [
+        "mooncatparser accepts bytes5-style Cat ID input",
+        "parser structural output is deterministic for the fixed fixtures"
+      ],
+      "implementationGuardrails": [
+        "Do not infer RGB, hex, palette orientation, or on-chain SVG output from a human-facing color label.",
+        "Do not treat fixture success as full-population or current-state proof.",
+        "Do not construct an accessory fixture without deterministic local definitions, records, image data, palette, and layering inputs.",
+        "Parser structure is not exact SVG or on-chain parity proof."
+      ],
+      "forbiddenClaims": [
+        "parser determinism proves cross-render or on-chain parity",
+        "derived color labels prove RGB or palette values"
+      ],
+      "knownLimitations": [
+        "Parser structure is not exact SVG or on-chain parity proof."
+      ],
+      "stopConditions": [
+        "Stop if exact on-chain SVG output or a DOM-only image helper is required."
+      ],
+      "validationCommands": [
+        "python scripts/generate-materialization-parity.py --check",
+        "python scripts/validate-materialization-parity.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 5,
+        "estimatedByteCount": 63367,
+        "files": [
+          {
+            "path": "data/materialization-parity-cases.json",
+            "bytes": 8630
+          },
+          {
+            "path": "data/materialization-parity-results.json",
+            "bytes": 34131
+          },
+          {
+            "path": "docs/materialization-parity.md",
+            "bytes": 3041
+          },
+          {
+            "path": "data/materialization-internals.json",
+            "bytes": 2704
+          },
+          {
+            "path": "data/libmooncat-surfaces.json",
+            "bytes": 14861
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Use the smallest local parser/materialization boundary pack."
+      }
+    },
+    {
+      "caseId": "api-request-construction",
+      "category": "api-use",
+      "taskSummary": "Construct a MoonCat API trait request using the accepted identifier form and checked request pattern.",
+      "route": "call-api-endpoints",
+      "recipe": "use-api-examples",
+      "primaryFiles": [
+        "data/api-examples.json",
+        "data/api-endpoints.json"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/identifier-conventions.json"
+      ],
+      "filesToLoad": [
+        "data/api-examples.json",
+        "data/api-endpoints.json",
+        "data/identifier-conventions.json"
+      ],
+      "terminology": [
+        "apiOriginalRescueIndex",
+        "catIdBytes5"
+      ],
+      "requiredFacts": [
+        "API examples are construction aids",
+        "identifier convention must be selected before request construction"
+      ],
+      "implementationGuardrails": [
+        "Examples are construction aids and do not replace the endpoint manifest or registered OpenAPI specs.",
+        "Do not store or infer response bodies from examples unless an allowed task explicitly verifies and records them.",
+        "Do not use placeholder examples as if they were live-checked examples.",
+        "Do not treat examples as complete API schema or live response data."
+      ],
+      "forbiddenClaims": [
+        "example response is current state",
+        "unverified identifier conversion is safe"
+      ],
+      "knownLimitations": [
+        "Do not treat examples as complete API schema or live response data."
+      ],
+      "stopConditions": [
+        "Stop if the needed endpoint schema or identifier form is not listed."
+      ],
+      "validationCommands": [
+        "python scripts/validate-kb.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 3,
+        "estimatedByteCount": 91578,
+        "files": [
+          {
+            "path": "data/api-examples.json",
+            "bytes": 9291
+          },
+          {
+            "path": "data/api-endpoints.json",
+            "bytes": 45358
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 36929
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Endpoint manifest plus one identifier boundary file only."
+      }
+    },
+    {
+      "caseId": "catid-rescue-order-conversion",
+      "category": "identifiers",
+      "taskSummary": "Convert a known Cat ID to rescue order and back in local code.",
+      "route": "verify-identifier-conversions",
+      "recipe": "verify-identifier-conversions",
+      "primaryFiles": [
+        "data/identifier-conversion-cases.json",
+        "docs/identifier-verification.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/identifier-conventions.json",
+        "data/libmooncat-surfaces.json"
+      ],
+      "filesToLoad": [
+        "data/identifier-conversion-cases.json",
+        "docs/identifier-verification.md",
+        "data/identifier-conventions.json",
+        "data/libmooncat-surfaces.json"
+      ],
+      "terminology": [
+        "catIdBytes5",
+        "rescueOrder"
+      ],
+      "requiredFacts": [
+        "Conversion is array-backed",
+        "round trips are supported only for known rescued fixtures"
+      ],
+      "implementationGuardrails": [
+        "Do not derive rescue order from bytes5 arithmetic or WMCR numeric equality.",
+        "Do not use generic tokenId terminology when the contract/system is not named.",
+        "Do not promote fixture rows into a full mapping or current-state claim.",
+        "Do not derive rescue order arithmetically from bytes5 Cat ID."
+      ],
+      "forbiddenClaims": [
+        "closed-form Cat ID conversion",
+        "all syntactically valid bytes5 values are rescued"
+      ],
+      "knownLimitations": [
+        "Do not derive rescue order arithmetically from bytes5 Cat ID."
+      ],
+      "stopConditions": [
+        "Stop if the ID is malformed, unknown, or outside the documented lookup domain."
+      ],
+      "validationCommands": [
+        "python scripts/validate-identifier-conversions.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 75899,
+        "files": [
+          {
+            "path": "data/identifier-conversion-cases.json",
+            "bytes": 19869
+          },
+          {
+            "path": "docs/identifier-verification.md",
+            "bytes": 4240
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 36929
+          },
+          {
+            "path": "data/libmooncat-surfaces.json",
+            "bytes": 14861
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Use executable conversion fixtures before broader identifier docs."
+      }
+    },
+    {
+      "caseId": "acclimated-token-lookup",
+      "category": "acclimated-boundary",
+      "taskSummary": "Map an Acclimated MoonCats token ID to a Cat ID for the exact Acclimated contract.",
+      "route": "verify-identifier-conversions",
+      "recipe": "verify-identifier-conversions",
+      "primaryFiles": [
+        "data/identifier-conversion-cases.json",
+        "docs/identifier-verification.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/identifier-conventions.json"
+      ],
+      "filesToLoad": [
+        "data/identifier-conversion-cases.json",
+        "docs/identifier-verification.md",
+        "data/identifier-conventions.json"
+      ],
+      "terminology": [
+        "acclimatedTokenId",
+        "rescueOrder",
+        "catIdBytes5"
+      ],
+      "requiredFacts": [
+        "Acclimated token ID equals rescue order only for the exact reviewed contract"
+      ],
+      "implementationGuardrails": [
+        "Do not derive rescue order from bytes5 arithmetic or WMCR numeric equality.",
+        "Do not use generic tokenId terminology when the contract/system is not named.",
+        "Do not promote fixture rows into a full mapping or current-state claim.",
+        "Contract-scoped token equivalence is not generic ERC-721 behavior."
+      ],
+      "forbiddenClaims": [
+        "all wrapper token IDs equal rescue order",
+        "marketplace URL ID is always an Acclimated token ID"
+      ],
+      "knownLimitations": [
+        "Contract-scoped token equivalence is not generic ERC-721 behavior."
+      ],
+      "stopConditions": [
+        "Stop if the contract is not the exact Acclimated MoonCats contract."
+      ],
+      "validationCommands": [
+        "python scripts/validate-identifier-conversions.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 3,
+        "estimatedByteCount": 61038,
+        "files": [
+          {
+            "path": "data/identifier-conversion-cases.json",
+            "bytes": 19869
+          },
+          {
+            "path": "docs/identifier-verification.md",
+            "bytes": 4240
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 36929
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Keep wrapper scope explicit and omit unrelated contract material."
+      }
+    },
+    {
+      "caseId": "wmcr-tokenid-refusal",
+      "category": "wmcr-boundary",
+      "taskSummary": "Convert historical WMCR token ID 0 directly to rescue order.",
+      "route": "verify-identifier-conversions",
+      "recipe": "verify-identifier-conversions",
+      "primaryFiles": [
+        "data/identifier-conversion-cases.json",
+        "docs/identifier-verification.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/identifier-conventions.json"
+      ],
+      "filesToLoad": [
+        "data/identifier-conversion-cases.json",
+        "docs/identifier-verification.md",
+        "data/identifier-conventions.json"
+      ],
+      "terminology": [
+        "wmcrTokenId",
+        "catIdBytes5",
+        "rescueOrder"
+      ],
+      "requiredFacts": [
+        "WMCR token IDs are mapping-backed sequential wrapper records"
+      ],
+      "implementationGuardrails": [
+        "Do not derive rescue order from bytes5 arithmetic or WMCR numeric equality.",
+        "Do not use generic tokenId terminology when the contract/system is not named.",
+        "Do not promote fixture rows into a full mapping or current-state claim.",
+        "Direct WMCR tokenId-to-rescueOrder conversion is unsupported without exact mapping context."
+      ],
+      "forbiddenClaims": [
+        "WMCR token ID equals rescue order",
+        "numeric equality proves wrapper conversion"
+      ],
+      "knownLimitations": [
+        "Direct WMCR tokenId-to-rescueOrder conversion is unsupported without exact mapping context."
+      ],
+      "stopConditions": [
+        "Stop and report unsupported when the exact wrapper mapping or event context is absent."
+      ],
+      "validationCommands": [
+        "python scripts/validate-identifier-conversions.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 3,
+        "estimatedByteCount": 61038,
+        "files": [
+          {
+            "path": "data/identifier-conversion-cases.json",
+            "bytes": 19869
+          },
+          {
+            "path": "docs/identifier-verification.md",
+            "bytes": 4240
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 36929
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Unsafe conversion case: return the limitation, not a guessed number."
+      }
+    },
+    {
+      "caseId": "bounded-visual-trait-lookup",
+      "category": "traits",
+      "taskSummary": "Use the generated visual-trait sample in a local feature without treating it as the full population.",
+      "route": "generate-visual-trait-sample",
+      "recipe": null,
+      "primaryFiles": [
+        "data/mooncat-visual-traits.sample.json",
+        "docs/generated-trait-data.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/trait-index.json",
+        "data/identifier-conventions.json"
+      ],
+      "filesToLoad": [
+        "data/mooncat-visual-traits.sample.json",
+        "docs/generated-trait-data.md",
+        "data/trait-index.json",
+        "data/identifier-conventions.json"
+      ],
+      "terminology": [
+        "catIdBytes5",
+        "rescueOrder",
+        "visualTraits"
+      ],
+      "requiredFacts": [
+        "Sample has 64 deterministic representative rows",
+        "raw traits retain explicit mismatch reporting"
+      ],
+      "implementationGuardrails": [
+        "Do not treat the sample as complete population coverage."
+      ],
+      "forbiddenClaims": [
+        "missing sample row means nonexistent MoonCat",
+        "sample provides current ownership or accessories"
+      ],
+      "knownLimitations": [
+        "Do not treat the sample as complete population coverage."
+      ],
+      "stopConditions": [
+        "Stop if the feature needs a complete per-cat lookup or live freshness."
+      ],
+      "validationCommands": [
+        "python scripts/generate-visual-traits.py --check",
+        "python scripts/validate-visual-traits.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 193664,
+        "files": [
+          {
+            "path": "data/mooncat-visual-traits.sample.json",
+            "bytes": 135327
+          },
+          {
+            "path": "docs/generated-trait-data.md",
+            "bytes": 5363
+          },
+          {
+            "path": "data/trait-index.json",
+            "bytes": 16045
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 36929
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Generated artifact and its limits, no raw upstream table."
+      }
+    },
+    {
+      "caseId": "derived-color-label-filter",
+      "category": "color-labels",
+      "taskSummary": "Add a search filter using the human-facing MoonCat color label.",
+      "route": "classify-mooncat-colors",
+      "recipe": "classify-mooncat-colors",
+      "primaryFiles": [
+        "data/color-classification.json",
+        "docs/color-classification.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/color-hues.json"
+      ],
+      "filesToLoad": [
+        "data/color-classification.json",
+        "docs/color-classification.md",
+        "data/color-hues.json"
+      ],
+      "terminology": [
+        "hueInt",
+        "hueName",
+        "pale",
+        "genesis",
+        "colorClassification"
+      ],
+      "requiredFacts": [
+        "Derived labels are versioned display metadata",
+        "pale remains a separate modifier"
+      ],
+      "implementationGuardrails": [
+        "Do not use derived labels as canonical on-chain trait, rarity, palette, RGB, hex, or rendering evidence.",
+        "Do not force 1000 or 2000 sentinels through modulo circular hue handling.",
+        "Do not treat display vocabulary normalization as a source mismatch.",
+        "Derived color labels are not palette/RGB/hex/render proof."
+      ],
+      "forbiddenClaims": [
+        "Sky Blue label determines exact palette",
+        "derived label is canonical on-chain trait or rarity"
+      ],
+      "knownLimitations": [
+        "Derived color labels are not palette/RGB/hex/render proof."
+      ],
+      "stopConditions": [
+        "Stop if the requested result needs palette orientation or exact renderer colors."
+      ],
+      "validationCommands": [
+        "python scripts/validate-color-classification.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 3,
+        "estimatedByteCount": 48631,
+        "files": [
+          {
+            "path": "data/color-classification.json",
+            "bytes": 7818
+          },
+          {
+            "path": "docs/color-classification.md",
+            "bytes": 2948
+          },
+          {
+            "path": "data/color-hues.json",
+            "bytes": 37865
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Policy and explanation only; raw color source is optional."
+      }
+    },
+    {
+      "caseId": "rescue-mining-local-tool",
+      "category": "rescue-mining",
+      "taskSummary": "Adapt the wallet-free local rescue-mining seed search into a coding example.",
+      "route": "understand-rescue-mining",
+      "recipe": "understand-rescue-mining",
+      "primaryFiles": [
+        "data/rescue-mining.json",
+        "data/protocol-constants.json"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "docs/rescue-mining.md",
+        "examples/rescue-mining.js"
+      ],
+      "filesToLoad": [
+        "data/rescue-mining.json",
+        "data/protocol-constants.json",
+        "docs/rescue-mining.md",
+        "examples/rescue-mining.js"
+      ],
+      "terminology": [
+        "searchSeed",
+        "catIdBytes5",
+        "rescue-mining"
+      ],
+      "requiredFacts": [
+        "Existing example is wallet-free and network-free",
+        "candidate generation is not current chain availability"
+      ],
+      "implementationGuardrails": [
+        "Do not add wallet, private-key, provider, account, gas, or transaction submission code.",
+        "Do not import the original frontend, bundled libraries, minified files, parser, images, or unrelated UI code.",
+        "Do not claim byte-for-byte original behavior unless a future task verifies it directly.",
+        "Do not treat the widget candidate cat drawing as trait data, ownership, current availability, current chain state, or a general parser-behavior proof.",
+        "Do not infer image rendering, traits, parser behavior, rescue-order buckets, ownership, or current rescue availability from rescue mining alone.",
+        "Do not add private keys, providers, transaction submission, ownership, or availability claims."
+      ],
+      "forbiddenClaims": [
+        "found candidate is currently rescuable",
+        "candidate rendering proves ownership or trait state"
+      ],
+      "knownLimitations": [
+        "Do not add private keys, providers, transaction submission, ownership, or availability claims."
+      ],
+      "stopConditions": [
+        "Stop if the task requires chain state or transaction submission."
+      ],
+      "validationCommands": [
+        "python scripts/validate-kb.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 28053,
+        "files": [
+          {
+            "path": "data/rescue-mining.json",
+            "bytes": 14722
+          },
+          {
+            "path": "data/protocol-constants.json",
+            "bytes": 2357
+          },
+          {
+            "path": "docs/rescue-mining.md",
+            "bytes": 7603
+          },
+          {
+            "path": "examples/rescue-mining.js",
+            "bytes": 3371
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Core algorithm files plus the small existing example reference."
+      }
+    },
+    {
+      "caseId": "materialization-structural-check",
+      "category": "materialization",
+      "taskSummary": "Verify a local parser change preserves selected MoonCat render structure.",
+      "route": "verify-materialization-parity",
+      "recipe": "verify-materialization-parity",
+      "primaryFiles": [
+        "data/materialization-parity-cases.json",
+        "data/materialization-parity-results.json",
+        "docs/materialization-parity.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/materialization-internals.json"
+      ],
+      "filesToLoad": [
+        "data/materialization-parity-cases.json",
+        "data/materialization-parity-results.json",
+        "docs/materialization-parity.md",
+        "data/materialization-internals.json"
+      ],
+      "terminology": [
+        "structuralRender",
+        "exactSerialization",
+        "documentedMaterialization"
+      ],
+      "requiredFacts": [
+        "Structural normalization retains geometry and color-role counts",
+        "exact serialization is separately unavailable"
+      ],
+      "implementationGuardrails": [
+        "Do not infer RGB, hex, palette orientation, or on-chain SVG output from a human-facing color label.",
+        "Do not treat fixture success as full-population or current-state proof.",
+        "Do not construct an accessory fixture without deterministic local definitions, records, image data, palette, and layering inputs.",
+        "Structural parity does not prove byte-identical SVG or on-chain output."
+      ],
+      "forbiddenClaims": [
+        "parser fingerprint proves MoonCatSVGs byte parity",
+        "fixture success proves full population"
+      ],
+      "knownLimitations": [
+        "Structural parity does not prove byte-identical SVG or on-chain output."
+      ],
+      "stopConditions": [
+        "Stop if exact contract SVG output or current accessory state is required."
+      ],
+      "validationCommands": [
+        "python scripts/generate-materialization-parity.py --check",
+        "python scripts/validate-materialization-parity.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 48506,
+        "files": [
+          {
+            "path": "data/materialization-parity-cases.json",
+            "bytes": 8630
+          },
+          {
+            "path": "data/materialization-parity-results.json",
+            "bytes": 34131
+          },
+          {
+            "path": "docs/materialization-parity.md",
+            "bytes": 3041
+          },
+          {
+            "path": "data/materialization-internals.json",
+            "bytes": 2704
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Fixture/result/doc trio, with internals only when contract boundary explanation is needed."
+      }
+    },
+    {
+      "caseId": "accessory-current-wear-refusal",
+      "category": "accessories",
+      "taskSummary": "Determine which accessory a MoonCat is currently wearing from static contract documentation.",
+      "route": "review-mooncat-accessory-lifecycle",
+      "recipe": "trace-mooncat-accessory-lifecycle",
+      "primaryFiles": [
+        "data/mooncat-accessories-internals.json",
+        "docs/mooncat-accessories.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/mooncat-accessory-images-internals.json",
+        "docs/mooncat-accessory-images.md"
+      ],
+      "filesToLoad": [
+        "data/mooncat-accessories-internals.json",
+        "docs/mooncat-accessories.md",
+        "data/mooncat-accessory-images-internals.json",
+        "docs/mooncat-accessory-images.md"
+      ],
+      "terminology": [
+        "accessoryId",
+        "ownedAccessoryIndex",
+        "paletteIndex",
+        "zIndex",
+        "rescueOrder"
+      ],
+      "requiredFacts": [
+        "Static review documents capability and identifier boundaries, not current state"
+      ],
+      "implementationGuardrails": [
+        "Do not infer taxonomy, rarity, definition names, current ownership, supply, availability, eligibility, or verification state.",
+        "Do not describe zIndex zero as removal or burn.",
+        "Do not describe an accessory definition or OwnedAccessory record as an ERC-721 token.",
+        "Keep MoonCatAccessoryImages rendering behavior in its dedicated review.",
+        "Owned accessory records and worn state are distinct; zIndex zero means owned but not worn."
+      ],
+      "forbiddenClaims": [
+        "static docs prove current accessory wear",
+        "accessoryId is a MoonCat identity or ERC-721 token"
+      ],
+      "knownLimitations": [
+        "Owned accessory records and worn state are distinct; zIndex zero means owned but not worn."
+      ],
+      "stopConditions": [
+        "Stop and report current-state data unavailable without sourced storage/events/live query."
+      ],
+      "validationCommands": [
+        "python scripts/validate-kb.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 43215,
+        "files": [
+          {
+            "path": "data/mooncat-accessories-internals.json",
+            "bytes": 17120
+          },
+          {
+            "path": "docs/mooncat-accessories.md",
+            "bytes": 7851
+          },
+          {
+            "path": "data/mooncat-accessory-images-internals.json",
+            "bytes": 12661
+          },
+          {
+            "path": "docs/mooncat-accessory-images.md",
+            "bytes": 5583
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Unsafe current-state case using exact lifecycle boundaries."
+      }
+    },
+    {
+      "caseId": "contract-capability-vs-state",
+      "category": "contracts",
+      "taskSummary": "Use reviewed contract documentation to report whether a MoonCat is currently acclimated and glowing.",
+      "route": "look-up-contracts",
+      "recipe": "choose-contract-surface",
+      "primaryFiles": [
+        "data/contract-surfaces.json",
+        "data/contracts.json",
+        "data/protocol-constants.json"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "docs/contracts.md",
+        "data/mooncat-svg-internals.json"
+      ],
+      "filesToLoad": [
+        "data/contract-surfaces.json",
+        "data/contracts.json",
+        "data/protocol-constants.json",
+        "docs/contracts.md",
+        "data/mooncat-svg-internals.json"
+      ],
+      "terminology": [
+        "catIdBytes5",
+        "rescueOrder",
+        "acclimatedTokenId"
+      ],
+      "requiredFacts": [
+        "Reviewed surfaces describe capability and default glow decision inputs"
+      ],
+      "implementationGuardrails": [
+        "Do not invent missing contract addresses, ABIs, source URLs, or behavior.",
+        "Do not generalize token ID behavior across contracts without the scoped evidence in identifier conventions, contract surfaces, and any exact-wrapper review.",
+        "Do not answer materialization internals beyond the reviewed surface summaries and compact internals files unless a source-review task allows it.",
+        "No current ownership, acclimation, or glow state is checked in."
+      ],
+      "forbiddenClaims": [
+        "contract source proves current state",
+        "default glow path proves a selected cat is glowing"
+      ],
+      "knownLimitations": [
+        "No current ownership, acclimation, or glow state is checked in."
+      ],
+      "stopConditions": [
+        "Stop if current chain/storage/owner state is needed."
+      ],
+      "validationCommands": [
+        "python scripts/validate-kb.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 5,
+        "estimatedByteCount": 65510,
+        "files": [
+          {
+            "path": "data/contract-surfaces.json",
+            "bytes": 21781
+          },
+          {
+            "path": "data/contracts.json",
+            "bytes": 22852
+          },
+          {
+            "path": "data/protocol-constants.json",
+            "bytes": 2357
+          },
+          {
+            "path": "docs/contracts.md",
+            "bytes": 9970
+          },
+          {
+            "path": "data/mooncat-svg-internals.json",
+            "bytes": 8550
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Contract route with only the compact source-confirmed internals needed."
+      }
+    },
+    {
+      "caseId": "upstream-provenance-refresh-plan",
+      "category": "provenance",
+      "taskSummary": "Plan whether a checked-in MoonCat reference snapshot may be refreshed.",
+      "route": "review-upstream-snapshot-provenance",
+      "recipe": "review-upstream-snapshots",
+      "primaryFiles": [
+        "data/upstream-snapshot-manifest.json",
+        "docs/upstream-snapshots.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/sources.json",
+        "data/kb-gap-index.json"
+      ],
+      "filesToLoad": [
+        "data/upstream-snapshot-manifest.json",
+        "docs/upstream-snapshots.md",
+        "data/sources.json",
+        "data/kb-gap-index.json"
+      ],
+      "terminology": [
+        "sourceRef",
+        "snapshot",
+        "local-drift"
+      ],
+      "requiredFacts": [
+        "Hash drift is not an automatic upstream refresh decision"
+      ],
+      "implementationGuardrails": [
+        "Do not fetch or replace vendored files automatically.",
+        "Do not invent commits, dates, repository paths, maintainers, or licenses.",
+        "Do not treat a newer upstream revision as automatically preferable to an intentional historical snapshot.",
+        "Do not treat a local commit as upstream revision evidence."
+      ],
+      "forbiddenClaims": [
+        "local snapshot is current upstream",
+        "unknown revision/license can be assumed"
+      ],
+      "knownLimitations": [
+        "Do not treat a local commit as upstream revision evidence."
+      ],
+      "stopConditions": [
+        "Stop if a refresh needs unverified source, revision, or license evidence."
+      ],
+      "validationCommands": [
+        "python scripts/validate-upstream-snapshots.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 106574,
+        "files": [
+          {
+            "path": "data/upstream-snapshot-manifest.json",
+            "bytes": 15360
+          },
+          {
+            "path": "docs/upstream-snapshots.md",
+            "bytes": 3493
+          },
+          {
+            "path": "data/sources.json",
+            "bytes": 53502
+          },
+          {
+            "path": "data/kb-gap-index.json",
+            "bytes": 34219
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Manifest and explanation first; broader source map only if needed."
+      }
+    },
+    {
+      "caseId": "route-and-pack-maintenance",
+      "category": "agent-workflow",
+      "taskSummary": "Add a new KB coding task and ensure agents can load safe minimal context for it.",
+      "route": "use-agent-context-packs",
+      "recipe": "use-agent-context-packs",
+      "primaryFiles": [
+        "data/agent-query-cases.json",
+        "docs/agent-usage.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/agent-index.json",
+        "data/task-recipes.json",
+        "data/kb-gap-index.json"
+      ],
+      "filesToLoad": [
+        "data/agent-query-cases.json",
+        "docs/agent-usage.md",
+        "data/agent-index.json",
+        "data/task-recipes.json",
+        "data/kb-gap-index.json"
+      ],
+      "terminology": [
+        "task route",
+        "context pack",
+        "requiredFiles",
+        "stopConditions"
+      ],
+      "requiredFacts": [
+        "Packs are generated references rather than copied KB content",
+        "optional files require case-specific justification"
+      ],
+      "implementationGuardrails": [
+        "Do not create a universal full-KB prompt or inline upstream/source content into a pack.",
+        "Do not treat benchmark contracts as model-quality scores or complete domain answers.",
+        "Do not omit unsafe-inference warnings merely to make a task look implementable.",
+        "Do not create a universal full-KB prompt or claim a pack is a complete answer."
+      ],
+      "forbiddenClaims": [
+        "all optional route files are always necessary",
+        "benchmark scores model answer quality"
+      ],
+      "knownLimitations": [
+        "Do not create a universal full-KB prompt or claim a pack is a complete answer."
+      ],
+      "stopConditions": [
+        "Stop if no route can state required warnings, forbidden claims, and validation commands."
+      ],
+      "validationCommands": [
+        "python scripts/generate-agent-context-packs.py --check",
+        "python scripts/validate-agent-routing.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "repo-agent-query-benchmark",
+          "label": "Coding-agent query benchmark and generated context packs",
+          "status": "active"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 5,
+        "estimatedByteCount": 107009,
+        "files": [
+          {
+            "path": "data/agent-query-cases.json",
+            "bytes": 15726
+          },
+          {
+            "path": "docs/agent-usage.md",
+            "bytes": 1345
+          },
+          {
+            "path": "data/agent-index.json",
+            "bytes": 18557
+          },
+          {
+            "path": "data/task-recipes.json",
+            "bytes": 37162
+          },
+          {
+            "path": "data/kb-gap-index.json",
+            "bytes": 34219
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Meta-route pack for maintaining routing contracts without loading domain snapshots."
+      }
+    }
+  ]
+}
