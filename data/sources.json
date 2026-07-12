@@ -4,6 +4,21 @@
   "status": "incomplete",
   "sources": [
     {
+      "id": "upstream-snapshot-manifest",
+      "label": "Checked-in upstream snapshot provenance manifest",
+      "type": "local-derived",
+      "path": "data/upstream-snapshot-manifest.json",
+      "trustLevel": "derived",
+      "status": "active",
+      "supports": [
+        "local reference snapshot hashes",
+        "upstream origin and revision evidence boundaries",
+        "copy/adaptation and freshness status",
+        "dependency mapping and deliberate refresh workflow"
+      ],
+      "notes": "Machine-readable provenance manifest for important checked-in references and derived reviews. It does not replace vendored files, perform network checks, or resolve lineage that local evidence does not support. Validate with scripts/validate-upstream-snapshots.py."
+    },
+    {
       "id": "repo-readme",
       "label": "Repository README",
       "type": "local",

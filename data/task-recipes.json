@@ -48,6 +48,42 @@
   ],
   "recipes": [
     {
+      "key": "review-upstream-snapshots",
+      "purpose": "Audit important checked-in upstream/reference inputs and detect local content drift without refreshing vendored files.",
+      "loadOrder": [
+        "data/upstream-snapshot-manifest.json",
+        "docs/upstream-snapshots.md",
+        "data/sources.json"
+      ],
+      "optionalFiles": [
+        "docs/source-map.md",
+        "docs/upstream-repositories.md",
+        "data/kb-gap-index.json"
+      ],
+      "steps": [
+        "Run python scripts/validate-upstream-snapshots.py to verify local paths, sizes, hashes, sourceRefs, and provenance enums.",
+        "For each entry, distinguish local-history evidence from upstream revision evidence and preserve unresolved lineage.",
+        "Review dependent KB files/scripts before considering a snapshot refresh.",
+        "If a refresh is authorized, verify revision, review differences, update deliberately, regenerate dependents, update manifest evidence, and rerun validators.",
+        "Summarize hash changes, source changes, freshness limitations, and unresolved license or revision evidence."
+      ],
+      "outputs": [
+        "local drift status",
+        "origin/revision confidence",
+        "dependent-file impact",
+        "refresh decision and limitations"
+      ],
+      "guardrails": [
+        "Do not fetch or replace vendored files automatically.",
+        "Do not invent commits, dates, repository paths, maintainers, or licenses.",
+        "Do not treat a newer upstream revision as automatically preferable to an intentional historical snapshot."
+      ],
+      "stopConditions": [
+        "Stop if local hash drift is detected and no deliberate source-refresh review is authorized.",
+        "Stop if an origin or license claim cannot be supported by checked-in evidence."
+      ]
+    },
+    {
       "key": "choose-mooncat-identifier-form",
       "purpose": "Choose the correct identifier form before calling APIs, using libraries, reading buckets, or discussing token-facing surfaces.",
       "loadOrder": [

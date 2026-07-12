@@ -33,6 +33,7 @@ Project-link `trustLevel` values are navigation classifications, not canonical-s
 - MoonCatRescue Contract GitLab repository: `mooncatrescue-contract-gitlab`
 - MoonCatRescue website archive GitLab repository: `mooncatrescue-web-gitlab`
 - MoonCatRescue Utility Contracts GitLab repository: `mooncatrescue-utility-contracts-gitlab`
+- Upstream snapshot manifest: `data/upstream-snapshot-manifest.json`
 - ChainStation source: `chainstation-source`
 - Ponderware libMoonCat: `libmooncat`
 - ponderware GitHub: `ponderware-github`
@@ -94,6 +95,7 @@ When adding a source:
 - Prefer on-chain data, official parser logic, official contract docs, and MoonCatRescue GitLab for canonical technical facts.
 - Keep MoonCatRescue namespace forks/mirrors distinct from original Ponderware historical sourceRefs.
 - Apply `docs/reference-policy.md` when deciding whether a raw upstream artifact belongs in `references/` or should be promoted into curated `data/`.
+- Use `data/upstream-snapshot-manifest.json` and `docs/upstream-snapshots.md` when reviewing local hashes, origin evidence, revision status, license evidence, freshness, or deliberate refresh impact for checked-in references.
 - Use Discord/community posts as supporting context unless explicitly marked as canonical.
 - Character-cat, early-rescue, and vibe-based classifications may be curated and should be marked as such.
 - Do not promote marketplace, social, video, visualization, or owner-page links into canonical sources only because they are useful to preserve.

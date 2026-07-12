@@ -14,6 +14,8 @@ python scripts/validate-visual-traits.py
 
 Generation uses only checked-in files and invokes the checked-in JavaScript bundles through local Node.js. It performs no network requests.
 
+The local input hashes and unresolved upstream-revision limitations are tracked in `data/upstream-snapshot-manifest.json`. A hash change is drift, not an automatic refresh signal.
+
 ## Sample Selection
 
 The sample target is 64 rows. Selection is deterministic and combines:

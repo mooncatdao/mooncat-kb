@@ -17,6 +17,25 @@
   },
   "tasks": [
     {
+      "key": "review-upstream-snapshot-provenance",
+      "description": "Check local hashes, origin/revision evidence, freshness, licenses, copy status, and dependent files for important checked-in upstream/reference snapshots.",
+      "primaryFiles": [
+        "data/upstream-snapshot-manifest.json",
+        "docs/upstream-snapshots.md"
+      ],
+      "optionalFiles": [
+        "data/sources.json",
+        "docs/source-map.md",
+        "docs/upstream-repositories.md",
+        "data/kb-gap-index.json"
+      ],
+      "notes": [
+        "Run scripts/validate-upstream-snapshots.py; it is zero-network and detects local drift.",
+        "Do not treat a local Git addition commit as an upstream revision.",
+        "Keep unresolved origins, dates, licenses, and exact upstream commits explicit."
+      ]
+    },
+    {
       "key": "use-task-recipes",
       "description": "Find workflow sequences, guardrails, and stop conditions for common MoonCat KB tasks.",
       "primaryFiles": [

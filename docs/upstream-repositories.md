@@ -4,6 +4,8 @@ Machine-readable source entries live in `data/sources.json`.
 
 This page summarizes MoonCatRescue GitLab repositories registered as durable upstream resources. It is an entrypoint map only; it does not import repository contents, contract details, ABIs, parser logic, trait data, CIDs, or API endpoints.
 
+Checked-in snapshot hashes and revision evidence are tracked separately in `data/upstream-snapshot-manifest.json`; repository registration alone does not prove the lineage of a local copy.
+
 ## Source Tier Rules
 
 Use `docs/reference-policy.md` when choosing a repository as evidence.
@@ -53,3 +55,4 @@ Good follow-up passes:
 - register specific raw files only after their role is clear
 - copy large exact artifacts into `references/upstream/` only when repeatable local review is needed
 - promote normalized data into `data/` only after documenting generation method, validation, and limits
+- review `docs/upstream-snapshots.md` before deliberately refreshing any checked-in reference input

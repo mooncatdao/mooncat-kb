@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-07-11",
-  "status": "refreshed-audit-report-with-accessory-lifecycle-review",
+  "status": "refreshed-audit-report-with-upstream-snapshot-provenance",
   "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
   "sourceFiles": [
     "data/agent-index.json",
@@ -20,6 +20,7 @@
     "data/mooncat-accessory-images-internals.json",
     "data/mooncat-accessories-internals.json",
     "data/mooncat-visual-traits.sample.json",
+    "data/upstream-snapshot-manifest.json",
     "data/older-wrapper-internals.json",
     "data/mooncat-svg-internals.json",
     "data/mooncat-types.json",
@@ -173,6 +174,22 @@
         "docs/traits.md"
       ],
       "notes": "The curated model decision is implemented as a 64-row generated visual-trait prototype keyed by bytes5 catId with rescueOrder as a source-backed secondary lookup field. The full trait table, frequencies, names, and accessory details remain unimported."
+    },
+    {
+      "key": "upstream-snapshot-provenance-manifest",
+      "status": "resolved-as-local-hash-manifest-with-open-lineage",
+      "files": [
+        "data/upstream-snapshot-manifest.json",
+        "scripts/validate-upstream-snapshots.py",
+        "docs/upstream-snapshots.md",
+        "docs/source-map.md",
+        "docs/upstream-repositories.md",
+        "docs/generated-trait-data.md",
+        "data/sources.json",
+        "data/agent-index.json",
+        "data/task-recipes.json"
+      ],
+      "notes": "Important active reference inputs now have local SHA-256/size checks, dependency mappings, copy/adaptation status, revision/date/license evidence, and explicit freshness limitations. The upstream commit/tag and retrieval date remain unresolved for core local reference files where checked-in evidence does not support a stronger claim."
     },
     {
       "key": "mooncat-accessories-internals-review",
@@ -389,6 +406,18 @@
       ],
       "agentUsabilityImpact": "Useful as preserved navigation/research links, but not a canonical fact source by itself.",
       "nextDataPass": "Promote any link to sources.json only in a source-focused pass with trust and limitation notes."
+    },
+    {
+      "file": "data/upstream-snapshot-manifest.json",
+      "currentStatus": "compact-provenance-manifest",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "upstream-lineage-partially-pinned",
+        "retrieval-dates-incomplete",
+        "license-evidence-incomplete"
+      ],
+      "agentUsabilityImpact": "Detects local snapshot drift and distinguishes pinned archive review evidence from unresolved upstream lineage, but does not prove the origin of every local copy.",
+      "nextDataPass": "Only improve individual entries when direct upstream revision, retrieval-date, or license evidence is available; do not invent missing provenance."
     },
     {
       "file": "data/mooncat-visual-traits.sample.json",

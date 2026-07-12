@@ -1,0 +1,372 @@
+{
+  "version": 1,
+  "updated": "2026-07-12",
+  "status": "compact-provenance-manifest",
+  "scope": "Important checked-in upstream/reference inputs and derived review artifacts. This manifest pins local content hashes and records origin evidence without refreshing vendored files or claiming unresolved upstream lineage.",
+  "validator": "scripts/validate-upstream-snapshots.py",
+  "enums": {
+    "contentRoles": [
+      "upstream-reference",
+      "vendored-dependency",
+      "derived-review",
+      "source-reference"
+    ],
+    "copyStatuses": [
+      "exact-copy",
+      "copied-unverified",
+      "locally-adapted",
+      "generated",
+      "extracted",
+      "historical-reference"
+    ],
+    "provenanceConfidence": [
+      "high",
+      "medium",
+      "low",
+      "unresolved"
+    ],
+    "freshnessStatuses": [
+      "pinned-revision",
+      "snapshot-date-unknown",
+      "historical-intentional",
+      "derived-from-pinned-review",
+      "not-applicable"
+    ]
+  },
+  "entries": [
+    {
+      "key": "mooncat-traits-json",
+      "localPath": "references/upstream/mooncatrescue/mooncat_traits.json",
+      "contentRole": "upstream-reference",
+      "localSha256": "18dcb262c13e316c61051b59c1944a3265a163aed05ed429f48874caaf38abd8",
+      "localBytes": 6615184,
+      "localHistory": {
+        "commit": "252d8278eff39c563cde488eb09b370f428d636a",
+        "evidence": "Git history shows the file was added in the local reference-snapshot commit; this is not an upstream commit."
+      },
+      "upstream": {
+        "project": null,
+        "repository": null,
+        "path": null,
+        "revisionEvidence": {
+          "status": "unresolved",
+          "value": null,
+          "evidence": "Checked-in README and source index identify a local upstream reference copy but do not record the originating repository path, commit, tag, or retrieval date."
+        }
+      },
+      "retrievalOrVerification": {
+        "status": "snapshot-date-unknown",
+        "date": null,
+        "evidence": "references/upstream/mooncatrescue/README.md explicitly says the copied/retrieved date is not recorded."
+      },
+      "copyStatus": "copied-unverified",
+      "license": {
+        "status": "unresolved",
+        "evidence": "No license header or upstream license evidence is recorded for this JSON snapshot."
+      },
+      "provenanceConfidence": "low",
+      "freshnessStatus": "snapshot-date-unknown",
+      "sourceRefs": [
+        "mooncatrescue-upstream-readme",
+        "mooncatrescue-mooncat-traits-json"
+      ],
+      "dependentFiles": [
+        "data/trait-index.json",
+        "docs/traits.md",
+        "docs/generated-trait-data.md",
+        "scripts/generate-visual-traits.py"
+      ],
+      "limitations": [
+        "Origin repository, upstream revision, retrieval date, and license remain unresolved.",
+        "Reference input only; do not treat the full 25,440-row file as curated data."
+      ]
+    },
+    {
+      "key": "libmooncat-limited-js",
+      "localPath": "references/upstream/mooncatrescue/libmooncat-limited.js",
+      "contentRole": "upstream-reference",
+      "localSha256": "b4d36703a58ce07c61606518010aad05b0e89dc3d11ce0f33a241a7ab35ac85e",
+      "localBytes": 806495,
+      "localHistory": {
+        "commit": "252d8278eff39c563cde488eb09b370f428d636a",
+        "evidence": "Git history shows the file was added in the local reference-snapshot commit; this is not an upstream commit."
+      },
+      "upstream": {
+        "project": "MoonCatRescue libMoonCat",
+        "repository": "https://gitlab.com/mooncatrescue/libmooncat",
+        "path": "dist-js/libmooncat-limited.js",
+        "revisionEvidence": {
+          "status": "repository-only",
+          "value": null,
+          "evidence": "The registered repository and local README establish the maintained namespace and bundle role, but no checked-in evidence ties this exact bundle to a commit or tag."
+        }
+      },
+      "retrievalOrVerification": {
+        "status": "snapshot-date-unknown",
+        "date": null,
+        "evidence": "The local upstream README says copied/retrieved date is not recorded."
+      },
+      "copyStatus": "copied-unverified",
+      "license": {
+        "status": "unresolved",
+        "evidence": "No license evidence for this exact bundled snapshot is recorded in the local source entry."
+      },
+      "provenanceConfidence": "medium",
+      "freshnessStatus": "snapshot-date-unknown",
+      "sourceRefs": [
+        "mooncatrescue-upstream-readme",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-libmooncat-gitlab"
+      ],
+      "dependentFiles": [
+        "data/libmooncat-surfaces.json",
+        "data/identifier-conventions.json",
+        "data/trait-index.json",
+        "data/mooncat-accessories-internals.json",
+        "scripts/generate-visual-traits.py"
+      ],
+      "limitations": [
+        "Exact upstream commit/tag, retrieval date, and license remain unresolved.",
+        "The embedded mappings and helpers are reference evidence, not a permission to import the full mapping."
+      ]
+    },
+    {
+      "key": "mooncatparser-js",
+      "localPath": "references/upstream/mooncatrescue/mooncatparser.js",
+      "contentRole": "upstream-reference",
+      "localSha256": "39dffc7894473b631cde4037d9f174844cfc78777134511b6b8ef44105928d59",
+      "localBytes": 52238,
+      "localHistory": {
+        "commit": "252d8278eff39c563cde488eb09b370f428d636a",
+        "evidence": "Git history shows the file was added in the local reference-snapshot commit; this is not an upstream commit."
+      },
+      "upstream": {
+        "project": "Ponderware mooncatparser",
+        "repository": "https://github.com/ponderware/mooncatparser",
+        "path": "mooncatparser.js",
+        "revisionEvidence": {
+          "status": "repository-only",
+          "value": null,
+          "evidence": "The registered historical-primary repository supports the parser origin, but no checked-in evidence pins this exact local file to a commit or tag."
+        }
+      },
+      "retrievalOrVerification": {
+        "status": "snapshot-date-unknown",
+        "date": null,
+        "evidence": "The local upstream README says copied/retrieved date is not recorded."
+      },
+      "copyStatus": "copied-unverified",
+      "license": {
+        "status": "unresolved",
+        "evidence": "No license header is present in the inspected local parser file and no exact upstream license evidence is recorded."
+      },
+      "provenanceConfidence": "medium",
+      "freshnessStatus": "snapshot-date-unknown",
+      "sourceRefs": [
+        "mooncatrescue-upstream-readme",
+        "mooncatrescue-mooncatparser-js",
+        "ponderware-mooncatparser"
+      ],
+      "dependentFiles": [
+        "data/libmooncat-surfaces.json",
+        "data/rescue-mining.json",
+        "docs/rescue-mining.md",
+        "docs/generated-trait-data.md",
+        "examples/rescue-mining-widget/vendor/mooncatparser.js"
+      ],
+      "limitations": [
+        "Exact upstream revision, retrieval date, and license remain unresolved.",
+        "Parser output is not promoted into canonical trait mappings or palette data."
+      ]
+    },
+    {
+      "key": "rescue-mining-widget-mooncatparser-vendor",
+      "localPath": "examples/rescue-mining-widget/vendor/mooncatparser.js",
+      "contentRole": "vendored-dependency",
+      "localSha256": "39dffc7894473b631cde4037d9f174844cfc78777134511b6b8ef44105928d59",
+      "localBytes": 52238,
+      "localHistory": {
+        "commit": "2095ccb7cd72bfc6c9376d1f5e9497a45fc2cf5e",
+        "evidence": "Git history shows the vendor file was added for the rescue-mining widget."
+      },
+      "upstream": {
+        "project": "Ponderware mooncatparser / reviewed MoonCatRescue web mirror",
+        "repository": "https://github.com/ponderware/mooncatparser",
+        "path": "mooncatparser.js",
+        "revisionEvidence": {
+          "status": "comparison-only",
+          "value": null,
+          "evidence": "The widget documentation records byte identity with the local upstream parser reference and the inspected web mirror path, but not an upstream commit for the copied parser."
+        }
+      },
+      "retrievalOrVerification": {
+        "status": "snapshot-date-unknown",
+        "date": null,
+        "evidence": "The vendor's source comparison is documented, but the upstream parser retrieval date is not recorded."
+      },
+      "copyStatus": "exact-copy",
+      "license": {
+        "status": "unresolved",
+        "evidence": "No license header is present in the parser file; no exact upstream license evidence is recorded."
+      },
+      "provenanceConfidence": "medium",
+      "freshnessStatus": "snapshot-date-unknown",
+      "sourceRefs": [
+        "mooncatrescue-mooncatparser-js",
+        "ponderware-mooncatparser",
+        "mooncatrescue-web-gitlab"
+      ],
+      "dependentFiles": [
+        "examples/rescue-mining-widget/mooncat-render-adapter.js",
+        "examples/rescue-mining-widget/README.md",
+        "data/rescue-mining.json"
+      ],
+      "limitations": [
+        "Exact-copy status is relative to the checked-in parser reference; it is not an independently pinned upstream revision.",
+        "Do not replace or refresh automatically."
+      ]
+    },
+    {
+      "key": "rescue-mining-widget-sha3-vendor",
+      "localPath": "examples/rescue-mining-widget/vendor/sha3.min.js",
+      "contentRole": "vendored-dependency",
+      "localSha256": "eee9f4ced395f6c5119be1af1276351ebbcebbc5bb2b30cfa4034cada12a971b",
+      "localBytes": 9353,
+      "localHistory": {
+        "commit": "da01d8b5a3418887721d3d239d734e2b985b00f4",
+        "evidence": "Git history records the widget vendor addition; the full source commit is local history evidence only."
+      },
+      "upstream": {
+        "project": "MoonCatRescue website archive",
+        "repository": "https://gitlab.com/mooncatrescue/mooncatrescue-web",
+        "path": "public/js/sha3.min.js",
+        "revisionEvidence": {
+          "status": "pinned-archive-review",
+          "value": "941cabe56315efeb5cb0d97966419b59acc14115",
+          "evidence": "data/rescue-mining.json and the widget README record this inspected web-mirror revision and source path."
+        }
+      },
+      "retrievalOrVerification": {
+        "status": "derived-from-pinned-review",
+        "date": "2026-07-07",
+        "evidence": "The source mirror review date is recorded in data/rescue-mining.json and the widget README."
+      },
+      "copyStatus": "exact-copy",
+      "license": {
+        "status": "verified-header",
+        "evidence": "The preserved js-sha3 header identifies version 0.6.1 by Chen, Yi-Cyuan under MIT."
+      },
+      "provenanceConfidence": "high",
+      "freshnessStatus": "pinned-revision",
+      "sourceRefs": [
+        "mooncatrescue-web-gitlab"
+      ],
+      "dependentFiles": [
+        "examples/rescue-mining-widget/index.html",
+        "examples/rescue-mining-widget/README.md",
+        "data/rescue-mining.json",
+        "docs/rescue-mining.md"
+      ],
+      "limitations": [
+        "Pinned to the reviewed archive revision, which is historical and intentionally not a live freshness claim.",
+        "The widget has a local fallback and does not require this dependency at runtime when another compatible hash provider is supplied."
+      ]
+    },
+    {
+      "key": "original-rescue-contract-constants-reference",
+      "localPath": "data/protocol-constants.json",
+      "contentRole": "source-reference",
+      "localSha256": "ed2a39940ffaf37bcb8232b25837ad33c6559844a58a363fd161bc1c91610112",
+      "localBytes": 2357,
+      "localHistory": {
+        "commit": null,
+        "evidence": "This is a curated derived data file; its local history is not treated as upstream revision evidence."
+      },
+      "upstream": {
+        "project": "Ponderware MoonCatRescue contract",
+        "repository": "https://github.com/ponderware/MoonCatRescue-Contract",
+        "path": "contracts/MoonCatRescue.sol",
+        "revisionEvidence": {
+          "status": "branch-only",
+          "value": "master",
+          "evidence": "The registered raw source URL is the master-branch path; no commit SHA is recorded in the source entry."
+        }
+      },
+      "retrievalOrVerification": {
+        "status": "snapshot-date-unknown",
+        "date": null,
+        "evidence": "The derived constants file records source review but no source retrieval date."
+      },
+      "copyStatus": "extracted",
+      "license": {
+        "status": "unresolved",
+        "evidence": "The local derived file does not carry a license statement; upstream license was not pinned in the source entry."
+      },
+      "provenanceConfidence": "medium",
+      "freshnessStatus": "snapshot-date-unknown",
+      "sourceRefs": [
+        "ponderware-contract",
+        "ponderware-mooncatrescue-sol-raw"
+      ],
+      "dependentFiles": [
+        "data/protocol-constants.json",
+        "data/rescue-mining.json",
+        "docs/rescue-mining.md",
+        "docs/contracts.md"
+      ],
+      "limitations": [
+        "This manifest does not pin a vendored Solidity source file; it pins the derived local summary and its referenced source URL.",
+        "Do not infer complete contract behavior from the compact constants summary."
+      ]
+    },
+    {
+      "key": "rescue-mining-reviewed-source-summary",
+      "localPath": "data/rescue-mining.json",
+      "contentRole": "derived-review",
+      "localSha256": "e77d01750b2ab7941762df7dcb288df7d86883085ebe1759ba31d08a9065f624",
+      "localBytes": 14722,
+      "localHistory": {
+        "commit": null,
+        "evidence": "This compact review is generated/curated repository data rather than an upstream snapshot."
+      },
+      "upstream": {
+        "project": "MoonCatRescue website archive",
+        "repository": "https://gitlab.com/mooncatrescue/mooncatrescue-web",
+        "path": "public/scan.html; public/js/mine.js; public/js/mine-worker.js",
+        "revisionEvidence": {
+          "status": "pinned-archive-review",
+          "value": "941cabe56315efeb5cb0d97966419b59acc14115",
+          "evidence": "The local review records git rev-parse HEAD for the inspected archive clone."
+        }
+      },
+      "retrievalOrVerification": {
+        "status": "derived-from-pinned-review",
+        "date": "2026-07-07",
+        "evidence": "The reviewed source revision and date are recorded in data/rescue-mining.json."
+      },
+      "copyStatus": "generated",
+      "license": {
+        "status": "unresolved",
+        "evidence": "The review notes no repo-root license in the inspected mirror and does not infer one."
+      },
+      "provenanceConfidence": "high",
+      "freshnessStatus": "derived-from-pinned-review",
+      "sourceRefs": [
+        "mooncatrescue-web-gitlab",
+        "ponderware-mooncatrescue-sol-raw",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "dependentFiles": [
+        "docs/rescue-mining.md",
+        "examples/rescue-mining.js",
+        "examples/rescue-mining-widget/README.md",
+        "examples/rescue-mining-widget/rescue-mining-widget.js",
+        "data/protocol-constants.json"
+      ],
+      "limitations": [
+        "This is a compact derived review, not a vendored copy of the website source.",
+        "Current chain state, rescue availability, and live website freshness are outside scope."
+      ]
+    }
+  ]
+}
