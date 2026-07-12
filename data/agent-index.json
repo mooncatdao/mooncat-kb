@@ -87,6 +87,27 @@
       ]
     },
     {
+      "key": "verify-identifier-conversions",
+      "description": "Run representative zero-network identifier conversion, round-trip, formatting, and type-boundary checks.",
+      "primaryFiles": [
+        "data/identifier-conversion-cases.json",
+        "docs/identifier-verification.md"
+      ],
+      "optionalFiles": [
+        "data/identifier-conventions.json",
+        "data/libmooncat-surfaces.json",
+        "data/trait-index.json",
+        "data/sources.json",
+        "scripts/validate-identifier-conversions.py",
+        "docs/identifier-conventions.md"
+      ],
+      "notes": [
+        "Run python scripts/validate-identifier-conversions.py; it reads registered local references and makes no network calls.",
+        "Use exact type names such as rescueOrder, catIdBytes5, acclimatedTokenId, wmcrTokenId, accessoryId, paletteIndex, and ownedAccessoryIndex.",
+        "Do not infer WMCR, marketplace, accessory, palette, or local owned-record conversions from numeric coincidence."
+      ]
+    },
+    {
       "key": "call-api-endpoints",
       "description": "Find API paths, methods, accepted identifier forms, params, and response kinds.",
       "primaryFiles": [

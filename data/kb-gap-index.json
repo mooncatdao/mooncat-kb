@@ -11,6 +11,7 @@
     "data/character-cats.json",
     "data/color-hues.json",
     "data/color-classification.json",
+    "data/identifier-conversion-cases.json",
     "data/contract-surfaces.json",
     "data/contracts.json",
     "data/identifier-conventions.json",
@@ -105,6 +106,19 @@
         "data/mooncat-visual-traits.sample.json"
       ],
       "notes": "A deterministic, source-backed policy now maps normal integer hues to ADR-shifted human-facing labels and handles Genesis black/white sentinels before circular hue handling. Raw hue fields remain untouched, pale remains a separate modifier, and palette/rendering claims remain out of scope."
+    },
+    {
+      "key": "identifier-conversion-verification-suite",
+      "status": "resolved-as-representative-zero-network-fixtures",
+      "files": [
+        "data/identifier-conversion-cases.json",
+        "docs/identifier-verification.md",
+        "scripts/validate-identifier-conversions.py",
+        "data/identifier-conventions.json",
+        "data/agent-index.json",
+        "data/task-recipes.json"
+      ],
+      "notes": "Representative rescueOrder/catIdBytes5 round trips now cross-check LibMoonCat and mooncat_traits.json, Acclimated tokenId equivalence is verified only for the exact contract, and WMCR/accessory/palette/owned-record/batch/marketplace identifier conflations have explicit negative or unsupported fixtures."
     },
     {
       "key": "task-recipes-added",

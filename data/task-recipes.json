@@ -125,6 +125,45 @@
       ]
     },
     {
+      "key": "verify-identifier-conversions",
+      "purpose": "Execute representative source-backed identifier conversion and boundary fixtures without network access.",
+      "loadOrder": [
+        "data/identifier-conversion-cases.json",
+        "data/identifier-conventions.json",
+        "data/libmooncat-surfaces.json",
+        "docs/identifier-verification.md"
+      ],
+      "optionalFiles": [
+        "data/trait-index.json",
+        "data/sources.json",
+        "docs/identifier-conventions.md",
+        "scripts/validate-identifier-conversions.py"
+      ],
+      "steps": [
+        "Read each fixture's explicit input/output types and reversibility classification before interpreting a result.",
+        "Run python scripts/validate-identifier-conversions.py for LibMoonCat and mooncat_traits.json cross-checks.",
+        "Confirm rescueOrder/catIdBytes5 round trips only in the known array-backed domain.",
+        "Keep Acclimated tokenId equivalence scoped to the exact contract and keep WMCR mapping-backed behavior separate.",
+        "Treat accessory, palette, owned-record, manager, batch, and marketplace identifiers as context-bound or unsupported."
+      ],
+      "outputs": [
+        "supported conversion results",
+        "round-trip count",
+        "format and range rejection results",
+        "unsupported identifier-space boundaries",
+        "source and freshness limitations"
+      ],
+      "guardrails": [
+        "Do not derive rescue order from bytes5 arithmetic or WMCR numeric equality.",
+        "Do not use generic tokenId terminology when the contract/system is not named.",
+        "Do not promote fixture rows into a full mapping or current-state claim."
+      ],
+      "stopConditions": [
+        "Stop if a fixture requires a sourceRef not registered in data/sources.json.",
+        "Stop if a requested conversion is marked unsupported, contextual, or needs-verification without exact mapping or contract context."
+      ]
+    },
+    {
       "key": "fetch-traits-safely",
       "purpose": "Plan trait lookups while respecting the current split between API manifests, examples, trait schema metadata, and upstream reference snapshots.",
       "loadOrder": [

@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "updated": "2026-07-12",
+  "status": "deterministic-source-backed-verification-fixtures",
+  "scope": "Representative zero-network identifier conversion fixtures. These cases verify documented lookup and formatting boundaries; they are not a complete MoonCat mapping table or current ownership snapshot.",
+  "sourceRefs": [
+    "mooncatrescue-libmooncat-limited-js",
+    "mooncatrescue-mooncat-traits-json",
+    "etherscan-acclimated-mooncats",
+    "etherscan-mooncats-wrapped",
+    "etherscan-mooncat-accessories",
+    "ponderware-mooncatrescue-sol-raw"
+  ],
+  "typeDefinitions": {
+    "catIdBytes5": "Canonical MoonCat bytes5 identity represented as a lowercase 0x-prefixed string with exactly 10 hexadecimal digits.",
+    "rescueOrder": "Integer API/original rescue index in the closed checked range 0 through 25439.",
+    "acclimatedTokenId": "Integer ERC-721 token ID for the exact Acclimated MoonCats contract; source-backed equivalent to rescueOrder for that contract only.",
+    "wmcrTokenId": "Integer MoonCatsWrapped / WMCR wrapper token ID allocated by that contract's counter and resolved through its mapping, not through rescue order.",
+    "accessoryId": "MoonCatAccessories definition-array index; not a MoonCat identity.",
+    "paletteIndex": "Slot index within one accessory definition palette; not a global color or MoonCat identity.",
+    "ownedAccessoryIndex": "Local zero-based index within one rescueOrder's OwnedAccessory array; not an accessoryId or MoonCat identity.",
+    "managedAccessoryIndex": "Local manager enumeration index that resolves to an accessoryId; not a MoonCat identity.",
+    "batchOwnedAccessoryIndex": "Index field used by an accessory batch operation; context-bound and not a MoonCat identity.",
+    "marketplaceUrlIdentifier": "Marketplace URL path value whose meaning depends on collection contract and URL context; not a generic conversion input."
+  },
+  "conversionDefinitions": {
+    "rescueOrder_to_catIdBytes5": {
+      "inputType": "rescueOrder",
+      "outputType": "catIdBytes5",
+      "status": "supported",
+      "reversibility": "bijective-for-known-rescued-fixture-domain",
+      "method": "LibMoonCat.getMoonCatIdByRescueIndex/getCatId array-backed lookup, cross-checked against mooncat_traits.json[rescueOrder].catId",
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"]
+    },
+    "catIdBytes5_to_rescueOrder": {
+      "inputType": "catIdBytes5",
+      "outputType": "rescueOrder",
+      "status": "supported",
+      "reversibility": "bijective-for-known-rescued-fixture-domain",
+      "method": "Strict 0x-prefixed bytes5 normalization followed by LibMoonCat.getRescueOrder array-backed lookup",
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"]
+    },
+    "acclimatedTokenId_to_catIdBytes5": {
+      "inputType": "acclimatedTokenId",
+      "outputType": "catIdBytes5",
+      "status": "supported",
+      "reversibility": "contextual-one-step-then-bijective-lookup",
+      "method": "For the exact Acclimated MoonCats contract only, treat tokenId as rescueOrder, then apply rescueOrder_to_catIdBytes5",
+      "sourceRefs": ["etherscan-acclimated-mooncats", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"]
+    },
+    "acclimatedTokenId_to_rescueOrder": {
+      "inputType": "acclimatedTokenId",
+      "outputType": "rescueOrder",
+      "status": "supported",
+      "reversibility": "contextual-identity-for-exact-contract",
+      "method": "Exact Acclimated contract source documents minted tokenId as rescueOrder",
+      "sourceRefs": ["etherscan-acclimated-mooncats"]
+    },
+    "wmcrTokenId_to_catIdBytes5": {
+      "inputType": "wmcrTokenId",
+      "outputType": "catIdBytes5",
+      "status": "unsupported-without-exact-mapping-state",
+      "reversibility": "contextual-mapping-backed",
+      "method": "Requires the exact MoonCatsWrapped _tokenIDToCatID mapping or wrap/unwrap event context; no mapping contents are imported",
+      "sourceRefs": ["etherscan-mooncats-wrapped"]
+    },
+    "wmcrTokenId_to_rescueOrder": {
+      "inputType": "wmcrTokenId",
+      "outputType": "rescueOrder",
+      "status": "unsupported-direct-conversion",
+      "reversibility": "unsupported",
+      "method": "Resolve WMCR tokenId to bytes5 through the exact wrapper mapping first, then perform the separate bytes5 lookup",
+      "sourceRefs": ["etherscan-mooncats-wrapped", "mooncatrescue-libmooncat-limited-js"]
+    },
+    "nonMoonCatIdentity_to_catIdBytes5": {
+      "inputType": "accessoryId-or-context-index",
+      "outputType": "catIdBytes5",
+      "status": "unsupported",
+      "reversibility": "unsupported",
+      "method": "Accessory definition, palette, owned-record, manager, batch, and marketplace indexes are separate identifier spaces",
+      "sourceRefs": ["etherscan-mooncat-accessories", "etherscan-acclimated-mooncats"]
+    }
+  },
+  "cases": [
+    {
+      "id": "rescue-order-0",
+      "kind": "positive-boundary",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 0, "representation": "decimal-integer"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0x00d658d50b"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "rescue-order-1-leading-zero-cat-id",
+      "kind": "positive-leading-zero",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 1, "representation": "decimal-integer"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0x000f53c2fd"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "rescue-order-82",
+      "kind": "positive-representative",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 82, "representation": "decimal-integer"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0x0057774705"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "genesis-black-rescue-order-84",
+      "kind": "positive-genesis",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 84, "representation": "decimal-integer"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0xff00000ca7"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "genesis-white-rescue-order-95",
+      "kind": "positive-genesis",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 95, "representation": "decimal-integer"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0xff0b000ca7"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "genesis-black-rescue-order-96",
+      "kind": "positive-genesis",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 96, "representation": "decimal-integer"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0xff0c000ca7"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "genesis-white-rescue-order-2891",
+      "kind": "positive-genesis",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 2891, "representation": "decimal-integer"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0xff5f000ca7"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "rescue-order-year-boundary-5757",
+      "kind": "positive-boundary",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 5757, "representation": "decimal-integer"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0x006debf21e"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "rescue-order-last-25439",
+      "kind": "positive-boundary",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 25439, "representation": "decimal-integer"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0x0076fe2589"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "cat-id-uppercase-hex-0",
+      "kind": "positive-format-normalization",
+      "conversion": "catIdBytes5_to_rescueOrder",
+      "input": {"type": "catIdBytes5", "value": "0x00D658D50B", "representation": "0x-prefixed-uppercase-hex-digits"},
+      "expected": {"status": "success", "outputType": "rescueOrder", "value": 0, "normalizedValue": "0x00d658d50b"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "cat-id-uppercase-genesis-84",
+      "kind": "positive-format-normalization",
+      "conversion": "catIdBytes5_to_rescueOrder",
+      "input": {"type": "catIdBytes5", "value": "0xff00000CA7", "representation": "0x-prefixed-mixed-case-hex-digits"},
+      "expected": {"status": "success", "outputType": "rescueOrder", "value": 84, "normalizedValue": "0xff00000ca7"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "cat-id-leading-zero-1",
+      "kind": "positive-leading-zero",
+      "conversion": "catIdBytes5_to_rescueOrder",
+      "input": {"type": "catIdBytes5", "value": "0x000f53c2fd", "representation": "0x-prefixed-lowercase-hex"},
+      "expected": {"status": "success", "outputType": "rescueOrder", "value": 1, "normalizedValue": "0x000f53c2fd"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "acclimated-token-0",
+      "kind": "positive-acclimated-contract-context",
+      "conversion": "acclimatedTokenId_to_catIdBytes5",
+      "input": {"type": "acclimatedTokenId", "value": 0, "contractContext": "acclimatedMoonCats"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0x00d658d50b", "equivalentRescueOrder": 0},
+      "sourceRefs": ["etherscan-acclimated-mooncats", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "acclimated-token-82",
+      "kind": "positive-acclimated-contract-context",
+      "conversion": "acclimatedTokenId_to_rescueOrder",
+      "input": {"type": "acclimatedTokenId", "value": 82, "contractContext": "acclimatedMoonCats"},
+      "expected": {"status": "success", "outputType": "rescueOrder", "value": 82},
+      "sourceRefs": ["etherscan-acclimated-mooncats"],
+      "roundTrip": false
+    },
+    {
+      "id": "acclimated-token-last-25439",
+      "kind": "positive-acclimated-contract-context",
+      "conversion": "acclimatedTokenId_to_catIdBytes5",
+      "input": {"type": "acclimatedTokenId", "value": 25439, "contractContext": "acclimatedMoonCats"},
+      "expected": {"status": "success", "outputType": "catIdBytes5", "value": "0x0076fe2589", "equivalentRescueOrder": 25439},
+      "sourceRefs": ["etherscan-acclimated-mooncats", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"],
+      "roundTrip": true
+    },
+    {
+      "id": "rescue-order-negative-one",
+      "kind": "negative-range",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": -1},
+      "expected": {"status": "rejected", "reason": "rescueOrder must be an integer in 0..25439"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"]
+    },
+    {
+      "id": "rescue-order-out-of-range-25440",
+      "kind": "negative-range",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 25440},
+      "expected": {"status": "rejected", "reason": "rescueOrder must be an integer in 0..25439"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"]
+    },
+    {
+      "id": "rescue-order-decimal-text-not-integer-type",
+      "kind": "negative-type",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": "82", "representation": "decimal-text"},
+      "expected": {"status": "rejected", "reason": "rescueOrder fixture input must be a JSON integer, not generic decimal text"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"]
+    },
+    {
+      "id": "rescue-order-float-not-integer",
+      "kind": "negative-type",
+      "conversion": "rescueOrder_to_catIdBytes5",
+      "input": {"type": "rescueOrder", "value": 82.5},
+      "expected": {"status": "rejected", "reason": "rescueOrder must be an integer"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"]
+    },
+    {
+      "id": "cat-id-missing-prefix",
+      "kind": "negative-format",
+      "conversion": "catIdBytes5_to_rescueOrder",
+      "input": {"type": "catIdBytes5", "value": "00d658d50b", "representation": "bare-hex"},
+      "expected": {"status": "rejected", "reason": "public catIdBytes5 fixture policy requires lowercase 0x prefix"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js"]
+    },
+    {
+      "id": "cat-id-uppercase-prefix",
+      "kind": "negative-format",
+      "conversion": "catIdBytes5_to_rescueOrder",
+      "input": {"type": "catIdBytes5", "value": "0X00d658d50b", "representation": "uppercase-prefix"},
+      "expected": {"status": "rejected", "reason": "public catIdBytes5 fixture policy requires lowercase 0x prefix"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js"]
+    },
+    {
+      "id": "cat-id-short",
+      "kind": "negative-format",
+      "conversion": "catIdBytes5_to_rescueOrder",
+      "input": {"type": "catIdBytes5", "value": "0x00d658d50"},
+      "expected": {"status": "rejected", "reason": "catIdBytes5 must contain exactly 10 hexadecimal digits"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js"]
+    },
+    {
+      "id": "cat-id-long",
+      "kind": "negative-format",
+      "conversion": "catIdBytes5_to_rescueOrder",
+      "input": {"type": "catIdBytes5", "value": "0x000d658d50b"},
+      "expected": {"status": "rejected", "reason": "catIdBytes5 must contain exactly 10 hexadecimal digits"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js"]
+    },
+    {
+      "id": "cat-id-non-hex",
+      "kind": "negative-format",
+      "conversion": "catIdBytes5_to_rescueOrder",
+      "input": {"type": "catIdBytes5", "value": "0x00d658d50g"},
+      "expected": {"status": "rejected", "reason": "catIdBytes5 must contain hexadecimal digits only"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js"]
+    },
+    {
+      "id": "cat-id-valid-unknown",
+      "kind": "negative-unknown",
+      "conversion": "catIdBytes5_to_rescueOrder",
+      "input": {"type": "catIdBytes5", "value": "0x0000000000"},
+      "expected": {"status": "rejected", "reason": "syntactically valid bytes5 value is not a known rescued cat in the checked lookup"},
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncat-traits-json"]
+    },
+    {
+      "id": "wmcr-token-zero-not-rescue-order",
+      "kind": "unsupported-wrapper-conversion",
+      "conversion": "wmcrTokenId_to_rescueOrder",
+      "input": {"type": "wmcrTokenId", "value": 0, "contractContext": "moonCatsWrapped"},
+      "expected": {"status": "unsupported", "reason": "WMCR token ID requires exact wrapper mapping then separate bytes5 lookup; no direct rescueOrder conversion"},
+      "sourceRefs": ["etherscan-mooncats-wrapped"]
+    },
+    {
+      "id": "wmcr-token-zero-needs-mapping",
+      "kind": "unsupported-wrapper-conversion",
+      "conversion": "wmcrTokenId_to_catIdBytes5",
+      "input": {"type": "wmcrTokenId", "value": 0, "contractContext": "moonCatsWrapped"},
+      "expected": {"status": "unsupported", "reason": "mapping contents are not imported"},
+      "sourceRefs": ["etherscan-mooncats-wrapped"]
+    },
+    {
+      "id": "accessory-id-not-cat-id",
+      "kind": "negative-identifier-space",
+      "conversion": "nonMoonCatIdentity_to_catIdBytes5",
+      "input": {"type": "accessoryId", "value": 0, "contractContext": "mooncatAccessories"},
+      "expected": {"status": "unsupported", "reason": "accessoryId is an AllAccessories definition index"},
+      "sourceRefs": ["etherscan-mooncat-accessories"]
+    },
+    {
+      "id": "palette-index-not-rescue-order",
+      "kind": "negative-identifier-space",
+      "conversion": "nonMoonCatIdentity_to_catIdBytes5",
+      "input": {"type": "paletteIndex", "value": 0, "context": "one-accessory-definition"},
+      "expected": {"status": "unsupported", "reason": "paletteIndex is local to an accessory definition"},
+      "sourceRefs": ["etherscan-mooncat-accessories"]
+    },
+    {
+      "id": "owned-accessory-index-not-cat-id",
+      "kind": "negative-identifier-space",
+      "conversion": "nonMoonCatIdentity_to_catIdBytes5",
+      "input": {"type": "ownedAccessoryIndex", "value": 0, "context": "one-rescueOrder-owned-array"},
+      "expected": {"status": "unsupported", "reason": "ownedAccessoryIndex is a local record index"},
+      "sourceRefs": ["etherscan-mooncat-accessories"]
+    },
+    {
+      "id": "managed-accessory-index-not-cat-id",
+      "kind": "negative-identifier-space",
+      "conversion": "nonMoonCatIdentity_to_catIdBytes5",
+      "input": {"type": "managedAccessoryIndex", "value": 0, "context": "one-manager-enumeration"},
+      "expected": {"status": "unsupported", "reason": "managedAccessoryIndex resolves within one manager set"},
+      "sourceRefs": ["etherscan-mooncat-accessories"]
+    },
+    {
+      "id": "batch-index-not-cat-id",
+      "kind": "negative-identifier-space",
+      "conversion": "nonMoonCatIdentity_to_catIdBytes5",
+      "input": {"type": "batchOwnedAccessoryIndex", "value": 0, "context": "accessory-batch-operation"},
+      "expected": {"status": "unsupported", "reason": "batch index is an overloaded operation field"},
+      "sourceRefs": ["etherscan-mooncat-accessories"]
+    },
+    {
+      "id": "marketplace-url-value-not-cat-id",
+      "kind": "negative-identifier-space",
+      "conversion": "nonMoonCatIdentity_to_catIdBytes5",
+      "input": {"type": "marketplaceUrlIdentifier", "value": "82", "contractContext": "sampled-acclimated-opensea-url"},
+      "expected": {"status": "unsupported", "reason": "marketplace URL identifiers require collection and contract context"},
+      "sourceRefs": ["etherscan-acclimated-mooncats"]
+    }
+  ],
+  "limitations": [
+    "The fixture set is representative and does not import the full 25,440-row mapping.",
+    "WMCR mapping contents, event history, current ownership, and current chain state are not imported.",
+    "Acclimated tokenId equivalence is scoped to the exact reviewed contract and is not generalized to WMCR or other wrappers.",
+    "A syntactically valid but unknown bytes5 value is rejected by the checked local lookup, not declared globally unrescuable from all possible historical state."
+  ]
+}

@@ -1086,6 +1086,20 @@
       "notes": "Reviewed on 2026-07-04 for color-source inventory only. Reddit post and comments are by MidnightLightning and discuss hue wheel colorization, palette categories, shifted bucket boundaries, and genesis black/white categorization. Treat as high-confidence maintainer/community explanation, not source-code proof."
     },
     {
+      "id": "repo-identifier-conversion-fixtures",
+      "label": "Identifier conversion verification fixtures",
+      "type": "local-derived",
+      "path": "data/identifier-conversion-cases.json",
+      "trustLevel": "derived",
+      "status": "active",
+      "supports": [
+        "representative identifier conversion cases",
+        "round-trip and negative boundary verification",
+        "zero-network LibMoonCat/trait cross-check workflow"
+      ],
+      "notes": "Local fixture and validator policy derived from registered LibMoonCat, trait, Acclimated, WMCR, and accessory source records. It does not import full mappings, WMCR state, or current ownership. Validate with scripts/validate-identifier-conversions.py."
+    },
+    {
       "id": "mooncat-color-classification",
       "label": "MoonCat derived color-classification policy",
       "type": "local-derived",

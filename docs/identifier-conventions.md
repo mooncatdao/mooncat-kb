@@ -111,6 +111,8 @@ The reverse bytes5-to-rescueOrder path is verified through array-backed dataset/
 ## Related Files
 
 - `data/identifier-conventions.json` records machine-readable terminology and conversion status.
+- `data/identifier-conversion-cases.json` and `docs/identifier-verification.md` define the executable representative conversion fixtures and their explicit type/reversibility boundaries.
+- `scripts/validate-identifier-conversions.py` runs the zero-network LibMoonCat/trait cross-check and negative-case suite.
 - `data/api-endpoints.json` records API parameters and endpoint usage.
 - `data/character-cat-index.json` stores community-curated membership arrays using `rescue-order-index`.
 - `data/rescue-buckets.json` stores canonical-derived rescue/history bucket arrays using `rescue-order-index`.
@@ -127,3 +129,5 @@ The reverse bytes5-to-rescueOrder path is verified through array-backed dataset/
 - broader marketplace token ID behavior beyond sampled acclimated URLs
 - live API-to-contract accessory ID runtime alignment and current valid accessory ID range
 - generated-data method if the full bytes5 catId mapping table is ever promoted from upstream reference copy into curated KB data
+
+The executable verification suite intentionally does not close these gaps: it confirms only the registered array-backed, exact-contract, and explicitly unsupported paths.
