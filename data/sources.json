@@ -1086,6 +1086,20 @@
       "notes": "Reviewed on 2026-07-04 for color-source inventory only. Reddit post and comments are by MidnightLightning and discuss hue wheel colorization, palette categories, shifted bucket boundaries, and genesis black/white categorization. Treat as high-confidence maintainer/community explanation, not source-code proof."
     },
     {
+      "id": "repo-materialization-parity-fixtures",
+      "label": "Materialization parity fixtures and generated results",
+      "type": "local-derived",
+      "path": "data/materialization-parity-cases.json",
+      "trustLevel": "derived",
+      "status": "active",
+      "supports": [
+        "representative parser and trait parity fixtures",
+        "deterministic structural normalization fingerprints",
+        "explicit unavailable materialization-layer status"
+      ],
+      "notes": "Local generated-fixture policy based on registered parser, LibMoonCat, trait snapshot, and compact contract-review sources. It does not contain on-chain SVG output, palettes, accessory state, or current ownership. Generate with scripts/generate-materialization-parity.py and validate with scripts/validate-materialization-parity.py."
+    },
+    {
       "id": "repo-identifier-conversion-fixtures",
       "label": "Identifier conversion verification fixtures",
       "type": "local-derived",

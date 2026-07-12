@@ -108,6 +108,29 @@
       ]
     },
     {
+      "key": "verify-materialization-parity",
+      "description": "Run bounded zero-network parity checks across selected parser, LibMoonCat/trait, and documented materialization paths.",
+      "primaryFiles": [
+        "data/materialization-parity-cases.json",
+        "data/materialization-parity-results.json",
+        "docs/materialization-parity.md"
+      ],
+      "optionalFiles": [
+        "data/materialization-internals.json",
+        "docs/materialization.md",
+        "data/trait-index.json",
+        "data/libmooncat-surfaces.json",
+        "data/sources.json",
+        "scripts/generate-materialization-parity.py",
+        "scripts/validate-materialization-parity.py"
+      ],
+      "notes": [
+        "Run generator --check and the parity validator; both use checked-in inputs and make no network calls.",
+        "Structural parser fingerprints are not exact SVG, palette, or cross-renderer equivalence proof.",
+        "Treat contract serialization, per-cat palette output, and accessory composition as explicit unavailable/deferred layers unless deterministic local inputs are added in a dedicated pass."
+      ]
+    },
+    {
       "key": "call-api-endpoints",
       "description": "Find API paths, methods, accepted identifier forms, params, and response kinds.",
       "primaryFiles": [

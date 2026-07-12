@@ -1,7 +1,7 @@
 {
-  "version": 4,
+  "version": 5,
   "updated": "2026-07-12",
-  "status": "schema-metadata-with-generated-prototype-and-color-label-policy",
+  "status": "schema-metadata-with-generated-prototype-color-label-policy-and-materialization-fixtures",
   "scope": "Compact field dictionary and validation summary for the local mooncat_traits.json upstream reference snapshot.",
   "sourceRefs": [
     "mooncatrescue-mooncat-traits-json"
@@ -11,6 +11,9 @@
     "docs/generated-trait-data.md",
     "data/color-classification.json",
     "docs/color-classification.md",
+    "data/materialization-parity-cases.json",
+    "data/materialization-parity-results.json",
+    "docs/materialization-parity.md",
     "data/mooncat-visual-traits.sample.json",
     "data/identifier-conventions.json",
     "references/upstream/mooncatrescue/mooncat_traits.json"

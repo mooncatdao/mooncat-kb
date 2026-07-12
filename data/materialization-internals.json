@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "updated": "2026-07-12",
+  "status": "cross-path-materialization-boundary-summary",
+  "scope": "Compact cross-path summary for parser, LibMoonCat traits, and reviewed on-chain materialization surfaces. It does not import generated SVGs, palettes, coordinate arrays, contract state, or accessory composition data.",
+  "sourceRefs": [
+    "mooncatrescue-mooncatparser-js",
+    "mooncatrescue-libmooncat-limited-js",
+    "mooncatrescue-mooncat-traits-json",
+    "etherscan-mooncat-traits",
+    "etherscan-mooncat-colors",
+    "etherscan-mooncat-svgs",
+    "etherscan-mooncat-accessory-images"
+  ],
+  "relatedFiles": [
+    "data/materialization-parity-cases.json",
+    "data/materialization-parity-results.json",
+    "docs/materialization.md",
+    "docs/materialization-parity.md",
+    "data/mooncat-svg-internals.json",
+    "docs/mooncat-svgs.md",
+    "data/mooncat-accessory-images-internals.json",
+    "docs/mooncat-accessory-images.md",
+    "data/libmooncat-surfaces.json",
+    "data/trait-index.json"
+  ],
+  "paths": {
+    "parser": "mooncatparser accepts bytes5-style hex input and returns a nested local pixel/color grid; parity fixtures normalize geometry and color-role counts without treating the grid as canonical palette data.",
+    "libmooncat": "LibMoonCat supplies array-backed identifier conversion and extended trait comparison. Its browser image helpers require DOM support and are not executed in the zero-network harness.",
+    "mooncatSVGs": "Reviewed imageOf overloads accept bytes5 or rescueOrder, read MoonCatTraits and MoonCatColors, assemble an SVG string, and use a guarded rescueOrder-to-catId lookup. No checked-in contract output is available for exact or structural SVG comparison.",
+    "mooncatAccessoryImages": "Reviewed accessorized image paths accept rescueOrder and compose source-owned records with accessory definitions, palettes, image data, and base SVG helpers. The deterministic inputs needed for an accessory fixture are not checked in."
+  },
+  "parityBoundary": {
+    "executable": ["identifier lookup", "selected source-trait comparison", "parser normalization and repeatability"],
+    "documentedOnly": ["MoonCatSVGs input/output contract compatibility"],
+    "notExecutable": ["per-cat on-chain palette comparison", "exact SVG serialization comparison"],
+    "deferred": ["accessory composition and current worn state"]
+  },
+  "limitations": [
+    "Structural parser parity is not byte-identical SVG or cross-renderer proof.",
+    "Human-facing color labels do not establish palette values or orientation.",
+    "Current ownership, acclimation/glow state, accessory ownership, and worn configuration are outside the fixture harness."
+  ]
+}

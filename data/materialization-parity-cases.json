@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "updated": "2026-07-12",
+  "status": "fixed-representative-zero-network-fixtures",
+  "scope": "Eight representative MoonCats for deterministic parser, LibMoonCat/trait, and documented materialization-path comparison. This is not a full-population render corpus, palette record, on-chain execution result, or current accessory-state snapshot.",
+  "sourceRefs": [
+    "mooncatrescue-mooncat-traits-json",
+    "mooncatrescue-libmooncat-limited-js",
+    "mooncatrescue-mooncatparser-js",
+    "etherscan-mooncat-traits",
+    "etherscan-mooncat-colors",
+    "etherscan-mooncat-svgs",
+    "etherscan-mooncat-accessories",
+    "etherscan-mooncat-accessory-images",
+    "mooncatrescue-log-onchain"
+  ],
+  "parityLevels": {
+    "identifier": {
+      "statusValues": ["passed", "failed"],
+      "comparisonMethod": "Compare fixture rescueOrder/catIdBytes5 with the trait row and LibMoonCat getMoonCatIdByRescueIndex/getRescueOrder round trip.",
+      "requiredEvidence": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js"],
+      "failureMeaning": "Meaningful: paths would be comparing different MoonCats."
+    },
+    "sourceTrait": {
+      "statusValues": ["passed", "passed-with-intentional-differences", "failed"],
+      "comparisonMethod": "Compare common identifier, rescueYear, facing, expression, pattern, pose, pale, genesis, hueName, and hueInt/hueValue fields between the selected trait row and LibMoonCat extended traits.",
+      "requiredEvidence": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js"],
+      "failureMeaning": "Meaningful except for the fixture-declared Genesis hue sentinels and skyblue/skyBlue vocabulary differences retained from the visual-trait mismatch report."
+    },
+    "structuralRender": {
+      "statusValues": ["passed", "failed"],
+      "comparisonMethod": "Run mooncatparser twice, normalize each nested pixel matrix to row/width counts, occupied-coordinate SHA-256, bounding box, distinct-color count, sorted per-color cell counts, and a color-partition SHA-256; compare the two normalizations exactly.",
+      "requiredEvidence": ["mooncatrescue-mooncatparser-js"],
+      "failureMeaning": "Meaningful for local parser determinism and normalized structure. It is not an on-chain SVG equivalence assertion.",
+      "normalizationRetains": ["matrix dimensions", "occupied coordinates", "bounding box", "per-color cell-count partition"],
+      "normalizationRemoves": ["literal parser color strings", "DOM/canvas wrappers", "SVG whitespace", "attribute order", "metadata", "wrapper elements"]
+    },
+    "colorPalette": {
+      "statusValues": ["not-executable-evidence-insufficient", "failed"],
+      "comparisonMethod": "Record parser color partition only; do not compare it with MoonCatColors colorsOf or a derived human-facing label because checked-in artifacts do not provide executable per-cat on-chain palette output.",
+      "requiredEvidence": ["mooncatrescue-mooncatparser-js", "etherscan-mooncat-colors"],
+      "failureMeaning": "Not executable is intentional and does not imply a parser/materialization mismatch."
+    },
+    "exactSerialization": {
+      "statusValues": ["not-executable", "failed"],
+      "comparisonMethod": "No MoonCatSVGs generated SVG string is checked in, and LibMoonCat image helpers require a DOM in this environment.",
+      "requiredEvidence": ["etherscan-mooncat-svgs", "mooncatrescue-libmooncat-limited-js"],
+      "failureMeaning": "Not executable is intentional; byte-identical SVG is not required for structural equivalence."
+    },
+    "documentedMaterialization": {
+      "statusValues": ["documented-only", "failed"],
+      "comparisonMethod": "Verify fixture identity and source-trait inputs are compatible with the reviewed MoonCatSVGs imageOf(bytes5,bool) and imageOf(uint256,bool) contract path; do not fabricate contract output.",
+      "requiredEvidence": ["etherscan-mooncat-traits", "etherscan-mooncat-colors", "etherscan-mooncat-svgs"],
+      "failureMeaning": "A failure would mean the documented input contract is being used with the wrong identity type; no generated SVG comparison is claimed."
+    },
+    "accessoryComposition": {
+      "statusValues": ["deferred-insufficient-deterministic-inputs", "failed"],
+      "comparisonMethod": "No fixture invokes MoonCatAccessoryImages because deterministic owned records, definitions, image data, palettes, layering, and current worn state are not checked in.",
+      "requiredEvidence": ["etherscan-mooncat-accessories", "etherscan-mooncat-accessory-images"],
+      "failureMeaning": "Deferred is intentional; no ownership or accessory composition is inferred."
+    }
+  },
+  "fixtures": [
+    {"key": "first-rescue-pale-pouncing", "rescueOrder": 0, "catIdBytes5": "0x00d658d50b", "coverage": ["first-rescue", "pale", "right-facing", "pouncing"], "expectedSourceTraitStatus": "passed", "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncatparser-js"]},
+    {"key": "skyblue-vocabulary-edge-first", "rescueOrder": 1, "catIdBytes5": "0x000f53c2fd", "coverage": ["non-pale", "left-facing", "stalking", "skyblue-skyBlue-mismatch"], "expectedSourceTraitStatus": "passed-with-intentional-differences", "intentionalDifferences": ["hueName snapshot skyblue versus LibMoonCat skyBlue"], "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncatparser-js"]},
+    {"key": "genesis-black-standing", "rescueOrder": 84, "catIdBytes5": "0xff00000ca7", "coverage": ["genesis", "black", "non-pale", "left-facing", "standing", "hue-sentinel-mismatch"], "expectedSourceTraitStatus": "passed-with-intentional-differences", "intentionalDifferences": ["hueInt snapshot 1000 versus LibMoonCat hueValue -1"], "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncatparser-js"]},
+    {"key": "genesis-white-pale-stalking", "rescueOrder": 95, "catIdBytes5": "0xff0b000ca7", "coverage": ["genesis", "white", "pale", "left-facing", "stalking", "hue-sentinel-mismatch"], "expectedSourceTraitStatus": "passed-with-intentional-differences", "intentionalDifferences": ["hueInt snapshot 2000 versus LibMoonCat hueValue -2"], "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncatparser-js"]},
+    {"key": "rescue-boundary-sleeping", "rescueOrder": 5757, "catIdBytes5": "0x006debf21e", "coverage": ["rescue-year-boundary", "non-pale", "right-facing", "sleeping"], "expectedSourceTraitStatus": "passed", "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncatparser-js"]},
+    {"key": "skyblue-vocabulary-edge-standing-left", "rescueOrder": 7672, "catIdBytes5": "0x00b4124afe", "coverage": ["pale", "left-facing", "standing", "skyblue-skyBlue-mismatch"], "expectedSourceTraitStatus": "passed-with-intentional-differences", "intentionalDifferences": ["hueName snapshot skyblue versus LibMoonCat skyBlue"], "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncatparser-js"]},
+    {"key": "skyblue-vocabulary-edge-standing-right", "rescueOrder": 11710, "catIdBytes5": "0x00c021abe6", "coverage": ["pale", "right-facing", "standing", "skyblue-skyBlue-mismatch"], "expectedSourceTraitStatus": "passed-with-intentional-differences", "intentionalDifferences": ["hueName snapshot skyblue versus LibMoonCat skyBlue"], "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncatparser-js"]},
+    {"key": "last-rescue-non-pale-pouncing", "rescueOrder": 25439, "catIdBytes5": "0x0076fe2589", "coverage": ["last-rescue", "non-pale", "right-facing", "pouncing"], "expectedSourceTraitStatus": "passed", "sourceRefs": ["mooncatrescue-mooncat-traits-json", "mooncatrescue-libmooncat-limited-js", "mooncatrescue-mooncatparser-js"]}
+  ],
+  "limitations": [
+    "Derived colorClassification labels remain separate display metadata and are not palette/RGB/hex/render proof.",
+    "Normal or inverted palette orientation is not asserted because no checked-in source provides an executable per-cat comparison path.",
+    "MoonCatSVGs and MoonCatAccessoryImages are assessed only through their reviewed input/output contracts; no offline contract execution or serialized SVG output is available.",
+    "Accessory composition is deferred because definitions, owned records, palettes, image data, layering inputs, and current worn state are not deterministically checked in."
+  ]
+}

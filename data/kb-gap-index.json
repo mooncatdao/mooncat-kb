@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "updated": "2026-07-12",
-  "status": "refreshed-audit-report-with-derived-color-classification",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
+  "status": "refreshed-audit-report-with-materialization-parity-fixtures",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/api-endpoints.json",
@@ -12,6 +12,9 @@
     "data/color-hues.json",
     "data/color-classification.json",
     "data/identifier-conversion-cases.json",
+    "data/materialization-internals.json",
+    "data/materialization-parity-cases.json",
+    "data/materialization-parity-results.json",
     "data/contract-surfaces.json",
     "data/contracts.json",
     "data/identifier-conventions.json",
@@ -47,9 +50,9 @@
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
     "status": "all-current-route-candidates-directly-routed",
-    "dataFileCount": 25,
-    "routeCandidates": 24,
-    "directlyRoutedCandidateCount": 24,
+    "dataFileCount": 35,
+    "routeCandidates": 34,
+    "directlyRoutedCandidateCount": 34,
     "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
       "data/agent-index.json"
@@ -119,6 +122,19 @@
         "data/task-recipes.json"
       ],
       "notes": "Representative rescueOrder/catIdBytes5 round trips now cross-check LibMoonCat and mooncat_traits.json, Acclimated tokenId equivalence is verified only for the exact contract, and WMCR/accessory/palette/owned-record/batch/marketplace identifier conflations have explicit negative or unsupported fixtures."
+    },
+    {
+      "key": "materialization-parity-fixture-harness",
+      "status": "resolved-as-bounded-parser-trait-and-documented-contract-parity",
+      "files": [
+        "data/materialization-parity-cases.json",
+        "data/materialization-parity-results.json",
+        "data/materialization-internals.json",
+        "docs/materialization-parity.md",
+        "scripts/generate-materialization-parity.py",
+        "scripts/validate-materialization-parity.py"
+      ],
+      "notes": "Eight fixed fixtures now verify explicit rescueOrder/catIdBytes5 identity, source-trait parity, and deterministic parser structure while retaining five documented trait differences. Per-cat MoonCatColors palette output, exact SVG serialization, and accessory composition remain explicitly unavailable, documented-only, or deferred rather than inferred."
     },
     {
       "key": "task-recipes-added",

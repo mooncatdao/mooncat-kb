@@ -164,6 +164,46 @@
       ]
     },
     {
+      "key": "verify-materialization-parity",
+      "purpose": "Generate and validate bounded parser/trait/materialization parity fixtures without implying unavailable renderer or current-state evidence.",
+      "loadOrder": [
+        "data/materialization-parity-cases.json",
+        "data/materialization-parity-results.json",
+        "docs/materialization-parity.md",
+        "data/materialization-internals.json"
+      ],
+      "optionalFiles": [
+        "data/trait-index.json",
+        "data/libmooncat-surfaces.json",
+        "docs/materialization.md",
+        "data/sources.json",
+        "scripts/generate-materialization-parity.py",
+        "scripts/validate-materialization-parity.py"
+      ],
+      "steps": [
+        "Check each fixture's explicit catIdBytes5/rescueOrder identity before interpreting parity status.",
+        "Run python scripts/generate-materialization-parity.py --check and python scripts/validate-materialization-parity.py.",
+        "Treat parser structural normalization as geometry/color-role evidence only, not serialized SVG equivalence.",
+        "Retain raw traits, derived display label, and intentional source differences separately.",
+        "Report palette, exact SVG, and accessory layers with their explicit not-executable, documented-only, or deferred status."
+      ],
+      "outputs": [
+        "fixture identity and coverage",
+        "source-trait match and intentional-difference counts",
+        "parser structural fingerprints",
+        "unavailable materialization-layer boundaries"
+      ],
+      "guardrails": [
+        "Do not infer RGB, hex, palette orientation, or on-chain SVG output from a human-facing color label.",
+        "Do not treat fixture success as full-population or current-state proof.",
+        "Do not construct an accessory fixture without deterministic local definitions, records, image data, palette, and layering inputs."
+      ],
+      "stopConditions": [
+        "Stop if fixture identity does not resolve through the checked trait and LibMoonCat paths.",
+        "Stop if a requested parity layer needs missing on-chain output, DOM rendering, palette values, or accessory state."
+      ]
+    },
+    {
       "key": "fetch-traits-safely",
       "purpose": "Plan trait lookups while respecting the current split between API manifests, examples, trait schema metadata, and upstream reference snapshots.",
       "loadOrder": [

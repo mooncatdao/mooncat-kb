@@ -1,0 +1,1010 @@
+{
+  "version": 1,
+  "updated": "2026-07-12",
+  "status": "generated-representative-zero-network-parity-results",
+  "scope": "Eight representative MoonCats for deterministic parser, LibMoonCat/trait, and documented materialization-path comparison. This is not a full-population render corpus, palette record, on-chain execution result, or current accessory-state snapshot.",
+  "sourceRefs": [
+    "mooncatrescue-mooncat-traits-json",
+    "mooncatrescue-libmooncat-limited-js",
+    "mooncatrescue-mooncatparser-js",
+    "etherscan-mooncat-traits",
+    "etherscan-mooncat-colors",
+    "etherscan-mooncat-svgs",
+    "etherscan-mooncat-accessories",
+    "etherscan-mooncat-accessory-images",
+    "mooncatrescue-log-onchain"
+  ],
+  "sourceFiles": [
+    {
+      "path": "data/materialization-parity-cases.json",
+      "sha256": "14faff2f99a66936b21ac2f1128646046f7aeca3aad2f07947496c81966e96b9"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/mooncat_traits.json",
+      "sha256": "18dcb262c13e316c61051b59c1944a3265a163aed05ed429f48874caaf38abd8"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/libmooncat-limited.js",
+      "sha256": "b4d36703a58ce07c61606518010aad05b0e89dc3d11ce0f33a241a7ab35ac85e"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/mooncatparser.js",
+      "sha256": "39dffc7894473b631cde4037d9f174844cfc78777134511b6b8ef44105928d59"
+    },
+    {
+      "path": "data/mooncat-visual-traits.sample.json",
+      "sha256": "d4fc38811acaebd2673e68450aae2626c656a5e44a2d2e234d0f144413d749c6"
+    },
+    {
+      "path": "data/materialization-internals.json",
+      "sha256": "e97f0edb0ff7c9b02331d9fd804dc5afc4e4ac776ef71a7e6f0b7b31ffabac5f"
+    }
+  ],
+  "generation": {
+    "script": "scripts/generate-materialization-parity.py",
+    "command": "python scripts/generate-materialization-parity.py",
+    "networkDependency": "none",
+    "fixtureCount": 8
+  },
+  "parityLevels": {
+    "identifier": {
+      "statusValues": [
+        "passed",
+        "failed"
+      ],
+      "comparisonMethod": "Compare fixture rescueOrder/catIdBytes5 with the trait row and LibMoonCat getMoonCatIdByRescueIndex/getRescueOrder round trip.",
+      "requiredEvidence": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "failureMeaning": "Meaningful: paths would be comparing different MoonCats."
+    },
+    "sourceTrait": {
+      "statusValues": [
+        "passed",
+        "passed-with-intentional-differences",
+        "failed"
+      ],
+      "comparisonMethod": "Compare common identifier, rescueYear, facing, expression, pattern, pose, pale, genesis, hueName, and hueInt/hueValue fields between the selected trait row and LibMoonCat extended traits.",
+      "requiredEvidence": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "failureMeaning": "Meaningful except for the fixture-declared Genesis hue sentinels and skyblue/skyBlue vocabulary differences retained from the visual-trait mismatch report."
+    },
+    "structuralRender": {
+      "statusValues": [
+        "passed",
+        "failed"
+      ],
+      "comparisonMethod": "Run mooncatparser twice, normalize each nested pixel matrix to row/width counts, occupied-coordinate SHA-256, bounding box, distinct-color count, sorted per-color cell counts, and a color-partition SHA-256; compare the two normalizations exactly.",
+      "requiredEvidence": [
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "failureMeaning": "Meaningful for local parser determinism and normalized structure. It is not an on-chain SVG equivalence assertion.",
+      "normalizationRetains": [
+        "matrix dimensions",
+        "occupied coordinates",
+        "bounding box",
+        "per-color cell-count partition"
+      ],
+      "normalizationRemoves": [
+        "literal parser color strings",
+        "DOM/canvas wrappers",
+        "SVG whitespace",
+        "attribute order",
+        "metadata",
+        "wrapper elements"
+      ]
+    },
+    "colorPalette": {
+      "statusValues": [
+        "not-executable-evidence-insufficient",
+        "failed"
+      ],
+      "comparisonMethod": "Record parser color partition only; do not compare it with MoonCatColors colorsOf or a derived human-facing label because checked-in artifacts do not provide executable per-cat on-chain palette output.",
+      "requiredEvidence": [
+        "mooncatrescue-mooncatparser-js",
+        "etherscan-mooncat-colors"
+      ],
+      "failureMeaning": "Not executable is intentional and does not imply a parser/materialization mismatch."
+    },
+    "exactSerialization": {
+      "statusValues": [
+        "not-executable",
+        "failed"
+      ],
+      "comparisonMethod": "No MoonCatSVGs generated SVG string is checked in, and LibMoonCat image helpers require a DOM in this environment.",
+      "requiredEvidence": [
+        "etherscan-mooncat-svgs",
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "failureMeaning": "Not executable is intentional; byte-identical SVG is not required for structural equivalence."
+    },
+    "documentedMaterialization": {
+      "statusValues": [
+        "documented-only",
+        "failed"
+      ],
+      "comparisonMethod": "Verify fixture identity and source-trait inputs are compatible with the reviewed MoonCatSVGs imageOf(bytes5,bool) and imageOf(uint256,bool) contract path; do not fabricate contract output.",
+      "requiredEvidence": [
+        "etherscan-mooncat-traits",
+        "etherscan-mooncat-colors",
+        "etherscan-mooncat-svgs"
+      ],
+      "failureMeaning": "A failure would mean the documented input contract is being used with the wrong identity type; no generated SVG comparison is claimed."
+    },
+    "accessoryComposition": {
+      "statusValues": [
+        "deferred-insufficient-deterministic-inputs",
+        "failed"
+      ],
+      "comparisonMethod": "No fixture invokes MoonCatAccessoryImages because deterministic owned records, definitions, image data, palettes, layering, and current worn state are not checked in.",
+      "requiredEvidence": [
+        "etherscan-mooncat-accessories",
+        "etherscan-mooncat-accessory-images"
+      ],
+      "failureMeaning": "Deferred is intentional; no ownership or accessory composition is inferred."
+    }
+  },
+  "summary": {
+    "fixtureCount": 8,
+    "identifierPassed": 8,
+    "sourceTraitPassed": 3,
+    "sourceTraitPassedWithIntentionalDifferences": 5,
+    "intentionalDifferenceCount": 5,
+    "structuralRenderPassed": 8,
+    "colorPaletteNotExecutable": 8,
+    "exactSerializationNotExecutable": 8,
+    "documentedMaterializationOnly": 8,
+    "accessoryCompositionDeferred": 8
+  },
+  "results": [
+    {
+      "key": "first-rescue-pale-pouncing",
+      "catIdBytes5": "0x00d658d50b",
+      "rescueOrder": 0,
+      "coverage": [
+        "first-rescue",
+        "pale",
+        "right-facing",
+        "pouncing"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "rawTraits": {
+        "rescueYear": 2017,
+        "hueInt": 97,
+        "hueName": "chartreuse",
+        "pale": true,
+        "facing": "right",
+        "expression": "grumpy",
+        "pattern": "tabby",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "derivedColorLabel": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "label": "Chartreuse",
+        "baseBucket": "chartreuse",
+        "specialCategory": null,
+        "limitation": "display metadata only; not palette or rendering proof"
+      },
+      "parity": {
+        "identifier": {
+          "status": "passed",
+          "method": "trait snapshot plus LibMoonCat forward/reverse lookup"
+        },
+        "sourceTrait": {
+          "status": "passed",
+          "matchingFields": [
+            "catId",
+            "rescueOrder",
+            "rescueYear",
+            "facing",
+            "expression",
+            "pattern",
+            "pose",
+            "pale",
+            "genesis",
+            "hueName",
+            "hueInt"
+          ],
+          "differences": []
+        },
+        "structuralRender": {
+          "status": "passed",
+          "method": "repeat mooncatparser normalization",
+          "normalization": {
+            "rowCount": 17,
+            "widths": [
+              22
+            ],
+            "occupiedCellCount": 247,
+            "occupiedCoordinateSha256": "b8e89c077ac9dde492a750ea59306accba255b837ee30fcb656e0ab9e67cbee0",
+            "boundingBox": {
+              "minX": 0,
+              "maxX": 21,
+              "minY": 0,
+              "maxY": 16
+            },
+            "distinctColorCount": 5,
+            "colorRoleCounts": [
+              7,
+              15,
+              17,
+              103,
+              105
+            ],
+            "colorPartitionSha256": "01a67c63d55a61b4bba7077e0b9211e3fd3c4493bc081e9299bded7f819f2f9c"
+          }
+        },
+        "colorPalette": {
+          "status": "not-executable-evidence-insufficient",
+          "reason": "no executable checked-in MoonCatColors per-cat palette output; parser partition is structural-only"
+        },
+        "exactSerialization": {
+          "status": "not-executable",
+          "reason": "no checked-in MoonCatSVGs output and LibMoonCat image helpers require DOM"
+        },
+        "documentedMaterialization": {
+          "status": "documented-only",
+          "reason": "reviewed MoonCatSVGs accepts this bytes5/rescueOrder identity and documented trait/color inputs; no offline contract execution"
+        },
+        "accessoryComposition": {
+          "status": "deferred-insufficient-deterministic-inputs",
+          "reason": "no deterministic owned records, definitions, image data, palette, layering, or worn-state inputs"
+        }
+      }
+    },
+    {
+      "key": "skyblue-vocabulary-edge-first",
+      "catIdBytes5": "0x000f53c2fd",
+      "rescueOrder": 1,
+      "coverage": [
+        "non-pale",
+        "left-facing",
+        "stalking",
+        "skyblue-skyBlue-mismatch"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "rawTraits": {
+        "rescueYear": 2017,
+        "hueInt": 200,
+        "hueName": "skyblue",
+        "pale": false,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "tortie",
+        "pose": "stalking",
+        "genesis": false
+      },
+      "derivedColorLabel": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "label": "Sky Blue",
+        "baseBucket": "sky-blue",
+        "specialCategory": null,
+        "limitation": "display metadata only; not palette or rendering proof"
+      },
+      "parity": {
+        "identifier": {
+          "status": "passed",
+          "method": "trait snapshot plus LibMoonCat forward/reverse lookup"
+        },
+        "sourceTrait": {
+          "status": "passed-with-intentional-differences",
+          "matchingFields": [
+            "catId",
+            "rescueOrder",
+            "rescueYear",
+            "facing",
+            "expression",
+            "pattern",
+            "pose",
+            "pale",
+            "genesis",
+            "hueInt"
+          ],
+          "differences": [
+            {
+              "field": "hueName",
+              "traitSnapshotValue": "skyblue",
+              "libMoonCatValue": "skyBlue",
+              "kind": "intentional-vocabulary-normalization"
+            }
+          ]
+        },
+        "structuralRender": {
+          "status": "passed",
+          "method": "repeat mooncatparser normalization",
+          "normalization": {
+            "rowCount": 20,
+            "widths": [
+              21
+            ],
+            "occupiedCellCount": 300,
+            "occupiedCoordinateSha256": "33dcadd7609d1c825a82b51bff69558ea7e194f0d5dea9ddcbafcb3df6ed993d",
+            "boundingBox": {
+              "minX": 0,
+              "maxX": 20,
+              "minY": 0,
+              "maxY": 19
+            },
+            "distinctColorCount": 5,
+            "colorRoleCounts": [
+              6,
+              11,
+              67,
+              84,
+              132
+            ],
+            "colorPartitionSha256": "b45636e88f825320a0b116e1dac6a18c7636404edcc2e667c7c1d413c9f4af51"
+          }
+        },
+        "colorPalette": {
+          "status": "not-executable-evidence-insufficient",
+          "reason": "no executable checked-in MoonCatColors per-cat palette output; parser partition is structural-only"
+        },
+        "exactSerialization": {
+          "status": "not-executable",
+          "reason": "no checked-in MoonCatSVGs output and LibMoonCat image helpers require DOM"
+        },
+        "documentedMaterialization": {
+          "status": "documented-only",
+          "reason": "reviewed MoonCatSVGs accepts this bytes5/rescueOrder identity and documented trait/color inputs; no offline contract execution"
+        },
+        "accessoryComposition": {
+          "status": "deferred-insufficient-deterministic-inputs",
+          "reason": "no deterministic owned records, definitions, image data, palette, layering, or worn-state inputs"
+        }
+      }
+    },
+    {
+      "key": "genesis-black-standing",
+      "catIdBytes5": "0xff00000ca7",
+      "rescueOrder": 84,
+      "coverage": [
+        "genesis",
+        "black",
+        "non-pale",
+        "left-facing",
+        "standing",
+        "hue-sentinel-mismatch"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "rawTraits": {
+        "rescueYear": 2017,
+        "hueInt": 1000,
+        "hueName": "black",
+        "pale": false,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "pure",
+        "pose": "standing",
+        "genesis": true
+      },
+      "derivedColorLabel": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "label": "Black",
+        "baseBucket": null,
+        "specialCategory": "genesis-black",
+        "limitation": "display metadata only; not palette or rendering proof"
+      },
+      "parity": {
+        "identifier": {
+          "status": "passed",
+          "method": "trait snapshot plus LibMoonCat forward/reverse lookup"
+        },
+        "sourceTrait": {
+          "status": "passed-with-intentional-differences",
+          "matchingFields": [
+            "catId",
+            "rescueOrder",
+            "rescueYear",
+            "facing",
+            "expression",
+            "pattern",
+            "pose",
+            "pale",
+            "genesis",
+            "hueName"
+          ],
+          "differences": [
+            {
+              "field": "hueInt",
+              "traitSnapshotValue": 1000,
+              "libMoonCatValue": -1,
+              "kind": "intentional-genesis-sentinel"
+            }
+          ]
+        },
+        "structuralRender": {
+          "status": "passed",
+          "method": "repeat mooncatparser normalization",
+          "normalization": {
+            "rowCount": 21,
+            "widths": [
+              17
+            ],
+            "occupiedCellCount": 243,
+            "occupiedCoordinateSha256": "39046593e739ab7eed3e590e0084e04998a95938d5b44d60f83b1486953a0af5",
+            "boundingBox": {
+              "minX": 0,
+              "maxX": 16,
+              "minY": 0,
+              "maxY": 20
+            },
+            "distinctColorCount": 4,
+            "colorRoleCounts": [
+              6,
+              9,
+              102,
+              126
+            ],
+            "colorPartitionSha256": "390af717fd3749f33a25fbf8e2b3286c8ce68d3214cf527b2ef804a36eb95ca4"
+          }
+        },
+        "colorPalette": {
+          "status": "not-executable-evidence-insufficient",
+          "reason": "no executable checked-in MoonCatColors per-cat palette output; parser partition is structural-only"
+        },
+        "exactSerialization": {
+          "status": "not-executable",
+          "reason": "no checked-in MoonCatSVGs output and LibMoonCat image helpers require DOM"
+        },
+        "documentedMaterialization": {
+          "status": "documented-only",
+          "reason": "reviewed MoonCatSVGs accepts this bytes5/rescueOrder identity and documented trait/color inputs; no offline contract execution"
+        },
+        "accessoryComposition": {
+          "status": "deferred-insufficient-deterministic-inputs",
+          "reason": "no deterministic owned records, definitions, image data, palette, layering, or worn-state inputs"
+        }
+      }
+    },
+    {
+      "key": "genesis-white-pale-stalking",
+      "catIdBytes5": "0xff0b000ca7",
+      "rescueOrder": 95,
+      "coverage": [
+        "genesis",
+        "white",
+        "pale",
+        "left-facing",
+        "stalking",
+        "hue-sentinel-mismatch"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "rawTraits": {
+        "rescueYear": 2017,
+        "hueInt": 2000,
+        "hueName": "white",
+        "pale": true,
+        "facing": "left",
+        "expression": "smiling",
+        "pattern": "spotted",
+        "pose": "stalking",
+        "genesis": true
+      },
+      "derivedColorLabel": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "label": "White",
+        "baseBucket": null,
+        "specialCategory": "genesis-white",
+        "limitation": "display metadata only; not palette or rendering proof"
+      },
+      "parity": {
+        "identifier": {
+          "status": "passed",
+          "method": "trait snapshot plus LibMoonCat forward/reverse lookup"
+        },
+        "sourceTrait": {
+          "status": "passed-with-intentional-differences",
+          "matchingFields": [
+            "catId",
+            "rescueOrder",
+            "rescueYear",
+            "facing",
+            "expression",
+            "pattern",
+            "pose",
+            "pale",
+            "genesis",
+            "hueName"
+          ],
+          "differences": [
+            {
+              "field": "hueInt",
+              "traitSnapshotValue": 2000,
+              "libMoonCatValue": -2,
+              "kind": "intentional-genesis-sentinel"
+            }
+          ]
+        },
+        "structuralRender": {
+          "status": "passed",
+          "method": "repeat mooncatparser normalization",
+          "normalization": {
+            "rowCount": 20,
+            "widths": [
+              21
+            ],
+            "occupiedCellCount": 300,
+            "occupiedCoordinateSha256": "33dcadd7609d1c825a82b51bff69558ea7e194f0d5dea9ddcbafcb3df6ed993d",
+            "boundingBox": {
+              "minX": 0,
+              "maxX": 20,
+              "minY": 0,
+              "maxY": 19
+            },
+            "distinctColorCount": 5,
+            "colorRoleCounts": [
+              7,
+              11,
+              40,
+              110,
+              132
+            ],
+            "colorPartitionSha256": "d034d8c5c2e6e152422b02004ea2f2d8349708cc40782b81fd4c39b09cdf40fd"
+          }
+        },
+        "colorPalette": {
+          "status": "not-executable-evidence-insufficient",
+          "reason": "no executable checked-in MoonCatColors per-cat palette output; parser partition is structural-only"
+        },
+        "exactSerialization": {
+          "status": "not-executable",
+          "reason": "no checked-in MoonCatSVGs output and LibMoonCat image helpers require DOM"
+        },
+        "documentedMaterialization": {
+          "status": "documented-only",
+          "reason": "reviewed MoonCatSVGs accepts this bytes5/rescueOrder identity and documented trait/color inputs; no offline contract execution"
+        },
+        "accessoryComposition": {
+          "status": "deferred-insufficient-deterministic-inputs",
+          "reason": "no deterministic owned records, definitions, image data, palette, layering, or worn-state inputs"
+        }
+      }
+    },
+    {
+      "key": "rescue-boundary-sleeping",
+      "catIdBytes5": "0x006debf21e",
+      "rescueOrder": 5757,
+      "coverage": [
+        "rescue-year-boundary",
+        "non-pale",
+        "right-facing",
+        "sleeping"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "rawTraits": {
+        "rescueYear": 2020,
+        "hueInt": 61,
+        "hueName": "yellow",
+        "pale": false,
+        "facing": "right",
+        "expression": "pouting",
+        "pattern": "tortie",
+        "pose": "sleeping",
+        "genesis": false
+      },
+      "derivedColorLabel": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "label": "Yellow",
+        "baseBucket": "yellow",
+        "specialCategory": null,
+        "limitation": "display metadata only; not palette or rendering proof"
+      },
+      "parity": {
+        "identifier": {
+          "status": "passed",
+          "method": "trait snapshot plus LibMoonCat forward/reverse lookup"
+        },
+        "sourceTrait": {
+          "status": "passed",
+          "matchingFields": [
+            "catId",
+            "rescueOrder",
+            "rescueYear",
+            "facing",
+            "expression",
+            "pattern",
+            "pose",
+            "pale",
+            "genesis",
+            "hueName",
+            "hueInt"
+          ],
+          "differences": []
+        },
+        "structuralRender": {
+          "status": "passed",
+          "method": "repeat mooncatparser normalization",
+          "normalization": {
+            "rowCount": 20,
+            "widths": [
+              14
+            ],
+            "occupiedCellCount": 210,
+            "occupiedCoordinateSha256": "a0272ca8548ee9e1bb5d939684da05098f1c8d23ad3a972070d94550a08c3b4a",
+            "boundingBox": {
+              "minX": 0,
+              "maxX": 13,
+              "minY": 0,
+              "maxY": 19
+            },
+            "distinctColorCount": 5,
+            "colorRoleCounts": [
+              4,
+              6,
+              50,
+              58,
+              92
+            ],
+            "colorPartitionSha256": "7c179c0c46eef246d37598268c94bd8c22689ed57fcc04b470c444b90ccf8b02"
+          }
+        },
+        "colorPalette": {
+          "status": "not-executable-evidence-insufficient",
+          "reason": "no executable checked-in MoonCatColors per-cat palette output; parser partition is structural-only"
+        },
+        "exactSerialization": {
+          "status": "not-executable",
+          "reason": "no checked-in MoonCatSVGs output and LibMoonCat image helpers require DOM"
+        },
+        "documentedMaterialization": {
+          "status": "documented-only",
+          "reason": "reviewed MoonCatSVGs accepts this bytes5/rescueOrder identity and documented trait/color inputs; no offline contract execution"
+        },
+        "accessoryComposition": {
+          "status": "deferred-insufficient-deterministic-inputs",
+          "reason": "no deterministic owned records, definitions, image data, palette, layering, or worn-state inputs"
+        }
+      }
+    },
+    {
+      "key": "skyblue-vocabulary-edge-standing-left",
+      "catIdBytes5": "0x00b4124afe",
+      "rescueOrder": 7672,
+      "coverage": [
+        "pale",
+        "left-facing",
+        "standing",
+        "skyblue-skyBlue-mismatch"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "rawTraits": {
+        "rescueYear": 2021,
+        "hueInt": 225,
+        "hueName": "skyblue",
+        "pale": true,
+        "facing": "left",
+        "expression": "shy",
+        "pattern": "tabby",
+        "pose": "standing",
+        "genesis": false
+      },
+      "derivedColorLabel": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "label": "Sky Blue",
+        "baseBucket": "sky-blue",
+        "specialCategory": null,
+        "limitation": "display metadata only; not palette or rendering proof"
+      },
+      "parity": {
+        "identifier": {
+          "status": "passed",
+          "method": "trait snapshot plus LibMoonCat forward/reverse lookup"
+        },
+        "sourceTrait": {
+          "status": "passed-with-intentional-differences",
+          "matchingFields": [
+            "catId",
+            "rescueOrder",
+            "rescueYear",
+            "facing",
+            "expression",
+            "pattern",
+            "pose",
+            "pale",
+            "genesis",
+            "hueInt"
+          ],
+          "differences": [
+            {
+              "field": "hueName",
+              "traitSnapshotValue": "skyblue",
+              "libMoonCatValue": "skyBlue",
+              "kind": "intentional-vocabulary-normalization"
+            }
+          ]
+        },
+        "structuralRender": {
+          "status": "passed",
+          "method": "repeat mooncatparser normalization",
+          "normalization": {
+            "rowCount": 21,
+            "widths": [
+              17
+            ],
+            "occupiedCellCount": 243,
+            "occupiedCoordinateSha256": "39046593e739ab7eed3e590e0084e04998a95938d5b44d60f83b1486953a0af5",
+            "boundingBox": {
+              "minX": 0,
+              "maxX": 16,
+              "minY": 0,
+              "maxY": 20
+            },
+            "distinctColorCount": 5,
+            "colorRoleCounts": [
+              6,
+              9,
+              16,
+              102,
+              110
+            ],
+            "colorPartitionSha256": "d09503a0d826ee0f1b5b3076c69d8fff9537c1d7686e4588ee22b399a203bcdb"
+          }
+        },
+        "colorPalette": {
+          "status": "not-executable-evidence-insufficient",
+          "reason": "no executable checked-in MoonCatColors per-cat palette output; parser partition is structural-only"
+        },
+        "exactSerialization": {
+          "status": "not-executable",
+          "reason": "no checked-in MoonCatSVGs output and LibMoonCat image helpers require DOM"
+        },
+        "documentedMaterialization": {
+          "status": "documented-only",
+          "reason": "reviewed MoonCatSVGs accepts this bytes5/rescueOrder identity and documented trait/color inputs; no offline contract execution"
+        },
+        "accessoryComposition": {
+          "status": "deferred-insufficient-deterministic-inputs",
+          "reason": "no deterministic owned records, definitions, image data, palette, layering, or worn-state inputs"
+        }
+      }
+    },
+    {
+      "key": "skyblue-vocabulary-edge-standing-right",
+      "catIdBytes5": "0x00c021abe6",
+      "rescueOrder": 11710,
+      "coverage": [
+        "pale",
+        "right-facing",
+        "standing",
+        "skyblue-skyBlue-mismatch"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "rawTraits": {
+        "rescueYear": 2021,
+        "hueInt": 197,
+        "hueName": "skyblue",
+        "pale": true,
+        "facing": "right",
+        "expression": "smiling",
+        "pattern": "pure",
+        "pose": "standing",
+        "genesis": false
+      },
+      "derivedColorLabel": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "label": "Sky Blue",
+        "baseBucket": "sky-blue",
+        "specialCategory": null,
+        "limitation": "display metadata only; not palette or rendering proof"
+      },
+      "parity": {
+        "identifier": {
+          "status": "passed",
+          "method": "trait snapshot plus LibMoonCat forward/reverse lookup"
+        },
+        "sourceTrait": {
+          "status": "passed-with-intentional-differences",
+          "matchingFields": [
+            "catId",
+            "rescueOrder",
+            "rescueYear",
+            "facing",
+            "expression",
+            "pattern",
+            "pose",
+            "pale",
+            "genesis",
+            "hueInt"
+          ],
+          "differences": [
+            {
+              "field": "hueName",
+              "traitSnapshotValue": "skyblue",
+              "libMoonCatValue": "skyBlue",
+              "kind": "intentional-vocabulary-normalization"
+            }
+          ]
+        },
+        "structuralRender": {
+          "status": "passed",
+          "method": "repeat mooncatparser normalization",
+          "normalization": {
+            "rowCount": 21,
+            "widths": [
+              17
+            ],
+            "occupiedCellCount": 243,
+            "occupiedCoordinateSha256": "f8b8e7fea87b03cb14fd9a2d2c4850c3fe6e1b2fcc6ae3f694a46831889f9f3d",
+            "boundingBox": {
+              "minX": 0,
+              "maxX": 16,
+              "minY": 0,
+              "maxY": 20
+            },
+            "distinctColorCount": 4,
+            "colorRoleCounts": [
+              6,
+              9,
+              102,
+              126
+            ],
+            "colorPartitionSha256": "390af717fd3749f33a25fbf8e2b3286c8ce68d3214cf527b2ef804a36eb95ca4"
+          }
+        },
+        "colorPalette": {
+          "status": "not-executable-evidence-insufficient",
+          "reason": "no executable checked-in MoonCatColors per-cat palette output; parser partition is structural-only"
+        },
+        "exactSerialization": {
+          "status": "not-executable",
+          "reason": "no checked-in MoonCatSVGs output and LibMoonCat image helpers require DOM"
+        },
+        "documentedMaterialization": {
+          "status": "documented-only",
+          "reason": "reviewed MoonCatSVGs accepts this bytes5/rescueOrder identity and documented trait/color inputs; no offline contract execution"
+        },
+        "accessoryComposition": {
+          "status": "deferred-insufficient-deterministic-inputs",
+          "reason": "no deterministic owned records, definitions, image data, palette, layering, or worn-state inputs"
+        }
+      }
+    },
+    {
+      "key": "last-rescue-non-pale-pouncing",
+      "catIdBytes5": "0x0076fe2589",
+      "rescueOrder": 25439,
+      "coverage": [
+        "last-rescue",
+        "non-pale",
+        "right-facing",
+        "pouncing"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js"
+      ],
+      "rawTraits": {
+        "rescueYear": 2021,
+        "hueInt": 332,
+        "hueName": "fuchsia",
+        "pale": false,
+        "facing": "right",
+        "expression": "shy",
+        "pattern": "tabby",
+        "pose": "pouncing",
+        "genesis": false
+      },
+      "derivedColorLabel": {
+        "schemeId": "mooncat-human-hue-v1",
+        "schemeVersion": 1,
+        "label": "Fuchsia",
+        "baseBucket": "fuchsia",
+        "specialCategory": null,
+        "limitation": "display metadata only; not palette or rendering proof"
+      },
+      "parity": {
+        "identifier": {
+          "status": "passed",
+          "method": "trait snapshot plus LibMoonCat forward/reverse lookup"
+        },
+        "sourceTrait": {
+          "status": "passed",
+          "matchingFields": [
+            "catId",
+            "rescueOrder",
+            "rescueYear",
+            "facing",
+            "expression",
+            "pattern",
+            "pose",
+            "pale",
+            "genesis",
+            "hueName",
+            "hueInt"
+          ],
+          "differences": []
+        },
+        "structuralRender": {
+          "status": "passed",
+          "method": "repeat mooncatparser normalization",
+          "normalization": {
+            "rowCount": 17,
+            "widths": [
+              22
+            ],
+            "occupiedCellCount": 247,
+            "occupiedCoordinateSha256": "b8e89c077ac9dde492a750ea59306accba255b837ee30fcb656e0ab9e67cbee0",
+            "boundingBox": {
+              "minX": 0,
+              "maxX": 21,
+              "minY": 0,
+              "maxY": 16
+            },
+            "distinctColorCount": 5,
+            "colorRoleCounts": [
+              7,
+              15,
+              17,
+              103,
+              105
+            ],
+            "colorPartitionSha256": "01a67c63d55a61b4bba7077e0b9211e3fd3c4493bc081e9299bded7f819f2f9c"
+          }
+        },
+        "colorPalette": {
+          "status": "not-executable-evidence-insufficient",
+          "reason": "no executable checked-in MoonCatColors per-cat palette output; parser partition is structural-only"
+        },
+        "exactSerialization": {
+          "status": "not-executable",
+          "reason": "no checked-in MoonCatSVGs output and LibMoonCat image helpers require DOM"
+        },
+        "documentedMaterialization": {
+          "status": "documented-only",
+          "reason": "reviewed MoonCatSVGs accepts this bytes5/rescueOrder identity and documented trait/color inputs; no offline contract execution"
+        },
+        "accessoryComposition": {
+          "status": "deferred-insufficient-deterministic-inputs",
+          "reason": "no deterministic owned records, definitions, image data, palette, layering, or worn-state inputs"
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Derived colorClassification labels remain separate display metadata and are not palette/RGB/hex/render proof.",
+    "Normal or inverted palette orientation is not asserted because no checked-in source provides an executable per-cat comparison path.",
+    "MoonCatSVGs and MoonCatAccessoryImages are assessed only through their reviewed input/output contracts; no offline contract execution or serialized SVG output is available.",
+    "Accessory composition is deferred because definitions, owned records, palettes, image data, layering inputs, and current worn state are not deterministically checked in."
+  ]
+}
