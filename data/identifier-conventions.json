@@ -377,23 +377,31 @@
     {
       "key": "accessoryId",
       "label": "accessory ID",
-      "status": "documented-partial",
+      "status": "verified-for-exact-mooncataccessories-contract",
       "canonical": true,
+      "format": "uint256 definition-array index; packed as uint232 in OwnedAccessory and batch records",
       "usedBy": [
         "preferred accessory API paths",
-        "legacy accessory API paths"
+        "legacy accessory API paths",
+        "MoonCatAccessories at 0x8d33303023723dE93b213da4EB53bE890e747C63",
+        "MoonCatAccessoryImages dependency calls"
       ],
       "sourceRefs": [
         "mooncatrescue-api",
         "mooncatrescue-api-openapi",
         "mooncat-community-api",
-        "mooncat-community-api-openapi"
+        "mooncat-community-api-openapi",
+        "etherscan-mooncat-accessories",
+        "etherscan-mooncat-accessory-images"
       ],
       "conversionStatus": {
-        "format": "needs-verification",
-        "toContractIdentifier": "needs-verification"
+        "toContractIdentifier": "verified-for-exact-mooncataccessories-contract",
+        "toMooncatIdBytes5": "not-interchangeable",
+        "toRescueOrder": "not-interchangeable",
+        "toAcclimatedErc721TokenId": "not-interchangeable",
+        "toOwnedAccessoryIndex": "not-interchangeable"
       },
-      "notes": "API paths document accessoryId parameters. This pass does not define accessory ID format, range, contract origin, or validation rules."
+      "notes": "Verified source assigns accessoryId as the zero-based index of an appended AllAccessories definition. It identifies a definition, not an owned-record index, cat ID, rescue order, token ID, palette index, or z-index. Current total/range and API-to-contract runtime alignment are current-state/runtime questions and are not asserted."
     }
   ],
   "knownParameters": [

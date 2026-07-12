@@ -20,7 +20,8 @@
     "data/identifier-conventions.json",
     "data/sources.json",
     "data/mooncat-svg-internals.json",
-    "data/color-hues.json"
+    "data/color-hues.json",
+    "data/mooncat-accessories-internals.json"
   ],
   "contract": {
     "key": "mooncatAccessoryImages",
@@ -70,7 +71,7 @@
         "accessoryImageData(accessoryId) supplies position, palette, dimensions, metadata, and IDAT inputs to the reviewed materialization path."
       ],
       "limitations": [
-        "This review records only the MoonCatAccessoryImages source-level interface use. It does not review a separate MoonCatAccessories contract artifact, accessory state, or accessory taxonomy."
+        "The separate implementation and lifecycle are reviewed in data/mooncat-accessories-internals.json. Accessory state and taxonomy remain unimported."
       ]
     },
     {
@@ -211,7 +212,7 @@
   "limitations": [
     "This is not a full ABI, full Solidity source, bytecode, constructor-argument, storage-layout, or generated-output import.",
     "No accessory ID taxonomy, accessory contract artifact, placement table, palette value, color threshold, IDAT data, PNG bytes, SVG strings, or per-cat output is included.",
-    "The source confirms how this contract calls the MoonCatAccessories interface, but the separate dependency's state, implementation, and lifecycle are not reviewed here.",
+    "The source confirms how this contract calls MoonCatAccessories; its implementation and lifecycle are reviewed separately, while current state remains unreviewed.",
     "This review distinguishes rescue-order inputs from bytes5 cat IDs and accessory IDs, but it does not create a new identifier conversion rule or treat rescue order as a generic token ID.",
     "No current ownership, current accessories, approval state, availability, or exact rendered result is asserted."
   ]

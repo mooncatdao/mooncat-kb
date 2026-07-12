@@ -15,9 +15,10 @@
       "etherscan-mooncat-traits",
       "etherscan-mooncat-colors",
       "etherscan-mooncat-svgs",
+      "etherscan-mooncat-accessories",
       "etherscan-mooncat-accessory-images"
     ],
-    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The historical MoonCatsWrapped address/source is now verified separately for its wrapper token mapping behavior. The MoonCatRescue on-chain log is registered as official context for on-chain materialization contracts, and the linked Etherscan contract pages are verified for address and source identity. MoonCatSVGs and MoonCatAccessoryImages also have compact source reviews; their data files retain only source-confirmed behavior and limitations."
+    "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The historical MoonCatsWrapped address/source is reviewed separately for its wrapper token mapping behavior. MoonCatAccessories, MoonCatSVGs, and MoonCatAccessoryImages have compact exact-contract source reviews; their data files retain only source-confirmed behavior and limitations."
   },
   "contracts": [
     {
@@ -272,6 +273,51 @@
       "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatSVGs with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. Compact internals review is recorded in data/mooncat-svg-internals.json."
     },
     {
+      "key": "mooncatAccessories",
+      "label": "MoonCatAccessories contract",
+      "contractName": "MoonCatAccessories",
+      "network": "ethereum-mainnet",
+      "address": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "status": "verified-address-source-and-compact-internals",
+      "trustLevel": "primary",
+      "sourceRefs": [
+        "etherscan-mooncat-accessories",
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "artifactUrls": [
+        {
+          "kind": "etherscan-source-and-abi-page",
+          "url": "https://etherscan.io/address/0x8d33303023723dE93b213da4EB53bE890e747C63#code",
+          "sourceRef": "etherscan-mooncat-accessories",
+          "checked": "2026-07-11",
+          "notes": "Exact verified source and ABI page; source text, ABI JSON, bytecode, storage, accessory definitions, and state are not imported."
+        }
+      ],
+      "deployment": {
+        "transaction": "0x21b831be284a48d6f2d72b84e94cfdd8123ec4b28779b098e8bc8caa7f02755a",
+        "timestampUtc": "2021-07-02T03:33:42Z",
+        "deployer": "0xD342a4F0397B4268e6adce89b9B88C746AFA85Ee"
+      },
+      "roleSummary": "On-chain accessory definition, management, sale, rescue-order assignment, eligibility, and mutable wear-state contract for Acclimated MoonCats.",
+      "functionSummary": [
+        "createAccessory and ownerCreateAccessory append definition-array entries whose accessoryId is the array index.",
+        "buyAccessory/buyAccessories and managerApplyAccessory append one OwnedAccessory under a rescue order after source-defined authorization and supply checks.",
+        "alterAccessory/alterAccessories change a stored record's paletteIndex and zIndex; zIndex zero means owned but not worn.",
+        "balanceOf/ownedAccessoryByIndex/doesMoonCatOwnAccessory expose rescue-order ownership; managerOf and the address balance/enumeration overloads expose separate definition management.",
+        "accessoryInfo, accessoryImageData, palette, eligibility, fee, freeze, metadata, management-transfer, discontinuation, and foreign-asset rescue surfaces are reviewed compactly in the details file."
+      ],
+      "relatedData": [
+        "data/mooncat-accessories-internals.json",
+        "data/mooncat-accessory-images-internals.json",
+        "data/identifier-conventions.json"
+      ],
+      "limitations": [
+        "No accessory definitions, taxonomy, image bytes, palettes, state, per-cat ownership, prices, supply, event history, or current administration are imported.",
+        "Accessory records are not ERC-721 tokens; definition management and rescue-order ownership are distinct roles."
+      ],
+      "notes": "Etherscan reports exact-match verified source, compiler v0.8.1+commit.df193b15, optimization with 200 runs, default EVM version, and GNU AGPLv3. Compact lifecycle review is in data/mooncat-accessories-internals.json."
+    },
+    {
       "key": "mooncatAccessoryImages",
       "label": "MoonCatAccessoryImages contract",
       "contractName": "MoonCatAccessoryImages",
@@ -309,8 +355,8 @@
     }
   ],
   "todos": [
-    "Review detailed internals of MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages before importing trait mappings, color data, SVG output behavior, accessory image data, or accessory image semantics.",
-    "Verify accessory ID format and related accessory contract behavior separately.",
+    "Review detailed internals only in focused passes before importing trait mappings, color data, SVG output behavior, or accessory image data.",
+    "Keep accessory taxonomy and current-state inventories separate from the reviewed accessoryId/lifecycle semantics.",
     "Review whether direct Etherscan API artifact endpoints should be documented separately; this file currently records source-and-ABI page URLs, not API responses or artifact blobs."
   ]
 }

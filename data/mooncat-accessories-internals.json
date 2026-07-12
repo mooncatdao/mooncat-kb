@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "updated": "2026-07-11",
+  "status": "compact-source-review",
+  "scope": "Compact reviewed internals for the exact Ethereum mainnet MoonCatAccessories contract. This records source-confirmed accessory definition, management, assignment, ownership, eligibility, verification, and integration behavior without importing source, ABI, accessory arrays, image payloads, event history, or current state.",
+  "sourceRefs": [
+    "etherscan-mooncat-accessories",
+    "mooncatrescue-libmooncat-limited-js",
+    "etherscan-mooncat-accessory-images",
+    "etherscan-acclimated-mooncats",
+    "etherscan-original-contract"
+  ],
+  "relatedFiles": [
+    "docs/mooncat-accessories.md",
+    "data/contracts.json",
+    "data/contract-surfaces.json",
+    "data/identifier-conventions.json",
+    "data/mooncat-accessory-images-internals.json",
+    "docs/mooncat-accessory-images.md",
+    "data/sources.json"
+  ],
+  "contract": {
+    "key": "mooncatAccessories",
+    "contractName": "MoonCatAccessories",
+    "address": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+    "network": "ethereum-mainnet",
+    "deployment": {
+      "transaction": "0x21b831be284a48d6f2d72b84e94cfdd8123ec4b28779b098e8bc8caa7f02755a",
+      "timestampUtc": "2021-07-02T03:33:42Z",
+      "deployer": "0xD342a4F0397B4268e6adce89b9B88C746AFA85Ee",
+      "deployerLabel": "Official MoonCats - Acclimated: Deployer",
+      "sourceRef": "etherscan-mooncat-accessories"
+    },
+    "sourceVerification": {
+      "sourceRef": "etherscan-mooncat-accessories",
+      "status": "verified-exact-match",
+      "compiler": "v0.8.1+commit.df193b15",
+      "optimization": "enabled with 200 runs",
+      "evmVersion": "default",
+      "license": "GNU AGPLv3"
+    },
+    "localCrossCheck": {
+      "sourceRef": "mooncatrescue-libmooncat-limited-js",
+      "status": "address-and-abi-surface-aligned",
+      "limitations": "The bundle supplies an address and ABI surface, not implementation proof or current state."
+    }
+  },
+  "fixedDependencies": [
+    {
+      "name": "MoonCatAcclimator",
+      "address": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "sourceRef": "etherscan-acclimated-mooncats",
+      "sourceConfirmedUse": "ownerOf, getApproved, and isApprovedForAll authorize actions for the rescue-order token ID."
+    },
+    {
+      "name": "MoonCatRescue",
+      "address": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "sourceRef": "etherscan-original-contract",
+      "sourceConfirmedUse": "rescueOrder(index) yields bytes5 catId and catOwners(catId) confirms the cat is held by the Acclimator before owner/approval authorization."
+    }
+  ],
+  "storageModel": {
+    "accessoryDefinitions": {
+      "container": "internal append-only Accessory[] AllAccessories",
+      "accessoryIdMeaning": "zero-based index into AllAccessories assigned from its length at creation",
+      "fields": [
+        "manager: address payable",
+        "width: uint8",
+        "height: uint8",
+        "meta: uint8",
+        "price: uint72",
+        "totalSupply: uint16",
+        "availableSupply: uint16",
+        "name: bytes28",
+        "palettes: bytes8[7]",
+        "positions: bytes2[4] in standing, sleeping, pouncing, stalking order",
+        "IDAT: bytes"
+      ],
+      "notes": [
+        "A 0xffff position pair marks an unsupported pose according to source comments.",
+        "The contract stores PNG IDAT data, not a complete PNG artifact.",
+        "No taxonomy, rarity, or category semantics are inferred from definition names."
+      ]
+    },
+    "eligibility": {
+      "container": "mapping accessoryId to bytes32[100] bit set",
+      "semantics": "An active list restricts purchase eligibility by rescue order; an inactive list makes all rescue orders eligible.",
+      "managerControls": [
+        "setEligibleList",
+        "clearEligibleList",
+        "toggleEligibleList",
+        "editEligibleMoonCats"
+      ]
+    },
+    "management": {
+      "container": "address-indexed EnumerableSet of accessory IDs plus manager stored on each definition",
+      "semantics": "Definition management and sale proceeds belong to a wallet address; this is separate from cat-owned accessory records."
+    },
+    "catOwnership": {
+      "containers": [
+        "mapping rescueOrder to mapping accessoryId to bool for membership",
+        "mapping rescueOrder to OwnedAccessory[] for enumeration and mutable wear settings"
+      ],
+      "semantics": "Ownership is attached to the Acclimated MoonCat rescue-order identity, not to a wallet and not represented as a separate ERC-721 token."
+    },
+    "uniqueness": {
+      "container": "mapping keccak256(IDAT) to bool",
+      "semantics": "Public creation rejects already-recorded IDAT hashes; ownerCreateAccessory may deliberately bypass the duplicate rejection but still marks the hash."
+    }
+  },
+  "structs": {
+    "OwnedAccessory": {
+      "fields": [
+        {
+          "name": "accessoryId",
+          "type": "uint232",
+          "meaning": "Index into AllAccessories."
+        },
+        {
+          "name": "paletteIndex",
+          "type": "uint8",
+          "meaning": "Index into the definition's seven-slot palette array; not a color value or global palette ID."
+        },
+        {
+          "name": "zIndex",
+          "type": "uint16",
+          "meaning": "Wear/drawing-order setting; zero means owned but not worn. Lower positive values are closer to the MoonCat, and background metadata changes the renderer's interpretation."
+        }
+      ],
+      "ownershipBoundary": "The record is stored under rescueOrder. It contains no wallet owner, bytes5 catId, ERC-721 token ID field, or transfer approval."
+    },
+    "AccessoryBatchData": {
+      "fields": [
+        "rescueOrder: uint256",
+        "ownedIndexOrAccessoryId: uint232",
+        "paletteIndex: uint8",
+        "zIndex: uint16"
+      ],
+      "contextDependentField": "ownedIndexOrAccessoryId is an accessoryId for purchase batches and a local OwnedAccessory array index for alteration batches; consumers must not treat those identifier kinds as interchangeable."
+    },
+    "accessoryImageData": {
+      "input": "accessoryId",
+      "outputs": [
+        "positions: bytes2[4]",
+        "palettes: bytes8[7]",
+        "width: uint8",
+        "height: uint8",
+        "meta: uint8",
+        "IDAT: bytes"
+      ],
+      "semantics": "Returns stored definition fields needed for placement and PNG reconstruction. It does not return ownership, supply, manager, price, eligibility, or current wear state."
+    }
+  },
+  "lifecycle": [
+    {
+      "stage": "definition-creation",
+      "sourceConfirmed": "Public createAccessory validates nonzero dimensions, 1-7 nonzero palettes, supply 1-25440, valid price, and IDAT uniqueness; it masks metadata to the low five bits, appends a definition, assigns its array-index accessoryId, and assigns management to the creator. Optional overload activates an eligibility list.",
+      "ownerException": "ownerCreateAccessory can run while frozen, accepts seven palette slots and an unmasked metadata byte, and may create a duplicate IDAT hash on another definition."
+    },
+    {
+      "stage": "definition-management",
+      "sourceConfirmed": "The manager may add palette variants, change price, manage eligibility, transfer management, apply remaining supply to an authorized cat at zero price, or discontinue the definition. The contract owner separately controls metadata flags."
+    },
+    {
+      "stage": "purchase-and-assignment",
+      "sourceConfirmed": "A buyer must own or be ERC-721-approved for the Acclimated token at the same rescue order; the source also confirms the original cat is held by the Acclimator. Standard purchase checks eligibility, for-sale price, remaining supply, payment, and palette, decrements availableSupply, then appends one OwnedAccessory and marks rescueOrder/accessoryId membership true. Duplicate ownership of the same accessoryId by one rescue order is rejected."
+    },
+    {
+      "stage": "wear-and-alteration",
+      "sourceConfirmed": "The Acclimated token owner or approved operator can change paletteIndex and zIndex by local ownedAccessoryIndex. zIndex zero keeps ownership but makes the item not worn. Batch alteration repeats this operation."
+    },
+    {
+      "stage": "definition-discontinuation",
+      "sourceConfirmed": "The manager can permanently stop new sales by setting the not-for-sale sentinel, moving management to the zero address, reducing totalSupply to already-issued quantity, and setting availableSupply to zero.",
+      "boundary": "This does not remove or burn already-owned records."
+    },
+    {
+      "stage": "cat-transfer-or-deacclimation",
+      "sourceConfirmed": "Owned records remain keyed by rescueOrder and no accessory transfer hook exists. Authorization for later mutation follows the current Acclimated token owner/approvals while the original cat remains held by the Acclimator.",
+      "unresolved": "The reviewed source exposes no explicit cleanup, migration, or mutation path for owned records while a cat is deacclimated."
+    }
+  ],
+  "ownershipAndApproval": {
+    "catOwnedAccessory": "Stored under rescueOrder and follows that MoonCat identity through Acclimated token wallet transfers because no wallet is stored in the record.",
+    "definitionManager": "Wallet address controlling definition price, palettes, eligibility, management transfer, manager application, and discontinuation; receives sale proceeds after fees.",
+    "acclimatedTokenAuthorization": "ownerOf(rescueOrder), getApproved(rescueOrder), or isApprovedForAll(currentOwner, caller) authorizes purchase/application/alteration; these are Acclimated ERC-721 approvals, not accessory-token approvals.",
+    "ownedRecordTransferRemovalBurn": "No public or internal source path transfers an OwnedAccessory between rescue orders, removes its array record, clears its ownership boolean, or burns it. zIndex zero only hides it from wearing.",
+    "notAnErc721": "Accessory definitions and owned records have no ERC-721 ownerOf, token transfer, token approval, or token ID lifecycle."
+  },
+  "verificationSemantics": {
+    "sourceContract": "MoonCatAccessories stores an eight-bit meta field. Public creation clears the top three reserved bits; ownerCreateAccessory accepts the supplied byte, and contract-owner setMetaByte/batch operations can mutate it later.",
+    "imageConsumer": "MoonCatAccessoryImages treats meta bit 7 as approval: when allowUnverified is false it multiplies zIndex by meta >> 7, suppressing unapproved records. Its default overloads pass allowUnverified=false.",
+    "boundary": "Approval is an owner-controlled metadata/rendering gate, separate from purchase eligibility and separate from Acclimated ERC-721 operator approvals. The accessories contract itself does not reject purchase or ownership based on bit 7.",
+    "currentState": "No current per-accessory verification bits or allowUnverified usage are asserted."
+  },
+  "identifierBoundaries": {
+    "rescueOrder": "uint256 key for cat-owned records and Acclimated token authorization; source calls the original rescueOrder lookup to confirm acclimation. It is not arithmetically derived from bytes5 catId here.",
+    "catId": "bytes5 returned only through the fixed MoonCatRescue lookup inside authorization; not stored in OwnedAccessory.",
+    "accessoryId": "Array index into AllAccessories; uint256 in most surfaces and packed as uint232 in owned/batch records. It is unrelated to MoonCat and wrapper token identifiers.",
+    "ownedAccessoryIndex": "Local zero-based index within one rescueOrder's OwnedAccessory array. It is used to alter/enumerate a record and is not accessoryId.",
+    "managedAccessoryIndex": "Local index within one manager address's EnumerableSet enumeration. It returns an accessoryId and ordering may change after set removal.",
+    "paletteIndex": "Index into one accessory definition's palette slots; not a palette value, global color index, or accessory ID.",
+    "zIndex": "Wear/drawing-order value, not an identifier. Zero means not worn.",
+    "acclimatedTokenId": "For this exact Acclimated contract, the source passes rescueOrder to ownerOf and approval functions. This does not generalize to WMCR or other wrappers.",
+    "walletAddress": "Used for contract owner, definition manager, referrer, current Acclimated token owner, and approved operator roles; never substitutes for cat-owned accessory identity.",
+    "foreignTokenId": "withdrawForeignERC721 accepts a token ID only for rescuing unrelated ERC-721 assets accidentally held by the accessories contract."
+  },
+  "publicSurfaceGroups": {
+    "definitionsAndImages": [
+      "totalAccessories",
+      "accessoryInfo",
+      "accessoryImageData",
+      "accessoryPaletteCount",
+      "accessoryPalette",
+      "isAccessoryUnique",
+      "accessoryHashes"
+    ],
+    "catOwnershipAndEnumeration": [
+      "balanceOf(uint256 rescueOrder)",
+      "ownedAccessoryByIndex",
+      "AccessoriesByMoonCat",
+      "doesMoonCatOwnAccessory"
+    ],
+    "managerEnumeration": [
+      "managerOf",
+      "balanceOf(address manager)",
+      "managedAccessoryByIndex"
+    ],
+    "creationAndManagement": [
+      "createAccessory overloads",
+      "ownerCreateAccessory overloads",
+      "addAccessoryPalette",
+      "setAccessoryPrice",
+      "transferAccessoryManagement",
+      "discontinueAccessory"
+    ],
+    "eligibility": [
+      "isEligible",
+      "accessoryEligibleList",
+      "setEligibleList",
+      "clearEligibleList",
+      "toggleEligibleList",
+      "editEligibleMoonCats"
+    ],
+    "assignmentAndWear": [
+      "buyAccessory overloads",
+      "buyAccessories overloads",
+      "managerApplyAccessory",
+      "alterAccessory",
+      "alterAccessories"
+    ],
+    "ownerAdministration": [
+      "owner",
+      "transferOwnership",
+      "freeze",
+      "unfreeze",
+      "setFee",
+      "setReferralFee",
+      "setMetaByte",
+      "batchOrMetaByte",
+      "batchAndMetaByte",
+      "withdrawForeignERC20",
+      "withdrawForeignERC721"
+    ]
+  },
+  "administrationAndMutability": {
+    "contractOwner": [
+      "Can reversibly freeze or unfreeze public creation and all new applyAccessory assignments.",
+      "Can set sale/referral fee denominators and transfer contract ownership.",
+      "Can set or bitwise-edit any existing definition's metadata byte, including the image-consumer approval bit.",
+      "Can create definitions for another manager while frozen and bypass public duplicate/masking validation.",
+      "Can withdraw foreign ERC-20 and ERC-721 assets accidentally held by the contract."
+    ],
+    "definitionManager": [
+      "Can mutate price, add palettes until the fixed slots are full, change eligibility, transfer management, assign remaining supply to an authorized cat, and discontinue the definition.",
+      "Cannot edit stored name, dimensions, positions, IDAT, or already-filled palettes through reviewed source surfaces."
+    ],
+    "finalization": "There is no irreversible global finalization or ownership renunciation function. freeze is reversible by owner. discontinueAccessory is the source-confirmed irreversible per-definition sale/management terminal action because management moves to the zero address.",
+    "currentState": "Owner, frozen flag, fees, managers, definitions, supplies, prices, eligibility, verification, and ownership are mutable/current chain state and were not imported."
+  },
+  "moonCatAccessoryImagesIntegration": {
+    "addressBinding": "MoonCatAccessoryImages stores the same MoonCatAccessories address as a fixed dependency.",
+    "lookupFlow": [
+      "balanceOf(rescueOrder) determines the number of stored OwnedAccessory records.",
+      "ownedAccessoryByIndex(rescueOrder,index) supplies accessoryId, paletteIndex, and zIndex.",
+      "doesMoonCatOwnAccessory validates each supplied record against rescueOrder membership.",
+      "accessoryImageData(accessoryId) supplies positions, palettes, width, height, meta, and IDAT for placement and PNG materialization.",
+      "MoonCatAccessoryImages applies wear state, verification filtering, placement, sorting, and rendering; those details remain owned by its existing review."
+    ],
+    "separation": "MoonCatAccessories owns definitions, source-level assignment, and mutable wear settings. MoonCatAccessoryImages is a read-only consumer for materialization and does not create or transfer accessory ownership."
+  },
+  "unresolved": [
+    "No full accessory definition array, taxonomy, categories, rarity, names, palettes, image bytes, per-cat ownership, or event history is imported.",
+    "Current owner/admin, frozen state, fees, managers, supplies, prices, eligibility lists, verification bits, and assignments were not checked as state claims.",
+    "The precise intended meaning of reserved metadata bits other than the image consumer's bit-7 approval check is not asserted.",
+    "No explicit source path handles owned-record cleanup or migration while a MoonCat is deacclimated.",
+    "No independent execution or storage-layout validation was performed beyond verified source and ABI/address cross-checks."
+  ]
+}

@@ -14,7 +14,7 @@ The historical `MoonCatsWrapped` / `Wrapped MoonCatsRescue` (`WMCR`) wrapper add
 
 The MoonCatRescue log page `Chained to the Future` is registered as official context for on-chain materialization work. It links to MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages contract pages. Those five linked contract pages have now been verified on Etherscan for address and source identity, and are represented in `data/contracts.json`.
 
-The five materialization contract records now include conservative role/function summaries. MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages also have compact internals reviews in data files. These summaries and compact reviews do **not** import trait mappings, color palettes, SVG coordinate data, accessory image bytes, accessory ID taxonomy, ABI blobs, or identifier conversion rules.
+The five materialization contract records now include conservative role/function summaries. MoonCatColors, MoonCatSVGs, MoonCatAccessoryImages, and its separate MoonCatAccessories dependency also have compact internals reviews in data files. These reviews do **not** import full accessory definitions, current state, trait mappings, color palettes, SVG coordinate data, accessory image bytes, ABI blobs, or full identifier tables.
 
 The contract records also include `artifactUrls` metadata for checked source/ABI reference pages. These URLs point to Etherscan source-and-ABI pages, and for the original MoonCatRescue contract also to the registered raw GitHub Solidity source. The KB treats those URLs as references only; ABI JSON, Solidity source text, bytecode, constructor arguments, storage values, CIDs, and other artifact blobs are intentionally not imported.
 
@@ -41,6 +41,7 @@ The original contract source verifies:
 - MoonCatColors: `0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC`
 - MoonCatSVGs: `0xB39C61fe6281324A23e079464f7E697F8Ba6968f`
 - MoonCatAccessoryImages: `0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14`
+- MoonCatAccessories dependency: `0x8d33303023723dE93b213da4EB53bE890e747C63`
 - MoonCatsWrapped: `0x7C40c393DC0f283F318791d746d894DdD3693572`
 
 The Acclimated contract source identifies itself as `MoonCatAcclimator`, describes wrapping original MoonCats into an ERC-721/ERC-998-compliant asset, references the original MoonCatRescue contract, and mints token IDs using rescue order.
@@ -54,6 +55,7 @@ The original MoonCatRescue source exposes a public `rescueOrder` array that maps
 - MoonCatColors: on-chain color reference surface with RGB/hue helpers, palette/color/glow/accessory-color lookup functions, owner-managed color mapping/finalization, documentation lookup, and owner administration.
 - MoonCatSVGs: on-chain SVG image-generation surface with pixel/shape/SVG assembly helpers and `imageOf` overloads for cat IDs or rescue orders, plus documentation lookup and owner administration. Compact internals are documented in `docs/mooncat-svgs.md` and `data/mooncat-svg-internals.json`.
 - MoonCatAccessoryImages: on-chain accessory image composition/PNG helper surface with accessorized SVG overloads, accessory PNG/placement/preparation helpers, PNG chunk helpers/constants, documentation lookup, and owner administration. Compact internals are documented in `docs/mooncat-accessory-images.md` and `data/mooncat-accessory-images-internals.json`.
+- MoonCatAccessories: separate on-chain definition, management, eligibility, sale/assignment, rescue-order ownership, and mutable wear-state contract. Compact lifecycle internals are documented in `docs/mooncat-accessories.md` and `data/mooncat-accessories-internals.json`.
 - MoonCatsWrapped: historical unofficial ERC-721 wrapper surface with `wrap(bytes5)`, `unwrap(uint256)`, and public cat-ID/token-ID mappings. Compact identifier behavior is documented in `docs/older-wrapper-contracts.md` and `data/older-wrapper-internals.json`.
 
 These are role/function-level summaries only. Detailed derivation logic and output data remain out of scope until specifically reviewed.
@@ -68,7 +70,15 @@ The MoonCatSVGs review imports no SVG coordinate constants, pattern arrays, gene
 
 The MoonCatAccessoryImages source review confirms that its public image entrypoints accept a numeric rescue order, use the original MoonCatRescue lookup to obtain a bytes5 cat ID in the guarded composition path, then combine MoonCatTraits/MoonCatColors/MoonCatSVGs base MoonCat data with accessory data read through a separate MoonCatAccessories interface. The source prepares source-owned accessories into background and foreground records, emits inline base64 PNG image snippets around base MoonCat pixels, and expands the SVG bounding box to cover prepared placement.
 
-`accessoryPNG` returns a `data:image/png;base64` string assembled from PNG chunks, source accessory image data, and MoonCatColors palette/alpha helpers. The separate MoonCatAccessories implementation, accessory taxonomy, palette values, accessory state, PNG bytes, and rendered results are not included. See `docs/mooncat-accessory-images.md` for the compact source-confirmed flow and identifier boundaries.
+`accessoryPNG` returns a `data:image/png;base64` string assembled from PNG chunks, source accessory image data, and MoonCatColors palette/alpha helpers. MoonCatAccessories supplies definition and owned-record data; its lifecycle is reviewed separately. Accessory taxonomy, current state, palette values, PNG bytes, and rendered results are not included. See both accessory documentation pages for the split between ownership and rendering.
+
+## MoonCatAccessories Compact Internals
+
+The exact `MoonCatAccessories` contract at `0x8d33303023723dE93b213da4EB53bE890e747C63` stores append-only accessory definitions and rescue-order-keyed `OwnedAccessory` records. Definition management belongs to an address; cat-owned records belong to a rescue-order identity; and authorization to buy/alter follows the current Acclimated token owner or ERC-721 approvals. These are separate concepts.
+
+Purchase or manager assignment appends one unique definition ID to a cat's record array and consumes supply. Alteration changes only palette and z-index; zero z-index means owned but not worn. The verified source exposes no transfer, removal, or burn of cat-owned records. Managers can discontinue new supply, while the contract owner controls reversible freeze, fees, exceptional creation, and metadata—including the bit MoonCatAccessoryImages uses as its verification gate.
+
+See `docs/mooncat-accessories.md` for lifecycle, roles, administration, and identifier boundaries. No current accessory, manager, supply, price, approval, or ownership state is imported.
 
 ## MoonCatsWrapped Identifier Internals
 
@@ -77,8 +87,8 @@ The verified `MoonCatsWrapped` source accepts a bytes5 `catId` in `wrap`, then a
 ## Not yet verified here
 
 - direct Etherscan API artifact endpoint policy beyond source-and-ABI page links
-- separate MoonCatAccessories contract implementation, taxonomy, state, and lifecycle
-- detailed on-chain materialization internals beyond the compact MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages reviews
+- MoonCatAccessories taxonomy, full definitions, image data, and current state
+- detailed on-chain materialization internals beyond the compact MoonCatColors, MoonCatSVGs, MoonCatAccessories, and MoonCatAccessoryImages reviews
 - trait derivation tables or bit-level mappings
 - color palettes, hue-name tables, SVG coordinate data, accessory image bytes, and accessory ID taxonomy
 - complete inventory and source review of additional historical or unofficial wrapper contracts
@@ -87,4 +97,4 @@ The verified `MoonCatsWrapped` source accepts a bytes5 `catId` in `wrap`, then a
 
 - Prefer primary sources for addresses and networks.
 - Keep contract role notes separate from exact address data.
-- Do not add further accessory or related contracts until their scope is defined.
+- Add further accessory or related contracts only through exact-address, source-backed focused reviews.

@@ -19,7 +19,7 @@ Unlike MoonCatSVGs, the reviewed public image entrypoints accept a numeric `uint
 ## Dependencies
 
 - MoonCatRescue: fixed interface used to convert rescue order to bytes5 cat ID.
-- MoonCatAccessories: fixed interface used to read supplied/listed accessory records, verify source-level ownership, and obtain accessory image inputs. Its implementation, taxonomy, and current state are outside this review.
+- MoonCatAccessories: fixed dependency used to enumerate records, verify rescue-order ownership, and obtain accessory image inputs. Its definition and ownership lifecycle are documented separately in `docs/mooncat-accessories.md`; taxonomy and current state remain outside scope.
 - MoonCatTraits: constructor-supplied interface used for facing, expression, pattern, and pose.
 - MoonCatColors: constructor-supplied interface used for base colors, accessory colors, palette data, and alpha data.
 - MoonCatSVGs: constructor-supplied interface used for base pixel data, bounding boxes, SVG wrappers, glow, mirroring, and number formatting.
@@ -65,7 +65,7 @@ An explicit `OwnedAccessory` record has source-declared fields `accessoryId`, `p
 
 ## Limitations
 
-- No accessory contract source, accessory state, ownership state, approval state, availability, or lifecycle is reviewed.
+- MoonCatAccessories lifecycle is reviewed separately; accessory taxonomy, current ownership, approval state, availability, and other current state are not imported.
 - No accessory IDs, placement tables, palettes, color thresholds, IDAT data, PNG bytes, SVG strings, or per-cat outputs are imported.
 - No exact rendering or materialization result has been independently reproduced from this KB.
 - Base SVG behavior remains documented separately in `docs/mooncat-svgs.md` and `data/mooncat-svg-internals.json`.

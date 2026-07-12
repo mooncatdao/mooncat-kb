@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-07-11",
-  "status": "refreshed-audit-report-with-visual-trait-prototype",
+  "status": "refreshed-audit-report-with-accessory-lifecycle-review",
   "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
   "sourceFiles": [
     "data/agent-index.json",
@@ -18,6 +18,7 @@
     "data/libmooncat-surfaces.json",
     "data/link-index.json",
     "data/mooncat-accessory-images-internals.json",
+    "data/mooncat-accessories-internals.json",
     "data/mooncat-visual-traits.sample.json",
     "data/older-wrapper-internals.json",
     "data/mooncat-svg-internals.json",
@@ -172,6 +173,21 @@
         "docs/traits.md"
       ],
       "notes": "The curated model decision is implemented as a 64-row generated visual-trait prototype keyed by bytes5 catId with rescueOrder as a source-backed secondary lookup field. The full trait table, frequencies, names, and accessory details remain unimported."
+    },
+    {
+      "key": "mooncat-accessories-internals-review",
+      "status": "resolved-as-compact-exact-contract-review",
+      "files": [
+        "data/mooncat-accessories-internals.json",
+        "docs/mooncat-accessories.md",
+        "data/mooncat-accessory-images-internals.json",
+        "docs/mooncat-accessory-images.md",
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/identifier-conventions.json",
+        "data/sources.json"
+      ],
+      "notes": "The exact MoonCatAccessories contract now has a compact source-backed review of definitions, management, rescue-order assignment, OwnedAccessory storage, eligibility, metadata verification, Acclimated approvals, alteration/discontinuation, administration, identifier boundaries, and MoonCatAccessoryImages consumption. Full accessory data and current chain state remain unimported."
     },
     {
       "key": "visual-trait-generated-prototype",
@@ -385,6 +401,18 @@
       ],
       "agentUsabilityImpact": "Provides 64 validated per-cat visual-trait rows with explicit provenance and mismatch reporting, but must not be used as complete population coverage.",
       "nextDataPass": "Decide whether scale needs justify a full generated artifact, sharding, build-only output, and a snapshot update policy."
+    },
+    {
+      "file": "data/mooncat-accessories-internals.json",
+      "currentStatus": "compact-source-review",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "current-state-not-imported",
+        "taxonomy-not-imported",
+        "full-definitions-not-imported"
+      ],
+      "agentUsabilityImpact": "Provides exact source-level accessory lifecycle, role, verification, integration, and identifier semantics without current definition or ownership data.",
+      "nextDataPass": "Only inspect current state, accessory definitions, or event history for a concrete consumer and through a separately scoped provenance/update policy."
     },
     {
       "file": "data/mooncat-types.json",

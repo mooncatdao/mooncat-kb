@@ -14,6 +14,7 @@
     "etherscan-mooncat-traits",
     "etherscan-mooncat-colors",
     "etherscan-mooncat-svgs",
+    "etherscan-mooncat-accessories",
     "etherscan-mooncat-accessory-images"
   ],
   "relatedFiles": [
@@ -22,6 +23,8 @@
     "data/protocol-constants.json",
     "data/sources.json",
     "docs/contracts.md",
+    "data/mooncat-accessories-internals.json",
+    "docs/mooncat-accessories.md",
     "docs/reference-policy.md"
   ],
   "defaults": {
@@ -352,6 +355,70 @@
       ]
     },
     {
+      "key": "onchain-accessory-lifecycle",
+      "task": "Find accessory definition, management, eligibility, sale, rescue-order ownership, wear state, and verification semantics.",
+      "contracts": [
+        {
+          "contractKey": "mooncatAccessories",
+          "contractName": "MoonCatAccessories",
+          "address": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+          "sourceRefs": [
+            "etherscan-mooncat-accessories",
+            "mooncatrescue-libmooncat-limited-js"
+          ]
+        }
+      ],
+      "role": "On-chain accessory definitions, management, purchase/assignment, eligibility, and mutable wear-state storage keyed by Acclimated rescue order.",
+      "usefulLookups": [
+        "accessoryInfo",
+        "accessoryImageData",
+        "createAccessory",
+        "buyAccessory",
+        "alterAccessory",
+        "balanceOf",
+        "ownedAccessoryByIndex",
+        "doesMoonCatOwnAccessory",
+        "managerOf",
+        "isEligible",
+        "discontinueAccessory"
+      ],
+      "relatedIdentifierForms": [
+        "apiOriginalRescueIndex",
+        "erc721TokenId",
+        "mooncatIdBytes5",
+        "accessoryId",
+        "ownedAccessoryIndex",
+        "paletteIndex",
+        "ethereumAddress"
+      ],
+      "relatedFiles": [
+        "data/mooncat-accessories-internals.json",
+        "docs/mooncat-accessories.md",
+        "data/mooncat-accessory-images-internals.json",
+        "docs/mooncat-accessory-images.md",
+        "data/identifier-conventions.json"
+      ],
+      "reviewedInternals": {
+        "status": "compact-internals-reviewed",
+        "checked": "2026-07-11",
+        "sourceRefs": [
+          "etherscan-mooncat-accessories",
+          "etherscan-mooncat-accessory-images"
+        ],
+        "summary": [
+          "accessoryId is an append-only definition-array index; cat-owned records are separately stored under rescue order.",
+          "OwnedAccessory stores accessoryId, paletteIndex, and zIndex; zero zIndex means owned but not worn.",
+          "No owned-record transfer, removal, or burn surface exists; definition management is address-based and separate.",
+          "MoonCatAccessoryImages consumes ownership and image-data reads and interprets metadata bit 7 as its verification gate."
+        ],
+        "detailsFile": "data/mooncat-accessories-internals.json"
+      },
+      "limitations": [
+        "No taxonomy, definitions, image bytes, palettes, event history, state, ownership list, or current admin values are imported.",
+        "Do not generalize Acclimated rescue-order token authorization to other wrappers."
+      ]
+    },
+    {
       "key": "onchain-accessory-images",
       "task": "Find accessory image composition, accessory PNG, placement, and PNG helper surfaces.",
       "contracts": [
@@ -385,6 +452,8 @@
         "data/contracts.json",
         "data/identifier-conventions.json",
         "data/api-endpoints.json",
+        "data/mooncat-accessories-internals.json",
+        "docs/mooncat-accessories.md",
         "data/mooncat-accessory-images-internals.json",
         "docs/mooncat-accessory-images.md"
       ],
@@ -405,7 +474,7 @@
       "limitations": [
         "No accessory ID taxonomy, placement table, palette values, PNG bytes, accessory image data, current state, or rendered output is imported.",
         "Detailed compact semantics live in data/mooncat-accessory-images-internals.json; this file remains a contract surface router.",
-        "The separate MoonCatAccessories dependency implementation and state remain outside this review."
+        "MoonCatAccessories definition and ownership lifecycle is reviewed separately; current accessory state remains outside both reviews."
       ]
     },
     {

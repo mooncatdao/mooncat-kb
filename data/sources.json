@@ -750,6 +750,22 @@
       "notes": "Verified Etherscan page for MoonCatSVGs at 0xB39C61fe6281324A23e079464f7E697F8Ba6968f. Etherscan reports source code verified as exact match, Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. Reviewed on 2026-07-07 for compact SVG internals only; full Solidity source, ABI JSON, coordinate constants, pattern arrays, generated SVG outputs, and per-cat outputs are not imported."
     },
     {
+      "id": "etherscan-mooncat-accessories",
+      "label": "Etherscan MoonCatAccessories contract page",
+      "type": "primary",
+      "url": "https://etherscan.io/address/0x8d33303023723dE93b213da4EB53bE890e747C63#code",
+      "trustLevel": "canonical",
+      "status": "verified",
+      "supports": [
+        "MoonCatAccessories exact contract identity and deployment provenance",
+        "MoonCatAccessories source verification and compiler settings",
+        "accessory definition, management, assignment, ownership, eligibility, and administration lifecycle",
+        "OwnedAccessory and accessoryImageData field semantics",
+        "MoonCatAccessoryImages dependency integration"
+      ],
+      "notes": "Verified Etherscan page for MoonCatAccessories at 0x8d33303023723dE93b213da4EB53bE890e747C63. Etherscan reports exact-match source verification, Solidity v0.8.1+commit.df193b15, optimization enabled with 200 runs, default EVM version, and GNU AGPLv3. The creation transaction 0x21b831be284a48d6f2d72b84e94cfdd8123ec4b28779b098e8bc8caa7f02755a was mined 2021-07-02T03:33:42Z from 0xD342a4F0397B4268e6adce89b9b88c746AFA85Ee. Reviewed on 2026-07-11 for compact internals only; source, ABI, state, arrays, image payloads, and event history are not imported."
+    },
+    {
       "id": "etherscan-mooncat-accessory-images",
       "label": "Etherscan MoonCatAccessoryImages contract page",
       "type": "primary",

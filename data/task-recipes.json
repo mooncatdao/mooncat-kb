@@ -394,6 +394,46 @@
       ]
     },
     {
+      "key": "trace-mooncat-accessory-lifecycle",
+      "purpose": "Trace an accessory from definition through rescue-order assignment and image lookup while preserving role, identifier, and current-state boundaries.",
+      "loadOrder": [
+        "data/mooncat-accessories-internals.json",
+        "data/identifier-conventions.json",
+        "data/mooncat-accessory-images-internals.json"
+      ],
+      "optionalFiles": [
+        "docs/mooncat-accessories.md",
+        "docs/mooncat-accessory-images.md",
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Identify whether the question concerns a definition, definition manager, rescue-order-owned record, Acclimated token authorization, or rendering consumer.",
+        "Resolve accessoryId versus local owned/manager enumeration indexes before using any lookup or mutation surface.",
+        "Follow the documented definition, purchase/manager-assignment, alteration, discontinuation, and image-consumer stages only where source-confirmed.",
+        "Treat eligibility, metadata verification, and ERC-721 action approval as three separate controls.",
+        "State whether a claim is a source capability or current chain state; stop before asserting current values without an explicitly allowed live-state check."
+      ],
+      "outputs": [
+        "exact contract and source status",
+        "source-backed lifecycle stage",
+        "ownership/control role",
+        "identifier kinds and local-index boundaries",
+        "current-state or unresolved limitation"
+      ],
+      "guardrails": [
+        "Do not infer taxonomy, rarity, definition names, current ownership, supply, availability, eligibility, or verification state.",
+        "Do not describe zIndex zero as removal or burn.",
+        "Do not describe an accessory definition or OwnedAccessory record as an ERC-721 token.",
+        "Keep MoonCatAccessoryImages rendering behavior in its dedicated review."
+      ],
+      "stopConditions": [
+        "Stop if the requested claim needs current storage, events, or a full definition dataset not present in curated data.",
+        "Stop if the target wrapper is not the exact Acclimated contract used by MoonCatAccessories authorization."
+      ]
+    },
+    {
       "key": "choose-contract-surface",
       "purpose": "Select the right contract/source surface for on-chain, materialization, trait, color, SVG, accessory, or token identity questions.",
       "loadOrder": [

@@ -269,6 +269,27 @@
       ]
     },
     {
+      "key": "review-mooncat-accessory-lifecycle",
+      "description": "Find exact MoonCatAccessories definition, management, eligibility, assignment, ownership, wear-state, verification, and identifier semantics.",
+      "primaryFiles": [
+        "data/mooncat-accessories-internals.json",
+        "docs/mooncat-accessories.md"
+      ],
+      "optionalFiles": [
+        "data/mooncat-accessory-images-internals.json",
+        "docs/mooncat-accessory-images.md",
+        "data/identifier-conventions.json",
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Keep definition management by wallet separate from accessory ownership by rescue order and Acclimated ERC-721 action authorization.",
+        "Do not treat accessoryId, ownedAccessoryIndex, paletteIndex, zIndex, rescueOrder, bytes5 catId, or wrapper token IDs as interchangeable.",
+        "The review records source capabilities only; do not infer current definitions, ownership, supply, approval, eligibility, or administration."
+      ]
+    },
+    {
       "key": "classify-mooncat-types",
       "description": "Find top-level MoonCat categories, special-category scaffolds, and color/hue context.",
       "primaryFiles": [

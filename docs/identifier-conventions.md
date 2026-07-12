@@ -72,7 +72,15 @@ API owner/profile endpoints use Ethereum addresses. Address normalization behavi
 
 ### Accessory ID
 
-API accessory endpoints use `accessoryId` parameters. The accessory ID format, range, and contract relationship still need verification.
+API accessory endpoints use `accessoryId` parameters. For the exact reviewed MoonCatAccessories contract at `0x8d33303023723dE93b213da4EB53bE890e747C63`, an accessory ID is the zero-based `uint256` index assigned when a definition is appended to `AllAccessories`; owned and batch structs pack it as `uint232`.
+
+An accessory ID identifies a definition. It is not a rescue order, bytes5 cat ID, Acclimated token ID, WMCR token ID, local owned-accessory index, manager enumeration index, palette index, or z-index. The current valid range depends on current `totalAccessories` state and is not imported here. Exact lifecycle boundaries are documented in `docs/mooncat-accessories.md`.
+
+### Accessory Record Indexes and Settings
+
+`ownedAccessoryIndex` is local to one rescue order's `OwnedAccessory[]` and selects an existing record for enumeration or alteration. `managedAccessoryIndex` is local to one manager address's set and resolves to an accessory ID. Neither is globally interchangeable with accessory ID.
+
+`paletteIndex` selects a slot within one accessory definition. `zIndex` is a wear/drawing-order setting, with zero meaning owned but not worn; it is not an identifier.
 
 ## Conversion Rules
 
@@ -107,6 +115,7 @@ The reverse bytes5-to-rescueOrder path is verified through array-backed dataset/
 - `data/character-cat-index.json` stores community-curated membership arrays using `rescue-order-index`.
 - `data/rescue-buckets.json` stores canonical-derived rescue/history bucket arrays using `rescue-order-index`.
 - `data/protocol-constants.json` records contract-derived bytes5 cat ID generation notes.
+- `data/mooncat-accessories-internals.json` records exact accessory definition, ownership, enumeration, and wear-setting identifier boundaries.
 - `references/upstream/mooncatrescue/README.md` describes local upstream reference files and usage limits.
 - `references/upstream/mooncatrescue/libmooncat-limited.js` is a registered upstream reference copy for array-backed lookup helpers.
 - `references/upstream/mooncatrescue/mooncat_traits.json` is a registered upstream reference copy for the full rescueOrder/catId dataset.
@@ -116,5 +125,5 @@ The reverse bytes5-to-rescueOrder path is verified through array-backed dataset/
 - exact derivation method for local rescue-order-index arrays
 - exact inventory and source review for any additional historical or unofficial wrapper contracts
 - broader marketplace token ID behavior beyond sampled acclimated URLs
-- accessory ID format and validation rules
+- live API-to-contract accessory ID runtime alignment and current valid accessory ID range
 - generated-data method if the full bytes5 catId mapping table is ever promoted from upstream reference copy into curated KB data
