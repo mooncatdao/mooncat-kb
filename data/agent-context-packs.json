@@ -10,7 +10,7 @@
     "script": "scripts/generate-agent-context-packs.py",
     "command": "python scripts/generate-agent-context-packs.py",
     "networkDependency": "none",
-    "caseCount": 16,
+    "caseCount": 20,
     "sizePolicy": {
       "softFileLimit": 7,
       "softEstimatedByteLimit": 200000,
@@ -966,23 +966,23 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 111853,
+        "estimatedByteCount": 117165,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
-            "bytes": 17540
+            "bytes": 20052
           },
           {
             "path": "docs/upstream-snapshots.md",
-            "bytes": 3952
+            "bytes": 4531
           },
           {
             "path": "data/sources.json",
-            "bytes": 54966
+            "bytes": 55165
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 35395
+            "bytes": 37417
           }
         ],
         "softFileLimit": 7,
@@ -1125,7 +1125,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 84641,
+        "estimatedByteCount": 84840,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1137,7 +1137,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 54966
+            "bytes": 55165
           }
         ],
         "softFileLimit": 7,
@@ -1205,7 +1205,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 89433,
+        "estimatedByteCount": 89632,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1217,7 +1217,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 54966
+            "bytes": 55165
           },
           {
             "path": "docs/reference-policy.md",
@@ -1227,6 +1227,350 @@
         "softFileLimit": 7,
         "softEstimatedByteLimit": 200000,
         "rationale": "Intent-versus-evidence boundary case without loading contract source or a universal ADR corpus."
+      }
+    },
+    {
+      "caseId": "chainstation-mooncat-data-flow",
+      "category": "chainstation-implementation",
+      "taskSummary": "Trace how a ChainStation MoonCat page resolves a route identifier into local data and API-backed details without loading the whole application.",
+      "route": "trace-chainstation-implementation",
+      "recipe": "trace-chainstation-implementation",
+      "primaryFiles": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/identifier-conventions.json"
+      ],
+      "filesToLoad": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md",
+        "data/identifier-conventions.json"
+      ],
+      "terminology": [
+        "pinned commit",
+        "rescueOrder",
+        "catId",
+        "local trait input",
+        "API-derived runtime data"
+      ],
+      "requiredFacts": [
+        "The audited detail path combines local trait lookup with API-backed details",
+        "The source revision is pinned rather than a live runtime observation"
+      ],
+      "implementationGuardrails": [
+        "Do not treat a pinned ChainStation file as proof of current production deployment, live API response, current chain state, current ownership, marketplace liquidity, IPFS availability, Firebase state, or secret configuration.",
+        "Do not promote configured contract addresses, RPC URLs, API URLs, or application-local data into broader canonical facts without a scoped source review.",
+        "Do not use ChainStation source as an ADR source or infer an ADR's implementation completion from related code.",
+        "Do not load the full trait table, full repository, dependency tree, build output, or unrelated UI paths merely because they are available upstream.",
+        "Do not treat source references to the API as a current response, owner, name, image, or listing."
+      ],
+      "forbiddenClaims": [
+        "the local trait file is complete current MoonCat truth",
+        "the detail page proves a selected MoonCat's live owner"
+      ],
+      "knownLimitations": [
+        "Do not treat source references to the API as a current response, owner, name, image, or listing."
+      ],
+      "stopConditions": [
+        "Stop if the task needs an API response body, current ownership, or an unreviewed page/helper."
+      ],
+      "validationCommands": [
+        "python scripts/validate-chainstation-surfaces.py",
+        "python scripts/validate-upstream-snapshots.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "chainstation-source",
+          "label": "ChainStation source",
+          "status": "verified-content-reviewed-at-pinned-revision"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 3,
+        "estimatedByteCount": 59823,
+        "files": [
+          {
+            "path": "data/chainstation-surfaces.json",
+            "bytes": 17299
+          },
+          {
+            "path": "docs/chainstation-surfaces.md",
+            "bytes": 5595
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 36929
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Use the compact surface map and document first; add identifier rules only when the input boundary matters."
+      }
+    },
+    {
+      "caseId": "chainstation-adr-intent-boundary",
+      "category": "chainstation-implementation",
+      "taskSummary": "Compare a ChainStation web-architecture implementation surface with the related ADR without claiming that either proves deployment.",
+      "route": "trace-chainstation-implementation",
+      "recipe": "trace-chainstation-implementation",
+      "primaryFiles": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md"
+      ],
+      "additionalRequiredFiles": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md"
+      ],
+      "explicitOptionalFiles": [],
+      "filesToLoad": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md",
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md"
+      ],
+      "terminology": [
+        "ADR",
+        "design intent",
+        "pinned implementation evidence",
+        "deprecated",
+        "deployment"
+      ],
+      "requiredFacts": [
+        "ADR 0005 is a conceptual related record and is deprecated",
+        "The ChainStation audit records one pinned implementation revision"
+      ],
+      "implementationGuardrails": [
+        "Do not treat a pinned ChainStation file as proof of current production deployment, live API response, current chain state, current ownership, marketplace liquidity, IPFS availability, Firebase state, or secret configuration.",
+        "Do not promote configured contract addresses, RPC URLs, API URLs, or application-local data into broader canonical facts without a scoped source review.",
+        "Do not use ChainStation source as an ADR source or infer an ADR's implementation completion from related code.",
+        "Do not load the full trait table, full repository, dependency tree, build output, or unrelated UI paths merely because they are available upstream.",
+        "An ADR and an implementation snapshot answer different questions; neither establishes current deployment."
+      ],
+      "forbiddenClaims": [
+        "deprecated ADR proves the current app architecture",
+        "pinned ChainStation source proves ADR completion or production rollout"
+      ],
+      "knownLimitations": [
+        "An ADR and an implementation snapshot answer different questions; neither establishes current deployment."
+      ],
+      "stopConditions": [
+        "Stop if the conclusion requires current hosting or a source file outside the reviewed evidence set."
+      ],
+      "validationCommands": [
+        "python scripts/validate-chainstation-surfaces.py",
+        "python scripts/validate-architecture-decisions.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "chainstation-source",
+          "label": "ChainStation source",
+          "status": "verified-content-reviewed-at-pinned-revision"
+        },
+        {
+          "id": "mooncatrescue-dev-environment-adr-corpus",
+          "label": "MoonCatRescue Development Environment ADR corpus snapshot",
+          "status": "pinned-local-snapshot"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 52569,
+        "files": [
+          {
+            "path": "data/chainstation-surfaces.json",
+            "bytes": 17299
+          },
+          {
+            "path": "docs/chainstation-surfaces.md",
+            "bytes": 5595
+          },
+          {
+            "path": "data/architecture-decisions.json",
+            "bytes": 26520
+          },
+          {
+            "path": "docs/architecture-decisions.md",
+            "bytes": 3155
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Four compact index/doc files keep the intent-versus-implementation boundary explicit."
+      }
+    },
+    {
+      "caseId": "chainstation-value-provenance",
+      "category": "chainstation-implementation",
+      "taskSummary": "Classify a ChainStation value as local data, configuration, API-derived runtime data, contract-derived runtime data, or UI-only behavior before changing code.",
+      "route": "trace-chainstation-implementation",
+      "recipe": "trace-chainstation-implementation",
+      "primaryFiles": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/contracts.json",
+        "data/identifier-conventions.json"
+      ],
+      "filesToLoad": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md",
+        "data/contracts.json",
+        "data/identifier-conventions.json"
+      ],
+      "terminology": [
+        "dataStatus",
+        "executionRole",
+        "configuration",
+        "API-derived",
+        "contract-derived",
+        "UI-only"
+      ],
+      "requiredFacts": [
+        "The surface index records an explicit provenance/status classification",
+        "Configured values are not equivalent to live contract or service state"
+      ],
+      "implementationGuardrails": [
+        "Do not treat a pinned ChainStation file as proof of current production deployment, live API response, current chain state, current ownership, marketplace liquidity, IPFS availability, Firebase state, or secret configuration.",
+        "Do not promote configured contract addresses, RPC URLs, API URLs, or application-local data into broader canonical facts without a scoped source review.",
+        "Do not use ChainStation source as an ADR source or infer an ADR's implementation completion from related code.",
+        "Do not load the full trait table, full repository, dependency tree, build output, or unrelated UI paths merely because they are available upstream.",
+        "Do not promote source-local generated data, config, or UI values into canonical live facts."
+      ],
+      "forbiddenClaims": [
+        "configured address proves current contract state",
+        "API-derived UI value is a canonical checked-in record"
+      ],
+      "knownLimitations": [
+        "Do not promote source-local generated data, config, or UI values into canonical live facts."
+      ],
+      "stopConditions": [
+        "Stop if classification needs an unreviewed value or current API/chain evidence."
+      ],
+      "validationCommands": [
+        "python scripts/validate-chainstation-surfaces.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "chainstation-source",
+          "label": "ChainStation source",
+          "status": "verified-content-reviewed-at-pinned-revision"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 82675,
+        "files": [
+          {
+            "path": "data/chainstation-surfaces.json",
+            "bytes": 17299
+          },
+          {
+            "path": "docs/chainstation-surfaces.md",
+            "bytes": 5595
+          },
+          {
+            "path": "data/contracts.json",
+            "bytes": 22852
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 36929
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "The surface metadata is sufficient for classification; contract or identifier files are optional, not automatic."
+      }
+    },
+    {
+      "caseId": "chainstation-live-state-stop",
+      "category": "chainstation-live-state-boundary",
+      "taskSummary": "Use the ChainStation audit to determine whether the production site, API, wallet flow, IPFS asset, or chain state is live right now.",
+      "route": "trace-chainstation-implementation",
+      "recipe": "trace-chainstation-implementation",
+      "primaryFiles": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/upstream-snapshot-manifest.json",
+        "docs/upstream-snapshots.md"
+      ],
+      "filesToLoad": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md",
+        "data/upstream-snapshot-manifest.json",
+        "docs/upstream-snapshots.md"
+      ],
+      "terminology": [
+        "pinned source",
+        "live state",
+        "deployment",
+        "API availability",
+        "chain state"
+      ],
+      "requiredFacts": [
+        "The audit is a pinned source review",
+        "The snapshot intentionally does not perform live deployment, API, RPC, gateway, or chain checks"
+      ],
+      "implementationGuardrails": [
+        "Do not treat a pinned ChainStation file as proof of current production deployment, live API response, current chain state, current ownership, marketplace liquidity, IPFS availability, Firebase state, or secret configuration.",
+        "Do not promote configured contract addresses, RPC URLs, API URLs, or application-local data into broader canonical facts without a scoped source review.",
+        "Do not use ChainStation source as an ADR source or infer an ADR's implementation completion from related code.",
+        "Do not load the full trait table, full repository, dependency tree, build output, or unrelated UI paths merely because they are available upstream.",
+        "Report the boundary instead of inferring present availability from source code or CI configuration."
+      ],
+      "forbiddenClaims": [
+        "ChainStation source proves production is live",
+        "configured gateway or RPC proves endpoint availability",
+        "wallet helper proves current ownership"
+      ],
+      "knownLimitations": [
+        "Report the boundary instead of inferring present availability from source code or CI configuration."
+      ],
+      "stopConditions": [
+        "Stop and request separately authorized live verification when current external state is required."
+      ],
+      "validationCommands": [
+        "python scripts/validate-chainstation-surfaces.py",
+        "python scripts/validate-upstream-snapshots.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "chainstation-source",
+          "label": "ChainStation source",
+          "status": "verified-content-reviewed-at-pinned-revision"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 47477,
+        "files": [
+          {
+            "path": "data/chainstation-surfaces.json",
+            "bytes": 17299
+          },
+          {
+            "path": "docs/chainstation-surfaces.md",
+            "bytes": 5595
+          },
+          {
+            "path": "data/upstream-snapshot-manifest.json",
+            "bytes": 20052
+          },
+          {
+            "path": "docs/upstream-snapshots.md",
+            "bytes": 4531
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Use the compact source boundary and optional provenance manifest, never the full evidence snapshot."
       }
     },
     {
@@ -1291,11 +1635,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 115228,
+        "estimatedByteCount": 127306,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 19709
+            "bytes": 25637
           },
           {
             "path": "docs/agent-usage.md",
@@ -1303,15 +1647,15 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 19527
+            "bytes": 20672
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 39252
+            "bytes": 42235
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 35395
+            "bytes": 37417
           }
         ],
         "softFileLimit": 7,

@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "snapshotType": "compact-pinned-source-evidence",
+  "repository": "https://gitlab.com/mooncatrescue/chainstation-web.git",
+  "project": "MoonCatRescue ChainStation Web",
+  "defaultBranch": "master",
+  "defaultBranchEvidence": "git ls-remote --symref https://gitlab.com/mooncatrescue/chainstation-web.git HEAD returned refs/heads/master.",
+  "resolvedCommit": "5df03ab465d46f59f3e4d4a05e4e85fc90abdc0a",
+  "commitEvidence": "A depth-1 clone of master returned this value from git rev-parse HEAD.",
+  "commitDate": "2026-07-13 13:30:02 -0500",
+  "retrievalDate": "2026-07-17",
+  "retrievalMethod": [
+    "git ls-remote --symref https://gitlab.com/mooncatrescue/chainstation-web.git HEAD",
+    "git clone --depth 1 --branch master https://gitlab.com/mooncatrescue/chainstation-web.git <temporary-checkout>",
+    "git -C <temporary-checkout> rev-parse HEAD"
+  ],
+  "copyBoundary": "The evidence directory contains exact whole-file copies of 28 reviewed source/configuration files at the resolved commit. It excludes the full repository, dependency directories, build output, caches, secrets, and large generated MoonCat data tables.",
+  "license": {
+    "status": "observed-in-package-metadata",
+    "value": "AGPL-3.0",
+    "evidence": "package.json at the resolved commit declares license AGPL-3.0; this is repository metadata evidence, not a separate license-file review."
+  },
+  "testEvidence": {
+    "status": "no-conventional-tracked-test-paths-observed",
+    "method": "The resolved tree was searched for test, tests, __tests__, and conventional .test/.spec TypeScript or JavaScript paths.",
+    "limitation": "This does not prove the repository has no tests, external CI checks, or runtime validation beyond the reviewed paths."
+  },
+  "inventory": [
+    {"path":".gitlab-ci.yml","sourcePath":".gitlab-ci.yml","sha256":"933a3ae7babb5de5f88ce08b8d0d31520b6f8c132157a85ff650b0859a8c8093","bytes":1936,"lineStart":1,"lineEnd":71,"copyStatus":"exact-copy"},
+    {"path":"app/(main)/layout.tsx","sourcePath":"app/(main)/layout.tsx","sha256":"53e6c95dba8e20dfb3d7d39a029820a3402dabe024dcab364585b7a51aa38cba","bytes":958,"lineStart":1,"lineEnd":35,"copyStatus":"exact-copy"},
+    {"path":"app/(main)/mooncats/[id]/page.tsx","sourcePath":"app/(main)/mooncats/[id]/page.tsx","sha256":"1da0462701c816a870e6ddddfa8f65195011ab314ea7bdf28efaa95eaf6c8a32","bytes":4712,"lineStart":1,"lineEnd":131,"copyStatus":"exact-copy"},
+    {"path":"app/(plain)/mooncats/[id]/vox/page.tsx","sourcePath":"app/(plain)/mooncats/[id]/vox/page.tsx","sha256":"f7a56d6a6d1920e89ced9c319addba4ccaf03ef430b3c12e1bbc55f3f8b902ba","bytes":2330,"lineStart":1,"lineEnd":66,"copyStatus":"exact-copy"},
+    {"path":"app/api/mooncat-listings/route.ts","sourcePath":"app/api/mooncat-listings/route.ts","sha256":"75aecd69c7ab49572306ea2499a42206f185850175946f574a517f765871fb07","bytes":741,"lineStart":1,"lineEnd":24,"copyStatus":"exact-copy"},
+    {"path":"app/api/mooncats/route.ts","sourcePath":"app/api/mooncats/route.ts","sha256":"83a0e1cd3fdb472fddd116f3a88442f2aa2a256ef3f289c8d73a4ddc2c083cdf","bytes":3069,"lineStart":1,"lineEnd":79,"copyStatus":"exact-copy"},
+    {"path":"app/api/nftx-price/[id]/route.ts","sourcePath":"app/api/nftx-price/[id]/route.ts","sha256":"cbfcd669d12aed70c4cc95c4e55718f26635d5a14079c0e16c1f3a70ac3acd87","bytes":3869,"lineStart":1,"lineEnd":98,"copyStatus":"exact-copy"},
+    {"path":"app/api/siwe-verify/route.ts","sourcePath":"app/api/siwe-verify/route.ts","sha256":"332ce6a2a3734166d3fdf97b624e7ebae39b8b4aa17dca6e425a522cbd6a1ffe","bytes":4300,"lineStart":1,"lineEnd":104,"copyStatus":"exact-copy"},
+    {"path":"apphosting.yaml","sourcePath":"apphosting.yaml","sha256":"e7eff83772be2db400a08a41de5d184ccd98bb0f3bc33e1045a3a6727255d0dd","bytes":667,"lineStart":1,"lineEnd":23,"copyStatus":"exact-copy"},
+    {"path":"components/MoonCatGrid.tsx","sourcePath":"components/MoonCatGrid.tsx","sha256":"380b7b500dd0ef4e42da204c21ca7a5140c069aca95db58943b6a8be79cbcd1e","bytes":12967,"lineStart":1,"lineEnd":459,"copyStatus":"exact-copy"},
+    {"path":"components/MoonCatSprite.tsx","sourcePath":"components/MoonCatSprite.tsx","sha256":"f10aa703f429d331c470419dde152b82681c4bb4b03c2b9d636d69a1b7b966b3","bytes":2683,"lineStart":1,"lineEnd":109,"copyStatus":"exact-copy"},
+    {"path":"env-example.txt","sourcePath":"env-example.txt","sha256":"deb37d8937df278fbbf2041a5c35598d621e80131be997c3994431ef548a0168","bytes":143,"lineStart":1,"lineEnd":3,"copyStatus":"exact-copy"},
+    {"path":"firebase.json","sourcePath":"firebase.json","sha256":"9aa59f28fd6e97af1817dba32c78d6648e7e09c15461fcf5715c274218031564","bytes":621,"lineStart":1,"lineEnd":34,"copyStatus":"exact-copy"},
+    {"path":"firebase_deploy.sh","sourcePath":"firebase_deploy.sh","sha256":"ed9122d79b603bda1379c61ddde5c13fb34100164691aa174adc07112ae4b91a","bytes":390,"lineStart":1,"lineEnd":14,"copyStatus":"exact-copy"},
+    {"path":"lib/firebase.ts","sourcePath":"lib/firebase.ts","sha256":"53bc26eee9ae2cb781c92c07947733c8a071c806478a2830a6e867be992a73a6","bytes":2476,"lineStart":1,"lineEnd":93,"copyStatus":"exact-copy"},
+    {"path":"lib/getMoonCatData.ts","sourcePath":"lib/getMoonCatData.ts","sha256":"0613a914047ed556c0adb465024b401688f34e741c6784647739e3249a34a61f","bytes":1678,"lineStart":1,"lineEnd":42,"copyStatus":"exact-copy"},
+    {"path":"lib/getMoonCatDetails.ts","sourcePath":"lib/getMoonCatDetails.ts","sha256":"6663e2fe175b27300620de0e1d9d428375bb7c70a767f2bf9e53582c783c462d","bytes":1094,"lineStart":1,"lineEnd":33,"copyStatus":"exact-copy"},
+    {"path":"lib/getMoonCatOwner.ts","sourcePath":"lib/getMoonCatOwner.ts","sha256":"9b95c70f80f9ac75e19953fdc234d2dfd8ae99365d6ffcfc106ab5c25f109b5d","bytes":1282,"lineStart":1,"lineEnd":27,"copyStatus":"exact-copy"},
+    {"path":"lib/onchainActions.ts","sourcePath":"lib/onchainActions.ts","sha256":"0992058faa52dd32175b3b16508406f62432f4a94caeff933e0659f64014af6d","bytes":9381,"lineStart":1,"lineEnd":317,"copyStatus":"exact-copy"},
+    {"path":"lib/publicClient.ts","sourcePath":"lib/publicClient.ts","sha256":"437c796eb69e19832819df0acf32642dcb404833703ca5bd5123502b2de70ae0","bytes":1337,"lineStart":1,"lineEnd":35,"copyStatus":"exact-copy"},
+    {"path":"lib/tokens.tsx","sourcePath":"lib/tokens.tsx","sha256":"35aab4c65a07e5dc30be15fd15a5b3b46ef7cc83d5a2951df9056550aea1825b","bytes":14674,"lineStart":1,"lineEnd":412,"copyStatus":"exact-copy"},
+    {"path":"lib/useOwnedTokens.ts","sourcePath":"lib/useOwnedTokens.ts","sha256":"1a8f550e0f9163e252dd4196df4aefa110ddf20f5ebe87bfeef0fdc0fc5f729d","bytes":2201,"lineStart":1,"lineEnd":65,"copyStatus":"exact-copy"},
+    {"path":"lib/util.ts","sourcePath":"lib/util.ts","sha256":"bb4a9e78aac7b4756e56ac9cf9d22065ba2d9e2816693f78bdb5f3dcf22a8464","bytes":38650,"lineStart":1,"lineEnd":1042,"copyStatus":"exact-copy"},
+    {"path":"lib/wagmi-config.ts","sourcePath":"lib/wagmi-config.ts","sha256":"2782d736b8888e18fcd26b6c932c866bd8b063bc30585d1fb641ffd87d1ee9c1","bytes":1224,"lineStart":1,"lineEnd":39,"copyStatus":"exact-copy"},
+    {"path":"next.config.js","sourcePath":"next.config.js","sha256":"a528cfe2e22a3ebdd18649d1fc94f75dc0175c113810d92208f93ed3ab25eceb","bytes":293,"lineStart":1,"lineEnd":14,"copyStatus":"exact-copy"},
+    {"path":"package.json","sourcePath":"package.json","sha256":"4e78ae41eca0975ef80ba8c7364c229aaf34f842735adcdedbf1822c65ee809a","bytes":1325,"lineStart":1,"lineEnd":55,"copyStatus":"exact-copy"},
+    {"path":"public/vox.js","sourcePath":"public/vox.js","sha256":"f4332425342bef2dcb440d505ab46530a0b39504ab4729d742cfcffe6de6ccd1","bytes":3579,"lineStart":1,"lineEnd":119,"copyStatus":"exact-copy"},
+    {"path":"tsconfig.json","sourcePath":"tsconfig.json","sha256":"b06a6f03d5aa47065b08431702cc3995fd8db9f16b3b021022c00a7bf4ea1365","bytes":693,"lineStart":1,"lineEnd":38,"copyStatus":"exact-copy"}
+  ]
+}

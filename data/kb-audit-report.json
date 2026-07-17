@@ -31,19 +31,19 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 41 Required file references checked: 370 sourceRefs checked: 1076 relatedFiles checked: 224 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 42 Required file references checked: 391 sourceRefs checked: 1083 relatedFiles checked: 226 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 16 query cases, 16 categories, 6 protected boundaries, and minimal deterministic packs"
+      "outputSummary": "OK: 20 query cases, 18 categories, 6 protected boundaries, and minimal deterministic packs"
     },
     {
       "command": "python scripts/validate-upstream-snapshots.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 8 snapshot entries, hashes and provenance references validated"
+      "outputSummary": "OK: 9 snapshot entries, hashes and provenance references validated"
     },
     {
       "command": "python scripts/validate-identifier-conversions.py",
@@ -76,22 +76,28 @@
       "outputSummary": "OK: 18 ADR records, IDs, sources, paths, enums, and claimed supersession links validated"
     },
     {
+      "command": "python scripts/validate-chainstation-surfaces.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 10 ChainStation surfaces and 28 exact evidence files validated"
+    },
+    {
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 95 maintained files, 32 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 98 maintained files, 63 explicit exclusions, hashes, routes, and commands validated"
     }
   ],
   "counts": {
-    "requiredCommandCount": 13,
+    "requiredCommandCount": 14,
     "failedRequiredCommandCount": 0,
-    "duplicateNamespaceCount": 10,
-    "internalPathsChecked": 1191,
+    "duplicateNamespaceCount": 11,
+    "internalPathsChecked": 1318,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 95,
-    "manifestExcludedFileCount": 32
+    "manifestMaintainedFileCount": 98,
+    "manifestExcludedFileCount": 63
   },
   "duplicateIdChecks": {
     "collections": {
@@ -102,22 +108,22 @@
       },
       "agent-routes": {
         "file": "data/agent-index.json",
-        "count": 23,
+        "count": 24,
         "duplicates": []
       },
       "task-recipes": {
         "file": "data/task-recipes.json",
-        "count": 18,
+        "count": 19,
         "duplicates": []
       },
       "benchmark-cases": {
         "file": "data/agent-query-cases.json",
-        "count": 16,
+        "count": 20,
         "duplicates": []
       },
       "gap-records": {
         "file": "data/kb-gap-index.json",
-        "count": 23,
+        "count": 24,
         "duplicates": []
       },
       "identifier-fixtures": {
@@ -137,19 +143,24 @@
       },
       "upstream-snapshots": {
         "file": "data/upstream-snapshot-manifest.json",
-        "count": 8,
+        "count": 9,
         "duplicates": []
       },
       "architecture-decisions": {
         "file": "data/architecture-decisions.json",
         "count": 18,
         "duplicates": []
+      },
+      "chainstation-surfaces": {
+        "file": "data/chainstation-surfaces.json",
+        "count": 10,
+        "duplicates": []
       }
     },
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 1191,
+    "checked": 1318,
     "errors": [],
     "warnings": []
   },

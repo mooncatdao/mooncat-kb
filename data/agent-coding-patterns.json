@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-12",
+  "updated": "2026-07-17",
   "status": "tested-coding-pattern-catalog",
   "scope": "Pointers to small checked-in patterns and validators for coding agents. This catalog does not duplicate upstream implementations or make live-state claims.",
   "patterns": [
@@ -11,6 +11,7 @@
     {"key": "derived-color-labels", "purpose": "Use versioned display labels while retaining raw hue fields.", "files": ["data/color-classification.json", "scripts/validate-color-classification.py"], "command": "python scripts/validate-color-classification.py", "guardrail": "Labels are not RGB, palette, rarity, or rendering proof."},
     {"key": "wallet-free-rescue-mining", "purpose": "Reuse the bounded local seed-search pattern.", "files": ["data/rescue-mining.json", "examples/rescue-mining.js", "docs/rescue-mining.md"], "command": "python scripts/validate-kb.py", "guardrail": "No wallet, transaction submission, current availability, or ownership claim."},
     {"key": "zero-network-kb-validation", "purpose": "Validate JSON, routing, generated artifacts, and source references after an implementation change.", "files": ["scripts/validate-kb.py", "data/task-recipes.json", "data/kb-gap-index.json"], "command": "python scripts/validate-kb.py", "guardrail": "Run task-specific validators as well as the structural KB validator."},
-    {"key": "adr-intent-boundary", "purpose": "Explain a reviewed architecture decision while preserving the boundary between design intent and implementation evidence.", "files": ["data/architecture-decisions.json", "docs/architecture-decisions.md", "scripts/validate-architecture-decisions.py"], "command": "python scripts/validate-architecture-decisions.py", "guardrail": "An accepted ADR does not prove current deployment, live state, or implementation completion."}
+    {"key": "adr-intent-boundary", "purpose": "Explain a reviewed architecture decision while preserving the boundary between design intent and implementation evidence.", "files": ["data/architecture-decisions.json", "docs/architecture-decisions.md", "scripts/validate-architecture-decisions.py"], "command": "python scripts/validate-architecture-decisions.py", "guardrail": "An accepted ADR does not prove current deployment, live state, or implementation completion."},
+    {"key": "trace-chainstation-surface", "purpose": "Trace a selected ChainStation UI/route surface through the compact pinned implementation map without loading the full application snapshot.", "files": ["data/chainstation-surfaces.json", "docs/chainstation-surfaces.md", "scripts/validate-chainstation-surfaces.py"], "command": "python scripts/validate-chainstation-surfaces.py", "guardrail": "Pinned source and configuration do not prove production deployment, live API/chain/gateway state, ownership, or ADR completion."}
   ]
 }

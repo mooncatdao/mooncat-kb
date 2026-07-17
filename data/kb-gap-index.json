@@ -1,11 +1,12 @@
 {
   "version": 6,
   "updated": "2026-07-17",
-  "status": "refreshed-with-pinned-dev-environment-adr-corpus",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, the exact MoonCatsWrapped identifier review, and the complete pinned dev-environment ADR directory index.",
+  "status": "refreshed-with-pinned-dev-environment-adr-and-chainstation-audits",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, the exact MoonCatsWrapped identifier review, the complete pinned dev-environment ADR directory index, and a compact pinned ChainStation implementation-surface audit.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
+    "data/chainstation-surfaces.json",
     "data/api-endpoints.json",
     "data/api-examples.json",
     "data/character-cat-index.json",
@@ -54,12 +55,14 @@
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
     "status": "all-current-route-candidates-directly-routed",
-    "dataFileCount": 38,
-    "routeCandidates": 37,
-    "directlyRoutedCandidateCount": 37,
+    "dataFileCount": 42,
+    "routeCandidates": 39,
+    "directlyRoutedCandidateCount": 39,
     "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
-      "data/agent-index.json"
+      "data/agent-index.json",
+      "data/kb-manifest.json",
+      "data/kb-audit-report.json"
     ],
     "notes": [
       "data/task-recipes.json is directly routed by data/agent-index.json.",
@@ -68,6 +71,7 @@
       "data/mooncat-svg-internals.json is now directly routed by data/agent-index.json through render-images and look-up-contracts.",
       "data/mooncat-accessory-images-internals.json is now directly routed by data/agent-index.json through render-images and look-up-contracts.",
       "data/older-wrapper-internals.json is now directly routed by data/agent-index.json through identify-mooncat-ids and look-up-contracts.",
+      "data/chainstation-surfaces.json is directly routed by data/agent-index.json through trace-chainstation-implementation.",
       "Current route candidates are directly discoverable from data/agent-index.json."
     ]
   },
@@ -241,6 +245,22 @@
       "notes": "The curated model decision is implemented as a 64-row generated visual-trait prototype keyed by bytes5 catId with rescueOrder as a source-backed secondary lookup field. The full trait table, frequencies, names, and accessory details remain unimported."
     },
     {
+      "key": "chainstation-implementation-surface-audit",
+      "status": "resolved-as-compact-pinned-source-audit",
+      "files": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md",
+        "scripts/validate-chainstation-surfaces.py",
+        "data/upstream-snapshot-manifest.json",
+        "scripts/validate-upstream-snapshots.py",
+        "data/agent-index.json",
+        "data/task-recipes.json",
+        "data/agent-query-cases.json",
+        "data/agent-coding-patterns.json"
+      ],
+      "notes": "A compact 28-file ChainStation source snapshot now pins master commit 5df03ab465d46f59f3e4d4a05e4e85fc90abdc0a and indexes ten application/data surfaces with exact evidence paths, source/configuration/runtime classifications, ADR-intent separation, benchmark coverage, and offline hash/shape validation. It intentionally excludes full-repository coverage, external responses, secrets, deployment verification, and live state."
+    },
+    {
       "key": "upstream-snapshot-provenance-manifest",
       "status": "resolved-as-local-hash-manifest-with-open-lineage",
       "files": [
@@ -337,6 +357,18 @@
     }
   ],
   "fileGaps": [
+    {
+      "file": "data/chainstation-surfaces.json",
+      "currentStatus": "compact-pinned-implementation-audit",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "intentional-compact-scope",
+        "live-state-unverified",
+        "unreviewed-application-surfaces"
+      ],
+      "agentUsabilityImpact": "Useful for locating selected MoonCat detail, filtering, API, wallet, rendering, Firebase, and build/deployment evidence without loading the full app; it must not be used as a live system report.",
+      "nextDataPass": "Review an additional source area only through a separately scoped pinned snapshot, or run an explicitly authorized live verification for deployment/API/chain/gateway questions."
+    },
     {
       "file": "data/api-endpoints.json",
       "currentStatus": "openapi-derived-compact",

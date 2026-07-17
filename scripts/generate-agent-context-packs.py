@@ -19,7 +19,8 @@ ROUTE_RECIPES = {
     "call-api-endpoints": "use-api-examples",
     "look-up-contracts": "choose-contract-surface",
     "review-upstream-snapshot-provenance": "review-upstream-snapshots",
-    "review-mooncat-accessory-lifecycle": "trace-mooncat-accessory-lifecycle"
+    "review-mooncat-accessory-lifecycle": "trace-mooncat-accessory-lifecycle",
+    "trace-chainstation-implementation": "trace-chainstation-implementation"
 }
 
 

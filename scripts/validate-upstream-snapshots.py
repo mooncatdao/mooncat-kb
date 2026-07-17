@@ -84,9 +84,19 @@ def main() -> int:
                 actual_hash, actual_size = digest(snapshot_file) if snapshot_file.is_file() else (None, None)
                 if actual_hash != item.get("sha256") or actual_size != item.get("bytes"):
                     fail(f"{key}: snapshot inventory drift at {relative}")
-            actual_markdown = {item.name for item in (ROOT / directory).glob("*.md")}
-            if actual_markdown != listed:
-                fail(f"{key}: snapshot inventory does not match copied Markdown files")
+            inventory_mode = inventory_config.get("inventoryMode", "markdown-files")
+            if inventory_mode == "markdown-files":
+                actual_files = {item.name for item in (ROOT / directory).glob("*.md")}
+            elif inventory_mode == "all-files":
+                actual_files = {
+                    item.relative_to(ROOT / directory).as_posix()
+                    for item in (ROOT / directory).rglob("*")
+                    if item.is_file()
+                }
+            else:
+                fail(f"{key}: unsupported snapshot inventoryMode")
+            if actual_files != listed:
+                fail(f"{key}: snapshot inventory does not match copied files")
         if entry.get("contentRole") not in enums.get("contentRoles", []):
             fail(f"{key}: unsupported contentRole")
         if entry.get("copyStatus") not in enums.get("copyStatuses", []):

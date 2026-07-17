@@ -37,6 +37,7 @@ Project-link `trustLevel` values are navigation classifications, not canonical-s
 - MoonCatRescue Development Environment ADR corpus snapshot: `mooncatrescue-dev-environment-adr-corpus`
 - Upstream snapshot manifest: `data/upstream-snapshot-manifest.json`
 - ChainStation source: `chainstation-source`
+- ChainStation compact implementation audit: `data/chainstation-surfaces.json`
 - Ponderware libMoonCat: `libmooncat`
 - ponderware GitHub: `ponderware-github`
 - Original MoonCat parser: `ponderware-mooncatparser`

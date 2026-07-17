@@ -185,13 +185,13 @@
       "type": "source-code",
       "url": "https://gitlab.com/mooncatrescue/chainstation-web/",
       "trustLevel": "strong",
-      "status": "verified",
+      "status": "verified-content-reviewed-at-pinned-revision",
       "supports": [
         "MoonCatRescue website source",
         "web app behavior",
         "ecosystem contract interactions"
       ],
-      "notes": "Verified GitLab repository for the ChainStation web application."
+      "notes": "Verified GitLab repository for the ChainStation web application. A compact source audit pins master commit 5df03ab465d46f59f3e4d4a05e4e85fc90abdc0a on 2026-07-17; it does not establish current deployment or live external state."
     },
     {
       "id": "libmooncat",

@@ -31,7 +31,8 @@
     "classificationRule": "explicit root/path mappings in scripts/generate-kb-manifest.py; unmatched maintained paths fail generation",
     "excludedExactPaths": {
       "data/kb-manifest.json": "recursive-generated-manifest-output",
-      "data/kb-audit-report.json": "dynamic-generated-audit-report"
+      "data/kb-audit-report.json": "dynamic-generated-audit-report",
+      "codex-handoff.md": "local-agent-session-handoff"
     },
     "excludedPathPrefixes": {
       ".git/": "git-internal-data",
@@ -91,8 +92,8 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 95,
-    "excludedFileCount": 32,
+    "maintainedFileCount": 98,
+    "excludedFileCount": 63,
     "unclassifiedMaintainedFileCount": 0
   },
   "entries": [
@@ -196,8 +197,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5139,
-      "sha256": "5e4d1b85616d9eee3d5ade5b161fd038c9e2a7b82a1eee9a91e3a46c7b2234e2",
+      "sizeBytes": 5318,
+      "sha256": "7bdbc3b2ea0c2fff386ce935597b1347f1f4273d6a6c8ea0c42dece1bc5a2f2b",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -217,8 +218,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 3239,
-      "sha256": "2315988fd530bce86461f2f76fdd2f90221c2a485cad41ba0d3297a3b566fbfb",
+      "sizeBytes": 3767,
+      "sha256": "71174ace2a1822cb5a12c221f2a70b7744942b51d2930ec92c308400eb9b2250",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -242,8 +243,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 46733,
-      "sha256": "1bdb25d5f9d67d2304b0482a2c0384d7e81e6f2c920bb4d87833a4fcfac50a65",
+      "sizeBytes": 61107,
+      "sha256": "9c12bec2477a8ca3c544afa32945884999ae8890f201d5206ef7bc71bc73a966",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -269,8 +270,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 19527,
-      "sha256": "935662081a5fa590cb3e671ce1bff24b6bbb4ec7f5b89059fa056ca3908a9637",
+      "sizeBytes": 20672,
+      "sha256": "ad0102984845727f25a35530dd835c371b28a1a4f6cff53b8f4326726d7406a2",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -298,8 +299,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 19709,
-      "sha256": "17674190990c68b12409f0f07d4c360ff39e0a0b69f861f98e2c457b470be8d7",
+      "sizeBytes": 25637,
+      "sha256": "9aa7ba749ffdbdfe129bfe1797a769eaeaed24f0f9076e6b6cbd6330734e9f59",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -387,10 +388,12 @@
       "sizeBytes": 26520,
       "sha256": "0af87c31854ccc58d0099b9332fca9cd33163702fb1b357acfab141cd7c288f2",
       "agentRoutes": [
-        "locate-architecture-decisions"
+        "locate-architecture-decisions",
+        "trace-chainstation-implementation"
       ],
       "taskRecipes": [
-        "locate-architecture-decisions"
+        "locate-architecture-decisions",
+        "trace-chainstation-implementation"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -398,6 +401,32 @@
         "python scripts/validate-architecture-decisions.py"
       ],
       "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/chainstation-surfaces.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 17299,
+      "sha256": "afc02cd3627a63cc6feb8eec4ab48ba072feb5fd8daa12476e6fb0eedb0f1c98",
+      "agentRoutes": [
+        "trace-chainstation-implementation"
+      ],
+      "taskRecipes": [
+        "trace-chainstation-implementation"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [
+        "python scripts/validate-chainstation-surfaces.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
     {
@@ -580,6 +609,7 @@
       "agentRoutes": [
         "look-up-contracts",
         "review-mooncat-accessory-lifecycle",
+        "trace-chainstation-implementation",
         "understand-rescue-mining"
       ],
       "taskRecipes": [
@@ -587,6 +617,7 @@
         "choose-contract-surface",
         "choose-mooncat-identifier-form",
         "render-or-fetch-mooncat-image",
+        "trace-chainstation-implementation",
         "trace-mooncat-accessory-lifecycle",
         "understand-rescue-mining"
       ],
@@ -616,6 +647,7 @@
         "render-images",
         "review-mooncat-accessory-lifecycle",
         "review-trait-schema-strategy",
+        "trace-chainstation-implementation",
         "verify-identifier-conversions",
         "work-with-rescue-buckets"
       ],
@@ -627,6 +659,7 @@
         "generate-or-validate-visual-trait-sample",
         "look-up-rescue-bucket-or-year",
         "render-or-fetch-mooncat-image",
+        "trace-chainstation-implementation",
         "trace-mooncat-accessory-lifecycle",
         "use-api-examples",
         "use-libmooncat-helper-surfaces",
@@ -695,8 +728,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 35395,
-      "sha256": "8f56b2c7ad4cacce531ab482fcb101609b278c45352986a1d387bb7fb943666a",
+      "sizeBytes": 37417,
+      "sha256": "12b4f3c81ba100e7bd61f3090bc822725319c81e709d5c4692e275d31c788451",
       "agentRoutes": [
         "review-kb-gaps",
         "review-upstream-snapshot-provenance",
@@ -1138,8 +1171,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 54966,
-      "sha256": "3f616ac5214e20303ee1ad6225a7db5f9033045e79c2682bfa94ea34a868b89e",
+      "sizeBytes": 55165,
+      "sha256": "d5a136dd26272af017beb0c031793cef8b0ba4192b043b4820b3831954f20ccf",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -1156,6 +1189,7 @@
         "review-mooncat-accessory-lifecycle",
         "review-trait-schema-strategy",
         "review-upstream-snapshot-provenance",
+        "trace-chainstation-implementation",
         "understand-rescue-mining",
         "use-agent-context-packs",
         "use-task-recipes",
@@ -1177,6 +1211,7 @@
         "look-up-rescue-bucket-or-year",
         "render-or-fetch-mooncat-image",
         "review-upstream-snapshots",
+        "trace-chainstation-implementation",
         "trace-mooncat-accessory-lifecycle",
         "understand-rescue-mining",
         "use-agent-context-packs",
@@ -1224,8 +1259,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 39252,
-      "sha256": "6f706ce9a25a232fdc327a87364432c7f430c12776a928be5184bd513dfc785a",
+      "sizeBytes": 42235,
+      "sha256": "3c558cd74260708f6f2361d39cf27287932f7159de44544123da5da007fd72e8",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1286,13 +1321,15 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 17540,
-      "sha256": "e0149ae191467ae762bbc7aa9cca0b21cf9c6a92f2dd83432281515333ef3c96",
+      "sizeBytes": 20052,
+      "sha256": "ad71a17e3173aa0cdf6b1e21be941c39e8adac6cc08aead1275bf04beb32a09c",
       "agentRoutes": [
-        "review-upstream-snapshot-provenance"
+        "review-upstream-snapshot-provenance",
+        "trace-chainstation-implementation"
       ],
       "taskRecipes": [
-        "review-upstream-snapshots"
+        "review-upstream-snapshots",
+        "trace-chainstation-implementation"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -1362,10 +1399,37 @@
       "sizeBytes": 3155,
       "sha256": "c7f7875530ac6e998ffaec41fe103716a9d194029734d0462406d56fa051cd1a",
       "agentRoutes": [
-        "locate-architecture-decisions"
+        "locate-architecture-decisions",
+        "trace-chainstation-implementation"
       ],
       "taskRecipes": [
-        "locate-architecture-decisions"
+        "locate-architecture-decisions",
+        "trace-chainstation-implementation"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/chainstation-surfaces.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 5595,
+      "sha256": "152654844a544403398674f478eb5fb0451a6837a64c94e82255f6bc2e122ee9",
+      "agentRoutes": [
+        "trace-chainstation-implementation"
+      ],
+      "taskRecipes": [
+        "trace-chainstation-implementation"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -1574,8 +1638,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4710,
-      "sha256": "799a2c42747c34498f64aaa360206eb70dfdcdb570b5a819458f4d8faa1be601",
+      "sizeBytes": 4757,
+      "sha256": "e0d73b72e9f5b4ee677e426074a1a54bea599ef604b862600b6c415976c5426c",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -1891,8 +1955,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6293,
-      "sha256": "929a79636ce812d2fa2f32a50f64bbff6f668333daee4c897638e4fba789f4b5",
+      "sizeBytes": 6372,
+      "sha256": "cea68227780654bdd1285e2ad87badb6be96759c9e33d0135b6f9034ca73c6eb",
       "agentRoutes": [
         "check-source-provenance",
         "find-ipfs-and-artifact-urls",
@@ -1990,13 +2054,15 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3952,
-      "sha256": "974ecb9ad301df4b8e757d4d4a8d17071ce8949edc0ba8f2f1c54c657d2c3f5d",
+      "sizeBytes": 4531,
+      "sha256": "02a77de546d704ac6973aced5254de1c12b531619a6c653a29fc2d4eb8203a45",
       "agentRoutes": [
-        "review-upstream-snapshot-provenance"
+        "review-upstream-snapshot-provenance",
+        "trace-chainstation-implementation"
       ],
       "taskRecipes": [
-        "review-upstream-snapshots"
+        "review-upstream-snapshots",
+        "trace-chainstation-implementation"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -2172,8 +2238,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2129,
-      "sha256": "a6754613af3e9645b4cfa06880d1482ad18ad3889c098688ac95fe7cba37b187",
+      "sizeBytes": 2197,
+      "sha256": "16bb821802b258aa786636e9e33b26bd6b401365a3c127e6408965103541e870",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2216,8 +2282,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 11017,
-      "sha256": "06479f3d7f39f253b7b9568c17057580818c506e7e4e2d3e67dc6aea8ab71122",
+      "sizeBytes": 11157,
+      "sha256": "4cbc8cf8d87a8f6c2317efb25447e0e69b1dd6cff7d73e0bf8e46b816b2b3f40",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2238,8 +2304,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 4507,
-      "sha256": "758d1cbd0d616c104d08e2f6cd38a1981431357f82d504ae37016104e2694a0b",
+      "sizeBytes": 4585,
+      "sha256": "79cc94af7624570f8dd6168d0865d3e085e45994485b5241f2319c53570c54fe",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -2264,8 +2330,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 12684,
-      "sha256": "1eb5ea9afa95abdaee51cd50a1f481eee9a71bca07b22185f903761b860629fd",
+      "sizeBytes": 12832,
+      "sha256": "d83ef12075762f0467664e5dd17b5b6b93b396a7ad88293e7ab5b45876fd8ddc",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2373,6 +2439,28 @@
       "taskRecipes": [
         "locate-architecture-decisions"
       ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-chainstation-surfaces.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 8729,
+      "sha256": "fe42e821e913a9ca0a86cbee07d63d5e3c4598ddd8f3d28cb33abc99e8a68294",
+      "agentRoutes": [],
+      "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
@@ -2513,8 +2601,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 5667,
-      "sha256": "6e3bbfb23cccb22fc923f202834c0be71221d5d89a00bb0c737e5c56944e5459",
+      "sizeBytes": 6142,
+      "sha256": "7a49610260601d12c0bdd46aa2f68d04ff951407e594395886f77f397a4c882d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2550,6 +2638,10 @@
   ],
   "excludedFiles": [
     {
+      "path": "codex-handoff.md",
+      "reason": "local-agent-session-handoff"
+    },
+    {
       "path": "data/kb-audit-report.json",
       "reason": "dynamic-generated-audit-report"
     },
@@ -2575,6 +2667,126 @@
     },
     {
       "path": "references/research-notes/mooncats-faq-official-links.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/README.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/SNAPSHOT.json",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/.gitlab-ci.yml",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/app/(main)/layout.tsx",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/app/(main)/mooncats/[id]/page.tsx",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/app/(plain)/mooncats/[id]/vox/page.tsx",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/app/api/mooncat-listings/route.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/app/api/mooncats/route.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/app/api/nftx-price/[id]/route.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/app/api/siwe-verify/route.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/apphosting.yaml",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/components/MoonCatGrid.tsx",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/components/MoonCatSprite.tsx",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/env-example.txt",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/firebase.json",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/firebase_deploy.sh",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/firebase.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/getMoonCatData.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/getMoonCatDetails.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/getMoonCatOwner.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/onchainActions.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/publicClient.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/tokens.tsx",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/useOwnedTokens.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/util.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/lib/wagmi-config.ts",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/next.config.js",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/package.json",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/public/vox.js",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/chainstation-web-audit/evidence/tsconfig.json",
       "reason": "reference-snapshot-not-curated-kb-content"
     },
     {

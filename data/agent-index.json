@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-11",
+  "updated": "2026-07-17",
   "status": "compact-routing-index",
   "purpose": "Map common MoonCat technical tasks to the minimum repo files an agent should load.",
   "defaults": {
@@ -433,6 +433,28 @@
         "Use data/color-source-inventory.json before changing canonical color/hue data or claiming rendering behavior.",
         "Do not infer exact trait mappings from hue notes unless the referenced file explicitly provides them.",
         "Use docs/color-math.md only when method explanation is needed."
+      ]
+    },
+    {
+      "key": "trace-chainstation-implementation",
+      "description": "Trace a reviewed ChainStation Web behavior from route or UI surface through selected local data, helper, API, wallet, renderer, or configuration evidence without treating the pinned source as live state.",
+      "primaryFiles": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md"
+      ],
+      "optionalFiles": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md",
+        "data/upstream-snapshot-manifest.json",
+        "docs/upstream-snapshots.md",
+        "data/identifier-conventions.json",
+        "data/contracts.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Use the selected surface's evidence paths and source/config/runtime classification before following an implementation flow.",
+        "Load ADR intent separately when relevant; an ADR and a pinned application source file answer different questions.",
+        "Do not infer current deployment, live API/chain state, ownership, marketplace status, asset availability, or secrets from this audit."
       ]
     },
     {

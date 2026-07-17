@@ -14,6 +14,8 @@ Plain-text and Markdown entrypoints:
 - /docs/kb-integrity.md
 - /data/architecture-decisions.json
 - /docs/architecture-decisions.md
+- /data/chainstation-surfaces.json
+- /docs/chainstation-surfaces.md
 - /data/task-recipes.json
 - /data/kb-gap-index.json
 - /docs/identifier-verification.md

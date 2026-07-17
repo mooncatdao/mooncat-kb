@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-07-17",
-  "status": "compact-provenance-manifest-with-pinned-adr-corpus",
+  "status": "compact-provenance-manifest-with-pinned-adr-and-chainstation-corpora",
   "scope": "Important checked-in upstream/reference inputs and derived review artifacts. This manifest pins local content hashes and records origin evidence without refreshing vendored files or claiming unresolved upstream lineage. The dev-environment ADR directory is a deliberate pinned exception with per-file inventory metadata.",
   "validator": "scripts/validate-upstream-snapshots.py",
   "enums": {
@@ -335,6 +335,59 @@
       "limitations": [
         "This manifest does not pin a vendored Solidity source file; it pins the derived local summary and its referenced source URL.",
         "Do not infer complete contract behavior from the compact constants summary."
+      ]
+    },
+    {
+      "key": "chainstation-web-implementation-audit",
+      "localPath": "references/upstream/chainstation-web-audit/SNAPSHOT.json",
+      "contentRole": "upstream-reference",
+      "localSha256": "1e2b6a7794bc012dd30c4c36ffa653e02a36b922ce57e36ef8ff56c863f223f1",
+      "localBytes": 7839,
+      "localHistory": {
+        "commit": null,
+        "evidence": "Created by this deliberate snapshot acquisition; local history is not upstream revision evidence."
+      },
+      "upstream": {
+        "project": "MoonCatRescue ChainStation Web",
+        "repository": "https://gitlab.com/mooncatrescue/chainstation-web.git",
+        "path": "selected application, configuration, API, wallet, rendering, and deployment files",
+        "revisionEvidence": {
+          "status": "pinned-archive-review",
+          "value": "5df03ab465d46f59f3e4d4a05e4e85fc90abdc0a",
+          "evidence": "git ls-remote resolved HEAD to master at this commit, then a depth-1 master clone reported the same HEAD before selected files were copied."
+        }
+      },
+      "retrievalOrVerification": {
+        "status": "derived-from-pinned-review",
+        "date": "2026-07-17",
+        "evidence": "SNAPSHOT.json records branch resolution, clone commands, commit, license observation, and the inventory of 28 exact copies."
+      },
+      "copyStatus": "exact-copy",
+      "snapshotInventory": {
+        "directory": "references/upstream/chainstation-web-audit/evidence",
+        "metadataField": "inventory",
+        "inventoryMode": "all-files"
+      },
+      "license": {
+        "status": "observed-in-package-metadata",
+        "evidence": "The exact copied package.json declares AGPL-3.0; no separate upstream license-file review is claimed."
+      },
+      "provenanceConfidence": "high",
+      "freshnessStatus": "pinned-revision",
+      "sourceRefs": [
+        "chainstation-source"
+      ],
+      "dependentFiles": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md",
+        "scripts/validate-chainstation-surfaces.py",
+        "data/agent-index.json",
+        "data/task-recipes.json",
+        "data/agent-query-cases.json"
+      ],
+      "limitations": [
+        "This is a compact selected-file source snapshot, not a full ChainStation repository copy or exhaustive symbol index.",
+        "The pinned source does not establish current deployment, API/RPC/gateway availability, Firebase state, current chain state, ownership, or marketplace state."
       ]
     },
     {

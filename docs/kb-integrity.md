@@ -12,7 +12,7 @@ The audit writes `data/kb-audit-report.json` with compact command status/output 
 
 Roles and curation modes are closed enums recorded in the manifest. Classification is an explicit path table in the generator; an unmatched maintained file is a generation failure, rather than a guessed category. Routes and recipe references are derived directly from `data/agent-index.json` and `data/task-recipes.json`.
 
-The maintained inventory covers regular repository files except the explicit policy exclusions: `.git`, `.chatgpt` run artifacts, local agent/editor/cache/dependency directories, upstream/reference snapshots, vendored example dependencies, and the two recursive/generated audit outputs. `data/kb-manifest.json` is excluded because a hash of itself would not stabilize; `data/kb-audit-report.json` is excluded because command durations are dynamic. These exclusions are policy entries, not orphaned KB content.
+The maintained inventory covers regular repository files except the explicit policy exclusions: `.git`, `.chatgpt` run artifacts, local agent/editor/cache/dependency directories, the local `codex-handoff.md` session artifact, upstream/reference snapshots, vendored example dependencies, and the two recursive/generated audit outputs. `data/kb-manifest.json` is excluded because a hash of itself would not stabilize; `data/kb-audit-report.json` is excluded because command durations are dynamic. These exclusions are policy entries, not orphaned KB content.
 
 Known generated artifacts remain owned by their existing generators:
 

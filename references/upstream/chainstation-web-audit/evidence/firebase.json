@@ -1,0 +1,34 @@
+{
+  "emulators": {
+    "firestore": {
+      "port": 25603,
+      "host": "0.0.0.0"
+    },
+    "apphosting": {
+      "startCommand": "npm run dev",
+      "rootDirectory": "./",
+      "port": 25602,
+      "host": "0.0.0.0"
+    },
+    "ui": {
+      "enabled": true,
+      "port": 25605,
+      "host": "0.0.0.0"
+    },
+    "singleProjectMode": true
+  },
+  "apphosting": {
+    "backendId": "mooncatrescue-chainstation",
+    "rootDir": "/",
+    "ignore": [
+      "node_modules",
+      ".git",
+      ".npm",
+      ".env",
+      "firebase-debug.log",
+      "firestore-debug.log",
+      "seed-data",
+      "functions"
+    ]
+  }
+}

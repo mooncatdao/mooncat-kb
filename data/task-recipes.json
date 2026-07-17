@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-11",
+  "updated": "2026-07-17",
   "status": "compact-workflow-index",
   "scope": "Agent-facing workflow recipes for sequencing common MoonCat KB tasks by loading existing data files. This file routes and orders work; it does not add endpoint, contract, trait, color, identifier, source, or per-cat facts.",
   "sourceRefs": [],
@@ -22,7 +22,9 @@
     "data/sources.json",
     "data/kb-gap-index.json",
     "data/architecture-decisions.json",
-    "docs/architecture-decisions.md"
+    "docs/architecture-decisions.md",
+    "data/chainstation-surfaces.json",
+    "docs/chainstation-surfaces.md"
   ],
   "defaults": {
     "loadFirst": [
@@ -673,6 +675,47 @@
       "stopConditions": [
         "Stop if the requested ADR is absent from the pinned snapshot or needs source/revision evidence that is not registered.",
         "Stop if a conclusion needs implementation, deployment, or current-state evidence that the decision record does not provide."
+      ]
+    },
+    {
+      "key": "trace-chainstation-implementation",
+      "purpose": "Trace a bounded ChainStation implementation surface from UI or route through its selected helper, local data, API/configuration boundary, and any directly relevant ADR without loading the full application snapshot.",
+      "loadOrder": [
+        "data/chainstation-surfaces.json",
+        "docs/chainstation-surfaces.md"
+      ],
+      "optionalFiles": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md",
+        "data/identifier-conventions.json",
+        "data/contracts.json",
+        "data/upstream-snapshot-manifest.json",
+        "docs/upstream-snapshots.md",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Choose the narrowest stable surface ID in data/chainstation-surfaces.json and read its dataStatus, executionRole, evidence paths, dependencies, and limitations.",
+        "Trace only the named route/UI file through copied helpers, route adapters, configuration, and selected local data; do not load the entire snapshot by default.",
+        "When an ADR is relevant, load its pinned intent record separately and state that it does not establish implementation, deployment, or current behavior.",
+        "Classify the requested value or behavior as local data, generated/configured input, API-derived runtime data, contract-derived runtime data, or UI-only behavior before answering.",
+        "Run the ChainStation and upstream-snapshot validators after changing this audit or its evidence relationships."
+      ],
+      "outputs": [
+        "pinned source revision and evidence path",
+        "bounded implementation flow",
+        "data/configuration/runtime classification",
+        "separate ADR intent where applicable",
+        "explicit live-state or unreviewed-source stop condition"
+      ],
+      "guardrails": [
+        "Do not treat a pinned ChainStation file as proof of current production deployment, live API response, current chain state, current ownership, marketplace liquidity, IPFS availability, Firebase state, or secret configuration.",
+        "Do not promote configured contract addresses, RPC URLs, API URLs, or application-local data into broader canonical facts without a scoped source review.",
+        "Do not use ChainStation source as an ADR source or infer an ADR's implementation completion from related code.",
+        "Do not load the full trait table, full repository, dependency tree, build output, or unrelated UI paths merely because they are available upstream."
+      ],
+      "stopConditions": [
+        "Stop if the requested behavior needs an unreviewed source file, a response/body not preserved in the evidence, or an exact contract/API schema outside the selected surface.",
+        "Stop if the conclusion needs current deployment, live API/chain/gateway state, or user-specific ownership/session data."
       ]
     },
     {

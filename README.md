@@ -11,6 +11,7 @@ Start here:
 - `data/kb-manifest.json` and `data/kb-audit-report.json` — generated maintained-file inventory and latest bounded integrity-audit report
 - `docs/kb-integrity.md` — audit scope, manifest policy, warning limits, and future-import guidance
 - `data/architecture-decisions.json` and `docs/architecture-decisions.md` — 18-record pinned dev-environment ADR inventory and design-intent boundaries
+- `data/chainstation-surfaces.json` and `docs/chainstation-surfaces.md` — compact pinned ChainStation implementation/data surface audit with source-versus-live-state boundaries
 - `docs/overview.md` — high-level context
 - `docs/source-map.md` — where to find canonical or supporting sources
 - `docs/glossary.md` — short definitions for recurring terms

@@ -25,6 +25,7 @@ FILE_STATUSES = ["curated", "doc", "example", "generated", "script"]
 EXCLUDED_EXACT = {
     "data/kb-manifest.json": "recursive-generated-manifest-output",
     "data/kb-audit-report.json": "dynamic-generated-audit-report",
+    "codex-handoff.md": "local-agent-session-handoff",
 }
 EXCLUDED_PREFIXES = {
     ".git/": "git-internal-data",
@@ -68,6 +69,7 @@ GENERATED_ARTIFACTS = {
 
 VALIDATOR_COMMANDS = {
     "data/architecture-decisions.json": ["python scripts/validate-architecture-decisions.py"],
+    "data/chainstation-surfaces.json": ["python scripts/validate-chainstation-surfaces.py"],
 }
 
 

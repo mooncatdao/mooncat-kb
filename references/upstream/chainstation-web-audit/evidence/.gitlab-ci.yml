@@ -1,0 +1,71 @@
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - .npm/
+    - .next/cache/
+
+# https://docs.gitlab.com/ee/ci/caching/#cache-nodejs-dependencies
+before_script:
+  - npm ci --cache .npm --prefer-offline
+
+next-lint:
+  stage: build
+  image: node:24
+  script:
+    - npx next lint
+  rules:
+    # This ensures that this job won't run on the default branch (as that would be duplication of effort)
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+      changes:
+        - '**/*.{ts,tsx}' # Only needed if source files changed
+
+next-build:
+  stage: build
+  image: node:24
+  script:
+    - npx next build
+  rules:
+    - if: $CI_COMMIT_BRANCH == "staging" # Only trigger this job on the "staging" branch
+      changes:
+        - '**/*.{ts,tsx}' # Only needed if source files changed
+
+typescript-lint:
+  stage: build
+  image: node:24
+  script:
+    - npm run typegen && npx tsc
+  rules:
+    # This ensures that this job won't run on the default branch (as that would be duplication of effort)
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+      changes:
+        - '**/*.{ts,tsx}' # Only needed if source files changed
+
+login-firebase:
+  stage: deploy
+  image: node:24.16.0
+  id_tokens:
+    FIREBASE_ID_TOKEN:
+      aud: 'https://gitlab.com'
+  script:
+    - ./firebase_login.sh
+  rules:
+    # Only trigger this job on the "staging" branch of the primary repository
+    - if: $CI_COMMIT_BRANCH == "staging" && $CI_PROJECT_NAMESPACE == "mooncatrescue"
+
+deploy-firebase:
+  stage: deploy
+  image: node:24.16.0
+  id_tokens:
+    FIREBASE_ID_TOKEN:
+      aud: 'https://gitlab.com'
+  script:
+    - ./firebase_deploy.sh
+  environment:
+    name: production
+    deployment_tier: production
+    url: https://mooncatrescue.com
+  rules:
+    # This ensures that only pushes to the default branch of the primary repository will trigger a Firebase deploy
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PROJECT_NAMESPACE == "mooncatrescue"
