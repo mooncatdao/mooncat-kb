@@ -198,6 +198,38 @@
       "contextIntent": "Manifest and explanation first; broader source map only if needed."
     },
     {
+      "id": "adr-color-intent-explanation",
+      "category": "architecture-decisions",
+      "query": "Explain why MoonCat color handling uses integer hue labels and what ADR 0017 does and does not establish.",
+      "route": "locate-architecture-decisions",
+      "requiredFiles": ["data/architecture-decisions.json", "docs/architecture-decisions.md"],
+      "optionalFiles": ["data/color-source-inventory.json"],
+      "terminology": ["ADR", "decision intent", "implementation evidence", "integer hue", "mapColors"],
+      "requiredFacts": ["ADR 0017 is the only locally evidenced ADR record in the current index", "ADR intent is not direct proof of current implementation"],
+      "requiredWarnings": ["ADR 0017 does not establish exact palette, RGB, rendered output, or current deployed state."],
+      "forbiddenClaims": ["ADR 0017 proves every current color implementation", "ADR 0017 proves a selected MoonCat's live color state"],
+      "stopConditions": ["Stop if the answer needs exact implementation output without a separately reviewed parser or contract source."],
+      "validationCommands": ["python scripts/validate-architecture-decisions.py"],
+      "contextIntent": "ADR index and boundary documentation first; color inventory only when source-detail context is needed.",
+      "sourceRefs": ["mooncatrescue-adr-0017-color-math"]
+    },
+    {
+      "id": "adr-implementation-state-refusal",
+      "category": "architecture-evidence-boundary",
+      "query": "Use an ADR to determine whether the currently deployed MoonCat color contract matches the decision.",
+      "route": "locate-architecture-decisions",
+      "requiredFiles": ["data/architecture-decisions.json", "docs/architecture-decisions.md"],
+      "optionalFiles": ["data/sources.json", "docs/reference-policy.md"],
+      "terminology": ["ADR", "decision intent", "deployed behavior", "current state", "implementation evidence"],
+      "requiredFacts": ["Architecture decisions explain intended design", "Current deployment requires separate implementation or chain evidence"],
+      "requiredWarnings": ["No live contract or current-state check is performed by the ADR index."],
+      "forbiddenClaims": ["accepted ADR proves deployed behavior", "missing supersession link proves no later decision exists"],
+      "stopConditions": ["Stop and report that implementation or live-state evidence is unavailable when no separately sourced surface is in scope."],
+      "validationCommands": ["python scripts/validate-architecture-decisions.py"],
+      "contextIntent": "Intent-versus-evidence boundary case without loading contract source or a universal ADR corpus.",
+      "sourceRefs": ["mooncatrescue-adr-0017-color-math"]
+    },
+    {
       "id": "route-and-pack-maintenance",
       "category": "agent-workflow",
       "query": "Add a new KB coding task and ensure agents can load safe minimal context for it.",

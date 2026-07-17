@@ -20,7 +20,9 @@
     "data/contracts.json",
     "data/older-wrapper-internals.json",
     "data/sources.json",
-    "data/kb-gap-index.json"
+    "data/kb-gap-index.json",
+    "data/architecture-decisions.json",
+    "docs/architecture-decisions.md"
   ],
   "defaults": {
     "loadFirst": [
@@ -636,6 +638,41 @@
       "stopConditions": [
         "Stop if the surface key or contract entry needed for the answer is missing.",
         "Stop if source provenance is required but the relevant sourceRef is absent or marked incomplete."
+      ]
+    },
+    {
+      "key": "locate-architecture-decisions",
+      "purpose": "Locate supported MoonCatRescue ADR intent and explain it without treating the decision record as deployed implementation or live state evidence.",
+      "loadOrder": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md",
+        "data/sources.json"
+      ],
+      "optionalFiles": [
+        "data/color-source-inventory.json",
+        "docs/reference-policy.md",
+        "scripts/validate-architecture-decisions.py"
+      ],
+      "steps": [
+        "Find the stable ADR record and read its sourceRef, source location, status, date status, limitations, and explicit supersession fields.",
+        "Explain the concise decision summary and implementation consequences as documented intent only.",
+        "Load the named parser, contract, generated artifact, or current-state source separately if the question asks what is implemented or live.",
+        "Run python scripts/validate-architecture-decisions.py after changing the index or its relationships."
+      ],
+      "outputs": [
+        "ADR record and source confidence",
+        "decision intent and stated consequences",
+        "implementation evidence still required",
+        "coverage or supersession limitation"
+      ],
+      "guardrails": [
+        "Do not invent ADR numbers, dates, authors, status, supersession, or implementation completion from filenames, ordering, or expectation.",
+        "Do not treat a current-maintainer design decision as proof of current deployed contract behavior or selected MoonCat state.",
+        "Do not copy ADR bodies into compact data or use missing records to make the index look complete."
+      ],
+      "stopConditions": [
+        "Stop if the requested ADR is not in the locally evidenced index or needs a source that is not registered.",
+        "Stop if a conclusion needs implementation, deployment, or current-state evidence that the decision record does not provide."
       ]
     },
     {

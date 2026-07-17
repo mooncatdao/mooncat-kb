@@ -91,7 +91,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 92,
+    "maintainedFileCount": 95,
     "excludedFileCount": 11,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -108,8 +108,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2642,
-      "sha256": "5c08d175732b469f4da4dfd03cea481cd169a7c569b8ffa7f3ee437084ce0904",
+      "sizeBytes": 2846,
+      "sha256": "9c23489a78bfc6c56e372d554e02c970e2e69e9195327f7fe6cc8b2ffc27aa66",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -196,8 +196,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4985,
-      "sha256": "4e91ff4909dae32a9073c111c6865bee999c61a90286787dfbde7134019ca200",
+      "sizeBytes": 5124,
+      "sha256": "e5297be6f6ed3a6af1638380860cb3dd6310767d1180dbcd7ea737f8bf066af7",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -217,8 +217,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 2767,
-      "sha256": "2a6b0c8edcaff52386e8e8b96c1bc0cc87d7aa18af5c122eedd315a6f377e608",
+      "sizeBytes": 3239,
+      "sha256": "2315988fd530bce86461f2f76fdd2f90221c2a485cad41ba0d3297a3b566fbfb",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -242,8 +242,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 37745,
-      "sha256": "41134636850707ab3fa9b39407d6e65c15d6b64fb19cf95470addd09bb144038",
+      "sizeBytes": 43830,
+      "sha256": "b6617e930bb9ba0eefb2f5bd7ec12a8ae08802c2170eec06a27f0ea48146d5da",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -269,8 +269,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 18557,
-      "sha256": "b339c647798018dcb81ee98ee38e462252b3f6899382fe0df8a1d82d0bbc7b97",
+      "sizeBytes": 19486,
+      "sha256": "174baa0a46d6264348cc599ee18871584d8e79a0aacc1ab840da422ae845882f",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -298,8 +298,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 15726,
-      "sha256": "50f766036ca01c9d2b9051e3af2dd39e2cee70d90fb5ed46ab520304ffe0b56d",
+      "sizeBytes": 18443,
+      "sha256": "2deeffc269aa7442143809075d49a497d4b838bee0d48a89a445b3471b0600f7",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -372,6 +372,32 @@
       "checkCommand": null,
       "validatorCommands": [],
       "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/architecture-decisions.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 5791,
+      "sha256": "f01674bcb92faa7f42d69f88f9c5be9563c28d3675d96631e754650285dc39eb",
+      "agentRoutes": [
+        "locate-architecture-decisions"
+      ],
+      "taskRecipes": [
+        "locate-architecture-decisions"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [
+        "python scripts/validate-architecture-decisions.py"
+      ],
+      "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
     {
@@ -495,10 +521,12 @@
       "sha256": "444d101280494ca27c637ffe59bfd66bebd23b12d220e03829d95273228150a4",
       "agentRoutes": [
         "classify-mooncat-colors",
+        "locate-architecture-decisions",
         "work-with-colors-and-hues"
       ],
       "taskRecipes": [
-        "classify-mooncat-colors"
+        "classify-mooncat-colors",
+        "locate-architecture-decisions"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -667,8 +695,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 34219,
-      "sha256": "1c1ac89823140dce560425a78436cd90715999300bfec88077cd1f64833c3729",
+      "sizeBytes": 35434,
+      "sha256": "315d4c454e64ccaa1d2b3fa416d3c075116955aec412b333ee4cd2f8077e32f0",
       "agentRoutes": [
         "review-kb-gaps",
         "review-upstream-snapshot-provenance",
@@ -1110,8 +1138,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 53160,
-      "sha256": "6b82693dd0b8124344d2d4a7022177ad5866e613f8210fb8426c74ee9e7e6a97",
+      "sizeBytes": 53956,
+      "sha256": "c43ac2b299e0d14c951e34ac5eb78a9baf8b84d805dc949f49e0ca53f4c7610c",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -1121,6 +1149,7 @@
         "find-ipfs-and-artifact-urls",
         "generate-visual-trait-sample",
         "identify-mooncat-ids",
+        "locate-architecture-decisions",
         "look-up-contracts",
         "render-images",
         "review-kb-gaps",
@@ -1144,6 +1173,7 @@
         "fetch-traits-safely",
         "generate-or-validate-visual-trait-sample",
         "interpret-color-hue-data",
+        "locate-architecture-decisions",
         "look-up-rescue-bucket-or-year",
         "render-or-fetch-mooncat-image",
         "review-upstream-snapshots",
@@ -1194,8 +1224,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 37162,
-      "sha256": "047c0bc8ac1f89b3663039b965dae8a014b1552a079a96fc72891b7a0220ce63",
+      "sizeBytes": 39239,
+      "sha256": "8a844353e31a405926cc194c1573f66d806c164eb4db68229cda5337bd08847e",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1317,6 +1347,31 @@
       "validatorCommands": [],
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/architecture-decisions.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2776,
+      "sha256": "1e10defd4c06016c1e4d0b59731a54831f4ace2f52fdada12f6b7ad7d60dad69",
+      "agentRoutes": [
+        "locate-architecture-decisions"
+      ],
+      "taskRecipes": [
+        "locate-architecture-decisions"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
     },
     {
       "path": "docs/color-classification.md",
@@ -1519,8 +1574,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4451,
-      "sha256": "ecfd36c1c6ec34d78e9b84983cb53c6c983bc09b617b3e16214b613e59c20e8c",
+      "sizeBytes": 4710,
+      "sha256": "799a2c42747c34498f64aaa360206eb70dfdcdb570b5a819458f4d8faa1be601",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -1765,9 +1820,12 @@
       "agentRoutes": [
         "check-source-provenance",
         "fetch-traits",
+        "locate-architecture-decisions",
         "review-trait-schema-strategy"
       ],
-      "taskRecipes": [],
+      "taskRecipes": [
+        "locate-architecture-decisions"
+      ],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
@@ -1833,8 +1891,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5814,
-      "sha256": "1867309559180f45b201087da7293ce7f647ab61259c46e7ec48c37ef916afc2",
+      "sizeBytes": 6189,
+      "sha256": "48f0d908a8e3126a495c708928f989b76d8d8f5578323a3b1391b34605561bba",
       "agentRoutes": [
         "check-source-provenance",
         "find-ipfs-and-artifact-urls",
@@ -2114,8 +2172,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 1843,
-      "sha256": "1a4e4bb99ad2bd9916440136401987f521389025a0b50e8aa6dcf03e1759cf87",
+      "sizeBytes": 2076,
+      "sha256": "85fba85b561a11dc689fecf3e29cf490cb9c696eae65c166cfc95468dfccceb1",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2158,8 +2216,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 10873,
-      "sha256": "20d8a346062efc8885ff787cf6219f8840f41caafb988a08938855c72f348a03",
+      "sizeBytes": 11017,
+      "sha256": "06479f3d7f39f253b7b9568c17057580818c506e7e4e2d3e67dc6aea8ab71122",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2206,8 +2264,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 12529,
-      "sha256": "8a40ede55a37ece657694ad75c335cd465063ff474d3e8797f016e9c4ae5afe6",
+      "sizeBytes": 12684,
+      "sha256": "1eb5ea9afa95abdaee51cd50a1f481eee9a71bca07b22185f903761b860629fd",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2288,6 +2346,32 @@
       ],
       "taskRecipes": [
         "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-architecture-decisions.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 7529,
+      "sha256": "698d1a122a9f943f83db6a3d1e39dc51f9d9bc3b39ff3c0ea020f802cb7c6869",
+      "agentRoutes": [
+        "locate-architecture-decisions"
+      ],
+      "taskRecipes": [
+        "locate-architecture-decisions"
       ],
       "generatorCommand": null,
       "checkCommand": null,

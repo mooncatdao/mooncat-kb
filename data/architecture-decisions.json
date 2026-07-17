@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "updated": "2026-07-17",
+  "status": "partial-index-of-locally-evidenced-adrs",
+  "scope": "Compact index of MoonCatRescue architecture decision records evidenced by approved local references or registered high-confidence source locations. It records decision intent and explicit consequences; it is not implementation, deployment, or live-state evidence.",
+  "sourceRefs": [
+    "mooncatrescue-adr-0017-color-math"
+  ],
+  "schema": {
+    "stableIdPattern": "adr-NNNN-lowercase-slug",
+    "requiredRecordFields": [
+      "id",
+      "number",
+      "title",
+      "sourceRef",
+      "source",
+      "decisionStatus",
+      "decisionDate",
+      "decisionDateStatus",
+      "topics",
+      "affectedRepositories",
+      "affectedContracts",
+      "affectedSystems",
+      "decisionSummary",
+      "implementationConsequences",
+      "historicalContext",
+      "supersedes",
+      "supersededBy",
+      "supersessionStatus",
+      "relatedFiles",
+      "confidence",
+      "evidenceStatus",
+      "limitations"
+    ],
+    "decisionStatuses": [
+      "accepted",
+      "proposed",
+      "rejected",
+      "superseded",
+      "unknown"
+    ],
+    "decisionDateStatuses": [
+      "explicit",
+      "not-available-from-reviewed-evidence"
+    ],
+    "sourceLocationKinds": [
+      "registered-url",
+      "local-reference-path"
+    ],
+    "supersessionStatuses": [
+      "explicit-links-indexed",
+      "not-evidenced"
+    ],
+    "confidenceLevels": [
+      "high",
+      "medium",
+      "limited"
+    ],
+    "evidenceStatuses": [
+      "registered-current-maintainer-technical-source-reviewed",
+      "local-reference-reviewed",
+      "partial"
+    ]
+  },
+  "coverage": {
+    "evidencedAdrCount": 1,
+    "inventoryMethod": "Searched checked-in references/research notes and registered high-confidence source locations without network access.",
+    "limitations": [
+      "Only ADR 0017 has a registered, reviewed ADR source location in the current checkout.",
+      "No local ADR corpus or directory listing is checked in, so this is not a claim that ADR 0017 is the only MoonCatRescue ADR.",
+      "Missing ADR numbers, dates, authors, supersession links, and implementation completion are not inferred from numbering or source order."
+    ]
+  },
+  "decisions": [
+    {
+      "id": "adr-0017-mooncat-color-math",
+      "number": "0017",
+      "title": "MoonCat Color Math",
+      "sourceRef": "mooncatrescue-adr-0017-color-math",
+      "source": {
+        "kind": "registered-url",
+        "url": "https://gitlab.com/mooncatrescue/dev-environment/-/raw/master/adr/0017-mooncat-color-math.md",
+        "localPath": null
+      },
+      "decisionStatus": "accepted",
+      "decisionDate": null,
+      "decisionDateStatus": "not-available-from-reviewed-evidence",
+      "topics": [
+        "mooncat-color-math",
+        "parser-canonicality-for-color",
+        "integer-hue-handling",
+        "human-friendly-hue-labels",
+        "color-matching",
+        "mooncatcolors-mapcolors-edge-cases"
+      ],
+      "affectedRepositories": [
+        {
+          "name": "MoonCatRescue dev-environment",
+          "evidence": "registered-ADR-source-location"
+        }
+      ],
+      "affectedContracts": [
+        {
+          "name": "MoonCatColors",
+          "evidence": "directly-supported-by-ADR-source-summary"
+        }
+      ],
+      "affectedSystems": [
+        {
+          "kind": "parser",
+          "name": "mooncatparser JavaScript color behavior",
+          "evidence": "directly-supported-by-ADR-source-summary"
+        },
+        {
+          "kind": "color-classification",
+          "name": "human-facing MoonCat hue labels",
+          "evidence": "directly-supported-by-ADR-source-summary"
+        },
+        {
+          "kind": "contract-color-surface",
+          "name": "MoonCatColors mapColors edge-case context",
+          "evidence": "directly-supported-by-ADR-source-summary"
+        }
+      ],
+      "decisionSummary": "Treat the original JavaScript mooncatparser color behavior as the color reference; apply integer hue handling and human-friendly hue labels, while preserving the documented color-matching and Solidity edge-case boundaries.",
+      "implementationConsequences": [
+        "Use the ADR as intent evidence when reviewing color behavior, then cross-check parser or contract surfaces before making canonical implementation claims.",
+        "Keep truncated integer hue handling and the twelve-label presentation model distinct from exact palette, RGB, hex, or rendered-output claims.",
+        "For pure-coated visual matching, do not treat the coat-pattern color as visually used solely because it is represented in source traits.",
+        "Treat MoonCatColors mapColors as documented edge-case context, not proof that a particular current Solidity or JavaScript output is deployed."
+      ],
+      "historicalContext": {
+        "status": "not-indexed-from-reviewed-evidence",
+        "summary": null
+      },
+      "supersedes": [],
+      "supersededBy": [],
+      "supersessionStatus": "not-evidenced",
+      "relatedFiles": [
+        "data/color-source-inventory.json",
+        "data/color-classification.json",
+        "docs/color-classification.md",
+        "docs/color-math.md",
+        "data/sources.json"
+      ],
+      "confidence": "high",
+      "evidenceStatus": "registered-current-maintainer-technical-source-reviewed",
+      "limitations": [
+        "The checked-in index does not copy the ADR body or establish a complete ADR corpus.",
+        "The registered source notes status Accepted and an update date, but do not provide a decision date in reviewed evidence for this index.",
+        "Decision intent does not prove current deployed behavior, live chain state, or downstream implementation completion."
+      ]
+    }
+  ]
+}

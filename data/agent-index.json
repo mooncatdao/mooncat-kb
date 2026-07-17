@@ -266,6 +266,25 @@
       ]
     },
     {
+      "key": "locate-architecture-decisions",
+      "description": "Find reviewed MoonCatRescue architecture decisions and distinguish stated design intent from implementation or current-state evidence.",
+      "primaryFiles": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md"
+      ],
+      "optionalFiles": [
+        "data/color-source-inventory.json",
+        "data/sources.json",
+        "docs/reference-policy.md",
+        "scripts/validate-architecture-decisions.py"
+      ],
+      "notes": [
+        "Use the decision index only for locally evidenced ADR records; do not infer a complete corpus from its numbering.",
+        "An ADR records design intent and stated consequences, not current deployment, live state, or implementation completion.",
+        "Load parser, contract, generated-artifact, or current-state evidence separately when a claim requires it."
+      ]
+    },
+    {
       "key": "check-source-provenance",
       "description": "Find curated sourceRefs, trust notes, and reference handling policy.",
       "primaryFiles": [

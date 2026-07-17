@@ -20,6 +20,8 @@ Known generated artifacts remain owned by their existing generators:
 - `data/mooncat-visual-traits.sample.json` — `scripts/generate-visual-traits.py --check`
 - `data/materialization-parity-results.json` — `scripts/generate-materialization-parity.py --check`
 
+Curated indexes with focused validators are also registered in manifest entry metadata. `data/architecture-decisions.json` is checked by `scripts/validate-architecture-decisions.py`; its ADR records remain source summaries rather than generated domain data.
+
 The manifest generator registers those relationships and their focused validators; it does not duplicate generation logic.
 
 ## Validation and warning policy

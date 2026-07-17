@@ -29,6 +29,7 @@ REQUIRED_COMMANDS = [
     "python scripts/validate-color-classification.py",
     "python scripts/validate-visual-traits.py",
     "python scripts/validate-materialization-parity.py",
+    "python scripts/validate-architecture-decisions.py",
     "python scripts/validate-kb-manifest.py",
 ]
 
@@ -42,6 +43,7 @@ NAMESPACE_COLLECTIONS = {
     "materialization-fixtures": ("data/materialization-parity-cases.json", "fixtures", "key"),
     "materialization-results": ("data/materialization-parity-results.json", "results", "key"),
     "upstream-snapshots": ("data/upstream-snapshot-manifest.json", "entries", "key"),
+    "architecture-decisions": ("data/architecture-decisions.json", "decisions", "id"),
 }
 
 REPO_PATH = re.compile(r"^(?:AGENTS\.md|README\.md|CONTRIBUTING\.md|context\.md|llms\.txt|result\.md|(?:data|docs|scripts|examples)/[^\s#]+)$")

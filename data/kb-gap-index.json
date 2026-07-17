@@ -1,10 +1,11 @@
 {
-  "version": 5,
-  "updated": "2026-07-12",
-  "status": "refreshed-audit-report-with-agent-query-context-packs",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, and the exact MoonCatsWrapped identifier review.",
+  "version": 6,
+  "updated": "2026-07-17",
+  "status": "refreshed-with-partial-architecture-decision-index",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, the exact MoonCatsWrapped identifier review, and the partial locally evidenced architecture-decision index.",
   "sourceFiles": [
     "data/agent-index.json",
+    "data/architecture-decisions.json",
     "data/api-endpoints.json",
     "data/api-examples.json",
     "data/character-cat-index.json",
@@ -71,6 +72,18 @@
     ]
   },
   "resolvedOrPartiallyResolvedGaps": [
+    {
+      "key": "architecture-decision-index",
+      "status": "partially-resolved-as-locally-evidenced-adr-0017-index",
+      "files": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md",
+        "scripts/validate-architecture-decisions.py",
+        "data/agent-index.json",
+        "data/task-recipes.json"
+      ],
+      "notes": "ADR 0017 MoonCat Color Math is indexed from its registered current-maintainer source with accepted status and explicit intent-versus-implementation limits. No local ADR corpus/listing is checked in, so the index does not claim that ADR 0017 is the only ADR or infer dates, authors, supersession, implementation completion, deployment, or live state."
+    },
     {
       "key": "api-examples-added",
       "status": "resolved-as-compact-examples",
@@ -631,6 +644,11 @@
     }
   ],
   "recommendedNextPasses": [
+    {
+      "key": "adr-corpus-provenance-review",
+      "priority": "medium",
+      "reason": "The current decision index contains only ADR 0017 because no broader ADR corpus or directory listing is locally evidenced. Add further ADR records only after an approved local snapshot or registered high-confidence source location is reviewed; do not fill numbering gaps by inference."
+    },
     {
       "key": "additional-historical-wrapper-inventory",
       "priority": "medium",

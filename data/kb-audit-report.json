@@ -31,13 +31,13 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 40 Required file references checked: 355 sourceRefs checked: 1052 relatedFiles checked: 184 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 41 Required file references checked: 370 sourceRefs checked: 1056 relatedFiles checked: 191 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 13 query cases, 13 categories, 6 protected boundaries, and minimal deterministic packs"
+      "outputSummary": "OK: 15 query cases, 15 categories, 6 protected boundaries, and minimal deterministic packs"
     },
     {
       "command": "python scripts/validate-upstream-snapshots.py",
@@ -70,48 +70,54 @@
       "outputSummary": "OK: 8 fixtures, 8 structural normalizations, 5 intentional trait differences, and explicit unavailable layers"
     },
     {
+      "command": "python scripts/validate-architecture-decisions.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 1 ADR records, IDs, sources, paths, enums, and claimed supersession links validated"
+    },
+    {
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 92 maintained files, 11 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 95 maintained files, 11 explicit exclusions, hashes, routes, and commands validated"
     }
   ],
   "counts": {
-    "requiredCommandCount": 12,
+    "requiredCommandCount": 13,
     "failedRequiredCommandCount": 0,
-    "duplicateNamespaceCount": 9,
-    "internalPathsChecked": 1080,
+    "duplicateNamespaceCount": 10,
+    "internalPathsChecked": 1143,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 92,
+    "manifestMaintainedFileCount": 95,
     "manifestExcludedFileCount": 11
   },
   "duplicateIdChecks": {
     "collections": {
       "sources": {
         "file": "data/sources.json",
-        "count": 77,
+        "count": 78,
         "duplicates": []
       },
       "agent-routes": {
         "file": "data/agent-index.json",
-        "count": 22,
+        "count": 23,
         "duplicates": []
       },
       "task-recipes": {
         "file": "data/task-recipes.json",
-        "count": 17,
+        "count": 18,
         "duplicates": []
       },
       "benchmark-cases": {
         "file": "data/agent-query-cases.json",
-        "count": 13,
+        "count": 15,
         "duplicates": []
       },
       "gap-records": {
         "file": "data/kb-gap-index.json",
-        "count": 22,
+        "count": 23,
         "duplicates": []
       },
       "identifier-fixtures": {
@@ -133,12 +139,17 @@
         "file": "data/upstream-snapshot-manifest.json",
         "count": 7,
         "duplicates": []
+      },
+      "architecture-decisions": {
+        "file": "data/architecture-decisions.json",
+        "count": 1,
+        "duplicates": []
       }
     },
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 1080,
+    "checked": 1143,
     "errors": [],
     "warnings": []
   },

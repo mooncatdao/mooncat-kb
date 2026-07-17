@@ -66,6 +66,10 @@ GENERATED_ARTIFACTS = {
     },
 }
 
+VALIDATOR_COMMANDS = {
+    "data/architecture-decisions.json": ["python scripts/validate-architecture-decisions.py"],
+}
+
 
 def sha256_and_size(path: Path) -> tuple[str, int]:
     digest = hashlib.sha256()
@@ -210,7 +214,7 @@ def build_manifest() -> dict[str, Any]:
             "taskRecipes": recipes.get(relative, []),
             "generatorCommand": GENERATED_ARTIFACTS.get(relative, {}).get("generatorCommand"),
             "checkCommand": GENERATED_ARTIFACTS.get(relative, {}).get("checkCommand"),
-            "validatorCommands": GENERATED_ARTIFACTS.get(relative, {}).get("validatorCommands", []),
+            "validatorCommands": GENERATED_ARTIFACTS.get(relative, {}).get("validatorCommands", VALIDATOR_COMMANDS.get(relative, [])),
             "sourceBackedStatus": source_status,
             "directAgentLoadRecommended": relative in routes and any(
                 relative in task.get("primaryFiles", [])

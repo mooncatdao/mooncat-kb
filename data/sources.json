@@ -1126,6 +1126,20 @@
       "notes": "Local derived policy built from registered color sources. It preserves raw hue traits and does not establish canonical on-chain traits, palettes, RGB values, rarity, or rendering behavior. Validate with scripts/validate-color-classification.py."
     },
     {
+      "id": "repo-architecture-decision-index",
+      "label": "MoonCatRescue architecture decision index",
+      "type": "local-derived",
+      "path": "data/architecture-decisions.json",
+      "trustLevel": "derived",
+      "status": "partial",
+      "supports": [
+        "compact ADR inventory",
+        "ADR source and status boundaries",
+        "decision intent versus implementation evidence guidance"
+      ],
+      "notes": "Local index of ADR records supported by registered current-maintainer or approved local-reference evidence. It currently indexes only ADR 0017 and does not assert a complete ADR corpus, deployment state, implementation completion, dates, authors, or supersession beyond explicit evidence. Validate with scripts/validate-architecture-decisions.py."
+    },
+    {
       "id": "mooncatrescue-adr-0017-color-math",
       "label": "MoonCatRescue ADR 0017 MoonCat Color Math",
       "type": "current-maintainer-technical",

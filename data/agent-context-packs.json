@@ -10,7 +10,7 @@
     "script": "scripts/generate-agent-context-packs.py",
     "command": "python scripts/generate-agent-context-packs.py",
     "networkDependency": "none",
-    "caseCount": 13,
+    "caseCount": 15,
     "sizePolicy": {
       "softFileLimit": 7,
       "softEstimatedByteLimit": 200000,
@@ -966,7 +966,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 106232,
+        "estimatedByteCount": 108243,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -978,16 +978,178 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 53160
+            "bytes": 53956
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 34219
+            "bytes": 35434
           }
         ],
         "softFileLimit": 7,
         "softEstimatedByteLimit": 200000,
         "rationale": "Manifest and explanation first; broader source map only if needed."
+      }
+    },
+    {
+      "caseId": "adr-color-intent-explanation",
+      "category": "architecture-decisions",
+      "taskSummary": "Explain why MoonCat color handling uses integer hue labels and what ADR 0017 does and does not establish.",
+      "route": "locate-architecture-decisions",
+      "recipe": "locate-architecture-decisions",
+      "primaryFiles": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/color-source-inventory.json"
+      ],
+      "filesToLoad": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md",
+        "data/color-source-inventory.json"
+      ],
+      "terminology": [
+        "ADR",
+        "decision intent",
+        "implementation evidence",
+        "integer hue",
+        "mapColors"
+      ],
+      "requiredFacts": [
+        "ADR 0017 is the only locally evidenced ADR record in the current index",
+        "ADR intent is not direct proof of current implementation"
+      ],
+      "implementationGuardrails": [
+        "Do not invent ADR numbers, dates, authors, status, supersession, or implementation completion from filenames, ordering, or expectation.",
+        "Do not treat a current-maintainer design decision as proof of current deployed contract behavior or selected MoonCat state.",
+        "Do not copy ADR bodies into compact data or use missing records to make the index look complete.",
+        "ADR 0017 does not establish exact palette, RGB, rendered output, or current deployed state."
+      ],
+      "forbiddenClaims": [
+        "ADR 0017 proves every current color implementation",
+        "ADR 0017 proves a selected MoonCat's live color state"
+      ],
+      "knownLimitations": [
+        "ADR 0017 does not establish exact palette, RGB, rendered output, or current deployed state."
+      ],
+      "stopConditions": [
+        "Stop if the answer needs exact implementation output without a separately reviewed parser or contract source."
+      ],
+      "validationCommands": [
+        "python scripts/validate-architecture-decisions.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-adr-0017-color-math",
+          "label": "MoonCatRescue ADR 0017 MoonCat Color Math",
+          "status": "verified"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 3,
+        "estimatedByteCount": 36594,
+        "files": [
+          {
+            "path": "data/architecture-decisions.json",
+            "bytes": 5791
+          },
+          {
+            "path": "docs/architecture-decisions.md",
+            "bytes": 2776
+          },
+          {
+            "path": "data/color-source-inventory.json",
+            "bytes": 28027
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "ADR index and boundary documentation first; color inventory only when source-detail context is needed."
+      }
+    },
+    {
+      "caseId": "adr-implementation-state-refusal",
+      "category": "architecture-evidence-boundary",
+      "taskSummary": "Use an ADR to determine whether the currently deployed MoonCat color contract matches the decision.",
+      "route": "locate-architecture-decisions",
+      "recipe": "locate-architecture-decisions",
+      "primaryFiles": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/sources.json",
+        "docs/reference-policy.md"
+      ],
+      "filesToLoad": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md",
+        "data/sources.json",
+        "docs/reference-policy.md"
+      ],
+      "terminology": [
+        "ADR",
+        "decision intent",
+        "deployed behavior",
+        "current state",
+        "implementation evidence"
+      ],
+      "requiredFacts": [
+        "Architecture decisions explain intended design",
+        "Current deployment requires separate implementation or chain evidence"
+      ],
+      "implementationGuardrails": [
+        "Do not invent ADR numbers, dates, authors, status, supersession, or implementation completion from filenames, ordering, or expectation.",
+        "Do not treat a current-maintainer design decision as proof of current deployed contract behavior or selected MoonCat state.",
+        "Do not copy ADR bodies into compact data or use missing records to make the index look complete.",
+        "No live contract or current-state check is performed by the ADR index."
+      ],
+      "forbiddenClaims": [
+        "accepted ADR proves deployed behavior",
+        "missing supersession link proves no later decision exists"
+      ],
+      "knownLimitations": [
+        "No live contract or current-state check is performed by the ADR index."
+      ],
+      "stopConditions": [
+        "Stop and report that implementation or live-state evidence is unavailable when no separately sourced surface is in scope."
+      ],
+      "validationCommands": [
+        "python scripts/validate-architecture-decisions.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-adr-0017-color-math",
+          "label": "MoonCatRescue ADR 0017 MoonCat Color Math",
+          "status": "verified"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 67315,
+        "files": [
+          {
+            "path": "data/architecture-decisions.json",
+            "bytes": 5791
+          },
+          {
+            "path": "docs/architecture-decisions.md",
+            "bytes": 2776
+          },
+          {
+            "path": "data/sources.json",
+            "bytes": 53956
+          },
+          {
+            "path": "docs/reference-policy.md",
+            "bytes": 4792
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Intent-versus-evidence boundary case without loading contract source or a universal ADR corpus."
       }
     },
     {
@@ -1052,11 +1214,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 107009,
+        "estimatedByteCount": 113947,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 15726
+            "bytes": 18443
           },
           {
             "path": "docs/agent-usage.md",
@@ -1064,15 +1226,15 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 18557
+            "bytes": 19486
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 37162
+            "bytes": 39239
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 34219
+            "bytes": 35434
           }
         ],
         "softFileLimit": 7,
