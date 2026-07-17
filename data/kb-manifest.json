@@ -1,0 +1,2513 @@
+{
+  "version": 1,
+  "status": "generated-maintained-file-inventory",
+  "generationPolicy": {
+    "network": "none",
+    "inventoryBasis": "all regular files under the repository root after explicit exclusion policy",
+    "fileRoleEnums": [
+      "canonical-data",
+      "documentation",
+      "entrypoint",
+      "example",
+      "generator",
+      "license-notice",
+      "project-metadata",
+      "source-index",
+      "validator",
+      "workflow-data"
+    ],
+    "curationModeEnums": [
+      "curated",
+      "generated",
+      "local-policy"
+    ],
+    "fileStatusEnums": [
+      "curated",
+      "doc",
+      "example",
+      "generated",
+      "script"
+    ],
+    "classificationRule": "explicit root/path mappings in scripts/generate-kb-manifest.py; unmatched maintained paths fail generation",
+    "excludedExactPaths": {
+      "data/kb-manifest.json": "recursive-generated-manifest-output",
+      "data/kb-audit-report.json": "dynamic-generated-audit-report"
+    },
+    "excludedPathPrefixes": {
+      ".git/": "git-internal-data",
+      ".chatgpt/": "local-generated-run-artifact",
+      ".agents/": "local-agent-workflow-artifact",
+      ".codex/": "local-agent-workflow-artifact",
+      "references/": "reference-snapshot-not-curated-kb-content",
+      "examples/rescue-mining-widget/vendor/": "vendored-example-dependency",
+      "node_modules/": "dependency-directory",
+      ".venv/": "local-virtual-environment",
+      "venv/": "local-virtual-environment",
+      "__pycache__/": "python-cache"
+    },
+    "notes": [
+      "Reference snapshots and vendored example dependencies are excluded from maintained curated KB coverage.",
+      "The manifest and audit report outputs are excluded to avoid self-referential hashes and dynamic audit durations.",
+      "Agent routes and task recipes are derived from data/agent-index.json and data/task-recipes.json at generation time."
+    ]
+  },
+  "generatedArtifactRegistry": [
+    {
+      "path": "data/agent-context-packs.json",
+      "generatorCommand": "python scripts/generate-agent-context-packs.py",
+      "checkCommand": "python scripts/generate-agent-context-packs.py --check",
+      "validatorCommands": [
+        "python scripts/validate-agent-routing.py"
+      ]
+    },
+    {
+      "path": "data/kb-audit-report.json",
+      "generatorCommand": "python scripts/audit-kb.py",
+      "validatorCommands": []
+    },
+    {
+      "path": "data/kb-manifest.json",
+      "generatorCommand": "python scripts/generate-kb-manifest.py",
+      "checkCommand": "python scripts/generate-kb-manifest.py --check",
+      "validatorCommands": [
+        "python scripts/validate-kb-manifest.py"
+      ]
+    },
+    {
+      "path": "data/materialization-parity-results.json",
+      "generatorCommand": "python scripts/generate-materialization-parity.py",
+      "checkCommand": "python scripts/generate-materialization-parity.py --check",
+      "validatorCommands": [
+        "python scripts/validate-materialization-parity.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-visual-traits.sample.json",
+      "generatorCommand": "python scripts/generate-visual-traits.py",
+      "checkCommand": "python scripts/generate-visual-traits.py --check",
+      "validatorCommands": [
+        "python scripts/validate-visual-traits.py"
+      ]
+    }
+  ],
+  "coverage": {
+    "maintainedFileCount": 92,
+    "excludedFileCount": 11,
+    "unclassifiedMaintainedFileCount": 0
+  },
+  "entries": [
+    {
+      "path": "AGENTS.md",
+      "fileRole": "entrypoint",
+      "topics": [
+        "agent-workflow",
+        "repository"
+      ],
+      "curationMode": "local-policy",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2657,
+      "sha256": "4bd57cc9786c0ebcddb9e1cb063fafb751d2c75ca54bc39561d5a48478befc22",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "fileRole": "entrypoint",
+      "topics": [
+        "agent-workflow",
+        "repository"
+      ],
+      "curationMode": "local-policy",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 6813,
+      "sha256": "d85d8f6a117ad1e773e856a66ba44e2e853b55e0ba12f99fc83b9e9a33867509",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "LICENSE",
+      "fileRole": "license-notice",
+      "topics": [
+        "licensing",
+        "repository"
+      ],
+      "curationMode": "local-policy",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 7078,
+      "sha256": "04de6e9a75c7775f04fcf0e69a98f2f91f94a0c6d27977cc2af18918b62e4782",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "NOTICE.md",
+      "fileRole": "license-notice",
+      "topics": [
+        "licensing",
+        "repository"
+      ],
+      "curationMode": "local-policy",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 375,
+      "sha256": "a6e96129830882a4021885dc505ffe46a9a2288a47f637eee3d9bc89b48c40a5",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "README.md",
+      "fileRole": "entrypoint",
+      "topics": [
+        "agent-workflow",
+        "repository"
+      ],
+      "curationMode": "local-policy",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 5052,
+      "sha256": "31310d29478eae60cf24b7506ff8d87220aa9bad4204f066f15973059131c9cc",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/agent-coding-patterns.json",
+      "fileRole": "workflow-data",
+      "topics": [
+        "agent-workflow",
+        "routing"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 2767,
+      "sha256": "2a6b0c8edcaff52386e8e8b96c1bc0cc87d7aa18af5c122eedd315a6f377e608",
+      "agentRoutes": [
+        "use-agent-context-packs"
+      ],
+      "taskRecipes": [
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/agent-context-packs.json",
+      "fileRole": "workflow-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 37745,
+      "sha256": "3b9543bd3b889dcecc14fda9f1c4d80849e40b8735e0cfca321e451b11b1825f",
+      "agentRoutes": [
+        "use-agent-context-packs"
+      ],
+      "taskRecipes": [
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": "python scripts/generate-agent-context-packs.py",
+      "checkCommand": "python scripts/generate-agent-context-packs.py --check",
+      "validatorCommands": [
+        "python scripts/validate-agent-routing.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/agent-index.json",
+      "fileRole": "workflow-data",
+      "topics": [
+        "agent-workflow",
+        "routing"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 18557,
+      "sha256": "b339c647798018dcb81ee98ee38e462252b3f6899382fe0df8a1d82d0bbc7b97",
+      "agentRoutes": [
+        "review-kb-gaps",
+        "use-agent-context-packs",
+        "use-task-recipes"
+      ],
+      "taskRecipes": [
+        "check-source-provenance",
+        "choose-mooncat-identifier-form",
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/agent-query-cases.json",
+      "fileRole": "workflow-data",
+      "topics": [
+        "agent-workflow",
+        "routing"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 15726,
+      "sha256": "50f766036ca01c9d2b9051e3af2dd39e2cee70d90fb5ed46ab520304ffe0b56d",
+      "agentRoutes": [
+        "use-agent-context-packs"
+      ],
+      "taskRecipes": [
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/api-endpoints.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 45358,
+      "sha256": "22f1a0386f9d5663ea94fa046b2474c2ba3ac4a717d60fcb73e405a7e7bed10f",
+      "agentRoutes": [
+        "call-api-endpoints",
+        "fetch-traits",
+        "render-images"
+      ],
+      "taskRecipes": [
+        "check-source-provenance",
+        "choose-contract-surface",
+        "choose-mooncat-identifier-form",
+        "fetch-traits-safely",
+        "interpret-color-hue-data",
+        "look-up-rescue-bucket-or-year",
+        "render-or-fetch-mooncat-image",
+        "use-api-examples",
+        "use-libmooncat-helper-surfaces"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/api-examples.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 9291,
+      "sha256": "f83fb452cf6d1b964e5ce83e1d206358c9ec73647a658265c9d00d3a8557f5be",
+      "agentRoutes": [
+        "call-api-endpoints",
+        "fetch-traits",
+        "render-images"
+      ],
+      "taskRecipes": [
+        "fetch-traits-safely",
+        "render-or-fetch-mooncat-image",
+        "use-api-examples"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/character-cat-index.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 13219,
+      "sha256": "87be140ec51cbda143c95a89f27d7426d217a38dd108b9a5b732d4b3c142f347",
+      "agentRoutes": [
+        "work-with-character-cats"
+      ],
+      "taskRecipes": [
+        "interpret-color-hue-data"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/character-cats.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 7012,
+      "sha256": "79d2b7cd22e4170aa6c57d0b06947ebeab3fa26d6b4d79a815fb2d6371d16006",
+      "agentRoutes": [
+        "classify-mooncat-types",
+        "work-with-character-cats",
+        "work-with-colors-and-hues"
+      ],
+      "taskRecipes": [
+        "interpret-color-hue-data"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/color-classification.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 7818,
+      "sha256": "79963fade6364a16e09eecb2bf4e0c161cde768f5c057557affa44e1922c7d68",
+      "agentRoutes": [
+        "classify-mooncat-colors"
+      ],
+      "taskRecipes": [
+        "classify-mooncat-colors",
+        "generate-or-validate-visual-trait-sample"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/color-hues.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 37865,
+      "sha256": "1efb5204b73c98b2ea1ac77c5a838c74cc9774dce1d238c081beff23a01653d5",
+      "agentRoutes": [
+        "classify-mooncat-colors",
+        "classify-mooncat-types",
+        "work-with-character-cats",
+        "work-with-colors-and-hues"
+      ],
+      "taskRecipes": [
+        "check-source-provenance",
+        "classify-mooncat-colors",
+        "fetch-traits-safely",
+        "interpret-color-hue-data",
+        "render-or-fetch-mooncat-image",
+        "use-libmooncat-helper-surfaces"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/color-source-inventory.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "provenance"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 28027,
+      "sha256": "444d101280494ca27c637ffe59bfd66bebd23b12d220e03829d95273228150a4",
+      "agentRoutes": [
+        "classify-mooncat-colors",
+        "work-with-colors-and-hues"
+      ],
+      "taskRecipes": [
+        "classify-mooncat-colors"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/contract-surfaces.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 21781,
+      "sha256": "a18a9cf96d0935ac26a1d0edd12d626b2b49ef7d4434a56bbb5f68591fdfc71c",
+      "agentRoutes": [
+        "look-up-contracts",
+        "review-mooncat-accessory-lifecycle",
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "check-source-provenance",
+        "choose-contract-surface",
+        "choose-mooncat-identifier-form",
+        "render-or-fetch-mooncat-image",
+        "trace-mooncat-accessory-lifecycle",
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/contracts.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 22852,
+      "sha256": "f07b59a8b5d511b86d59b6edc3729150629e7a04881eca0d73c8018323e6f754",
+      "agentRoutes": [
+        "look-up-contracts",
+        "review-mooncat-accessory-lifecycle",
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "check-source-provenance",
+        "choose-contract-surface",
+        "choose-mooncat-identifier-form",
+        "render-or-fetch-mooncat-image",
+        "trace-mooncat-accessory-lifecycle",
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/identifier-conventions.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 36929,
+      "sha256": "2d94b435e0a1cb288fbadab0655601c1250bd689d943e9afa0507f5f758d2935",
+      "agentRoutes": [
+        "call-api-endpoints",
+        "fetch-traits",
+        "generate-visual-trait-sample",
+        "identify-mooncat-ids",
+        "render-images",
+        "review-mooncat-accessory-lifecycle",
+        "review-trait-schema-strategy",
+        "verify-identifier-conversions",
+        "work-with-rescue-buckets"
+      ],
+      "taskRecipes": [
+        "check-source-provenance",
+        "choose-contract-surface",
+        "choose-mooncat-identifier-form",
+        "fetch-traits-safely",
+        "generate-or-validate-visual-trait-sample",
+        "look-up-rescue-bucket-or-year",
+        "render-or-fetch-mooncat-image",
+        "trace-mooncat-accessory-lifecycle",
+        "use-api-examples",
+        "use-libmooncat-helper-surfaces",
+        "verify-identifier-conversions"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/identifier-conversion-cases.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 19869,
+      "sha256": "2484820fd908ac14145ffbc5ad04651d8b5d5c461d6df64fc1796a4af7717748",
+      "agentRoutes": [
+        "verify-identifier-conversions"
+      ],
+      "taskRecipes": [
+        "verify-identifier-conversions"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/ipfs-cids.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 11834,
+      "sha256": "2f55c2f168698239f5b652f76575ee7b40c853e1b27567ddd11a979795f47992",
+      "agentRoutes": [
+        "find-ipfs-and-artifact-urls"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/kb-gap-index.json",
+      "fileRole": "workflow-data",
+      "topics": [
+        "agent-workflow",
+        "routing"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 34219,
+      "sha256": "1c1ac89823140dce560425a78436cd90715999300bfec88077cd1f64833c3729",
+      "agentRoutes": [
+        "review-kb-gaps",
+        "review-upstream-snapshot-provenance",
+        "use-agent-context-packs"
+      ],
+      "taskRecipes": [
+        "check-source-provenance",
+        "choose-contract-surface",
+        "review-upstream-snapshots",
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/libmooncat-surfaces.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 14861,
+      "sha256": "be5691bd3be58a1b066050914eed9bec6736f1ca6e3bcd4c47aa8d9c9deefc80",
+      "agentRoutes": [
+        "fetch-traits",
+        "generate-visual-trait-sample",
+        "identify-mooncat-ids",
+        "render-images",
+        "verify-identifier-conversions",
+        "verify-materialization-parity"
+      ],
+      "taskRecipes": [
+        "choose-contract-surface",
+        "choose-mooncat-identifier-form",
+        "fetch-traits-safely",
+        "generate-or-validate-visual-trait-sample",
+        "interpret-color-hue-data",
+        "render-or-fetch-mooncat-image",
+        "use-libmooncat-helper-surfaces",
+        "verify-identifier-conversions",
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/link-index.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 10812,
+      "sha256": "e81fe356083f41dd82a7d83bef7451d24937af1645fbd4cf9d2305e2f9b1d114",
+      "agentRoutes": [
+        "check-source-provenance",
+        "find-ipfs-and-artifact-urls"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/materialization-internals.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 2704,
+      "sha256": "e97f0edb0ff7c9b02331d9fd804dc5afc4e4ac776ef71a7e6f0b7b31ffabac5f",
+      "agentRoutes": [
+        "verify-materialization-parity"
+      ],
+      "taskRecipes": [
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/materialization-parity-cases.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 8630,
+      "sha256": "14faff2f99a66936b21ac2f1128646046f7aeca3aad2f07947496c81966e96b9",
+      "agentRoutes": [
+        "verify-materialization-parity"
+      ],
+      "taskRecipes": [
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/materialization-parity-results.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 34131,
+      "sha256": "4e71e8f152fbe4931ba9ce8f76a0822fc0ba3d586ceaa851c16225abdb62c3d8",
+      "agentRoutes": [
+        "verify-materialization-parity"
+      ],
+      "taskRecipes": [
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": "python scripts/generate-materialization-parity.py",
+      "checkCommand": "python scripts/generate-materialization-parity.py --check",
+      "validatorCommands": [
+        "python scripts/validate-materialization-parity.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/mooncat-accessories-internals.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 17120,
+      "sha256": "b2254164bdfb0e94e76bc3357433224d2704a9a243463b282e3b33c1fb4ec75c",
+      "agentRoutes": [
+        "review-mooncat-accessory-lifecycle"
+      ],
+      "taskRecipes": [
+        "trace-mooncat-accessory-lifecycle"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/mooncat-accessory-images-internals.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 12661,
+      "sha256": "e0febdc0414ed123f7db6110e8a09a08f3f620e71cc239d2eeef885b0c50562b",
+      "agentRoutes": [
+        "look-up-contracts",
+        "render-images",
+        "review-mooncat-accessory-lifecycle"
+      ],
+      "taskRecipes": [
+        "choose-contract-surface",
+        "render-or-fetch-mooncat-image",
+        "trace-mooncat-accessory-lifecycle"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-svg-internals.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 8550,
+      "sha256": "a643f39e67b0ab9eee6f04f0d8e7a70b7adaef04a0da7e8e8ef44bdf19d2aa44",
+      "agentRoutes": [
+        "look-up-contracts",
+        "render-images"
+      ],
+      "taskRecipes": [
+        "choose-contract-surface",
+        "render-or-fetch-mooncat-image"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-types.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 2892,
+      "sha256": "dc6f247f456917b3bfaff170350aa9de8838a33b639eb0882d39c49f83fab5e9",
+      "agentRoutes": [
+        "classify-mooncat-types",
+        "work-with-character-cats"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/mooncat-visual-traits.sample.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 135327,
+      "sha256": "d4fc38811acaebd2673e68450aae2626c656a5e44a2d2e234d0f144413d749c6",
+      "agentRoutes": [
+        "classify-mooncat-colors",
+        "fetch-traits",
+        "generate-visual-trait-sample"
+      ],
+      "taskRecipes": [
+        "classify-mooncat-colors",
+        "generate-or-validate-visual-trait-sample"
+      ],
+      "generatorCommand": "python scripts/generate-visual-traits.py",
+      "checkCommand": "python scripts/generate-visual-traits.py --check",
+      "validatorCommands": [
+        "python scripts/validate-visual-traits.py"
+      ],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/older-wrapper-internals.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 5825,
+      "sha256": "971e3db9c3533eeed30508566b47cb76a34bee2f2b1dc2f43c79c8847b560727",
+      "agentRoutes": [
+        "identify-mooncat-ids",
+        "look-up-contracts"
+      ],
+      "taskRecipes": [
+        "choose-contract-surface",
+        "choose-mooncat-identifier-form"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/project-links.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 20180,
+      "sha256": "4f403d981f4299e0cad3eba4b840b59b41f60e21e4911e2e6c6051f0fe3b1681",
+      "agentRoutes": [
+        "find-ipfs-and-artifact-urls"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/protocol-constants.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 2357,
+      "sha256": "ed2a39940ffaf37bcb8232b25837ad33c6559844a58a363fd161bc1c91610112",
+      "agentRoutes": [
+        "identify-mooncat-ids",
+        "look-up-contracts",
+        "render-images",
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/rescue-buckets.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 58786,
+      "sha256": "57d9b3eec337349d1f314e3b134a8f730528b16deeab8bd6b911a5c6969c7171",
+      "agentRoutes": [
+        "work-with-rescue-buckets"
+      ],
+      "taskRecipes": [
+        "look-up-rescue-bucket-or-year"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/rescue-mining.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 14722,
+      "sha256": "e77d01750b2ab7941762df7dcb288df7d86883085ebe1759ba31d08a9065f624",
+      "agentRoutes": [
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/rescue-ranges.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 4952,
+      "sha256": "c5374b19bfbab166b47ab6c15451c9bacf79ab90a842b885f2d606e1dacfed2d",
+      "agentRoutes": [
+        "work-with-rescue-buckets"
+      ],
+      "taskRecipes": [
+        "look-up-rescue-bucket-or-year"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/sources.json",
+      "fileRole": "source-index",
+      "topics": [
+        "provenance",
+        "sources"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 53502,
+      "sha256": "817cbe3d9ae05f95cf2c261ac4c4e20c413abc7cf64685c88a9d40ad44243e05",
+      "agentRoutes": [
+        "call-api-endpoints",
+        "check-source-provenance",
+        "classify-mooncat-colors",
+        "classify-mooncat-types",
+        "fetch-traits",
+        "find-ipfs-and-artifact-urls",
+        "generate-visual-trait-sample",
+        "identify-mooncat-ids",
+        "look-up-contracts",
+        "render-images",
+        "review-kb-gaps",
+        "review-mooncat-accessory-lifecycle",
+        "review-trait-schema-strategy",
+        "review-upstream-snapshot-provenance",
+        "understand-rescue-mining",
+        "use-agent-context-packs",
+        "use-task-recipes",
+        "verify-identifier-conversions",
+        "verify-materialization-parity",
+        "work-with-character-cats",
+        "work-with-colors-and-hues",
+        "work-with-rescue-buckets"
+      ],
+      "taskRecipes": [
+        "check-source-provenance",
+        "choose-contract-surface",
+        "choose-mooncat-identifier-form",
+        "classify-mooncat-colors",
+        "fetch-traits-safely",
+        "generate-or-validate-visual-trait-sample",
+        "interpret-color-hue-data",
+        "look-up-rescue-bucket-or-year",
+        "render-or-fetch-mooncat-image",
+        "review-upstream-snapshots",
+        "trace-mooncat-accessory-lifecycle",
+        "understand-rescue-mining",
+        "use-agent-context-packs",
+        "use-api-examples",
+        "use-libmooncat-helper-surfaces",
+        "verify-identifier-conversions",
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/special-cats.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 2452,
+      "sha256": "1e7d3b6021cfcafce2f2d5ed0bc9e9de893396ca1a330672043c1ad258f669df",
+      "agentRoutes": [
+        "classify-mooncat-types"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/task-recipes.json",
+      "fileRole": "workflow-data",
+      "topics": [
+        "agent-workflow",
+        "routing"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 37162,
+      "sha256": "047c0bc8ac1f89b3663039b965dae8a014b1552a079a96fc72891b7a0220ce63",
+      "agentRoutes": [
+        "review-kb-gaps",
+        "use-agent-context-packs",
+        "use-task-recipes"
+      ],
+      "taskRecipes": [
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/trait-index.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 16045,
+      "sha256": "3c7f36ccf6a440b775205febb6abf886b9b7c908a09b297fd98f871f12ae5b0b",
+      "agentRoutes": [
+        "fetch-traits",
+        "generate-visual-trait-sample",
+        "review-trait-schema-strategy",
+        "verify-identifier-conversions",
+        "verify-materialization-parity"
+      ],
+      "taskRecipes": [
+        "check-source-provenance",
+        "fetch-traits-safely",
+        "generate-or-validate-visual-trait-sample",
+        "interpret-color-hue-data",
+        "look-up-rescue-bucket-or-year",
+        "use-api-examples",
+        "use-libmooncat-helper-surfaces",
+        "verify-identifier-conversions",
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/upstream-snapshot-manifest.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "provenance"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 15360,
+      "sha256": "416fb3e891bf4efa9eadfe84703cfc2161ac11522aecf4c55bb153595444a21f",
+      "agentRoutes": [
+        "review-upstream-snapshot-provenance"
+      ],
+      "taskRecipes": [
+        "review-upstream-snapshots"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/agent-usage.md",
+      "fileRole": "documentation",
+      "topics": [
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 1345,
+      "sha256": "e041475a7bb9aa37b815252265417be7ec1b5eb4649dd60db734c25ad0521d1c",
+      "agentRoutes": [
+        "use-agent-context-packs"
+      ],
+      "taskRecipes": [
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/api-notes.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 3018,
+      "sha256": "177504185d524173269aecb5ef0fc26267b77fac764069e66add6578621e291e",
+      "agentRoutes": [
+        "call-api-endpoints"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/color-classification.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2948,
+      "sha256": "eae49ed36eca82d0526d08769a32c401a15058c5fa030108bcc319d1c35238d8",
+      "agentRoutes": [
+        "classify-mooncat-colors"
+      ],
+      "taskRecipes": [
+        "classify-mooncat-colors"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/color-math.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 1194,
+      "sha256": "354b7d71f3653ba53c3b2c823e0b0486a6fdf9571353c4537dd9d1a805cef645",
+      "agentRoutes": [
+        "work-with-colors-and-hues"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/color.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 507,
+      "sha256": "1fde6b7d140b54feaadd6accfea62a614d738ef4f828e23850d11e1ee8470e9f",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/contracts.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 9970,
+      "sha256": "20e23af96a5ca0ee0c5bce34d6f366e8d77d8bba16a7053ee749fb4fad0a4d8d",
+      "agentRoutes": [
+        "look-up-contracts"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/generated-trait-data.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 5363,
+      "sha256": "20fab6a97fea5328dbf00d5a807dd3af5f3755d1f1f6bad6f56bde55e306b1fe",
+      "agentRoutes": [
+        "fetch-traits",
+        "generate-visual-trait-sample"
+      ],
+      "taskRecipes": [
+        "generate-or-validate-visual-trait-sample"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/glossary.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 889,
+      "sha256": "3cc870d82de8b42e59e6c1d8ef74cb2c2ef9b9ee15ef098e2cb23866ba893671",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/identifier-conventions.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 10870,
+      "sha256": "82560b43aab2c9751b483a5f25e848655c579c45a117eb38b009b6111f60e5ea",
+      "agentRoutes": [
+        "identify-mooncat-ids",
+        "verify-identifier-conversions"
+      ],
+      "taskRecipes": [
+        "verify-identifier-conversions"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/identifier-verification.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 4240,
+      "sha256": "a81ee56f6d867831a62b512f6bfe78570196d9d7c76ac63fde0444d1a7560548",
+      "agentRoutes": [
+        "verify-identifier-conversions"
+      ],
+      "taskRecipes": [
+        "verify-identifier-conversions"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/kb-integrity.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 4451,
+      "sha256": "ecfd36c1c6ec34d78e9b84983cb53c6c983bc09b617b3e16214b613e59c20e8c",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/libmooncat.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 5525,
+      "sha256": "75d28ee591598f1c745382fe3b4217a46d38138b79d8496d94884bd4518feabd",
+      "agentRoutes": [
+        "identify-mooncat-ids",
+        "render-images"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/materialization-parity.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 3041,
+      "sha256": "a9d56ca27e364224676ee9b8799ca6672ffc8c56bf4240c5e712be082ac70720",
+      "agentRoutes": [
+        "verify-materialization-parity"
+      ],
+      "taskRecipes": [
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/materialization.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 1521,
+      "sha256": "0ba35fc107d30355c2f9704659d0f364797ea5af48a0c97d72d014a28ffa1465",
+      "agentRoutes": [
+        "verify-materialization-parity"
+      ],
+      "taskRecipes": [
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/mooncat-accessories.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 7851,
+      "sha256": "54acecbf322d2753477f576e72863d1d178d26e571757d63aa4022bbc7eb1af6",
+      "agentRoutes": [
+        "review-mooncat-accessory-lifecycle"
+      ],
+      "taskRecipes": [
+        "trace-mooncat-accessory-lifecycle"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/mooncat-accessory-images.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 5583,
+      "sha256": "d16ea4e2f377df4dd55fb99ee487478e40ebc46c35b55a38f0679aaa84471e24",
+      "agentRoutes": [
+        "look-up-contracts",
+        "render-images",
+        "review-mooncat-accessory-lifecycle"
+      ],
+      "taskRecipes": [
+        "trace-mooncat-accessory-lifecycle"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/mooncat-svgs.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 3814,
+      "sha256": "c18ad56650482e4f0adfe1caa158b743d59a8c6da6ba154f81b576862c0bd354",
+      "agentRoutes": [
+        "look-up-contracts",
+        "render-images"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/mooncat-types.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2579,
+      "sha256": "92d27a11e1741d52ea195d3d56dd6d2b03c6873f190ceec346ddfec3c1235d57",
+      "agentRoutes": [
+        "classify-mooncat-types"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/older-wrapper-contracts.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 3585,
+      "sha256": "169c5cfa9ba60b3141ef74ffaf1af2c04aee1a5217156d1254912c3a07fe09a1",
+      "agentRoutes": [
+        "identify-mooncat-ids",
+        "look-up-contracts"
+      ],
+      "taskRecipes": [
+        "choose-mooncat-identifier-form"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/overview.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 924,
+      "sha256": "8ddf34ed1c8ebe222c0c9608e7420c34b5f83db6db12f71a4df390bf5ec71d6f",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/reference-policy.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 4792,
+      "sha256": "e1190b8b3eb336668a0bc5944c95108c7f720ffe6d8b0a6d407ef217943adce8",
+      "agentRoutes": [
+        "check-source-provenance",
+        "fetch-traits",
+        "review-trait-schema-strategy"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/rescue-history.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 3339,
+      "sha256": "4e19db4222c25d8b01fac0509c1c7ca277aafd38966a0e337711baaa494d70db",
+      "agentRoutes": [
+        "work-with-rescue-buckets"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/rescue-mining.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 7603,
+      "sha256": "ef5d2e1a58276ac6e6995f595186a4c59affb929ca54f75bb594c3504a2b56c9",
+      "agentRoutes": [
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/source-map.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 5814,
+      "sha256": "1867309559180f45b201087da7293ce7f647ab61259c46e7ec48c37ef916afc2",
+      "agentRoutes": [
+        "check-source-provenance",
+        "find-ipfs-and-artifact-urls",
+        "look-up-contracts",
+        "review-upstream-snapshot-provenance"
+      ],
+      "taskRecipes": [
+        "review-upstream-snapshots"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/traits-and-ids.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 1136,
+      "sha256": "4d46094d11973a8a9548bb794a83dc7f96ccf5c5426632cb7ff50b4e438831f3",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/traits.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 9438,
+      "sha256": "322c936ae93a4d70191e2528fc84481906f3c5fbdca13e3d8572a6b5958f8c92",
+      "agentRoutes": [
+        "fetch-traits",
+        "review-trait-schema-strategy"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/upstream-repositories.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 4257,
+      "sha256": "c7ae496fc882c184e39afd12d206debb1ae821b3d6141458283176893e70af1f",
+      "agentRoutes": [
+        "check-source-provenance",
+        "review-upstream-snapshot-provenance"
+      ],
+      "taskRecipes": [
+        "review-upstream-snapshots"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/upstream-snapshots.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 3493,
+      "sha256": "e5cd947aa5ae89c228c988c3a7b50a92aeb518a49db3e442c913a67949d68571",
+      "agentRoutes": [
+        "review-upstream-snapshot-provenance"
+      ],
+      "taskRecipes": [
+        "review-upstream-snapshots"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "examples/rescue-mining-widget/README.md",
+      "fileRole": "example",
+      "topics": [
+        "rescue-mining",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 4885,
+      "sha256": "039fee8f707feb788ae82712f10a7143dfd11dc3c3d44ccc47810be4872cdaba",
+      "agentRoutes": [
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "examples/rescue-mining-widget/index.html",
+      "fileRole": "example",
+      "topics": [
+        "rescue-mining",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 1000,
+      "sha256": "e8edb8d71519ec665b4f826fbc021f88471ce4a12ebfde7f0e9a4270e66d6eeb",
+      "agentRoutes": [
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "examples/rescue-mining-widget/mooncat-render-adapter.js",
+      "fileRole": "example",
+      "topics": [
+        "rescue-mining",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 1600,
+      "sha256": "ef1ae7ec31960f7b10a789f74dd4e480b8b789aafa78e1dff1ccba2c8d0683b9",
+      "agentRoutes": [
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "examples/rescue-mining-widget/rescue-mining-widget.css",
+      "fileRole": "example",
+      "topics": [
+        "rescue-mining",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 2945,
+      "sha256": "65e102de057ea1c46ce1e3d09fbf1fe4582a8fef0b1c4aacb2141a3cc463d7de",
+      "agentRoutes": [
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "examples/rescue-mining-widget/rescue-mining-widget.js",
+      "fileRole": "example",
+      "topics": [
+        "rescue-mining",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 21707,
+      "sha256": "d7607d69420423a6e0865d55689f3e88e9c6e5fe1111a3fa09a4487e8bda2f6d",
+      "agentRoutes": [
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "examples/rescue-mining.js",
+      "fileRole": "example",
+      "topics": [
+        "rescue-mining",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 3371,
+      "sha256": "1a806e42e286c97c33bab951a64b1505f00b3b017ecd5839229e8ff11710f596",
+      "agentRoutes": [
+        "understand-rescue-mining"
+      ],
+      "taskRecipes": [
+        "understand-rescue-mining"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "llms.txt",
+      "fileRole": "entrypoint",
+      "topics": [
+        "agent-workflow",
+        "repository"
+      ],
+      "curationMode": "local-policy",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 1843,
+      "sha256": "1a4e4bb99ad2bd9916440136401987f521389025a0b50e8aa6dcf03e1759cf87",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "result.md",
+      "fileRole": "project-metadata",
+      "topics": [
+        "repository",
+        "workflow"
+      ],
+      "curationMode": "local-policy",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2973,
+      "sha256": "79ae42b417ff674197f4bd5350ba32f7904c7ec69a9be1263534d46305b936ef",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/audit-kb.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "integrity"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 10873,
+      "sha256": "20d8a346062efc8885ff787cf6219f8840f41caafb988a08938855c72f348a03",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/generate-agent-context-packs.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 4507,
+      "sha256": "758d1cbd0d616c104d08e2f6cd38a1981431357f82d504ae37016104e2694a0b",
+      "agentRoutes": [
+        "use-agent-context-packs"
+      ],
+      "taskRecipes": [
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/generate-kb-manifest.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 12562,
+      "sha256": "6039afd8f1e627fcfd45b8372c84f24a98585edae99445ff365ac46574a55c86",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/generate-materialization-parity.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 11430,
+      "sha256": "6e6452a4dfbea82a08bb9ac8b7996f5014bb62556879123b6c8a96b247436517",
+      "agentRoutes": [
+        "verify-materialization-parity"
+      ],
+      "taskRecipes": [
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/generate-visual-traits.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 16414,
+      "sha256": "8009c1ff1ffe72f518f6d45314d2283312b3f071c046ee6d6dfcd921698542a3",
+      "agentRoutes": [
+        "classify-mooncat-colors",
+        "generate-visual-trait-sample"
+      ],
+      "taskRecipes": [
+        "classify-mooncat-colors"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-agent-routing.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 5208,
+      "sha256": "2ddd1af2a99ed0f8ffb760fbbf2ddf49f5632ed6b8f7e806f1eefec30c383166",
+      "agentRoutes": [
+        "use-agent-context-packs"
+      ],
+      "taskRecipes": [
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-color-classification.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 3946,
+      "sha256": "1c5b678c8435d9a37cb86ec32dfaa2351986aebff7c36d9e564ac5519fadfdf7",
+      "agentRoutes": [
+        "classify-mooncat-colors"
+      ],
+      "taskRecipes": [
+        "classify-mooncat-colors"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-identifier-conversions.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 9766,
+      "sha256": "e2d5366f553e2d8da46d806a482ab7d72be2b77e2638babe597431fcc2639847",
+      "agentRoutes": [
+        "verify-identifier-conversions"
+      ],
+      "taskRecipes": [
+        "verify-identifier-conversions"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-kb-manifest.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 7058,
+      "sha256": "7f3041bf13fe89a7b2cc7060be794f7e7fbdc8532e44e8f1a5dee82868087011",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-kb.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 10976,
+      "sha256": "2b60104438db455508e5f7cf2661a7663cdf2578e634000e30c4ad8f359e44e2",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-materialization-parity.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 4838,
+      "sha256": "82b8ec058e628ea0d575a1f817eb6e6871e74c2045f58344c9c40dc62d670a18",
+      "agentRoutes": [
+        "verify-materialization-parity"
+      ],
+      "taskRecipes": [
+        "verify-materialization-parity"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-upstream-snapshots.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 3799,
+      "sha256": "ea508f5d5eb1d1db3109c18867b9863117984ed22e8d18181a8257ed6a8dfecb",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-visual-traits.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 5227,
+      "sha256": "f4a1e52b308a447105ba906e91940eff15a791f1fc15e81dea36c3e39677f819",
+      "agentRoutes": [
+        "generate-visual-trait-sample"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    }
+  ],
+  "excludedFiles": [
+    {
+      "path": "data/kb-audit-report.json",
+      "reason": "dynamic-generated-audit-report"
+    },
+    {
+      "path": "data/kb-manifest.json",
+      "reason": "recursive-generated-manifest-output"
+    },
+    {
+      "path": "examples/rescue-mining-widget/vendor/mooncatparser.js",
+      "reason": "vendored-example-dependency"
+    },
+    {
+      "path": "examples/rescue-mining-widget/vendor/sha3.min.js",
+      "reason": "vendored-example-dependency"
+    },
+    {
+      "path": "references/derived/mooncat_rescueOrder_by_category.json",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/extracted-source-links-2026-07-02.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/mooncats-faq-official-links.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/README.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/libmooncat-limited.js",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/mooncat_traits.json",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/mooncatparser.js",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    }
+  ]
+}

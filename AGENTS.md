@@ -30,6 +30,8 @@ This repository is a MoonCat technical knowledge base.
 - For coding tasks, start with `data/agent-index.json`; when available, load the matching case from `data/agent-context-packs.json` before broader files.
 - Treat pack warnings, forbidden claims, and stop conditions as implementation constraints. Packs reference files; they do not replace underlying source limits.
 - After changing routing or benchmark context, run `python scripts/generate-agent-context-packs.py --check` and `python scripts/validate-agent-routing.py`.
+- For integrity, manifest, or maintained-file coverage changes, load `data/kb-manifest.json` and `docs/kb-integrity.md`, then run `python scripts/generate-kb-manifest.py --check`, `python scripts/validate-kb-manifest.py`, and `python scripts/audit-kb.py`.
+- Keep manifest classification and exclusion rules explicit; the audit orchestrates focused validators and does not authorize network scans, Git-history scans, or automatic PII edits.
 
 ## File conventions
 

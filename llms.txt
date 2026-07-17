@@ -9,6 +9,9 @@ Plain-text and Markdown entrypoints:
 - /data/agent-context-packs.json
 - /data/agent-coding-patterns.json
 - /docs/agent-usage.md
+- /data/kb-manifest.json
+- /data/kb-audit-report.json
+- /docs/kb-integrity.md
 - /data/task-recipes.json
 - /data/kb-gap-index.json
 - /docs/identifier-verification.md
@@ -48,6 +51,7 @@ Notes:
 
 - For task-specific agent context, load /data/agent-index.json before broader docs or data files.
 - For covered coding tasks, load the matching generated pack from /data/agent-context-packs.json; then inspect only the referenced underlying files.
+- For repo-wide integrity work, load /data/kb-manifest.json and /docs/kb-integrity.md, then run the documented zero-network audit commands.
 - Use /data/ for exact canonical or curated data.
 - Use /docs/ for explanations and reasoning.
 - Incomplete information is marked explicitly and should not be filled by guesswork.

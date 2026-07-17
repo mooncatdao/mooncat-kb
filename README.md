@@ -8,6 +8,8 @@ Start here:
 - `data/agent-query-cases.json` and `data/agent-context-packs.json` — deterministic coding-agent benchmark and minimal generated context packs
 - `docs/agent-usage.md` — route/pack selection, uncertainty, and validation workflow
 - `data/agent-coding-patterns.json` — pointers to tested local coding patterns and validators
+- `data/kb-manifest.json` and `data/kb-audit-report.json` — generated maintained-file inventory and latest bounded integrity-audit report
+- `docs/kb-integrity.md` — audit scope, manifest policy, warning limits, and future-import guidance
 - `docs/overview.md` — high-level context
 - `docs/source-map.md` — where to find canonical or supporting sources
 - `docs/glossary.md` — short definitions for recurring terms
@@ -66,6 +68,14 @@ It checks `data/*.json` parsing, required routed file references, and `sourceRef
 The script locates the repo root automatically when invoked by path from a subdirectory.
 
 For coding-agent route/pack changes, also run `python scripts/generate-agent-context-packs.py --check` and `python scripts/validate-agent-routing.py`.
+
+For the repo-wide zero-network integrity workflow, run:
+
+```sh
+python scripts/generate-kb-manifest.py --check
+python scripts/validate-kb-manifest.py
+python scripts/audit-kb.py
+```
 
 ## License
 

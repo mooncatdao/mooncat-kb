@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "status": "passed",
+  "scope": "zero-network orchestration of registered local validators, generators, manifest checks, bounded duplicate IDs, internal paths, and warning-only PII scan",
+  "commands": [
+    {
+      "command": "python scripts/generate-agent-context-packs.py --check",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: data/agent-context-packs.json is deterministic and current"
+    },
+    {
+      "command": "python scripts/generate-visual-traits.py --check",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: data/mooncat-visual-traits.sample.json is deterministic and current"
+    },
+    {
+      "command": "python scripts/generate-materialization-parity.py --check",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: data/materialization-parity-results.json is deterministic and current"
+    },
+    {
+      "command": "python scripts/generate-kb-manifest.py --check",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: data/kb-manifest.json is deterministic and current"
+    },
+    {
+      "command": "python scripts/validate-kb.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 40 Required file references checked: 355 sourceRefs checked: 1056 relatedFiles checked: 184 Warnings: 0 Errors: 0"
+    },
+    {
+      "command": "python scripts/validate-agent-routing.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 13 query cases, 13 categories, 6 protected boundaries, and minimal deterministic packs"
+    },
+    {
+      "command": "python scripts/validate-upstream-snapshots.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 7 snapshot entries, hashes and provenance references validated"
+    },
+    {
+      "command": "python scripts/validate-identifier-conversions.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 33 fixtures, 14 round trips, 10 negative cases, 8 unsupported boundaries; sourceRefs and LibMoonCat/trait cross-checks passed"
+    },
+    {
+      "command": "python scripts/validate-color-classification.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: color policy boundaries, wrap, Genesis sentinels, pale handling, and version are valid"
+    },
+    {
+      "command": "python scripts/validate-visual-traits.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 64 rows, 8 explicit mismatches, identifier and color coverage checks passed"
+    },
+    {
+      "command": "python scripts/validate-materialization-parity.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 8 fixtures, 8 structural normalizations, 5 intentional trait differences, and explicit unavailable layers"
+    },
+    {
+      "command": "python scripts/validate-kb-manifest.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 92 maintained files, 11 explicit exclusions, hashes, routes, and commands validated"
+    }
+  ],
+  "counts": {
+    "requiredCommandCount": 12,
+    "failedRequiredCommandCount": 0,
+    "duplicateNamespaceCount": 9,
+    "internalPathsChecked": 1081,
+    "piiWarningCount": 0,
+    "warningCount": 1,
+    "errorCount": 0,
+    "manifestMaintainedFileCount": 92,
+    "manifestExcludedFileCount": 11
+  },
+  "duplicateIdChecks": {
+    "collections": {
+      "sources": {
+        "file": "data/sources.json",
+        "count": 78,
+        "duplicates": []
+      },
+      "agent-routes": {
+        "file": "data/agent-index.json",
+        "count": 22,
+        "duplicates": []
+      },
+      "task-recipes": {
+        "file": "data/task-recipes.json",
+        "count": 17,
+        "duplicates": []
+      },
+      "benchmark-cases": {
+        "file": "data/agent-query-cases.json",
+        "count": 13,
+        "duplicates": []
+      },
+      "gap-records": {
+        "file": "data/kb-gap-index.json",
+        "count": 22,
+        "duplicates": []
+      },
+      "identifier-fixtures": {
+        "file": "data/identifier-conversion-cases.json",
+        "count": 0,
+        "duplicates": []
+      },
+      "materialization-fixtures": {
+        "file": "data/materialization-parity-cases.json",
+        "count": 8,
+        "duplicates": []
+      },
+      "materialization-results": {
+        "file": "data/materialization-parity-results.json",
+        "count": 8,
+        "duplicates": []
+      },
+      "upstream-snapshots": {
+        "file": "data/upstream-snapshot-manifest.json",
+        "count": 7,
+        "duplicates": []
+      }
+    },
+    "errors": []
+  },
+  "internalPathChecks": {
+    "checked": 1081,
+    "errors": [],
+    "warnings": [
+      "data/sources.json: missing metadata path at $.sources[3].path: context.md"
+    ]
+  },
+  "piiScan": {
+    "policy": "warning-only; scans maintained text files only; public source URLs, contract addresses, and documented examples are not PII matches",
+    "allowlist": [
+      "\\b(?:test|example)@example\\.com\\b"
+    ],
+    "denylistLiterals": [],
+    "warnings": []
+  },
+  "warnings": [
+    {
+      "path": "internal-path-check",
+      "kind": "legacy-source-path",
+      "value": "data/sources.json: missing metadata path at $.sources[3].path: context.md"
+    }
+  ],
+  "errors": [],
+  "skippedChecks": [
+    {
+      "check": "external URL, RPC, API, explorer, and network validation",
+      "reason": "outside zero-network audit scope"
+    },
+    {
+      "check": "Git-history PII scan",
+      "reason": "explicit separate mode; not part of default audit"
+    },
+    {
+      "check": "generic semantic contradiction detection",
+      "reason": "no universal ontology or arbitrary semantic inference is maintained"
+    }
+  ]
+}
