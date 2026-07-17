@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import hashlib
 from pathlib import Path
 
 
@@ -26,9 +27,36 @@ def nonempty_strings(value: object) -> bool:
     return isinstance(value, list) and bool(value) and all(isinstance(item, str) and item.strip() for item in value)
 
 
+def digest_and_size(path: Path) -> tuple[str, int]:
+    digest = hashlib.sha256()
+    size = 0
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            size += len(chunk)
+            digest.update(chunk)
+    return digest.hexdigest(), size
+
+
 def main() -> int:
     data = json.loads(INDEX.read_text(encoding="utf-8"))
     sources = {item["id"]: item for item in json.loads(SOURCES.read_text(encoding="utf-8"))["sources"]}
+    snapshot = data.get("snapshot", {})
+    metadata_path = snapshot.get("metadataPath")
+    if not isinstance(metadata_path, str) or not (ROOT / metadata_path).is_file():
+        fail("snapshot metadataPath is required and must exist")
+    metadata = json.loads((ROOT / metadata_path).read_text(encoding="utf-8"))
+    if snapshot.get("resolvedCommit") != metadata.get("resolvedCommit") or snapshot.get("adrDirectory") != metadata.get("adrDirectory"):
+        fail("index snapshot does not match snapshot metadata")
+    inventory = {item["path"]: item for item in metadata.get("inventory", []) if isinstance(item, dict)}
+    snapshot_dir = ROOT / "references/upstream/mooncatrescue-dev-environment-adr"
+    snapshot_markdown = {path.name for path in snapshot_dir.glob("*.md")}
+    if snapshot_markdown != set(inventory):
+        fail("snapshot metadata inventory must list every and only copied Markdown file")
+    for path, item in inventory.items():
+        local = snapshot_dir / path
+        actual_hash, actual_size = digest_and_size(local) if local.is_file() else (None, None)
+        if actual_hash != item.get("sha256") or actual_size != item.get("bytes"):
+            fail(f"snapshot inventory drift: {path}")
     schema = data.get("schema", {})
     decisions = data.get("decisions")
     if not isinstance(decisions, list) or not decisions:
@@ -72,6 +100,12 @@ def main() -> int:
             local_path = source.get("localPath")
             if not isinstance(local_path, str) or not (ROOT / local_path).is_file() or source.get("url") is not None:
                 fail(f"{identifier}: local reference path is invalid")
+            prefix = "references/upstream/mooncatrescue-dev-environment-adr/"
+            if not local_path.startswith(prefix):
+                fail(f"{identifier}: local reference path is outside the ADR snapshot")
+            item = inventory.get(local_path.removeprefix(prefix))
+            if not item or item.get("role") != "decision":
+                fail(f"{identifier}: local reference path is not a snapshot decision file")
         for key in ("decisionStatus", "decisionDateStatus", "supersessionStatus", "confidence", "evidenceStatus"):
             if decision.get(key) not in enums[key]:
                 fail(f"{identifier}: invalid {key}")
@@ -92,8 +126,8 @@ def main() -> int:
         for field in ("affectedRepositories", "affectedContracts", "affectedSystems"):
             values = decision.get(field)
             required_keys = ("name", "evidence") if field != "affectedSystems" else ("kind", "name", "evidence")
-            if not isinstance(values, list) or not values or any(not isinstance(item, dict) or not all(isinstance(item.get(key), str) and item[key].strip() for key in required_keys) for item in values):
-                fail(f"{identifier}: {field} must be populated objects")
+            if not isinstance(values, list) or (field == "affectedSystems" and not values) or any(not isinstance(item, dict) or not all(isinstance(item.get(key), str) and item[key].strip() for key in required_keys) for item in values):
+                fail(f"{identifier}: {field} must be valid objects")
         history = decision.get("historicalContext")
         if not isinstance(history, dict) or history.get("status") not in {"explicit", "not-indexed-from-reviewed-evidence"}:
             fail(f"{identifier}: invalid historicalContext")
@@ -109,6 +143,15 @@ def main() -> int:
             if identifier in links:
                 fail(f"{identifier}: self-link in {link_key}")
     by_id = {decision["id"]: decision for decision in decisions}
+    snapshot_decision_files = {
+        f"references/upstream/mooncatrescue-dev-environment-adr/{path}"
+        for path, item in inventory.items() if item.get("role") == "decision"
+    }
+    indexed_files = {decision["source"]["localPath"] for decision in decisions}
+    if indexed_files != snapshot_decision_files:
+        fail("every snapshot decision file must be indexed exactly once with no extra records")
+    if metadata.get("counts", {}).get("decisionFileCount") != len(snapshot_decision_files):
+        fail("snapshot decisionFileCount does not match inventory")
     for decision in decisions:
         identifier = decision["id"]
         for target in decision["supersedes"]:

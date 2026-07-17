@@ -34,6 +34,7 @@ Project-link `trustLevel` values are navigation classifications, not canonical-s
 - MoonCatRescue website archive GitLab repository: `mooncatrescue-web-gitlab`
 - MoonCatRescue Utility Contracts GitLab repository: `mooncatrescue-utility-contracts-gitlab`
 - MoonCatRescue ADR 0017 Color Math: `mooncatrescue-adr-0017-color-math`
+- MoonCatRescue Development Environment ADR corpus snapshot: `mooncatrescue-dev-environment-adr-corpus`
 - Upstream snapshot manifest: `data/upstream-snapshot-manifest.json`
 - ChainStation source: `chainstation-source`
 - Ponderware libMoonCat: `libmooncat`

@@ -57,6 +57,36 @@ def main() -> int:
             fail(f"{key}: SHA-256 drift (manifest {expected}, local {actual})")
         if entry.get("localBytes") != size:
             fail(f"{key}: localBytes does not match local file")
+        inventory_config = entry.get("snapshotInventory")
+        if inventory_config is not None:
+            if not isinstance(inventory_config, dict):
+                fail(f"{key}: snapshotInventory must be an object")
+            directory = inventory_config.get("directory")
+            field = inventory_config.get("metadataField")
+            if not isinstance(directory, str) or not isinstance(field, str) or not (ROOT / directory).is_dir():
+                fail(f"{key}: snapshot inventory directory/field is invalid")
+            try:
+                metadata = json.loads(path.read_text())
+            except (OSError, json.JSONDecodeError) as exc:
+                fail(f"{key}: cannot parse snapshot metadata: {exc}")
+            inventory = metadata.get(field)
+            if not isinstance(inventory, list) or not inventory:
+                fail(f"{key}: snapshot inventory is required")
+            listed = set()
+            for item in inventory:
+                if not isinstance(item, dict) or not isinstance(item.get("path"), str):
+                    fail(f"{key}: invalid snapshot inventory item")
+                relative = item["path"]
+                if relative in listed:
+                    fail(f"{key}: duplicate snapshot inventory path {relative}")
+                listed.add(relative)
+                snapshot_file = ROOT / directory / relative
+                actual_hash, actual_size = digest(snapshot_file) if snapshot_file.is_file() else (None, None)
+                if actual_hash != item.get("sha256") or actual_size != item.get("bytes"):
+                    fail(f"{key}: snapshot inventory drift at {relative}")
+            actual_markdown = {item.name for item in (ROOT / directory).glob("*.md")}
+            if actual_markdown != listed:
+                fail(f"{key}: snapshot inventory does not match copied Markdown files")
         if entry.get("contentRole") not in enums.get("contentRoles", []):
             fail(f"{key}: unsupported contentRole")
         if entry.get("copyStatus") not in enums.get("copyStatuses", []):

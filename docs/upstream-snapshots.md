@@ -6,7 +6,7 @@ Machine-readable manifest: `data/upstream-snapshot-manifest.json`.
 
 The manifest records important checked-in reference inputs and compact derived reviews without refreshing or replacing vendored files. Each entry includes the local path, SHA-256, byte count, local-history evidence, upstream project/path evidence, revision status, copy/adaptation status, license evidence, confidence, freshness status, source references, dependencies, and limitations.
 
-The current inventory covers the trait JSON, LibMoonCat bundle, MoonCat parser, the rescue-widget parser and js-sha3 vendor files, the extracted original rescue-contract constants summary, and the derived rescue-mining review. This is an important-input inventory, not an exhaustive listing of every reference, binary, cache, or generated file.
+The current inventory covers the trait JSON, LibMoonCat bundle, MoonCat parser, the pinned MoonCatRescue Development Environment ADR directory, the rescue-widget parser and js-sha3 vendor files, the extracted original rescue-contract constants summary, and the derived rescue-mining review. This is an important-input inventory, not an exhaustive listing of every reference, binary, cache, or generated file.
 
 ## Evidence Boundaries
 
@@ -15,6 +15,8 @@ The local reference README explicitly says copied/retrieved dates are not record
 The rescue-mining review is stronger: its inspected archive clone recorded revision `941cabe56315efeb5cb0d97966419b59acc14115` on 2026-07-07. The vendored js-sha3 file is tied to that reviewed archive path and carries its own js-sha3 0.6.1 MIT header. The vendored parser is byte-identical to the local parser reference, but that comparison does not prove an upstream commit or license.
 
 The original rescue contract is not vendored here. `data/protocol-constants.json` is an extracted compact summary that points to the registered Ponderware raw Solidity source; its manifest entry deliberately marks the branch-only reference and does not pretend to pin a Solidity snapshot.
+
+The ADR directory is a stronger pinned snapshot: `references/upstream/mooncatrescue-dev-environment-adr/SNAPSHOT.json` records the master commit, retrieval date/method, every copied file's bytes and SHA-256, and the observed license gap. The copied Markdown files remain byte-preserved under that directory; the compact ADR index paraphrases them and does not substitute for their source text.
 
 ## Validator
 

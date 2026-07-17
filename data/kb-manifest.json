@@ -92,7 +92,7 @@
   ],
   "coverage": {
     "maintainedFileCount": 95,
-    "excludedFileCount": 11,
+    "excludedFileCount": 32,
     "unclassifiedMaintainedFileCount": 0
   },
   "entries": [
@@ -196,8 +196,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5124,
-      "sha256": "e5297be6f6ed3a6af1638380860cb3dd6310767d1180dbcd7ea737f8bf066af7",
+      "sizeBytes": 5139,
+      "sha256": "5e4d1b85616d9eee3d5ade5b161fd038c9e2a7b82a1eee9a91e3a46c7b2234e2",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -242,8 +242,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 43830,
-      "sha256": "b6617e930bb9ba0eefb2f5bd7ec12a8ae08802c2170eec06a27f0ea48146d5da",
+      "sizeBytes": 46733,
+      "sha256": "1bdb25d5f9d67d2304b0482a2c0384d7e81e6f2c920bb4d87833a4fcfac50a65",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -269,8 +269,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 19486,
-      "sha256": "174baa0a46d6264348cc599ee18871584d8e79a0aacc1ab840da422ae845882f",
+      "sizeBytes": 19527,
+      "sha256": "935662081a5fa590cb3e671ce1bff24b6bbb4ec7f5b89059fa056ca3908a9637",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -298,8 +298,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 18443,
-      "sha256": "2deeffc269aa7442143809075d49a497d4b838bee0d48a89a445b3471b0600f7",
+      "sizeBytes": 19709,
+      "sha256": "17674190990c68b12409f0f07d4c360ff39e0a0b69f861f98e2c457b470be8d7",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -384,8 +384,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 5791,
-      "sha256": "f01674bcb92faa7f42d69f88f9c5be9563c28d3675d96631e754650285dc39eb",
+      "sizeBytes": 26520,
+      "sha256": "0af87c31854ccc58d0099b9332fca9cd33163702fb1b357acfab141cd7c288f2",
       "agentRoutes": [
         "locate-architecture-decisions"
       ],
@@ -695,8 +695,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 35434,
-      "sha256": "315d4c454e64ccaa1d2b3fa416d3c075116955aec412b333ee4cd2f8077e32f0",
+      "sizeBytes": 35395,
+      "sha256": "8f56b2c7ad4cacce531ab482fcb101609b278c45352986a1d387bb7fb943666a",
       "agentRoutes": [
         "review-kb-gaps",
         "review-upstream-snapshot-provenance",
@@ -1138,8 +1138,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 53956,
-      "sha256": "c43ac2b299e0d14c951e34ac5eb78a9baf8b84d805dc949f49e0ca53f4c7610c",
+      "sizeBytes": 54966,
+      "sha256": "3f616ac5214e20303ee1ad6225a7db5f9033045e79c2682bfa94ea34a868b89e",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -1224,8 +1224,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 39239,
-      "sha256": "8a844353e31a405926cc194c1573f66d806c164eb4db68229cda5337bd08847e",
+      "sizeBytes": 39252,
+      "sha256": "6f706ce9a25a232fdc327a87364432c7f430c12776a928be5184bd513dfc785a",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1286,8 +1286,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 15360,
-      "sha256": "416fb3e891bf4efa9eadfe84703cfc2161ac11522aecf4c55bb153595444a21f",
+      "sizeBytes": 17540,
+      "sha256": "e0149ae191467ae762bbc7aa9cca0b21cf9c6a92f2dd83432281515333ef3c96",
       "agentRoutes": [
         "review-upstream-snapshot-provenance"
       ],
@@ -1359,8 +1359,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2776,
-      "sha256": "1e10defd4c06016c1e4d0b59731a54831f4ace2f52fdada12f6b7ad7d60dad69",
+      "sizeBytes": 3155,
+      "sha256": "c7f7875530ac6e998ffaec41fe103716a9d194029734d0462406d56fa051cd1a",
       "agentRoutes": [
         "locate-architecture-decisions"
       ],
@@ -1891,8 +1891,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6189,
-      "sha256": "48f0d908a8e3126a495c708928f989b76d8d8f5578323a3b1391b34605561bba",
+      "sizeBytes": 6293,
+      "sha256": "929a79636ce812d2fa2f32a50f64bbff6f668333daee4c897638e4fba789f4b5",
       "agentRoutes": [
         "check-source-provenance",
         "find-ipfs-and-artifact-urls",
@@ -1990,8 +1990,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3493,
-      "sha256": "e5cd947aa5ae89c228c988c3a7b50a92aeb518a49db3e442c913a67949d68571",
+      "sizeBytes": 3952,
+      "sha256": "974ecb9ad301df4b8e757d4d4a8d17071ce8949edc0ba8f2f1c54c657d2c3f5d",
       "agentRoutes": [
         "review-upstream-snapshot-provenance"
       ],
@@ -2172,8 +2172,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2076,
-      "sha256": "85fba85b561a11dc689fecf3e29cf490cb9c696eae65c166cfc95468dfccceb1",
+      "sizeBytes": 2129,
+      "sha256": "a6754613af3e9645b4cfa06880d1482ad18ad3889c098688ac95fe7cba37b187",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2365,8 +2365,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 7529,
-      "sha256": "698d1a122a9f943f83db6a3d1e39dc51f9d9bc3b39ff3c0ea020f802cb7c6869",
+      "sizeBytes": 10097,
+      "sha256": "d7cb9b499338925082e63d574b4efe11e7b1552f8a783c731998385d5d7d3ead",
       "agentRoutes": [
         "locate-architecture-decisions"
       ],
@@ -2513,8 +2513,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 3799,
-      "sha256": "ea508f5d5eb1d1db3109c18867b9863117984ed22e8d18181a8257ed6a8dfecb",
+      "sizeBytes": 5667,
+      "sha256": "6e3bbfb23cccb22fc923f202834c0be71221d5d89a00bb0c737e5c56944e5459",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2591,6 +2591,90 @@
     },
     {
       "path": "references/upstream/mooncatrescue/mooncatparser.js",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0000-TEMPLATE.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0001-record-architecture-decisions.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0002-docker-development-environments.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0003-development-environment-ports.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0004-public-testnet.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0005-website-structure.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0006-firebase.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0007-blockchain-state-storage.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0008-mcrlib-structure.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0009-ethereum-interface-library.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0010-user-created-lists.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0011-attested-web-of-trust.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0012-generic-token-metadata.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0013-tagging.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0014-wagmi-types.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0015-nft-pools.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0016-user-galleries.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0017-mooncat-color-math.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/0018-moment-design-specs.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/README.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/SNAPSHOT.json",
       "reason": "reference-snapshot-not-curated-kb-content"
     }
   ]

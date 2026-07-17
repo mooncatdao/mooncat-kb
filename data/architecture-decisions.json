@@ -1,155 +1,39 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-07-17",
-  "status": "partial-index-of-locally-evidenced-adrs",
-  "scope": "Compact index of MoonCatRescue architecture decision records evidenced by approved local references or registered high-confidence source locations. It records decision intent and explicit consequences; it is not implementation, deployment, or live-state evidence.",
-  "sourceRefs": [
-    "mooncatrescue-adr-0017-color-math"
-  ],
+  "status": "complete-for-pinned-dev-environment-adr-snapshot",
+  "scope": "Concise, source-backed summaries of every decision file in the pinned MoonCatRescue dev-environment ADR snapshot. These are design-intent records, not proof of deployment, implementation completion, or live state.",
+  "sourceRefs": ["mooncatrescue-dev-environment-adr-corpus"],
+  "snapshot": {"metadataPath": "references/upstream/mooncatrescue-dev-environment-adr/SNAPSHOT.json", "repository": "https://gitlab.com/mooncatrescue/dev-environment.git", "branch": "master", "resolvedCommit": "d6a604e1a37fb5646d7e5059c0858bd15f9b7b83", "adrDirectory": "adr"},
   "schema": {
     "stableIdPattern": "adr-NNNN-lowercase-slug",
-    "requiredRecordFields": [
-      "id",
-      "number",
-      "title",
-      "sourceRef",
-      "source",
-      "decisionStatus",
-      "decisionDate",
-      "decisionDateStatus",
-      "topics",
-      "affectedRepositories",
-      "affectedContracts",
-      "affectedSystems",
-      "decisionSummary",
-      "implementationConsequences",
-      "historicalContext",
-      "supersedes",
-      "supersededBy",
-      "supersessionStatus",
-      "relatedFiles",
-      "confidence",
-      "evidenceStatus",
-      "limitations"
-    ],
-    "decisionStatuses": [
-      "accepted",
-      "proposed",
-      "rejected",
-      "superseded",
-      "unknown"
-    ],
-    "decisionDateStatuses": [
-      "explicit",
-      "not-available-from-reviewed-evidence"
-    ],
-    "sourceLocationKinds": [
-      "registered-url",
-      "local-reference-path"
-    ],
-    "supersessionStatuses": [
-      "explicit-links-indexed",
-      "not-evidenced"
-    ],
-    "confidenceLevels": [
-      "high",
-      "medium",
-      "limited"
-    ],
-    "evidenceStatuses": [
-      "registered-current-maintainer-technical-source-reviewed",
-      "local-reference-reviewed",
-      "partial"
-    ]
+    "requiredRecordFields": ["id", "number", "title", "sourceRef", "source", "decisionStatus", "decisionDate", "decisionDateStatus", "sourceUpdatedDate", "topics", "affectedRepositories", "affectedContracts", "affectedSystems", "decisionSummary", "implementationConsequences", "historicalContext", "supersedes", "supersededBy", "supersessionStatus", "relatedFiles", "confidence", "evidenceStatus", "limitations"],
+    "decisionStatuses": ["accepted", "proposed", "rejected", "deprecated", "superseded", "unknown"],
+    "decisionDateStatuses": ["explicit", "not-available-from-reviewed-evidence"],
+    "sourceLocationKinds": ["registered-url", "local-reference-path"],
+    "supersessionStatuses": ["explicit-links-indexed", "not-evidenced"],
+    "confidenceLevels": ["high", "medium", "limited"],
+    "evidenceStatuses": ["pinned-local-reference-reviewed", "partial"]
   },
-  "coverage": {
-    "evidencedAdrCount": 1,
-    "inventoryMethod": "Searched checked-in references/research notes and registered high-confidence source locations without network access.",
-    "limitations": [
-      "Only ADR 0017 has a registered, reviewed ADR source location in the current checkout.",
-      "No local ADR corpus or directory listing is checked in, so this is not a claim that ADR 0017 is the only MoonCatRescue ADR.",
-      "Missing ADR numbers, dates, authors, supersession links, and implementation completion are not inferred from numbering or source order."
-    ]
-  },
+  "coverage": {"evidencedAdrCount": 18, "inventoryMethod": "Every inventory item with role decision in the pinned snapshot metadata is indexed once.", "limitations": ["0000-TEMPLATE.md and the directory README are preserved snapshot files but are not decision records.", "Updated dates are recorded as source update dates, not inferred decision dates.", "No supersession link is indexed unless the snapshot explicitly states one."]},
   "decisions": [
-    {
-      "id": "adr-0017-mooncat-color-math",
-      "number": "0017",
-      "title": "MoonCat Color Math",
-      "sourceRef": "mooncatrescue-adr-0017-color-math",
-      "source": {
-        "kind": "registered-url",
-        "url": "https://gitlab.com/mooncatrescue/dev-environment/-/raw/master/adr/0017-mooncat-color-math.md",
-        "localPath": null
-      },
-      "decisionStatus": "accepted",
-      "decisionDate": null,
-      "decisionDateStatus": "not-available-from-reviewed-evidence",
-      "topics": [
-        "mooncat-color-math",
-        "parser-canonicality-for-color",
-        "integer-hue-handling",
-        "human-friendly-hue-labels",
-        "color-matching",
-        "mooncatcolors-mapcolors-edge-cases"
-      ],
-      "affectedRepositories": [
-        {
-          "name": "MoonCatRescue dev-environment",
-          "evidence": "registered-ADR-source-location"
-        }
-      ],
-      "affectedContracts": [
-        {
-          "name": "MoonCatColors",
-          "evidence": "directly-supported-by-ADR-source-summary"
-        }
-      ],
-      "affectedSystems": [
-        {
-          "kind": "parser",
-          "name": "mooncatparser JavaScript color behavior",
-          "evidence": "directly-supported-by-ADR-source-summary"
-        },
-        {
-          "kind": "color-classification",
-          "name": "human-facing MoonCat hue labels",
-          "evidence": "directly-supported-by-ADR-source-summary"
-        },
-        {
-          "kind": "contract-color-surface",
-          "name": "MoonCatColors mapColors edge-case context",
-          "evidence": "directly-supported-by-ADR-source-summary"
-        }
-      ],
-      "decisionSummary": "Treat the original JavaScript mooncatparser color behavior as the color reference; apply integer hue handling and human-friendly hue labels, while preserving the documented color-matching and Solidity edge-case boundaries.",
-      "implementationConsequences": [
-        "Use the ADR as intent evidence when reviewing color behavior, then cross-check parser or contract surfaces before making canonical implementation claims.",
-        "Keep truncated integer hue handling and the twelve-label presentation model distinct from exact palette, RGB, hex, or rendered-output claims.",
-        "For pure-coated visual matching, do not treat the coat-pattern color as visually used solely because it is represented in source traits.",
-        "Treat MoonCatColors mapColors as documented edge-case context, not proof that a particular current Solidity or JavaScript output is deployed."
-      ],
-      "historicalContext": {
-        "status": "not-indexed-from-reviewed-evidence",
-        "summary": null
-      },
-      "supersedes": [],
-      "supersededBy": [],
-      "supersessionStatus": "not-evidenced",
-      "relatedFiles": [
-        "data/color-source-inventory.json",
-        "data/color-classification.json",
-        "docs/color-classification.md",
-        "docs/color-math.md",
-        "data/sources.json"
-      ],
-      "confidence": "high",
-      "evidenceStatus": "registered-current-maintainer-technical-source-reviewed",
-      "limitations": [
-        "The checked-in index does not copy the ADR body or establish a complete ADR corpus.",
-        "The registered source notes status Accepted and an update date, but do not provide a decision date in reviewed evidence for this index.",
-        "Decision intent does not prove current deployed behavior, live chain state, or downstream implementation completion."
-      ]
-    }
+    {"id":"adr-0001-record-architecture-decisions","number":"0001","title":"Record Architecture Decisions","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0001-record-architecture-decisions.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2025-06-19","topics":["adr-process","governance","documentation"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"development-governance","name":"ADR authoring and review process","evidence":"direct-decision"}],"decisionSummary":"Adopt numbered Markdown ADRs in the dev-environment repository and define their review and status process.","implementationConsequences":["ADR process changes require repository and maintainer participation; accepted ADR intent still needs implementation evidence."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not prove each project follows every ADR."]},
+    {"id":"adr-0002-docker-development-environments","number":"0002","title":"Docker Development Environments","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0002-docker-development-environments.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2025-01-03","topics":["docker","development-environment","nodejs"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"development-environment","name":"containerized local and production workflows","evidence":"direct-decision"}],"decisionSummary":"Standardize container-based development and deployment environments, including shared language-container conventions.","implementationConsequences":["Individual repositories need their own configuration; version and container compliance require separate verification."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not prove a given repository currently uses the prescribed container setup."]},
+    {"id":"adr-0003-development-environment-ports","number":"0003","title":"Development Environment Ports","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0003-development-environment-ports.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2023-08-26","topics":["ports","docker-compose","development-environment"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"local-service-configuration","name":"development port assignment mapping","evidence":"direct-decision"}],"decisionSummary":"Reserve a coordinated local port map and require projects to expose overridable default ports.","implementationConsequences":["New projects need an allocated range; the ADR does not establish which local services are currently running."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Port assignments are design guidance, not live network state."]},
+    {"id":"adr-0004-public-testnet","number":"0004","title":"Public Testnet","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0004-public-testnet.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2024-05-13","topics":["sepolia","public-testnet","integration-testing"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"testnet-workflow","name":"public contract integration testing","evidence":"direct-decision"}],"decisionSummary":"Use Sepolia for public or integration testing and periodically re-evaluate that choice.","implementationConsequences":["Testnet use and listed addresses require current chain evidence before operational use."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not prove current testnet deployments, balances, privileges, or validity."]},
+    {"id":"adr-0005-website-structure","number":"0005","title":"Website Structure","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0005-website-structure.md"},"decisionStatus":"deprecated","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2022-11-13","topics":["website","nextjs","web-services"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"web-architecture","name":"MoonCat web service structure","evidence":"direct-decision"}],"decisionSummary":"Describe a unified web-service plan based on Next.js, later marked deprecated by the ADR itself.","implementationConsequences":["Use separate current implementation evidence; no replacement ADR is explicitly linked in the snapshot."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Deprecated status does not identify a replacement here or prove rollout details."]},
+    {"id":"adr-0006-firebase","number":"0006","title":"Firebase","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0006-firebase.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2023-04-08","topics":["firebase","hosting","firestore","deployment"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"application-hosting","name":"Firebase hosting, functions, and data storage","evidence":"direct-decision"}],"decisionSummary":"Use Firebase services for MoonCat-related hosting, functions, and document storage, with documented deployment constraints.","implementationConsequences":["Firebase authentication and data-layout guidance require project-specific implementation review."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not prove a service is currently hosted on Firebase."]},
+    {"id":"adr-0007-blockchain-state-storage","number":"0007","title":"Blockchain state storage","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0007-blockchain-state-storage.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2023-04-08","topics":["blockchain-data","freshness","cache"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"data-storage","name":"cached blockchain state metadata","evidence":"direct-decision"}],"decisionSummary":"Store modification and check metadata with changing blockchain-derived data to communicate freshness.","implementationConsequences":["Consumers still need inspectable data provenance and current checks; the ADR does not supply live values."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not verify any cached record's freshness."]},
+    {"id":"adr-0008-mcrlib-structure","number":"0008","title":"mcrLib Structure","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0008-mcrlib-structure.md"},"decisionStatus":"proposed","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2023-03-18","topics":["mcrlib","typescript","cache"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"client-library","name":"mcrLib cached and catch-up interfaces","evidence":"direct-decision"}],"decisionSummary":"Propose a TypeScript MoonCatRescue library with static/cached defaults and explicit catch-up operations.","implementationConsequences":["Proposed status means clients must not assume the library or its APIs exist."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["No implementation completion is established."]},
+    {"id":"adr-0009-ethereum-interface-library","number":"0009","title":"Ethereum Interface Library","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0009-ethereum-interface-library.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2023-07-29","topics":["viem","wagmi","ethers","ethereum-interface"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"ethereum-client-library","name":"web and Solidity interface dependencies","evidence":"direct-decision"}],"decisionSummary":"Prefer viem and current wagmi for front-end interfaces while allowing ethers where appropriate.","implementationConsequences":["Dependency versions and active library use require repository-specific evidence."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not prove current dependency versions."]},
+    {"id":"adr-0010-user-created-lists","number":"0010","title":"User-created Lists","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0010-user-created-lists.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2024-01-29","topics":["eas","user-lists","attestations"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"user-data","name":"user-created token lists","evidence":"direct-decision"}],"decisionSummary":"Use Ethereum Attestation Service structures for user-created token lists rather than the evaluated alternative.","implementationConsequences":["Off-chain attestation implications require separate contract and service evidence."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not prove a given list or attestation is current."]},
+    {"id":"adr-0011-attested-web-of-trust","number":"0011","title":"Attested Web of Trust","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0011-attested-web-of-trust.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2024-04-03","topics":["eas","web-of-trust","attestations"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"trust-data","name":"address trust attestations","evidence":"direct-decision"}],"decisionSummary":"Use EAS-backed structured attestations for an address web-of-trust model.","implementationConsequences":["Trust evaluation and any current attestations require separately sourced service or chain evidence."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not prove current trust relationships."]},
+    {"id":"adr-0012-generic-token-metadata","number":"0012","title":"Generic Token Metadata","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0012-generic-token-metadata.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2025-07-31","topics":["token-metadata","typescript","identifiers"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"token-metadata","name":"generic token metadata interfaces","evidence":"direct-decision"}],"decisionSummary":"Define a generic token metadata shape with collection and token identifier fields for client use.","implementationConsequences":["This is not a MoonCat identifier conversion rule or proof of any token's metadata."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Do not generalize its token-ID representation to MoonCat-specific systems."]},
+    {"id":"adr-0013-tagging","number":"0013","title":"Tagging","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0013-tagging.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2025-02-19","topics":["tags","data-uri","metadata"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"metadata-tagging","name":"tag names and values","evidence":"direct-decision"}],"decisionSummary":"Define a constrained hierarchical tag syntax and value handling for project metadata.","implementationConsequences":["Actual tag adoption and aliases require implementation-specific evidence."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not establish a canonical MoonCat trait taxonomy."]},
+    {"id":"adr-0014-wagmi-types","number":"0014","title":"wagmi Types","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0014-wagmi-types.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2025-02-25","topics":["wagmi","viem","typescript"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"type-safety","name":"wagmi and viem call configuration types","evidence":"direct-decision"}],"decisionSummary":"Define a TypeScript pattern for type-safe wagmi and viem contract-call configuration.","implementationConsequences":["The pattern depends on the named library generation and does not prove current project types."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["A conditional future deprecation note is not an explicit supersession link."]},
+    {"id":"adr-0015-nft-pools","number":"0015","title":"NFT Pools","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0015-nft-pools.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2025-05-05","topics":["nftx","nft-pools","chainstation"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"marketplace-integration","name":"NFT pool interface direction","evidence":"direct-decision"}],"decisionSummary":"Prefer NFTX v3 as the base for pool-facing MoonCat interfaces while allowing limited other-pool integration.","implementationConsequences":["No current liquidity, pool, route, or deployed integration claim follows from this decision."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not establish current marketplace availability."]},
+    {"id":"adr-0016-user-galleries","number":"0016","title":"User Galleries","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0016-user-galleries.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2025-07-14","topics":["galleries","attestations","token-display"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"user-gallery","name":"gallery data and display preferences","evidence":"direct-decision"}],"decisionSummary":"Define token-gallery data, display preferences, and attestation-based representation for user galleries.","implementationConsequences":["Migration and current gallery state require separate application or chain evidence."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["References to earlier lists are context, not explicit supersession links."]},
+    {"id":"adr-0017-mooncat-color-math","number":"0017","title":"MoonCat Color Math","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0017-mooncat-color-math.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2025-09-17","topics":["mooncat-color-math","parser-canonicality","integer-hue","color-labels"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[{"name":"MoonCatColors","evidence":"direct-decision"}],"affectedSystems":[{"kind":"color-classification","name":"MoonCat parser color behavior and labels","evidence":"direct-decision"}],"decisionSummary":"Use JavaScript mooncatparser color behavior as reference, truncate hue values, and define human-facing hue labels with documented matching caveats.","implementationConsequences":["Parser and contract surfaces remain necessary for exact output claims; mapColors context does not prove current deployment."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["data/color-classification.json","docs/color-classification.md","docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not establish palette, RGB, rendering, or live state."]},
+    {"id":"adr-0018-moment-design-specs","number":"0018","title":"MoonCat Moment Design Specifications","sourceRef":"mooncatrescue-dev-environment-adr-corpus","source":{"kind":"local-reference-path","url":null,"localPath":"references/upstream/mooncatrescue-dev-environment-adr/0018-moment-design-specs.md"},"decisionStatus":"accepted","decisionDate":null,"decisionDateStatus":"not-available-from-reviewed-evidence","sourceUpdatedDate":"2026-03-14","topics":["mooncat-moments","image-design","pixel-art"],"affectedRepositories":[{"name":"MoonCatRescue dev-environment","evidence":"pinned-ADR-source"}],"affectedContracts":[],"affectedSystems":[{"kind":"visual-design","name":"MoonCat Moment image production","evidence":"direct-decision"}],"decisionSummary":"Specify pixel-art-oriented source, public, print, and thumbnail image dimensions for MoonCat Moments.","implementationConsequences":["The design specification does not prove any published image uses these dimensions."],"historicalContext":{"status":"not-indexed-from-reviewed-evidence","summary":null},"supersedes":[],"supersededBy":[],"supersessionStatus":"not-evidenced","relatedFiles":["docs/architecture-decisions.md","data/sources.json"],"confidence":"high","evidenceStatus":"pinned-local-reference-reviewed","limitations":["Does not establish current Moment assets or rendering behavior."]}
   ]
 }

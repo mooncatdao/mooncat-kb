@@ -1,8 +1,8 @@
 {
-  "version": 1,
-  "updated": "2026-07-12",
-  "status": "compact-provenance-manifest",
-  "scope": "Important checked-in upstream/reference inputs and derived review artifacts. This manifest pins local content hashes and records origin evidence without refreshing vendored files or claiming unresolved upstream lineage.",
+  "version": 2,
+  "updated": "2026-07-17",
+  "status": "compact-provenance-manifest-with-pinned-adr-corpus",
+  "scope": "Important checked-in upstream/reference inputs and derived review artifacts. This manifest pins local content hashes and records origin evidence without refreshing vendored files or claiming unresolved upstream lineage. The dev-environment ADR directory is a deliberate pinned exception with per-file inventory metadata.",
   "validator": "scripts/validate-upstream-snapshots.py",
   "enums": {
     "contentRoles": [
@@ -34,6 +34,24 @@
     ]
   },
   "entries": [
+    {
+      "key": "mooncatrescue-dev-environment-adr-corpus",
+      "localPath": "references/upstream/mooncatrescue-dev-environment-adr/SNAPSHOT.json",
+      "contentRole": "upstream-reference",
+      "localSha256": "b15889208d25f2a43c2fe8de0488e5f33bb22b302c8666c5de2c132bf208a139",
+      "localBytes": 4403,
+      "localHistory": {"commit": null, "evidence": "Created by this deliberate snapshot acquisition; local history is not upstream revision evidence."},
+      "upstream": {"project": "MoonCatRescue Development Environment", "repository": "https://gitlab.com/mooncatrescue/dev-environment.git", "path": "adr", "revisionEvidence": {"status": "pinned-archive-review", "value": "d6a604e1a37fb5646d7e5059c0858bd15f9b7b83", "evidence": "git ls-remote resolved master to this commit, then a depth-1 master clone reported the same HEAD before ADR files were copied."}},
+      "retrievalOrVerification": {"status": "derived-from-pinned-review", "date": "2026-07-17", "evidence": "SNAPSHOT.json records the exact retrieval commands, branch, commit, inventory, per-file hashes, and byte sizes."},
+      "copyStatus": "exact-copy",
+      "snapshotInventory": {"directory": "references/upstream/mooncatrescue-dev-environment-adr", "metadataField": "inventory", "decisionRole": "decision"},
+      "license": {"status": "unresolved", "evidence": "No LICENSE, COPYING, or NOTICE file was observed among tracked files in the resolved shallow checkout; package examples are not license proof."},
+      "provenanceConfidence": "high",
+      "freshnessStatus": "pinned-revision",
+      "sourceRefs": ["mooncatrescue-dev-environment-adr-corpus", "repo-architecture-decision-index"],
+      "dependentFiles": ["data/architecture-decisions.json", "docs/architecture-decisions.md", "scripts/validate-architecture-decisions.py"],
+      "limitations": ["Only the ADR directory and its directory README/template are copied; this is not a full dev-environment repository snapshot.", "The snapshot is pinned and does not claim that current master remains identical."]
+    },
     {
       "key": "mooncat-traits-json",
       "localPath": "references/upstream/mooncatrescue/mooncat_traits.json",

@@ -279,7 +279,7 @@
         "scripts/validate-architecture-decisions.py"
       ],
       "notes": [
-        "Use the decision index only for locally evidenced ADR records; do not infer a complete corpus from its numbering.",
+        "Use the decision index for the complete pinned dev-environment ADR directory; do not infer current-master freshness or future numbering from the snapshot.",
         "An ADR records design intent and stated consequences, not current deployment, live state, or implementation completion.",
         "Load parser, contract, generated-artifact, or current-state evidence separately when a claim requires it."
       ]

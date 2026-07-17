@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "snapshotKind": "mooncatrescue-dev-environment-adr-directory",
+  "repository": "https://gitlab.com/mooncatrescue/dev-environment.git",
+  "projectWebUrl": "https://gitlab.com/mooncatrescue/dev-environment",
+  "branch": "master",
+  "resolvedCommit": "d6a604e1a37fb5646d7e5059c0858bd15f9b7b83",
+  "adrDirectory": "adr",
+  "retrievedDate": "2026-07-17",
+  "retrievalMethod": {
+    "method": "git-ls-remote-plus-temporary-shallow-clone",
+    "commands": [
+      "git ls-remote https://gitlab.com/mooncatrescue/dev-environment.git refs/heads/master",
+      "git clone --depth 1 --branch master https://gitlab.com/mooncatrescue/dev-environment.git <temporary-directory>"
+    ],
+    "copyBoundary": "Only adr/*.md was copied byte-for-byte from the resolved temporary checkout; no other dev-environment files or Git metadata are included."
+  },
+  "license": {
+    "status": "not-observed-in-shallow-checkout",
+    "evidence": "A tracked-file search in the resolved shallow checkout found no LICENSE, COPYING, or NOTICE file. References to AGPL-3.0 in example package metadata are not treated as repository license evidence."
+  },
+  "inventory": [
+    {"path": "0000-TEMPLATE.md", "role": "template", "bytes": 382, "sha256": "7163fc46453a4621b81348cc0a5caf2f740f4d8ce782e50970a1e75e3a5bfc38"},
+    {"path": "0001-record-architecture-decisions.md", "role": "decision", "bytes": 5532, "sha256": "721d46c5c6178abd30f98b84752936e75d954494f805c8ffa18729efadbbdf34"},
+    {"path": "0002-docker-development-environments.md", "role": "decision", "bytes": 6542, "sha256": "49b869569b896c384e9c947c471be3e8dbe10359ce2394c7f2e13388019d0787"},
+    {"path": "0003-development-environment-ports.md", "role": "decision", "bytes": 3576, "sha256": "ffb7796c04da7c38ab718d7dd1db62474d3d6b01be71cd0ceb466902731f127a"},
+    {"path": "0004-public-testnet.md", "role": "decision", "bytes": 4127, "sha256": "63df935f8f24e6cf6c251285c08d003db9e979faade004ce0804fae499539c10"},
+    {"path": "0005-website-structure.md", "role": "decision", "bytes": 9238, "sha256": "bd24162a83c8854bfc50373c392bd9c64206462b5ba6362f146987967cd5cfcb"},
+    {"path": "0006-firebase.md", "role": "decision", "bytes": 7646, "sha256": "4c8fd814969d2f0526811c7793a31ae8338f0eb1e48d662f5ea66f1be3fd6977"},
+    {"path": "0007-blockchain-state-storage.md", "role": "decision", "bytes": 8790, "sha256": "7fbffb69eb508c7fdc28de448fc9f00637897646b3ba255ca82dca0af84a1622"},
+    {"path": "0008-mcrlib-structure.md", "role": "decision", "bytes": 2792, "sha256": "07856108841634d0093d20aa4d1fe5fa8556be31f049305cfcec0bf42137bfd7"},
+    {"path": "0009-ethereum-interface-library.md", "role": "decision", "bytes": 4773, "sha256": "401ab2699bf9a27a849c2afb0bf76d1932333c4e3aa2f17f5be29b5a9600935d"},
+    {"path": "0010-user-created-lists.md", "role": "decision", "bytes": 8568, "sha256": "0b97f9086ab311780a1dc6cbb79fb2c02d941d7a88d3e284f01bbf4ff9a73f53"},
+    {"path": "0011-attested-web-of-trust.md", "role": "decision", "bytes": 13715, "sha256": "96e80ac0655b74769a411dfc1c22ca8b94d36083b2367a31d02aecda3d8cafaf"},
+    {"path": "0012-generic-token-metadata.md", "role": "decision", "bytes": 3841, "sha256": "b11f5314edf0783a09f69c6a9994ae21442cb808bdb6a11cc67552252dcb7e47"},
+    {"path": "0013-tagging.md", "role": "decision", "bytes": 13848, "sha256": "a0beb79dddac84fcb49c3b562bc9379104b5c71567b3373370e4690bc6fab816"},
+    {"path": "0014-wagmi-types.md", "role": "decision", "bytes": 7947, "sha256": "5aefe46a298b4f96729f5fa21185bacb6f91bd976375184cca910a9e2a735662"},
+    {"path": "0015-nft-pools.md", "role": "decision", "bytes": 10312, "sha256": "90d896c62c2b17ef7da49643c92e37e1e3590d391ec04020962a127597eaa170"},
+    {"path": "0016-user-galleries.md", "role": "decision", "bytes": 6468, "sha256": "43debfa2772e626400fffc53a3da90079432c8eed4571e0b9158196e57b57553"},
+    {"path": "0017-mooncat-color-math.md", "role": "decision", "bytes": 7293, "sha256": "6c78b31dbdcb1b46f06710fabbe2b9950bab7bc9ce81fc717c04ec15278f9e49"},
+    {"path": "0018-moment-design-specs.md", "role": "decision", "bytes": 2874, "sha256": "f04512b38380759da768cf13ba113dc2039a061c1502c67c32e83e944aaebd08"},
+    {"path": "README.md", "role": "directory-readme", "bytes": 4209, "sha256": "660b9a92a2f2697281627bbe43e76600a2a86b4aba8cef3b8f7f698e41300301"}
+  ],
+  "counts": {
+    "inventoryFileCount": 20,
+    "decisionFileCount": 18,
+    "nonDecisionFileCount": 2
+  }
+}

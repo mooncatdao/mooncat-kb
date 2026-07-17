@@ -31,19 +31,19 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 41 Required file references checked: 370 sourceRefs checked: 1056 relatedFiles checked: 191 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 41 Required file references checked: 370 sourceRefs checked: 1076 relatedFiles checked: 224 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 15 query cases, 15 categories, 6 protected boundaries, and minimal deterministic packs"
+      "outputSummary": "OK: 16 query cases, 16 categories, 6 protected boundaries, and minimal deterministic packs"
     },
     {
       "command": "python scripts/validate-upstream-snapshots.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 7 snapshot entries, hashes and provenance references validated"
+      "outputSummary": "OK: 8 snapshot entries, hashes and provenance references validated"
     },
     {
       "command": "python scripts/validate-identifier-conversions.py",
@@ -73,31 +73,31 @@
       "command": "python scripts/validate-architecture-decisions.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 1 ADR records, IDs, sources, paths, enums, and claimed supersession links validated"
+      "outputSummary": "OK: 18 ADR records, IDs, sources, paths, enums, and claimed supersession links validated"
     },
     {
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 95 maintained files, 11 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 95 maintained files, 32 explicit exclusions, hashes, routes, and commands validated"
     }
   ],
   "counts": {
     "requiredCommandCount": 13,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 10,
-    "internalPathsChecked": 1143,
+    "internalPathsChecked": 1191,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
     "manifestMaintainedFileCount": 95,
-    "manifestExcludedFileCount": 11
+    "manifestExcludedFileCount": 32
   },
   "duplicateIdChecks": {
     "collections": {
       "sources": {
         "file": "data/sources.json",
-        "count": 78,
+        "count": 79,
         "duplicates": []
       },
       "agent-routes": {
@@ -112,7 +112,7 @@
       },
       "benchmark-cases": {
         "file": "data/agent-query-cases.json",
-        "count": 15,
+        "count": 16,
         "duplicates": []
       },
       "gap-records": {
@@ -137,19 +137,19 @@
       },
       "upstream-snapshots": {
         "file": "data/upstream-snapshot-manifest.json",
-        "count": 7,
+        "count": 8,
         "duplicates": []
       },
       "architecture-decisions": {
         "file": "data/architecture-decisions.json",
-        "count": 1,
+        "count": 18,
         "duplicates": []
       }
     },
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 1143,
+    "checked": 1191,
     "errors": [],
     "warnings": []
   },

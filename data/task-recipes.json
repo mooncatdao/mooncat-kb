@@ -671,7 +671,7 @@
         "Do not copy ADR bodies into compact data or use missing records to make the index look complete."
       ],
       "stopConditions": [
-        "Stop if the requested ADR is not in the locally evidenced index or needs a source that is not registered.",
+        "Stop if the requested ADR is absent from the pinned snapshot or needs source/revision evidence that is not registered.",
         "Stop if a conclusion needs implementation, deployment, or current-state evidence that the decision record does not provide."
       ]
     },

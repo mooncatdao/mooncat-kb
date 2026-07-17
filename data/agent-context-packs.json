@@ -10,7 +10,7 @@
     "script": "scripts/generate-agent-context-packs.py",
     "command": "python scripts/generate-agent-context-packs.py",
     "networkDependency": "none",
-    "caseCount": 15,
+    "caseCount": 16,
     "sizePolicy": {
       "softFileLimit": 7,
       "softEstimatedByteLimit": 200000,
@@ -966,23 +966,23 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 108243,
+        "estimatedByteCount": 111853,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
-            "bytes": 15360
+            "bytes": 17540
           },
           {
             "path": "docs/upstream-snapshots.md",
-            "bytes": 3493
+            "bytes": 3952
           },
           {
             "path": "data/sources.json",
-            "bytes": 53956
+            "bytes": 54966
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 35434
+            "bytes": 35395
           }
         ],
         "softFileLimit": 7,
@@ -1017,7 +1017,7 @@
         "mapColors"
       ],
       "requiredFacts": [
-        "ADR 0017 is the only locally evidenced ADR record in the current index",
+        "ADR 0017 is one of 18 decision records in the pinned dev-environment snapshot",
         "ADR intent is not direct proof of current implementation"
       ],
       "implementationGuardrails": [
@@ -1048,15 +1048,15 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 36594,
+        "estimatedByteCount": 57702,
         "files": [
           {
             "path": "data/architecture-decisions.json",
-            "bytes": 5791
+            "bytes": 26520
           },
           {
             "path": "docs/architecture-decisions.md",
-            "bytes": 2776
+            "bytes": 3155
           },
           {
             "path": "data/color-source-inventory.json",
@@ -1066,6 +1066,83 @@
         "softFileLimit": 7,
         "softEstimatedByteLimit": 200000,
         "rationale": "ADR index and boundary documentation first; color inventory only when source-detail context is needed."
+      }
+    },
+    {
+      "caseId": "adr-proposed-library-boundary",
+      "category": "architecture-status-boundary",
+      "taskSummary": "Use the ADR index to decide whether mcrLib is an available current MoonCat library API.",
+      "route": "locate-architecture-decisions",
+      "recipe": "locate-architecture-decisions",
+      "primaryFiles": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/sources.json"
+      ],
+      "filesToLoad": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md",
+        "data/sources.json"
+      ],
+      "terminology": [
+        "ADR 0008",
+        "proposed",
+        "mcrLib",
+        "implementation evidence"
+      ],
+      "requiredFacts": [
+        "ADR 0008 is Proposed in the pinned snapshot",
+        "Proposed ADR intent does not establish an available implementation"
+      ],
+      "implementationGuardrails": [
+        "Do not invent ADR numbers, dates, authors, status, supersession, or implementation completion from filenames, ordering, or expectation.",
+        "Do not treat a current-maintainer design decision as proof of current deployed contract behavior or selected MoonCat state.",
+        "Do not copy ADR bodies into compact data or use missing records to make the index look complete.",
+        "The index does not provide a current mcrLib package, API surface, deployment, or release status."
+      ],
+      "forbiddenClaims": [
+        "ADR 0008 proves mcrLib exists",
+        "proposed decision is active implementation"
+      ],
+      "knownLimitations": [
+        "The index does not provide a current mcrLib package, API surface, deployment, or release status."
+      ],
+      "stopConditions": [
+        "Stop if the task needs an actual library API or current release evidence not separately sourced."
+      ],
+      "validationCommands": [
+        "python scripts/validate-architecture-decisions.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-dev-environment-adr-corpus",
+          "label": "MoonCatRescue Development Environment ADR corpus snapshot",
+          "status": "pinned-local-snapshot"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 3,
+        "estimatedByteCount": 84641,
+        "files": [
+          {
+            "path": "data/architecture-decisions.json",
+            "bytes": 26520
+          },
+          {
+            "path": "docs/architecture-decisions.md",
+            "bytes": 3155
+          },
+          {
+            "path": "data/sources.json",
+            "bytes": 54966
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Cross-domain proposed-decision boundary without loading an unrelated implementation repository."
       }
     },
     {
@@ -1128,19 +1205,19 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 67315,
+        "estimatedByteCount": 89433,
         "files": [
           {
             "path": "data/architecture-decisions.json",
-            "bytes": 5791
+            "bytes": 26520
           },
           {
             "path": "docs/architecture-decisions.md",
-            "bytes": 2776
+            "bytes": 3155
           },
           {
             "path": "data/sources.json",
-            "bytes": 53956
+            "bytes": 54966
           },
           {
             "path": "docs/reference-policy.md",
@@ -1214,11 +1291,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 113947,
+        "estimatedByteCount": 115228,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 18443
+            "bytes": 19709
           },
           {
             "path": "docs/agent-usage.md",
@@ -1226,15 +1303,15 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 19486
+            "bytes": 19527
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 39239
+            "bytes": 39252
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 35434
+            "bytes": 35395
           }
         ],
         "softFileLimit": 7,

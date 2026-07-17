@@ -1,8 +1,8 @@
 {
   "version": 6,
   "updated": "2026-07-17",
-  "status": "refreshed-with-partial-architecture-decision-index",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, the exact MoonCatsWrapped identifier review, and the partial locally evidenced architecture-decision index.",
+  "status": "refreshed-with-pinned-dev-environment-adr-corpus",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, the exact MoonCatsWrapped identifier review, and the complete pinned dev-environment ADR directory index.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -74,7 +74,7 @@
   "resolvedOrPartiallyResolvedGaps": [
     {
       "key": "architecture-decision-index",
-      "status": "partially-resolved-as-locally-evidenced-adr-0017-index",
+      "status": "resolved-for-pinned-dev-environment-adr-directory",
       "files": [
         "data/architecture-decisions.json",
         "docs/architecture-decisions.md",
@@ -82,7 +82,7 @@
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "ADR 0017 MoonCat Color Math is indexed from its registered current-maintainer source with accepted status and explicit intent-versus-implementation limits. No local ADR corpus/listing is checked in, so the index does not claim that ADR 0017 is the only ADR or infer dates, authors, supersession, implementation completion, deployment, or live state."
+      "notes": "All 18 decision files in the pinned MoonCatRescue dev-environment ADR directory are indexed with byte-checked source paths, status, source update date, and intent-versus-implementation limits. The snapshot does not claim current-master freshness, decision dates, authors, unspoken supersession, implementation completion, deployment, or live state."
     },
     {
       "key": "api-examples-added",
@@ -645,9 +645,9 @@
   ],
   "recommendedNextPasses": [
     {
-      "key": "adr-corpus-provenance-review",
+      "key": "adr-snapshot-refresh-review",
       "priority": "medium",
-      "reason": "The current decision index contains only ADR 0017 because no broader ADR corpus or directory listing is locally evidenced. Add further ADR records only after an approved local snapshot or registered high-confidence source location is reviewed; do not fill numbering gaps by inference."
+      "reason": "The ADR index is complete only for pinned dev-environment commit d6a604e1a37fb5646d7e5059c0858bd15f9b7b83. Refresh only through a deliberate source/revision/license review; do not infer missing numbers, current-master content, or implementation completion."
     },
     {
       "key": "additional-historical-wrapper-inventory",

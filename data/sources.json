@@ -1126,18 +1126,33 @@
       "notes": "Local derived policy built from registered color sources. It preserves raw hue traits and does not establish canonical on-chain traits, palettes, RGB values, rarity, or rendering behavior. Validate with scripts/validate-color-classification.py."
     },
     {
+      "id": "mooncatrescue-dev-environment-adr-corpus",
+      "label": "MoonCatRescue Development Environment ADR corpus snapshot",
+      "type": "current-maintainer-technical",
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/SNAPSHOT.json",
+      "url": "https://gitlab.com/mooncatrescue/dev-environment/-/tree/d6a604e1a37fb5646d7e5059c0858bd15f9b7b83/adr",
+      "trustLevel": "current-maintainer-technical",
+      "status": "pinned-local-snapshot",
+      "supports": [
+        "pinned complete ADR directory inventory",
+        "ADR title, status, update-date, decision, and consequence review",
+        "explicit ADR intent versus implementation boundaries"
+      ],
+      "notes": "Byte-preserved ADR directory snapshot from MoonCatRescue dev-environment master commit d6a604e1a37fb5646d7e5059c0858bd15f9b7b83, retrieved 2026-07-17. Snapshot metadata records hashes, bytes, retrieval method, and unknown license status. It does not prove current master state after that commit or implementation completion."
+    },
+    {
       "id": "repo-architecture-decision-index",
       "label": "MoonCatRescue architecture decision index",
       "type": "local-derived",
       "path": "data/architecture-decisions.json",
       "trustLevel": "derived",
-      "status": "partial",
+      "status": "active",
       "supports": [
         "compact ADR inventory",
         "ADR source and status boundaries",
         "decision intent versus implementation evidence guidance"
       ],
-      "notes": "Local index of ADR records supported by registered current-maintainer or approved local-reference evidence. It currently indexes only ADR 0017 and does not assert a complete ADR corpus, deployment state, implementation completion, dates, authors, or supersession beyond explicit evidence. Validate with scripts/validate-architecture-decisions.py."
+      "notes": "Local concise index of every decision file in the pinned dev-environment ADR snapshot. It does not assert current master freshness, deployment state, implementation completion, decision dates, authors, or supersession beyond explicit snapshot evidence. Validate with scripts/validate-architecture-decisions.py."
     },
     {
       "id": "mooncatrescue-adr-0017-color-math",
