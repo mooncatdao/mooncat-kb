@@ -966,7 +966,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 106574,
+        "estimatedByteCount": 106232,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -978,7 +978,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 53502
+            "bytes": 53160
           },
           {
             "path": "data/kb-gap-index.json",

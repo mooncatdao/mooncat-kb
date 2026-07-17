@@ -108,8 +108,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2657,
-      "sha256": "4bd57cc9786c0ebcddb9e1cb063fafb751d2c75ca54bc39561d5a48478befc22",
+      "sizeBytes": 2642,
+      "sha256": "5c08d175732b469f4da4dfd03cea481cd169a7c569b8ffa7f3ee437084ce0904",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -196,8 +196,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5052,
-      "sha256": "31310d29478eae60cf24b7506ff8d87220aa9bad4204f066f15973059131c9cc",
+      "sizeBytes": 4985,
+      "sha256": "4e91ff4909dae32a9073c111c6865bee999c61a90286787dfbde7134019ca200",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -243,7 +243,7 @@
         "generated"
       ],
       "sizeBytes": 37745,
-      "sha256": "3b9543bd3b889dcecc14fda9f1c4d80849e40b8735e0cfca321e451b11b1825f",
+      "sha256": "41134636850707ab3fa9b39407d6e65c15d6b64fb19cf95470addd09bb144038",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -408,8 +408,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 7012,
-      "sha256": "79d2b7cd22e4170aa6c57d0b06947ebeab3fa26d6b4d79a815fb2d6371d16006",
+      "sizeBytes": 6990,
+      "sha256": "8707beea85a46d6bdef8342a5b1ffe56c86f5c59d37011426ec3522983bbddec",
       "agentRoutes": [
         "classify-mooncat-types",
         "work-with-character-cats",
@@ -909,8 +909,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 2892,
-      "sha256": "dc6f247f456917b3bfaff170350aa9de8838a33b639eb0882d39c49f83fab5e9",
+      "sizeBytes": 2870,
+      "sha256": "607baf0ab4031918c3a7a736eb1f05cbe9693a6e1d35ddb170304f9eb8c7ba6c",
       "agentRoutes": [
         "classify-mooncat-types",
         "work-with-character-cats"
@@ -988,8 +988,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 20180,
-      "sha256": "4f403d981f4299e0cad3eba4b840b59b41f60e21e4911e2e6c6051f0fe3b1681",
+      "sizeBytes": 20158,
+      "sha256": "1515d647296dd56cab6c42bf4604c99330d8416a1ea12432abd35d83e42e90fa",
       "agentRoutes": [
         "find-ipfs-and-artifact-urls"
       ],
@@ -1110,8 +1110,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 53502,
-      "sha256": "817cbe3d9ae05f95cf2c261ac4c4e20c413abc7cf64685c88a9d40ad44243e05",
+      "sizeBytes": 53160,
+      "sha256": "6b82693dd0b8124344d2d4a7022177ad5866e613f8210fb8426c74ee9e7e6a97",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -1171,8 +1171,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 2452,
-      "sha256": "1e7d3b6021cfcafce2f2d5ed0bc9e9de893396ca1a330672043c1ad258f669df",
+      "sizeBytes": 2430,
+      "sha256": "627077a0926c4f3c25842629c963c116e20b7b66f9db88c7a0747363db6719d9",
       "agentRoutes": [
         "classify-mooncat-types"
       ],
@@ -2206,8 +2206,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 12562,
-      "sha256": "6039afd8f1e627fcfd45b8372c84f24a98585edae99445ff365ac46574a55c86",
+      "sizeBytes": 12529,
+      "sha256": "8a40ede55a37ece657694ad75c335cd465063ff474d3e8797f016e9c4ae5afe6",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2381,8 +2381,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 10976,
-      "sha256": "2b60104438db455508e5f7cf2661a7663cdf2578e634000e30c4ad8f359e44e2",
+      "sizeBytes": 10962,
+      "sha256": "79ea711c968dc8f1b30473141bda0ebfd93c15bd4f76e5731e8be86db2057aeb",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,

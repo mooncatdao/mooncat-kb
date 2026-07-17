@@ -4,7 +4,6 @@
   "status": "partially-verified",
   "provenance": {
     "sources": [
-      "repo-context",
       "ponderware-mooncatrescue-sol-raw"
     ],
     "notes": "Genesis supply and generation pattern are sourced from the contract. Other special-category groupings remain placeholders."

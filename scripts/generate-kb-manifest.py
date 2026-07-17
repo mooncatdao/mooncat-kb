@@ -155,7 +155,7 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
         return "entrypoint", ["agent-workflow", "repository"], "local-policy", ["curated", "doc"]
     if relative_path in {"LICENSE", "NOTICE.md"}:
         return "license-notice", ["licensing", "repository"], "local-policy", ["curated", "doc"]
-    if relative_path == "context.md" or relative_path == "result.md":
+    if relative_path == "result.md":
         return "project-metadata", ["repository", "workflow"], "local-policy", ["curated", "doc"]
     if relative_path.startswith("docs/") and relative_path.endswith(".md"):
         topic = "agent-workflow" if relative_path == "docs/agent-usage.md" else "mooncat-knowledge"

@@ -5,7 +5,6 @@
   "membershipData": "data/character-cat-index.json",
   "provenance": {
     "sources": [
-      "repo-context",
       "rate-my-mooncat",
       "mooncats-faq-official-links",
       "mooncat-rescueorder-by-category"

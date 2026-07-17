@@ -4,7 +4,6 @@
   "status": "classified-navigation-links",
   "provenance": {
     "sources": [
-      "repo-context",
       "repo-source-map",
       "mooncatrescue-build"
     ],

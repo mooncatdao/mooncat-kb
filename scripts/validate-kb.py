@@ -63,7 +63,7 @@ def is_repo_relative_path(value: Any) -> bool:
         return False
     if value.startswith(("./", "../", "/", "~")):
         return False
-    return "/" in value or value in {"AGENTS.md", "README.md", "context.md", "llms.txt"}
+    return "/" in value or value in {"AGENTS.md", "README.md", "llms.txt"}
 
 
 def path_exists(repo_root: Path, value: str) -> bool:

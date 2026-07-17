@@ -4,7 +4,6 @@
   "status": "partially-verified",
   "provenance": {
     "sources": [
-      "repo-context",
       "repo-agents",
       "rate-my-mooncat",
       "mooncats-faq-official-links",

@@ -43,18 +43,6 @@
       "notes": "Rules for maintaining this knowledge base."
     },
     {
-      "id": "repo-context",
-      "label": "Initial Context Notes",
-      "type": "local",
-      "path": "context.md",
-      "supports": [
-        "initial structure",
-        "background rationale"
-      ],
-      "status": "background",
-      "notes": "Background notes used for the first scaffold; not canonical MoonCat data."
-    },
-    {
       "id": "repo-source-map",
       "label": "Source Map",
       "type": "local",

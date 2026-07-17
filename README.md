@@ -46,7 +46,6 @@ Start here:
 - `data/kb-gap-index.json` — current compact KB gap and routing audit
 - `llms.txt` — compact entrypoint list for LLMs and crawlers
 - `AGENTS.md` — instructions for LLM/code agents
-- `context.md` — setup notes that informed this initial scaffold
 - `examples/rescue-mining.js` — wallet-free normal MoonCat seed-search example
 - `examples/rescue-mining-widget/` — embeddable wallet-free rescue-mining widget example
 

@@ -26,7 +26,7 @@ This repository is a MoonCat technical knowledge base.
 - Keep changes small and scoped to the requested knowledge area.
 - Validate JSON after editing files in `data/`.
 - Preserve stable Markdown headings unless the user asks for a restructure.
-- Do not remove `README.md`, `AGENTS.md`, or `context.md`.
+- Do not remove `README.md` or `AGENTS.md`.
 - For coding tasks, start with `data/agent-index.json`; when available, load the matching case from `data/agent-context-packs.json` before broader files.
 - Treat pack warnings, forbidden claims, and stop conditions as implementation constraints. Packs reference files; they do not replace underlying source limits.
 - After changing routing or benchmark context, run `python scripts/generate-agent-context-packs.py --check` and `python scripts/validate-agent-routing.py`.

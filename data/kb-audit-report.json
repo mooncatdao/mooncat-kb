@@ -31,7 +31,7 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 40 Required file references checked: 355 sourceRefs checked: 1056 relatedFiles checked: 184 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 40 Required file references checked: 355 sourceRefs checked: 1052 relatedFiles checked: 184 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
@@ -80,9 +80,9 @@
     "requiredCommandCount": 12,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 9,
-    "internalPathsChecked": 1081,
+    "internalPathsChecked": 1080,
     "piiWarningCount": 0,
-    "warningCount": 1,
+    "warningCount": 0,
     "errorCount": 0,
     "manifestMaintainedFileCount": 92,
     "manifestExcludedFileCount": 11
@@ -91,7 +91,7 @@
     "collections": {
       "sources": {
         "file": "data/sources.json",
-        "count": 78,
+        "count": 77,
         "duplicates": []
       },
       "agent-routes": {
@@ -138,11 +138,9 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 1081,
+    "checked": 1080,
     "errors": [],
-    "warnings": [
-      "data/sources.json: missing metadata path at $.sources[3].path: context.md"
-    ]
+    "warnings": []
   },
   "piiScan": {
     "policy": "warning-only; scans maintained text files only; public source URLs, contract addresses, and documented examples are not PII matches",
@@ -152,13 +150,7 @@
     "denylistLiterals": [],
     "warnings": []
   },
-  "warnings": [
-    {
-      "path": "internal-path-check",
-      "kind": "legacy-source-path",
-      "value": "data/sources.json: missing metadata path at $.sources[3].path: context.md"
-    }
-  ],
+  "warnings": [],
   "errors": [],
   "skippedChecks": [
     {
