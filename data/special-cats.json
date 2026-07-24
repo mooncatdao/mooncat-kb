@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
+  "updated": "2026-07-24",
   "status": "partially-verified",
   "provenance": {
     "sources": [
@@ -11,9 +11,10 @@
   "categories": {
     "genesis": {
       "label": "Genesis Cats",
-      "status": "partially-verified",
+      "status": "source-backed-reconstruction",
       "ids": [],
-      "membershipData": "data/rescue-buckets.json#genesis",
+      "data": "data/genesis-cats.json",
+      "membershipData": "data/genesis-cats.json#releasedGroups",
       "count": 256,
       "generation": {
         "status": "verified-from-source",
@@ -25,11 +26,12 @@
       },
       "sourceRefs": [
         "ponderware-mooncatrescue-sol-raw",
-        "mooncat-rescueorder-by-category"
+        "mooncatrescue-about-collection",
+        "mooncatrescue-log-mcr-update4"
       ],
-      "notes": "Supply cap and generation formula are verified from contract source. The canonical-derived genesis rescue-order-index bucket lives in data/rescue-buckets.json and is not a bytes5 catId list.",
-      "canonicalDerivedIndexCount": 96,
-      "membershipTrustLevel": "canonical-derived"
+      "notes": "Use data/genesis-cats.json for the source-backed 256 planned = 96 released/collection + 160 permanently locked/unreleased reconstruction and the exact released Cat ID/rescue-order mapping. The existing rescue bucket remains an independently maintained cross-check; do not duplicate the membership list here.",
+      "releasedMembershipCount": 96,
+      "membershipTrustLevel": "source-backed-reconstruction"
     },
     "earlyRescue": {
       "label": "Early Rescue Cats",
@@ -58,8 +60,7 @@
   "todos": [
     "Separate canonical protocol categories from community-curated categories.",
     "Add exact membership only after source verification.",
-    "Materialize Genesis IDs only after deciding the repo convention for MoonCat ID strings.",
-    "Document the derivation method for the canonical-derived genesis rescue-order bucket before downstream use.",
-    "Define conversion from rescue-order-index to catId/token-facing identifiers if needed."
+    "Keep Genesis membership in data/genesis-cats.json rather than duplicating it in category scaffolds.",
+    "Define conversion from rescue-order-index to token-facing identifiers if needed."
   ]
 }

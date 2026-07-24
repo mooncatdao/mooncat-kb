@@ -12,6 +12,7 @@ Start here:
 - `docs/kb-integrity.md` — audit scope, manifest policy, warning limits, and future-import guidance
 - `data/architecture-decisions.json` and `docs/architecture-decisions.md` — 18-record pinned dev-environment ADR inventory and design-intent boundaries
 - `data/chainstation-surfaces.json` and `docs/chainstation-surfaces.md` — compact pinned ChainStation implementation/data surface audit with source-versus-live-state boundaries
+- `data/genesis-cats.json` and `docs/genesis-cats.md` — source-backed Genesis population, released-member, adoption, payment-bug, and vote reconstruction with current-state limits
 - `docs/overview.md` — high-level context
 - `docs/source-map.md` — where to find canonical or supporting sources
 - `docs/glossary.md` — short definitions for recurring terms
@@ -28,7 +29,7 @@ Start here:
 - `data/mooncat-types.json` — top-level category scaffold
 - `data/character-cats.json` — community-curated character-cat definitions and partial hue-range notes
 - `data/character-cat-index.json` — exact community-curated character-cat membership/index numbers
-- `data/special-cats.json` — special-category placeholder scaffold
+- `data/special-cats.json` — special-category scaffold; Genesis membership is canonicalized in `data/genesis-cats.json`
 - `data/color-hues.json` — hue/coating scaffold plus community-curated character hue notes
 - `data/trait-index.json` — trait schema metadata and curated per-cat model guidance
 - `data/identifier-conventions.json` — identifier terminology and conversion-status reference
@@ -69,6 +70,8 @@ It checks `data/*.json` parsing, required routed file references, and `sourceRef
 The script locates the repo root automatically when invoked by path from a subdirectory.
 
 For coding-agent route/pack changes, also run `python scripts/generate-agent-context-packs.py --check` and `python scripts/validate-agent-routing.py`.
+
+For Genesis population or member-mapping changes, run `python scripts/validate-genesis-cats.py` before the general checks.
 
 For the repo-wide zero-network integrity workflow, run:
 

@@ -16,6 +16,8 @@ Plain-text and Markdown entrypoints:
 - /docs/architecture-decisions.md
 - /data/chainstation-surfaces.json
 - /docs/chainstation-surfaces.md
+- /data/genesis-cats.json
+- /docs/genesis-cats.md
 - /data/task-recipes.json
 - /data/kb-gap-index.json
 - /docs/identifier-verification.md
@@ -39,6 +41,7 @@ Plain-text and Markdown entrypoints:
 - /data/character-cats.json
 - /data/character-cat-index.json
 - /data/special-cats.json
+- /scripts/validate-genesis-cats.py
 - /data/color-hues.json
 - /data/trait-index.json
 - /data/identifier-conventions.json
@@ -57,6 +60,7 @@ Notes:
 - For covered coding tasks, load the matching generated pack from /data/agent-context-packs.json; then inspect only the referenced underlying files.
 - For repo-wide integrity work, load /data/kb-manifest.json and /docs/kb-integrity.md, then run the documented zero-network audit commands.
 - For architecture-decision questions, use /data/architecture-decisions.json before broader implementation sources; it indexes the pinned 18-record dev-environment corpus and preserves intent-versus-evidence limits.
+- For Genesis population, identifier, vote, or adoption-payment questions, use /data/genesis-cats.json and preserve its distinction between contract derivation, historical outcome, and current-state limits.
 - Use /data/ for exact canonical or curated data.
 - Use /docs/ for explanations and reasoning.
 - Incomplete information is marked explicitly and should not be filled by guesswork.

@@ -92,8 +92,8 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 98,
-    "excludedFileCount": 63,
+    "maintainedFileCount": 101,
+    "excludedFileCount": 65,
     "unclassifiedMaintainedFileCount": 0
   },
   "entries": [
@@ -197,8 +197,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5318,
-      "sha256": "7bdbc3b2ea0c2fff386ce935597b1347f1f4273d6a6c8ea0c42dece1bc5a2f2b",
+      "sizeBytes": 5677,
+      "sha256": "018d30be2d55256351d9ad17ff6a234bbed2a6c4120ecd2f000bbabdae0275e8",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -218,8 +218,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 3767,
-      "sha256": "71174ace2a1822cb5a12c221f2a70b7744942b51d2930ec92c308400eb9b2250",
+      "sizeBytes": 4330,
+      "sha256": "ab15d75a27a20c9b3458e98243e30aedae3714aa985be2486870d575ff747e44",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -243,8 +243,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 61107,
-      "sha256": "9c12bec2477a8ca3c544afa32945884999ae8890f201d5206ef7bc71bc73a966",
+      "sizeBytes": 75435,
+      "sha256": "e4c01bcfca6073255f5a07467adadeec4f17068253b92635f701f341fbbaf2f2",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -270,8 +270,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 20672,
-      "sha256": "ad0102984845727f25a35530dd835c371b28a1a4f6cff53b8f4326726d7406a2",
+      "sizeBytes": 21680,
+      "sha256": "7e34da49eb3535a12c1cc1ab62692cb807d25dd23b47e6876a8009bed9c260e2",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -299,8 +299,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 25637,
-      "sha256": "9aa7ba749ffdbdfe129bfe1797a769eaeaed24f0f9076e6b6cbd6330734e9f59",
+      "sizeBytes": 32395,
+      "sha256": "62f6ebf2e9cee090755cf1af0b46f751dbe03320f72a8211cfc73fc04408fc87",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -628,6 +628,32 @@
       "directAgentLoadRecommended": true
     },
     {
+      "path": "data/genesis-cats.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 11808,
+      "sha256": "b50841fedb9ab2b571ec9979d8b17c61bb9c628cef826061ada2d32487054bde",
+      "agentRoutes": [
+        "trace-genesis-cats"
+      ],
+      "taskRecipes": [
+        "trace-genesis-cats"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [
+        "python scripts/validate-genesis-cats.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
       "path": "data/identifier-conventions.json",
       "fileRole": "canonical-data",
       "topics": [
@@ -648,6 +674,7 @@
         "review-mooncat-accessory-lifecycle",
         "review-trait-schema-strategy",
         "trace-chainstation-implementation",
+        "trace-genesis-cats",
         "verify-identifier-conversions",
         "work-with-rescue-buckets"
       ],
@@ -660,6 +687,7 @@
         "look-up-rescue-bucket-or-year",
         "render-or-fetch-mooncat-image",
         "trace-chainstation-implementation",
+        "trace-genesis-cats",
         "trace-mooncat-accessory-lifecycle",
         "use-api-examples",
         "use-libmooncat-helper-surfaces",
@@ -728,8 +756,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 37417,
-      "sha256": "12b4f3c81ba100e7bd61f3090bc822725319c81e709d5c4692e275d31c788451",
+      "sizeBytes": 38481,
+      "sha256": "bd3a9aacb32d6a878aa0acec82be8e3b32d19d278f8842db730e1a49f75c8ed1",
       "agentRoutes": [
         "review-kb-gaps",
         "review-upstream-snapshot-provenance",
@@ -970,8 +998,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 2870,
-      "sha256": "607baf0ab4031918c3a7a736eb1f05cbe9693a6e1d35ddb170304f9eb8c7ba6c",
+      "sizeBytes": 2958,
+      "sha256": "a7ba647fa747cf693d8b3c2e5a8ed04f23e99a349852525c9948aa107ab39a5c",
       "agentRoutes": [
         "classify-mooncat-types",
         "work-with-character-cats"
@@ -1077,9 +1105,11 @@
         "identify-mooncat-ids",
         "look-up-contracts",
         "render-images",
+        "trace-genesis-cats",
         "understand-rescue-mining"
       ],
       "taskRecipes": [
+        "trace-genesis-cats",
         "understand-rescue-mining"
       ],
       "generatorCommand": null,
@@ -1101,10 +1131,12 @@
       "sizeBytes": 58786,
       "sha256": "57d9b3eec337349d1f314e3b134a8f730528b16deeab8bd6b911a5c6969c7171",
       "agentRoutes": [
+        "trace-genesis-cats",
         "work-with-rescue-buckets"
       ],
       "taskRecipes": [
-        "look-up-rescue-bucket-or-year"
+        "look-up-rescue-bucket-or-year",
+        "trace-genesis-cats"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -1171,8 +1203,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 55165,
-      "sha256": "d5a136dd26272af017beb0c031793cef8b0ba4192b043b4820b3831954f20ccf",
+      "sizeBytes": 59165,
+      "sha256": "20c5d59624e3ffa6cdbb3665fe25496764d7e99b6cbb06ed7ff685edd37b8141",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -1190,6 +1222,7 @@
         "review-trait-schema-strategy",
         "review-upstream-snapshot-provenance",
         "trace-chainstation-implementation",
+        "trace-genesis-cats",
         "understand-rescue-mining",
         "use-agent-context-packs",
         "use-task-recipes",
@@ -1212,6 +1245,7 @@
         "render-or-fetch-mooncat-image",
         "review-upstream-snapshots",
         "trace-chainstation-implementation",
+        "trace-genesis-cats",
         "trace-mooncat-accessory-lifecycle",
         "understand-rescue-mining",
         "use-agent-context-packs",
@@ -1236,8 +1270,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 2430,
-      "sha256": "627077a0926c4f3c25842629c963c116e20b7b66f9db88c7a0747363db6719d9",
+      "sizeBytes": 2541,
+      "sha256": "86e7aec112058adbb643dc0767348726303a2d8310734fc37c9c01fd609eb48e",
       "agentRoutes": [
         "classify-mooncat-types"
       ],
@@ -1259,8 +1293,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 42235,
-      "sha256": "3c558cd74260708f6f2361d39cf27287932f7159de44544123da5da007fd72e8",
+      "sizeBytes": 44655,
+      "sha256": "534362023c116ca7bc0d487de2155b3d5e038600d3811ec5e5f1233ca89304f7",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1548,6 +1582,31 @@
       ],
       "taskRecipes": [
         "generate-or-validate-visual-trait-sample"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/genesis-cats.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 4771,
+      "sha256": "4dc38b7392edeb1cf89687b083c4050b7b94740bed76819caf3b0b556dd116a6",
+      "agentRoutes": [
+        "trace-genesis-cats"
+      ],
+      "taskRecipes": [
+        "trace-genesis-cats"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -1955,8 +2014,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6372,
-      "sha256": "cea68227780654bdd1285e2ad87badb6be96759c9e33d0135b6f9034ca73c6eb",
+      "sizeBytes": 6928,
+      "sha256": "554d09ddb480cc7e04d8f9f2ddb05db7749cd456f83afbd23c5347d4e36b7146",
       "agentRoutes": [
         "check-source-provenance",
         "find-ipfs-and-artifact-urls",
@@ -2238,8 +2297,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2197,
-      "sha256": "16bb821802b258aa786636e9e33b26bd6b401365a3c127e6408965103541e870",
+      "sizeBytes": 2490,
+      "sha256": "22605739b0268b029e7a9f3771d6bf6843d9522f9af00dd46c4f1ca5998b91c3",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2282,8 +2341,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 11157,
-      "sha256": "4cbc8cf8d87a8f6c2317efb25447e0e69b1dd6cff7d73e0bf8e46b816b2b3f40",
+      "sizeBytes": 11296,
+      "sha256": "913396320fe9e9d8078d0e3f01dbb64277f4fdac460a6b71b987bb75e3b6d82a",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2330,8 +2389,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 12832,
-      "sha256": "d83ef12075762f0467664e5dd17b5b6b93b396a7ad88293e7ab5b45876fd8ddc",
+      "sizeBytes": 12907,
+      "sha256": "5b4b8697239c8f493473b0dc5d895e199ec7e5c4484e2f1aa4e6abaa3fd124df",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2406,7 +2465,7 @@
         "script"
       ],
       "sizeBytes": 5208,
-      "sha256": "2ddd1af2a99ed0f8ffb760fbbf2ddf49f5632ed6b8f7e806f1eefec30c383166",
+      "sha256": "7818e6b473fa71b98fa3e8e7b0229a230cb4ac25c5def35440ef54d5bc0c5a20",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -2487,6 +2546,28 @@
       "taskRecipes": [
         "classify-mooncat-colors"
       ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-genesis-cats.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 12936,
+      "sha256": "cc700232890587763fe880949d7c2454a684337d1d3ba98ba1d79322d076f137",
+      "agentRoutes": [],
+      "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
@@ -2663,6 +2744,14 @@
     },
     {
       "path": "references/research-notes/extracted-source-links-2026-07-02.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/genesis-cats/README.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/genesis-cats/SOURCES.json",
       "reason": "reference-snapshot-not-curated-kb-content"
     },
     {

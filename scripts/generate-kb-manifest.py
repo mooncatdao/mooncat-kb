@@ -70,6 +70,7 @@ GENERATED_ARTIFACTS = {
 VALIDATOR_COMMANDS = {
     "data/architecture-decisions.json": ["python scripts/validate-architecture-decisions.py"],
     "data/chainstation-surfaces.json": ["python scripts/validate-chainstation-surfaces.py"],
+    "data/genesis-cats.json": ["python scripts/validate-genesis-cats.py"],
 }
 
 

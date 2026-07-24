@@ -1173,6 +1173,91 @@
       "notes": "Raw GitLab ADR checked on 2026-07-04. ADR 0017 is marked Accepted and updated 2025-09-17. Use as current-maintainer technical documentation for color-source inventory, while keeping exact canonical data changes in separate focused passes."
     },
     {
+      "id": "mooncatrescue-about-collection",
+      "label": "MoonCatRescue About collection section",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/about#collection",
+      "trustLevel": "primary",
+      "status": "reviewed-for-genesis-history",
+      "supports": [
+        "final collection population",
+        "Genesis planned/released/locked counts",
+        "official permanent-lock outcome statement"
+      ],
+      "notes": "Reviewed 2026-07-24 for the bounded Genesis history reconstruction. This official collection page supports the final 25,440 composition and its 96 released / 160 permanently locked Genesis framing, not current ownership or chain state."
+    },
+    {
+      "id": "mooncatrescue-log-mcr-update2",
+      "label": "MoonCatRescue MCR Update 2",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/log/mcr-update2",
+      "trustLevel": "primary",
+      "status": "reviewed-for-genesis-history",
+      "supports": [
+        "March 2021 pre-vote timing",
+        "Genesis vote eligibility rule",
+        "48-hour vote duration"
+      ],
+      "notes": "Contemporaneous official pre-vote notice reviewed 2026-07-24. It is pre-vote context and does not itself establish the final lock mechanism or outcome."
+    },
+    {
+      "id": "mooncatrescue-log-mcr-update4",
+      "label": "MoonCatRescue MCR Update 4",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/log/mcr-update4",
+      "trustLevel": "primary",
+      "status": "reviewed-for-genesis-history",
+      "supports": [
+        "official Genesis vote outcome",
+        "remaining 160 Genesis Cats permanently locked",
+        "final collection arithmetic"
+      ],
+      "notes": "Official post-vote outcome reviewed 2026-07-24. It establishes the historical outcome but does not demonstrate the precise technical act used to make future release unavailable."
+    },
+    {
+      "id": "origin-mooncatrescue-info",
+      "label": "Original MoonCatRescue project information",
+      "type": "historical-primary",
+      "url": "https://origin.mooncatrescue.com/info.html",
+      "trustLevel": "historical-primary",
+      "status": "reviewed-for-genesis-history",
+      "supports": [
+        "Genesis adoption terminology",
+        "16-cat release groups",
+        "escalating group price schedule",
+        "Genesis adoption payment-routing bug description"
+      ],
+      "notes": "Historical original-project information reviewed 2026-07-24. It supports the stated Genesis adoption mechanics and zero-address payment-bug account, but it is not transaction-level evidence of aggregate proceeds."
+    },
+    {
+      "id": "mooncatrescue-medium-accessories-vote",
+      "label": "MoonCat Community Accessories Vote retrospective",
+      "type": "article",
+      "url": "https://medium.com/mooncatrescue/mooncat-community-accessories-vote-63599160940d",
+      "trustLevel": "supporting-context",
+      "status": "reviewed-for-genesis-history",
+      "supports": [
+        "Genesis vote contract method",
+        "eligible-address count",
+        "vote participation count",
+        "one-address-one-vote description"
+      ],
+      "notes": "Maintainer-publication retrospective reviewed 2026-07-24. Use for historical vote-method and participation context, while keeping post-vote technical lock mechanism unresolved without direct evidence."
+    },
+    {
+      "id": "decrypt-mooncats-bots",
+      "label": "Decrypt MoonCats bot report",
+      "type": "article",
+      "url": "https://decrypt.co/62231/bots-are-ruining-mooncats-one-of-ethereums-oldest-nft-projects",
+      "trustLevel": "secondary",
+      "status": "reviewed-for-genesis-history",
+      "supports": [
+        "contemporaneous Genesis vote context",
+        "pre-vote private-key-destruction proposal"
+      ],
+      "notes": "Contemporary report reviewed 2026-07-24. The private-key statement is pre-vote proposal context only and is not used as proof of the final technical locking mechanism."
+    },
+    {
       "id": "midnightlightning-discord-color-blurb-2024-01-06",
       "label": "MidnightLightning Discord color explanation, 2024-01-06",
       "type": "user-supplied-transcript",

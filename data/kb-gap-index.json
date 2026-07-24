@@ -1,12 +1,13 @@
 {
-  "version": 6,
-  "updated": "2026-07-17",
-  "status": "refreshed-with-pinned-dev-environment-adr-and-chainstation-audits",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, the exact MoonCatsWrapped identifier review, the complete pinned dev-environment ADR directory index, and a compact pinned ChainStation implementation-surface audit.",
+  "version": 7,
+  "updated": "2026-07-24",
+  "status": "refreshed-with-genesis-history-and-population-reconstruction",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, the exact MoonCatsWrapped identifier review, the complete pinned dev-environment ADR directory index, a compact pinned ChainStation implementation-surface audit, and the bounded Genesis history/population reconstruction.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
     "data/chainstation-surfaces.json",
+    "data/genesis-cats.json",
     "data/api-endpoints.json",
     "data/api-examples.json",
     "data/character-cat-index.json",
@@ -55,9 +56,9 @@
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
     "status": "all-current-route-candidates-directly-routed",
-    "dataFileCount": 42,
-    "routeCandidates": 39,
-    "directlyRoutedCandidateCount": 39,
+    "dataFileCount": 43,
+    "routeCandidates": 40,
+    "directlyRoutedCandidateCount": 40,
     "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
       "data/agent-index.json",
@@ -72,10 +73,24 @@
       "data/mooncat-accessory-images-internals.json is now directly routed by data/agent-index.json through render-images and look-up-contracts.",
       "data/older-wrapper-internals.json is now directly routed by data/agent-index.json through identify-mooncat-ids and look-up-contracts.",
       "data/chainstation-surfaces.json is directly routed by data/agent-index.json through trace-chainstation-implementation.",
+      "data/genesis-cats.json is directly routed by data/agent-index.json through trace-genesis-cats.",
       "Current route candidates are directly discoverable from data/agent-index.json."
     ]
   },
   "resolvedOrPartiallyResolvedGaps": [
+    {
+      "key": "genesis-history-and-population-reconstruction",
+      "status": "resolved-as-bounded-source-backed-reconstruction",
+      "files": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md",
+        "scripts/validate-genesis-cats.py",
+        "references/research-notes/genesis-cats/SOURCES.json",
+        "data/agent-index.json",
+        "data/task-recipes.json"
+      ],
+      "notes": "The KB now distinguishes 256 planned Genesis indices from the 96 released/adopted collection members and 160 permanently locked/unreleased indices. The exact released Cat ID/rescue-order mapping is cross-checked offline against existing bucket, trait-reference, and formula inputs. Vote outcome and participation are sourced while the technical lock mechanism remains unresolved; no current ownership, price, live state, or payment aggregate is imported."
+    },
     {
       "key": "architecture-decision-index",
       "status": "resolved-for-pinned-dev-environment-adr-directory",

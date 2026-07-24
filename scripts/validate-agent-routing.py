@@ -41,8 +41,8 @@ def main() -> int:
     source_ids = {item["id"] for item in json.loads(SOURCES.read_text())["sources"]}
     cases = cases_data.get("cases", [])
     packs = {item["caseId"]: item for item in packs_data.get("packs", [])}
-    if not 12 <= len(cases) <= 20 or len(packs) != len(cases):
-        fail("benchmark must contain 12 through 20 cases with one pack each")
+    if not 12 <= len(cases) <= 32 or len(packs) != len(cases):
+        fail("benchmark must contain 12 through 32 cases with one pack each")
     if not set(cases_data.get("sourceRefs", [])) <= source_ids or not set(packs_data.get("sourceRefs", [])) <= source_ids:
         fail("benchmark or context-pack sourceRefs are unresolved")
     seen_ids, categories, boundaries = set(), set(), set()

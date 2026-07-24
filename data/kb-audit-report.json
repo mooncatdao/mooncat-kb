@@ -31,13 +31,13 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 42 Required file references checked: 391 sourceRefs checked: 1083 relatedFiles checked: 226 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 43 Required file references checked: 404 sourceRefs checked: 1123 relatedFiles checked: 231 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 20 query cases, 18 categories, 6 protected boundaries, and minimal deterministic packs"
+      "outputSummary": "OK: 24 query cases, 22 categories, 10 protected boundaries, and minimal deterministic packs"
     },
     {
       "command": "python scripts/validate-upstream-snapshots.py",
@@ -82,48 +82,54 @@
       "outputSummary": "OK: 10 ChainStation surfaces and 28 exact evidence files validated"
     },
     {
+      "command": "python scripts/validate-genesis-cats.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "Genesis Cats validation passed"
+    },
+    {
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 98 maintained files, 63 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 101 maintained files, 65 explicit exclusions, hashes, routes, and commands validated"
     }
   ],
   "counts": {
-    "requiredCommandCount": 14,
+    "requiredCommandCount": 15,
     "failedRequiredCommandCount": 0,
-    "duplicateNamespaceCount": 11,
-    "internalPathsChecked": 1318,
+    "duplicateNamespaceCount": 12,
+    "internalPathsChecked": 1409,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 98,
-    "manifestExcludedFileCount": 63
+    "manifestMaintainedFileCount": 101,
+    "manifestExcludedFileCount": 65
   },
   "duplicateIdChecks": {
     "collections": {
       "sources": {
         "file": "data/sources.json",
-        "count": 79,
+        "count": 85,
         "duplicates": []
       },
       "agent-routes": {
         "file": "data/agent-index.json",
-        "count": 24,
+        "count": 25,
         "duplicates": []
       },
       "task-recipes": {
         "file": "data/task-recipes.json",
-        "count": 19,
+        "count": 20,
         "duplicates": []
       },
       "benchmark-cases": {
         "file": "data/agent-query-cases.json",
-        "count": 20,
+        "count": 24,
         "duplicates": []
       },
       "gap-records": {
         "file": "data/kb-gap-index.json",
-        "count": 24,
+        "count": 25,
         "duplicates": []
       },
       "identifier-fixtures": {
@@ -155,12 +161,17 @@
         "file": "data/chainstation-surfaces.json",
         "count": 10,
         "duplicates": []
+      },
+      "genesis-release-groups": {
+        "file": "data/genesis-cats.json",
+        "count": 6,
+        "duplicates": []
       }
     },
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 1318,
+    "checked": 1409,
     "errors": [],
     "warnings": []
   },

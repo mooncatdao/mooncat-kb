@@ -756,6 +756,43 @@
         "Stop if the fact requires a sourceRef that is missing and source registration is out of scope.",
         "Stop if two registered sources conflict and no conflict note exists in the relevant KB file."
       ]
+    },
+    {
+      "key": "trace-genesis-cats",
+      "purpose": "Answer a bounded Genesis population, identifier, release, vote, or payment-mechanics question without promoting historical evidence into current state.",
+      "loadOrder": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md"
+      ],
+      "optionalFiles": [
+        "data/rescue-buckets.json",
+        "data/protocol-constants.json",
+        "data/identifier-conventions.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Classify the question as contract formula, deterministic released-member mapping, historical vote record, payment behavior, or current-state request.",
+        "For a released member, align its Genesis index with the listed group Cat ID and rescue order, then cross-check the existing bucket only when the identifier boundary matters.",
+        "For an unreleased index, report only contract-planned/derivable and permanently-locked-unreleased status; do not invent a rescue order, adoption, token, or owner.",
+        "Separate the pre-vote private-key-destruction proposal from the post-vote official outcome, and preserve the unresolved technical mechanism.",
+        "Run the dedicated Genesis validator, then refresh route/context and manifest checks when this reconstruction changes."
+      ],
+      "outputs": [
+        "population arithmetic and evidence class",
+        "bounded Genesis index/Cat ID/rescue-order mapping when released",
+        "release/adoption terminology and scheduled price boundary",
+        "vote outcome with mechanism limitation",
+        "explicit current-state stop condition"
+      ],
+      "guardrails": [
+        "Do not call normal MoonCat rescue and Genesis adoption the same mechanism.",
+        "Do not claim a hypothetical unreleased group price, total burned ETH, private-key destruction, current owner, or live contract state from this offline reconstruction.",
+        "Do not treat the local trait reference as a replacement for the curated bucket or a proof of current state."
+      ],
+      "stopConditions": [
+        "Stop if the answer needs a current owner, market price, live contract/key state, transaction aggregate, or a technical lock mechanism not directly preserved by post-vote evidence.",
+        "Stop if a requested mapping is outside the 96 released members and would require claiming an unreleased rescue order or token."
+      ]
     }
   ],
   "limitations": [

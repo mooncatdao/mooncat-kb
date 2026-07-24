@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-07-24",
+  "status": "source-backed-reconstruction",
+  "title": "Genesis MoonCat history and population reconstruction",
+  "sourceRefs": [
+    "ponderware-mooncatrescue-sol-raw",
+    "mooncatrescue-about-collection",
+    "mooncatrescue-log-mcr-update2",
+    "mooncatrescue-log-mcr-update4",
+    "origin-mooncatrescue-info",
+    "mooncatrescue-medium-accessories-vote",
+    "decrypt-mooncats-bots",
+    "mooncatrescue-mooncat-traits-json"
+  ],
+  "scope": {
+    "included": [
+      "historical Genesis population",
+      "contract-derived ID formula",
+      "released-member rescue-order mapping",
+      "March 2021 vote evidence",
+      "adoption pricing and payment behavior"
+    ],
+    "excluded": [
+      "current ownership",
+      "current price",
+      "live contract state",
+      "transaction-level adoption-payment totals",
+      "unverified technical lock mechanism"
+    ],
+    "currentOwnership": "unknown-not-in-scope"
+  },
+  "terminology": {
+    "normalMoonCats": "rescued",
+    "genesisMoonCats": "released in groups and offered for adoption",
+    "minted": "Later colloquial wording; it is not used here as a replacement for the original rescue/adoption distinction."
+  },
+  "population": {
+    "plannedGenesis": {
+      "count": 256,
+      "state": "contract-planned-derivable",
+      "genesisIndexRange": [
+        0,
+        255
+      ],
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw",
+        "origin-mooncatrescue-info"
+      ]
+    },
+    "releasedGenesis": {
+      "count": 96,
+      "state": "released-to-adoption-and-entered-collection",
+      "derivedReleaseGroupCount": 6,
+      "derivation": "96 / 16 = 6",
+      "sourceRefs": [
+        "mooncatrescue-about-collection",
+        "mooncatrescue-log-mcr-update4"
+      ]
+    },
+    "lockedUnreleasedGenesis": {
+      "count": 160,
+      "state": "permanently-locked-unreleased",
+      "genesisIndexRange": [
+        96,
+        255
+      ],
+      "derivation": "256 - 96 = 160",
+      "notImplied": [
+        "minted token existence",
+        "adoption",
+        "rescueOrder membership",
+        "ownership",
+        "current chain state"
+      ],
+      "sourceRefs": [
+        "mooncatrescue-about-collection",
+        "mooncatrescue-log-mcr-update4"
+      ]
+    },
+    "finalCollection": {
+      "rescueCats": 25344,
+      "genesisCats": 96,
+      "totalCats": 25440,
+      "derivation": "25344 + 96 = 25440",
+      "sourceRefs": [
+        "mooncatrescue-about-collection",
+        "mooncatrescue-log-mcr-update4"
+      ]
+    }
+  },
+  "contract": {
+    "genesisIdFormula": {
+      "formula": "(bytes5(genesisCatIndex) << 24) | 0xff00000ca7",
+      "indexType": "uint8 / Genesis index",
+      "outputType": "bytes5 catId",
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw"
+      ]
+    },
+    "releaseMechanism": {
+      "function": "addGenesisCatGroup",
+      "groupSize": 16,
+      "operator": "contract owner",
+      "behavior": "Creates the next group of Genesis identifiers and makes them available through adoption offers; this is distinct from normal rescue.",
+      "sourceRefs": [
+        "ponderware-mooncatrescue-sol-raw",
+        "origin-mooncatrescue-info"
+      ]
+    },
+    "adoptionPriceSchedule": {
+      "kind": "scheduled-per-release-group",
+      "firstGroupWei": 300000000000000000,
+      "incrementWei": 300000000000000000,
+      "formula": "priceWei = groupNumber * 300000000000000000 for a released group numbered from 1",
+      "sourceRefs": [
+        "origin-mooncatrescue-info"
+      ],
+      "limit": "Only the six historically released groups are listed. No unreleased-group price or aggregate payment claim is made."
+    },
+    "adoptionPaymentBehavior": {
+      "intendedRevenue": "Original project information says adoption proceeds were intended for the developers.",
+      "qaBug": "The original project information attributes a QA-change bug to the payment routing outcome.",
+      "actualDestination": "zero address",
+      "economicLanguage": "The original source describes this as burned Ether; this reconstruction does not derive a transaction aggregate.",
+      "scope": "Genesis adoption payments only; do not generalize this behavior to other payment paths.",
+      "transactionAggregate": "not-evaluated",
+      "sourceRefs": [
+        "origin-mooncatrescue-info",
+        "ponderware-mooncatrescue-sol-raw"
+      ]
+    }
+  },
+  "releasedGroups": [
+    {
+      "releaseGroup": 1,
+      "genesisIndexRange": [0, 15],
+      "state": ["contract-planned-derivable", "released-to-adoption", "entered-collection", "current-ownership-unknown-not-in-scope"],
+      "scheduledPriceWei": 300000000000000000,
+      "memberAlignment": "catIds and rescueOrders align by position with the inclusive Genesis index range.",
+      "catIds": ["0xff00000ca7", "0xff01000ca7", "0xff02000ca7", "0xff03000ca7", "0xff04000ca7", "0xff05000ca7", "0xff06000ca7", "0xff07000ca7", "0xff08000ca7", "0xff09000ca7", "0xff0a000ca7", "0xff0b000ca7", "0xff0c000ca7", "0xff0d000ca7", "0xff0e000ca7", "0xff0f000ca7"],
+      "rescueOrders": [84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+    },
+    {
+      "releaseGroup": 2,
+      "genesisIndexRange": [16, 31],
+      "state": ["contract-planned-derivable", "released-to-adoption", "entered-collection", "current-ownership-unknown-not-in-scope"],
+      "scheduledPriceWei": 600000000000000000,
+      "memberAlignment": "catIds and rescueOrders align by position with the inclusive Genesis index range.",
+      "catIds": ["0xff10000ca7", "0xff11000ca7", "0xff12000ca7", "0xff13000ca7", "0xff14000ca7", "0xff15000ca7", "0xff16000ca7", "0xff17000ca7", "0xff18000ca7", "0xff19000ca7", "0xff1a000ca7", "0xff1b000ca7", "0xff1c000ca7", "0xff1d000ca7", "0xff1e000ca7", "0xff1f000ca7"],
+      "rescueOrders": [524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539]
+    },
+    {
+      "releaseGroup": 3,
+      "genesisIndexRange": [32, 47],
+      "state": ["contract-planned-derivable", "released-to-adoption", "entered-collection", "current-ownership-unknown-not-in-scope"],
+      "scheduledPriceWei": 900000000000000000,
+      "memberAlignment": "catIds and rescueOrders align by position with the inclusive Genesis index range.",
+      "catIds": ["0xff20000ca7", "0xff21000ca7", "0xff22000ca7", "0xff23000ca7", "0xff24000ca7", "0xff25000ca7", "0xff26000ca7", "0xff27000ca7", "0xff28000ca7", "0xff29000ca7", "0xff2a000ca7", "0xff2b000ca7", "0xff2c000ca7", "0xff2d000ca7", "0xff2e000ca7", "0xff2f000ca7"],
+      "rescueOrders": [1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112, 1113, 1114, 1115, 1116, 1117]
+    },
+    {
+      "releaseGroup": 4,
+      "genesisIndexRange": [48, 63],
+      "state": ["contract-planned-derivable", "released-to-adoption", "entered-collection", "current-ownership-unknown-not-in-scope"],
+      "scheduledPriceWei": 1200000000000000000,
+      "memberAlignment": "catIds and rescueOrders align by position with the inclusive Genesis index range.",
+      "catIds": ["0xff30000ca7", "0xff31000ca7", "0xff32000ca7", "0xff33000ca7", "0xff34000ca7", "0xff35000ca7", "0xff36000ca7", "0xff37000ca7", "0xff38000ca7", "0xff39000ca7", "0xff3a000ca7", "0xff3b000ca7", "0xff3c000ca7", "0xff3d000ca7", "0xff3e000ca7", "0xff3f000ca7"],
+      "rescueOrders": [1749, 1750, 1751, 1752, 1753, 1754, 1755, 1756, 1757, 1758, 1759, 1760, 1761, 1762, 1763, 1764]
+    },
+    {
+      "releaseGroup": 5,
+      "genesisIndexRange": [64, 79],
+      "state": ["contract-planned-derivable", "released-to-adoption", "entered-collection", "current-ownership-unknown-not-in-scope"],
+      "scheduledPriceWei": 1500000000000000000,
+      "memberAlignment": "catIds and rescueOrders align by position with the inclusive Genesis index range.",
+      "catIds": ["0xff40000ca7", "0xff41000ca7", "0xff42000ca7", "0xff43000ca7", "0xff44000ca7", "0xff45000ca7", "0xff46000ca7", "0xff47000ca7", "0xff48000ca7", "0xff49000ca7", "0xff4a000ca7", "0xff4b000ca7", "0xff4c000ca7", "0xff4d000ca7", "0xff4e000ca7", "0xff4f000ca7"],
+      "rescueOrders": [2364, 2365, 2366, 2367, 2368, 2369, 2370, 2371, 2372, 2373, 2374, 2375, 2376, 2377, 2378, 2379]
+    },
+    {
+      "releaseGroup": 6,
+      "genesisIndexRange": [80, 95],
+      "state": ["contract-planned-derivable", "released-to-adoption", "entered-collection", "current-ownership-unknown-not-in-scope"],
+      "scheduledPriceWei": 1800000000000000000,
+      "memberAlignment": "catIds and rescueOrders align by position with the inclusive Genesis index range.",
+      "catIds": ["0xff50000ca7", "0xff51000ca7", "0xff52000ca7", "0xff53000ca7", "0xff54000ca7", "0xff55000ca7", "0xff56000ca7", "0xff57000ca7", "0xff58000ca7", "0xff59000ca7", "0xff5a000ca7", "0xff5b000ca7", "0xff5c000ca7", "0xff5d000ca7", "0xff5e000ca7", "0xff5f000ca7"],
+      "rescueOrders": [2876, 2877, 2878, 2879, 2880, 2881, 2882, 2883, 2884, 2885, 2886, 2887, 2888, 2889, 2890, 2891]
+    }
+  ],
+  "unreleasedRange": {
+    "genesisIndexRange": [96, 255],
+    "state": ["contract-planned-derivable", "permanently-locked-unreleased", "current-ownership-unknown-not-in-scope"],
+    "catIds": "Derivable by the formula but deliberately not materialized as a token, rescue-order, adoption, or ownership list.",
+    "rescueOrders": "none asserted"
+  },
+  "vote": {
+    "context": "The post-rescue question was whether the remaining 160 planned Genesis Cats would enter the collection or remain off chain.",
+    "timeline": {
+      "preVoteAnnouncementDate": "2021-03-18",
+      "scheduledStart": "2021-03-20T12:00:00Z",
+      "durationHours": 48,
+      "postVoteOutcomeDate": "2021-03-22"
+    },
+    "eligibility": {
+      "rule": "Address interaction with the original MoonCatRescue contract or main WMCR before Ethereum block 12047300.",
+      "eligibleAddressCount": 6110,
+      "sourceRefs": ["mooncatrescue-log-mcr-update2", "mooncatrescue-medium-accessories-vote"]
+    },
+    "method": {
+      "implementation": "custom smart contract with a Merkle tree of eligible addresses",
+      "voteWeight": "one vote per eligible address",
+      "sourceRefs": ["mooncatrescue-medium-accessories-vote"]
+    },
+    "participation": {
+      "votingAddressCount": 1311,
+      "turnoutPercent": 21.46,
+      "derivedFrom": "1311 / 6110 * 100, rounded to two decimal places",
+      "sourceRefs": ["mooncatrescue-medium-accessories-vote"]
+    },
+    "outcome": {
+      "result": "remaining Genesis Cats stayed on the moon / did not join the collection",
+      "lockedCount": 160,
+      "sourceRefs": ["mooncatrescue-log-mcr-update4", "mooncatrescue-about-collection"]
+    },
+    "technicalLockMechanism": {
+      "status": "unresolved",
+      "preVoteProposal": "Contemporary reporting described destruction of a private key as the proposal.",
+      "verifiedPostVoteMechanism": null,
+      "limit": "The official outcome establishes permanent locking, but the checked evidence does not demonstrate whether the final technical act was key destruction, loss of release authority, or another mechanism."
+    }
+  },
+  "evidence": {
+    "inventory": "references/research-notes/genesis-cats/SOURCES.json",
+    "requiredInventoryIds": [
+      "mooncatrescue-about-collection",
+      "mooncatrescue-log-mcr-update2",
+      "mooncatrescue-log-mcr-update4",
+      "origin-mooncatrescue-info",
+      "mooncatrescue-medium-accessories-vote",
+      "decrypt-mooncats-bots",
+      "ponderware-mooncatrescue-sol-raw",
+      "mooncatrescue-mooncat-traits-json",
+      "reddit-genesis-release-question",
+      "ponderware-x-1371888442884362243"
+    ]
+  },
+  "relatedFiles": [
+    "data/rescue-buckets.json",
+    "data/protocol-constants.json",
+    "data/identifier-conventions.json",
+    "references/upstream/mooncatrescue/mooncat_traits.json",
+    "docs/genesis-cats.md"
+  ]
+}

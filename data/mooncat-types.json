@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
+  "updated": "2026-07-24",
   "status": "partially-verified",
   "provenance": {
     "sources": [
@@ -14,16 +14,18 @@
   "types": {
     "genesis": {
       "label": "Genesis Cats",
-      "status": "partially-verified",
+      "status": "source-backed-reconstruction",
       "ids": [],
-      "membershipData": "data/rescue-buckets.json#genesis",
+      "data": "data/genesis-cats.json",
+      "membershipData": "data/genesis-cats.json#releasedGroups",
       "canonical": true,
-      "trustLevel": "canonical-derived",
+      "trustLevel": "source-backed-reconstruction",
       "sourceRefs": [
         "ponderware-mooncatrescue-sol-raw",
-        "mooncat-rescueorder-by-category"
+        "mooncatrescue-about-collection",
+        "mooncatrescue-log-mcr-update4"
       ],
-      "notes": "Genesis supply/generation are documented in data/special-cats.json and data/protocol-constants.json. Canonical-derived rescue-order-index membership lives in data/rescue-buckets.json; exact catIds are not materialized here."
+      "notes": "Use data/genesis-cats.json for the historical population reconstruction and exact released Cat ID/rescue-order mapping. The existing rescue bucket remains a cross-check; this type scaffold intentionally does not duplicate its membership list."
     },
     "characterCats": {
       "label": "Character Cats",
@@ -52,8 +54,8 @@
         "ponderware-mooncatrescue-sol-raw",
         "mooncat-rescueorder-by-category"
       ],
-      "notes": "Genesis source facts are partially verified; canonical-derived rescue/history bucket indexes live in data/rescue-buckets.json. Other special categories remain placeholders.",
-      "bucketDataStatus": "canonical-derived-needs-method-note"
+      "notes": "Genesis history is reconstructed in data/genesis-cats.json; other special categories remain placeholders.",
+      "bucketDataStatus": "genesis-source-backed-reconstruction; other categories incomplete"
     }
   },
   "todos": [

@@ -42,6 +42,10 @@ Project-link `trustLevel` values are navigation classifications, not canonical-s
 - ponderware GitHub: `ponderware-github`
 - Original MoonCat parser: `ponderware-mooncatparser`
 - Original MoonCatRescue contract repository: `ponderware-contract`
+- Genesis population/history reconstruction: `data/genesis-cats.json`
+- Genesis compact research inventory: `references/research-notes/genesis-cats/SOURCES.json`
+- Official Genesis collection and vote pages: `mooncatrescue-about-collection`, `mooncatrescue-log-mcr-update2`, `mooncatrescue-log-mcr-update4`
+- Original Genesis adoption and payment-bug information: `origin-mooncatrescue-info`
 
 ## Community / derived sources
 
@@ -54,6 +58,8 @@ Project-link `trustLevel` values are navigation classifications, not canonical-s
 - Extracted source links local file: `extracted-source-links-2026-07-02`
 - Etherscan original contract page: `etherscan-original-contract`
 - MoonCatRescue Medium publication: `mooncatrescue-medium`
+- MoonCat Community Accessories Vote retrospective: `mooncatrescue-medium-accessories-vote`
+- Decrypt contemporaneous Genesis-vote context: `decrypt-mooncats-bots`
 - MoonCats On-Chain Guide: `mooncats-on-chain-guide`
 - On Chain, Generative Art?: `on-chain-generative-art`
 - Of Mice and MoonCats: `of-mice-and-mooncats`

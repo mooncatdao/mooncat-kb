@@ -10,7 +10,7 @@
     "script": "scripts/generate-agent-context-packs.py",
     "command": "python scripts/generate-agent-context-packs.py",
     "networkDependency": "none",
-    "caseCount": 20,
+    "caseCount": 24,
     "sizePolicy": {
       "softFileLimit": 7,
       "softEstimatedByteLimit": 200000,
@@ -966,7 +966,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 117165,
+        "estimatedByteCount": 122229,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -978,11 +978,11 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 55165
+            "bytes": 59165
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 37417
+            "bytes": 38481
           }
         ],
         "softFileLimit": 7,
@@ -1125,7 +1125,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 84840,
+        "estimatedByteCount": 88840,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1137,7 +1137,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 55165
+            "bytes": 59165
           }
         ],
         "softFileLimit": 7,
@@ -1205,7 +1205,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 89632,
+        "estimatedByteCount": 93632,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1217,7 +1217,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 55165
+            "bytes": 59165
           },
           {
             "path": "docs/reference-policy.md",
@@ -1635,11 +1635,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 127306,
+        "estimatedByteCount": 138556,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 25637
+            "bytes": 32395
           },
           {
             "path": "docs/agent-usage.md",
@@ -1647,20 +1647,389 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 20672
+            "bytes": 21680
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 42235
+            "bytes": 44655
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 37417
+            "bytes": 38481
           }
         ],
         "softFileLimit": 7,
         "softEstimatedByteLimit": 200000,
         "rationale": "Meta-route pack for maintaining routing contracts without loading domain snapshots."
+      }
+    },
+    {
+      "caseId": "genesis-population-reconstruction",
+      "category": "genesis-history",
+      "taskSummary": "Explain why the MoonCat collection has 25,440 cats rather than the planned 25,600, and distinguish the 160 remaining Genesis Cats.",
+      "route": "trace-genesis-cats",
+      "recipe": "trace-genesis-cats",
+      "primaryFiles": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/sources.json"
+      ],
+      "filesToLoad": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md",
+        "data/sources.json"
+      ],
+      "terminology": [
+        "planned Genesis",
+        "released-to-adoption",
+        "entered-collection",
+        "permanently-locked-unreleased",
+        "rescueOrder"
+      ],
+      "requiredFacts": [
+        "256 planned Genesis Cats partition into 96 released/collection and 160 permanently locked/unreleased",
+        "25,344 Rescue Cats plus 96 Genesis Cats equals 25,440 collection cats"
+      ],
+      "implementationGuardrails": [
+        "Do not call normal MoonCat rescue and Genesis adoption the same mechanism.",
+        "Do not claim a hypothetical unreleased group price, total burned ETH, private-key destruction, current owner, or live contract state from this offline reconstruction.",
+        "Do not treat the local trait reference as a replacement for the curated bucket or a proof of current state.",
+        "The 160 remaining indices are contract-planned/derivable only; do not infer token existence, rescue-order membership, adoption, ownership, or live state."
+      ],
+      "forbiddenClaims": [
+        "all 256 Genesis Cats entered the collection",
+        "the 160 were minted or owned",
+        "historical collection arithmetic proves current chain state"
+      ],
+      "knownLimitations": [
+        "The 160 remaining indices are contract-planned/derivable only; do not infer token existence, rescue-order membership, adoption, ownership, or live state."
+      ],
+      "stopConditions": [
+        "Stop if the request requires a current owner, market value, or live contract/key state."
+      ],
+      "validationCommands": [
+        "python scripts/validate-genesis-cats.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-about-collection",
+          "label": "MoonCatRescue About collection section",
+          "status": "reviewed-for-genesis-history"
+        },
+        {
+          "id": "mooncatrescue-log-mcr-update4",
+          "label": "MoonCatRescue MCR Update 4",
+          "status": "reviewed-for-genesis-history"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 3,
+        "estimatedByteCount": 75744,
+        "files": [
+          {
+            "path": "data/genesis-cats.json",
+            "bytes": 11808
+          },
+          {
+            "path": "docs/genesis-cats.md",
+            "bytes": 4771
+          },
+          {
+            "path": "data/sources.json",
+            "bytes": 59165
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Population data and explanation first; sources are optional when the answer needs confidence detail."
+      }
+    },
+    {
+      "caseId": "genesis-id-and-rescue-order-trace",
+      "category": "genesis-identifiers",
+      "taskSummary": "Map a released Genesis index to its bytes5 Cat ID, release group, and rescue order without treating rescue order as a universal token ID.",
+      "route": "trace-genesis-cats",
+      "recipe": "trace-genesis-cats",
+      "primaryFiles": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md"
+      ],
+      "additionalRequiredFiles": [
+        "data/rescue-buckets.json"
+      ],
+      "explicitOptionalFiles": [
+        "data/protocol-constants.json",
+        "data/identifier-conventions.json"
+      ],
+      "filesToLoad": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md",
+        "data/rescue-buckets.json",
+        "data/protocol-constants.json",
+        "data/identifier-conventions.json"
+      ],
+      "terminology": [
+        "genesisIndex",
+        "catIdBytes5",
+        "releaseGroup",
+        "rescueOrder",
+        "bytes5"
+      ],
+      "requiredFacts": [
+        "Released Genesis indices 0 through 95 map deterministically through the documented formula and six aligned groups",
+        "The existing Genesis rescue bucket is a rescue-order cross-check rather than a token-ID list"
+      ],
+      "implementationGuardrails": [
+        "Do not call normal MoonCat rescue and Genesis adoption the same mechanism.",
+        "Do not claim a hypothetical unreleased group price, total burned ETH, private-key destruction, current owner, or live contract state from this offline reconstruction.",
+        "Do not treat the local trait reference as a replacement for the curated bucket or a proof of current state.",
+        "Only released indices have the reconstructed rescue-order mapping; do not create a rescue order or token-facing identity for an unreleased index."
+      ],
+      "forbiddenClaims": [
+        "rescueOrder is always a token ID",
+        "index 96 has a released rescue order",
+        "formula-derived ID proves current ownership"
+      ],
+      "knownLimitations": [
+        "Only released indices have the reconstructed rescue-order mapping; do not create a rescue order or token-facing identity for an unreleased index."
+      ],
+      "stopConditions": [
+        "Stop if the requested index is outside 0 through 95 and requires a claimed release, rescue order, adoption, or owner."
+      ],
+      "validationCommands": [
+        "python scripts/validate-genesis-cats.py",
+        "python scripts/validate-identifier-conversions.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "ponderware-mooncatrescue-sol-raw",
+          "label": "MoonCatRescue.sol raw source",
+          "status": "verified"
+        },
+        {
+          "id": "mooncatrescue-mooncat-traits-json",
+          "label": "MoonCatRescue mooncat_traits.json reference",
+          "status": "reference-copy"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 5,
+        "estimatedByteCount": 114651,
+        "files": [
+          {
+            "path": "data/genesis-cats.json",
+            "bytes": 11808
+          },
+          {
+            "path": "docs/genesis-cats.md",
+            "bytes": 4771
+          },
+          {
+            "path": "data/rescue-buckets.json",
+            "bytes": 58786
+          },
+          {
+            "path": "data/protocol-constants.json",
+            "bytes": 2357
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 36929
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Load the compact Genesis mapping and bucket, adding identifier rules only when an external identifier boundary is asked."
+      }
+    },
+    {
+      "caseId": "genesis-vote-history-boundary",
+      "category": "genesis-governance-history",
+      "taskSummary": "Summarize the March 2021 Genesis Vote, including eligibility, method, participation, outcome, and what remains unknown about the lock mechanism.",
+      "route": "trace-genesis-cats",
+      "recipe": "trace-genesis-cats",
+      "primaryFiles": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/sources.json"
+      ],
+      "filesToLoad": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md",
+        "data/sources.json"
+      ],
+      "terminology": [
+        "Merkle tree",
+        "eligible address",
+        "one vote per address",
+        "pre-vote proposal",
+        "post-vote outcome"
+      ],
+      "requiredFacts": [
+        "The record distinguishes the 48-hour pre-vote setup from the official post-vote outcome",
+        "The documented participation is 1,311 of 6,110 eligible addresses",
+        "Permanent locking is official outcome evidence while the final technical mechanism remains unresolved"
+      ],
+      "implementationGuardrails": [
+        "Do not call normal MoonCat rescue and Genesis adoption the same mechanism.",
+        "Do not claim a hypothetical unreleased group price, total burned ETH, private-key destruction, current owner, or live contract state from this offline reconstruction.",
+        "Do not treat the local trait reference as a replacement for the curated bucket or a proof of current state.",
+        "A contemporaneous proposal to destroy a private key is not evidence that key destruction was the final technical lock mechanism."
+      ],
+      "forbiddenClaims": [
+        "the private key was definitely destroyed",
+        "the vote proves current key or contract state",
+        "one address one vote means one human one vote"
+      ],
+      "knownLimitations": [
+        "A contemporaneous proposal to destroy a private key is not evidence that key destruction was the final technical lock mechanism."
+      ],
+      "stopConditions": [
+        "Stop if the question needs the exact post-vote transaction or technical mechanism without separately preserved direct evidence."
+      ],
+      "validationCommands": [
+        "python scripts/validate-genesis-cats.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-log-mcr-update2",
+          "label": "MoonCatRescue MCR Update 2",
+          "status": "reviewed-for-genesis-history"
+        },
+        {
+          "id": "mooncatrescue-log-mcr-update4",
+          "label": "MoonCatRescue MCR Update 4",
+          "status": "reviewed-for-genesis-history"
+        },
+        {
+          "id": "mooncatrescue-medium-accessories-vote",
+          "label": "MoonCat Community Accessories Vote retrospective",
+          "status": "reviewed-for-genesis-history"
+        },
+        {
+          "id": "decrypt-mooncats-bots",
+          "label": "Decrypt MoonCats bot report",
+          "status": "reviewed-for-genesis-history"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 3,
+        "estimatedByteCount": 75744,
+        "files": [
+          {
+            "path": "data/genesis-cats.json",
+            "bytes": 11808
+          },
+          {
+            "path": "docs/genesis-cats.md",
+            "bytes": 4771
+          },
+          {
+            "path": "data/sources.json",
+            "bytes": 59165
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Use the compact reconstruction and human explanation; source index is optional for source hierarchy detail."
+      }
+    },
+    {
+      "caseId": "genesis-adoption-payment-mechanics",
+      "category": "genesis-payment-history",
+      "taskSummary": "Explain the Genesis release/adoption schedule and zero-address payment bug without inventing an aggregate burn amount.",
+      "route": "trace-genesis-cats",
+      "recipe": "trace-genesis-cats",
+      "primaryFiles": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/protocol-constants.json",
+        "data/sources.json"
+      ],
+      "filesToLoad": [
+        "data/genesis-cats.json",
+        "docs/genesis-cats.md",
+        "data/protocol-constants.json",
+        "data/sources.json"
+      ],
+      "terminology": [
+        "adoption",
+        "release group",
+        "scheduled price",
+        "zero address",
+        "QA bug",
+        "transaction aggregate"
+      ],
+      "requiredFacts": [
+        "Genesis groups were released for adoption in batches of 16, distinct from normal rescue",
+        "The documented schedule begins at 0.3 ETH and rises 0.3 ETH per released group",
+        "The original account distinguishes intended developer revenue from the zero-address payment-routing outcome"
+      ],
+      "implementationGuardrails": [
+        "Do not call normal MoonCat rescue and Genesis adoption the same mechanism.",
+        "Do not claim a hypothetical unreleased group price, total burned ETH, private-key destruction, current owner, or live contract state from this offline reconstruction.",
+        "Do not treat the local trait reference as a replacement for the curated bucket or a proof of current state.",
+        "Scheduled group prices are not observed purchase totals, and the reconstruction has no transaction-derived aggregate of Ether sent to the zero address."
+      ],
+      "forbiddenClaims": [
+        "all planned groups were offered",
+        "the total ETH burn is known",
+        "the bug applies to every MoonCat payment path"
+      ],
+      "knownLimitations": [
+        "Scheduled group prices are not observed purchase totals, and the reconstruction has no transaction-derived aggregate of Ether sent to the zero address."
+      ],
+      "stopConditions": [
+        "Stop if an answer requires individual adoption transactions, a total payment amount, or live contract behavior."
+      ],
+      "validationCommands": [
+        "python scripts/validate-genesis-cats.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "origin-mooncatrescue-info",
+          "label": "Original MoonCatRescue project information",
+          "status": "reviewed-for-genesis-history"
+        },
+        {
+          "id": "ponderware-mooncatrescue-sol-raw",
+          "label": "MoonCatRescue.sol raw source",
+          "status": "verified"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 78101,
+        "files": [
+          {
+            "path": "data/genesis-cats.json",
+            "bytes": 11808
+          },
+          {
+            "path": "docs/genesis-cats.md",
+            "bytes": 4771
+          },
+          {
+            "path": "data/protocol-constants.json",
+            "bytes": 2357
+          },
+          {
+            "path": "data/sources.json",
+            "bytes": 59165
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Genesis history data and doc cover the bounded mechanics; protocol/source details are optional rather than broad contract loading."
       }
     }
   ]
