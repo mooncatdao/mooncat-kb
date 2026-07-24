@@ -1,0 +1,44 @@
+# Reddit source capture
+
+URL: https://www.reddit.com/r/MoonCatRescue/comments/m75cvi/if_the_genesis_cats_get_released_then_what/
+Retrieved: 2026-07-24
+Capture method: Logged-in browser
+Completeness: Original post and selected relevant comments
+
+## Original post
+
+Title: If the Genesis Cats get released, then what?
+Author: MidnightLightning
+Visible date: March 17, 2021
+
+**_This started as a research summary/clarification of mine, and has been posted to the MoonCat Discord server, but replicated here to ensure as much discussion on these topics as possible can happen. Please do double-check things I've listed here; I will gladly update this post with more accurate information if that gets shared!_**
+
+Looks like some good discussion happened yesterday! I'm getting caught up, and did more researching on my own as well. I'm glad to see the Ponderware team finding their voice and the comments they're posting to Twitter look like they're informative and accurate. So, there's one key question being put to a vote _now_, which essentially decides "will there ever be more Genesis cats released, or not?". If the answer is "the Genesis cats _will be released_", it does _not_ mean they would necessarily be released immediately/soon; it would mean more discussion would happen on how that would be accomplished. And as part of making the initial vote choice, people are wondering if the vote does go down the route of "do release the Genesis cats", if there's really a possibility of not having bots scrape them all. And there's a few trains of thought on answering that:
+
+I think @foobar#0001's pinned analysis (in the Discord server) of the `delegatecall` functionality is unfortunately correct; when we first looked at it, it seemed like it using that sort of functionality would make an ironclad, relatively-easy way to get the currently-unreleased Genesis cats into a state where they were owned by the Ponderware admin key without bots getting them. However, that's not the case because `delegatecall` does _not_ allow a separate smart contract (which would be a way to "roll up" multiple separate actions into a single un-interruptible action) to act "on behalf" of the calling account (the new smart contract would have its own address ID, and that address ID would not equal the address of the Ponderware admin key, and so the MoonCatRescue contract would reject it).
+
+I also looked into how "flash loan" contracts accomplish that same sort of un-interruptible action, and while they do use separate smart contracts to do that action, they do operate as separate "agents" with their own address IDs, so they aren't allowed to do privileged things that only specific addresses are allowed to do (like trigger the release of a batch of Genesis cats).
+
+So, those aren't viable ways to prevent bot attacks. The way that many people identified as a way to make sure a series of multiple transactions happens in a specific order with no other (bot/attack) transactions in the middle is to either become a miner and mine the block yourself, or collaborate with a miner to do that. "Becoming a Miner" has the downside of needing to buy hardware to do the mining, and enough of it to have enough hashrate to have a chance to mine a block at all. And the development work to create a custom node software package that puts your transactions in, in a guaranteed order. "Collaborating with a Miner" has the downside of trusting the miner to not pull the rug on you after you hand over the transactions to be mined. Those downsides have ways to be minimized, but the act of minimizing them would take significant on- and off-chain work.
+
+However, while those mining situations are the situation _now_, there's a few changes coming up in the near future that could change the situation if the community just delayed a bit. Firstly, the EIP1559 change that's slated to drop in July will significantly change how ordering of transactions in a block happens. After that change, it's anticipated that nearly all transactions will always get into "the next block". The idea of a transaction "waiting in the mempool" for minutes or hours should go away. That reduces the risk of front-running by a bunch, since even "low priority" transactions will still get mined within 10 seconds (bots won't have a squishier window of "possibly up to a few minutes" to work in). But, the EIP1559 structure still leaves it up to the miners to choose how they order transactions in a block, and so a miner themselves could front-run that action, and so that on its own isn't a solution for this problem.
+
+Secondly, looking further into the future, when Ethereum switches to proof-of-stake, and has "validators" instead of "miners", then the question becomes "Becoming a Validator" or "Collaborating with a Validator". "Collaborating with a Validator" isn't really any easier than "Collaborating with a Miner", so no wins there. However, "Becoming a Validator" is pretty different than "Becoming a Miner". The cost to become a validator is known (32 ETH), as opposed to the squishier price of how much mining hardware to buy and when/how to upgrade it to become a miner. Once one is a Validator, it could still be quite some time before the network assigns you a block to mine, and it would still require custom node software be written to make a custom-ordering of transactions in the block. So, "Becoming a Validator" is a little easier to implement than "Becoming a Miner", but a key downside is it would require a year or two wait.
+
+I also see @Gonpachi#3249 (on the Discord server) pointed out the "Flashbots" concept, which was new to me (thanks for pointing it out!), so I did some research on that. While that project does create atomic "bundles" of transactions, those few Medium articles on the concept do make it clear that:
+
+> In the alpha release of the FlashBots you’re trusting FlashBots and UUPool/SpiderPool miners not to frontrun or sandwich you. They can also see the content of the bundles and have the option to potentially censor or steal them i.e. privileged liquidation.
+
+and:
+
+> the proof of concept of MEV-Geth has incomplete trust guarantees
+
+It's an interesting project, but it's still alpha-level software (and it's own development team calls it a "proof of concept" at this point), that still relies on off-chain trust with the miner itself. I suspect as this project grows, they'll work to make a way that the "bundle" opaque, so no one can see what transactions are bundled in it, but that would likely be a ways away? But Gonpachi, you posted a screenshot of that grid comparison of MEV-Geth with others, and that chart does have a "check" for "Pre-trade privacy" for MEV-Geth. Am I missing something in reading those Medium articles? How does MEV-Geth successfully give Pre-trade privacy?
+
+Even if MEV-Geth doesn't have that functionality _now_, it seems there's a few groups working on this sort of concept (one of those MEV-Geth articles mentions "Rook, ArcherDAO, Tai Chi and StakeDAO" as others too), and so if the community waits a few years, at least one of those projects may solve the situation? The downside to that is it's a gamble on whether the technology will arrive at all.
+
+All the options that include "waiting a bit" for different technologies to arrive need to be balanced morally against the desire the original Ponderware team expressed to finish this project and move on to others. They've said they will do what the community wants, and the community could vote to wait for technologies to improve, which would force them to stay involved for a while. How long a time they'd have to stay involved would vary based on whichever plan was decided upon, so there's some grey area there on how "immoral" you feel it is to keep them involved "for a few more months" or "a few more years" or "indefinitely".
+
+So, the overall question of "is there a technical way to avoid bots front-running it at all?", yes there are some options that could be attempted now, and others that could be attempted in the future, but it appears there's no "easy" ones; all of them have some other sort of downside that comes into play as a trade-off, either as an additional monetary expense, an additional risk of the bots getting the Genesis cats anyway, and/or the moral cost of keeping Ponderware developers involved longer.
+
+**Edit:** another option that got suggested on the Discord server is [EIP-3074](https://twitter.com/lightclients/status/1371911245561917441?s=19). That is a concept that would indeed solve this issue. The downside is that it's a relatively new proposal (Nov 2020 first proposed), and as far as I can tell isn't yet on the roadmap for being included in an Ethereum core release yet. So it would likely be on the "months away" or "years away" timeline before it could be used.

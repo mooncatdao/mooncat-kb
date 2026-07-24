@@ -101,6 +101,19 @@ def validate_inventory(inventory: dict[str, Any], errors: list[str]) -> set[str]
             errors.append(f"inventory source {source_id} noteSha256 does not match note")
         if source["accessStatus"] == "inaccessible" and "no claim" not in note.lower():
             errors.append(f"inaccessible inventory source {source_id} must say no claim was imported")
+        artifact_path = source.get("artifactPath")
+        artifact_digest = source.get("artifactSha256")
+        if artifact_path is not None:
+            if not isinstance(artifact_path, str) or not isinstance(artifact_digest, str):
+                errors.append(f"inventory artifact {source_id} must have a path and SHA-256")
+            else:
+                artifact = ROOT / artifact_path
+                if not artifact.is_file():
+                    errors.append(f"inventory artifact {source_id} does not exist: {artifact_path}")
+                else:
+                    digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+                    if digest != artifact_digest:
+                        errors.append(f"inventory artifact {source_id} SHA-256 does not match artifact")
     return ids
 
 

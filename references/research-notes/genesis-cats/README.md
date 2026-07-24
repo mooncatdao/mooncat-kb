@@ -9,3 +9,7 @@ sources.
 each bounded note. Sources that could not be directly retrieved are retained
 with an explicit inaccessible status and do not support imported claims.
 
+The user-supplied Reddit transcript/screenshot, Ponderware thread transcript/
+screenshots, and root X oEmbed JSON are preserved verbatim under stable names.
+The transcript and screenshots are paired evidence; the oEmbed file is metadata
+corroboration only.

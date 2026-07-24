@@ -93,7 +93,7 @@
   ],
   "coverage": {
     "maintainedFileCount": 101,
-    "excludedFileCount": 65,
+    "excludedFileCount": 71,
     "unclassifiedMaintainedFileCount": 0
   },
   "entries": [
@@ -2014,8 +2014,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6928,
-      "sha256": "554d09ddb480cc7e04d8f9f2ddb05db7749cd456f83afbd23c5347d4e36b7146",
+      "sizeBytes": 7112,
+      "sha256": "fec13ea71ac8a6bb5bffc3a590c1e111e21dbc8c937e495b32fab0dc1b97e543",
       "agentRoutes": [
         "check-source-provenance",
         "find-ipfs-and-artifact-urls",
@@ -2564,8 +2564,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 12936,
-      "sha256": "cc700232890587763fe880949d7c2454a684337d1d3ba98ba1d79322d076f137",
+      "sizeBytes": 13731,
+      "sha256": "19fb5f2961f2c0b3649fd8b20656d2687fb7af55fcd1448f7ab9711ffaf6ed22",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2752,6 +2752,30 @@
     },
     {
       "path": "references/research-notes/genesis-cats/SOURCES.json",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/genesis-cats/ponderware-genesis-vote-root-oembed.json",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/genesis-cats/ponderware-genesis-vote-thread-1.png",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/genesis-cats/ponderware-genesis-vote-thread-2.png",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/genesis-cats/ponderware-genesis-vote-thread.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/genesis-cats/reddit-genesis-release-question.md",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/research-notes/genesis-cats/reddit-genesis-release-question.png",
       "reason": "reference-snapshot-not-curated-kb-content"
     },
     {

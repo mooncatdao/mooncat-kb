@@ -45,7 +45,9 @@ Project-link `trustLevel` values are navigation classifications, not canonical-s
 - Genesis population/history reconstruction: `data/genesis-cats.json`
 - Genesis compact research inventory: `references/research-notes/genesis-cats/SOURCES.json`
 - Official Genesis collection and vote pages: `mooncatrescue-about-collection`, `mooncatrescue-log-mcr-update2`, `mooncatrescue-log-mcr-update4`
+- Official MCR Update 3 log context: `mooncatrescue-log-mcr-update3`
 - Original Genesis adoption and payment-bug information: `origin-mooncatrescue-info`
+- Captured Genesis pre-vote social evidence: `reddit-genesis-release-question`, `ponderware-x-1371888442884362243`
 
 ## Community / derived sources
 
