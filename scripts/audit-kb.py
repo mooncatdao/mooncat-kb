@@ -32,6 +32,7 @@ REQUIRED_COMMANDS = [
     "python scripts/validate-architecture-decisions.py",
     "python scripts/validate-chainstation-surfaces.py",
     "python scripts/validate-genesis-cats.py",
+    "python scripts/validate-factual-retrieval-cases.py",
     "python scripts/validate-kb-manifest.py",
 ]
 
@@ -40,6 +41,7 @@ NAMESPACE_COLLECTIONS = {
     "agent-routes": ("data/agent-index.json", "tasks", "key"),
     "task-recipes": ("data/task-recipes.json", "recipes", "key"),
     "benchmark-cases": ("data/agent-query-cases.json", "cases", "id"),
+    "factual-retrieval-cases": ("data/factual-retrieval-cases.json", "cases", "id"),
     "gap-records": ("data/kb-gap-index.json", "resolvedOrPartiallyResolvedGaps", "key"),
     "identifier-fixtures": ("data/identifier-conversion-cases.json", "fixtures", "key"),
     "materialization-fixtures": ("data/materialization-parity-cases.json", "fixtures", "key"),

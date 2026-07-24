@@ -493,6 +493,24 @@
         "Use the six released groups for exact mapping; do not turn the remaining 160 derivable indices into claimed tokens, rescue-order entries, adoptions, or owners.",
         "The official outcome supports permanent locking, while the technical locking mechanism remains unresolved without direct post-vote evidence."
       ]
+    },
+    {
+      "key": "review-factual-retrieval-benchmark",
+      "description": "Review or maintain provenance-aware factual MoonCat answer constraints without loading the full KB or confusing them with routing benchmark cases.",
+      "primaryFiles": [
+        "data/factual-retrieval-cases.json",
+        "docs/factual-retrieval-benchmark.md"
+      ],
+      "optionalFiles": [
+        "data/agent-query-cases.json",
+        "data/kb-gap-index.json",
+        "scripts/validate-factual-retrieval-cases.py"
+      ],
+      "notes": [
+        "Select one factual case, then load only its required domain files; optional files do not authorize broad corpus loading.",
+        "The benchmark constrains source-aware correctness and stop conditions; it does not run or score an LLM.",
+        "Keep factual retrieval cases separate from data/agent-query-cases.json, which remains a routing/context benchmark."
+      ]
     }
   ]
 }

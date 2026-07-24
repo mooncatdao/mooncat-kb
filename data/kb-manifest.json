@@ -92,7 +92,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 101,
+    "maintainedFileCount": 104,
     "excludedFileCount": 71,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -197,8 +197,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5677,
-      "sha256": "018d30be2d55256351d9ad17ff6a234bbed2a6c4120ecd2f000bbabdae0275e8",
+      "sizeBytes": 5855,
+      "sha256": "447b4af797756d666a4e9fa48e3f761ed063def8703c2a89d3944c367434419f",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -244,7 +244,7 @@
         "generated"
       ],
       "sizeBytes": 75435,
-      "sha256": "e4c01bcfca6073255f5a07467adadeec4f17068253b92635f701f341fbbaf2f2",
+      "sha256": "cecad2fc441abe5361f65938d761428d65ac7e186b99d45fdf6389ef14b5277f",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -270,8 +270,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 21680,
-      "sha256": "7e34da49eb3535a12c1cc1ab62692cb807d25dd23b47e6876a8009bed9c260e2",
+      "sizeBytes": 22597,
+      "sha256": "9b8f8177a872d12678266ec5918a7caf4905a46a5d54d083d0ccf8a2d9038f4e",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -302,9 +302,11 @@
       "sizeBytes": 32395,
       "sha256": "62f6ebf2e9cee090755cf1af0b46f751dbe03320f72a8211cfc73fc04408fc87",
       "agentRoutes": [
+        "review-factual-retrieval-benchmark",
         "use-agent-context-packs"
       ],
       "taskRecipes": [
+        "review-factual-retrieval-benchmark",
         "use-agent-context-packs"
       ],
       "generatorCommand": null,
@@ -628,6 +630,33 @@
       "directAgentLoadRecommended": true
     },
     {
+      "path": "data/factual-retrieval-cases.json",
+      "fileRole": "workflow-data",
+      "topics": [
+        "agent-workflow",
+        "routing"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 38658,
+      "sha256": "eec09b0d3f608d88fcfc32eca7974ca0208b81f940efeeb905b85b2258f83345",
+      "agentRoutes": [
+        "review-factual-retrieval-benchmark"
+      ],
+      "taskRecipes": [
+        "review-factual-retrieval-benchmark"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [
+        "python scripts/validate-factual-retrieval-cases.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
       "path": "data/genesis-cats.json",
       "fileRole": "canonical-data",
       "topics": [
@@ -756,9 +785,10 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 38481,
-      "sha256": "bd3a9aacb32d6a878aa0acec82be8e3b32d19d278f8842db730e1a49f75c8ed1",
+      "sizeBytes": 39337,
+      "sha256": "a4058d6cc91043816d248d78e65a9d4fd88a24b3293b915756845e13ab1ced54",
       "agentRoutes": [
+        "review-factual-retrieval-benchmark",
         "review-kb-gaps",
         "review-upstream-snapshot-provenance",
         "use-agent-context-packs"
@@ -766,6 +796,7 @@
       "taskRecipes": [
         "check-source-provenance",
         "choose-contract-surface",
+        "review-factual-retrieval-benchmark",
         "review-upstream-snapshots",
         "use-agent-context-packs"
       ],
@@ -1293,8 +1324,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 44655,
-      "sha256": "534362023c116ca7bc0d487de2155b3d5e038600d3811ec5e5f1233ca89304f7",
+      "sizeBytes": 46828,
+      "sha256": "d51af5d7317b3bbea1c828611e814748401d09c769e8c91e6040612b74b3e0e9",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1564,6 +1595,31 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "docs/factual-retrieval-benchmark.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2810,
+      "sha256": "b740bd89d9ffdeb2863a92b84c46f1887f0d356c5ba7a7a7d3c7520780765c05",
+      "agentRoutes": [
+        "review-factual-retrieval-benchmark"
+      ],
+      "taskRecipes": [
+        "review-factual-retrieval-benchmark"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
       "path": "docs/generated-trait-data.md",
       "fileRole": "documentation",
       "topics": [
@@ -1697,8 +1753,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4757,
-      "sha256": "e0d73b72e9f5b4ee677e426074a1a54bea599ef604b862600b6c415976c5426c",
+      "sizeBytes": 4979,
+      "sha256": "68b2dae57cbe29a150896907bbae01d9a19932a371ccc32c7a16df38face3ba9",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2297,8 +2353,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2490,
-      "sha256": "22605739b0268b029e7a9f3771d6bf6843d9522f9af00dd46c4f1ca5998b91c3",
+      "sizeBytes": 2772,
+      "sha256": "239204aee259aa3d7d52f9ab1a3815e955c4ca58b828cf53fda1df1364244c5a",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2341,8 +2397,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 11296,
-      "sha256": "913396320fe9e9d8078d0e3f01dbb64277f4fdac460a6b71b987bb75e3b6d82a",
+      "sizeBytes": 11439,
+      "sha256": "2b63b599ce2cd34939479adbae16d9f77c717c4ac5b8629c1c48f9efcb66014d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2389,8 +2445,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 12907,
-      "sha256": "5b4b8697239c8f493473b0dc5d895e199ec7e5c4484e2f1aa4e6abaa3fd124df",
+      "sizeBytes": 13041,
+      "sha256": "a9d106466237b5e290c29848c0782c164ee078cb2fd6098213a5cf1308719512",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2545,6 +2601,32 @@
       ],
       "taskRecipes": [
         "classify-mooncat-colors"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-factual-retrieval-cases.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 9147,
+      "sha256": "135f925c3a220de5267ce84a656ee702abb66b2202b86b673f6a1b1380b1cf6b",
+      "agentRoutes": [
+        "review-factual-retrieval-benchmark"
+      ],
+      "taskRecipes": [
+        "review-factual-retrieval-benchmark"
       ],
       "generatorCommand": null,
       "checkCommand": null,

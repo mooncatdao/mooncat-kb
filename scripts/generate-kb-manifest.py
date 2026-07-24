@@ -71,6 +71,7 @@ VALIDATOR_COMMANDS = {
     "data/architecture-decisions.json": ["python scripts/validate-architecture-decisions.py"],
     "data/chainstation-surfaces.json": ["python scripts/validate-chainstation-surfaces.py"],
     "data/genesis-cats.json": ["python scripts/validate-genesis-cats.py"],
+    "data/factual-retrieval-cases.json": ["python scripts/validate-factual-retrieval-cases.py"],
 }
 
 
@@ -169,7 +170,7 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
         return "documentation", [topic], "curated", ["curated", "doc"]
     if relative_path == "data/sources.json":
         return "source-index", ["provenance", "sources"], "curated", ["curated"]
-    if relative_path in {"data/agent-index.json", "data/task-recipes.json", "data/kb-gap-index.json", "data/agent-query-cases.json", "data/agent-coding-patterns.json"}:
+    if relative_path in {"data/agent-index.json", "data/task-recipes.json", "data/kb-gap-index.json", "data/agent-query-cases.json", "data/factual-retrieval-cases.json", "data/agent-coding-patterns.json"}:
         return "workflow-data", ["agent-workflow", "routing"], "curated", ["curated"]
     if relative_path in GENERATED_ARTIFACTS:
         return "workflow-data" if relative_path == "data/agent-context-packs.json" else "canonical-data", ["generated-data", "mooncat-knowledge"], "generated", ["generated"]

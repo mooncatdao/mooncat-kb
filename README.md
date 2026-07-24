@@ -6,6 +6,7 @@ Start here:
 
 - `data/agent-index.json` — preferred first load target for task-specific agent context routing
 - `data/agent-query-cases.json` and `data/agent-context-packs.json` — deterministic coding-agent benchmark and minimal generated context packs
+- `data/factual-retrieval-cases.json` and `docs/factual-retrieval-benchmark.md` — deterministic provenance-aware factual retrieval cases, separate from coding-route validation
 - `docs/agent-usage.md` — route/pack selection, uncertainty, and validation workflow
 - `data/agent-coding-patterns.json` — pointers to tested local coding patterns and validators
 - `data/kb-manifest.json` and `data/kb-audit-report.json` — generated maintained-file inventory and latest bounded integrity-audit report

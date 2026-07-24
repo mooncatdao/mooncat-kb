@@ -31,7 +31,7 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 43 Required file references checked: 404 sourceRefs checked: 1123 relatedFiles checked: 231 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 44 Required file references checked: 415 sourceRefs checked: 1123 relatedFiles checked: 231 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
@@ -88,21 +88,27 @@
       "outputSummary": "Genesis Cats validation passed"
     },
     {
+      "command": "python scripts/validate-factual-retrieval-cases.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "Factual retrieval benchmark validation passed: 32 cases; direct-lookup=8, cross-source-synthesis=8, provenance-boundary=8, live-verification-stop=8"
+    },
+    {
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 101 maintained files, 71 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 104 maintained files, 71 explicit exclusions, hashes, routes, and commands validated"
     }
   ],
   "counts": {
-    "requiredCommandCount": 15,
+    "requiredCommandCount": 16,
     "failedRequiredCommandCount": 0,
-    "duplicateNamespaceCount": 12,
-    "internalPathsChecked": 1409,
+    "duplicateNamespaceCount": 13,
+    "internalPathsChecked": 1516,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 101,
+    "manifestMaintainedFileCount": 104,
     "manifestExcludedFileCount": 71
   },
   "duplicateIdChecks": {
@@ -114,12 +120,12 @@
       },
       "agent-routes": {
         "file": "data/agent-index.json",
-        "count": 25,
+        "count": 26,
         "duplicates": []
       },
       "task-recipes": {
         "file": "data/task-recipes.json",
-        "count": 20,
+        "count": 21,
         "duplicates": []
       },
       "benchmark-cases": {
@@ -127,9 +133,14 @@
         "count": 24,
         "duplicates": []
       },
+      "factual-retrieval-cases": {
+        "file": "data/factual-retrieval-cases.json",
+        "count": 32,
+        "duplicates": []
+      },
       "gap-records": {
         "file": "data/kb-gap-index.json",
-        "count": 25,
+        "count": 26,
         "duplicates": []
       },
       "identifier-fixtures": {
@@ -171,7 +182,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 1409,
+    "checked": 1516,
     "errors": [],
     "warnings": []
   },

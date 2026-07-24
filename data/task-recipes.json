@@ -793,6 +793,41 @@
         "Stop if the answer needs a current owner, market price, live contract/key state, transaction aggregate, or a technical lock mechanism not directly preserved by post-vote evidence.",
         "Stop if a requested mapping is outside the 96 released members and would require claiming an unreleased rescue order or token."
       ]
+    },
+    {
+      "key": "review-factual-retrieval-benchmark",
+      "purpose": "Review a deterministic factual-answer contract or add a bounded case without duplicating MoonCat facts, routing cases, or a full answer corpus.",
+      "loadOrder": [
+        "data/factual-retrieval-cases.json",
+        "docs/factual-retrieval-benchmark.md"
+      ],
+      "optionalFiles": [
+        "data/agent-query-cases.json",
+        "data/kb-gap-index.json",
+        "scripts/validate-factual-retrieval-cases.py"
+      ],
+      "steps": [
+        "Select the factual case and classify it as direct lookup, cross-source synthesis, provenance boundary, or live-verification stop.",
+        "Load only the case's required files, using optional files when the case explicitly needs additional routing or gap context.",
+        "Check required concepts, forbidden claims, source-class distinctions, and expected limitations before reviewing an answer.",
+        "For live-verification cases, stop the static answer and name the required current evidence instead of inferring present truth.",
+        "Run the factual benchmark validator; update routing, manifest, and audit registration only when this benchmark surface changes."
+      ],
+      "outputs": [
+        "case-specific evidence boundary",
+        "required answer constraints",
+        "explicit uncertainty or live-verification stop when required",
+        "grounded KB gap when a compact source is missing"
+      ],
+      "guardrails": [
+        "Do not write full prose answers, an LLM score, or an evaluator result into the benchmark dataset.",
+        "Do not merge factual cases into data/agent-query-cases.json or treat routing sufficiency as factual correctness.",
+        "Do not promote historical source, ADR, configuration, or static index evidence into current owner, price, deployment, API, chain, or key-state claims."
+      ],
+      "stopConditions": [
+        "Stop if the requested answer requires current external state without separately authorized live verification.",
+        "Stop if a needed fact is not supported by a case's required files and would require guessing or unscoped source import."
+      ]
     }
   ],
   "limitations": [
