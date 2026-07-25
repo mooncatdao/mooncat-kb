@@ -320,7 +320,7 @@
     },
     {
       "id": "synthesis-fully-on-chain-materialization-path",
-      "question": "Which reviewed contracts and source-described mechanisms form the MoonCat on-chain materialization path, and what does each evidence layer establish about that path?",
+      "question": "Which eight core reviewed contracts—MoonCatRescue, MoonCatAcclimator, MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, MoonCatAccessories, and MoonCatAccessoryImages—form the MoonCat on-chain materialization path, and which adjacent reviewed contracts such as MoonCatsWrapped/WMCR must be kept separate from that core path; what does each evidence layer establish about the path?",
       "category": "contracts-materialization",
       "difficultyClass": "cross-source-synthesis",
       "expectedAnswerMode": "answer-with-qualified-uncertainty",
@@ -341,7 +341,16 @@
         "deterministic derivations",
         "reviewer synthesis across multiple contracts",
         "on-chain materialization surfaces",
-        "off-chain API/hosting/IPFS/Firebase/marketplace/frontend boundary"
+        "off-chain API/hosting/IPFS/Firebase/marketplace/frontend boundary",
+        "eight core materialization contracts",
+        "adjacent wrapper context",
+        "MoonCatsWrapped/WMCR is not a ninth core materialization contract",
+        "API availability boundary",
+        "hosting availability boundary",
+        "IPFS availability boundary",
+        "Firebase availability boundary",
+        "marketplace availability boundary",
+        "frontend availability boundary"
       ],
       "requiredFiles": [
         "data/architecture-decisions.json",
@@ -358,7 +367,9 @@
         "recorded addresses prove current admin, owner, proxy, storage, supply, or token ownership state",
         "source-described SVG/palette/trait/accessory paths prove current retrievability or exact output",
         "the contract set proves every MoonCat asset is currently fully on-chain",
-        "configured endpoints are presently available without live verification"
+        "configured endpoints are presently available without live verification",
+        "MoonCatsWrapped/WMCR is a ninth core materialization contract in the path",
+        "static source or configuration proves API, hosting, IPFS, Firebase, marketplace, or frontend availability"
       ],
       "provenanceRequirements": {
         "mustDistinguish": [
@@ -370,7 +381,10 @@
           "deterministic derivations",
           "reviewer synthesis across multiple contracts",
           "on-chain materialization surfaces",
-          "off-chain availability"
+          "off-chain availability",
+          "eight core contracts versus adjacent wrapper context",
+          "core materialization path versus wrapper mapping path",
+          "off-chain API/hosting/IPFS/Firebase/marketplace/frontend availability"
         ],
         "expectedSourceClasses": ["canonical-data", "historical-primary", "current-maintainer-technical", "pinned-source-review"]
       },
@@ -382,9 +396,11 @@
         "The KB lacks complete mappings.",
         "The KB lacks generated outputs.",
         "The KB lacks current admin/ownership reads.",
-        "The KB lacks current endpoint/content checks."
+        "The KB lacks current endpoint/content checks.",
+        "MoonCatsWrapped/WMCR is reviewed adjacent wrapper context and is not part of the eight-contract core materialization path.",
+        "Static required files do not establish current API, hosting, IPFS, Firebase, marketplace, or frontend availability."
       ],
-      "reviewerNotes": "Synthesize the eight reviewed contract roles from the six required files, then stop at the documented boundary instead of answering that MoonCats are fully on-chain now."
+      "reviewerNotes": "Synthesize exactly the eight core reviewed contract roles from the six required files; identify MoonCatsWrapped/WMCR only as adjacent wrapper context, enumerate API/hosting/IPFS/Firebase/marketplace/frontend availability as a separate off-chain boundary, and stop at the documented boundary instead of answering that MoonCats are fully on-chain now."
     },
     {
       "id": "synthesis-source-confidence-conflict",

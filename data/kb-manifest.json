@@ -92,7 +92,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 106,
+    "maintainedFileCount": 107,
     "excludedFileCount": 71,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -640,8 +640,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 44211,
-      "sha256": "cbc024fffe950b9d96d909675d8ff53f91d4f538d36162c9145928c2f63d8a37",
+      "sizeBytes": 45706,
+      "sha256": "05c34c968af125136c31fe1f97ee65ef2e0e13c370469ef4746d6a27bd48e80e",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -1476,6 +1476,27 @@
       "validatorCommands": [],
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/benchmark-pilots/2026-07-25-antigravity-six-case-control-follow-up.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 1546,
+      "sha256": "be1446f061ed7075061854be42ceea0892337983e61d6c3e5ba662fe957e5b8c",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
     },
     {
       "path": "docs/benchmark-pilots/2026-07-25-antigravity-two-case.md",
@@ -2662,8 +2683,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 15879,
-      "sha256": "9087b2d469309262d1596743aeefd524e700f431f97257d643f39922315dbd73",
+      "sizeBytes": 16109,
+      "sha256": "815be06ff0a3315eca8f6292cdd2167e6133c7483d2f67759e364a9e0a24c950",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],

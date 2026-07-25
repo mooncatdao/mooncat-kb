@@ -44,7 +44,7 @@ GENESIS_SYNTHESIS_FORBIDDEN = {
     "private-key destruction is the verified final locking mechanism",
 }
 ONCHAIN_SYNTHESIS_CASE_ID = "synthesis-fully-on-chain-materialization-path"
-ONCHAIN_SYNTHESIS_QUESTION = "Which reviewed contracts and source-described mechanisms form the MoonCat on-chain materialization path, and what does each evidence layer establish about that path?"
+ONCHAIN_SYNTHESIS_QUESTION = "Which eight core reviewed contracts—MoonCatRescue, MoonCatAcclimator, MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, MoonCatAccessories, and MoonCatAccessoryImages—form the MoonCat on-chain materialization path, and which adjacent reviewed contracts such as MoonCatsWrapped/WMCR must be kept separate from that core path; what does each evidence layer establish about the path?"
 ONCHAIN_SYNTHESIS_REQUIRED_FILES = [
     "data/architecture-decisions.json",
     "docs/architecture-decisions.md",
