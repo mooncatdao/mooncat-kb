@@ -320,7 +320,7 @@
     },
     {
       "id": "synthesis-fully-on-chain-materialization-path",
-      "question": "Which eight core reviewed contracts—MoonCatRescue, MoonCatAcclimator, MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, MoonCatAccessories, and MoonCatAccessoryImages—form the MoonCat on-chain materialization path, and which adjacent reviewed contracts such as MoonCatsWrapped/WMCR must be kept separate from that core path; what does each evidence layer establish about the path?",
+      "question": "Which eight core reviewed contracts—MoonCatRescue, MoonCatAcclimator, MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, MoonCatAccessories, and MoonCatAccessoryImages—form the MoonCat on-chain materialization path, and which adjacent reviewed contracts such as MoonCatsWrapped/WMCR must be kept separate from that core path; what do the supplied files establish or leave unresolved about design intent, source implementation, historical deployment evidence, current chain state, and API, hosting, IPFS, Firebase, marketplace, and frontend availability?",
       "category": "contracts-materialization",
       "difficultyClass": "cross-source-synthesis",
       "expectedAnswerMode": "answer-with-qualified-uncertainty",

@@ -640,8 +640,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 45706,
-      "sha256": "05c34c968af125136c31fe1f97ee65ef2e0e13c370469ef4746d6a27bd48e80e",
+      "sizeBytes": 45878,
+      "sha256": "d39d0631a8563533ddf03588c459875f918a6e3761db229aa1b9199769eee47e",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -1488,8 +1488,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 1546,
-      "sha256": "be1446f061ed7075061854be42ceea0892337983e61d6c3e5ba662fe957e5b8c",
+      "sizeBytes": 2176,
+      "sha256": "1942fcfe47e0fda48fb5cf227d5bb1888846a005b256ea937f09064e6e86e23d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2683,8 +2683,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 16109,
-      "sha256": "815be06ff0a3315eca8f6292cdd2167e6133c7483d2f67759e364a9e0a24c950",
+      "sizeBytes": 16281,
+      "sha256": "55a31fc0aeb7fb3b6d0055755a0611b96215217dcb3c71b25aac70b1808bb991",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
