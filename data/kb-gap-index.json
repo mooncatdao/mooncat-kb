@@ -728,7 +728,7 @@
     {
       "key": "fully-on-chain-architecture-synthesis",
       "priority": "medium",
-      "reason": "Open: no fully-on-chain architecture synthesis case was added; ADR intent, implementation, deployment, and live chain state remain distinct."
+      "reason": "Audit: case ready; ADR/source/address evidence exists, but bytecode, deployment, ownership, live output and web endpoints remain unverified."
     }
   ]
 }

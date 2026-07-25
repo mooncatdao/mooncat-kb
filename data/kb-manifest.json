@@ -92,7 +92,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 104,
+    "maintainedFileCount": 105,
     "excludedFileCount": 71,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -786,7 +786,7 @@
         "curated"
       ],
       "sizeBytes": 39337,
-      "sha256": "c78f44b33ed35840fbb15166afd2723e2dd988e097bf11068c795b138aca981c",
+      "sha256": "1c810e9aad428877744f4277e6fa2a69971e199041849e04c4b5aab9cb0a90d9",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
@@ -1618,6 +1618,27 @@
       "validatorCommands": [],
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/fully-on-chain-evidence-readiness.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 8943,
+      "sha256": "420ac420dfc493875fda1a50a03c7128059d5f58e3b3ce127e8197c4f8ae7681",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
     },
     {
       "path": "docs/generated-trait-data.md",
