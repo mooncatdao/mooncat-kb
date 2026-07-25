@@ -1,8 +1,8 @@
 {
   "version": 8,
-  "updated": "2026-07-24",
-  "status": "refreshed-with-factual-retrieval-benchmark",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CID verification, identifier-boundary cleanup, color-source inventory, color-model review, derived human-facing color classification, identifier conversion verification, materialization parity fixtures, coding-agent query benchmark/context packs, MoonCatColors internals review, original rescue-mining reference work, MoonCatSVGs internals review, MoonCatAccessoryImages internals review, the exact MoonCatsWrapped identifier review, the complete pinned dev-environment ADR directory index, a compact pinned ChainStation implementation-surface audit, the bounded Genesis history/population reconstruction, and the deterministic factual-retrieval benchmark.",
+  "updated": "2026-07-25",
+  "status": "refreshed-with-genesis-collection-synthesis-benchmark-case",
+  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CIDs, identifier, color, materialization, contract, ChainStation, ADRs, Genesis history, and factual-retrieval reviews, including the Genesis collection-rationale synthesis benchmark case and its explicit open architecture boundary while preserving source-backed uncertainty and current-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -90,7 +90,7 @@
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "Thirty-two cases, balanced across direct lookup, cross-source synthesis, provenance boundaries, and live-verification stops, now exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes."
+      "notes": "Thirty-three cases now exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes. Coverage is 8 direct lookup, 9 cross-source synthesis, 8 provenance boundaries, and 8 live-verification stops; the Genesis collection-rationale case covers the causal 256-to-96 synthesis gap."
     },
     {
       "key": "genesis-history-and-population-reconstruction",
@@ -724,6 +724,11 @@
       "key": "ipfs-payload-availability-check",
       "priority": "low",
       "reason": "data/ipfs-cids.json has source-observed CIDs, but payload availability, file counts, schemas, pinning status, and hash validation remain intentionally unchecked."
+    },
+    {
+      "key": "fully-on-chain-architecture-synthesis",
+      "priority": "medium",
+      "reason": "Open: no fully-on-chain architecture synthesis case was added; ADR intent, implementation, deployment, and live chain state remain distinct."
     }
   ]
 }

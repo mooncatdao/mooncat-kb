@@ -91,7 +91,7 @@
       "command": "python scripts/validate-factual-retrieval-cases.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "Factual retrieval benchmark validation passed: 32 cases; direct-lookup=8, cross-source-synthesis=8, provenance-boundary=8, live-verification-stop=8"
+      "outputSummary": "Factual retrieval benchmark validation passed: 33 cases; direct-lookup=8, cross-source-synthesis=9, provenance-boundary=8, live-verification-stop=8"
     },
     {
       "command": "python scripts/validate-kb-manifest.py",
@@ -104,7 +104,7 @@
     "requiredCommandCount": 16,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 1516,
+    "internalPathsChecked": 1519,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
@@ -135,7 +135,7 @@
       },
       "factual-retrieval-cases": {
         "file": "data/factual-retrieval-cases.json",
-        "count": 32,
+        "count": 33,
         "duplicates": []
       },
       "gap-records": {
@@ -182,7 +182,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 1516,
+    "checked": 1519,
     "errors": [],
     "warnings": []
   },

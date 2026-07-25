@@ -22,6 +22,27 @@ REQUIRED_BOUNDARY_TERMS = {
     "architecture-decisions": {"design intent", "implementation evidence"},
     "live-state-boundaries": {"current"},
 }
+GENESIS_SYNTHESIS_CASE_ID = "synthesis-genesis-collection-rationale"
+GENESIS_SYNTHESIS_QUESTION = "Why did only 96 of the 256 planned Genesis Cats enter the final 25,440-Cat collection?"
+GENESIS_SYNTHESIS_CONCEPTS = {
+    "256 Genesis Cats planned",
+    "96 released and entered the collection",
+    "six released groups of 16",
+    "160 permanently locked and unreleased",
+    "25,344 Rescue Cats + 96 Genesis Cats = 25,440",
+}
+GENESIS_SYNTHESIS_DISTINCTIONS = {
+    "contract-planned or formula-derivable population",
+    "released collection membership",
+    "official post-vote outcome",
+    "deterministic arithmetic",
+    "unresolved final technical locking mechanism",
+}
+GENESIS_SYNTHESIS_FORBIDDEN = {
+    "all 256 were minted",
+    "the remaining 160 have rescue orders, owners, or collection membership",
+    "private-key destruction is the verified final locking mechanism",
+}
 
 
 def fail(errors: list[str]) -> int:
@@ -116,6 +137,22 @@ def validate_case(case: Any, data: dict[str, Any], errors: list[str]) -> None:
     if case["category"] == "genesis-history" and "technical mechanism" in " ".join(case["requiredConcepts"]).lower():
         if not any("unresolved" in item.lower() for item in case["expectedLimitations"]):
             errors.append(f"{case_id}: Genesis lock-mechanism case must preserve unresolved status")
+    if case_id == GENESIS_SYNTHESIS_CASE_ID:
+        if case["question"] != GENESIS_SYNTHESIS_QUESTION:
+            errors.append(f"{case_id}: question does not match the required Genesis collection rationale")
+        if case["difficultyClass"] != "cross-source-synthesis":
+            errors.append(f"{case_id}: Genesis collection rationale must be cross-source-synthesis")
+        if case["requiredFiles"] != ["data/genesis-cats.json", "docs/genesis-cats.md"]:
+            errors.append(f"{case_id}: requiredFiles must be the Genesis data and documentation pair")
+        missing_concepts = GENESIS_SYNTHESIS_CONCEPTS - set(case["requiredConcepts"])
+        if missing_concepts:
+            errors.append(f"{case_id}: missing required population concepts: {', '.join(sorted(missing_concepts))}")
+        missing_distinctions = GENESIS_SYNTHESIS_DISTINCTIONS - set(distinctions)
+        if missing_distinctions:
+            errors.append(f"{case_id}: missing required provenance distinctions: {', '.join(sorted(missing_distinctions))}")
+        missing_forbidden = GENESIS_SYNTHESIS_FORBIDDEN - set(case["forbiddenClaims"])
+        if missing_forbidden:
+            errors.append(f"{case_id}: missing required forbidden claims: {', '.join(sorted(missing_forbidden))}")
 
 
 def main() -> int:
@@ -139,8 +176,11 @@ def main() -> int:
     if not isinstance(cases, list):
         return fail([*errors, "cases must be a list"])
     case_count_range = policy.get("caseCountRange")
-    if case_count_range != [32, 40] or not 32 <= len(cases) <= 40:
-        errors.append("benchmark must contain 32 through 40 cases with policy range [32, 40]")
+    expected_case_count = policy.get("expectedCaseCount")
+    if case_count_range != [33, 40] or not 33 <= len(cases) <= 40:
+        errors.append("benchmark must contain 33 through 40 cases with policy range [33, 40]")
+    if expected_case_count != 33 or len(cases) != expected_case_count:
+        errors.append("benchmark must contain exactly 33 cases")
     counts = Counter(case.get("difficultyClass") for case in cases if isinstance(case, dict))
     minimum = policy.get("minimumCasesPerDifficultyClass")
     if minimum != 8:
@@ -148,6 +188,9 @@ def main() -> int:
     for difficulty in enums.get("difficultyClasses", []):
         if counts[difficulty] < 8:
             errors.append(f"difficulty class {difficulty} has fewer than eight cases")
+    expected_counts = policy.get("expectedDifficultyCounts")
+    if not isinstance(expected_counts, dict) or any(counts[difficulty] != expected_counts.get(difficulty) for difficulty in enums.get("difficultyClasses", [])):
+        errors.append("difficulty class counts must remain exactly 8, 9, 8, 8 in enum order")
     categories = {case.get("category") for case in cases if isinstance(case, dict)}
     required_domains = set(policy.get("requiredDomains", []))
     missing_domains = required_domains - categories

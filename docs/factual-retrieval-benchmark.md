@@ -16,7 +16,9 @@ or network harness.
 
 ## Schema and classes
 
-The dataset defines its closed enums and contains four balanced classes:
+The dataset defines its closed enums and contains 33 cases: eight direct
+lookup, nine cross-source synthesis, eight provenance-boundary, and eight
+live-verification-stop cases:
 
 - `direct-lookup`: retrieve a bounded fact or KB policy from its owning file.
 - `cross-source-synthesis`: combine narrow sources while retaining their
@@ -29,6 +31,12 @@ The dataset defines its closed enums and contains four balanced classes:
 Answer modes identify whether an answer can come from static data, must include
 qualified uncertainty, must separate ADR intent from implementation, or must
 stop for live verification.
+
+The Genesis collection-rationale synthesis case is distinct from the direct
+population-arithmetic case: it asks for the historical explanation assembled
+from release-group, post-vote, collection-total, and unresolved-mechanism
+evidence. It does not add a fully-on-chain architecture synthesis case; that
+gap remains open.
 
 ## Running a review
 

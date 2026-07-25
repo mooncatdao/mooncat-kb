@@ -27,8 +27,15 @@
     ]
   },
   "coveragePolicy": {
-    "caseCountRange": [32, 40],
+    "caseCountRange": [33, 40],
+    "expectedCaseCount": 33,
     "minimumCasesPerDifficultyClass": 8,
+    "expectedDifficultyCounts": {
+      "direct-lookup": 8,
+      "cross-source-synthesis": 9,
+      "provenance-boundary": 8,
+      "live-verification-stop": 8
+    },
     "requiredDomains": [
       "rescue-mechanics",
       "identifiers",
@@ -257,6 +264,44 @@
       "liveVerification": {"required": false, "reason": "Released membership and formula are checked-in historical data."},
       "expectedLimitations": ["Only indices 0 through 95 have the reconstructed released-member mapping."],
       "reviewerNotes": "Require formula plus bucket cross-check rather than treating either alone as universal identity."
+    },
+    {
+      "id": "synthesis-genesis-collection-rationale",
+      "question": "Why did only 96 of the 256 planned Genesis Cats enter the final 25,440-Cat collection?",
+      "category": "genesis-history",
+      "difficultyClass": "cross-source-synthesis",
+      "expectedAnswerMode": "answer-with-qualified-uncertainty",
+      "requiredConcepts": [
+        "256 Genesis Cats planned",
+        "96 released and entered the collection",
+        "six released groups of 16",
+        "160 permanently locked and unreleased",
+        "25,344 Rescue Cats + 96 Genesis Cats = 25,440"
+      ],
+      "requiredFiles": ["data/genesis-cats.json", "docs/genesis-cats.md"],
+      "optionalFiles": [],
+      "forbiddenClaims": [
+        "all 256 were minted",
+        "the remaining 160 have rescue orders, owners, or collection membership",
+        "private-key destruction is the verified final locking mechanism"
+      ],
+      "provenanceRequirements": {
+        "mustDistinguish": [
+          "contract-planned or formula-derivable population",
+          "released collection membership",
+          "official post-vote outcome",
+          "deterministic arithmetic",
+          "unresolved final technical locking mechanism"
+        ],
+        "expectedSourceClasses": ["canonical-data", "historical-primary", "community-maintained"]
+      },
+      "liveVerification": {"required": false, "reason": "The question asks for a bounded historical synthesis from reviewed local evidence."},
+      "expectedLimitations": [
+        "The official outcome and arithmetic do not identify the final technical locking mechanism.",
+        "The reconstruction does not establish rescue orders, owners, or collection membership for the remaining 160.",
+        "Pre-vote private-key destruction discussion is not proof of the completed mechanism."
+      ],
+      "reviewerNotes": "Explain the release and vote outcome causally while keeping planned population, collection membership, arithmetic, and unresolved implementation evidence separate from the direct arithmetic case."
     },
     {
       "id": "synthesis-contract-materialization-source-chain",
