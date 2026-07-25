@@ -92,7 +92,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 105,
+    "maintainedFileCount": 106,
     "excludedFileCount": 71,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -1476,6 +1476,27 @@
       "validatorCommands": [],
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/benchmark-pilots/2026-07-25-antigravity-two-case.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 4208,
+      "sha256": "0a9528a59c7ae5d63487ee16378bdc4397cdf3b78c8f0bbad8e90d5d3b177f14",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
     },
     {
       "path": "docs/chainstation-surfaces.md",
