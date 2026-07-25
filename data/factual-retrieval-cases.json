@@ -27,12 +27,12 @@
     ]
   },
   "coveragePolicy": {
-    "caseCountRange": [33, 40],
-    "expectedCaseCount": 33,
+    "caseCountRange": [34, 40],
+    "expectedCaseCount": 34,
     "minimumCasesPerDifficultyClass": 8,
     "expectedDifficultyCounts": {
       "direct-lookup": 8,
-      "cross-source-synthesis": 9,
+      "cross-source-synthesis": 10,
       "provenance-boundary": 8,
       "live-verification-stop": 8
     },
@@ -317,6 +317,74 @@
       "liveVerification": {"required": false, "reason": "The answer is about evidence classification."},
       "expectedLimitations": ["Exact contract serialization may remain unavailable even when a related parser is reviewed."],
       "reviewerNotes": "Look for a layered evidence chain, not a single-file conclusion."
+    },
+    {
+      "id": "synthesis-fully-on-chain-materialization-path",
+      "question": "Which reviewed contracts and source-described mechanisms form the MoonCat on-chain materialization path, and what does each evidence layer establish about that path?",
+      "category": "contracts-materialization",
+      "difficultyClass": "cross-source-synthesis",
+      "expectedAnswerMode": "answer-with-qualified-uncertainty",
+      "requiredConcepts": [
+        "MoonCatRescue",
+        "MoonCatAcclimator",
+        "MoonCatReference",
+        "MoonCatTraits",
+        "MoonCatColors",
+        "MoonCatSVGs",
+        "MoonCatAccessories",
+        "MoonCatAccessoryImages",
+        "ADR/design intent",
+        "source implementation",
+        "historical deployed-address/source evidence",
+        "live/current chain state",
+        "direct source statements",
+        "deterministic derivations",
+        "reviewer synthesis across multiple contracts",
+        "on-chain materialization surfaces",
+        "off-chain API/hosting/IPFS/Firebase/marketplace/frontend boundary"
+      ],
+      "requiredFiles": [
+        "data/architecture-decisions.json",
+        "docs/architecture-decisions.md",
+        "data/contracts.json",
+        "docs/contracts.md",
+        "data/contract-surfaces.json",
+        "data/materialization-internals.json"
+      ],
+      "optionalFiles": [],
+      "forbiddenClaims": [
+        "ADRs prove implementation or deployment",
+        "verified source proves current bytecode equivalence or active deployment",
+        "recorded addresses prove current admin, owner, proxy, storage, supply, or token ownership state",
+        "source-described SVG/palette/trait/accessory paths prove current retrievability or exact output",
+        "the contract set proves every MoonCat asset is currently fully on-chain",
+        "configured endpoints are presently available without live verification"
+      ],
+      "provenanceRequirements": {
+        "mustDistinguish": [
+          "ADR/design intent",
+          "source implementation",
+          "historical deployed-address/source evidence",
+          "live/current chain state",
+          "direct source statements",
+          "deterministic derivations",
+          "reviewer synthesis across multiple contracts",
+          "on-chain materialization surfaces",
+          "off-chain availability"
+        ],
+        "expectedSourceClasses": ["canonical-data", "historical-primary", "current-maintainer-technical", "pinned-source-review"]
+      },
+      "liveVerification": {"required": false, "reason": "The case is limited to checked-in architecture and historical source/address evidence; it does not perform live verification."},
+      "expectedLimitations": [
+        "The KB lacks full ABIs and Solidity bodies.",
+        "The KB lacks bytecode and constructor verification.",
+        "The KB lacks storage snapshots.",
+        "The KB lacks complete mappings.",
+        "The KB lacks generated outputs.",
+        "The KB lacks current admin/ownership reads.",
+        "The KB lacks current endpoint/content checks."
+      ],
+      "reviewerNotes": "Synthesize the eight reviewed contract roles from the six required files, then stop at the documented boundary instead of answering that MoonCats are fully on-chain now."
     },
     {
       "id": "synthesis-source-confidence-conflict",

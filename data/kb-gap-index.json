@@ -1,8 +1,8 @@
 {
   "version": 8,
   "updated": "2026-07-25",
-  "status": "refreshed-with-genesis-collection-synthesis-benchmark-case",
-  "scope": "Compact agent-usability gap report for current data files after API examples, LibMoonCat surfaces, task recipes, routing updates, IPFS/CIDs, identifier, color, materialization, contract, ChainStation, ADRs, Genesis history, and factual-retrieval reviews, including the Genesis collection-rationale synthesis benchmark case and its explicit open architecture boundary while preserving source-backed uncertainty and current-state limits.",
+  "status": "refreshed-with-bounded-fully-on-chain-synthesis-benchmark-case",
+  "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract, ChainStation, ADR, Genesis, and factual-benchmark reviews, with explicit source, provenance, and live-state limits including bounded fully on-chain synthesis.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -90,7 +90,17 @@
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "Thirty-three cases now exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes. Coverage is 8 direct lookup, 9 cross-source synthesis, 8 provenance boundaries, and 8 live-verification stops; the Genesis collection-rationale case covers the causal 256-to-96 synthesis gap."
+      "notes": "Thirty-four cases now exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes. Coverage is 8 direct lookup, 10 cross-source synthesis, 8 provenance boundaries, and 8 live-verification stops; the Genesis and bounded on-chain synthesis gaps are covered."
+    },
+    {
+      "key": "fully-on-chain-architecture-synthesis",
+      "status": "resolved-as-bounded-synthesis-case",
+      "files": [
+        "data/factual-retrieval-cases.json",
+        "docs/factual-retrieval-benchmark.md",
+        "scripts/validate-factual-retrieval-cases.py"
+      ],
+      "notes": "Bounded 34-case synthesis covers contract roles and evidence boundaries; current state remains out of scope."
     },
     {
       "key": "genesis-history-and-population-reconstruction",
@@ -724,11 +734,6 @@
       "key": "ipfs-payload-availability-check",
       "priority": "low",
       "reason": "data/ipfs-cids.json has source-observed CIDs, but payload availability, file counts, schemas, pinning status, and hash validation remain intentionally unchecked."
-    },
-    {
-      "key": "fully-on-chain-architecture-synthesis",
-      "priority": "medium",
-      "reason": "Audit: case ready; ADR/source/address evidence exists, but bytecode, deployment, ownership, live output and web endpoints remain unverified."
     }
   ]
 }

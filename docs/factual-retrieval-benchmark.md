@@ -16,8 +16,8 @@ or network harness.
 
 ## Schema and classes
 
-The dataset defines its closed enums and contains 33 cases: eight direct
-lookup, nine cross-source synthesis, eight provenance-boundary, and eight
+The dataset defines its closed enums and contains 34 cases: eight direct
+lookup, ten cross-source synthesis, eight provenance-boundary, and eight
 live-verification-stop cases:
 
 - `direct-lookup`: retrieve a bounded fact or KB policy from its owning file.
@@ -35,8 +35,9 @@ stop for live verification.
 The Genesis collection-rationale synthesis case is distinct from the direct
 population-arithmetic case: it asks for the historical explanation assembled
 from release-group, post-vote, collection-total, and unresolved-mechanism
-evidence. It does not add a fully-on-chain architecture synthesis case; that
-gap remains open.
+evidence. The bounded fully-on-chain materialization case separately
+synthesizes reviewed contract roles and evidence layers without asserting
+current deployment, output availability, or present fully-on-chain status.
 
 ## Running a review
 

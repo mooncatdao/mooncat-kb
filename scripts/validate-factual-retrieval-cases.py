@@ -43,6 +43,49 @@ GENESIS_SYNTHESIS_FORBIDDEN = {
     "the remaining 160 have rescue orders, owners, or collection membership",
     "private-key destruction is the verified final locking mechanism",
 }
+ONCHAIN_SYNTHESIS_CASE_ID = "synthesis-fully-on-chain-materialization-path"
+ONCHAIN_SYNTHESIS_QUESTION = "Which reviewed contracts and source-described mechanisms form the MoonCat on-chain materialization path, and what does each evidence layer establish about that path?"
+ONCHAIN_SYNTHESIS_REQUIRED_FILES = [
+    "data/architecture-decisions.json",
+    "docs/architecture-decisions.md",
+    "data/contracts.json",
+    "docs/contracts.md",
+    "data/contract-surfaces.json",
+    "data/materialization-internals.json",
+]
+ONCHAIN_SYNTHESIS_CONCEPTS = {
+    "MoonCatRescue", "MoonCatAcclimator", "MoonCatReference", "MoonCatTraits",
+    "MoonCatColors", "MoonCatSVGs", "MoonCatAccessories", "MoonCatAccessoryImages",
+    "ADR/design intent", "source implementation",
+    "historical deployed-address/source evidence", "live/current chain state",
+    "direct source statements", "deterministic derivations",
+    "reviewer synthesis across multiple contracts", "on-chain materialization surfaces",
+    "off-chain API/hosting/IPFS/Firebase/marketplace/frontend boundary",
+}
+ONCHAIN_SYNTHESIS_DISTINCTIONS = {
+    "ADR/design intent", "source implementation",
+    "historical deployed-address/source evidence", "live/current chain state",
+    "direct source statements", "deterministic derivations",
+    "reviewer synthesis across multiple contracts", "on-chain materialization surfaces",
+    "off-chain availability",
+}
+ONCHAIN_SYNTHESIS_FORBIDDEN = {
+    "ADRs prove implementation or deployment",
+    "verified source proves current bytecode equivalence or active deployment",
+    "recorded addresses prove current admin, owner, proxy, storage, supply, or token ownership state",
+    "source-described SVG/palette/trait/accessory paths prove current retrievability or exact output",
+    "the contract set proves every MoonCat asset is currently fully on-chain",
+    "configured endpoints are presently available without live verification",
+}
+ONCHAIN_SYNTHESIS_LIMITATIONS = {
+    "The KB lacks full ABIs and Solidity bodies.",
+    "The KB lacks bytecode and constructor verification.",
+    "The KB lacks storage snapshots.",
+    "The KB lacks complete mappings.",
+    "The KB lacks generated outputs.",
+    "The KB lacks current admin/ownership reads.",
+    "The KB lacks current endpoint/content checks.",
+}
 
 
 def fail(errors: list[str]) -> int:
@@ -153,6 +196,27 @@ def validate_case(case: Any, data: dict[str, Any], errors: list[str]) -> None:
         missing_forbidden = GENESIS_SYNTHESIS_FORBIDDEN - set(case["forbiddenClaims"])
         if missing_forbidden:
             errors.append(f"{case_id}: missing required forbidden claims: {', '.join(sorted(missing_forbidden))}")
+    if case_id == ONCHAIN_SYNTHESIS_CASE_ID:
+        if case["question"] != ONCHAIN_SYNTHESIS_QUESTION:
+            errors.append(f"{case_id}: question does not match the readiness audit recommendation")
+        if case["difficultyClass"] != "cross-source-synthesis" or case["category"] != "contracts-materialization":
+            errors.append(f"{case_id}: bounded on-chain case must be contracts-materialization cross-source-synthesis")
+        if case["expectedAnswerMode"] != "answer-with-qualified-uncertainty":
+            errors.append(f"{case_id}: bounded on-chain case must use qualified uncertainty")
+        if case["requiredFiles"] != ONCHAIN_SYNTHESIS_REQUIRED_FILES or case["optionalFiles"] != []:
+            errors.append(f"{case_id}: requiredFiles/optionalFiles must match the six-file readiness audit set")
+        missing_concepts = ONCHAIN_SYNTHESIS_CONCEPTS - set(case["requiredConcepts"])
+        if missing_concepts:
+            errors.append(f"{case_id}: missing required concepts: {', '.join(sorted(missing_concepts))}")
+        missing_distinctions = ONCHAIN_SYNTHESIS_DISTINCTIONS - set(distinctions)
+        if missing_distinctions:
+            errors.append(f"{case_id}: missing required provenance distinctions: {', '.join(sorted(missing_distinctions))}")
+        missing_forbidden = ONCHAIN_SYNTHESIS_FORBIDDEN - set(case["forbiddenClaims"])
+        if missing_forbidden:
+            errors.append(f"{case_id}: missing required forbidden claims: {', '.join(sorted(missing_forbidden))}")
+        missing_limitations = ONCHAIN_SYNTHESIS_LIMITATIONS - set(case["expectedLimitations"])
+        if missing_limitations:
+            errors.append(f"{case_id}: missing required limitations: {', '.join(sorted(missing_limitations))}")
 
 
 def main() -> int:
@@ -177,10 +241,10 @@ def main() -> int:
         return fail([*errors, "cases must be a list"])
     case_count_range = policy.get("caseCountRange")
     expected_case_count = policy.get("expectedCaseCount")
-    if case_count_range != [33, 40] or not 33 <= len(cases) <= 40:
-        errors.append("benchmark must contain 33 through 40 cases with policy range [33, 40]")
-    if expected_case_count != 33 or len(cases) != expected_case_count:
-        errors.append("benchmark must contain exactly 33 cases")
+    if case_count_range != [34, 40] or not 34 <= len(cases) <= 40:
+        errors.append("benchmark must contain 34 through 40 cases with policy range [34, 40]")
+    if expected_case_count != 34 or len(cases) != expected_case_count:
+        errors.append("benchmark must contain exactly 34 cases")
     counts = Counter(case.get("difficultyClass") for case in cases if isinstance(case, dict))
     minimum = policy.get("minimumCasesPerDifficultyClass")
     if minimum != 8:
@@ -190,7 +254,7 @@ def main() -> int:
             errors.append(f"difficulty class {difficulty} has fewer than eight cases")
     expected_counts = policy.get("expectedDifficultyCounts")
     if not isinstance(expected_counts, dict) or any(counts[difficulty] != expected_counts.get(difficulty) for difficulty in enums.get("difficultyClasses", [])):
-        errors.append("difficulty class counts must remain exactly 8, 9, 8, 8 in enum order")
+        errors.append("difficulty class counts must remain exactly 8, 10, 8, 8 in enum order")
     categories = {case.get("category") for case in cases if isinstance(case, dict)}
     required_domains = set(policy.get("requiredDomains", []))
     missing_domains = required_domains - categories
