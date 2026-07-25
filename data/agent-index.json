@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-17",
+  "updated": "2026-07-25",
   "status": "compact-routing-index",
   "purpose": "Map common MoonCat technical tasks to the minimum repo files an agent should load.",
   "defaults": {
@@ -397,6 +397,29 @@
         "Keep definition management by wallet separate from accessory ownership by rescue order and Acclimated ERC-721 action authorization.",
         "Do not treat accessoryId, ownedAccessoryIndex, paletteIndex, zIndex, rescueOrder, bytes5 catId, or wrapper token IDs as interchangeable.",
         "The review records source capabilities only; do not infer current definitions, ownership, supply, approval, eligibility, or administration."
+      ]
+    },
+    {
+      "key": "review-mooncat-accessory-system",
+      "description": "Start with the thin MoonCat accessory-system overview, then follow the separate lifecycle and rendering reviews for exact behavior, identifier boundaries, and evidence limits.",
+      "primaryFiles": [
+        "data/mooncat-accessory-system.json",
+        "docs/mooncat-accessory-system.md"
+      ],
+      "optionalFiles": [
+        "data/mooncat-accessories-internals.json",
+        "docs/mooncat-accessories.md",
+        "data/mooncat-accessory-images-internals.json",
+        "docs/mooncat-accessory-images.md",
+        "data/identifier-conventions.json",
+        "data/contracts.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Use the overview first for broad definition-to-rendering questions; load the two detailed reviews only when exact contract behavior is needed.",
+        "Keep definition management, rescue-order ownership, wear settings, verification filtering, and rendering consumption as separate responsibilities.",
+        "Do not treat accessoryId, ownedAccessoryIndex, paletteIndex, zIndex, rescueOrder, bytes5 catId, or wrapper token IDs as interchangeable.",
+        "The integration is static source evidence only; do not infer current ownership, wear, verification, availability, prices, supply, or exact generated output."
       ]
     },
     {

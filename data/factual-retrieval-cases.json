@@ -28,12 +28,12 @@
   },
   "coveragePolicy": {
     "caseCountRange": [34, 40],
-    "expectedCaseCount": 34,
+    "expectedCaseCount": 36,
     "minimumCasesPerDifficultyClass": 8,
     "expectedDifficultyCounts": {
-      "direct-lookup": 8,
+      "direct-lookup": 9,
       "cross-source-synthesis": 10,
-      "provenance-boundary": 8,
+      "provenance-boundary": 9,
       "live-verification-stop": 8
     },
     "requiredDomains": [
@@ -641,6 +641,104 @@
       "liveVerification": {"required": true, "reason": "The reconstruction does not preserve a demonstrated final technical mechanism or present authority state."},
       "expectedLimitations": ["Static evidence establishes neither a current usable key nor its destruction."],
       "reviewerNotes": "This must stop even though the historical outcome is documented."
+    },
+    {
+      "id": "direct-accessory-system-flow",
+      "question": "What source-backed flow connects MoonCatAccessories ownership and wear records to MoonCatAccessoryImages rendering?",
+      "category": "accessories",
+      "difficultyClass": "direct-lookup",
+      "expectedAnswerMode": "answer-from-static-kb",
+      "requiredConcepts": [
+        "definition management",
+        "rescue-order ownership",
+        "paletteIndex",
+        "zIndex",
+        "verification filtering",
+        "PNG materialization",
+        "SVG composition"
+      ],
+      "requiredFiles": [
+        "data/mooncat-accessory-system.json"
+      ],
+      "optionalFiles": [
+        "docs/mooncat-accessory-system.md",
+        "data/mooncat-accessories-internals.json",
+        "data/mooncat-accessory-images-internals.json"
+      ],
+      "forbiddenClaims": [
+        "static system review proves current accessory ownership or wear",
+        "zIndex zero removes or burns an OwnedAccessory record",
+        "MoonCatAccessoryImages creates or transfers accessory ownership",
+        "the integration overview proves an exact generated PNG or SVG output"
+      ],
+      "provenanceRequirements": {
+        "mustDistinguish": [
+          "MoonCatAccessories lifecycle capability",
+          "MoonCatAccessoryImages rendering capability",
+          "current chain state"
+        ],
+        "expectedSourceClasses": [
+          "canonical-data",
+          "pinned-source-review"
+        ]
+      },
+      "liveVerification": {
+        "required": false,
+        "reason": "The question is limited to the checked-in source-backed integration flow."
+      },
+      "expectedLimitations": [
+        "The integration index does not import current records, complete definitions, image payloads, or generated output."
+      ],
+      "reviewerNotes": "Follow the thin overview first, then preserve the separate lifecycle and rendering responsibilities and the ownership-versus-wear boundary."
+    },
+    {
+      "id": "boundary-accessory-system-static-evidence",
+      "question": "What can the checked-in MoonCat accessory system review establish about definitions, ownership, wear, verification, and rendering, and what remains unresolved?",
+      "category": "accessories",
+      "difficultyClass": "provenance-boundary",
+      "expectedAnswerMode": "answer-with-qualified-uncertainty",
+      "requiredConcepts": [
+        "static source capability",
+        "current chain state",
+        "generated output",
+        "complete accessory taxonomy",
+        "ownership-versus-wear",
+        "verification filtering"
+      ],
+      "requiredFiles": [
+        "data/mooncat-accessory-system.json"
+      ],
+      "optionalFiles": [
+        "docs/mooncat-accessory-system.md",
+        "data/mooncat-accessories-internals.json",
+        "data/mooncat-accessory-images-internals.json"
+      ],
+      "forbiddenClaims": [
+        "static documentation proves current accessory ownership, wear, or verification",
+        "the overview contains a complete accessory taxonomy or definition set",
+        "source-described rendering behavior proves exact current PNG or SVG output",
+        "configured or reviewed accessory data proves current availability, price, or supply"
+      ],
+      "provenanceRequirements": {
+        "mustDistinguish": [
+          "static integration evidence",
+          "detailed source review",
+          "current chain state",
+          "exact generated output"
+        ],
+        "expectedSourceClasses": [
+          "pinned-source-review",
+          "live-verification-required"
+        ]
+      },
+      "liveVerification": {
+        "required": false,
+        "reason": "The question asks for the static evidence boundary and unresolved dependencies, not a current-state result."
+      },
+      "expectedLimitations": [
+        "Current ownership, wear, verification, availability, definitions, image data, palettes, and generated output require separate evidence."
+      ],
+      "reviewerNotes": "Reject answers that turn the thin integration overview into current accessory state, a complete taxonomy, or exact renderer proof."
     },
     {
       "id": "live-current-accessory-wear",

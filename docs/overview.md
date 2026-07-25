@@ -22,6 +22,8 @@ Incomplete.
 
 This scaffold does not yet include canonical MoonCat ID lists, contract addresses, CIDs, trait mappings, color values, rescue data, or metadata indexes.
 
+For the reviewed accessory subsystem, start with [`docs/mooncat-accessory-system.md`](mooncat-accessory-system.md), then follow the separate lifecycle and rendering reviews for exact source behavior. Current accessory state and exact generated output remain outside the checked-in overview.
+
 ## Editing Principles
 
 - Do not invent MoonCat IDs or exact trait data.

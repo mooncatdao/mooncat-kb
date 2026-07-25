@@ -1,8 +1,8 @@
 {
-  "version": 8,
+  "version": 9,
   "updated": "2026-07-25",
-  "status": "refreshed-with-bounded-fully-on-chain-synthesis-benchmark-case",
-  "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract, ChainStation, ADR, Genesis, and factual-benchmark reviews, with explicit source, provenance, and live-state limits including bounded fully on-chain synthesis.",
+  "status": "refreshed-with-accessory-system-integration-and-benchmark-coverage",
+  "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract, accessory-system, ChainStation, ADR, Genesis, and factual-benchmark reviews, with explicit source, provenance, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -30,6 +30,7 @@
     "data/libmooncat-surfaces.json",
     "data/link-index.json",
     "data/mooncat-accessory-images-internals.json",
+    "data/mooncat-accessory-system.json",
     "data/mooncat-accessories-internals.json",
     "data/mooncat-visual-traits.sample.json",
     "data/upstream-snapshot-manifest.json",
@@ -57,9 +58,9 @@
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
     "status": "all-current-route-candidates-directly-routed",
-    "dataFileCount": 44,
-    "routeCandidates": 41,
-    "directlyRoutedCandidateCount": 41,
+    "dataFileCount": 45,
+    "routeCandidates": 42,
+    "directlyRoutedCandidateCount": 42,
     "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
       "data/agent-index.json",
@@ -72,6 +73,7 @@
       "data/rescue-mining.json is now directly routed by data/agent-index.json through the understand-rescue-mining task.",
       "data/mooncat-svg-internals.json is now directly routed by data/agent-index.json through render-images and look-up-contracts.",
       "data/mooncat-accessory-images-internals.json is now directly routed by data/agent-index.json through render-images and look-up-contracts.",
+      "data/mooncat-accessory-system.json is directly routed by data/agent-index.json through review-mooncat-accessory-system.",
       "data/older-wrapper-internals.json is now directly routed by data/agent-index.json through identify-mooncat-ids and look-up-contracts.",
       "data/chainstation-surfaces.json is directly routed by data/agent-index.json through trace-chainstation-implementation.",
       "data/genesis-cats.json is directly routed by data/agent-index.json through trace-genesis-cats.",
@@ -90,7 +92,7 @@
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "Thirty-four cases now exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes. Coverage is 8 direct lookup, 10 cross-source synthesis, 8 provenance boundaries, and 8 live-verification stops; the Genesis and bounded on-chain synthesis gaps are covered."
+      "notes": "Thirty-six cases now exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes. Coverage is 9 direct lookup, 10 cross-source synthesis, 9 provenance boundaries, and 8 live-verification stops; the Genesis, bounded on-chain synthesis, and accessory-system coverage gaps are covered."
     },
     {
       "key": "fully-on-chain-architecture-synthesis",
@@ -393,6 +395,21 @@
         "data/sources.json"
       ],
       "notes": "MoonCatAccessoryImages internals now record compact verified semantics for source identity, rescue-order entrypoints, explicit versus lookup accessory lists, ownership preparation, foreground/background handling, glow branches, PNG data-URI assembly, and dependency boundaries. Full Solidity source, ABI JSON, accessory taxonomy, placement tables, palettes, IDAT data, PNG bytes, generated SVG or PNG outputs, per-cat outputs, and current accessory state remain intentionally unimported."
+    },
+    {
+      "key": "mooncat-accessory-system-integration",
+      "status": "resolved-as-thin-lifecycle-to-rendering-overview",
+      "files": [
+        "data/mooncat-accessory-system.json",
+        "docs/mooncat-accessory-system.md",
+        "data/mooncat-accessories-internals.json",
+        "docs/mooncat-accessories.md",
+        "data/mooncat-accessory-images-internals.json",
+        "docs/mooncat-accessory-images.md",
+        "data/agent-index.json",
+        "data/task-recipes.json"
+      ],
+      "notes": "The thin integration overview connects definition management, rescue-order ownership, palette and zIndex alteration, verification filtering, PNG materialization, and SVG composition while keeping the two detailed reviews separate. Complete taxonomy, definitions, images, prices, supply, per-cat state, current availability, and exact generated output remain unresolved."
     }
   ],
   "fileGaps": [
@@ -578,6 +595,18 @@
       ],
       "agentUsabilityImpact": "Provides exact source-level accessory lifecycle, role, verification, integration, and identifier semantics without current definition or ownership data.",
       "nextDataPass": "Only inspect current state, accessory definitions, or event history for a concrete consumer and through a separately scoped provenance/update policy."
+    },
+    {
+      "file": "data/mooncat-accessory-system.json",
+      "currentStatus": "compact-system-integration",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "integration-overview",
+        "current-state-not-imported",
+        "taxonomy-and-output-not-imported"
+      ],
+      "agentUsabilityImpact": "Provides a first-load lifecycle-to-rendering map and identifier boundary, but it is not a substitute for the detailed reviews or evidence of current state and exact output.",
+      "nextDataPass": "Only add taxonomy, definitions, image data, current records, or generated outputs through separately scoped source, state, or deterministic-materialization passes."
     },
     {
       "file": "data/mooncat-types.json",

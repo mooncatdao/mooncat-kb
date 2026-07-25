@@ -22,6 +22,9 @@ Start here:
 - `docs/traits-and-ids.md` — trait and ID mapping rules
 - `docs/identifier-conventions.md` — identifier terminology and conversion status
 - `docs/contracts.md` — compact contract identities, roles, and reviewed-surface notes
+- `docs/mooncat-accessory-system.md` — thin end-to-end accessory lifecycle and rendering overview
+- `data/mooncat-accessory-system.json` — machine-readable accessory-system integration index
+- `docs/mooncat-accessories.md` and `docs/mooncat-accessory-images.md` — detailed lifecycle and rendering reviews
 - `docs/mooncat-svgs.md` — compact MoonCatSVGs internals review
 - `docs/rescue-history.md` — rescue range and historical bucket notes
 - `docs/rescue-mining.md` — original browser rescue/mining seed-search notes

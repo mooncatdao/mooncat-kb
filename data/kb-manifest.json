@@ -92,7 +92,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 107,
+    "maintainedFileCount": 109,
     "excludedFileCount": 71,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -197,8 +197,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5855,
-      "sha256": "447b4af797756d666a4e9fa48e3f761ed063def8703c2a89d3944c367434419f",
+      "sizeBytes": 6166,
+      "sha256": "06c1fd4da599ece6d839951cdaa15a5f4269ac1f6fa8dfbd0991c612d0059aee",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -244,7 +244,7 @@
         "generated"
       ],
       "sizeBytes": 75435,
-      "sha256": "cecad2fc441abe5361f65938d761428d65ac7e186b99d45fdf6389ef14b5277f",
+      "sha256": "9bc095da300d94e001ead24b0856e180e33f1053f2fff94485191e849cc7599b",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -270,8 +270,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 22597,
-      "sha256": "9b8f8177a872d12678266ec5918a7caf4905a46a5d54d083d0ccf8a2d9038f4e",
+      "sizeBytes": 23959,
+      "sha256": "1780a7cbc5dedc5a9c736e27eb8839455989680accbb174ee558df6a7e8c2cf0",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -611,6 +611,7 @@
       "agentRoutes": [
         "look-up-contracts",
         "review-mooncat-accessory-lifecycle",
+        "review-mooncat-accessory-system",
         "trace-chainstation-implementation",
         "understand-rescue-mining"
       ],
@@ -619,6 +620,7 @@
         "choose-contract-surface",
         "choose-mooncat-identifier-form",
         "render-or-fetch-mooncat-image",
+        "review-mooncat-accessory-system",
         "trace-chainstation-implementation",
         "trace-mooncat-accessory-lifecycle",
         "understand-rescue-mining"
@@ -640,8 +642,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 45878,
-      "sha256": "d39d0631a8563533ddf03588c459875f918a6e3761db229aa1b9199769eee47e",
+      "sizeBytes": 50012,
+      "sha256": "5653cc6354cdba69eb92cfef6b8202cdcb20f39e2c59e96bd8733bdabc4d9d58",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -701,6 +703,7 @@
         "identify-mooncat-ids",
         "render-images",
         "review-mooncat-accessory-lifecycle",
+        "review-mooncat-accessory-system",
         "review-trait-schema-strategy",
         "trace-chainstation-implementation",
         "trace-genesis-cats",
@@ -715,6 +718,7 @@
         "generate-or-validate-visual-trait-sample",
         "look-up-rescue-bucket-or-year",
         "render-or-fetch-mooncat-image",
+        "review-mooncat-accessory-system",
         "trace-chainstation-implementation",
         "trace-genesis-cats",
         "trace-mooncat-accessory-lifecycle",
@@ -785,8 +789,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 39337,
-      "sha256": "5fa23ee707449502d15daabe884300f96120a8fe63862165f773bd0793c267dc",
+      "sizeBytes": 41097,
+      "sha256": "1701ff70de0b298829a1498c18be7da997eb8694a6b70335f96fce817e440e27",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
@@ -954,9 +958,11 @@
       "sizeBytes": 17120,
       "sha256": "b2254164bdfb0e94e76bc3357433224d2704a9a243463b282e3b33c1fb4ec75c",
       "agentRoutes": [
-        "review-mooncat-accessory-lifecycle"
+        "review-mooncat-accessory-lifecycle",
+        "review-mooncat-accessory-system"
       ],
       "taskRecipes": [
+        "review-mooncat-accessory-system",
         "trace-mooncat-accessory-lifecycle"
       ],
       "generatorCommand": null,
@@ -980,11 +986,13 @@
       "agentRoutes": [
         "look-up-contracts",
         "render-images",
-        "review-mooncat-accessory-lifecycle"
+        "review-mooncat-accessory-lifecycle",
+        "review-mooncat-accessory-system"
       ],
       "taskRecipes": [
         "choose-contract-surface",
         "render-or-fetch-mooncat-image",
+        "review-mooncat-accessory-system",
         "trace-mooncat-accessory-lifecycle"
       ],
       "generatorCommand": null,
@@ -992,6 +1000,30 @@
       "validatorCommands": [],
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-accessory-system.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 6830,
+      "sha256": "24fe2332f87c1e97df84ff04deb7c550d88d595945ab3300d7d1cd03c681d795",
+      "agentRoutes": [
+        "review-mooncat-accessory-system"
+      ],
+      "taskRecipes": [
+        "review-mooncat-accessory-system"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
     },
     {
       "path": "data/mooncat-svg-internals.json",
@@ -1250,6 +1282,7 @@
         "render-images",
         "review-kb-gaps",
         "review-mooncat-accessory-lifecycle",
+        "review-mooncat-accessory-system",
         "review-trait-schema-strategy",
         "review-upstream-snapshot-provenance",
         "trace-chainstation-implementation",
@@ -1274,6 +1307,7 @@
         "locate-architecture-decisions",
         "look-up-rescue-bucket-or-year",
         "render-or-fetch-mooncat-image",
+        "review-mooncat-accessory-system",
         "review-upstream-snapshots",
         "trace-chainstation-implementation",
         "trace-genesis-cats",
@@ -1324,8 +1358,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 46828,
-      "sha256": "d51af5d7317b3bbea1c828611e814748401d09c769e8c91e6040612b74b3e0e9",
+      "sizeBytes": 49603,
+      "sha256": "2c447e746a5826032a28a79295a0d2caaf268e74f97c452e29bf4a491f6f28d3",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1914,9 +1948,11 @@
       "sizeBytes": 7851,
       "sha256": "54acecbf322d2753477f576e72863d1d178d26e571757d63aa4022bbc7eb1af6",
       "agentRoutes": [
-        "review-mooncat-accessory-lifecycle"
+        "review-mooncat-accessory-lifecycle",
+        "review-mooncat-accessory-system"
       ],
       "taskRecipes": [
+        "review-mooncat-accessory-system",
         "trace-mooncat-accessory-lifecycle"
       ],
       "generatorCommand": null,
@@ -1941,9 +1977,11 @@
       "agentRoutes": [
         "look-up-contracts",
         "render-images",
-        "review-mooncat-accessory-lifecycle"
+        "review-mooncat-accessory-lifecycle",
+        "review-mooncat-accessory-system"
       ],
       "taskRecipes": [
+        "review-mooncat-accessory-system",
         "trace-mooncat-accessory-lifecycle"
       ],
       "generatorCommand": null,
@@ -1951,6 +1989,31 @@
       "validatorCommands": [],
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/mooncat-accessory-system.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 3251,
+      "sha256": "52b6ab7c253f6c1f0e407866195fca090176257f42d0817b60ef4930cce12c5d",
+      "agentRoutes": [
+        "review-mooncat-accessory-system"
+      ],
+      "taskRecipes": [
+        "review-mooncat-accessory-system"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
     },
     {
       "path": "docs/mooncat-svgs.md",
@@ -2036,8 +2099,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 924,
-      "sha256": "8ddf34ed1c8ebe222c0c9608e7420c34b5f83db6db12f71a4df390bf5ec71d6f",
+      "sizeBytes": 1216,
+      "sha256": "ad71e4ed315ce4725b9780d5cca2890403b6e9091c09a2dad2e9d39ada49b23f",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2684,7 +2747,7 @@
         "script"
       ],
       "sizeBytes": 16281,
-      "sha256": "55a31fc0aeb7fb3b6d0055755a0611b96215217dcb3c71b25aac70b1808bb991",
+      "sha256": "a03aba867652f95304ea51ffd6870b114bf00fa2d904b3cff892fd50603a0e46",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],

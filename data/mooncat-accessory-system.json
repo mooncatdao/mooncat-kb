@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "updated": "2026-07-25",
+  "status": "compact-system-integration",
+  "scope": "Thin integration index for the reviewed MoonCat accessory subsystem. It connects the separate MoonCatAccessories lifecycle review to the MoonCatAccessoryImages rendering review without importing accessory arrays, taxonomy, image payloads, ABI or Solidity bodies, event history, or current state.",
+  "sourceRefs": [
+    "etherscan-mooncat-accessories",
+    "etherscan-mooncat-accessory-images",
+    "etherscan-original-contract",
+    "etherscan-acclimated-mooncats",
+    "etherscan-mooncat-traits",
+    "etherscan-mooncat-colors",
+    "etherscan-mooncat-svgs"
+  ],
+  "relatedFiles": [
+    "docs/mooncat-accessory-system.md",
+    "data/mooncat-accessories-internals.json",
+    "docs/mooncat-accessories.md",
+    "data/mooncat-accessory-images-internals.json",
+    "docs/mooncat-accessory-images.md",
+    "data/identifier-conventions.json",
+    "data/contracts.json"
+  ],
+  "responsibilitySplit": {
+    "MoonCatAccessories": {
+      "owns": [
+        "accessory definition creation and management",
+        "eligibility and purchase or manager assignment",
+        "rescue-order-keyed OwnedAccessory records",
+        "paletteIndex and zIndex alteration",
+        "source-level metadata and verification inputs"
+      ],
+      "doesNotOwn": [
+        "wallet ownership of the Acclimated token",
+        "MoonCatAccessoryImages rendering or PNG composition"
+      ],
+      "detailReview": "data/mooncat-accessories-internals.json"
+    },
+    "MoonCatAccessoryImages": {
+      "consumes": [
+        "rescueOrder and the corresponding bytes5 catId lookup",
+        "OwnedAccessory records from MoonCatAccessories",
+        "accessory definition image and placement inputs",
+        "MoonCatTraits, MoonCatColors, and MoonCatSVGs materialization surfaces"
+      ],
+      "performs": [
+        "verification filtering",
+        "wear and placement preparation",
+        "background and foreground ordering",
+        "PNG data-URI materialization",
+        "SVG composition around the base MoonCat image"
+      ],
+      "doesNotOwn": [
+        "accessory definition lifecycle",
+        "accessory ownership or transfer"
+      ],
+      "detailReview": "data/mooncat-accessory-images-internals.json"
+    }
+  },
+  "endToEndFlow": [
+    {
+      "stage": "definition-creation-and-management",
+      "owner": "MoonCatAccessories",
+      "sourceConfirmed": "Definitions are appended and identified by accessoryId; managers control selected price, palette, eligibility, assignment, and discontinuation operations.",
+      "boundary": "The overview does not import the definition array, taxonomy, names, prices, supplies, palettes, or image bytes."
+    },
+    {
+      "stage": "rescue-order-ownership",
+      "owner": "MoonCatAccessories",
+      "sourceConfirmed": "A purchased or manager-assigned accessory is recorded under a MoonCat rescueOrder after the reviewed Acclimated ownership or approval checks.",
+      "boundary": "An OwnedAccessory record is not a wallet-owned ERC-721 and does not itself establish current ownership."
+    },
+    {
+      "stage": "palette-and-wear-alteration",
+      "owner": "MoonCatAccessories",
+      "sourceConfirmed": "Authorized alteration changes paletteIndex and zIndex through the local ownedAccessoryIndex; zIndex zero retains the record but means the accessory is not worn.",
+      "boundary": "zIndex zero is not removal, burn, or deletion, and no current record values are imported."
+    },
+    {
+      "stage": "verification-and-placement-preparation",
+      "owner": "MoonCatAccessoryImages",
+      "sourceConfirmed": "The renderer reads OwnedAccessory and definition image data, suppresses zero-zIndex records, applies its metadata-bit verification gate unless allowUnverified is enabled, and separates records for background or foreground placement.",
+      "boundary": "The verification bit is a rendering gate distinct from purchase eligibility and Acclimated ERC-721 operator approval; current bits and usage are unverified."
+    },
+    {
+      "stage": "png-materialization-and-svg-composition",
+      "owner": "MoonCatAccessoryImages",
+      "sourceConfirmed": "Prepared accessories are assembled into base64 PNG data-URI snippets, placed and sorted around the base MoonCat materialization path, and emitted inside an SVG wrapper.",
+      "boundary": "No exact PNG bytes, SVG string, per-cat palette, or generated output is imported."
+    }
+  ],
+  "identifierBoundaries": {
+    "rescueOrder": "uint256 MoonCat identity key used for cat-owned accessory records and the reviewed Acclimated authorization path.",
+    "catIdBytes5": "bytes5 cat identifier obtained through the reviewed MoonCatRescue lookup; it is not stored in OwnedAccessory.",
+    "acclimatedTokenId": "For the exact reviewed Acclimated contract, the source passes rescueOrder to ownerOf and approval checks; this does not generalize to WMCR or another wrapper.",
+    "accessoryId": "Definition-array index for an accessory; it is not a MoonCat identity, wrapper token ID, or local owned-record index.",
+    "ownedAccessoryIndex": "Local index within one rescueOrder's OwnedAccessory array, used to select a record for enumeration or alteration.",
+    "paletteIndex": "Index into one accessory definition's palette slots; it is not a palette value or global color identifier.",
+    "zIndex": "Wear and drawing-order value rather than an identifier; zero means owned but not worn."
+  },
+  "evidenceBoundary": {
+    "staticReviewsEstablish": [
+      "source-described responsibilities and relationships between the two contracts",
+      "the lifecycle-to-rendering flow and identifier boundaries",
+      "the distinction between ownership, wear, verification filtering, and rendering"
+    ],
+    "staticReviewsDoNotEstablish": [
+      "current accessory ownership, wear, verification, manager, eligibility, price, supply, or availability",
+      "a complete accessory taxonomy, definition set, image set, or event history",
+      "exact generated PNG or SVG output, current palette values, or per-cat rendering results"
+    ],
+    "requiresSeparateEvidence": [
+      "current chain storage, events, or live calls for present state",
+      "imported deterministic definitions, image data, palettes, and layering inputs for exact local output"
+    ]
+  },
+  "unresolved": [
+    "Complete accessory taxonomy, definitions, names, categories, and rarity are not imported.",
+    "Image data, palette values, prices, supply, eligibility, per-cat ownership, wear, verification, and event history are not imported.",
+    "No exact generated PNG, SVG, or per-cat rendered output is available in this integration layer.",
+    "Owned-record cleanup or migration while a MoonCat is deacclimated remains unresolved in the reviewed source."
+  ]
+}

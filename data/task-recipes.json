@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-17",
+  "updated": "2026-07-25",
   "status": "compact-workflow-index",
   "scope": "Agent-facing workflow recipes for sequencing common MoonCat KB tasks by loading existing data files. This file routes and orders work; it does not add endpoint, contract, trait, color, identifier, source, or per-cat facts.",
   "sourceRefs": [],
@@ -24,7 +24,13 @@
     "data/architecture-decisions.json",
     "docs/architecture-decisions.md",
     "data/chainstation-surfaces.json",
-    "docs/chainstation-surfaces.md"
+    "docs/chainstation-surfaces.md",
+    "data/mooncat-accessory-system.json",
+    "docs/mooncat-accessory-system.md",
+    "data/mooncat-accessories-internals.json",
+    "docs/mooncat-accessories.md",
+    "data/mooncat-accessory-images-internals.json",
+    "docs/mooncat-accessory-images.md"
   ],
   "defaults": {
     "loadFirst": [
@@ -600,6 +606,47 @@
       "stopConditions": [
         "Stop if the requested claim needs current storage, events, or a full definition dataset not present in curated data.",
         "Stop if the target wrapper is not the exact Acclimated contract used by MoonCatAccessories authorization."
+      ]
+    },
+    {
+      "key": "review-mooncat-accessory-system",
+      "purpose": "Trace a broad accessory-system question from the thin integration overview into the separate lifecycle and rendering reviews without importing accessory data or current state.",
+      "loadOrder": [
+        "data/mooncat-accessory-system.json",
+        "docs/mooncat-accessory-system.md"
+      ],
+      "optionalFiles": [
+        "data/mooncat-accessories-internals.json",
+        "docs/mooncat-accessories.md",
+        "data/mooncat-accessory-images-internals.json",
+        "docs/mooncat-accessory-images.md",
+        "data/identifier-conventions.json",
+        "data/contracts.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Start with the integration overview and classify the question as lifecycle, ownership/wear, verification, rendering, identifier, or current-state evidence.",
+        "Keep MoonCatAccessories definition and rescue-order-owned record behavior separate from MoonCatAccessoryImages filtering, placement, PNG materialization, and SVG composition.",
+        "Resolve rescueOrder, catIdBytes5, acclimatedTokenId, accessoryId, ownedAccessoryIndex, paletteIndex, and zIndex before describing a flow.",
+        "Follow the detailed lifecycle or rendering review only when the overview points to exact source behavior.",
+        "State whether the claim is static source capability, imported deterministic output, or current chain state; stop before asserting unavailable values."
+      ],
+      "outputs": [
+        "end-to-end subsystem flow",
+        "contract responsibility split",
+        "identifier boundaries",
+        "ownership-versus-wear distinction",
+        "static evidence and current-state limitation"
+      ],
+      "guardrails": [
+        "Do not import or invent accessory taxonomy, definitions, images, prices, supply, event history, current records, or generated output.",
+        "Do not describe zIndex zero as removal or burn.",
+        "Do not describe an accessory definition or OwnedAccessory record as an ERC-721 token.",
+        "Do not use the integration overview to replace the exact-contract lifecycle or rendering reviews."
+      ],
+      "stopConditions": [
+        "Stop if the question needs current ownership, wear, verification, availability, price, supply, or manager state without live evidence.",
+        "Stop if exact generated PNG or SVG output requires definitions, image data, palettes, or layering inputs not present in the checked-in files."
       ]
     },
     {
