@@ -162,7 +162,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 91578,
+        "estimatedByteCount": 91643,
         "files": [
           {
             "path": "data/api-examples.json",
@@ -174,7 +174,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36929
+            "bytes": 36994
           }
         ],
         "softFileLimit": 7,
@@ -239,7 +239,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 75899,
+        "estimatedByteCount": 75964,
         "files": [
           {
             "path": "data/identifier-conversion-cases.json",
@@ -251,7 +251,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36929
+            "bytes": 36994
           },
           {
             "path": "data/libmooncat-surfaces.json",
@@ -318,7 +318,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 61038,
+        "estimatedByteCount": 61103,
         "files": [
           {
             "path": "data/identifier-conversion-cases.json",
@@ -330,7 +330,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36929
+            "bytes": 36994
           }
         ],
         "softFileLimit": 7,
@@ -393,7 +393,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 61038,
+        "estimatedByteCount": 61103,
         "files": [
           {
             "path": "data/identifier-conversion-cases.json",
@@ -405,7 +405,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36929
+            "bytes": 36994
           }
         ],
         "softFileLimit": 7,
@@ -469,7 +469,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 193664,
+        "estimatedByteCount": 193729,
         "files": [
           {
             "path": "data/mooncat-visual-traits.sample.json",
@@ -485,7 +485,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36929
+            "bytes": 36994
           }
         ],
         "softFileLimit": 7,
@@ -966,7 +966,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 124845,
+        "estimatedByteCount": 126009,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -982,7 +982,7 @@
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 41097
+            "bytes": 42261
           }
         ],
         "softFileLimit": 7,
@@ -1289,7 +1289,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 59823,
+        "estimatedByteCount": 59888,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
@@ -1301,7 +1301,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36929
+            "bytes": 36994
           }
         ],
         "softFileLimit": 7,
@@ -1462,7 +1462,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 82675,
+        "estimatedByteCount": 82740,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
@@ -1478,7 +1478,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36929
+            "bytes": 36994
           }
         ],
         "softFileLimit": 7,
@@ -1635,7 +1635,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 148399,
+        "estimatedByteCount": 149563,
         "files": [
           {
             "path": "data/agent-query-cases.json",
@@ -1655,7 +1655,7 @@
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 41097
+            "bytes": 42261
           }
         ],
         "softFileLimit": 7,
@@ -1817,7 +1817,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 114651,
+        "estimatedByteCount": 114716,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -1837,7 +1837,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36929
+            "bytes": 36994
           }
         ],
         "softFileLimit": 7,

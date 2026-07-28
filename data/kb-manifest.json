@@ -244,7 +244,7 @@
         "generated"
       ],
       "sizeBytes": 75435,
-      "sha256": "9bc095da300d94e001ead24b0856e180e33f1053f2fff94485191e849cc7599b",
+      "sha256": "62274785745506727f012909a3a61994aafc77df32a26de985d3cfa0e01d9723",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -441,8 +441,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 13219,
-      "sha256": "87be140ec51cbda143c95a89f27d7426d217a38dd108b9a5b732d4b3c142f347",
+      "sizeBytes": 13317,
+      "sha256": "1fefcf92df549724e89f0556330658d456a9720417ada686c0ffa8704c2917a5",
       "agentRoutes": [
         "work-with-character-cats"
       ],
@@ -465,8 +465,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 6990,
-      "sha256": "8707beea85a46d6bdef8342a5b1ffe56c86f5c59d37011426ec3522983bbddec",
+      "sizeBytes": 7024,
+      "sha256": "20a7be4ad22325e319640565561239765e3d098df874d49c0723515bca86919d",
       "agentRoutes": [
         "classify-mooncat-types",
         "work-with-character-cats",
@@ -694,8 +694,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 36929,
-      "sha256": "2d94b435e0a1cb288fbadab0655601c1250bd689d943e9afa0507f5f758d2935",
+      "sizeBytes": 36994,
+      "sha256": "3133369f31aa81eb8c7d5787b4e2259dd0b4872d033cf2ae97ea3f5fea455fcb",
       "agentRoutes": [
         "call-api-endpoints",
         "fetch-traits",
@@ -789,8 +789,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 41097,
-      "sha256": "1701ff70de0b298829a1498c18be7da997eb8694a6b70335f96fce817e440e27",
+      "sizeBytes": 42261,
+      "sha256": "d7325f2c5762f8b3c577e6b416dc4bc92b7e35fc3b4fca0b5e7521c7ce68b499",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
@@ -2050,8 +2050,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2579,
-      "sha256": "92d27a11e1741d52ea195d3d56dd6d2b03c6873f190ceec346ddfec3c1235d57",
+      "sizeBytes": 2907,
+      "sha256": "40cb02e046d424998d6d2efbed94200d21f1ab2dc441fc7afddd95063c5e72ed",
       "agentRoutes": [
         "classify-mooncat-types"
       ],
@@ -2842,8 +2842,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 10962,
-      "sha256": "79ea711c968dc8f1b30473141bda0ebfd93c15bd4f76e5731e8be86db2057aeb",
+      "sizeBytes": 14805,
+      "sha256": "0010aa8b3e53ec92757d1a9e56d7d3429af05c51c097d6effc16202c6b68a346",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,

@@ -31,7 +31,7 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 45 Required file references checked: 440 sourceRefs checked: 1130 relatedFiles checked: 244 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 45 Required file references checked: 440 sourceRefs checked: 1130 relatedFiles checked: 244 Character/Genesis membership arrays checked: 16 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
@@ -104,7 +104,7 @@
     "requiredCommandCount": 16,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 1587,
+    "internalPathsChecked": 1593,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
@@ -140,7 +140,7 @@
       },
       "gap-records": {
         "file": "data/kb-gap-index.json",
-        "count": 28,
+        "count": 29,
         "duplicates": []
       },
       "identifier-fixtures": {
@@ -182,7 +182,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 1587,
+    "checked": 1593,
     "errors": [],
     "warnings": []
   },

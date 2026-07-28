@@ -1,8 +1,8 @@
 {
   "version": 9,
-  "updated": "2026-07-25",
-  "status": "refreshed-with-accessory-system-integration-and-benchmark-coverage",
-  "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract, accessory-system, ChainStation, ADR, Genesis, and factual-benchmark reviews, with explicit source, provenance, and live-state limits.",
+  "updated": "2026-07-28",
+  "status": "refreshed-with-genesis-character-disjointness-invariant",
+  "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract, accessory-system, Genesis/character-category, ChainStation, ADR, and factual-benchmark reviews, with explicit source, provenance, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -116,6 +116,20 @@
         "data/task-recipes.json"
       ],
       "notes": "The KB now distinguishes 256 planned Genesis indices from the 96 released/adopted collection members and 160 permanently locked/unreleased indices. The exact released Cat ID/rescue-order mapping is cross-checked offline against existing bucket, trait-reference, and formula inputs. Vote outcome and participation are sourced while the technical lock mechanism remains unresolved; no current ownership, price, live state, or payment aggregate is imported."
+    },
+    {
+      "key": "genesis-character-category-disjointness",
+      "status": "resolved-as-corrected-derived-membership-and-validator-invariant",
+      "files": [
+        "references/derived/mooncat_rescueOrder_by_category.json",
+        "data/character-cat-index.json",
+        "data/character-cats.json",
+        "data/genesis-cats.json",
+        "data/identifier-conventions.json",
+        "docs/mooncat-types.md",
+        "scripts/validate-kb.py"
+      ],
+      "notes": "The 12 Genesis rescue orders incorrectly present in Pink Panther were removed from the derived source and imported membership, reducing Pink Panther from 235 to 223. Canonical Genesis membership remains unchanged, character arrays are checked for duplicates and ascending order, and the validator now rejects any character-category overlap with canonical Genesis rescue orders."
     },
     {
       "key": "architecture-decision-index",
@@ -454,10 +468,11 @@
       "routedFromAgentIndex": true,
       "gapTypes": [
         "curation-scope-limited",
-        "identifier-convention-risk"
+        "identifier-convention-risk",
+        "genesis-overlap-regression-protected"
       ],
-      "agentUsabilityImpact": "Useful for exact community-curated membership arrays, but agents need the index convention before downstream UI/tool use.",
-      "nextDataPass": "Add or adjust memberships only from sourced community data and preserve the rescue-order-index boundary."
+      "agentUsabilityImpact": "Useful for exact community-curated membership arrays with a validator-enforced non-Genesis boundary, but agents still need the index convention before downstream UI/tool use.",
+      "nextDataPass": "Add or adjust memberships only from sourced community data, preserve the rescue-order-index boundary, and keep categories disjoint from canonical Genesis rescue orders."
     },
     {
       "file": "data/character-cats.json",
@@ -465,10 +480,11 @@
       "routedFromAgentIndex": true,
       "gapTypes": [
         "incomplete",
-        "curation-scope-limited"
+        "curation-scope-limited",
+        "genesis-overlap-regression-protected"
       ],
-      "agentUsabilityImpact": "Useful for category definitions and notes, but incomplete for exact memberships and premium counts.",
-      "nextDataPass": "Keep definitions separate from membership arrays and add missing counts only from sourced data."
+      "agentUsabilityImpact": "Useful for category definitions and notes, with the non-Genesis invariant documented, but incomplete for exact memberships and premium counts.",
+      "nextDataPass": "Keep definitions separate from membership arrays and add missing counts only from sourced data while preserving Genesis disjointness."
     },
     {
       "file": "data/color-hues.json",

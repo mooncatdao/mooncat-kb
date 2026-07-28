@@ -44,6 +44,8 @@ The current category shells are:
 
 `data/character-cat-index.json` contains exact community-curated membership/index numbers imported from the local user-provided `references/derived/mooncat_rescueOrder_by_category.json` file.
 
+Genesis membership is canonical in `data/genesis-cats.json`. Character-cat categories are restricted to non-Genesis cats, so every character category must be mutually exclusive with the canonical Genesis rescue-order set.
+
 Definitions and materialized membership are intentionally separate:
 
 - `data/character-cats.json` defines category labels, hue ranges, `pale`, and `coat` filters.
@@ -52,6 +54,7 @@ Definitions and materialized membership are intentionally separate:
 Important constraints:
 
 - Treat character-cat categories as community-curated narratives, not canonical traits.
+- Treat Genesis and character-cat membership as mutually exclusive; character cats are non-Genesis only.
 - Do not treat the imported index numbers as official protocol traits.
 - Confirm the index convention before using the values in UI or import tooling.
 - Preserve whether a hue range wraps over zero, such as Pink Panther's all-range.

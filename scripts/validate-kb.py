@@ -261,6 +261,81 @@ def check_related_files(
     return checked
 
 
+def check_character_genesis_invariant(
+    repo_root: Path,
+    loaded: dict[Path, Any],
+    reporter: Reporter,
+) -> int:
+    genesis_path = repo_root / "data" / "genesis-cats.json"
+    character_path = repo_root / "data" / "character-cat-index.json"
+    genesis = loaded.get(genesis_path)
+    character_index = loaded.get(character_path)
+    if not isinstance(genesis, dict):
+        reporter.error("data/genesis-cats.json: expected top-level object for Genesis/character invariant")
+        return 0
+    if not isinstance(character_index, dict):
+        reporter.error("data/character-cat-index.json: expected top-level object for Genesis/character invariant")
+        return 0
+
+    canonical_genesis: set[int] = set()
+    released_groups = genesis.get("releasedGroups")
+    if not isinstance(released_groups, list):
+        reporter.error("data/genesis-cats.json: expected $.releasedGroups array for Genesis/character invariant")
+        return 0
+    for group_index, group in enumerate(released_groups):
+        if not isinstance(group, dict) or not isinstance(group.get("rescueOrders"), list):
+            reporter.error(
+                f"data/genesis-cats.json: expected rescueOrders array at $.releasedGroups[{group_index}]"
+            )
+            continue
+        for value_index, value in enumerate(group["rescueOrders"]):
+            if not isinstance(value, int) or isinstance(value, bool):
+                reporter.error(
+                    f"data/genesis-cats.json: rescueOrder must be an integer at "
+                    f"$.releasedGroups[{group_index}].rescueOrders[{value_index}]"
+                )
+                continue
+            canonical_genesis.add(value)
+
+    categories = character_index.get("categories")
+    if not isinstance(categories, dict):
+        reporter.error("data/character-cat-index.json: expected $.categories object for Genesis/character invariant")
+        return 0
+
+    checked_arrays = 0
+    for category_name, category in categories.items():
+        if not isinstance(category, dict):
+            reporter.error(f"data/character-cat-index.json: category {category_name!r} must be an object")
+            continue
+        for membership_kind in ("all", "premium"):
+            values = category.get(membership_kind)
+            if not isinstance(values, list) or not all(isinstance(value, int) and not isinstance(value, bool) for value in values):
+                reporter.error(
+                    f"data/character-cat-index.json: category {category_name!r} field {membership_kind!r} "
+                    "must be an integer array"
+                )
+                continue
+            checked_arrays += 1
+            duplicates = sorted({value for value in values if values.count(value) > 1})
+            if duplicates:
+                reporter.error(
+                    f"data/character-cat-index.json: category {category_name!r} field {membership_kind!r} "
+                    f"contains duplicate rescueOrder values: {duplicates}"
+                )
+            if values != sorted(values):
+                reporter.error(
+                    f"data/character-cat-index.json: category {category_name!r} field {membership_kind!r} "
+                    "must be sorted ascending"
+                )
+            overlap = sorted(set(values) & canonical_genesis)
+            if overlap:
+                reporter.error(
+                    f"data/character-cat-index.json: category {category_name!r} field {membership_kind!r} "
+                    f"overlaps canonical Genesis rescueOrders: {overlap}"
+                )
+    return checked_arrays
+
+
 def main() -> int:
     repo_root = find_repo_root(Path.cwd())
     reporter = Reporter()
@@ -269,12 +344,14 @@ def main() -> int:
     required_paths_checked = 0
     source_refs_checked = 0
     related_files_checked = 0
+    character_genesis_arrays_checked = 0
 
     if not reporter.errors:
         required_paths_checked = check_required_paths(repo_root, loaded, reporter)
         source_ids = collect_source_ids(repo_root, loaded, reporter)
         source_refs_checked = check_source_refs(repo_root, loaded, source_ids, reporter)
         related_files_checked = check_related_files(repo_root, loaded, reporter)
+        character_genesis_arrays_checked = check_character_genesis_invariant(repo_root, loaded, reporter)
 
     print("MoonCat KB validation")
     print(f"Repo root: {repo_root}")
@@ -282,6 +359,7 @@ def main() -> int:
     print(f"Required file references checked: {required_paths_checked}")
     print(f"sourceRefs checked: {source_refs_checked}")
     print(f"relatedFiles checked: {related_files_checked}")
+    print(f"Character/Genesis membership arrays checked: {character_genesis_arrays_checked}")
     print(f"Warnings: {len(reporter.warnings)}")
     print(f"Errors: {len(reporter.errors)}")
 

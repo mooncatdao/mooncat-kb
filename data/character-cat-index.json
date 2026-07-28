@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
+  "updated": "2026-07-28",
   "status": "community-curated",
   "canonical": false,
   "trustLevel": "community-curated",
@@ -9,7 +9,7 @@
   "provenance": {
     "sources": ["mooncat-rescueorder-by-category", "rate-my-mooncat"],
     "sourceFile": "references/derived/mooncat_rescueOrder_by_category.json",
-    "notes": "Imported exact community-curated character-cat membership/index numbers from the local user-provided JSON file. These are not official protocol traits."
+    "notes": "Imported exact community-curated character-cat membership/index numbers from the local user-provided JSON file after excluding canonical Genesis rescue orders. Character categories are non-Genesis only and are not official protocol traits."
   },
   "categories": {
     "garfield": {
@@ -49,9 +49,9 @@
       "label": "Pink Panther",
       "status": "community-curated",
       "all": [
-        28, 85, 87, 350, 482, 483, 494, 525, 527, 561, 756, 793, 985, 1103, 1105, 1245,
-        1279, 1471, 1487, 1513, 1516, 1567, 1717, 1750, 1752, 1880, 2099, 2337, 2365, 2367, 2450, 2516,
-        2518, 2637, 2726, 2822, 2861, 2877, 2879, 2948, 2957, 3113, 3119, 3305, 3552, 3555, 3618, 3649,
+        28, 350, 482, 483, 494, 561, 756, 793, 985, 1245,
+        1279, 1471, 1487, 1513, 1516, 1567, 1717, 1880, 2099, 2337, 2450, 2516,
+        2518, 2637, 2726, 2822, 2861, 2948, 2957, 3113, 3119, 3305, 3552, 3555, 3618, 3649,
         3798, 3903, 3951, 4085, 4316, 4536, 4968, 5014, 5115, 5403, 5657, 5780, 5991, 6103, 6464, 6522,
         6742, 6856, 6914, 7010, 7021, 7037, 7074, 7211, 7286, 7309, 7439, 7452, 7453, 7779, 7794, 7819,
         7949, 8301, 8410, 8473, 8686, 8723, 8789, 9074, 9160, 9180, 9195, 9327, 9361, 9364, 9459, 9483,
@@ -67,7 +67,7 @@
       ],
       "premium": [],
       "sourceRefs": ["mooncat-rescueorder-by-category"],
-      "notes": "Source key is pinkpanther; normalized category key is pinkPanther."
+      "notes": "Source key is pinkpanther; normalized category key is pinkPanther. Canonical Genesis rescue orders are excluded from character-cat membership."
     },
     "alien": {
       "label": "Alien",

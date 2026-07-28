@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
+  "updated": "2026-07-28",
   "status": "community-curated-incomplete",
   "membershipData": "data/character-cat-index.json",
   "provenance": {
@@ -14,7 +14,7 @@
   "classification": {
     "canonical": false,
     "trustLevel": "community-curated",
-    "description": "Character cats are community-recognized MoonCats that resemble cats or characters from popular media. Rate My Mooncat says these charts document community narratives and are subjective rather than official traits.",
+    "description": "Character cats are community-recognized non-Genesis MoonCats that resemble cats or characters from popular media. Rate My Mooncat says these charts document community narratives and are subjective rather than official traits.",
     "sourceRefs": [
       "rate-my-mooncat",
       "mooncats-faq-official-links"
@@ -92,7 +92,7 @@
       "status": "community-curated-partial",
       "ids": [],
       "membershipCounts": {
-        "all": 235,
+        "all": 223,
         "premium": 0
       },
       "pale": true,
@@ -268,6 +268,6 @@
   "todos": [
     "Confirm the index convention used by data/character-cat-index.json before downstream UI/tool use.",
     "Add premium membership counts only if premium index numbers are provided.",
-    "Keep all character-cat membership clearly marked as community-curated, not official traits."
+    "Keep all character-cat membership clearly marked as community-curated, non-Genesis-only, and not official traits."
   ]
 }
