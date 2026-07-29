@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "status": "source-backed-static-naming-system-overview",
+  "scope": "Original MoonCatRescue naming semantics, display boundaries, event-consumer guidance, and adjacent CatNamer context without live-chain claims.",
+  "sourceRefs": [
+    "ponderware-mooncatrescue-sol-raw",
+    "etherscan-original-contract",
+    "mooncatrescue-mooncat-names-docs",
+    "mooncatrescue-named-mooncats",
+    "mooncatrescue-api-openapi",
+    "mooncatrescue-mooncat-traits-json",
+    "chainstation-source",
+    "mooncatrescue-log-fractionalizing-and-naming",
+    "mooncatrescue-medium-custom-fractionalizing-naming",
+    "sourcify-catnamer-metadata",
+    "mooncat-kb-mooncat-names-snapshot"
+  ],
+  "relatedFiles": [
+    "data/mooncat-names.json",
+    "data/api-endpoints.json",
+    "docs/mooncat-naming.md",
+    "data/contracts.json",
+    "data/contract-surfaces.json",
+    "data/identifier-conventions.json",
+    "data/trait-index.json",
+    "scripts/generate-mooncat-names.py",
+    "scripts/validate-mooncat-names.py"
+  ],
+  "originalMoonCatRescue": {
+    "contractKey": "mooncatRescue",
+    "address": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+    "canonicalNameStorage": "catNames(bytes5) => bytes32",
+    "readInterfaces": [
+      "catNames(bytes5)",
+      "getCatNames()",
+      "getCatDetails(... name ...)"
+    ],
+    "writeInterface": "nameCat(bytes5 catId, bytes32 catName)",
+    "authorizationAndTransition": [
+      "msg.sender must equal catOwners[catId]. An EOA owner can call directly; if a contract owns the original MoonCat, that owning contract must make the call or expose a call path.",
+      "catNames[catId] must be zero before the call.",
+      "The MoonCat must have no active adoption offer.",
+      "The contract stores catName and then emits CatNamed."
+    ],
+    "consequences": [
+      "A nonzero stored name is one-time and permanent in this original-contract storage model.",
+      "Duplicate names are allowed; there is no global uniqueness check.",
+      "Any bytes32 value is protocol-valid even if it is not valid UTF-8 for display.",
+      "An all-zero bytes32 input emits CatNamed while storage remains zero, so the cat stays nameable and repeated zero-name events are possible."
+    ]
+  },
+  "catNamedEvent": {
+    "signature": "CatNamed(bytes5 indexed catId, bytes32 catName)",
+    "fields": [
+      {"name": "catId", "type": "bytes5", "indexed": true},
+      {"name": "catName", "type": "bytes32", "indexed": false}
+    ],
+    "consumerRequirements": [
+      "Preserve catName as raw bytes32 hex before any display decoding.",
+      "Use transactionHash plus logIndex as event identity and blockNumber, transactionIndex, logIndex as canonical ordering fields.",
+      "Classify an all-zero catName event as no persistent name state effect; do not infer a current name from event presence alone.",
+      "Treat event history, current catNames storage, platform display moderation, and the checked-in snapshot as separate evidence layers."
+    ]
+  },
+  "displayAndModeration": {
+    "protocol": "The contract accepts bytes32; it does not enforce UTF-8, uniqueness, or content moderation.",
+    "display": "The official naming documentation describes UTF-8 display parsing and invalid-byte handling. Consumers should retain raw bytes and expose a decode status rather than silently replacing invalid bytes.",
+    "moderation": "MoonCat-platform redaction or moderation is an off-chain display policy. It must not rewrite or discard the underlying on-chain bytes in an event/archive model."
+  },
+  "snapshot": {
+    "artifact": "data/mooncat-names.json",
+    "source": "references/upstream/mooncatrescue/mooncat_traits.json",
+    "counts": {"nameBearingRows": 1225, "parsedUtf8StringRows": 1207, "invalidOrUnparsedMarkerRows": 18},
+    "boundary": "The generated snapshot is deterministic checked-in reference-derived data, not a current chain-storage or full-event-history assertion. The official named page is a current display surface and not a timeless canonical count source."
+  },
+  "identifierAndRuntimeBoundaries": [
+    "CatNamed carries bytes5 catId, not rescueOrder. Enrich to rescueOrder only through a separately source-backed lookup such as the checked trait snapshot, LibMoonCat, documented API, or original-contract array surface.",
+    "No event indexer, RPC read, wallet workflow, or current event count is implemented by this KB subsystem.",
+    "Checkpointing and reorg handling are consumer responsibilities; provisional logs need confirmation and replay-safe identity handling before being treated as final."
+  ],
+  "apiAndEventsRouting": {
+    "staticLookup": ["data/mooncat-names.json", "data/mooncat-naming.json", "docs/mooncat-naming.md"],
+    "preferredApiEventIngestion": {
+      "endpointKey": "mooncatrescue.get.events",
+      "method": "GET",
+      "path": "/events",
+      "sourceFile": "data/api-endpoints.json",
+      "sourceRef": "mooncatrescue-api-openapi",
+      "namingRelevantQueryFields": [
+        {"name": "contract", "acceptedIdentifierForms": ["Ethereum address"]},
+        {"name": "event", "notes": "Only return event records that have this event name."},
+        {"name": "mooncat", "acceptedIdentifierForms": ["bytes5 catId (0x-prefixed 5-byte hex)", "decimal rescue index (0-25439)"]},
+        {"name": "limit", "notes": "range: 1-500"},
+        {"name": "start_after", "notes": "Block number and event log index, separated by a hypen."}
+      ],
+      "boundary": "The endpoint manifest documents request shape only. It does not prove current availability, complete event coverage, canonical ordering, reorg handling, response contents or freshness, current chain state, or equivalence to direct logs/current catNames storage."
+    },
+    "currentNameOrEventCount": "Stop for separately authorized live chain/indexer verification; neither the snapshot nor the named page proves current storage or complete event history."
+  },
+  "adjacentCatNamer": {
+    "address": "0x6103760180D12eE883b93C988D0bEbbab51f3668",
+    "role": "Adjacent naming utility for Acclimated MoonCats: the documented flow de-acclimates, names through the original MoonCatRescue contract, then re-acclimates; helper material also describes naming-rights sale flows.",
+    "sourceRefs": ["mooncatrescue-log-fractionalizing-and-naming", "mooncatrescue-medium-custom-fractionalizing-naming", "sourcify-catnamer-metadata"],
+    "limitations": [
+      "CatNamer is not the canonical permanent-name storage registry; original MoonCatRescue catNames remains that state surface.",
+      "This compact context does not import full CatNamer ABI/source, current ownership, transaction history, sale listings, or live contract state.",
+      "CatNamer is adjacent utility context and is not part of the eight-contract core on-chain materialization path."
+    ]
+  },
+  "unverifiedResearchBoundary": "No user-supplied claim about a repeated empty-name event count is recorded as a canonical fact. It requires independent chain/event verification."
+}

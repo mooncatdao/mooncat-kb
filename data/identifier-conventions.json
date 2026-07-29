@@ -659,6 +659,14 @@
   ],
   "relatedFiles": [
     {
+      "path": "data/mooncat-naming.json",
+      "relationship": "documents CatNamed bytes5 catId and rescue-order enrichment boundaries"
+    },
+    {
+      "path": "docs/mooncat-naming.md",
+      "relationship": "explains event-consumer identifier and current-state boundaries"
+    },
+    {
       "path": "data/api-endpoints.json",
       "relationship": "documents API parameters and endpoint usage"
     },

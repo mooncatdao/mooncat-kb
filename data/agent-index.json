@@ -518,6 +518,30 @@
       ]
     },
     {
+      "key": "review-mooncat-naming",
+      "description": "Look up original MoonCat naming semantics, consume CatNamed events safely, refresh the checked-in naming snapshot, or stop at a current-state boundary.",
+      "primaryFiles": [
+        "data/mooncat-naming.json",
+        "docs/mooncat-naming.md"
+      ],
+      "optionalFiles": [
+    "data/mooncat-names.json",
+    "data/api-endpoints.json",
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/identifier-conventions.json",
+        "data/sources.json",
+        "scripts/generate-mooncat-names.py",
+        "scripts/validate-mooncat-names.py"
+      ],
+      "notes": [
+        "Preserve raw bytes32 values and distinguish decode/display status from original-contract acceptance.",
+    "Treat CatNamed history, zero-name events, current catNames storage, display moderation, and the checked-in snapshot as separate evidence layers.",
+    "Use data/api-endpoints.json only for the documented optional /events request surface; it does not prove current API availability, event completeness, ordering, response freshness, or chain state.",
+        "Stop for separately authorized live verification when a request needs a current name, ownership, offer state, event count, or complete history."
+      ]
+    },
+    {
       "key": "review-factual-retrieval-benchmark",
       "description": "Review or maintain provenance-aware factual MoonCat answer constraints without loading the full KB or confusing them with routing benchmark cases.",
       "primaryFiles": [

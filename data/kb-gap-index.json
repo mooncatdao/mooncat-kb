@@ -1,7 +1,7 @@
 {
-  "version": 9,
+  "version": 10,
   "updated": "2026-07-28",
-  "status": "refreshed-with-genesis-character-disjointness-invariant",
+  "status": "refreshed-with-genesis-character-disjointness-and-naming-system",
   "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract, accessory-system, Genesis/character-category, ChainStation, ADR, and factual-benchmark reviews, with explicit source, provenance, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
@@ -32,6 +32,8 @@
     "data/mooncat-accessory-images-internals.json",
     "data/mooncat-accessory-system.json",
     "data/mooncat-accessories-internals.json",
+    "data/mooncat-naming.json",
+    "data/mooncat-names.json",
     "data/mooncat-visual-traits.sample.json",
     "data/upstream-snapshot-manifest.json",
     "data/older-wrapper-internals.json",
@@ -92,7 +94,21 @@
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "Thirty-six cases now exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes. Coverage is 9 direct lookup, 10 cross-source synthesis, 9 provenance boundaries, and 8 live-verification stops; the Genesis, bounded on-chain synthesis, and accessory-system coverage gaps are covered."
+      "notes": "Thirty-eight cases now exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes. Coverage is 10 direct lookup, 10 cross-source synthesis, 10 provenance boundaries, and 8 live-verification stops; the Genesis, bounded on-chain synthesis, accessory-system, and naming evidence-boundary coverage gaps are covered."
+    },
+    {
+      "key": "mooncat-naming-system",
+      "status": "resolved-as-source-aware-static-naming-subsystem",
+      "files": [
+        "data/mooncat-naming.json",
+        "data/mooncat-names.json",
+        "docs/mooncat-naming.md",
+        "scripts/generate-mooncat-names.py",
+        "scripts/validate-mooncat-names.py",
+        "data/agent-index.json",
+        "data/task-recipes.json"
+      ],
+      "notes": "The KB now records original-contract naming checks, CatNamed fields and zero-name semantics, raw/display/moderation boundaries, adjacent CatNamer provenance, and a deterministic 1,225-row snapshot. Current storage, complete event history, current display counts, and live helper state remain explicit follow-up boundaries."
     },
     {
       "key": "fully-on-chain-architecture-synthesis",

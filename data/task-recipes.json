@@ -842,6 +842,47 @@
       ]
     },
     {
+      "key": "review-mooncat-naming",
+      "purpose": "Answer a bounded original-contract naming question, design a safe event consumer, or regenerate the local naming snapshot without treating static evidence as current chain state.",
+      "loadOrder": [
+        "data/mooncat-naming.json",
+        "docs/mooncat-naming.md"
+      ],
+      "optionalFiles": [
+    "data/mooncat-names.json",
+    "data/api-endpoints.json",
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/identifier-conventions.json",
+        "data/sources.json",
+        "scripts/generate-mooncat-names.py",
+        "scripts/validate-mooncat-names.py"
+      ],
+      "steps": [
+        "Identify whether the question concerns original storage semantics, an event record, snapshot data, display/moderation, CatNamer context, or current live state.",
+    "For events, preserve raw bytes32 first; use transactionHash plus logIndex identity and blockNumber/transactionIndex/logIndex ordering.",
+    "For optional API ingestion, load data/api-endpoints.json and use only its documented GET /events contract, event, mooncat, limit, and start_after request vocabulary; do not infer live availability, complete coverage, ordering, response semantics, or current chain state.",
+        "Classify all-zero name events as no persistent storage effect and do not infer a current name from event presence.",
+        "Use a separately documented lookup before enriching bytes5 catId to rescueOrder.",
+        "For an authorized snapshot refresh, run the generator and dedicated validator; do not hand-edit records or upstream reference inputs.",
+        "Stop and request live chain/indexer evidence for current storage, ownership, offer eligibility, complete history, or event counts."
+      ],
+      "outputs": [
+        "source-bounded naming/storage answer",
+        "event-consumer field and reorg/checkpoint guidance",
+        "snapshot validation result or explicit live-state stop"
+      ],
+      "guardrails": [
+        "Do not normalize invalid bytes into a replacement-character name or discard raw bytes during moderation/display work.",
+        "Do not claim duplicate-name prevention, CatNamer-owned canonical storage, or an event-derived current name.",
+        "Do not promote unverified repeated-empty-name-event claims into canonical facts."
+      ],
+      "stopConditions": [
+        "Stop if a request requires current catNames storage, current ownership/adoption-offer status, a complete historical event count, or live display availability without separately authorized verification.",
+        "Stop if a requested CatNamer behavior exceeds the documented adjacent helper boundary and needs full source/ABI or live-state review."
+      ]
+    },
+    {
       "key": "review-factual-retrieval-benchmark",
       "purpose": "Review a deterministic factual-answer contract or add a bounded case without duplicating MoonCat facts, routing cases, or a full answer corpus.",
       "loadOrder": [

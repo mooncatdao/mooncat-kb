@@ -34,7 +34,10 @@ Reference-only or disallowed fields for the first visual-trait artifact:
 - accessory-related fields such as `ownedAccessories` or accessory ownership details
 - full upstream rows, frequency tables, rendered images, palette values, and API response bodies
 
-Names and accessory-related fields may have different freshness, event semantics, or update cadence. They should stay reference-only until a separate provenance and model decision exists.
+Names remain excluded from the visual-trait artifact because they have distinct
+event and freshness semantics. Their separate provenance/model decision is now
+implemented in `data/mooncat-naming.json`, `data/mooncat-names.json`, and
+`docs/mooncat-naming.md`; the visual artifact must not duplicate them.
 
 Required provenance and method:
 
@@ -76,10 +79,10 @@ Required fields present on every checked row:
 Optional fields observed:
 
 - `genesis`: boolean; present on 96 rows, observed value `true`
-- `nameRaw`: string; present on 1,225 rows
-- `name`: string or boolean; present on 1,225 rows
-- `namedOrder`: number; present on 1,225 rows
-- `namedYear`: number; present on 1,225 rows
+- `nameRaw`: string; present on 1,225 rows. The dedicated naming snapshot preserves these raw bytes32 values.
+- `name`: string or boolean; present on 1,225 rows. The dedicated snapshot retains 1,207 strings and represents 18 boolean invalid/unparsed markers without normalization.
+- `namedOrder`: number; present on 1,225 rows and retained by the dedicated naming snapshot.
+- `namedYear`: number; present on 1,225 rows and retained by the dedicated naming snapshot.
 - `ownedAccessories`: number; present on 4,920 rows
 
 Observed string value sets in this pass:

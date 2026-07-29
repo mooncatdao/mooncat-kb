@@ -10,7 +10,7 @@
     "script": "scripts/generate-agent-context-packs.py",
     "command": "python scripts/generate-agent-context-packs.py",
     "networkDependency": "none",
-    "caseCount": 24,
+    "caseCount": 25,
     "sizePolicy": {
       "softFileLimit": 7,
       "softEstimatedByteLimit": 200000,
@@ -162,7 +162,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 91643,
+        "estimatedByteCount": 91934,
         "files": [
           {
             "path": "data/api-examples.json",
@@ -174,7 +174,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36994
+            "bytes": 37285
           }
         ],
         "softFileLimit": 7,
@@ -239,7 +239,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 75964,
+        "estimatedByteCount": 76255,
         "files": [
           {
             "path": "data/identifier-conversion-cases.json",
@@ -251,7 +251,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36994
+            "bytes": 37285
           },
           {
             "path": "data/libmooncat-surfaces.json",
@@ -318,7 +318,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 61103,
+        "estimatedByteCount": 61394,
         "files": [
           {
             "path": "data/identifier-conversion-cases.json",
@@ -330,7 +330,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36994
+            "bytes": 37285
           }
         ],
         "softFileLimit": 7,
@@ -393,7 +393,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 61103,
+        "estimatedByteCount": 61394,
         "files": [
           {
             "path": "data/identifier-conversion-cases.json",
@@ -405,7 +405,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36994
+            "bytes": 37285
           }
         ],
         "softFileLimit": 7,
@@ -469,7 +469,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 193729,
+        "estimatedByteCount": 194338,
         "files": [
           {
             "path": "data/mooncat-visual-traits.sample.json",
@@ -481,11 +481,11 @@
           },
           {
             "path": "data/trait-index.json",
-            "bytes": 16045
+            "bytes": 16363
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36994
+            "bytes": 37285
           }
         ],
         "softFileLimit": 7,
@@ -881,15 +881,15 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 65510,
+        "estimatedByteCount": 70562,
         "files": [
           {
             "path": "data/contract-surfaces.json",
-            "bytes": 21781
+            "bytes": 23872
           },
           {
             "path": "data/contracts.json",
-            "bytes": 22852
+            "bytes": 25813
           },
           {
             "path": "data/protocol-constants.json",
@@ -966,7 +966,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 126009,
+        "estimatedByteCount": 131121,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -978,11 +978,11 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 59165
+            "bytes": 63429
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 42261
+            "bytes": 43109
           }
         ],
         "softFileLimit": 7,
@@ -1125,7 +1125,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 88840,
+        "estimatedByteCount": 93104,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1137,7 +1137,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 59165
+            "bytes": 63429
           }
         ],
         "softFileLimit": 7,
@@ -1205,7 +1205,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 93632,
+        "estimatedByteCount": 97896,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1217,7 +1217,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 59165
+            "bytes": 63429
           },
           {
             "path": "docs/reference-policy.md",
@@ -1289,7 +1289,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 59888,
+        "estimatedByteCount": 60179,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
@@ -1301,7 +1301,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36994
+            "bytes": 37285
           }
         ],
         "softFileLimit": 7,
@@ -1462,7 +1462,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 82740,
+        "estimatedByteCount": 85992,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
@@ -1474,11 +1474,11 @@
           },
           {
             "path": "data/contracts.json",
-            "bytes": 22852
+            "bytes": 25813
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36994
+            "bytes": 37285
           }
         ],
         "softFileLimit": 7,
@@ -1635,11 +1635,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 149563,
+        "estimatedByteCount": 156935,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 32395
+            "bytes": 34854
           },
           {
             "path": "docs/agent-usage.md",
@@ -1647,15 +1647,15 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 23959
+            "bytes": 25262
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 49603
+            "bytes": 52365
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 42261
+            "bytes": 43109
           }
         ],
         "softFileLimit": 7,
@@ -1727,7 +1727,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 75744,
+        "estimatedByteCount": 80008,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -1739,7 +1739,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 59165
+            "bytes": 63429
           }
         ],
         "softFileLimit": 7,
@@ -1817,7 +1817,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 114716,
+        "estimatedByteCount": 115007,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -1837,7 +1837,7 @@
           },
           {
             "path": "data/identifier-conventions.json",
-            "bytes": 36994
+            "bytes": 37285
           }
         ],
         "softFileLimit": 7,
@@ -1920,7 +1920,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 75744,
+        "estimatedByteCount": 80008,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -1932,12 +1932,121 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 59165
+            "bytes": 63429
           }
         ],
         "softFileLimit": 7,
         "softEstimatedByteLimit": 200000,
         "rationale": "Use the compact reconstruction and human explanation; source index is optional for source hierarchy detail."
+      }
+    },
+    {
+      "caseId": "mooncat-naming-event-consumer",
+      "category": "naming-events",
+      "taskSummary": "Implement a local consumer model for original MoonCat CatNamed events while preserving raw bytes and avoiding current-name claims.",
+      "route": "review-mooncat-naming",
+      "recipe": "review-mooncat-naming",
+      "primaryFiles": [
+        "data/mooncat-naming.json",
+        "docs/mooncat-naming.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/identifier-conventions.json",
+        "data/api-endpoints.json"
+      ],
+      "filesToLoad": [
+        "data/mooncat-naming.json",
+        "docs/mooncat-naming.md",
+        "data/identifier-conventions.json",
+        "data/api-endpoints.json"
+      ],
+      "terminology": [
+        "catIdBytes5",
+        "CatNamed",
+        "bytes32",
+        "decodeStatus",
+        "transactionHash",
+        "logIndex",
+        "reorg"
+      ],
+      "requiredFacts": [
+        "CatNamed has indexed bytes5 catId and non-indexed bytes32 catName",
+        "transactionHash plus logIndex identifies an event and blockNumber/transactionIndex/logIndex orders it",
+        "all-zero bytes32 emits an event without a persistent name storage effect",
+        "the documented preferred GET /events request surface supports contract, event, mooncat, limit, and start_after filters"
+      ],
+      "implementationGuardrails": [
+        "Do not normalize invalid bytes into a replacement-character name or discard raw bytes during moderation/display work.",
+        "Do not claim duplicate-name prevention, CatNamer-owned canonical storage, or an event-derived current name.",
+        "Do not promote unverified repeated-empty-name-event claims into canonical facts.",
+        "Raw bytes must be retained before display decoding or moderation.",
+        "Event history and the checked-in snapshot do not prove current catNames storage or a complete event count.",
+        "The endpoint manifest does not prove API availability, complete coverage, canonical ordering, response freshness, or current chain state."
+      ],
+      "forbiddenClaims": [
+        "a CatNamed event alone proves a current name",
+        "invalid bytes can be silently normalized into exact display names",
+        "CatNamer is the canonical name registry"
+      ],
+      "knownLimitations": [
+        "Raw bytes must be retained before display decoding or moderation.",
+        "Event history and the checked-in snapshot do not prove current catNames storage or a complete event count.",
+        "The endpoint manifest does not prove API availability, complete coverage, canonical ordering, response freshness, or current chain state."
+      ],
+      "stopConditions": [
+        "Stop if current storage, ownership, adoption-offer eligibility, complete history, or live event count is required without separately authorized live verification."
+      ],
+      "validationCommands": [
+        "python scripts/generate-mooncat-names.py --check",
+        "python scripts/validate-mooncat-names.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-mooncat-names-docs",
+          "label": "MoonCatRescue MoonCat Names documentation",
+          "status": "reviewed-for-naming-system"
+        },
+        {
+          "id": "etherscan-original-contract",
+          "label": "Etherscan original MoonCatRescue contract page",
+          "status": "needs-review"
+        },
+        {
+          "id": "mooncat-kb-mooncat-names-snapshot",
+          "label": "MoonCat KB generated naming snapshot",
+          "status": "checked-in-source-snapshot"
+        },
+        {
+          "id": "mooncatrescue-api-openapi",
+          "label": "MoonCatRescue API OpenAPI spec",
+          "status": "preferred"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 95551,
+        "files": [
+          {
+            "path": "data/mooncat-naming.json",
+            "bytes": 7000
+          },
+          {
+            "path": "docs/mooncat-naming.md",
+            "bytes": 5908
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 37285
+          },
+          {
+            "path": "data/api-endpoints.json",
+            "bytes": 45358
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Load naming overview and consumer guidance first; add the endpoint manifest only for documented optional API ingestion and identifier conventions for enrichment."
       }
     },
     {
@@ -2008,7 +2117,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 78101,
+        "estimatedByteCount": 82365,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -2024,7 +2133,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 59165
+            "bytes": 63429
           }
         ],
         "softFileLimit": 7,

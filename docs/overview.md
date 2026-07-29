@@ -20,9 +20,15 @@ The initial scope is intentionally small:
 
 Incomplete.
 
-This scaffold does not yet include canonical MoonCat ID lists, contract addresses, CIDs, trait mappings, color values, rescue data, or metadata indexes.
+This KB has bounded source-backed contract, identifier, trait, and naming
+subsystems; it remains incomplete for live chain state, complete event
+histories, broad metadata imports, and unreviewed source surfaces.
 
 For the reviewed accessory subsystem, start with [`docs/mooncat-accessory-system.md`](mooncat-accessory-system.md), then follow the separate lifecycle and rendering reviews for exact source behavior. Current accessory state and exact generated output remain outside the checked-in overview.
+
+For original MoonCat naming semantics and event-consumer guidance, start with
+[`docs/mooncat-naming.md`](mooncat-naming.md). Its generated snapshot is
+source-bounded and does not establish a current name or complete event history.
 
 ## Editing Principles
 

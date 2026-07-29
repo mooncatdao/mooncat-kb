@@ -1258,6 +1258,92 @@
       "notes": "Contemporary report reviewed 2026-07-24. The private-key statement is pre-vote proposal context only and is not used as proof of the final technical locking mechanism."
     },
     {
+      "id": "mooncatrescue-mooncat-names-docs",
+      "label": "MoonCatRescue MoonCat Names documentation",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/docs/mooncat-names",
+      "trustLevel": "primary",
+      "status": "reviewed-for-naming-system",
+      "supports": [
+        "32-byte naming limit",
+        "permanent-name and display guidance",
+        "UTF-8 display parsing and invalid-byte handling",
+        "permissionless content and off-chain moderation/redaction boundary"
+      ],
+      "notes": "Official naming documentation reviewed 2026-07-29. It describes platform display and moderation guidance but does not replace original-contract source for storage/event semantics or establish current chain state."
+    },
+    {
+      "id": "mooncatrescue-named-mooncats",
+      "label": "MoonCatRescue named MoonCats page",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/named-mooncats",
+      "trustLevel": "primary",
+      "status": "current-display-surface-checked",
+      "supports": [
+        "current named-MoonCats display surface",
+        "2026-07-29 displayable-name count observation"
+      ],
+      "notes": "Checked 2026-07-29. The page displayed 1,207 displayable names, matching the checked-in snapshot string count at that time. It is a current display surface, not a timeless canonical population count, complete event history, or current storage proof."
+    },
+    {
+      "id": "mooncatrescue-log-fractionalizing-and-naming",
+      "label": "MoonCatRescue Fractionalizing and Naming log",
+      "type": "primary",
+      "url": "https://mooncatrescue.com/log/fractionalizing-and-naming",
+      "trustLevel": "primary",
+      "status": "reviewed-for-naming-system",
+      "supports": [
+        "CatNamer utility context",
+        "Acclimated naming flow context",
+        "naming-rights flow context"
+      ],
+      "notes": "Official helper-material context reviewed 2026-07-29. It supports the adjacent CatNamer role, not a replacement canonical name registry or current helper state."
+    },
+    {
+      "id": "mooncatrescue-medium-custom-fractionalizing-naming",
+      "label": "MoonCatRescue custom fractionalizing and naming article",
+      "type": "article",
+      "url": "https://medium.com/mooncatrescue/custom-fractionalizing-and-naming-of-mooncats-5573ea50626c",
+      "trustLevel": "supporting-context",
+      "status": "reviewed-for-naming-system",
+      "supports": [
+        "CatNamer utility context",
+        "custom fractionalizing and naming workflow context"
+      ],
+      "notes": "Maintainer-publication helper article reviewed 2026-07-29. Use alongside original-contract and Sourcify evidence; it does not establish current helper state or canonical original-contract storage semantics."
+    },
+    {
+      "id": "sourcify-catnamer-metadata",
+      "label": "Sourcify CatNamer exact-match metadata",
+      "type": "canonical-metadata",
+      "url": "https://repo.sourcify.dev/1/0x6103760180D12eE883b93C988D0bEbbab51f3668",
+      "trustLevel": "canonical",
+      "status": "reviewed-for-naming-system",
+      "supports": [
+        "CatNamer address",
+        "CatNamer exact-match metadata"
+      ],
+      "notes": "Sourcify exact-match metadata entry reviewed 2026-07-29 for CatNamer address/provenance. Full ABI, source body, storage, transaction history, and current state are not imported."
+    },
+    {
+      "id": "mooncat-kb-mooncat-names-snapshot",
+      "label": "MoonCat KB generated naming snapshot",
+      "type": "local-derived",
+      "path": "data/mooncat-names.json",
+      "trustLevel": "derived-from-registered-local-references",
+      "status": "checked-in-source-snapshot",
+      "supports": [
+        "1,225 source-backed naming rows",
+        "raw bytes32 naming values",
+        "source display-string and invalid-marker representation",
+        "deterministic local validation"
+      ],
+      "relatedSources": [
+        "mooncatrescue-mooncat-traits-json"
+      ],
+      "notes": "Generated deterministically by scripts/generate-mooncat-names.py from the registered local trait reference. It is a checked-in source snapshot, not current contract storage, complete event history, current display moderation, or a live named-count source."
+    },
+    {
       "id": "midnightlightning-discord-color-blurb-2024-01-06",
       "label": "MidnightLightning Discord color explanation, 2024-01-06",
       "type": "user-supplied-transcript",

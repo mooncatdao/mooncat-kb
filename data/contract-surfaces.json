@@ -15,10 +15,14 @@
     "etherscan-mooncat-colors",
     "etherscan-mooncat-svgs",
     "etherscan-mooncat-accessories",
-    "etherscan-mooncat-accessory-images"
+    "etherscan-mooncat-accessory-images",
+    "mooncatrescue-mooncat-names-docs",
+    "sourcify-catnamer-metadata"
   ],
   "relatedFiles": [
     "data/contracts.json",
+    "data/mooncat-naming.json",
+    "docs/mooncat-naming.md",
     "data/identifier-conventions.json",
     "data/protocol-constants.json",
     "data/sources.json",
@@ -39,6 +43,34 @@
     ]
   },
   "surfaces": [
+    {
+      "key": "original-mooncat-naming",
+      "task": "Review original MoonCatRescue naming reads, write guards, CatNamed event semantics, bytes32 display boundaries, and the adjacent CatNamer helper without making current-state claims.",
+      "contracts": [
+        {
+          "contractKey": "mooncatRescue",
+          "contractName": "MoonCatRescue",
+          "address": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+          "sourceRefs": ["ponderware-mooncatrescue-sol-raw", "etherscan-original-contract", "mooncatrescue-mooncat-names-docs"]
+        },
+        {
+          "contractKey": "catNamer",
+          "contractName": "CatNamer",
+          "address": "0x6103760180D12eE883b93C988D0bEbbab51f3668",
+          "sourceRefs": ["mooncatrescue-log-fractionalizing-and-naming", "sourcify-catnamer-metadata"]
+        }
+      ],
+      "role": "Original contract name storage/event surface plus adjacent Acclimated naming helper context.",
+      "usefulLookups": ["catNames(bytes5)", "getCatNames()", "getCatDetails(... name ...)", "nameCat(bytes5,bytes32)", "CatNamed(bytes5 indexed catId, bytes32 catName)"],
+      "relatedIdentifierForms": ["mooncatIdBytes5", "localRescueOrderIndex", "apiOriginalRescueIndex", "contractAddress"],
+      "relatedFiles": ["data/mooncat-naming.json", "data/mooncat-names.json", "docs/mooncat-naming.md", "data/contracts.json", "data/identifier-conventions.json"],
+      "limitations": [
+        "The original contract accepts bytes32, while UTF-8 decoding and platform moderation are separate display concerns.",
+        "CatNamed history is not current catNames storage: all-zero name events leave storage zero and may repeat.",
+        "CatNamer is adjacent utility context, not canonical name storage or an eight-core-contract materialization member.",
+        "No current chain state, complete event history, active adoption offer, ownership, display count, or helper activity is imported."
+      ]
+    },
     {
       "key": "original-rescue-lookup",
       "task": "Look up original MoonCatRescue contract behavior, rescue-order to bytes5 catId lookup, and source-derived protocol constants.",

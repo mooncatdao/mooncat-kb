@@ -376,6 +376,52 @@
       "sourceRefs": ["mooncatrescue-log-mcr-update2", "mooncatrescue-log-mcr-update4", "mooncatrescue-medium-accessories-vote", "decrypt-mooncats-bots"]
     },
     {
+      "id": "mooncat-naming-event-consumer",
+      "category": "naming-events",
+      "query": "Implement a local consumer model for original MoonCat CatNamed events while preserving raw bytes and avoiding current-name claims.",
+      "route": "review-mooncat-naming",
+      "requiredFiles": [
+        "data/mooncat-naming.json",
+        "docs/mooncat-naming.md"
+      ],
+      "optionalFiles": [
+        "data/identifier-conventions.json",
+        "data/api-endpoints.json"
+      ],
+      "terminology": ["catIdBytes5", "CatNamed", "bytes32", "decodeStatus", "transactionHash", "logIndex", "reorg"],
+      "requiredFacts": [
+        "CatNamed has indexed bytes5 catId and non-indexed bytes32 catName",
+        "transactionHash plus logIndex identifies an event and blockNumber/transactionIndex/logIndex orders it",
+        "all-zero bytes32 emits an event without a persistent name storage effect",
+        "the documented preferred GET /events request surface supports contract, event, mooncat, limit, and start_after filters"
+      ],
+      "requiredWarnings": [
+        "Raw bytes must be retained before display decoding or moderation.",
+        "Event history and the checked-in snapshot do not prove current catNames storage or a complete event count.",
+        "The endpoint manifest does not prove API availability, complete coverage, canonical ordering, response freshness, or current chain state."
+      ],
+      "forbiddenClaims": [
+        "a CatNamed event alone proves a current name",
+        "invalid bytes can be silently normalized into exact display names",
+        "CatNamer is the canonical name registry"
+      ],
+      "stopConditions": [
+        "Stop if current storage, ownership, adoption-offer eligibility, complete history, or live event count is required without separately authorized live verification."
+      ],
+      "validationCommands": [
+        "python scripts/generate-mooncat-names.py --check",
+        "python scripts/validate-mooncat-names.py"
+      ],
+      "contextIntent": "Load naming overview and consumer guidance first; add the endpoint manifest only for documented optional API ingestion and identifier conventions for enrichment.",
+      "protectedBoundary": "catnamed-event-vs-current-name-storage",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-names-docs",
+        "etherscan-original-contract",
+        "mooncat-kb-mooncat-names-snapshot",
+        "mooncatrescue-api-openapi"
+      ]
+    },
+    {
       "id": "genesis-adoption-payment-mechanics",
       "category": "genesis-payment-history",
       "query": "Explain the Genesis release/adoption schedule and zero-address payment bug without inventing an aggregate burn amount.",

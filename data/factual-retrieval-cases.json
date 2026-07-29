@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-07-24",
+  "updated": "2026-07-29",
   "status": "deterministic-provenance-aware-factual-retrieval-benchmark",
   "purpose": "Constrain factual MoonCat answers from checked-in KB evidence without storing prose gold answers or running an evaluator.",
   "enums": {
@@ -28,12 +28,12 @@
   },
   "coveragePolicy": {
     "caseCountRange": [34, 40],
-    "expectedCaseCount": 36,
+    "expectedCaseCount": 38,
     "minimumCasesPerDifficultyClass": 8,
     "expectedDifficultyCounts": {
-      "direct-lookup": 9,
+      "direct-lookup": 10,
       "cross-source-synthesis": 10,
-      "provenance-boundary": 9,
+      "provenance-boundary": 10,
       "live-verification-stop": 8
     },
     "requiredDomains": [
@@ -641,6 +641,67 @@
       "liveVerification": {"required": true, "reason": "The reconstruction does not preserve a demonstrated final technical mechanism or present authority state."},
       "expectedLimitations": ["Static evidence establishes neither a current usable key nor its destruction."],
       "reviewerNotes": "This must stop even though the historical outcome is documented."
+    },
+    {
+      "id": "direct-original-mooncat-naming-lifecycle",
+      "question": "What original MoonCatRescue checks and state transition govern a nonzero MoonCat name?",
+      "category": "naming",
+      "difficultyClass": "direct-lookup",
+      "expectedAnswerMode": "answer-from-static-kb",
+      "requiredConcepts": [
+        "msg.sender equals catOwners[catId]",
+        "zero existing catNames value",
+        "no active adoption offer",
+        "store then CatNamed event",
+        "nonzero permanence",
+        "duplicate-name allowance",
+        "bytes32 versus UTF-8 display"
+      ],
+      "requiredFiles": ["data/mooncat-naming.json"],
+      "optionalFiles": ["docs/mooncat-naming.md", "data/contracts.json"],
+      "forbiddenClaims": [
+        "the contract enforces global name uniqueness",
+        "all protocol-valid bytes32 values are valid UTF-8 display strings",
+        "CatNamer owns the canonical name storage"
+      ],
+      "provenanceRequirements": {
+        "mustDistinguish": ["original-contract storage semantics", "UTF-8 display handling", "off-chain moderation"],
+        "expectedSourceClasses": ["canonical-data", "historical-primary"]
+      },
+      "liveVerification": {"required": false, "reason": "The question is limited to source-backed original-contract lifecycle semantics."},
+      "expectedLimitations": ["The static lifecycle summary does not prove current ownership, offer state, storage contents, or display policy."],
+      "reviewerNotes": "Require all three write guards and the storage-before-event transition; preserve bytes32/display separation."
+    },
+    {
+      "id": "boundary-catnamed-events-current-storage-and-zero-name",
+      "question": "Why must a CatNamed event stream be kept separate from current catNames storage, especially for all-zero name events?",
+      "category": "naming",
+      "difficultyClass": "provenance-boundary",
+      "expectedAnswerMode": "answer-with-qualified-uncertainty",
+      "requiredConcepts": [
+        "CatNamed event history",
+        "current catNames storage",
+        "all-zero bytes32 emits an event",
+        "zero storage remains nameable",
+        "raw bytes preservation",
+        "transactionHash plus logIndex identity",
+        "reorg/checkpoint caution"
+      ],
+      "requiredFiles": ["data/mooncat-naming.json", "docs/mooncat-naming.md"],
+      "optionalFiles": ["data/mooncat-names.json"],
+      "forbiddenClaims": [
+        "every CatNamed event establishes a persistent current name",
+        "the snapshot is a complete CatNamed event history",
+        "invalid bytes may be silently replacement-character normalized",
+        "the official named page proves a timeless canonical count"
+      ],
+      "provenanceRequirements": {
+        "mustDistinguish": ["event history", "current storage", "zero-name state effect", "snapshot", "current display surface"],
+        "expectedSourceClasses": ["canonical-data", "derived-local", "live-verification-required"]
+      },
+      "liveVerification": {"required": false, "reason": "The question asks for the static evidence boundary, not a present-tense storage or event result."},
+      "expectedLimitations": ["Current storage, complete history, finalized chain ordering, and current display counts require separately authorized live evidence."],
+      "reviewerNotes": "Reject event-presence-as-current-state answers and require the all-zero no-storage-effect edge case."
     },
     {
       "id": "direct-accessory-system-flow",

@@ -8,6 +8,9 @@
   ],
   "relatedFiles": [
     "docs/traits.md",
+    "data/mooncat-naming.json",
+    "data/mooncat-names.json",
+    "docs/mooncat-naming.md",
     "docs/generated-trait-data.md",
     "data/color-classification.json",
     "docs/color-classification.md",
@@ -176,7 +179,7 @@
       "rowsPresent": 1225,
       "meaning": "Observed raw name value in rows where present.",
       "limitations": [
-        "Name strings are not imported into this schema summary."
+        "The dedicated generated naming snapshot is data/mooncat-names.json; this visual-trait index does not duplicate its rows."
       ],
       "sourceRefs": [
         "mooncatrescue-mooncat-traits-json"
@@ -196,7 +199,7 @@
         "boolean": 18
       },
       "limitations": [
-        "Name values and exact semantics are not curated in this pass."
+        "The dedicated naming system records source-string versus invalid-marker handling; this visual-trait index does not duplicate names."
       ],
       "sourceRefs": [
         "mooncatrescue-mooncat-traits-json"
@@ -209,7 +212,7 @@
       "rowsPresent": 1225,
       "meaning": "Observed name-order field in rows where present.",
       "limitations": [
-        "Exact name event semantics are not curated in this pass."
+        "See data/mooncat-naming.json for source-backed event and storage semantics."
       ],
       "sourceRefs": [
         "mooncatrescue-mooncat-traits-json"
@@ -233,7 +236,7 @@
         2026
       ],
       "limitations": [
-        "Exact name event semantics are not curated in this pass."
+        "See data/mooncat-naming.json for source-backed event and storage semantics."
       ],
       "sourceRefs": [
         "mooncatrescue-mooncat-traits-json"
@@ -431,7 +434,7 @@
           "namedOrder",
           "namedYear"
         ],
-        "reason": "Name-related fields have different freshness and event semantics; keep reference-only until a separate provenance and update-cadence decision is made."
+        "reason": "Name-related fields are intentionally excluded from the visual-trait artifact. Their dedicated provenance/update model is data/mooncat-naming.json and the deterministic data/mooncat-names.json snapshot."
       },
       {
         "fieldGroup": "accessories",

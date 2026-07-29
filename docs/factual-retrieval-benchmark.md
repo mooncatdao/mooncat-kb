@@ -16,8 +16,8 @@ or network harness.
 
 ## Schema and classes
 
-The dataset defines its closed enums and contains 34 cases: eight direct
-lookup, ten cross-source synthesis, eight provenance-boundary, and eight
+The dataset defines its closed enums and contains 38 cases: ten direct
+lookup, ten cross-source synthesis, ten provenance-boundary, and eight
 live-verification-stop cases:
 
 - `direct-lookup`: retrieve a bounded fact or KB policy from its owning file.
@@ -38,6 +38,9 @@ from release-group, post-vote, collection-total, and unresolved-mechanism
 evidence. The bounded fully-on-chain materialization case separately
 synthesizes reviewed contract roles and evidence layers without asserting
 current deployment, output availability, or present fully-on-chain status.
+The naming cases separately cover original-contract write guards and the
+boundary between `CatNamed` history, all-zero event effects, current storage,
+display decoding, and the checked-in snapshot.
 
 ## Running a review
 

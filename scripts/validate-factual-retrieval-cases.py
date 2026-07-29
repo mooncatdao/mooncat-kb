@@ -243,8 +243,8 @@ def main() -> int:
     expected_case_count = policy.get("expectedCaseCount")
     if case_count_range != [34, 40] or not 34 <= len(cases) <= 40:
         errors.append("benchmark must contain 34 through 40 cases with policy range [34, 40]")
-    if expected_case_count != 36 or len(cases) != expected_case_count:
-        errors.append("benchmark must contain exactly 36 cases")
+    if expected_case_count != 38 or len(cases) != expected_case_count:
+        errors.append("benchmark must contain exactly 38 cases")
     counts = Counter(case.get("difficultyClass") for case in cases if isinstance(case, dict))
     minimum = policy.get("minimumCasesPerDifficultyClass")
     if minimum != 8:
@@ -254,7 +254,7 @@ def main() -> int:
             errors.append(f"difficulty class {difficulty} has fewer than eight cases")
     expected_counts = policy.get("expectedDifficultyCounts")
     if not isinstance(expected_counts, dict) or any(counts[difficulty] != expected_counts.get(difficulty) for difficulty in enums.get("difficultyClasses", [])):
-        errors.append("difficulty class counts must remain exactly 9, 10, 9, 8 in enum order")
+        errors.append("difficulty class counts must remain exactly 10, 10, 10, 8 in enum order")
     categories = {case.get("category") for case in cases if isinstance(case, dict)}
     required_domains = set(policy.get("requiredDomains", []))
     missing_domains = required_domains - categories

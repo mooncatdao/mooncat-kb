@@ -52,13 +52,28 @@
         }
       ],
       "relatedData": [
-        "data/protocol-constants.json"
+        "data/protocol-constants.json",
+        "data/mooncat-naming.json"
       ],
       "identifierNotes": [
         "Original source declares public bytes5[25600] rescueOrder; this supports rescue-order to bytes5 catId lookup.",
-        "The source does not expose a direct reverse bytes5 catId to rescue-order lookup."
+        "The source does not expose a direct reverse bytes5 catId to rescue-order lookup.",
+        "Naming events carry bytes5 catId; any rescue-order enrichment needs a separately documented lookup."
       ],
-      "notes": "Original MoonCatRescue contract. Address verified from registered Etherscan source; source code verified from the original repository/raw Solidity source and Etherscan source-code badge."
+      "functionSummary": [
+        "catNames(bytes5), getCatNames(), and getCatDetails(...) expose original-contract naming reads.",
+        "nameCat(bytes5,bytes32) requires msg.sender == catOwners[catId], a zero stored catNames value, and no active adoption offer; it stores the supplied bytes32 and emits CatNamed(bytes5 indexed catId, bytes32 catName)."
+      ],
+      "eventSummary": [
+        "CatNamed has indexed bytes5 catId and non-indexed bytes32 catName.",
+        "A nonzero stored name is permanent in this storage model; duplicate bytes32 names are allowed because no global uniqueness check is present.",
+        "An all-zero bytes32 call emits CatNamed but leaves storage zero, so it has no persistent-name state effect and can be repeated."
+      ],
+      "limitations": [
+        "Original-contract bytes32 acceptance is not UTF-8 validation or platform moderation; retain raw values and separately classify display decoding.",
+        "This source summary does not establish current catNames storage, event history, ownership, adoption offers, or current display policy."
+      ],
+      "notes": "Original MoonCatRescue contract. Address verified from registered Etherscan source; source code verified from the original repository/raw Solidity source and Etherscan source-code badge. Naming details are compactly routed through data/mooncat-naming.json."
     },
     {
       "key": "acclimatedMoonCats",
@@ -316,6 +331,36 @@
         "Accessory records are not ERC-721 tokens; definition management and rescue-order ownership are distinct roles."
       ],
       "notes": "Etherscan reports exact-match verified source, compiler v0.8.1+commit.df193b15, optimization with 200 runs, default EVM version, and GNU AGPLv3. Compact lifecycle review is in data/mooncat-accessories-internals.json."
+    },
+    {
+      "key": "catNamer",
+      "label": "CatNamer utility contract",
+      "contractName": "CatNamer",
+      "network": "ethereum-mainnet",
+      "address": "0x6103760180D12eE883b93C988D0bEbbab51f3668",
+      "status": "verified-address-adjacent-utility-context",
+      "trustLevel": "primary",
+      "sourceRefs": [
+        "mooncatrescue-log-fractionalizing-and-naming",
+        "mooncatrescue-medium-custom-fractionalizing-naming",
+        "sourcify-catnamer-metadata"
+      ],
+      "artifactUrls": [
+        {
+          "kind": "sourcify-exact-match-metadata",
+          "url": "https://repo.sourcify.dev/1/0x6103760180D12eE883b93C988D0bEbbab51f3668",
+          "sourceRef": "sourcify-catnamer-metadata",
+          "checked": "2026-07-29",
+          "notes": "Exact-match metadata entry for address/provenance only; ABI, source body, storage, and current state are not imported."
+        }
+      ],
+      "roleSummary": "Adjacent helper utility for naming Acclimated MoonCats through documented de-acclimate, original-contract naming, and re-acclimate flows, with naming-rights sale context.",
+      "limitations": [
+        "CatNamer is not the canonical permanent-name storage registry; original MoonCatRescue catNames is the recorded name-state surface.",
+        "This compact entry does not establish complete helper behavior, current ownership, transactions, listings, sales, storage, or live availability.",
+        "CatNamer is not part of the eight-contract core MoonCat materialization path."
+      ],
+      "notes": "Adjacent utility context only. Use data/mooncat-naming.json before making a naming-state claim."
     },
     {
       "key": "mooncatAccessoryImages",
