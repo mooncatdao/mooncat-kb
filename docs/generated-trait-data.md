@@ -63,6 +63,11 @@ A full 25,440-row artifact should remain generated rather than hand-edited. Befo
 - run identifier uniqueness, rescue-order alignment, enum, provenance, and cross-source mismatch checks across every row
 - preserve mismatch values from both sources; do not normalize until the schema names the normalization and retains originals
 - separate visual traits from names, accessories, ownership, markets, and other data with different update cadences
+- if finalized names become a generated enrichment, consume only a pinned/local
+  MoonCatDAO name-index finalized artifact; record its revision and metadata,
+  regenerate deliberately when new finalized names appear, treat a changed
+  finalized nonblank name as an invariant violation, and exclude provisional/live
+  overlays
 - define an update policy that regenerates, validates, summarizes row/mismatch changes, and requires deliberate review before replacement
 
 The current prototype does not establish freshness against a live API, RPC, marketplace, or chain state.

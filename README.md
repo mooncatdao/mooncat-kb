@@ -24,7 +24,8 @@ Start here:
 - `docs/contracts.md` — compact contract identities, roles, and reviewed-surface notes
 - `docs/mooncat-accessory-system.md` — thin end-to-end accessory lifecycle and rendering overview
 - `data/mooncat-accessory-system.json` — machine-readable accessory-system integration index
-- `data/mooncat-naming.json`, `data/mooncat-names.json`, and `docs/mooncat-naming.md` — source-aware original-contract naming semantics, event-consumer boundaries, and deterministic checked-in naming snapshot
+- `data/name-index-integration.json` and `docs/name-index-integration.md` — preferred reviewed MoonCatDAO source contract for revision-bounded finalized naming state and canonical finalized `CatNamed` history
+- `data/mooncat-naming.json`, `data/mooncat-names.json`, and `docs/mooncat-naming.md` — original-contract naming semantics, event-consumer boundaries, and deterministic historical/source-comparison naming snapshot
 - `docs/mooncat-accessories.md` and `docs/mooncat-accessory-images.md` — detailed lifecycle and rendering reviews
 - `docs/mooncat-svgs.md` — compact MoonCatSVGs internals review
 - `docs/rescue-history.md` — rescue range and historical bucket notes

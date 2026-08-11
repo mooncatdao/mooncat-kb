@@ -30,7 +30,9 @@
     "data/mooncat-accessories-internals.json",
     "docs/mooncat-accessories.md",
     "data/mooncat-accessory-images-internals.json",
-    "docs/mooncat-accessory-images.md"
+    "docs/mooncat-accessory-images.md",
+    "data/name-index-integration.json",
+    "docs/name-index-integration.md"
   ],
   "defaults": {
     "loadFirst": [
@@ -880,6 +882,41 @@
       "stopConditions": [
         "Stop if a request requires current catNames storage, current ownership/adoption-offer status, a complete historical event count, or live display availability without separately authorized verification.",
         "Stop if a requested CatNamer behavior exceeds the documented adjacent helper boundary and needs full source/ABI or live-state review."
+      ]
+    },
+    {
+      "key": "use-maintained-name-index",
+      "purpose": "Answer a revision-bounded maintained finalized naming question or plan a future generated population enrichment without using provisional/live data as canonical.",
+      "loadOrder": [
+        "data/name-index-integration.json",
+        "docs/name-index-integration.md"
+      ],
+      "optionalFiles": [
+        "data/mooncat-naming.json",
+        "docs/mooncat-naming.md",
+        "data/mooncat-names.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Identify whether the request needs a simple current-name map, a detailed current-name record, finalized event history, or blank-event history.",
+        "Select the matching finalized name-index artifact; use data/events.jsonl for canonical finalized history and understand that current-name files are derived from it.",
+        "Keep nameRaw, status, and text distinct; interpret namer only as the immediate transaction sender.",
+        "Exclude pending and *-live artifacts from canonical output and distinguish the historical mooncat-names.json snapshot from maintained artifacts.",
+        "For a future population build, record the exact name-index revision and finalized metadata/artifact, regenerate deliberately as named population grows, and investigate any changed finalized nonblank name."
+      ],
+      "outputs": [
+        "selected finalized artifact and identifier form",
+        "revision/freshness boundary",
+        "monotonic-enrichment guidance or invariant-violation warning"
+      ],
+      "guardrails": [
+        "Do not claim provisional or live overlays are canonical finalized state.",
+        "Do not treat a blank CatNamed event as a current name or consumed naming state.",
+        "Do not present revision-bound metadata counts as timeless MoonCat facts."
+      ],
+      "stopConditions": [
+        "Stop if a newer-than-reviewed name-index revision or live chain state is actually required.",
+        "Stop if the request is about original nameCat or catNames semantics; route to review-mooncat-naming instead."
       ]
     },
     {

@@ -92,7 +92,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 114,
+    "maintainedFileCount": 116,
     "excludedFileCount": 71,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -197,8 +197,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6377,
-      "sha256": "df683ffe50db79386cb0c42f346f45672db27daa3d3568b4e1919a1df0e6de78",
+      "sizeBytes": 6593,
+      "sha256": "ee9b18c8e92336db54258bd6273da151b33a9a881b37c71bf3857f5028533b44",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -243,8 +243,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 80014,
-      "sha256": "10e2985d38b0f8fc4a3ac82a98ea9d097d9f8fdb1995b3fb9e257c2a3daf9973",
+      "sizeBytes": 79841,
+      "sha256": "482c9fbdab8c0abb91d8ceeaecc0d2f18ce327da8066a909c0c4a83bb898d62a",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -270,8 +270,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 25262,
-      "sha256": "5e0733de213d1723cc4b2045a47643f743b678bcd984cc832b593c8c071899b6",
+      "sizeBytes": 26735,
+      "sha256": "26e2efb623c7f6a97f4fa7038002f7bf9236abcd6a500785c486ecff84ad3b49",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -299,8 +299,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 34854,
-      "sha256": "e00652b1ebc50d570af9f73cfd463f66061e7377da84e631a2f219b5249b29f4",
+      "sizeBytes": 34914,
+      "sha256": "16610aceabef3982217875fc5c6b85ca78b54d85de4cb7224b9a96d6317771b6",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "use-agent-context-packs"
@@ -797,8 +797,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 43109,
-      "sha256": "686420eab0c30bea4de477f5eeaed76d2b62a15b5cc044a83dfa145d75c103f0",
+      "sizeBytes": 43479,
+      "sha256": "5017d05f6c76e706e2052de3128a1f71a145ccdfb8873446ab91fb5240f82e2b",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
@@ -1046,10 +1046,12 @@
       "sizeBytes": 358832,
       "sha256": "87fb51719a20460d019afeaaff55cf4a8b52046ac4177c63e32f500f94260e70",
       "agentRoutes": [
-        "review-mooncat-naming"
+        "review-mooncat-naming",
+        "use-maintained-name-index"
       ],
       "taskRecipes": [
-        "review-mooncat-naming"
+        "review-mooncat-naming",
+        "use-maintained-name-index"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -1067,13 +1069,15 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 7000,
-      "sha256": "92a2f3730fde7b6b91098cb390c098be786190eea6f6b57c8075e69bf40a8260",
+      "sizeBytes": 8349,
+      "sha256": "e64791139f3df14d6afe3ac2dad12bc2fb139a31e9ab5f35df838bcf56d1bf71",
       "agentRoutes": [
-        "review-mooncat-naming"
+        "review-mooncat-naming",
+        "use-maintained-name-index"
       ],
       "taskRecipes": [
-        "review-mooncat-naming"
+        "review-mooncat-naming",
+        "use-maintained-name-index"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -1161,6 +1165,30 @@
       "directAgentLoadRecommended": true
     },
     {
+      "path": "data/name-index-integration.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated"
+      ],
+      "sizeBytes": 6411,
+      "sha256": "34e98b5e6074b198a9777240cd80f378d56afbeee121c80af77a8511261430bb",
+      "agentRoutes": [
+        "use-maintained-name-index"
+      ],
+      "taskRecipes": [
+        "use-maintained-name-index"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
       "path": "data/older-wrapper-internals.json",
       "fileRole": "canonical-data",
       "topics": [
@@ -1196,8 +1224,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 20158,
-      "sha256": "1515d647296dd56cab6c42bf4604c99330d8416a1ea12432abd35d83e42e90fa",
+      "sizeBytes": 20938,
+      "sha256": "2442a5e34026fb8d5e9f084fa14995f482ac262553df10a622727b1240143472",
       "agentRoutes": [
         "find-ipfs-and-artifact-urls"
       ],
@@ -1322,8 +1350,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 63429,
-      "sha256": "e40d384517267d22ff8315c389421f98565f21e9475191cbfb2ed0d6fab638e3",
+      "sizeBytes": 64507,
+      "sha256": "2539fa2b9f98941ca7878f8f10717846f6c3fa131ac0312e8c796ce103bf5c89",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -1346,6 +1374,7 @@
         "trace-genesis-cats",
         "understand-rescue-mining",
         "use-agent-context-packs",
+        "use-maintained-name-index",
         "use-task-recipes",
         "verify-identifier-conversions",
         "verify-materialization-parity",
@@ -1374,6 +1403,7 @@
         "use-agent-context-packs",
         "use-api-examples",
         "use-libmooncat-helper-surfaces",
+        "use-maintained-name-index",
         "verify-identifier-conversions",
         "verify-materialization-parity"
       ],
@@ -1416,8 +1446,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 52365,
-      "sha256": "fcf7761253408e45eba5c9407f152348df8ea6c55fd946d14fdbd8f5d6246804",
+      "sizeBytes": 54541,
+      "sha256": "73e2eb2c8b000ae07a2213ec09dceb21f41d4c565fc37b402de042e6fa6147e8",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1785,8 +1815,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5363,
-      "sha256": "20fab6a97fea5328dbf00d5a807dd3af5f3755d1f1f6bad6f56bde55e306b1fe",
+      "sizeBytes": 5689,
+      "sha256": "c5fcd4f898011c11529b48385789fda06e3888cb60a0357382e51be7c09a2510",
       "agentRoutes": [
         "fetch-traits",
         "generate-visual-trait-sample"
@@ -2084,13 +2114,15 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5908,
-      "sha256": "a42f0bcb46f87ca2da74a2c1f667872f277296a2789cfc34e252897a429450eb",
+      "sizeBytes": 7281,
+      "sha256": "013d93a2bfa7af032c1e065a319145786cdabb5ac35a001e23b1cd3cf4c408a9",
       "agentRoutes": [
-        "review-mooncat-naming"
+        "review-mooncat-naming",
+        "use-maintained-name-index"
       ],
       "taskRecipes": [
-        "review-mooncat-naming"
+        "review-mooncat-naming",
+        "use-maintained-name-index"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -2146,6 +2178,31 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "docs/name-index-integration.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 4136,
+      "sha256": "74c79d3201c7267b11943c1baa7e26fd0017a4fee485d80d0e4c63e013690f29",
+      "agentRoutes": [
+        "use-maintained-name-index"
+      ],
+      "taskRecipes": [
+        "use-maintained-name-index"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
       "path": "docs/older-wrapper-contracts.md",
       "fileRole": "documentation",
       "topics": [
@@ -2182,8 +2239,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 1507,
-      "sha256": "a0a7081f7a0ffa405a9c7996241ef82be04d83c4d4187e6c236f254798b82044",
+      "sizeBytes": 1692,
+      "sha256": "0405d5b1f91cdc094c0bf8530b019729d9192e8da5ccc947c7457a37fbe530d7",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -2328,8 +2385,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 9835,
-      "sha256": "05d5117a5a759369500b67f1ad9bd20ba868f74432ef1997df3d7732fede712d",
+      "sizeBytes": 10222,
+      "sha256": "e117c0b39ce121a9143fe4dabc40e3e7cb29e335d45f684bf97bc24eea4de6c0",
       "agentRoutes": [
         "fetch-traits",
         "review-trait-schema-strategy"

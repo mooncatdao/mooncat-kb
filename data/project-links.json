@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-11",
+  "updated": "2026-08-11",
   "status": "classified-navigation-links",
   "provenance": {
     "sources": [
@@ -150,6 +150,20 @@
       "trustNotes": "Registered community-maintained source; no official project endorsement or canonical fact status is implied.",
       "sourceRefs": [
         "mooncat-dao-github"
+      ]
+    },
+    {
+      "key": "mooncatDaoNameIndex",
+      "label": "MoonCatDAO name-index",
+      "url": "https://github.com/mooncatdao/name-index",
+      "type": "source-code",
+      "status": "reviewed-finalized-naming-source",
+      "trustLevel": "community-maintained",
+      "role": "Preferred maintained navigation source for revision-bounded finalized MoonCat naming artifacts and canonical finalized CatNamed history.",
+      "ownershipStatus": "community-context",
+      "trustNotes": "Reviewed at a recorded local commit and licensed CC0-1.0. Finalized artifacts are preferred for maintained naming data; this link does not establish newer revision contents, deployment, workflow health, or live chain state.",
+      "sourceRefs": [
+        "mooncatdao-name-index"
       ]
     },
     {

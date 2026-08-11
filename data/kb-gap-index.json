@@ -1,7 +1,7 @@
 {
-  "version": 10,
-  "updated": "2026-07-28",
-  "status": "refreshed-with-genesis-character-disjointness-and-naming-system",
+  "version": 11,
+  "updated": "2026-08-11",
+  "status": "refreshed-with-maintained-finalized-naming-integration",
   "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract, accessory-system, Genesis/character-category, ChainStation, ADR, and factual-benchmark reviews, with explicit source, provenance, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
@@ -34,6 +34,7 @@
     "data/mooncat-accessories-internals.json",
     "data/mooncat-naming.json",
     "data/mooncat-names.json",
+    "data/name-index-integration.json",
     "data/mooncat-visual-traits.sample.json",
     "data/upstream-snapshot-manifest.json",
     "data/older-wrapper-internals.json",
@@ -98,17 +99,19 @@
     },
     {
       "key": "mooncat-naming-system",
-      "status": "resolved-as-source-aware-static-naming-subsystem",
+      "status": "resolved-as-source-aware-static-and-maintained-finalized-naming-subsystem",
       "files": [
         "data/mooncat-naming.json",
         "data/mooncat-names.json",
+        "data/name-index-integration.json",
         "docs/mooncat-naming.md",
+        "docs/name-index-integration.md",
         "scripts/generate-mooncat-names.py",
         "scripts/validate-mooncat-names.py",
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "The KB now records original-contract naming checks, CatNamed fields and zero-name semantics, raw/display/moderation boundaries, adjacent CatNamer provenance, and a deterministic 1,225-row snapshot. Current storage, complete event history, current display counts, and live helper state remain explicit follow-up boundaries."
+      "notes": "The KB now records original-contract naming checks, CatNamed fields and zero-name semantics, raw/display/moderation boundaries, adjacent CatNamer provenance, and a deterministic 1,225-row historical/source-comparison snapshot. The reviewed CC0 MoonCatDAO name-index integration is the preferred revision-bounded source for finalized current names and canonical finalized history; provisional/live overlays remain excluded. Current storage, newer-than-reviewed state, current display counts, and live helper state remain explicit follow-up boundaries."
     },
     {
       "key": "fully-on-chain-architecture-synthesis",

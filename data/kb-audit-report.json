@@ -31,7 +31,7 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 47 Required file references checked: 462 sourceRefs checked: 1161 relatedFiles checked: 263 Character/Genesis membership arrays checked: 16 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 48 Required file references checked: 477 sourceRefs checked: 1166 relatedFiles checked: 267 Character/Genesis membership arrays checked: 16 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
@@ -97,35 +97,35 @@
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 114 maintained files, 71 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 116 maintained files, 71 explicit exclusions, hashes, routes, and commands validated"
     }
   ],
   "counts": {
     "requiredCommandCount": 16,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 1678,
+    "internalPathsChecked": 1706,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 114,
+    "manifestMaintainedFileCount": 116,
     "manifestExcludedFileCount": 71
   },
   "duplicateIdChecks": {
     "collections": {
       "sources": {
         "file": "data/sources.json",
-        "count": 91,
+        "count": 92,
         "duplicates": []
       },
       "agent-routes": {
         "file": "data/agent-index.json",
-        "count": 28,
+        "count": 29,
         "duplicates": []
       },
       "task-recipes": {
         "file": "data/task-recipes.json",
-        "count": 23,
+        "count": 24,
         "duplicates": []
       },
       "benchmark-cases": {
@@ -182,7 +182,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 1678,
+    "checked": 1706,
     "errors": [],
     "warnings": []
   },

@@ -13,12 +13,15 @@
     "mooncatrescue-log-fractionalizing-and-naming",
     "mooncatrescue-medium-custom-fractionalizing-naming",
     "sourcify-catnamer-metadata",
-    "mooncat-kb-mooncat-names-snapshot"
+    "mooncat-kb-mooncat-names-snapshot",
+    "mooncatdao-name-index"
   ],
   "relatedFiles": [
     "data/mooncat-names.json",
+    "data/name-index-integration.json",
     "data/api-endpoints.json",
     "docs/mooncat-naming.md",
+    "docs/name-index-integration.md",
     "data/contracts.json",
     "data/contract-surfaces.json",
     "data/identifier-conventions.json",
@@ -71,7 +74,20 @@
     "artifact": "data/mooncat-names.json",
     "source": "references/upstream/mooncatrescue/mooncat_traits.json",
     "counts": {"nameBearingRows": 1225, "parsedUtf8StringRows": 1207, "invalidOrUnparsedMarkerRows": 18},
-    "boundary": "The generated snapshot is deterministic checked-in reference-derived data, not a current chain-storage or full-event-history assertion. The official named page is a current display surface and not a timeless canonical count source."
+    "boundary": "The generated snapshot is deterministic checked-in reference-derived historical/source-comparison data, not a current chain-storage or full-event-history assertion. Where the reviewed name-index artifacts are available, use them as the preferred maintained finalized source for current names and canonical finalized history. The official named page is a current display surface and not a timeless canonical count source."
+  },
+  "maintainedNameIndex": {
+    "integrationContract": "data/name-index-integration.json",
+    "documentation": "docs/name-index-integration.md",
+    "preferredFor": [
+      "revision-bounded finalized current-name lookup",
+      "canonical finalized CatNamed history",
+      "naming order/year",
+      "immediate transaction sender metadata",
+      "blank-event history"
+    ],
+    "artifactBoundary": "Use finalized artifacts only. Provisional pending/live overlays are not canonical and must not populate a canonical static artifact.",
+    "protocolBoundary": "Original MoonCatRescue storage and nameCat semantics remain governed by this file and original-contract sources, not by a maintained artifact refresh."
   },
   "identifierAndRuntimeBoundaries": [
     "CatNamed carries bytes5 catId, not rescueOrder. Enrich to rescueOrder only through a separately source-backed lookup such as the checked trait snapshot, LibMoonCat, documented API, or original-contract array surface.",
@@ -79,7 +95,8 @@
     "Checkpointing and reorg handling are consumer responsibilities; provisional logs need confirmation and replay-safe identity handling before being treated as final."
   ],
   "apiAndEventsRouting": {
-    "staticLookup": ["data/mooncat-names.json", "data/mooncat-naming.json", "docs/mooncat-naming.md"],
+    "staticHistoricalSnapshotLookup": ["data/mooncat-names.json", "data/mooncat-naming.json", "docs/mooncat-naming.md"],
+    "maintainedFinalizedLookup": ["data/name-index-integration.json", "docs/name-index-integration.md"],
     "preferredApiEventIngestion": {
       "endpointKey": "mooncatrescue.get.events",
       "method": "GET",
@@ -95,7 +112,7 @@
       ],
       "boundary": "The endpoint manifest documents request shape only. It does not prove current availability, complete event coverage, canonical ordering, reorg handling, response contents or freshness, current chain state, or equivalence to direct logs/current catNames storage."
     },
-    "currentNameOrEventCount": "Stop for separately authorized live chain/indexer verification; neither the snapshot nor the named page proves current storage or complete event history."
+    "currentNameOrEventCount": "For a revision-bounded finalized name or history answer, use the reviewed name-index integration contract and its finalized artifacts. Stop for newer-than-reviewed revision or separately authorized live verification only when the request requires that freshness; neither the historical snapshot nor the named page proves current storage or complete event history."
   },
   "adjacentCatNamer": {
     "address": "0x6103760180D12eE883b93C988D0bEbbab51f3668",

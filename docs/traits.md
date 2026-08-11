@@ -36,8 +36,9 @@ Reference-only or disallowed fields for the first visual-trait artifact:
 
 Names remain excluded from the visual-trait artifact because they have distinct
 event and freshness semantics. Their separate provenance/model decision is now
-implemented in `data/mooncat-naming.json`, `data/mooncat-names.json`, and
-`docs/mooncat-naming.md`; the visual artifact must not duplicate them.
+implemented in `data/mooncat-naming.json`, `data/name-index-integration.json`,
+`data/mooncat-names.json`, `docs/mooncat-naming.md`, and
+`docs/name-index-integration.md`; the visual artifact must not duplicate them.
 
 Required provenance and method:
 
@@ -134,7 +135,7 @@ Recommended next passes, in increasing scope:
 - Frequency summary: generate aggregate counts for selected fields such as hue, expression, pattern, pose, pale, genesis, and accessory/name presence. This is derived data and should document the exact command or script.
 - Generated curated trait data: promote selected normalized visual-trait fields into `data/` only through the model decision above and only if a focused pass defines the generated artifact, sourceRefs, generation method, validation checks, update process, and size limits.
 
-Before any curated import, decide whether names, accessory counts, and derived relation fields belong in the same dataset as visual traits. They may need separate provenance or update cadence.
+Before any curated import, decide whether names, accessory counts, and derived relation fields belong in the same dataset as visual traits. They may need separate provenance or update cadence. If finalized names become a generated enrichment, consume only a pinned/local MoonCatDAO name-index finalized artifact; record its revision and metadata, regenerate deliberately when new finalized names appear, treat a changed finalized nonblank name as an invariant violation, and exclude provisional/live overlays.
 
 ## Limits
 

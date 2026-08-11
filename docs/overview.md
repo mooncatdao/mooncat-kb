@@ -26,9 +26,12 @@ histories, broad metadata imports, and unreviewed source surfaces.
 
 For the reviewed accessory subsystem, start with [`docs/mooncat-accessory-system.md`](mooncat-accessory-system.md), then follow the separate lifecycle and rendering reviews for exact source behavior. Current accessory state and exact generated output remain outside the checked-in overview.
 
-For original MoonCat naming semantics and event-consumer guidance, start with
-[`docs/mooncat-naming.md`](mooncat-naming.md). Its generated snapshot is
-source-bounded and does not establish a current name or complete event history.
+For original MoonCat naming semantics, start with
+[`docs/mooncat-naming.md`](mooncat-naming.md). For revision-bounded maintained
+finalized current names and canonical history, start with
+[`docs/name-index-integration.md`](name-index-integration.md). The local
+generated snapshot remains source-bounded historical/source-comparison evidence
+and does not establish live storage or a newer-than-reviewed event history.
 
 ## Editing Principles
 

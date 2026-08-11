@@ -519,7 +519,7 @@
     },
     {
       "key": "review-mooncat-naming",
-      "description": "Look up original MoonCat naming semantics, consume CatNamed events safely, refresh the checked-in naming snapshot, or stop at a current-state boundary.",
+      "description": "Look up original MoonCat naming semantics, consume CatNamed events safely, or inspect the deterministic historical naming snapshot.",
       "primaryFiles": [
         "data/mooncat-naming.json",
         "docs/mooncat-naming.md"
@@ -536,9 +536,31 @@
       ],
       "notes": [
         "Preserve raw bytes32 values and distinguish decode/display status from original-contract acceptance.",
-    "Treat CatNamed history, zero-name events, current catNames storage, display moderation, and the checked-in snapshot as separate evidence layers.",
-    "Use data/api-endpoints.json only for the documented optional /events request surface; it does not prove current API availability, event completeness, ordering, response freshness, or chain state.",
-        "Stop for separately authorized live verification when a request needs a current name, ownership, offer state, event count, or complete history."
+        "Treat CatNamed history, zero-name events, current catNames storage, display moderation, and the checked-in snapshot as separate evidence layers.",
+        "For maintained finalized current-name or history questions, route to use-maintained-name-index rather than presenting data/mooncat-names.json as current.",
+        "Use data/api-endpoints.json only for the documented optional /events request surface; it does not prove current API availability, event completeness, ordering, response freshness, or chain state.",
+        "Stop for separately authorized live verification when a request needs current storage, ownership, offer state, or live state beyond a reviewed finalized name-index revision."
+      ]
+    },
+    {
+      "key": "use-maintained-name-index",
+      "description": "Choose the reviewed MoonCatDAO name-index finalized artifacts for revision-bounded current-name, history, order/year, namer, or blank-event questions.",
+      "primaryFiles": [
+        "data/name-index-integration.json",
+        "docs/name-index-integration.md"
+      ],
+      "optionalFiles": [
+        "data/mooncat-naming.json",
+        "docs/mooncat-naming.md",
+        "data/mooncat-names.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Use finalized data/events.jsonl as canonical finalized CatNamed history; finalized current-name artifacts are derived from it.",
+        "Use the historical data/mooncat-names.json snapshot only for its deterministic source-comparison boundary, not as the preferred maintained finalized source.",
+        "Do not treat pending or *-live artifacts as canonical state, and do not embed them in a canonical population artifact.",
+        "A changed finalized nonblank name is an invariant violation requiring investigation; blank events remain in history but do not populate current-name state.",
+        "Stop only when a request requires a newer-than-reviewed revision or live state; protocol semantics still route to review-mooncat-naming."
       ]
     },
     {

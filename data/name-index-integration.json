@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "status": "reviewed-maintained-finalized-naming-integration",
+  "scope": "Integration contract for the separately maintained MoonCatDAO name-index repository. It identifies preferred finalized naming artifacts without vendoring them or asserting live chain state.",
+  "sourceRefs": [
+    "mooncatdao-name-index",
+    "ponderware-mooncatrescue-sol-raw",
+    "mooncat-kb-mooncat-names-snapshot"
+  ],
+  "repository": {
+    "identity": "mooncatdao/name-index",
+    "url": "https://github.com/mooncatdao/name-index",
+    "license": "CC0-1.0",
+    "reviewedCommit": "5d3b265613e987e4ca2c32e2afd7edf3178a146a",
+    "reviewedAt": "2026-08-11",
+    "reviewBoundary": "The local sibling checkout was reviewed read-only. This contract is revision-bound and must not be read as a claim about a newer repository revision, deployed workflow, or live chain state."
+  },
+  "finalizedArtifacts": {
+    "canonicalEventHistory": {
+      "path": "name-index/data/events.jsonl",
+      "role": "Canonical finalized CatNamed event history, including blank naming attempts; use for history, audit, and rebuilding derived artifacts.",
+      "currentNameDerivation": "Finalized current-name artifacts are derived from this finalized event history."
+    },
+    "currentNames": {
+      "path": "name-index/data/current-names.json",
+      "role": "One detailed finalized current-name record per successfully named MoonCat."
+    },
+    "byCatId": {
+      "path": "name-index/data/names-by-cat-id.json",
+      "role": "Detailed finalized current-name records indexed by bytes5 catId."
+    },
+    "byRescueOrder": {
+      "path": "name-index/data/names-by-rescue-order.json",
+      "role": "Detailed finalized current-name records indexed by decimal rescueOrder."
+    },
+    "simple": {
+      "path": "name-index/data/names-simple.json",
+      "role": "Display-oriented finalized decimal rescueOrder-to-name map; detailed artifacts retain broader raw/decode information."
+    },
+    "metadata": {
+      "path": "name-index/data/metadata.json",
+      "role": "Finalized index and scan metadata that downstream generation must record alongside its input revision."
+    }
+  },
+  "provisionalArtifacts": {
+    "paths": [
+      "name-index/data/pending-events.json",
+      "name-index/data/names-simple-live.json",
+      "name-index/data/current-names-live.json",
+      "name-index/data/names-by-cat-id-live.json",
+      "name-index/data/names-by-rescue-order-live.json",
+      "name-index/data/metadata-live.json"
+    ],
+    "role": "Lower-latency overlays that include provisional events and may be removed, replaced, or reconciled. They are not canonical static naming state and must not be embedded into a canonical population artifact."
+  },
+  "identifiersAndFields": {
+    "chainId": 1,
+    "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+    "namingStartBlock": 4140409,
+    "moonCatCount": 25440,
+    "identifierForms": {
+      "catId": "0x-prefixed bytes5 MoonCat identifier",
+      "rescueOrder": "decimal 0 through 25439"
+    },
+    "eventIdentity": "eventId is transactionHash:logIndex.",
+    "fieldSemantics": {
+      "eventId": "Stable event identity composed of transaction hash and log index.",
+      "namer": "Immediate Ethereum transaction sender; may be a wallet or contract and is not necessarily the human chooser or beneficial owner.",
+      "namedOrder": "One-based ordering derived from canonical blockNumber, transactionIndex, and logIndex for successful names.",
+      "namedYear": "UTC year derived from the canonical block timestamp when available.",
+      "status": "Name decoding/status classification retained with the raw value.",
+      "text": "Decoded display text when the detailed record can provide it; it does not replace nameRaw.",
+      "nameRaw": "Original bytes32 name value retained before display decoding."
+    }
+  },
+  "namingInvariant": {
+    "successfulNonblankState": "A finalized nonzero name is immutable per cat under the original MoonCatRescue storage semantics.",
+    "populationGrowth": "The set of cats with finalized nonblank names is append-only as previously unnamed cats are successfully named.",
+    "blankEvents": "An all-zero CatNamed event remains in canonical event history but does not create a current-name record, consume naming state, or populate a current-name field.",
+    "violationHandling": "A changed finalized nonblank name for an already-named cat is an invariant-violation or data-corruption signal requiring investigation, not a normal refresh."
+  },
+  "fullPopulationIndexGuidance": {
+    "eligibleInput": "Finalized nonblank name-index data may be incorporated directly as source-attributed monotonic enrichment in a future generated 25440-cat population index.",
+    "generationRequirements": [
+      "Record the exact name-index repository revision and finalized metadata/artifact used.",
+      "Regenerate deliberately when the finalized named population grows; do not silently present an older enrichment as current.",
+      "Allow offline generation from a pinned local name-index checkout or copied CC0 finalized artifact; no live network access is required.",
+      "Reject or investigate a changed finalized nonblank name instead of accepting it as an ordinary update.",
+      "Exclude provisional/live artifacts from canonical output."
+    ]
+  },
+  "historicalSnapshotBoundary": {
+    "path": "data/mooncat-names.json",
+    "role": "Deterministic historical/source-comparison snapshot generated from mooncat_traits.json.",
+    "notPreferredFor": "Maintained current finalized names, canonical finalized CatNamed history, current naming order/year, namer, or blank-event history when the reviewed name-index artifacts are available."
+  },
+  "observedMetadata": {
+    "observedAt": "2026-08-11",
+    "reviewedCommit": "5d3b265613e987e4ca2c32e2afd7edf3178a146a",
+    "eventCount": 23236,
+    "blankEventCount": 22003,
+    "removedEventCount": 0,
+    "namedCatCount": 1233,
+    "boundary": "These are metadata observations from the reviewed revision, not timeless MoonCat facts; later finalized scans may advance them."
+  },
+  "freshnessBoundary": "Use the reviewed finalized artifacts for maintained data within their revision boundary. Stop for a newer-than-reviewed revision or live state only when the request actually requires it; this KB does not implement sync, GitHub API, RPC, webhook, or network fetching."
+}

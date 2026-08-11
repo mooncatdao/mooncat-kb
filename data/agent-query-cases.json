@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-24",
+  "updated": "2026-08-11",
   "status": "deterministic-coding-agent-routing-benchmark",
   "scope": "Realistic MoonCat coding-agent query contracts. This validates route/context sufficiency and safety boundaries, not subjective answer quality or live system behavior.",
   "sourceRefs": ["repo-agent-query-benchmark"],
@@ -378,47 +378,46 @@
     {
       "id": "mooncat-naming-event-consumer",
       "category": "naming-events",
-      "query": "Implement a local consumer model for original MoonCat CatNamed events while preserving raw bytes and avoiding current-name claims.",
-      "route": "review-mooncat-naming",
+      "query": "Use the maintained finalized source for a MoonCat's current name, naming order/year, namer, and blank CatNamed history without mistaking provisional data for canonical state.",
+      "route": "use-maintained-name-index",
       "requiredFiles": [
-        "data/mooncat-naming.json",
-        "docs/mooncat-naming.md"
+        "data/name-index-integration.json",
+        "docs/name-index-integration.md"
       ],
       "optionalFiles": [
-        "data/identifier-conventions.json",
-        "data/api-endpoints.json"
+        "data/mooncat-naming.json"
       ],
-      "terminology": ["catIdBytes5", "CatNamed", "bytes32", "decodeStatus", "transactionHash", "logIndex", "reorg"],
+      "terminology": ["catIdBytes5", "CatNamed", "eventId", "nameRaw", "namedOrder", "namedYear", "namer", "provisional"],
       "requiredFacts": [
-        "CatNamed has indexed bytes5 catId and non-indexed bytes32 catName",
-        "transactionHash plus logIndex identifies an event and blockNumber/transactionIndex/logIndex orders it",
-        "all-zero bytes32 emits an event without a persistent name storage effect",
-        "the documented preferred GET /events request surface supports contract, event, mooncat, limit, and start_after filters"
+        "data/events.jsonl is canonical finalized CatNamed history and finalized current-name artifacts are derived from it",
+        "all-zero bytes32 events remain in history but do not create current-name records or consume naming state",
+        "a finalized nonblank name is immutable per cat while the named population can grow",
+        "namer is the immediate transaction sender, not necessarily the human chooser or beneficial owner"
       ],
       "requiredWarnings": [
-        "Raw bytes must be retained before display decoding or moderation.",
-        "Event history and the checked-in snapshot do not prove current catNames storage or a complete event count.",
-        "The endpoint manifest does not prove API availability, complete coverage, canonical ordering, response freshness, or current chain state."
+        "Raw nameRaw, decoded text, and status must remain distinct.",
+        "Pending and *-live artifacts are provisional and must not be used as canonical static state.",
+        "Reviewed metadata counts and artifacts are revision-bound; stop only if newer-than-reviewed or live state is actually required."
       ],
       "forbiddenClaims": [
-        "a CatNamed event alone proves a current name",
-        "invalid bytes can be silently normalized into exact display names",
-        "CatNamer is the canonical name registry"
+        "a blank CatNamed event creates a current name",
+        "a changed finalized nonblank name is an expected refresh",
+        "provisional live data is canonical finalized state"
       ],
       "stopConditions": [
-        "Stop if current storage, ownership, adoption-offer eligibility, complete history, or live event count is required without separately authorized live verification."
+        "Stop if a newer-than-reviewed name-index revision or live chain state is actually required; route original protocol semantics to review-mooncat-naming."
       ],
       "validationCommands": [
-        "python scripts/generate-mooncat-names.py --check",
-        "python scripts/validate-mooncat-names.py"
+        "python scripts/generate-agent-context-packs.py --check",
+        "python scripts/validate-agent-routing.py"
       ],
-      "contextIntent": "Load naming overview and consumer guidance first; add the endpoint manifest only for documented optional API ingestion and identifier conventions for enrichment.",
-      "protectedBoundary": "catnamed-event-vs-current-name-storage",
+      "contextIntent": "Load the compact maintained integration contract first; add original naming semantics only for protocol questions and the local snapshot only for source comparison.",
+      "protectedBoundary": "finalized-name-index-vs-provisional-and-historical-snapshot",
       "sourceRefs": [
-        "mooncatrescue-mooncat-names-docs",
-        "etherscan-original-contract",
+        "mooncatdao-name-index",
+        "ponderware-mooncatrescue-sol-raw",
         "mooncat-kb-mooncat-names-snapshot",
-        "mooncatrescue-api-openapi"
+        "mooncatrescue-mooncat-names-docs"
       ]
     },
     {

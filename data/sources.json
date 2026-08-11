@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-11",
+  "updated": "2026-08-11",
   "status": "incomplete",
   "sources": [
     {
@@ -1342,6 +1342,24 @@
         "mooncatrescue-mooncat-traits-json"
       ],
       "notes": "Generated deterministically by scripts/generate-mooncat-names.py from the registered local trait reference. It is a checked-in source snapshot, not current contract storage, complete event history, current display moderation, or a live named-count source."
+    },
+    {
+      "id": "mooncatdao-name-index",
+      "label": "MoonCatDAO name-index repository",
+      "type": "source-code",
+      "url": "https://github.com/mooncatdao/name-index",
+      "trustLevel": "community-maintained",
+      "status": "reviewed-finalized-naming-artifacts",
+      "supports": [
+        "finalized current-name artifacts",
+        "canonical finalized CatNamed event history",
+        "blank-event history and current-name derivation",
+        "revision-bound finalized metadata"
+      ],
+      "license": "CC0-1.0",
+      "reviewedCommit": "5d3b265613e987e4ca2c32e2afd7edf3178a146a",
+      "reviewedAt": "2026-08-11",
+      "notes": "Reviewed read-only in the approved sibling checkout at the recorded commit. data/events.jsonl is the canonical finalized event history; finalized current-name artifacts are derived from it. Pending and *-live artifacts are provisional and not canonical. The review does not prove a newer revision, deployed workflow, or live chain state; observed metadata counts are revision/date-bound rather than timeless facts."
     },
     {
       "id": "midnightlightning-discord-color-blurb-2024-01-06",

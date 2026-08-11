@@ -4,8 +4,10 @@
 
 This page documents a source-bounded naming consumer model. It describes the
 original MoonCatRescue naming storage and event surface, the generated local
-snapshot, display/moderation boundaries, and adjacent CatNamer context. It
-does not provide a live event indexer, RPC client, or current-name result.
+snapshot, display/moderation boundaries, and adjacent CatNamer context. For
+maintained finalized current-name and history artifacts, see
+[`docs/name-index-integration.md`](name-index-integration.md). This KB does
+not provide its own live event indexer, RPC client, or sync path.
 
 ## Original contract semantics
 
@@ -82,9 +84,12 @@ it through a separately source-backed mapping (the checked trait snapshot,
 LibMoonCat, documented API, or original-contract rescue-order lookup), but
 must not invent the conversion from the bytes alone.
 
-Current `catNames` storage, current ownership/offer eligibility, current named
-counts, and a complete event count require a separately authorized live
-chain/indexer check. The official named-MoonCats page is a current display
+For a revision-bounded finalized name, canonical finalized history, naming
+order/year, namer, or blank-event history, prefer the reviewed MoonCatDAO
+name-index integration and its finalized artifacts. Current `catNames` storage,
+current ownership/offer eligibility, a newer-than-reviewed name-index revision,
+current named counts, and a live complete event count require separately
+authorized verification. The official named-MoonCats page is a current display
 surface, not a timeless canonical population count.
 
 ## Checked-in naming snapshot
@@ -103,8 +108,25 @@ python scripts/generate-mooncat-names.py --check
 python scripts/validate-mooncat-names.py
 ```
 
-This is a checked-in source snapshot, not current contract truth, event
-history, display-policy evidence, or a live completeness claim.
+This is a checked-in historical/source-comparison snapshot, not current
+contract truth, maintained finalized event history, display-policy evidence, or
+a live completeness claim. It remains useful for deterministic comparison to
+its `mooncat_traits.json` source, but is not the preferred maintained current
+finalized naming source where the name-index artifacts are available.
+
+## Maintained finalized naming artifacts
+
+The separately maintained CC0-1.0 MoonCatDAO name-index repository provides
+the preferred reviewed source for finalized current names and canonical
+`CatNamed` history. Its `data/events.jsonl` is canonical finalized history and
+its finalized current-name files are derived from that ledger. Blank events
+remain in history but do not create current-name records.
+
+See [`docs/name-index-integration.md`](name-index-integration.md) and
+[`data/name-index-integration.json`](../data/name-index-integration.json) for
+artifact selection, provisional/live exclusion, revision-bound freshness, and
+future full-population-index guidance. Original protocol semantics in this
+document remain the source for `nameCat`/`catNames` behavior.
 
 ## CatNamer boundary
 
