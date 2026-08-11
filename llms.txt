@@ -38,6 +38,10 @@ Plain-text and Markdown entrypoints:
 - /docs/traits-and-ids.md
 - /docs/identifier-conventions.md
 - /docs/contracts.md
+- /data/contract-registry.json
+- /data/event-registry.json
+- /data/event-indexer-recipes.json
+- /docs/contract-abi-event-registry.md
 - /docs/rescue-history.md
 - /docs/api-notes.md
 - /data/sources.json
@@ -66,6 +70,7 @@ Notes:
 - For repo-wide integrity work, load /data/kb-manifest.json and /docs/kb-integrity.md, then run the documented zero-network audit commands.
 - For architecture-decision questions, use /data/architecture-decisions.json before broader implementation sources; it indexes the pinned 18-record dev-environment corpus and preserves intent-versus-evidence limits.
 - For Genesis population, identifier, vote, or adoption-payment questions, use /data/genesis-cats.json and preserve its distinction between contract derivation, historical outcome, and current-state limits.
+- For exact ABI/event/indexer questions, use /data/contract-registry.json and /data/event-registry.json; keep the eight core contracts separate from adjacent WMCR/CatNamer and do not treat event history as current state.
 - Use /data/ for exact canonical or curated data.
 - Use /docs/ for explanations and reasoning.
 - Incomplete information is marked explicitly and should not be filled by guesswork.

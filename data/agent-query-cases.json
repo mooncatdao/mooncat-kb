@@ -455,6 +455,57 @@
       "contextIntent": "Genesis history data and doc cover the bounded mechanics; protocol/source details are optional rather than broad contract loading.",
       "protectedBoundary": "genesis-scheduled-price-vs-observed-payments",
       "sourceRefs": ["origin-mooncatrescue-info", "ponderware-mooncatrescue-sol-raw"]
+    },
+    {
+      "id": "exact-contract-abi-lookup",
+      "category": "contract-abi",
+      "query": "Find the exact MoonCatAccessories overloads and tuple components from checked-in ABI evidence without fetching an explorer API.",
+      "route": "look-up-contract-abi",
+      "requiredFiles": ["data/contract-registry.json", "docs/contract-abi-event-registry.md"],
+      "optionalFiles": ["data/abi-registry/mooncatAccessories.json", "data/identifier-conventions.json"],
+      "terminology": ["abiStatus", "exact-local-abi-extracted", "canonical signature", "tuple components", "overload"],
+      "requiredFacts": ["The artifact is selected by exact reviewed contract address rather than bundle variable name", "Overloads and tuple components are preserved in the normalized artifact"],
+      "requiredWarnings": ["An exact local ABI does not prove deployed bytecode equivalence, current state, or deployment block."],
+      "forbiddenClaims": ["CatNamer has a complete local ABI", "all adjacent helpers are part of the eight-core materialization path", "ABI availability proves live deployment"],
+      "stopConditions": ["Stop if abiStatus is not exact-local-abi-extracted or the address/artifact hash does not validate."],
+      "validationCommands": ["python scripts/extract-contract-abis.py --check", "python scripts/validate-contract-registry.py"],
+      "contextIntent": "Load the compact registry and guide first, adding only the one requested ABI artifact and identifier vocabulary.",
+      "protectedBoundary": "exact-local-abi-vs-semantic-only-or-live-deployment",
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "etherscan-mooncat-accessories"]
+    },
+    {
+      "id": "catnamed-event-registry-query",
+      "category": "contract-events",
+      "query": "Return the exact CatNamed signature, topic0, indexed fields, and state caveat for an indexer schema.",
+      "route": "query-contract-events",
+      "requiredFiles": ["data/event-registry.json", "docs/contract-abi-event-registry.md"],
+      "optionalFiles": ["scripts/query-contract-events.py", "data/mooncat-naming.json"],
+      "terminology": ["CatNamed", "topic0", "Ethereum Keccak-256", "mooncatIdBytes5", "rawMooncatNameBytes32"],
+      "requiredFacts": ["CatNamed(bytes5,bytes32) has indexed catId and non-indexed catName", "topic0 is computed with Ethereum Keccak-256", "an all-zero bytes32 event may leave persistent catNames storage zero"],
+      "requiredWarnings": ["Event presence is not equivalent to a current name or consumed naming state; retain raw bytes32 before display decoding."],
+      "forbiddenClaims": ["NIST SHA3-256 is the event topic algorithm", "every CatNamed event creates current name state", "event history alone proves current catNames storage"],
+      "stopConditions": ["Stop if the request needs live logs, a complete history, or current storage rather than registry metadata."],
+      "validationCommands": ["python scripts/query-contract-events.py --event CatNamed --json", "python scripts/validate-contract-registry.py"],
+      "contextIntent": "The exact event record and compact boundary doc are sufficient; original naming semantics are optional corroboration.",
+      "protectedBoundary": "event-history-vs-current-contract-state",
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "ponderware-mooncatrescue-sol-raw"]
+    },
+    {
+      "id": "wmcr-event-indexer-plan",
+      "category": "contract-indexing",
+      "query": "Plan a replay-safe WMCR Wrapped/Unwrapped index without treating wrapper token IDs as rescue order or claiming current ownership.",
+      "route": "plan-contract-event-indexer",
+      "requiredFiles": ["data/event-indexer-recipes.json", "data/event-registry.json", "docs/contract-abi-event-registry.md"],
+      "optionalFiles": ["data/contract-registry.json", "data/older-wrapper-internals.json"],
+      "terminology": ["Wrapped", "Unwrapped", "moonCatsWrappedTokenId", "catIdBytes5", "transactionHash", "logIndex", "finality"],
+      "requiredFacts": ["WMCR token IDs are sequential and mapping-backed rather than rescue-order values", "Wrapped/Unwrapped carry both bytes5 catId and uint256 tokenID", "the reviewed local evidence does not provide a deployment block"],
+      "requiredWarnings": ["Checkpoint/reorg handling and current-state corroboration remain consumer responsibilities."],
+      "forbiddenClaims": ["WMCR tokenID equals rescueOrder", "registry data proves current ownership", "an unknown deployment block may be inferred from another contract"],
+      "stopConditions": ["Stop for separately verified deployment/start evidence or authorized chain access before implementing a live scan."],
+      "validationCommands": ["python scripts/query-contract-events.py --event Wrapped --json", "python scripts/validate-contract-registry.py"],
+      "contextIntent": "Load the exact recipe/event/doc trio and only add the WMCR compact internals when mapping behavior needs source-reviewed detail.",
+      "protectedBoundary": "wmcr-event-mapping-vs-rescueorder-and-current-state",
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "etherscan-mooncats-wrapped"]
     }
   ]
 }

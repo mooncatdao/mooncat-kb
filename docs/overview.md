@@ -39,6 +39,13 @@ finalized current names and canonical history, start with
 generated snapshot remains source-bounded historical/source-comparison evidence
 and does not establish live storage or a newer-than-reviewed event history.
 
+For exact contract ABI, event signature/topic, identifier-parameter, or
+zero-network indexer planning, start with
+[`docs/contract-abi-event-registry.md`](contract-abi-event-registry.md). The
+registry covers all eight core materialization contracts plus adjacent WMCR;
+CatNamer remains semantic-only. Event definitions and recipes do not establish
+log completeness, deployment state, or current contract state.
+
 ## Editing Principles
 
 - Do not invent MoonCat IDs or exact trait data.

@@ -54,11 +54,107 @@
   },
   "generatedArtifactRegistry": [
     {
+      "path": "data/abi-registry/acclimatedMoonCats.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/abi-registry/moonCatsWrapped.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/abi-registry/mooncatAccessories.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/abi-registry/mooncatAccessoryImages.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/abi-registry/mooncatColors.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/abi-registry/mooncatReference.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/abi-registry/mooncatRescue.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/abi-registry/mooncatSVGs.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/abi-registry/mooncatTraits.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
       "path": "data/agent-context-packs.json",
       "generatorCommand": "python scripts/generate-agent-context-packs.py",
       "checkCommand": "python scripts/generate-agent-context-packs.py --check",
       "validatorCommands": [
         "python scripts/validate-agent-routing.py"
+      ]
+    },
+    {
+      "path": "data/contract-registry.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/event-indexer-recipes.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ]
+    },
+    {
+      "path": "data/event-registry.json",
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
       ]
     },
     {
@@ -92,7 +188,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 151,
+    "maintainedFileCount": 167,
     "excludedFileCount": 74,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -197,14 +293,221 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6799,
-      "sha256": "8b99b376328519dbda5ff3e4a6da9f6545ca7488b7a287444ceebdf68c76fef7",
+      "sizeBytes": 7162,
+      "sha256": "c07e2df04b7c41253a06343951418f93d133f38eaf6c973e622066a1455d6dee",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
       "sourceBackedStatus": "registered-source",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/abi-registry/acclimatedMoonCats.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 24457,
+      "sha256": "ecbd89fcaf1de032cd33bf8f710476da458bf5e4a5b5180cc2ec89a569a0fe48",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/abi-registry/moonCatsWrapped.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 12386,
+      "sha256": "2f52f5f1c4b01fd05704e2c9a8c0712d9d119ce57c4a04fb0e6ff279ca313563",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/abi-registry/mooncatAccessories.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 31336,
+      "sha256": "82c5100a222846a5a4139be16561a32a03d33c3d8ef33f9d4b6d85dcbded27e7",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/abi-registry/mooncatAccessoryImages.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 13147,
+      "sha256": "1e7bc0985f6ae586ea781f754e6a44c8385547590945cbf1853b045fbd3b29be",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/abi-registry/mooncatColors.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 10689,
+      "sha256": "3dc2bf8d7fb28ff9caf3c9ebabdfbfb5f5d0ac5c4cac5b94e5dd1a72faea3404",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/abi-registry/mooncatReference.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 7249,
+      "sha256": "035efc99a2e89f12455402761b303690bc0d3a2e05ff3099d79e6bc990e98315",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/abi-registry/mooncatRescue.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 16158,
+      "sha256": "16c01985b7c01d2eb775e25c97b21185719d9bc9ea6ffe21dec6bf9c8b507de6",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/abi-registry/mooncatSVGs.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 12808,
+      "sha256": "bdb8c7746ac29eab27bebce3a78c1a49633983fd63fc755f9c671597150597b4",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/abi-registry/mooncatTraits.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 10851,
+      "sha256": "2ab2f9aa674f54875db19019b11ec38bef777ad2a7952dea515138677a0cdea4",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
     {
@@ -243,8 +546,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 84637,
-      "sha256": "1ec8c04e894e61ee26758181ae04887f6617b7c7a1629b37cbefac965eb0348b",
+      "sizeBytes": 95269,
+      "sha256": "7ec87d2c8de346cd9b05c6d7f4454e62343a0b48564fa6b8f0560b3783e15b71",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -270,8 +573,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 27947,
-      "sha256": "da00b15b1b42f6c858d4e7afeaa9598d144be8eee61fd4351f0c7801f9f379b6",
+      "sizeBytes": 31076,
+      "sha256": "fb3eb3565ee91c9414de9fb2c0968b50cefc45ea3db85d2cb26b719536dd7d1e",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -299,8 +602,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 37263,
-      "sha256": "431780ded32b7659de3277421e544ed01dc3e081b88dc911b3ef6b84c1355716",
+      "sizeBytes": 42406,
+      "sha256": "c8d817855170a03847ddab4b729a35b37604018187141ab8dbb6a431013c357b",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "use-agent-context-packs"
@@ -568,6 +871,37 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "data/contract-registry.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 20613,
+      "sha256": "bc28b2d6667a46c7ab449f7dbc947f01c4658a4ae5b0109456bd60dbcf3c4322",
+      "agentRoutes": [
+        "look-up-contract-abi",
+        "plan-contract-event-indexer",
+        "query-contract-events"
+      ],
+      "taskRecipes": [
+        "look-up-contract-abi",
+        "plan-contract-event-indexer",
+        "query-contract-events"
+      ],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
       "path": "data/contract-surfaces.json",
       "fileRole": "canonical-data",
       "topics": [
@@ -577,9 +911,10 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 23872,
-      "sha256": "053f48d85f88ec595496fc3ed7d46107a09bf1ff5594d4e3c6cc09dc6ae4e095",
+      "sizeBytes": 24476,
+      "sha256": "c14338fd161bed128d50d9da7ae25377d9b135eea5e38cc1fbc01cf0d77e6f56",
       "agentRoutes": [
+        "look-up-contract-abi",
         "look-up-contracts",
         "review-mooncat-accessory-lifecycle",
         "review-mooncat-naming",
@@ -589,6 +924,7 @@
         "check-source-provenance",
         "choose-contract-surface",
         "choose-mooncat-identifier-form",
+        "look-up-contract-abi",
         "render-or-fetch-mooncat-image",
         "review-mooncat-naming",
         "trace-mooncat-accessory-lifecycle",
@@ -610,9 +946,10 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 25813,
-      "sha256": "d4c9bd8411cbc87d13bb81e443ad5297a1e6dcdb81cb60edde16efd8f5e7a9ce",
+      "sizeBytes": 26744,
+      "sha256": "c84b1d3ab222a912a86fd7af5368f4d10b9f24945fc83405a47191bfdb313ad8",
       "agentRoutes": [
+        "look-up-contract-abi",
         "look-up-contracts",
         "review-mooncat-accessory-lifecycle",
         "review-mooncat-accessory-system",
@@ -624,6 +961,7 @@
         "check-source-provenance",
         "choose-contract-surface",
         "choose-mooncat-identifier-form",
+        "look-up-contract-abi",
         "render-or-fetch-mooncat-image",
         "review-mooncat-accessory-system",
         "review-mooncat-naming",
@@ -635,6 +973,62 @@
       "checkCommand": null,
       "validatorCommands": [],
       "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/event-indexer-recipes.json",
+      "fileRole": "workflow-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 10549,
+      "sha256": "5fad5460b242449aa4b717fb8d5f35822696da9b7415f7a0a7d2d0a5b2c2d76e",
+      "agentRoutes": [
+        "plan-contract-event-indexer"
+      ],
+      "taskRecipes": [
+        "plan-contract-event-indexer"
+      ],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/event-registry.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 45363,
+      "sha256": "30dea68e180fa1c03d630586aa2490b3169a0b68605876221b082547041ace75",
+      "agentRoutes": [
+        "plan-contract-event-indexer",
+        "query-contract-events"
+      ],
+      "taskRecipes": [
+        "plan-contract-event-indexer",
+        "query-contract-events"
+      ],
+      "generatorCommand": "python scripts/extract-contract-abis.py",
+      "checkCommand": "python scripts/extract-contract-abis.py --check",
+      "validatorCommands": [
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
     {
@@ -707,6 +1101,9 @@
         "fetch-traits",
         "generate-visual-trait-sample",
         "identify-mooncat-ids",
+        "look-up-contract-abi",
+        "plan-contract-event-indexer",
+        "query-contract-events",
         "render-images",
         "review-mooncat-accessory-lifecycle",
         "review-mooncat-accessory-system",
@@ -723,7 +1120,10 @@
         "choose-mooncat-identifier-form",
         "fetch-traits-safely",
         "generate-or-validate-visual-trait-sample",
+        "look-up-contract-abi",
         "look-up-rescue-bucket-or-year",
+        "plan-contract-event-indexer",
+        "query-contract-events",
         "render-or-fetch-mooncat-image",
         "review-mooncat-accessory-system",
         "review-mooncat-naming",
@@ -797,8 +1197,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 44288,
-      "sha256": "f8a75fafb5a0cc16186da03c73c3d33fd2e4cd8d496444ad1ad537f952728613",
+      "sizeBytes": 47818,
+      "sha256": "cc4b63fba1cfcf8a434ffb97af203b7273e00f101b8f5388236ad4cfd0978537",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
@@ -966,10 +1366,12 @@
       "sizeBytes": 17120,
       "sha256": "b2254164bdfb0e94e76bc3357433224d2704a9a243463b282e3b33c1fb4ec75c",
       "agentRoutes": [
+        "plan-contract-event-indexer",
         "review-mooncat-accessory-lifecycle",
         "review-mooncat-accessory-system"
       ],
       "taskRecipes": [
+        "plan-contract-event-indexer",
         "review-mooncat-accessory-system",
         "trace-mooncat-accessory-lifecycle"
       ],
@@ -1072,10 +1474,12 @@
       "sizeBytes": 8349,
       "sha256": "e64791139f3df14d6afe3ac2dad12bc2fb139a31e9ab5f35df838bcf56d1bf71",
       "agentRoutes": [
+        "plan-contract-event-indexer",
         "review-mooncat-naming",
         "use-maintained-name-index"
       ],
       "taskRecipes": [
+        "plan-contract-event-indexer",
         "review-mooncat-naming",
         "use-maintained-name-index"
       ],
@@ -1825,9 +2229,11 @@
       "sizeBytes": 6411,
       "sha256": "34e98b5e6074b198a9777240cd80f378d56afbeee121c80af77a8511261430bb",
       "agentRoutes": [
+        "plan-contract-event-indexer",
         "use-maintained-name-index"
       ],
       "taskRecipes": [
+        "plan-contract-event-indexer",
         "use-maintained-name-index"
       ],
       "generatorCommand": null,
@@ -1850,11 +2256,13 @@
       "sha256": "971e3db9c3533eeed30508566b47cb76a34bee2f2b1dc2f43c79c8847b560727",
       "agentRoutes": [
         "identify-mooncat-ids",
-        "look-up-contracts"
+        "look-up-contracts",
+        "plan-contract-event-indexer"
       ],
       "taskRecipes": [
         "choose-contract-surface",
-        "choose-mooncat-identifier-form"
+        "choose-mooncat-identifier-form",
+        "plan-contract-event-indexer"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -2096,8 +2504,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 56831,
-      "sha256": "0dbe8bc57f1e16ee378cfde7244cb954e6594caab2e90890dae03c34c5d0927f",
+      "sizeBytes": 62713,
+      "sha256": "1a3754c0193fdda549e42ae37100dcd09737da6a855e436cb6adb224247826b3",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -2388,6 +2796,35 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "docs/contract-abi-event-registry.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 6196,
+      "sha256": "77ca4c67263b092154c1be895cc38b1db1567ef4696d05a83544361ee459cb28",
+      "agentRoutes": [
+        "look-up-contract-abi",
+        "plan-contract-event-indexer",
+        "query-contract-events"
+      ],
+      "taskRecipes": [
+        "look-up-contract-abi",
+        "plan-contract-event-indexer",
+        "query-contract-events"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
       "path": "docs/contracts.md",
       "fileRole": "documentation",
       "topics": [
@@ -2398,8 +2835,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 9970,
-      "sha256": "20e23af96a5ca0ee0c5bce34d6f366e8d77d8bba16a7053ee749fb4fad0a4d8d",
+      "sizeBytes": 11281,
+      "sha256": "ac4bb18cb9c3cf8547eeb0d40df607d02a46aff7017e2350d8bd10ad39074657",
       "agentRoutes": [
         "look-up-contracts"
       ],
@@ -2916,8 +3353,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2043,
-      "sha256": "51a2c8232d130d0ff31f91a7b05eec0aedb3e76dcf5ff5335aa025acbee004c8",
+      "sizeBytes": 2454,
+      "sha256": "8f475bade010ad6baf665afec26128e342a47a06ca88f0832aaea473dfa99a9e",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -3296,8 +3733,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2849,
-      "sha256": "a95a43baae32a46520ac1a9204962ed193c94e5edc2439cde76868d5d8e5eaac",
+      "sizeBytes": 3203,
+      "sha256": "acab15aefa8ffb9919dab369ef42642caf533e765e5bf49b7d90e3742404f237",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -3375,6 +3812,32 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "scripts/extract-contract-abis.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 40907,
+      "sha256": "687a566a96536ec9e043cbf5404e5e0211e58710ac3e3bea32ed089c7c52ca03",
+      "agentRoutes": [
+        "look-up-contract-abi"
+      ],
+      "taskRecipes": [
+        "look-up-contract-abi"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "scripts/generate-agent-context-packs.py",
       "fileRole": "generator",
       "topics": [
@@ -3412,8 +3875,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 14404,
-      "sha256": "4c87e770d7175f14d57cec5aa41a46c4a6d0b8f2a026573822da4271688211e7",
+      "sizeBytes": 16493,
+      "sha256": "0fae69209125dd60c3cc18b97de05a421bda130a7092ee8c98adc6df7beb761d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -3572,6 +4035,34 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "scripts/query-contract-events.py",
+      "fileRole": "example",
+      "topics": [
+        "mooncat-knowledge",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 4915,
+      "sha256": "e128155525696e04746b36ee0474f213c28d7c7f03f056705b7f723646d51cae",
+      "agentRoutes": [
+        "plan-contract-event-indexer",
+        "query-contract-events"
+      ],
+      "taskRecipes": [
+        "plan-contract-event-indexer",
+        "query-contract-events"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "scripts/query-mooncats.py",
       "fileRole": "example",
       "topics": [
@@ -3690,6 +4181,34 @@
       ],
       "taskRecipes": [
         "classify-mooncat-colors"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-contract-registry.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 18978,
+      "sha256": "d3a376494b7f4e893ae1d8a26aeca39b5c7fef305a4fcc40f45a1fe7a5cd4389",
+      "agentRoutes": [
+        "look-up-contract-abi",
+        "query-contract-events"
+      ],
+      "taskRecipes": [
+        "look-up-contract-abi",
+        "query-contract-events"
       ],
       "generatorCommand": null,
       "checkCommand": null,

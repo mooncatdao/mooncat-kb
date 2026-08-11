@@ -1,0 +1,547 @@
+{
+  "schemaVersion": 1,
+  "status": "deterministic-provenance-aware-contract-registry",
+  "scope": "Eight core MoonCat materialization contracts plus structurally separate reviewed adjacent WMCR and CatNamer entries.",
+  "generation": {
+    "script": "scripts/extract-contract-abis.py",
+    "command": "python scripts/extract-contract-abis.py",
+    "checkCommand": "python scripts/extract-contract-abis.py --check",
+    "networkDependency": "none",
+    "abiSourcePath": "references/upstream/mooncatrescue/libmooncat-limited.js",
+    "abiSourceSha256": "b4d36703a58ce07c61606518010aad05b0e89dc3d11ce0f33a241a7ab35ac85e",
+    "addressMatch": "case-insensitive exact 20-byte address from data/contracts.json"
+  },
+  "abiStatuses": [
+    "exact-local-abi-extracted",
+    "semantic-only",
+    "unavailable-local-exact-abi"
+  ],
+  "classification": {
+    "coreContractKeys": [
+      "mooncatRescue",
+      "acclimatedMoonCats",
+      "mooncatReference",
+      "mooncatTraits",
+      "mooncatColors",
+      "mooncatSVGs",
+      "mooncatAccessories",
+      "mooncatAccessoryImages"
+    ],
+    "adjacentContractKeys": [
+      "moonCatsWrapped",
+      "catNamer"
+    ]
+  },
+  "identifierConventionFile": "data/identifier-conventions.json",
+  "localIdentifierKinds": [
+    {
+      "key": "contractScopedExternalTokenId",
+      "scope": "ERC-998 child token parameters only",
+      "boundary": "Interpret only with the accompanying child-contract address; never treat as rescue order by default."
+    },
+    {
+      "key": "mooncatRescueOrder",
+      "scope": "Contract-level uint256 MoonCat rescue-order identity for explicitly named rescueOrder parameters on reviewed on-chain contracts",
+      "boundary": "Numerically aligned with the reviewed rescue-order convention but distinct from localRescueOrderIndex; not a generic token ID or local membership index."
+    },
+    {
+      "key": "ownedAccessoryIndex",
+      "scope": "MoonCatAccessories local array index under one rescueOrder",
+      "boundary": "Not accessoryId, rescueOrder, paletteIndex, or a token ID."
+    },
+    {
+      "key": "managedAccessoryIndex",
+      "scope": "MoonCatAccessories manager-local enumeration index",
+      "boundary": "Resolves to an accessoryId and is not stable global accessory identity."
+    },
+    {
+      "key": "paletteIndex",
+      "scope": "MoonCatAccessories per-definition palette slot",
+      "boundary": "Not a palette value, global color index, accessoryId, or zIndex."
+    }
+  ],
+  "contracts": [
+    {
+      "key": "mooncatRescue",
+      "name": "MoonCatRescue",
+      "label": "MoonCatRescue contract",
+      "address": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "network": "ethereum-mainnet",
+      "classification": "core",
+      "role": "Original MoonCat rescue, adoption, ownership, naming, and Genesis-release contract.",
+      "abiStatus": "exact-local-abi-extracted",
+      "abiArtifact": {
+        "path": "data/abi-registry/mooncatRescue.json",
+        "sha256": "16c01985b7c01d2eb775e25c97b21185719d9bc9ea6ffe21dec6bf9c8b507de6",
+        "abiItemCount": 48,
+        "functionCount": 38,
+        "eventCount": 9
+      },
+      "sourceRefs": [
+        "etherscan-original-contract",
+        "mooncatrescue-contract-docs",
+        "mooncatrescue-libmooncat-limited-js",
+        "ponderware-contract",
+        "ponderware-mooncatrescue-sol-raw"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/mooncat-naming.json",
+        "data/name-index-integration.json",
+        "data/identifier-conventions.json",
+        "data/protocol-constants.json"
+      ],
+      "deploymentBoundary": {
+        "status": "unknown-in-checked-in-reviewed-evidence",
+        "note": "No deployment transaction, block, or timestamp is copied into this registry."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "catId and catIds",
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "parameterContext": "addresses",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence."
+      ]
+    },
+    {
+      "key": "acclimatedMoonCats",
+      "name": "MoonCatAcclimator",
+      "label": "Acclimated MoonCats contract",
+      "address": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "network": "ethereum-mainnet",
+      "classification": "core",
+      "role": "Current ERC-721/ERC-998 Acclimated wrapper whose token ID is rescue order within this exact contract.",
+      "abiStatus": "exact-local-abi-extracted",
+      "abiArtifact": {
+        "path": "data/abi-registry/acclimatedMoonCats.json",
+        "sha256": "ecbd89fcaf1de032cd33bf8f710476da458bf5e4a5b5180cc2ec89a569a0fe48",
+        "abiItemCount": 56,
+        "functionCount": 45,
+        "eventCount": 10
+      },
+      "sourceRefs": [
+        "etherscan-acclimated-mooncats",
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/identifier-conventions.json"
+      ],
+      "deploymentBoundary": {
+        "status": "unknown-in-checked-in-reviewed-evidence",
+        "note": "No deployment transaction, block, or timestamp is copied into this registry."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "this contract's parent tokenId",
+          "identifierKind": "erc721TokenId"
+        },
+        {
+          "parameterContext": "ERC-998 child token ID",
+          "identifierKind": "contractScopedExternalTokenId"
+        },
+        {
+          "parameterContext": "addresses",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence."
+      ]
+    },
+    {
+      "key": "mooncatReference",
+      "name": "MoonCatReference",
+      "label": "MoonCatReference contract",
+      "address": "0x0B78C64bCE6d6d4447e58b09E53F3621f44A2a48",
+      "network": "ethereum-mainnet",
+      "classification": "core",
+      "role": "On-chain documentation and contract-reference registry used by materialization helpers.",
+      "abiStatus": "exact-local-abi-extracted",
+      "abiArtifact": {
+        "path": "data/abi-registry/mooncatReference.json",
+        "sha256": "035efc99a2e89f12455402761b303690bc0d3a2e05ff3099d79e6bc990e98315",
+        "abiItemCount": 15,
+        "functionCount": 14,
+        "eventCount": 0
+      },
+      "sourceRefs": [
+        "etherscan-mooncat-reference",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-log-onchain"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/materialization-internals.json"
+      ],
+      "deploymentBoundary": {
+        "status": "unknown-in-checked-in-reviewed-evidence",
+        "note": "No deployment transaction, block, or timestamp is copied into this registry."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "contract addresses and owner",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence."
+      ]
+    },
+    {
+      "key": "mooncatTraits",
+      "name": "MoonCatTraits",
+      "label": "MoonCatTraits contract",
+      "address": "0x9330BbfBa0C8FdAf0D93717E4405a410a6103cC2",
+      "network": "ethereum-mainnet",
+      "classification": "core",
+      "role": "On-chain MoonCat trait and identity read surface.",
+      "abiStatus": "exact-local-abi-extracted",
+      "abiArtifact": {
+        "path": "data/abi-registry/mooncatTraits.json",
+        "sha256": "2ab2f9aa674f54875db19019b11ec38bef777ad2a7952dea515138677a0cdea4",
+        "abiItemCount": 21,
+        "functionCount": 20,
+        "eventCount": 0
+      },
+      "sourceRefs": [
+        "etherscan-mooncat-traits",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-log-onchain"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/materialization-internals.json",
+        "data/identifier-conventions.json"
+      ],
+      "deploymentBoundary": {
+        "status": "unknown-in-checked-in-reviewed-evidence",
+        "note": "No deployment transaction, block, or timestamp is copied into this registry."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "catId",
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "parameterContext": "rescueOrder",
+          "identifierKind": "mooncatRescueOrder"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence."
+      ]
+    },
+    {
+      "key": "mooncatColors",
+      "name": "MoonCatColors",
+      "label": "MoonCatColors contract",
+      "address": "0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC",
+      "network": "ethereum-mainnet",
+      "classification": "core",
+      "role": "On-chain MoonCat and accessory color and palette-generation surface.",
+      "abiStatus": "exact-local-abi-extracted",
+      "abiArtifact": {
+        "path": "data/abi-registry/mooncatColors.json",
+        "sha256": "3dc2bf8d7fb28ff9caf3c9ebabdfbfb5f5d0ac5c4cac5b94e5dd1a72faea3404",
+        "abiItemCount": 26,
+        "functionCount": 25,
+        "eventCount": 0
+      },
+      "sourceRefs": [
+        "etherscan-mooncat-colors",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-log-onchain"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/materialization-internals.json"
+      ],
+      "deploymentBoundary": {
+        "status": "unknown-in-checked-in-reviewed-evidence",
+        "note": "No deployment transaction, block, or timestamp is copied into this registry."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "catId",
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "parameterContext": "rescueOrder",
+          "identifierKind": "mooncatRescueOrder"
+        },
+        {
+          "parameterContext": "accessoryId",
+          "identifierKind": "accessoryId"
+        },
+        {
+          "parameterContext": "paletteIndex",
+          "identifierKind": "paletteIndex"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence."
+      ]
+    },
+    {
+      "key": "mooncatSVGs",
+      "name": "MoonCatSVGs",
+      "label": "MoonCatSVGs contract",
+      "address": "0xB39C61fe6281324A23e079464f7E697F8Ba6968f",
+      "network": "ethereum-mainnet",
+      "classification": "core",
+      "role": "On-chain base MoonCat SVG materialization surface.",
+      "abiStatus": "exact-local-abi-extracted",
+      "abiArtifact": {
+        "path": "data/abi-registry/mooncatSVGs.json",
+        "sha256": "bdb8c7746ac29eab27bebce3a78c1a49633983fd63fc755f9c671597150597b4",
+        "abiItemCount": 28,
+        "functionCount": 27,
+        "eventCount": 0
+      },
+      "sourceRefs": [
+        "etherscan-mooncat-svgs",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-log-onchain"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/materialization-internals.json"
+      ],
+      "deploymentBoundary": {
+        "status": "unknown-in-checked-in-reviewed-evidence",
+        "note": "No deployment transaction, block, or timestamp is copied into this registry."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "catId",
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "parameterContext": "rescueOrder",
+          "identifierKind": "mooncatRescueOrder"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence."
+      ]
+    },
+    {
+      "key": "mooncatAccessories",
+      "name": "MoonCatAccessories",
+      "label": "MoonCatAccessories contract",
+      "address": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "network": "ethereum-mainnet",
+      "classification": "core",
+      "role": "On-chain accessory definition, management, assignment, and wear-state surface.",
+      "abiStatus": "exact-local-abi-extracted",
+      "abiArtifact": {
+        "path": "data/abi-registry/mooncatAccessories.json",
+        "sha256": "82c5100a222846a5a4139be16561a32a03d33c3d8ef33f9d4b6d85dcbded27e7",
+        "abiItemCount": 58,
+        "functionCount": 49,
+        "eventCount": 8
+      },
+      "sourceRefs": [
+        "etherscan-mooncat-accessories",
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/mooncat-accessories-internals.json",
+        "data/identifier-conventions.json"
+      ],
+      "deploymentBoundary": {
+        "status": "verified-partial",
+        "transaction": "0x21b831be284a48d6f2d72b84e94cfdd8123ec4b28779b098e8bc8caa7f02755a",
+        "timestampUtc": "2021-07-02T03:33:42Z",
+        "deployer": "0xD342a4F0397B4268e6adce89b9B88C746AFA85Ee",
+        "note": "Only fields already present in data/contracts.json are retained; absent block data is not inferred."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "rescueOrder",
+          "identifierKind": "mooncatRescueOrder"
+        },
+        {
+          "parameterContext": "accessoryId",
+          "identifierKind": "accessoryId"
+        },
+        {
+          "parameterContext": "ownedAccessoryIndex",
+          "identifierKind": "ownedAccessoryIndex"
+        },
+        {
+          "parameterContext": "managedAccessoryIndex",
+          "identifierKind": "managedAccessoryIndex"
+        },
+        {
+          "parameterContext": "paletteIndex",
+          "identifierKind": "paletteIndex"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence."
+      ]
+    },
+    {
+      "key": "mooncatAccessoryImages",
+      "name": "MoonCatAccessoryImages",
+      "label": "MoonCatAccessoryImages contract",
+      "address": "0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14",
+      "network": "ethereum-mainnet",
+      "classification": "core",
+      "role": "On-chain accessory PNG and accessorized SVG composition surface.",
+      "abiStatus": "exact-local-abi-extracted",
+      "abiArtifact": {
+        "path": "data/abi-registry/mooncatAccessoryImages.json",
+        "sha256": "1e7bc0985f6ae586ea781f754e6a44c8385547590945cbf1853b045fbd3b29be",
+        "abiItemCount": 18,
+        "functionCount": 17,
+        "eventCount": 0
+      },
+      "sourceRefs": [
+        "etherscan-mooncat-accessory-images",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-log-onchain"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/mooncat-accessory-images-internals.json",
+        "data/identifier-conventions.json"
+      ],
+      "deploymentBoundary": {
+        "status": "unknown-in-checked-in-reviewed-evidence",
+        "note": "No deployment transaction, block, or timestamp is copied into this registry."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "rescueOrder",
+          "identifierKind": "mooncatRescueOrder"
+        },
+        {
+          "parameterContext": "accessoryId",
+          "identifierKind": "accessoryId"
+        },
+        {
+          "parameterContext": "paletteIndex",
+          "identifierKind": "paletteIndex"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence."
+      ]
+    },
+    {
+      "key": "moonCatsWrapped",
+      "name": "MoonCatsWrapped",
+      "label": "Wrapped MoonCatsRescue contract",
+      "address": "0x7C40c393DC0f283F318791d746d894DdD3693572",
+      "network": "ethereum-mainnet",
+      "classification": "adjacent",
+      "role": "Historical adjacent WMCR ERC-721 wrapper with mapping-backed token IDs.",
+      "abiStatus": "exact-local-abi-extracted",
+      "abiArtifact": {
+        "path": "data/abi-registry/moonCatsWrapped.json",
+        "sha256": "2f52f5f1c4b01fd05704e2c9a8c0712d9d119ce57c4a04fb0e6ff279ca313563",
+        "abiItemCount": 32,
+        "functionCount": 26,
+        "eventCount": 5
+      },
+      "sourceRefs": [
+        "etherscan-mooncats-wrapped",
+        "mooncatrescue-libmooncat-limited-js"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/older-wrapper-internals.json",
+        "data/identifier-conventions.json"
+      ],
+      "deploymentBoundary": {
+        "status": "unknown-in-checked-in-reviewed-evidence",
+        "note": "No deployment transaction, block, or timestamp is copied into this registry."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "catId",
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "parameterContext": "this contract's tokenID",
+          "identifierKind": "moonCatsWrappedTokenId"
+        },
+        {
+          "parameterContext": "addresses",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence."
+      ]
+    },
+    {
+      "key": "catNamer",
+      "name": "CatNamer",
+      "label": "CatNamer utility contract",
+      "address": "0x6103760180D12eE883b93C988D0bEbbab51f3668",
+      "network": "ethereum-mainnet",
+      "classification": "adjacent",
+      "role": "Adjacent naming helper context; original MoonCatRescue remains canonical name storage.",
+      "abiStatus": "semantic-only",
+      "abiArtifact": null,
+      "sourceRefs": [
+        "mooncatrescue-log-fractionalizing-and-naming",
+        "mooncatrescue-medium-custom-fractionalizing-naming",
+        "sourcify-catnamer-metadata"
+      ],
+      "reviewedSemanticFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/mooncat-naming.json"
+      ],
+      "deploymentBoundary": {
+        "status": "unknown-in-checked-in-reviewed-evidence",
+        "note": "No deployment transaction, block, or timestamp is copied into this registry."
+      },
+      "identifierDomains": [
+        {
+          "parameterContext": "adjacent helper address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "parameterContext": "canonical name storage remains bytes5-scoped on MoonCatRescue",
+          "identifierKind": "mooncatIdBytes5"
+        }
+      ],
+      "limitations": [
+        "The ABI and registry describe contract interfaces and reviewed semantics, not deployed bytecode equivalence, current state, or event-history completeness.",
+        "Deployment fields are present only when copied from existing checked-in reviewed evidence.",
+        "No address-matching ABI exists in the checked-in local bundle; no complete CatNamer ABI or event surface is claimed."
+      ]
+    }
+  ]
+}

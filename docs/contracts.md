@@ -14,9 +14,9 @@ The historical `MoonCatsWrapped` / `Wrapped MoonCatsRescue` (`WMCR`) wrapper add
 
 The MoonCatRescue log page `Chained to the Future` is registered as official context for on-chain materialization work. It links to MoonCatReference, MoonCatTraits, MoonCatColors, MoonCatSVGs, and MoonCatAccessoryImages contract pages. Those five linked contract pages have now been verified on Etherscan for address and source identity, and are represented in `data/contracts.json`.
 
-The five materialization contract records now include conservative role/function summaries. MoonCatColors, MoonCatSVGs, MoonCatAccessoryImages, and its separate MoonCatAccessories dependency also have compact internals reviews in data files. These reviews do **not** import full accessory definitions, current state, trait mappings, color palettes, SVG coordinate data, accessory image bytes, ABI blobs, or full identifier tables.
+The five materialization contract records now include conservative role/function summaries. MoonCatColors, MoonCatSVGs, MoonCatAccessoryImages, and its separate MoonCatAccessories dependency also have compact internals reviews in data files. Those reviews do **not** duplicate full accessory definitions, current state, trait mappings, color palettes, SVG coordinate data, accessory image bytes, or full identifier tables. Exact address-matched ABI artifacts are maintained separately in `data/abi-registry/`.
 
-The contract records also include `artifactUrls` metadata for checked source/ABI reference pages. These URLs point to Etherscan source-and-ABI pages, and for the original MoonCatRescue contract also to the registered raw GitHub Solidity source. The KB treats those URLs as references only; ABI JSON, Solidity source text, bytecode, constructor arguments, storage values, CIDs, and other artifact blobs are intentionally not imported.
+The contract records also include `artifactUrls` metadata for checked source/ABI reference pages. These URLs point to Etherscan source-and-ABI pages, and for the original MoonCatRescue contract also to the registered raw GitHub Solidity source. The KB treats those URLs as references only and does not fetch artifacts from them. The exact local ABI registry is instead extracted deterministically from address-bound ABI JSON in the checked-in LibMoonCat bundle; Solidity source text, bytecode, constructor arguments, storage values, CIDs, and other artifact blobs remain unimported.
 
 Imported source-derived protocol constants live in `data/protocol-constants.json`.
 
@@ -60,6 +60,14 @@ The original MoonCatRescue source exposes a public `rescueOrder` array that maps
 
 These are role/function-level summaries only. Detailed derivation logic and output data remain out of scope until specifically reviewed.
 
+## Exact ABI and Event Registry
+
+`data/contract-registry.json` represents exactly eight core materialization contracts and two structurally separate adjacent contracts. All eight core contracts and MoonCatsWrapped/WMCR have exact local address-matched ABI artifacts; CatNamer remains semantic-only because no exact address-matching ABI is present in the checked-in bundle.
+
+`data/event-registry.json` preserves every exact event ABI entry, including inherited ERC-721/ERC-998 and administrative events, ordered/indexed parameters, overload-safe canonical signatures, contract-scoped identifier annotations, and Ethereum Keccak-256 topic0 values. `data/event-indexer-recipes.json` adds bounded rescue/adoption, naming, Acclimation, WMCR, and accessory planning guidance without claiming event completeness or current state.
+
+See `docs/contract-abi-event-registry.md` for extraction, validation, querying, provenance, and state-boundary details. Use `scripts/query-contract-events.py` for zero-network lookup.
+
 ## MoonCatSVGs Compact Internals
 
 The MoonCatSVGs source review confirms that `imageOf(bytes5,bool)` reads trait fields from MoonCatTraits, reads `uint8[24]` color data from MoonCatColors, builds base pixel data, optionally applies glow from the first color triple, computes a bounding box, and returns an SVG string. Rescue-order overloads require `rescueOrder < 25440` and convert through the original MoonCatRescue `rescueOrder` lookup. The no-explicit-glow bytes5 overload derives glow by comparing original `catOwners(catId)` with the stored Acclimated contract address.
@@ -86,7 +94,7 @@ The verified `MoonCatsWrapped` source accepts a bytes5 `catId` in `wrap`, then a
 
 ## Not yet verified here
 
-- direct Etherscan API artifact endpoint policy beyond source-and-ABI page links
+- direct Etherscan API artifact endpoint policy beyond source-and-ABI page links; the checked-in registry intentionally uses local bundle evidence instead
 - MoonCatAccessories taxonomy, full definitions, image data, and current state
 - detailed on-chain materialization internals beyond the compact MoonCatColors, MoonCatSVGs, MoonCatAccessories, and MoonCatAccessoryImages reviews
 - trait derivation tables or bit-level mappings

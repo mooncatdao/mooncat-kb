@@ -23,6 +23,7 @@ Start here:
 - `docs/traits-and-ids.md` — trait and ID mapping rules
 - `docs/identifier-conventions.md` — identifier terminology and conversion status
 - `docs/contracts.md` — compact contract identities, roles, and reviewed-surface notes
+- `data/contract-registry.json`, `data/event-registry.json`, and `docs/contract-abi-event-registry.md` — deterministic exact local ABI/event registry, contract-scoped identifiers, and zero-network indexer recipes
 - `docs/mooncat-accessory-system.md` — thin end-to-end accessory lifecycle and rendering overview
 - `data/mooncat-accessory-system.json` — machine-readable accessory-system integration index
 - `data/name-index-integration.json` and `docs/name-index-integration.md` — preferred reviewed MoonCatDAO source contract for revision-bounded finalized naming state and canonical finalized `CatNamed` history
@@ -79,6 +80,8 @@ The script locates the repo root automatically when invoked by path from a subdi
 For coding-agent route/pack changes, also run `python scripts/generate-agent-context-packs.py --check` and `python scripts/validate-agent-routing.py`.
 
 For Genesis population or member-mapping changes, run `python scripts/validate-genesis-cats.py` before the general checks.
+
+For contract ABI/event registry changes, run `python scripts/extract-contract-abis.py --check` and `python scripts/validate-contract-registry.py`.
 
 For the repo-wide zero-network integrity workflow, run:
 

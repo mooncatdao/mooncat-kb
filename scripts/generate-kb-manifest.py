@@ -41,6 +41,21 @@ EXCLUDED_PREFIXES = {
 }
 
 GENERATED_ARTIFACTS = {
+    "data/contract-registry.json": {
+        "generatorCommand": "python scripts/extract-contract-abis.py",
+        "checkCommand": "python scripts/extract-contract-abis.py --check",
+        "validatorCommands": ["python scripts/validate-contract-registry.py"],
+    },
+    "data/event-indexer-recipes.json": {
+        "generatorCommand": "python scripts/extract-contract-abis.py",
+        "checkCommand": "python scripts/extract-contract-abis.py --check",
+        "validatorCommands": ["python scripts/validate-contract-registry.py"],
+    },
+    "data/event-registry.json": {
+        "generatorCommand": "python scripts/extract-contract-abis.py",
+        "checkCommand": "python scripts/extract-contract-abis.py --check",
+        "validatorCommands": ["python scripts/validate-contract-registry.py"],
+    },
     "data/agent-context-packs.json": {
         "generatorCommand": "python scripts/generate-agent-context-packs.py",
         "checkCommand": "python scripts/generate-agent-context-packs.py --check",
@@ -78,6 +93,18 @@ POPULATION_UTILITY_ROLES = {
     "scripts/import-name-index-snapshot.py": ("generator", ["validation", "agent-workflow"]),
     "scripts/mooncat_population_lib.py": ("generator", ["validation", "agent-workflow"]),
     "scripts/query-mooncats.py": ("example", ["mooncat-knowledge", "agent-workflow"]),
+}
+
+ABI_GENERATED_ARTIFACT = {
+    "generatorCommand": "python scripts/extract-contract-abis.py",
+    "checkCommand": "python scripts/extract-contract-abis.py --check",
+    "validatorCommands": ["python scripts/validate-contract-registry.py"],
+}
+
+CONTRACT_REGISTRY_UTILITY_ROLES = {
+    "scripts/extract-contract-abis.py": ("generator", ["validation", "agent-workflow"]),
+    "scripts/query-contract-events.py": ("example", ["mooncat-knowledge", "agent-workflow"]),
+    "scripts/validate-contract-registry.py": ("validator", ["validation", "agent-workflow"]),
 }
 
 VALIDATOR_COMMANDS = {
@@ -173,6 +200,8 @@ def contains_source_reference(value: Any) -> bool:
 def generated_artifact_config(relative_path: str) -> dict[str, Any] | None:
     if relative_path in GENERATED_ARTIFACTS:
         return GENERATED_ARTIFACTS[relative_path]
+    if relative_path.startswith("data/abi-registry/") and relative_path.endswith(".json"):
+        return ABI_GENERATED_ARTIFACT
     if relative_path in {
         "data/mooncat-population/manifest.json",
         "data/mooncat-population/validation-report.json",
@@ -200,10 +229,14 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
     if relative_path in {"data/agent-index.json", "data/task-recipes.json", "data/kb-gap-index.json", "data/agent-query-cases.json", "data/factual-retrieval-cases.json", "data/agent-coding-patterns.json"}:
         return "workflow-data", ["agent-workflow", "routing"], "curated", ["curated"]
     if generated_artifact_config(relative_path) is not None:
-        return "workflow-data" if relative_path == "data/agent-context-packs.json" else "canonical-data", ["generated-data", "mooncat-knowledge"], "generated", ["generated"]
+        workflow_generated = {"data/agent-context-packs.json", "data/event-indexer-recipes.json"}
+        return "workflow-data" if relative_path in workflow_generated else "canonical-data", ["generated-data", "mooncat-knowledge"], "generated", ["generated"]
     if relative_path.startswith("data/") and relative_path.endswith(".json"):
         topic = "provenance" if "source" in relative_path or "upstream" in relative_path else "mooncat-knowledge"
         return "canonical-data", [topic], "curated", ["curated"]
+    if relative_path in CONTRACT_REGISTRY_UTILITY_ROLES:
+        role, topics = CONTRACT_REGISTRY_UTILITY_ROLES[relative_path]
+        return role, topics, "curated", ["curated", "script"]
     if relative_path.startswith("scripts/generate-") and relative_path.endswith(".py"):
         return "generator", ["validation", "agent-workflow"], "curated", ["curated", "script"]
     if relative_path.startswith("scripts/validate-") and relative_path.endswith(".py"):
@@ -216,6 +249,14 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
     if relative_path == "examples/rescue-mining.js" or relative_path.startswith("examples/rescue-mining-widget/"):
         return "example", ["rescue-mining", "example"], "curated", ["curated", "example"]
     raise ValueError(f"no explicit manifest classification rule for maintained file: {relative_path}")
+
+
+def generated_artifact_registry() -> list[dict[str, Any]]:
+    registered = dict(GENERATED_ARTIFACTS)
+    for relative_path, _ in iter_repo_files():
+        if relative_path.startswith("data/abi-registry/") and relative_path.endswith(".json"):
+            registered[relative_path] = ABI_GENERATED_ARTIFACT
+    return [{"path": path, **metadata} for path, metadata in sorted(registered.items())]
 
 
 def build_manifest() -> dict[str, Any]:
@@ -274,9 +315,7 @@ def build_manifest() -> dict[str, Any]:
                 "Agent routes and task recipes are derived from data/agent-index.json and data/task-recipes.json at generation time.",
             ],
         },
-        "generatedArtifactRegistry": [
-            {"path": path, **metadata} for path, metadata in sorted(GENERATED_ARTIFACTS.items())
-        ],
+        "generatedArtifactRegistry": generated_artifact_registry(),
         "coverage": {
             "maintainedFileCount": len(entries),
             "excludedFileCount": len(exclusions),

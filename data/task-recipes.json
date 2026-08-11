@@ -993,6 +993,118 @@
         "Stop if the requested answer requires current external state without separately authorized live verification.",
         "Stop if a needed fact is not supported by a case's required files and would require guessing or unscoped source import."
       ]
+    },
+    {
+      "key": "look-up-contract-abi",
+      "purpose": "Resolve a reviewed contract to an exact locally extracted ABI artifact or an explicit semantic-only/unavailable boundary.",
+      "loadOrder": [
+        "data/contract-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "optionalFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/identifier-conventions.json",
+        "scripts/extract-contract-abis.py",
+        "scripts/validate-contract-registry.py"
+      ],
+      "steps": [
+        "Resolve the exact contract key or address and retain its core or adjacent classification.",
+        "Check abiStatus before following abiArtifact.path; require exact-local-abi-extracted for full interface claims.",
+        "Use canonical parameter-type signatures to distinguish overloads and preserve tuple components, legacy fields, and inherited interfaces.",
+        "Run extractor --check and the independent validator when artifact generation, hashes, or source alignment matter."
+      ],
+      "outputs": [
+        "contract identity and classification",
+        "exact ABI artifact path/hash or explicit unavailable boundary",
+        "source revision/hash boundary",
+        "overload-safe function/event signature"
+      ],
+      "guardrails": [
+        "Do not fabricate a CatNamer ABI from reviewed address or role context.",
+        "Do not merge WMCR or CatNamer into the eight-core materialization classification.",
+        "Do not treat a local ABI as proof of deployed bytecode, current state, deployment block, or event completeness."
+      ],
+      "stopConditions": [
+        "Stop at semantic-only or unavailable-local-exact-abi status when a complete interface is requested.",
+        "Stop if the address differs from the reviewed data/contracts.json entry or the artifact hash/source match fails."
+      ]
+    },
+    {
+      "key": "query-contract-events",
+      "purpose": "Find exact contract-scoped events, topics, indexed parameters, and identifier meanings from local generated registries.",
+      "loadOrder": [
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "optionalFiles": [
+        "data/contract-registry.json",
+        "data/identifier-conventions.json",
+        "scripts/query-contract-events.py",
+        "scripts/validate-contract-registry.py"
+      ],
+      "steps": [
+        "Filter by contract key/address, event name/signature, identifier kind, or core/adjacent classification.",
+        "Use the exact canonical signature, topic0, parameter order, Solidity types, and indexed flags.",
+        "Interpret each identifierKind in the emitting contract's scope and retain generic inherited events.",
+        "Read semantic annotations only to their recorded reviewed boundary; corroborate mutable current state separately."
+      ],
+      "outputs": [
+        "exact event signature and Ethereum topic0",
+        "ordered/indexed parameter definition",
+        "contract-scoped identifier interpretation",
+        "state relationship and caution boundary"
+      ],
+      "guardrails": [
+        "Never substitute NIST SHA3-256 for Ethereum Keccak-256.",
+        "Do not globally equate generic ERC tokenId with rescueOrder.",
+        "Do not infer current name, owner, offer, accessory, or wrapper state from event presence."
+      ],
+      "stopConditions": [
+        "Stop if the event is absent from an exact local ABI or the requested helper is semantic-only.",
+        "Stop if the answer needs complete or live event history rather than registry metadata."
+      ]
+    },
+    {
+      "key": "plan-contract-event-indexer",
+      "purpose": "Plan a reorg-safe downstream event consumer from exact local events and bounded recipe guidance without implementing network synchronization.",
+      "loadOrder": [
+        "data/event-indexer-recipes.json",
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "optionalFiles": [
+        "data/contract-registry.json",
+        "data/identifier-conventions.json",
+        "data/name-index-integration.json",
+        "data/mooncat-naming.json",
+        "data/mooncat-accessories-internals.json",
+        "data/older-wrapper-internals.json",
+        "scripts/query-contract-events.py"
+      ],
+      "steps": [
+        "Select the smallest rescue/adoption, naming, Acclimation, WMCR, or accessory recipe that covers the consumer.",
+        "Resolve every recipe signature against data/event-registry.json and carry through exact identifier guidance.",
+        "Use a start block only when the recipe records a directly supported boundary; otherwise keep it unknown pending separate evidence.",
+        "Design idempotent transactionHash/logIndex identity, finality, replay margin, removed-log handling, and separate state corroboration.",
+        "For naming, choose maintained finalized name-index artifacts unless independent raw-log ingestion is actually required."
+      ],
+      "outputs": [
+        "contract and event allowlist",
+        "identifier/storage schema",
+        "verified or unknown start boundary",
+        "checkpoint/reorg/finality plan",
+        "state-read corroboration and explicit exclusions"
+      ],
+      "guardrails": [
+        "Do not implement RPC, webhooks, databases, or automatic sync from this static recipe.",
+        "Do not vendor finalized name-index events.jsonl or promote provisional naming overlays.",
+        "Do not claim event-only accessory indexing reconstructs alterAccessory palette/zIndex changes."
+      ],
+      "stopConditions": [
+        "Stop for separate authority and evidence when live logs, an RPC provider, or a missing deployment block is required.",
+        "Stop when a requested state transition has no exact event or reviewed implementation semantics."
+      ]
     }
   ],
   "limitations": [

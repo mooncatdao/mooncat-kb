@@ -1,8 +1,8 @@
 {
-  "version": 12,
+  "version": 13,
   "updated": "2026-08-11",
-  "status": "refreshed-with-full-population-generated-index",
-  "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract, accessory-system, Genesis/character-category, ChainStation, ADR, and factual-benchmark reviews, with explicit source, provenance, and live-state limits.",
+  "status": "refreshed-with-contract-abi-event-registry",
+  "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract ABI/event, accessory-system, Genesis/character-category, ChainStation, ADR, population, and factual-benchmark reviews, with explicit source, provenance, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -24,6 +24,9 @@
     "data/agent-coding-patterns.json",
     "data/contract-surfaces.json",
     "data/contracts.json",
+    "data/contract-registry.json",
+    "data/event-registry.json",
+    "data/event-indexer-recipes.json",
     "data/identifier-conventions.json",
     "data/ipfs-cids.json",
     "data/kb-gap-index.json",
@@ -62,9 +65,9 @@
   "routingCoverage": {
     "agentIndexFile": "data/agent-index.json",
     "status": "all-current-route-candidates-directly-routed",
-    "dataFileCount": 45,
-    "routeCandidates": 42,
-    "directlyRoutedCandidateCount": 42,
+    "dataFileCount": 51,
+    "routeCandidates": 48,
+    "directlyRoutedCandidateCount": 48,
     "directlyUnroutedDataFiles": [],
     "notCountedAsCandidate": [
       "data/agent-index.json",
@@ -82,6 +85,8 @@
       "data/chainstation-surfaces.json is directly routed by data/agent-index.json through trace-chainstation-implementation.",
       "data/genesis-cats.json is directly routed by data/agent-index.json through trace-genesis-cats.",
       "data/factual-retrieval-cases.json is directly routed by data/agent-index.json through review-factual-retrieval-benchmark.",
+      "data/contract-registry.json is directly routed through look-up-contract-abi, query-contract-events, and plan-contract-event-indexer.",
+      "data/event-registry.json and data/event-indexer-recipes.json are directly routed through exact event query and indexer-planning tasks.",
       "Current route candidates are directly discoverable from data/agent-index.json."
     ]
   },
@@ -424,7 +429,7 @@
         "data/contracts.json",
         "data/sources.json"
       ],
-      "notes": "MoonCatSVGs internals now record compact verified semantics for source identity, dependency interfaces, imageOf overload behavior, rescue-order conversion, default glow selection, SVG string assembly, output wrapper properties, and conceptual geometry/pattern surfaces. Full Solidity source, ABI JSON, coordinate constants, pattern arrays, generated SVG outputs, per-cat outputs, and accessory image composition remain intentionally unimported."
+      "notes": "MoonCatSVGs internals record compact verified semantics for source identity, dependency interfaces, imageOf overload behavior, rescue-order conversion, default glow selection, SVG string assembly, output wrapper properties, and conceptual geometry/pattern surfaces. Its exact local ABI now routes through data/contract-registry.json; full Solidity source, coordinate constants, pattern arrays, generated SVG outputs, per-cat outputs, and accessory image composition remain intentionally unimported."
     },
     {
       "key": "mooncat-accessory-images-internals-review",
@@ -436,7 +441,7 @@
         "data/contracts.json",
         "data/sources.json"
       ],
-      "notes": "MoonCatAccessoryImages internals now record compact verified semantics for source identity, rescue-order entrypoints, explicit versus lookup accessory lists, ownership preparation, foreground/background handling, glow branches, PNG data-URI assembly, and dependency boundaries. Full Solidity source, ABI JSON, accessory taxonomy, placement tables, palettes, IDAT data, PNG bytes, generated SVG or PNG outputs, per-cat outputs, and current accessory state remain intentionally unimported."
+      "notes": "MoonCatAccessoryImages internals record compact verified semantics for source identity, rescue-order entrypoints, explicit versus lookup accessory lists, ownership preparation, foreground/background handling, glow branches, PNG data-URI assembly, and dependency boundaries. Its exact local ABI now routes through data/contract-registry.json; full Solidity source, accessory taxonomy, placement tables, palettes, IDAT data, PNG bytes, generated SVG or PNG outputs, per-cat outputs, and current accessory state remain intentionally unimported."
     },
     {
       "key": "mooncat-accessory-system-integration",
@@ -452,6 +457,21 @@
         "data/task-recipes.json"
       ],
       "notes": "The thin integration overview connects definition management, rescue-order ownership, palette and zIndex alteration, verification filtering, PNG materialization, and SVG composition while keeping the two detailed reviews separate. Complete taxonomy, definitions, images, prices, supply, per-cat state, current availability, and exact generated output remain unresolved."
+    },
+    {
+      "key": "contract-abi-event-registry",
+      "status": "resolved-as-deterministic-local-registry",
+      "files": [
+        "data/contract-registry.json",
+        "data/event-registry.json",
+        "data/event-indexer-recipes.json",
+        "data/abi-registry/mooncatRescue.json",
+        "docs/contract-abi-event-registry.md",
+        "scripts/extract-contract-abis.py",
+        "scripts/validate-contract-registry.py",
+        "scripts/query-contract-events.py"
+      ],
+      "notes": "Exact address-bound ABI artifacts now cover all eight core materialization contracts plus adjacent WMCR; CatNamer remains semantic-only. All 32 extracted events retain exact signatures/order/indexing and Ethereum Keccak topic0, while five recipes preserve identifier, deployment/start, finality, naming, and current-state boundaries."
     }
   ],
   "fileGaps": [
@@ -528,26 +548,62 @@
     },
     {
       "file": "data/contract-surfaces.json",
-      "currentStatus": "compact-contract-surface-index",
+      "currentStatus": "compact-contract-surface-index-with-exact-registry-routing",
       "routedFromAgentIndex": true,
       "gapTypes": [
         "intentional-compact-scope",
-        "artifact-details-not-imported",
+        "exact-artifacts-routed-separately",
         "some-internals-reviewed-by-domain"
       ],
-      "agentUsabilityImpact": "Useful for choosing contract/source surfaces and now includes a compact MoonCatColors reviewed-internals pointer, but it is still not a full call-signature, ABI, source, bytecode, or storage-layout index.",
-      "nextDataPass": "If exact call signatures or artifact details are needed, create a separate ABI/artifact policy instead of expanding this routing file."
+      "agentUsabilityImpact": "Useful for choosing contract/source surfaces and routing exact ABI/event questions to the separate registry without duplicating full artifacts in this compact file.",
+      "nextDataPass": "Use the contract/event registry for exact local interfaces; keep bytecode, storage, deployment/live state, and future source reviews separately scoped."
     },
     {
       "file": "data/contracts.json",
-      "currentStatus": "partially-verified",
+      "currentStatus": "partially-verified-with-exact-local-abi-routing",
       "routedFromAgentIndex": true,
       "gapTypes": [
         "partial",
         "compact-internals-reviewed"
       ],
-      "agentUsabilityImpact": "Useful for verified address/source identity and compact MoonCatSVGs/MoonCatAccessoryImages internals, but not for imported artifact blobs, unreviewed materialization dependencies, or current chain state.",
-      "nextDataPass": "Review additional materialization dependencies only in focused source passes before importing derived behavior or artifact references."
+      "agentUsabilityImpact": "Useful for verified address/source identity and compact internals, with exact local ABI/event questions routed to the separate registry; it remains insufficient for bytecode equivalence, unreviewed dependencies, deployment blocks, or current chain state.",
+      "nextDataPass": "Review additional contracts only through exact-address focused evidence; use the registry rather than duplicating ABI arrays here."
+    },
+    {
+      "file": "data/contract-registry.json",
+      "currentStatus": "generated-provenance-aware-contract-registry",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "catnamer-semantic-only",
+        "deployment-blocks-mostly-unknown",
+        "live-state-excluded"
+      ],
+      "agentUsabilityImpact": "Provides exact artifact paths/hashes for nine address-matched contracts, an explicit semantic-only CatNamer boundary, exactly eight core classifications, and contract-scoped identifier summaries.",
+      "nextDataPass": "Add a missing ABI or deployment field only from separately reviewed exact local evidence; never infer it from another contract or network state."
+    },
+    {
+      "file": "data/event-registry.json",
+      "currentStatus": "generated-exact-abi-events-with-bounded-semantics",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "event-history-not-imported",
+        "current-state-excluded",
+        "some-state-effects-shape-only"
+      ],
+      "agentUsabilityImpact": "Provides all 32 exact locally evidenced events with canonical signatures, topic0, ordered/indexed parameters, generic-versus-MoonCat classification, and reviewed identifier/state cautions.",
+      "nextDataPass": "Add deeper state semantics only after focused implementation review; do not turn ABI event shape into unsupported state effects or current-state claims."
+    },
+    {
+      "file": "data/event-indexer-recipes.json",
+      "currentStatus": "generated-curated-zero-network-indexer-guidance",
+      "routedFromAgentIndex": true,
+      "gapTypes": [
+        "not-a-live-indexer",
+        "unknown-start-blocks",
+        "event-only-state-reconstruction-incomplete"
+      ],
+      "agentUsabilityImpact": "Provides practical rescue/adoption, naming, Acclimation, WMCR, and accessory event plans with exact references, finality/checkpoint cautions, corroborating reads, and exclusions.",
+      "nextDataPass": "Use separate authority and evidence for RPC synchronization, deployment blocks, databases, or current-state materialization."
     },
     {
       "file": "data/identifier-conventions.json",

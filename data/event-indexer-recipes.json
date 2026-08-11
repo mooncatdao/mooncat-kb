@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "status": "curated-zero-network-indexer-guidance",
+  "scope": "Planning recipes over exact locally extracted events. This file is not an indexer, event dataset, RPC configuration, completeness claim, or current-state source.",
+  "relatedFiles": [
+    "data/contract-registry.json",
+    "data/event-registry.json",
+    "data/identifier-conventions.json"
+  ],
+  "recipes": [
+    {
+      "key": "original-rescue-adoption-history",
+      "purpose": "Index original rescues, Genesis batches, adoption offers/requests, cancellations, and completed adoptions without treating history as current state.",
+      "contractKeys": [
+        "mooncatRescue"
+      ],
+      "events": [
+        "CatRescued(address,bytes5)",
+        "GenesisCatsAdded(bytes5[16])",
+        "AdoptionOffered(bytes5,uint256,address)",
+        "AdoptionOfferCancelled(bytes5)",
+        "AdoptionRequested(bytes5,uint256,address)",
+        "AdoptionRequestCancelled(bytes5)",
+        "CatAdopted(bytes5,uint256,address,address)"
+      ],
+      "identifierGuidance": [
+        "Treat catId as mooncatIdBytes5.",
+        "Do not infer rescueOrder without a separate reviewed lookup."
+      ],
+      "startBoundary": {
+        "status": "unknown",
+        "note": "No deployment block is present in the reviewed local registry evidence; configure only from separately verified evidence."
+      },
+      "corroborationSurfaces": [
+        "catOwners(bytes5)",
+        "adoptionOffers(bytes5)",
+        "adoptionRequests(bytes5)",
+        "rescueOrder(uint256)"
+      ],
+      "exclusions": [
+        "current owner",
+        "current offer/request state",
+        "aggregate payment totals",
+        "complete historical coverage without a verified scan boundary"
+      ],
+      "operationalGuidance": {
+        "network": "ethereum-mainnet",
+        "checkpointing": "Persist the last finalized block plus transactionHash/logIndex identities; replay from a safety margin after restart.",
+        "reorgAndFinality": "Treat unfinalized logs as provisional, remove replaced logs, and make writes idempotent by transactionHash plus logIndex.",
+        "liveStateBoundary": "Recipes describe zero-network planning from checked-in evidence. They do not provide logs, RPC access, completeness, freshness, or current state."
+      }
+    },
+    {
+      "key": "mooncat-naming",
+      "purpose": "Index raw CatNamed logs while routing maintained finalized history and current names to the reviewed name-index integration.",
+      "contractKeys": [
+        "mooncatRescue"
+      ],
+      "events": [
+        "CatNamed(bytes5,bytes32)"
+      ],
+      "identifierGuidance": [
+        "Treat catId as mooncatIdBytes5.",
+        "Retain catName as raw bytes32 before display decoding."
+      ],
+      "startBoundary": {
+        "status": "verified-maintained-index-scan-boundary",
+        "blockNumber": 4140409,
+        "sourceFile": "data/name-index-integration.json",
+        "note": "This is the reviewed naming scan boundary, not a generalized contract deployment block."
+      },
+      "corroborationSurfaces": [
+        "catNames(bytes5)",
+        "getCatNames()",
+        "getCatDetails(...)"
+      ],
+      "maintainedIndex": {
+        "integrationFile": "data/name-index-integration.json",
+        "useDirectLogsWhen": "Building or independently auditing raw history with separately authorized chain access and reorg-safe storage.",
+        "useMaintainedFinalizedIndexWhen": "A revision-bounded finalized current name, canonical finalized CatNamed history, naming order/year, namer, or blank-event history is sufficient.",
+        "doNotVendor": "name-index/data/events.jsonl"
+      },
+      "exclusions": [
+        "provisional *-live artifacts as canonical",
+        "event presence as proof of current name",
+        "discarding all-zero events",
+        "rewriting raw bytes32 during display moderation"
+      ],
+      "operationalGuidance": {
+        "network": "ethereum-mainnet",
+        "checkpointing": "Persist the last finalized block plus transactionHash/logIndex identities; replay from a safety margin after restart.",
+        "reorgAndFinality": "Treat unfinalized logs as provisional, remove replaced logs, and make writes idempotent by transactionHash plus logIndex.",
+        "liveStateBoundary": "Recipes describe zero-network planning from checked-in evidence. They do not provide logs, RPC access, completeness, freshness, or current state."
+      }
+    },
+    {
+      "key": "acclimation-lifecycle",
+      "purpose": "Index current Acclimated wrap/deacclimation lifecycle alongside contract-scoped ERC-721/ERC-998 events.",
+      "contractKeys": [
+        "acclimatedMoonCats"
+      ],
+      "events": [
+        "MoonCatAcclimated(uint256,address)",
+        "MoonCatDeacclimated(uint256,address)",
+        "Transfer(address,address,uint256)",
+        "ReceivedChild(address,uint256,address,uint256)",
+        "TransferChild(uint256,address,address,uint256)"
+      ],
+      "identifierGuidance": [
+        "MoonCatAcclimated/MoonCatDeacclimated tokenId is erc721TokenId and equals rescue order only for this exact contract.",
+        "Interpret child token IDs only with childContract; never globally as rescueOrder."
+      ],
+      "startBoundary": {
+        "status": "unknown",
+        "note": "No deployment block is present in checked-in reviewed evidence."
+      },
+      "corroborationSurfaces": [
+        "ownerOf(uint256)",
+        "ownerOfChild(address,uint256)",
+        "rescueOrderLookup()"
+      ],
+      "exclusions": [
+        "generic ERC-721 tokenId equals rescueOrder",
+        "current owner or child holdings from historical logs alone",
+        "WMCR identifier rules"
+      ],
+      "operationalGuidance": {
+        "network": "ethereum-mainnet",
+        "checkpointing": "Persist the last finalized block plus transactionHash/logIndex identities; replay from a safety margin after restart.",
+        "reorgAndFinality": "Treat unfinalized logs as provisional, remove replaced logs, and make writes idempotent by transactionHash plus logIndex.",
+        "liveStateBoundary": "Recipes describe zero-network planning from checked-in evidence. They do not provide logs, RPC access, completeness, freshness, or current state."
+      }
+    },
+    {
+      "key": "wmcr-wrap-unwrap",
+      "purpose": "Index mapping-backed historical WMCR wrap/unwrap relationships without converting wrapper token IDs directly to rescue order.",
+      "contractKeys": [
+        "moonCatsWrapped"
+      ],
+      "events": [
+        "Wrapped(bytes5,uint256)",
+        "Unwrapped(bytes5,uint256)",
+        "Transfer(address,address,uint256)"
+      ],
+      "identifierGuidance": [
+        "catId is mooncatIdBytes5.",
+        "tokenID/tokenId is moonCatsWrappedTokenId, a sequential mapping-backed ID rather than rescueOrder."
+      ],
+      "startBoundary": {
+        "status": "unknown",
+        "note": "No deployment block is present in checked-in reviewed evidence."
+      },
+      "corroborationSurfaces": [
+        "_catIDToTokenID(bytes5)",
+        "_tokenIDToCatID(uint256)",
+        "ownerOf(uint256)"
+      ],
+      "exclusions": [
+        "direct tokenID-to-rescueOrder conversion",
+        "current WMCR ownership or activity from registry data",
+        "generalization to other historical wrappers"
+      ],
+      "operationalGuidance": {
+        "network": "ethereum-mainnet",
+        "checkpointing": "Persist the last finalized block plus transactionHash/logIndex identities; replay from a safety margin after restart.",
+        "reorgAndFinality": "Treat unfinalized logs as provisional, remove replaced logs, and make writes idempotent by transactionHash plus logIndex.",
+        "liveStateBoundary": "Recipes describe zero-network planning from checked-in evidence. They do not provide logs, RPC access, completeness, freshness, or current state."
+      }
+    },
+    {
+      "key": "accessory-lifecycle",
+      "purpose": "Index definition creation/management and assignment events while acknowledging that the exact ABI has no event for every mutable wear-state transition.",
+      "contractKeys": [
+        "mooncatAccessories"
+      ],
+      "events": [
+        "AccessoryCreated(uint256,address,uint256,uint16,bytes30)",
+        "AccessoryPriceChanged(uint256,uint256)",
+        "AccessoryManagementTransferred(uint256,address)",
+        "AccessoryDiscontinued(uint256)",
+        "EligibleListSet(uint256)",
+        "EligibleListCleared(uint256)",
+        "AccessoryPurchased(uint256,uint256,uint256)",
+        "AccessoryApplied(uint256,uint256,uint8,uint16)"
+      ],
+      "identifierGuidance": [
+        "Use mooncatRescueOrder for on-chain rescueOrder fields; keep it distinct from localRescueOrderIndex, accessoryId, paletteIndex, ownedAccessoryIndex, and zIndex.",
+        "zIndex is render/wear order, not an identifier; zero means owned but not worn in reviewed state semantics."
+      ],
+      "startBoundary": {
+        "status": "verified-partial",
+        "transaction": "0x21b831be284a48d6f2d72b84e94cfdd8123ec4b28779b098e8bc8caa7f02755a",
+        "timestampUtc": "2021-07-02T03:33:42Z",
+        "deployer": "0xD342a4F0397B4268e6adce89b9B88C746AFA85Ee",
+        "note": "A reviewed deployment transaction/timestamp is retained, but the block remains unknown and must not be inferred.",
+        "blockNumber": null
+      },
+      "corroborationSurfaces": [
+        "accessoryInfo(uint256)",
+        "managerOf(uint256)",
+        "doesMoonCatOwnAccessory(uint256,uint256)",
+        "balanceOf(uint256)",
+        "ownedAccessoryByIndex(uint256,uint256)",
+        "isEligible(uint256,uint256)"
+      ],
+      "exclusions": [
+        "current accessory ownership or wear state",
+        "complete reconstruction of palette/zIndex alterations from logs",
+        "taxonomy, image bytes, current prices, supply, or eligibility"
+      ],
+      "incompleteness": "The exact ABI contains no dedicated event for alterAccessory/alterAccessories, so event-only indexing cannot reconstruct every paletteIndex or zIndex mutation.",
+      "operationalGuidance": {
+        "network": "ethereum-mainnet",
+        "checkpointing": "Persist the last finalized block plus transactionHash/logIndex identities; replay from a safety margin after restart.",
+        "reorgAndFinality": "Treat unfinalized logs as provisional, remove replaced logs, and make writes idempotent by transactionHash plus logIndex.",
+        "liveStateBoundary": "Recipes describe zero-network planning from checked-in evidence. They do not provide logs, RPC access, completeness, freshness, or current state."
+      }
+    }
+  ]
+}

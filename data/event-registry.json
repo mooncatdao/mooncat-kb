@@ -1,0 +1,1333 @@
+{
+  "schemaVersion": 1,
+  "status": "exact-abi-events-with-curated-bounded-semantics",
+  "scope": "Every event entry from each exact locally extracted ABI, including inherited generic events and MoonCat-specific protocol events.",
+  "generation": {
+    "script": "scripts/extract-contract-abis.py",
+    "networkDependency": "none",
+    "topic0Strategy": "Ethereum Keccak-256 implemented locally and checked independently by scripts/validate-contract-registry.py against known vectors; NIST SHA3-256 is not used."
+  },
+  "identifierConventionFile": "data/identifier-conventions.json",
+  "localIdentifierKinds": [
+    "contractScopedExternalTokenId",
+    "mooncatRescueOrder",
+    "ownedAccessoryIndex",
+    "managedAccessoryIndex",
+    "paletteIndex"
+  ],
+  "counts": {
+    "events": 32,
+    "mooncatSpecific": 20,
+    "generic": 12,
+    "byContract": {
+      "mooncatRescue": 9,
+      "acclimatedMoonCats": 10,
+      "mooncatReference": 0,
+      "mooncatTraits": 0,
+      "mooncatColors": 0,
+      "mooncatSVGs": 0,
+      "mooncatAccessories": 8,
+      "mooncatAccessoryImages": 0,
+      "moonCatsWrapped": 5,
+      "catNamer": 0
+    }
+  },
+  "events": [
+    {
+      "key": "mooncatRescue:CatRescued(address,bytes5)",
+      "contractKey": "mooncatRescue",
+      "contractName": "MoonCatRescue",
+      "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "contractClassification": "core",
+      "name": "CatRescued",
+      "signature": "CatRescued(address,bytes5)",
+      "topic0": "0x80d2c1a6c75f471130a64fd71b80dc7208f721037766fb7decf53e10f82211cd",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "to",
+          "type": "address",
+          "indexed": true,
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "catId",
+          "type": "bytes5",
+          "indexed": true,
+          "identifierKind": "mooncatIdBytes5"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-event-shape-with-bounded-surface-semantics",
+        "stateRelationship": "Records the emitted rescue recipient and bytes5 catId for a successful original-contract rescue; it is historical evidence, not current ownership.",
+        "corroborationSurfaces": [
+          "catOwners(bytes5)",
+          "rescueOrder(uint256)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatRescue:CatNamed(bytes5,bytes32)",
+      "contractKey": "mooncatRescue",
+      "contractName": "MoonCatRescue",
+      "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "contractClassification": "core",
+      "name": "CatNamed",
+      "signature": "CatNamed(bytes5,bytes32)",
+      "topic0": "0xaf93a6d1ccdac374cb23b8a45184a5fbcb33c51e4471f69c088ebc18627fbd0f",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "catId",
+          "type": "bytes5",
+          "indexed": true,
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "position": 1,
+          "name": "catName",
+          "type": "bytes32",
+          "indexed": false,
+          "semanticKind": "rawMooncatNameBytes32"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-state-relationship",
+        "stateRelationship": "nameCat stores the supplied bytes32 and emits CatNamed, except an all-zero bytes32 leaves catNames storage zero and therefore does not consume persistent naming state.",
+        "corroborationSurfaces": [
+          "catNames(bytes5)",
+          "getCatNames()",
+          "getCatDetails(...)"
+        ],
+        "relatedFiles": [
+          "data/mooncat-naming.json",
+          "data/name-index-integration.json"
+        ],
+        "cautions": [
+          "Event presence is not equivalent to current catNames storage because an all-zero name may emit repeatedly without a persistent state effect.",
+          "Preserve raw bytes32 separately from UTF-8 display decoding and moderation."
+        ]
+      }
+    },
+    {
+      "key": "mooncatRescue:Transfer(address,address,uint256)",
+      "contractKey": "mooncatRescue",
+      "contractName": "MoonCatRescue",
+      "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "contractClassification": "core",
+      "name": "Transfer",
+      "signature": "Transfer(address,address,uint256)",
+      "topic0": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+      "anonymous": false,
+      "category": "generic-erc20-style",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "from",
+          "type": "address",
+          "indexed": true,
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "to",
+          "type": "address",
+          "indexed": true,
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 2,
+          "name": "value",
+          "type": "uint256",
+          "indexed": false,
+          "semanticKind": "fungibleAmount"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "mooncatRescue:CatAdopted(bytes5,uint256,address,address)",
+      "contractKey": "mooncatRescue",
+      "contractName": "MoonCatRescue",
+      "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "contractClassification": "core",
+      "name": "CatAdopted",
+      "signature": "CatAdopted(bytes5,uint256,address,address)",
+      "topic0": "0x1d9becf52be84ecb1e1e8de532c6cea871c0903fdcc9675123ca5c3c2cb43625",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "catId",
+          "type": "bytes5",
+          "indexed": true,
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "position": 1,
+          "name": "price",
+          "type": "uint256",
+          "indexed": false,
+          "semanticKind": "weiAmount"
+        },
+        {
+          "position": 2,
+          "name": "from",
+          "type": "address",
+          "indexed": true,
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 3,
+          "name": "to",
+          "type": "address",
+          "indexed": true,
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-event-shape-with-bounded-surface-semantics",
+        "stateRelationship": "Records an emitted adoption transfer with catId, price, previous address, and recipient; current ownership must be read separately.",
+        "corroborationSurfaces": [
+          "catOwners(bytes5)",
+          "adoptionOffers(bytes5)",
+          "adoptionRequests(bytes5)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatRescue:AdoptionOffered(bytes5,uint256,address)",
+      "contractKey": "mooncatRescue",
+      "contractName": "MoonCatRescue",
+      "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "contractClassification": "core",
+      "name": "AdoptionOffered",
+      "signature": "AdoptionOffered(bytes5,uint256,address)",
+      "topic0": "0x175ebfc78c5d74e638bd7454214416a2a42d10527412f91ac6f2e693ce4344b8",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "catId",
+          "type": "bytes5",
+          "indexed": true,
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "position": 1,
+          "name": "price",
+          "type": "uint256",
+          "indexed": false,
+          "semanticKind": "weiAmount"
+        },
+        {
+          "position": 2,
+          "name": "toAddress",
+          "type": "address",
+          "indexed": true,
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-event-shape-with-bounded-surface-semantics",
+        "stateRelationship": "Records creation or replacement of an emitted adoption offer; it does not prove that the offer remains active.",
+        "corroborationSurfaces": [
+          "adoptionOffers(bytes5)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatRescue:AdoptionOfferCancelled(bytes5)",
+      "contractKey": "mooncatRescue",
+      "contractName": "MoonCatRescue",
+      "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "contractClassification": "core",
+      "name": "AdoptionOfferCancelled",
+      "signature": "AdoptionOfferCancelled(bytes5)",
+      "topic0": "0x8c299d0cc9eb68636bc5e183d2cfd85044e4af70cbf300f6c2c3f9cf4e72f359",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "catId",
+          "type": "bytes5",
+          "indexed": true,
+          "identifierKind": "mooncatIdBytes5"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-event-shape-with-bounded-surface-semantics",
+        "stateRelationship": "Records an emitted adoption-offer cancellation for a catId.",
+        "corroborationSurfaces": [
+          "adoptionOffers(bytes5)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatRescue:AdoptionRequested(bytes5,uint256,address)",
+      "contractKey": "mooncatRescue",
+      "contractName": "MoonCatRescue",
+      "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "contractClassification": "core",
+      "name": "AdoptionRequested",
+      "signature": "AdoptionRequested(bytes5,uint256,address)",
+      "topic0": "0x0beedbd4ef5e50660fe5cf7b1274e5d826c6e496020c760b9509e1f21f696230",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "catId",
+          "type": "bytes5",
+          "indexed": true,
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "position": 1,
+          "name": "price",
+          "type": "uint256",
+          "indexed": false,
+          "semanticKind": "weiAmount"
+        },
+        {
+          "position": 2,
+          "name": "from",
+          "type": "address",
+          "indexed": true,
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-event-shape-with-bounded-surface-semantics",
+        "stateRelationship": "Records an emitted adoption request; it does not prove that the request remains active.",
+        "corroborationSurfaces": [
+          "adoptionRequests(bytes5)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatRescue:AdoptionRequestCancelled(bytes5)",
+      "contractKey": "mooncatRescue",
+      "contractName": "MoonCatRescue",
+      "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "contractClassification": "core",
+      "name": "AdoptionRequestCancelled",
+      "signature": "AdoptionRequestCancelled(bytes5)",
+      "topic0": "0xdd2c4d3d509ed991f38f011d74ba4029a438713394421a31d518d31bd0998456",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "catId",
+          "type": "bytes5",
+          "indexed": true,
+          "identifierKind": "mooncatIdBytes5"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-event-shape-with-bounded-surface-semantics",
+        "stateRelationship": "Records an emitted adoption-request cancellation for a catId.",
+        "corroborationSurfaces": [
+          "adoptionRequests(bytes5)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatRescue:GenesisCatsAdded(bytes5[16])",
+      "contractKey": "mooncatRescue",
+      "contractName": "MoonCatRescue",
+      "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+      "contractClassification": "core",
+      "name": "GenesisCatsAdded",
+      "signature": "GenesisCatsAdded(bytes5[16])",
+      "topic0": "0xb18efff3589e0e6e1f1fdd8be3f2d2250429a242997d2a6ac3aa6f7ef1296ca9",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "catIds",
+          "type": "bytes5[16]",
+          "indexed": false,
+          "identifierKind": "mooncatIdBytes5",
+          "cardinality": "[16]"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-event-shape-only",
+        "stateRelationship": "Carries the exact emitted fixed array of 16 bytes5 catIds; no additional release, ownership, or current-state inference is encoded here.",
+        "corroborationSurfaces": [
+          "rescueOrder(uint256)",
+          "catOwners(bytes5)"
+        ]
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:Approval(address,address,uint256)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "Approval",
+      "signature": "Approval(address,address,uint256)",
+      "topic0": "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+      "anonymous": false,
+      "category": "generic-erc721",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "owner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "approved",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 2,
+          "name": "tokenId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256",
+          "identifierKind": "erc721TokenId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:ApprovalForAll(address,address,bool)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "ApprovalForAll",
+      "signature": "ApprovalForAll(address,address,bool)",
+      "topic0": "0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31",
+      "anonymous": false,
+      "category": "generic-erc721",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "owner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "operator",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 2,
+          "name": "approved",
+          "type": "bool",
+          "indexed": false,
+          "internalType": "bool"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:MoonCatAcclimated(uint256,address)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "MoonCatAcclimated",
+      "signature": "MoonCatAcclimated(uint256,address)",
+      "topic0": "0x166a86c03a6732f4f3ef16e479711bbe434ae08a4d9adcfd0beb04d8ea4762f7",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "tokenId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "erc721TokenId"
+        },
+        {
+          "position": 1,
+          "name": "owner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-contract-scoped-lifecycle",
+        "stateRelationship": "Records completion of acclimation/wrapping for this exact contract; tokenId is the rescue-order-valued Acclimated token ID only in this contract scope.",
+        "corroborationSurfaces": [
+          "ownerOf(uint256)",
+          "rescueOrderLookup()"
+        ]
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:MoonCatDeacclimated(uint256,address)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "MoonCatDeacclimated",
+      "signature": "MoonCatDeacclimated(uint256,address)",
+      "topic0": "0x4b4049773a7d189d0bf28d9bb55a7af4d94a6c02c074922614bfae9dae388886",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "tokenId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "erc721TokenId"
+        },
+        {
+          "position": 1,
+          "name": "owner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-contract-scoped-lifecycle",
+        "stateRelationship": "Records completion of deacclimation/unwrapping for this exact contract; later current ownership or wrapper state requires a state read.",
+        "corroborationSurfaces": [
+          "ownerOf(uint256)",
+          "rescueOrderLookup()"
+        ]
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:OwnershipTransferred(address,address)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "OwnershipTransferred",
+      "signature": "OwnershipTransferred(address,address)",
+      "topic0": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+      "anonymous": false,
+      "category": "generic-administration",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "previousOwner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "newOwner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:Paused(address)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "Paused",
+      "signature": "Paused(address)",
+      "topic0": "0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258",
+      "anonymous": false,
+      "category": "generic-administration",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "account",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:ReceivedChild(address,uint256,address,uint256)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "ReceivedChild",
+      "signature": "ReceivedChild(address,uint256,address,uint256)",
+      "topic0": "0x0371ddf2288ad1ba92626a7e31c86a9d006e592cfe57d7d946ef08b13457c08b",
+      "anonymous": false,
+      "category": "generic-erc998",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "_from",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "_toTokenId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256",
+          "identifierKind": "erc721TokenId"
+        },
+        {
+          "position": 2,
+          "name": "_childContract",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 3,
+          "name": "_childTokenId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "contractScopedExternalTokenId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:Transfer(address,address,uint256)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "Transfer",
+      "signature": "Transfer(address,address,uint256)",
+      "topic0": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+      "anonymous": false,
+      "category": "generic-erc721",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "from",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "to",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 2,
+          "name": "tokenId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256",
+          "identifierKind": "erc721TokenId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:TransferChild(uint256,address,address,uint256)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "TransferChild",
+      "signature": "TransferChild(uint256,address,address,uint256)",
+      "topic0": "0x0ef52e516fb5aec15a5d3587e5480481b702b26db93c8430eca78b61990fd3f6",
+      "anonymous": false,
+      "category": "generic-erc998",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "_fromTokenId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256",
+          "identifierKind": "erc721TokenId"
+        },
+        {
+          "position": 1,
+          "name": "_to",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 2,
+          "name": "_childContract",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 3,
+          "name": "_childTokenId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "contractScopedExternalTokenId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "acclimatedMoonCats:Unpaused(address)",
+      "contractKey": "acclimatedMoonCats",
+      "contractName": "MoonCatAcclimator",
+      "contractAddress": "0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69",
+      "contractClassification": "core",
+      "name": "Unpaused",
+      "signature": "Unpaused(address)",
+      "topic0": "0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa",
+      "anonymous": false,
+      "category": "generic-administration",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "account",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "mooncatAccessories:AccessoryApplied(uint256,uint256,uint8,uint16)",
+      "contractKey": "mooncatAccessories",
+      "contractName": "MoonCatAccessories",
+      "contractAddress": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "contractClassification": "core",
+      "name": "AccessoryApplied",
+      "signature": "AccessoryApplied(uint256,uint256,uint8,uint16)",
+      "topic0": "0xb29ec167f10071d18b40fbdc0ebc48c3ff7067f80dec3b4c9cc820ef491d91cc",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "accessoryId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "accessoryId"
+        },
+        {
+          "position": 1,
+          "name": "rescueOrder",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "mooncatRescueOrder"
+        },
+        {
+          "position": 2,
+          "name": "paletteIndex",
+          "type": "uint8",
+          "indexed": false,
+          "internalType": "uint8",
+          "identifierKind": "paletteIndex"
+        },
+        {
+          "position": 3,
+          "name": "zIndex",
+          "type": "uint16",
+          "indexed": false,
+          "internalType": "uint16",
+          "semanticKind": "accessoryRenderOrder"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-accessory-lifecycle",
+        "stateRelationship": "Records manager assignment of an accessoryId, paletteIndex, and zIndex to a rescueOrder through the reviewed zero-price application path.",
+        "corroborationSurfaces": [
+          "doesMoonCatOwnAccessory(uint256,uint256)",
+          "balanceOf(uint256)",
+          "ownedAccessoryByIndex(uint256,uint256)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatAccessories:AccessoryCreated(uint256,address,uint256,uint16,bytes30)",
+      "contractKey": "mooncatAccessories",
+      "contractName": "MoonCatAccessories",
+      "contractAddress": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "contractClassification": "core",
+      "name": "AccessoryCreated",
+      "signature": "AccessoryCreated(uint256,address,uint256,uint16,bytes30)",
+      "topic0": "0x35b015e2255af00e1aaa29c36f7afac7799aacb512ed266fa7fc50d1aa2ed2eb",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "accessoryId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "accessoryId"
+        },
+        {
+          "position": 1,
+          "name": "creator",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 2,
+          "name": "price",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "semanticKind": "weiAmount"
+        },
+        {
+          "position": 3,
+          "name": "totalSupply",
+          "type": "uint16",
+          "indexed": false,
+          "internalType": "uint16"
+        },
+        {
+          "position": 4,
+          "name": "name",
+          "type": "bytes30",
+          "indexed": false,
+          "internalType": "bytes30"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-accessory-lifecycle",
+        "stateRelationship": "Records creation of an accessory definition whose accessoryId is its definition-array index.",
+        "corroborationSurfaces": [
+          "accessoryInfo(uint256)",
+          "totalAccessories()",
+          "managerOf(uint256)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatAccessories:AccessoryDiscontinued(uint256)",
+      "contractKey": "mooncatAccessories",
+      "contractName": "MoonCatAccessories",
+      "contractAddress": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "contractClassification": "core",
+      "name": "AccessoryDiscontinued",
+      "signature": "AccessoryDiscontinued(uint256)",
+      "topic0": "0xf8e6d7db3dbace9f381e0deecd8ee6b27ad7cc3b955fe909dc69208d8b276a66",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "accessoryId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "accessoryId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-accessory-lifecycle",
+        "stateRelationship": "Records discontinuation of future assignment/sale for a definition; reviewed semantics do not remove already-owned records.",
+        "corroborationSurfaces": [
+          "accessoryInfo(uint256)",
+          "managerOf(uint256)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatAccessories:AccessoryManagementTransferred(uint256,address)",
+      "contractKey": "mooncatAccessories",
+      "contractName": "MoonCatAccessories",
+      "contractAddress": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "contractClassification": "core",
+      "name": "AccessoryManagementTransferred",
+      "signature": "AccessoryManagementTransferred(uint256,address)",
+      "topic0": "0x6d560cdea63129f257830d15b59a7f95afc978dd86449a0679946cd2e43b5738",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "accessoryId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "accessoryId"
+        },
+        {
+          "position": 1,
+          "name": "newManager",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-accessory-lifecycle",
+        "stateRelationship": "Records a definition manager change for an accessoryId.",
+        "corroborationSurfaces": [
+          "managerOf(uint256)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatAccessories:AccessoryPriceChanged(uint256,uint256)",
+      "contractKey": "mooncatAccessories",
+      "contractName": "MoonCatAccessories",
+      "contractAddress": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "contractClassification": "core",
+      "name": "AccessoryPriceChanged",
+      "signature": "AccessoryPriceChanged(uint256,uint256)",
+      "topic0": "0xf8fe85871edbbfe8fb67b615893befdd9e238c9d24b898a4ec3d127ce0c772c7",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "accessoryId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "accessoryId"
+        },
+        {
+          "position": 1,
+          "name": "price",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "semanticKind": "weiAmount"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-accessory-lifecycle",
+        "stateRelationship": "Records a definition price change; it does not prove the price remains current.",
+        "corroborationSurfaces": [
+          "accessoryInfo(uint256)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatAccessories:AccessoryPurchased(uint256,uint256,uint256)",
+      "contractKey": "mooncatAccessories",
+      "contractName": "MoonCatAccessories",
+      "contractAddress": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "contractClassification": "core",
+      "name": "AccessoryPurchased",
+      "signature": "AccessoryPurchased(uint256,uint256,uint256)",
+      "topic0": "0x60c51beec34453d79798ec1b796eff7f0700ff9a3679cb3e77b79e7abc23db72",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "accessoryId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "accessoryId"
+        },
+        {
+          "position": 1,
+          "name": "rescueOrder",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "mooncatRescueOrder"
+        },
+        {
+          "position": 2,
+          "name": "price",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "semanticKind": "weiAmount"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-accessory-lifecycle",
+        "stateRelationship": "Records paid assignment of an accessoryId to a rescueOrder; the reviewed purchase path appends an owned record and decrements available supply.",
+        "corroborationSurfaces": [
+          "doesMoonCatOwnAccessory(uint256,uint256)",
+          "balanceOf(uint256)",
+          "ownedAccessoryByIndex(uint256,uint256)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatAccessories:EligibleListCleared(uint256)",
+      "contractKey": "mooncatAccessories",
+      "contractName": "MoonCatAccessories",
+      "contractAddress": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "contractClassification": "core",
+      "name": "EligibleListCleared",
+      "signature": "EligibleListCleared(uint256)",
+      "topic0": "0x1c1299472ea84a0173b453dbcef882eb9dbb148c918af8c69a0f7fe7a6c9999c",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "accessoryId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "accessoryId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-accessory-lifecycle",
+        "stateRelationship": "Records clearing of definition eligibility-list behavior.",
+        "corroborationSurfaces": [
+          "isEligible(uint256,uint256)",
+          "accessoryEligibleList(uint256)"
+        ]
+      }
+    },
+    {
+      "key": "mooncatAccessories:EligibleListSet(uint256)",
+      "contractKey": "mooncatAccessories",
+      "contractName": "MoonCatAccessories",
+      "contractAddress": "0x8d33303023723dE93b213da4EB53bE890e747C63",
+      "contractClassification": "core",
+      "name": "EligibleListSet",
+      "signature": "EligibleListSet(uint256)",
+      "topic0": "0xaa2a220ef40a7e03eeaf1a9775f860d2a041c5a62795ff9dba2ad35d25730232",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "accessoryId",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "accessoryId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-accessory-lifecycle",
+        "stateRelationship": "Records activation or replacement of definition eligibility-list behavior.",
+        "corroborationSurfaces": [
+          "isEligible(uint256,uint256)",
+          "accessoryEligibleList(uint256)"
+        ]
+      }
+    },
+    {
+      "key": "moonCatsWrapped:Approval(address,address,uint256)",
+      "contractKey": "moonCatsWrapped",
+      "contractName": "MoonCatsWrapped",
+      "contractAddress": "0x7C40c393DC0f283F318791d746d894DdD3693572",
+      "contractClassification": "adjacent",
+      "name": "Approval",
+      "signature": "Approval(address,address,uint256)",
+      "topic0": "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+      "anonymous": false,
+      "category": "generic-erc721",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "owner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "approved",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 2,
+          "name": "tokenId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256",
+          "identifierKind": "moonCatsWrappedTokenId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "moonCatsWrapped:ApprovalForAll(address,address,bool)",
+      "contractKey": "moonCatsWrapped",
+      "contractName": "MoonCatsWrapped",
+      "contractAddress": "0x7C40c393DC0f283F318791d746d894DdD3693572",
+      "contractClassification": "adjacent",
+      "name": "ApprovalForAll",
+      "signature": "ApprovalForAll(address,address,bool)",
+      "topic0": "0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31",
+      "anonymous": false,
+      "category": "generic-erc721",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "owner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "operator",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 2,
+          "name": "approved",
+          "type": "bool",
+          "indexed": false,
+          "internalType": "bool"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "moonCatsWrapped:Transfer(address,address,uint256)",
+      "contractKey": "moonCatsWrapped",
+      "contractName": "MoonCatsWrapped",
+      "contractAddress": "0x7C40c393DC0f283F318791d746d894DdD3693572",
+      "contractClassification": "adjacent",
+      "name": "Transfer",
+      "signature": "Transfer(address,address,uint256)",
+      "topic0": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+      "anonymous": false,
+      "category": "generic-erc721",
+      "mooncatSpecific": false,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "from",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 1,
+          "name": "to",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address",
+          "identifierKind": "ethereumAddress"
+        },
+        {
+          "position": 2,
+          "name": "tokenId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256",
+          "identifierKind": "moonCatsWrappedTokenId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "exact-generic-event-shape-only",
+        "stateRelationship": "The exact ABI event is preserved without a MoonCat-specific state-effect claim."
+      }
+    },
+    {
+      "key": "moonCatsWrapped:Unwrapped(bytes5,uint256)",
+      "contractKey": "moonCatsWrapped",
+      "contractName": "MoonCatsWrapped",
+      "contractAddress": "0x7C40c393DC0f283F318791d746d894DdD3693572",
+      "contractClassification": "adjacent",
+      "name": "Unwrapped",
+      "signature": "Unwrapped(bytes5,uint256)",
+      "topic0": "0x7aea94ab72d74ca2f11b45260fba2b4ebba4dfc56e3fddf51b140cb35901a582",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "catId",
+          "type": "bytes5",
+          "indexed": true,
+          "internalType": "bytes5",
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "position": 1,
+          "name": "tokenID",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "moonCatsWrappedTokenId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-mapping-backed-lifecycle",
+        "stateRelationship": "Records return of the mapped bytes5 catId and burn of the WMCR tokenID; the tokenID is not rescue order.",
+        "corroborationSurfaces": [
+          "_catIDToTokenID(bytes5)",
+          "_tokenIDToCatID(uint256)",
+          "ownerOf(uint256)"
+        ],
+        "relatedFiles": [
+          "data/older-wrapper-internals.json"
+        ]
+      }
+    },
+    {
+      "key": "moonCatsWrapped:Wrapped(bytes5,uint256)",
+      "contractKey": "moonCatsWrapped",
+      "contractName": "MoonCatsWrapped",
+      "contractAddress": "0x7C40c393DC0f283F318791d746d894DdD3693572",
+      "contractClassification": "adjacent",
+      "name": "Wrapped",
+      "signature": "Wrapped(bytes5,uint256)",
+      "topic0": "0x82db4ed538dc0007cca5910a46d167b9ada30509d730f441f8fd8e426b1dbecb",
+      "anonymous": false,
+      "category": "mooncat-specific-protocol",
+      "mooncatSpecific": true,
+      "parameters": [
+        {
+          "position": 0,
+          "name": "catId",
+          "type": "bytes5",
+          "indexed": true,
+          "internalType": "bytes5",
+          "identifierKind": "mooncatIdBytes5"
+        },
+        {
+          "position": 1,
+          "name": "tokenID",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256",
+          "identifierKind": "moonCatsWrappedTokenId"
+        }
+      ],
+      "semantics": {
+        "semanticStatus": "reviewed-mapping-backed-lifecycle",
+        "stateRelationship": "Records the exact bytes5 catId and sequential mapping-backed WMCR tokenID assigned by this historical wrapper.",
+        "corroborationSurfaces": [
+          "_catIDToTokenID(bytes5)",
+          "_tokenIDToCatID(uint256)",
+          "ownerOf(uint256)"
+        ],
+        "relatedFiles": [
+          "data/older-wrapper-internals.json"
+        ]
+      }
+    }
+  ]
+}

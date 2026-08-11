@@ -10,7 +10,7 @@
     "script": "scripts/generate-agent-context-packs.py",
     "command": "python scripts/generate-agent-context-packs.py",
     "networkDependency": "none",
-    "caseCount": 26,
+    "caseCount": 29,
     "sizePolicy": {
       "softFileLimit": 7,
       "softEstimatedByteLimit": 200000,
@@ -987,15 +987,15 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 70562,
+        "estimatedByteCount": 73408,
         "files": [
           {
             "path": "data/contract-surfaces.json",
-            "bytes": 23872
+            "bytes": 24476
           },
           {
             "path": "data/contracts.json",
-            "bytes": 25813
+            "bytes": 26744
           },
           {
             "path": "data/protocol-constants.json",
@@ -1003,7 +1003,7 @@
           },
           {
             "path": "docs/contracts.md",
-            "bytes": 9970
+            "bytes": 11281
           },
           {
             "path": "data/mooncat-svg-internals.json",
@@ -1072,7 +1072,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 138030,
+        "estimatedByteCount": 141560,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -1088,7 +1088,7 @@
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 44288
+            "bytes": 47818
           }
         ],
         "softFileLimit": 7,
@@ -1568,7 +1568,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 85992,
+        "estimatedByteCount": 86923,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
@@ -1580,7 +1580,7 @@
           },
           {
             "path": "data/contracts.json",
-            "bytes": 25813
+            "bytes": 26744
           },
           {
             "path": "data/identifier-conventions.json",
@@ -1741,11 +1741,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 167674,
+        "estimatedByteCount": 185358,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 37263
+            "bytes": 42406
           },
           {
             "path": "docs/agent-usage.md",
@@ -1753,15 +1753,15 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 27947
+            "bytes": 31076
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 56831
+            "bytes": 62713
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 44288
+            "bytes": 47818
           }
         ],
         "softFileLimit": 7,
@@ -2240,6 +2240,289 @@
         "softFileLimit": 7,
         "softEstimatedByteLimit": 200000,
         "rationale": "Genesis history data and doc cover the bounded mechanics; protocol/source details are optional rather than broad contract loading."
+      }
+    },
+    {
+      "caseId": "exact-contract-abi-lookup",
+      "category": "contract-abi",
+      "taskSummary": "Find the exact MoonCatAccessories overloads and tuple components from checked-in ABI evidence without fetching an explorer API.",
+      "route": "look-up-contract-abi",
+      "recipe": "look-up-contract-abi",
+      "primaryFiles": [
+        "data/contract-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/abi-registry/mooncatAccessories.json",
+        "data/identifier-conventions.json"
+      ],
+      "filesToLoad": [
+        "data/contract-registry.json",
+        "docs/contract-abi-event-registry.md",
+        "data/abi-registry/mooncatAccessories.json",
+        "data/identifier-conventions.json"
+      ],
+      "terminology": [
+        "abiStatus",
+        "exact-local-abi-extracted",
+        "canonical signature",
+        "tuple components",
+        "overload"
+      ],
+      "requiredFacts": [
+        "The artifact is selected by exact reviewed contract address rather than bundle variable name",
+        "Overloads and tuple components are preserved in the normalized artifact"
+      ],
+      "implementationGuardrails": [
+        "Do not fabricate a CatNamer ABI from reviewed address or role context.",
+        "Do not merge WMCR or CatNamer into the eight-core materialization classification.",
+        "Do not treat a local ABI as proof of deployed bytecode, current state, deployment block, or event completeness.",
+        "An exact local ABI does not prove deployed bytecode equivalence, current state, or deployment block."
+      ],
+      "forbiddenClaims": [
+        "CatNamer has a complete local ABI",
+        "all adjacent helpers are part of the eight-core materialization path",
+        "ABI availability proves live deployment"
+      ],
+      "knownLimitations": [
+        "An exact local ABI does not prove deployed bytecode equivalence, current state, or deployment block."
+      ],
+      "stopConditions": [
+        "Stop if abiStatus is not exact-local-abi-extracted or the address/artifact hash does not validate."
+      ],
+      "validationCommands": [
+        "python scripts/extract-contract-abis.py --check",
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-libmooncat-limited-js",
+          "label": "MoonCatRescue libmooncat-limited.js reference",
+          "status": "reference-copy"
+        },
+        {
+          "id": "etherscan-mooncat-accessories",
+          "label": "Etherscan MoonCatAccessories contract page",
+          "status": "verified"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 95430,
+        "files": [
+          {
+            "path": "data/contract-registry.json",
+            "bytes": 20613
+          },
+          {
+            "path": "docs/contract-abi-event-registry.md",
+            "bytes": 6196
+          },
+          {
+            "path": "data/abi-registry/mooncatAccessories.json",
+            "bytes": 31336
+          },
+          {
+            "path": "data/identifier-conventions.json",
+            "bytes": 37285
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Load the compact registry and guide first, adding only the one requested ABI artifact and identifier vocabulary."
+      }
+    },
+    {
+      "caseId": "catnamed-event-registry-query",
+      "category": "contract-events",
+      "taskSummary": "Return the exact CatNamed signature, topic0, indexed fields, and state caveat for an indexer schema.",
+      "route": "query-contract-events",
+      "recipe": "query-contract-events",
+      "primaryFiles": [
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "scripts/query-contract-events.py",
+        "data/mooncat-naming.json"
+      ],
+      "filesToLoad": [
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md",
+        "scripts/query-contract-events.py",
+        "data/mooncat-naming.json"
+      ],
+      "terminology": [
+        "CatNamed",
+        "topic0",
+        "Ethereum Keccak-256",
+        "mooncatIdBytes5",
+        "rawMooncatNameBytes32"
+      ],
+      "requiredFacts": [
+        "CatNamed(bytes5,bytes32) has indexed catId and non-indexed catName",
+        "topic0 is computed with Ethereum Keccak-256",
+        "an all-zero bytes32 event may leave persistent catNames storage zero"
+      ],
+      "implementationGuardrails": [
+        "Never substitute NIST SHA3-256 for Ethereum Keccak-256.",
+        "Do not globally equate generic ERC tokenId with rescueOrder.",
+        "Do not infer current name, owner, offer, accessory, or wrapper state from event presence.",
+        "Event presence is not equivalent to a current name or consumed naming state; retain raw bytes32 before display decoding."
+      ],
+      "forbiddenClaims": [
+        "NIST SHA3-256 is the event topic algorithm",
+        "every CatNamed event creates current name state",
+        "event history alone proves current catNames storage"
+      ],
+      "knownLimitations": [
+        "Event presence is not equivalent to a current name or consumed naming state; retain raw bytes32 before display decoding."
+      ],
+      "stopConditions": [
+        "Stop if the request needs live logs, a complete history, or current storage rather than registry metadata."
+      ],
+      "validationCommands": [
+        "python scripts/query-contract-events.py --event CatNamed --json",
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-libmooncat-limited-js",
+          "label": "MoonCatRescue libmooncat-limited.js reference",
+          "status": "reference-copy"
+        },
+        {
+          "id": "ponderware-mooncatrescue-sol-raw",
+          "label": "MoonCatRescue.sol raw source",
+          "status": "verified"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 64823,
+        "files": [
+          {
+            "path": "data/event-registry.json",
+            "bytes": 45363
+          },
+          {
+            "path": "docs/contract-abi-event-registry.md",
+            "bytes": 6196
+          },
+          {
+            "path": "scripts/query-contract-events.py",
+            "bytes": 4915
+          },
+          {
+            "path": "data/mooncat-naming.json",
+            "bytes": 8349
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "The exact event record and compact boundary doc are sufficient; original naming semantics are optional corroboration."
+      }
+    },
+    {
+      "caseId": "wmcr-event-indexer-plan",
+      "category": "contract-indexing",
+      "taskSummary": "Plan a replay-safe WMCR Wrapped/Unwrapped index without treating wrapper token IDs as rescue order or claiming current ownership.",
+      "route": "plan-contract-event-indexer",
+      "recipe": "plan-contract-event-indexer",
+      "primaryFiles": [
+        "data/event-indexer-recipes.json",
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "data/contract-registry.json",
+        "data/older-wrapper-internals.json"
+      ],
+      "filesToLoad": [
+        "data/event-indexer-recipes.json",
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md",
+        "data/contract-registry.json",
+        "data/older-wrapper-internals.json"
+      ],
+      "terminology": [
+        "Wrapped",
+        "Unwrapped",
+        "moonCatsWrappedTokenId",
+        "catIdBytes5",
+        "transactionHash",
+        "logIndex",
+        "finality"
+      ],
+      "requiredFacts": [
+        "WMCR token IDs are sequential and mapping-backed rather than rescue-order values",
+        "Wrapped/Unwrapped carry both bytes5 catId and uint256 tokenID",
+        "the reviewed local evidence does not provide a deployment block"
+      ],
+      "implementationGuardrails": [
+        "Do not implement RPC, webhooks, databases, or automatic sync from this static recipe.",
+        "Do not vendor finalized name-index events.jsonl or promote provisional naming overlays.",
+        "Do not claim event-only accessory indexing reconstructs alterAccessory palette/zIndex changes.",
+        "Checkpoint/reorg handling and current-state corroboration remain consumer responsibilities."
+      ],
+      "forbiddenClaims": [
+        "WMCR tokenID equals rescueOrder",
+        "registry data proves current ownership",
+        "an unknown deployment block may be inferred from another contract"
+      ],
+      "knownLimitations": [
+        "Checkpoint/reorg handling and current-state corroboration remain consumer responsibilities."
+      ],
+      "stopConditions": [
+        "Stop for separately verified deployment/start evidence or authorized chain access before implementing a live scan."
+      ],
+      "validationCommands": [
+        "python scripts/query-contract-events.py --event Wrapped --json",
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-libmooncat-limited-js",
+          "label": "MoonCatRescue libmooncat-limited.js reference",
+          "status": "reference-copy"
+        },
+        {
+          "id": "etherscan-mooncats-wrapped",
+          "label": "Etherscan Wrapped MoonCatsRescue contract page",
+          "status": "verified"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 5,
+        "estimatedByteCount": 88546,
+        "files": [
+          {
+            "path": "data/event-indexer-recipes.json",
+            "bytes": 10549
+          },
+          {
+            "path": "data/event-registry.json",
+            "bytes": 45363
+          },
+          {
+            "path": "docs/contract-abi-event-registry.md",
+            "bytes": 6196
+          },
+          {
+            "path": "data/contract-registry.json",
+            "bytes": 20613
+          },
+          {
+            "path": "data/older-wrapper-internals.json",
+            "bytes": 5825
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Load the exact recipe/event/doc trio and only add the WMCR compact internals when mapping behavior needs source-reviewed detail."
       }
     }
   ]

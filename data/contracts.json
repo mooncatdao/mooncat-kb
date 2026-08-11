@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated": "2026-07-11",
-  "status": "partially-verified",
+  "updated": "2026-08-11",
+  "status": "partially-verified-with-exact-local-abi-routing",
   "provenance": {
     "sources": [
       "mooncatrescue-contract-docs",
@@ -19,6 +19,14 @@
       "etherscan-mooncat-accessory-images"
     ],
     "notes": "Original contract source and deployed Ethereum mainnet address are verified. Acclimated/ERC-721 contract address is verified from marketplace URLs and the registered Etherscan source. The historical MoonCatsWrapped address/source is reviewed separately for its wrapper token mapping behavior. MoonCatAccessories, MoonCatSVGs, and MoonCatAccessoryImages have compact exact-contract source reviews; their data files retain only source-confirmed behavior and limitations."
+  },
+  "registryRouting": {
+    "contractCatalog": "data/contract-registry.json",
+    "eventCatalog": "data/event-registry.json",
+    "indexerRecipes": "data/event-indexer-recipes.json",
+    "documentation": "docs/contract-abi-event-registry.md",
+    "queryCommand": "python scripts/query-contract-events.py",
+    "boundary": "Use the registry for exact locally extracted ABI/event questions. This compact identity file does not duplicate ABI arrays, and registry entries do not establish current state or complete event history."
   },
   "contracts": [
     {
@@ -41,7 +49,7 @@
           "url": "https://etherscan.io/address/0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6#code",
           "sourceRef": "etherscan-original-contract",
           "checked": "2026-07-03",
-          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+          "notes": "Etherscan page reference only; no artifact is fetched from it. Exact local ABI routing comes from data/contract-registry.json, while source text, bytecode, constructor data, and storage values are not imported."
         },
         {
           "kind": "raw-solidity-source",
@@ -92,7 +100,7 @@
           "url": "https://etherscan.io/address/0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69#code",
           "sourceRef": "etherscan-acclimated-mooncats",
           "checked": "2026-07-03",
-          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+          "notes": "Etherscan page reference only; no artifact is fetched from it. Exact local ABI routing comes from data/contract-registry.json, while source text, bytecode, constructor data, and storage values are not imported."
         }
       ],
       "projectLinkRefs": [
@@ -123,7 +131,7 @@
           "url": "https://etherscan.io/address/0x7C40c393DC0f283F318791d746d894DdD3693572#code",
           "sourceRef": "etherscan-mooncats-wrapped",
           "checked": "2026-07-11",
-          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, storage values, and mapping contents are not imported."
+          "notes": "Etherscan page reference only; no artifact is fetched from it. Exact local ABI routing comes from data/contract-registry.json, while source text, bytecode, constructor data, storage values, and mapping contents are not imported."
         }
       ],
       "relatedData": [
@@ -166,7 +174,7 @@
           "url": "https://etherscan.io/address/0x0B78C64bCE6d6d4447e58b09E53F3621f44A2a48#code",
           "sourceRef": "etherscan-mooncat-reference",
           "checked": "2026-07-03",
-          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+          "notes": "Etherscan page reference only; no artifact is fetched from it. Exact local ABI routing comes from data/contract-registry.json, while source text, bytecode, constructor data, and storage values are not imported."
         }
       ],
       "roleSummary": "On-chain documentation/reference registry for MoonCat-related contract pages.",
@@ -199,7 +207,7 @@
           "url": "https://etherscan.io/address/0x9330BbfBa0C8FdAf0D93717E4405a410a6103cC2#code",
           "sourceRef": "etherscan-mooncat-traits",
           "checked": "2026-07-03",
-          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+          "notes": "Etherscan page reference only; no artifact is fetched from it. Exact local ABI routing comes from data/contract-registry.json, while source text, bytecode, constructor data, and storage values are not imported."
         }
       ],
       "roleSummary": "On-chain MoonCat trait parsing/reference contract.",
@@ -234,7 +242,7 @@
           "url": "https://etherscan.io/address/0x2fd7E0c38243eA15700F45cfc38A7a7f66df1deC#code",
           "sourceRef": "etherscan-mooncat-colors",
           "checked": "2026-07-03",
-          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+          "notes": "Etherscan page reference only; no artifact is fetched from it. Exact local ABI routing comes from data/contract-registry.json, while source text, bytecode, constructor data, and storage values are not imported."
         }
       ],
       "roleSummary": "On-chain MoonCat and accessory color reference/palette-generation contract.",
@@ -268,7 +276,7 @@
           "url": "https://etherscan.io/address/0xB39C61fe6281324A23e079464f7E697F8Ba6968f#code",
           "sourceRef": "etherscan-mooncat-svgs",
           "checked": "2026-07-03",
-          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+          "notes": "Etherscan page reference only; no artifact is fetched from it. Exact local ABI routing comes from data/contract-registry.json, while source text, bytecode, constructor data, and storage values are not imported."
         }
       ],
       "roleSummary": "On-chain MoonCat SVG image-generation contract.",
@@ -305,7 +313,7 @@
           "url": "https://etherscan.io/address/0x8d33303023723dE93b213da4EB53bE890e747C63#code",
           "sourceRef": "etherscan-mooncat-accessories",
           "checked": "2026-07-11",
-          "notes": "Exact verified source and ABI page; source text, ABI JSON, bytecode, storage, accessory definitions, and state are not imported."
+          "notes": "Exact verified source/ABI page reference only; no artifact is fetched from it. Exact local ABI routing comes from data/contract-registry.json, while source text, bytecode, storage, accessory definitions, and state are not imported."
         }
       ],
       "deployment": {
@@ -380,7 +388,7 @@
           "url": "https://etherscan.io/address/0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14#code",
           "sourceRef": "etherscan-mooncat-accessory-images",
           "checked": "2026-07-03",
-          "notes": "Etherscan contract page reference for verified source and ABI sections. Artifacts are linked only; source text, ABI JSON, bytecode, constructor data, and storage values are not imported."
+          "notes": "Etherscan page reference only; no artifact is fetched from it. Exact local ABI routing comes from data/contract-registry.json, while source text, bytecode, constructor data, and storage values are not imported."
         }
       ],
       "roleSummary": "On-chain MoonCat accessory image composition and PNG helper contract.",
@@ -393,7 +401,7 @@
         "doc(), setReferenceContract(...), transferOwnership(...), withdrawForeignERC20(...), and withdrawForeignERC721(...) provide documentation lookup and administration."
       ],
       "limitations": [
-        "Detailed compact semantics are limited to the verified source review in data/mooncat-accessory-images-internals.json; this contract index does not import source text, ABI JSON, PNG bytes, or output artifacts.",
+        "Detailed compact semantics are limited to the verified source review in data/mooncat-accessory-images-internals.json; exact local ABI lookup routes through data/contract-registry.json while this compact index does not duplicate source text, ABI arrays, PNG bytes, or output artifacts.",
         "No accessory ID taxonomy, placement table, palette values, accessory image data, current state, or exact rendered output is imported."
       ],
       "notes": "On-chain materialization support contract linked from the official MoonCatRescue Chained to the Future log page. Etherscan verifies the source as exact match for contract name MoonCatAccessoryImages with Solidity compiler v0.8.1, optimization enabled with 200 runs, and GNU AGPLv3 license. Compact source review is recorded in data/mooncat-accessory-images-internals.json."

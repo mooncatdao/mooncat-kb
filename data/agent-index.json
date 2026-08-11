@@ -600,6 +600,68 @@
         "The benchmark constrains source-aware correctness and stop conditions; it does not run or score an LLM.",
         "Keep factual retrieval cases separate from data/agent-query-cases.json, which remains a routing/context benchmark."
       ]
+    },
+    {
+      "key": "look-up-contract-abi",
+      "description": "Find an exact locally extracted ABI artifact for a reviewed contract without guessing unavailable interfaces or collapsing adjacent contracts into the eight-core path.",
+      "primaryFiles": [
+        "data/contract-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "optionalFiles": [
+        "data/contracts.json",
+        "data/contract-surfaces.json",
+        "data/identifier-conventions.json",
+        "scripts/extract-contract-abis.py",
+        "scripts/validate-contract-registry.py"
+      ],
+      "notes": [
+        "Follow abiArtifact.path only when abiStatus is exact-local-abi-extracted and verify its recorded hash/provenance.",
+        "All eight core contracts and adjacent WMCR have exact local ABI artifacts; CatNamer remains semantic-only without a complete ABI claim.",
+        "ABI availability does not establish deployed bytecode equivalence, deployment block, current state, or event-history completeness."
+      ]
+    },
+    {
+      "key": "query-contract-events",
+      "description": "Query exact event signatures, topic0 values, indexed parameters, contract classification, and identifier annotations from local registries.",
+      "primaryFiles": [
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "optionalFiles": [
+        "data/contract-registry.json",
+        "data/identifier-conventions.json",
+        "scripts/query-contract-events.py",
+        "scripts/validate-contract-registry.py"
+      ],
+      "notes": [
+        "Use the canonical signature and ordered indexed flags exactly; topic0 is Ethereum Keccak-256, not NIST SHA3-256.",
+        "Keep generic ERC events and their token IDs contract-scoped instead of treating every tokenId as rescueOrder.",
+        "CatNamed event presence does not imply current name state because an all-zero bytes32 may emit without consuming storage."
+      ]
+    },
+    {
+      "key": "plan-contract-event-indexer",
+      "description": "Plan a zero-network MoonCat event indexer using exact local event references, safe identifier interpretation, corroborating reads, and explicit start/finality limits.",
+      "primaryFiles": [
+        "data/event-indexer-recipes.json",
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "optionalFiles": [
+        "data/contract-registry.json",
+        "data/identifier-conventions.json",
+        "data/name-index-integration.json",
+        "data/mooncat-naming.json",
+        "data/mooncat-accessories-internals.json",
+        "data/older-wrapper-internals.json",
+        "scripts/query-contract-events.py"
+      ],
+      "notes": [
+        "Recipes are guidance over exact events, not live scanners, databases, event datasets, or complete-history claims.",
+        "Use only verified start/deployment fields; unknown deployment blocks remain unknown.",
+        "Treat logs as provisional until finality, checkpoint by block plus transactionHash/logIndex identity, and corroborate mutable current state separately."
+      ]
     }
   ]
 }

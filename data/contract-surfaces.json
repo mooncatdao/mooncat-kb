@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated": "2026-07-11",
-  "status": "compact-contract-surface-index",
+  "updated": "2026-08-11",
+  "status": "compact-contract-surface-index-with-exact-registry-routing",
   "scope": "Agent-facing routing index for known MoonCat contract/source surfaces, derived from existing contract data and docs.",
   "sourceRefs": [
     "mooncatrescue-contract-docs",
@@ -25,8 +25,12 @@
     "docs/mooncat-naming.md",
     "data/identifier-conventions.json",
     "data/protocol-constants.json",
+    "data/contract-registry.json",
+    "data/event-registry.json",
+    "data/event-indexer-recipes.json",
     "data/sources.json",
     "docs/contracts.md",
+    "docs/contract-abi-event-registry.md",
     "data/mooncat-accessories-internals.json",
     "docs/mooncat-accessories.md",
     "docs/reference-policy.md"
@@ -38,8 +42,8 @@
     ],
     "notes": [
       "Use this file to choose the relevant contract/source surface, then verify exact details in data/contracts.json and the cited sourceRefs.",
-      "Full ABI JSON, Solidity source text, bytecode, constructor args, events, storage layout, CIDs, and artifact blobs are not imported here.",
-      "Function lists are compact lookup names already documented in data/contracts.json, not complete ABIs."
+      "Use data/contract-registry.json and data/event-registry.json for exact locally extracted ABI items, signatures, event topics, and identifier annotations.",
+      "This file remains a compact surface router; it does not duplicate ABI arrays, bytecode, constructor args, storage layout, CIDs, or current state."
     ]
   },
   "surfaces": [
@@ -104,7 +108,7 @@
       "limitations": [
         "The original contract exposes rescue-order to bytes5 catId lookup through the public rescueOrder array.",
         "No direct reverse bytes5 catId to rescue-order on-chain lookup is documented here.",
-        "Source and ABI artifacts are linked from data/contracts.json but not imported."
+        "Exact local ABI and event artifacts now route through data/contract-registry.json and data/event-registry.json; this compact surface does not duplicate them."
       ]
     },
     {
@@ -137,7 +141,7 @@
       "limitations": [
         "Token ID equals rescue order only within the checked Acclimated MoonCats contract scope documented in existing data.",
         "Older wrapper token ID conventions are not verified here.",
-        "Wrapper source, ABI, and marketplace behavior are not duplicated in this index."
+        "Exact local Acclimator ABI/events route through data/contract-registry.json and data/event-registry.json; source, current state, and marketplace behavior are not duplicated in this index."
       ]
     },
     {
@@ -323,7 +327,7 @@
         "data/identifier-conventions.json"
       ],
       "limitations": [
-        "No color palette values, BasePalette values, mapColors keys/values, ABI JSON, or full Solidity source is imported.",
+        "No color palette values, BasePalette values, mapColors keys/values, or full Solidity source is imported; exact local ABI lookup routes through data/contract-registry.json.",
         "Detailed compact color semantics live in data/color-hues.json; this file remains a contract surface router."
       ]
     },
@@ -567,13 +571,13 @@
   ],
   "limitations": [
     "This file is a compact routing index, not canonical contract data; canonical address records remain in data/contracts.json.",
-    "No full ABI JSON, Solidity source text, bytecode, constructor args, events, storage layout, CIDs, or contract artifacts are imported.",
+    "Exact address-matched ABI/event artifacts are maintained in the separate contract/event registry; this compact router does not duplicate them, Solidity source, bytecode, constructor args, storage layout, CIDs, or current state.",
     "No new contract addresses or unregistered sourceRefs are introduced.",
     "Function names are limited to names already summarized in data/contracts.json and docs/contracts.md.",
     "Check data/sources.json and sourceRefs before relying on non-obvious contract claims."
   ],
   "todos": [
-    "If agents need exact call signatures, add a separate ABI policy or artifact index instead of expanding this routing file.",
+    "Use data/contract-registry.json, data/event-registry.json, and docs/contract-abi-event-registry.md for exact local ABI, event, and indexer questions.",
     "Review materialization internals in focused passes before importing trait derivation, color palette, SVG coordinate, or accessory image data.",
     "Verify accessory contract scope separately before adding any additional accessory-related contract surfaces."
   ]
