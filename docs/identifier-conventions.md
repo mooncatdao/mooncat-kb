@@ -14,11 +14,11 @@ This page distinguishes known MoonCat identifier spaces so future imports do not
 
 The original contract source uses `bytes5` cat IDs. The API landing pages also document a valid MoonCat ID example, `0x00d8523a53`, for `catId_or_rescueIndex`.
 
-This repository now records a verified array-backed lookup method between bytes5 cat IDs and rescue-order based identifiers. The registered upstream reference dataset `references/upstream/mooncatrescue/mooncat_traits.json` contains 25,440 rows ordered by `rescueOrder`, with a `catId` field per row. The registered `libmooncat-limited.js` reference exposes lookup helpers including `getMoonCatIdByRescueIndex`, `getCatId`, `getRescueOrder`, and `parseCatId`.
+This repository now records a verified array-backed lookup method between bytes5 cat IDs and rescue-order based identifiers. The generated `data/mooncat-population/` index materializes the complete 25,440-row joined `rescueOrder`/`catId` view, while the registered upstream reference dataset `references/upstream/mooncatrescue/mooncat_traits.json` remains one of its inputs. The registered `libmooncat-limited.js` reference exposes lookup helpers including `getMoonCatIdByRescueIndex`, `getCatId`, `getRescueOrder`, and `parseCatId`.
 
 The preferred API still provides independent lookup evidence: it accepts either a bytes5 cat ID or decimal rescue index for `/mooncat/traits/:catId_or_rescueIndex` and returns both `catId` and `rescueOrder` in sampled responses.
 
-This is array-backed library/dataset conversion, not a closed-form reverse formula. The KB registers the upstream reference files but does not import the full 25,440-entry mapping table into curated `data/` files.
+This is an array-backed generated joined lookup, not a closed-form reverse formula or a new standalone source of truth. The population index records source attribution, validation, and provenance boundaries; it does not turn the upstream reference table into a canonical on-chain reverse mapping.
 
 ### API Original Rescue Index
 
@@ -118,6 +118,7 @@ The reverse bytes5-to-rescueOrder path is verified through array-backed dataset/
 - `data/rescue-buckets.json` stores canonical-derived rescue/history bucket arrays using `rescue-order-index`.
 - `data/protocol-constants.json` records contract-derived bytes5 cat ID generation notes.
 - `data/mooncat-accessories-internals.json` records exact accessory definition, ownership, enumeration, and wear-setting identifier boundaries.
+- `data/mooncat-population/manifest.json` and `docs/mooncat-population-index.md` describe the complete generated rescue-order/bytes5 lookup, its joined sources, and exhaustive validation.
 - `references/upstream/mooncatrescue/README.md` describes local upstream reference files and usage limits.
 - `references/upstream/mooncatrescue/libmooncat-limited.js` is a registered upstream reference copy for array-backed lookup helpers.
 - `references/upstream/mooncatrescue/mooncat_traits.json` is a registered upstream reference copy for the full rescueOrder/catId dataset.
@@ -128,6 +129,7 @@ The reverse bytes5-to-rescueOrder path is verified through array-backed dataset/
 - exact inventory and source review for any additional historical or unofficial wrapper contracts
 - broader marketplace token ID behavior beyond sampled acclimated URLs
 - live API-to-contract accessory ID runtime alignment and current valid accessory ID range
-- generated-data method if the full bytes5 catId mapping table is ever promoted from upstream reference copy into curated KB data
+- canonical trait dictionary/schema and frequency summaries for the generated population
+- live API/ChainStation freshness and current accessory/marketplace state
 
 The executable verification suite intentionally does not close these gaps: it confirms only the registered array-backed, exact-contract, and explicitly unsupported paths.

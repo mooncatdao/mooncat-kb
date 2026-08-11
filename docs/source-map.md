@@ -91,6 +91,13 @@ Project-link `trustLevel` values are navigation classifications, not canonical-s
 - Supporting-context: local notes or Discord-derived references that need review before fact import
 - Experimental: CatMoon color filters, character-cat classifications, prototype notes
 
+## Generated and reviewed KB artifacts
+
+The following are maintained KB artifacts rather than upstream primary sources:
+
+- Full MoonCat population index: `data/mooncat-population/manifest.json`, its sharded rows and validation report, and `docs/mooncat-population-index.md`. This is a deterministic joined view generated from registered upstream snapshots, curated membership data, finalized name-index inputs, and local display/classification policy. It is not a standalone canonical source, live chain state, or proof of current ownership, accessories, markets, or API freshness.
+- Contract and event registry: `data/contract-registry.json`, `data/event-registry.json`, `data/event-indexer-recipes.json`, `data/abi-registry/`, and `docs/contract-abi-event-registry.md`. These are deterministic local extracts and bounded semantic annotations from reviewed address-bound contract evidence. They document exact local ABI/event artifacts and indexing guidance, but do not prove deployed bytecode equivalence, complete event history, current state, or live RPC behavior.
+
 ## Adding a Source
 
 When adding a source:

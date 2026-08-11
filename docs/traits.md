@@ -2,7 +2,7 @@
 
 Machine-readable trait data now includes a deterministic sharded full-population lookup at `data/mooncat-population/manifest.json`. The bounded `data/mooncat-visual-traits.sample.json` remains a lightweight representative fixture, and the underlying full trait source remains a local upstream reference snapshot at `references/upstream/mooncatrescue/mooncat_traits.json`.
 
-This page documents what was observed in that snapshot, which resources can support future trait work, and what should happen before any normalized trait data is promoted into curated KB files.
+This page documents what was observed in that snapshot, how the generated population view is bounded, and which trait work remains open.
 
 ## Current Status
 
@@ -10,7 +10,7 @@ The curated model decision is implemented as a deterministic 25,440-row generate
 
 See `docs/mooncat-population-index.md` for full-population schema, provenance, querying, refresh, and exhaustive validation. See `docs/generated-trait-data.md` for the retained compact fixture.
 
-`mooncat_traits.json` is a reference input under `docs/reference-policy.md`, not a curated KB dataset. It may be used as evidence for schema and validation planning, but future imports should promote only deliberate, normalized outputs into `data/`.
+`mooncat_traits.json` is a reference input under `docs/reference-policy.md`, not a curated KB dataset. The generated population view joins it with other reviewed inputs without promoting the upstream table itself into curated canonical data.
 
 ## Curated Trait Model Decision
 
@@ -48,7 +48,7 @@ Required provenance and method:
 - document row count, identifier alignment checks, and optional-field normalization
 - mark complete, partial, stale-risk, or update-cadence-bound coverage explicitly
 
-Validation for any future generated artifact should check JSON syntax, one row per included `catId`, no duplicate `catId` values, bytes5 `catId` format, `rescueOrder` range and uniqueness for complete datasets, rescue-order alignment, required visual trait fields, allowed value sets, explicit `genesis` handling, and sourceRef resolution.
+The full-population validator checks JSON syntax, one row per included `catId`, no duplicate `catId` values, bytes5 `catId` format, complete `rescueOrder` range and uniqueness, rescue-order alignment, required visual trait fields, allowed value sets, explicit `genesis` handling, sourceRef resolution, names, classifications, and parser evidence. Any future generated artifact should preserve the same explicit checks where applicable.
 
 The bounded prototype's `colorClassification` object is derived display metadata for search, filtering, and labels. It is generated from `data/color-classification.json`, follows reviewed ADR-shifted integer hue intervals, and handles source-backed Genesis black/white sentinels before circular hue bucketing. It does not alter raw hue fields or prove palettes, RGB values, rendering, rarity, or canonical on-chain trait vocabulary. See `docs/color-classification.md`.
 
@@ -109,7 +109,7 @@ Practical checks performed against the local snapshot:
 - `catId` values are unique across all 25,440 rows
 - optional field presence counts were recorded for name, genesis, and owned accessory fields
 
-No frequency table, generated schema file, or curated trait dataset was created in this pass.
+No frequency table or canonical trait dictionary/schema was created in this pass. The generated population validation report is retained with the population manifest rather than repeated as a separate trait table.
 
 ## Supporting Resources
 
@@ -130,13 +130,13 @@ LibMoonCat checks in this pass showed `getTraits` can emit at least `basic`, `ex
 Recommended next passes, in increasing scope:
 
 - Trait field dictionary: document each field, type, allowed values, sourceRefs, and limitations. This can stay in Markdown first or become a small `data/` schema file.
-- Validation report: generate a small report with row count, required-field coverage, optional-field coverage, catId uniqueness, rescueOrder range, and checked enum values. This should not include all 25,440 rows.
 - Small schema file: create a compact machine-readable schema for `mooncat_traits.json` fields and validation rules. Include sourceRefs and mark it as schema metadata, not trait data.
 - Frequency summary: generate aggregate counts for selected fields such as hue, expression, pattern, pose, pale, genesis, and accessory/name presence. This is derived data and should document the exact command or script.
-- Generated curated trait data: promote selected normalized visual-trait fields into `data/` only through the model decision above and only if a focused pass defines the generated artifact, sourceRefs, generation method, validation checks, update process, and size limits.
+- Palette/rendering review: independently document palette values, rendering behavior, and any reproducible materialization outputs; the population color labels do not close those gaps.
+- Current-state enrichment: separately review live API/ChainStation freshness, ownership, accessory state, and marketplace fields with their own provenance and update cadence.
 
 Before any curated import, decide whether names, accessory counts, and derived relation fields belong in the same dataset as visual traits. They may need separate provenance or update cadence. If finalized names become a generated enrichment, consume only a pinned/local MoonCatDAO name-index finalized artifact; record its revision and metadata, regenerate deliberately when new finalized names appear, treat a changed finalized nonblank name as an invariant violation, and exclude provisional/live overlays.
 
 ## Limits
 
-The prototype does not import the full 25,440-row mapping into `data/`, does not create trait frequencies, does not claim a canonical trait dictionary, and does not resolve freshness of current API or ChainStation trait artifacts. It includes 64 generated rows and an explicit mismatch report only.
+The 25,440-row population index is a generated, source-attributed joined lookup, not a standalone canonical trait dictionary or closed-form on-chain mapping. It does not create trait frequencies, establish a canonical on-chain trait vocabulary, reproduce palettes or rendering, or resolve freshness of current API/ChainStation artifacts, ownership, accessories, or marketplace state. The 64-row artifact remains a lightweight fixture with its own schema and validation contract.

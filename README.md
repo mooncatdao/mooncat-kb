@@ -4,61 +4,44 @@ Plain-text and Markdown knowledge base for MoonCat technical facts, explanations
 
 Start here:
 
+### Agent entrypoints
+
 - `data/agent-index.json` — preferred first load target for task-specific agent context routing
 - `data/agent-query-cases.json` and `data/agent-context-packs.json` — deterministic coding-agent benchmark and minimal generated context packs
-- `data/factual-retrieval-cases.json` and `docs/factual-retrieval-benchmark.md` — deterministic provenance-aware factual retrieval cases, separate from coding-route validation
-- `docs/agent-usage.md` — route/pack selection, uncertainty, and validation workflow
-- `data/agent-coding-patterns.json` — pointers to tested local coding patterns and validators
-- `data/kb-manifest.json` and `data/kb-audit-report.json` — generated maintained-file inventory and latest bounded integrity-audit report
-- `docs/kb-integrity.md` — audit scope, manifest policy, warning limits, and future-import guidance
-- `data/architecture-decisions.json` and `docs/architecture-decisions.md` — 18-record pinned dev-environment ADR inventory and design-intent boundaries
-- `data/chainstation-surfaces.json` and `docs/chainstation-surfaces.md` — compact pinned ChainStation implementation/data surface audit with source-versus-live-state boundaries
-- `data/genesis-cats.json` and `docs/genesis-cats.md` — source-backed Genesis population, released-member, adoption, payment-bug, and vote reconstruction with current-state limits
+- `data/factual-retrieval-cases.json` and `docs/factual-retrieval-benchmark.md` — provenance-aware factual retrieval cases, separate from coding-route validation
+- `docs/agent-usage.md` and `data/agent-coding-patterns.json` — route selection, uncertainty, and tested local workflow pointers
+- `AGENTS.md` and `llms.txt` — instructions and compact entrypoints for agents and crawlers
+
+### Core generated datasets
+
 - `data/mooncat-population/manifest.json` and `docs/mooncat-population-index.md` — deterministic 25,440-row sharded lookup with exhaustive validation, pinned finalized names, and a zero-network query CLI
-- `docs/overview.md` — high-level context
-- `docs/source-map.md` — where to find canonical or supporting sources
-- `docs/glossary.md` — short definitions for recurring terms
-- `docs/mooncat-types.md` — category definitions and status notes
-- `docs/color-math.md` — hue comparison method notes
-- `docs/traits-and-ids.md` — trait and ID mapping rules
-- `docs/identifier-conventions.md` — identifier terminology and conversion status
-- `docs/contracts.md` — compact contract identities, roles, and reviewed-surface notes
-- `data/contract-registry.json`, `data/event-registry.json`, and `docs/contract-abi-event-registry.md` — deterministic exact local ABI/event registry, contract-scoped identifiers, and zero-network indexer recipes
-- `docs/mooncat-accessory-system.md` — thin end-to-end accessory lifecycle and rendering overview
-- `data/mooncat-accessory-system.json` — machine-readable accessory-system integration index
-- `data/name-index-integration.json` and `docs/name-index-integration.md` — preferred reviewed MoonCatDAO source contract for revision-bounded finalized naming state and canonical finalized `CatNamed` history
-- `data/mooncat-naming.json`, `data/mooncat-names.json`, and `docs/mooncat-naming.md` — original-contract naming semantics, event-consumer boundaries, and deterministic historical/source-comparison naming snapshot
-- `docs/mooncat-accessories.md` and `docs/mooncat-accessory-images.md` — detailed lifecycle and rendering reviews
-- `docs/mooncat-svgs.md` — compact MoonCatSVGs internals review
-- `docs/rescue-history.md` — rescue range and historical bucket notes
-- `docs/rescue-mining.md` — original browser rescue/mining seed-search notes
-- `docs/api-notes.md` — API endpoint placeholder notes
+- `data/genesis-cats.json` and `docs/genesis-cats.md` — source-backed Genesis population and historical reconstruction with current-state limits
+- `data/name-index-integration.json`, `data/mooncat-names.json`, and `docs/name-index-integration.md` — revision-bounded finalized naming evidence and canonical finalized `CatNamed` history
+- `data/contract-registry.json`, `data/event-registry.json`, and `docs/contract-abi-event-registry.md` — exact local ABI/event registry, contract-scoped identifiers, and zero-network indexer recipes
+- `data/kb-manifest.json`, `data/kb-audit-report.json`, and `docs/kb-integrity.md` — generated maintained-file inventory, bounded integrity audit, and manifest policy
+
+### Technical subsystems
+
+- `docs/overview.md` — high-level context; `docs/source-map.md` — canonical and supporting source routing
+- `docs/mooncat-types.md`, `docs/traits-and-ids.md`, `docs/traits.md`, and `docs/generated-trait-data.md` — category, trait, and retained fixture guidance
+- `docs/identifier-conventions.md` and `docs/identifier-verification.md` — identifier terminology, conversion rules, and executable verification boundaries
+- `docs/contracts.md` and `data/contract-surfaces.json` — compact contract identities, roles, and reviewed surfaces
+- `docs/mooncat-accessory-system.md`, `docs/mooncat-accessories.md`, and `docs/mooncat-accessory-images.md` — accessory lifecycle and rendering reviews
+- `docs/mooncat-svgs.md`, `docs/color-math.md`, and `docs/color-classification.md` — SVG internals, hue methods, and derived display labels
+- `docs/mooncat-naming.md`, `data/mooncat-naming.json`, and `data/mooncat-accessory-system.json` — naming semantics and accessory-system integration index
+
+### Supporting indexes and references
+
 - `data/sources.json` — curated source/provenance index
-- `data/mooncat-types.json` — top-level category scaffold
-- `data/character-cats.json` — community-curated character-cat definitions and partial hue-range notes
-- `data/character-cat-index.json` — exact community-curated character-cat membership/index numbers
-- `data/special-cats.json` — special-category scaffold; Genesis membership is canonicalized in `data/genesis-cats.json`
-- `data/color-hues.json` — hue/coating scaffold plus community-curated character hue notes
-- `data/trait-index.json` — trait schema metadata and curated per-cat model guidance
-- `data/identifier-conventions.json` — identifier terminology and conversion-status reference
-- `data/rescue-ranges.json` — rescue range definitions, methods, and status notes
-- `data/rescue-buckets.json` — canonical-derived rescue/history bucket membership arrays
-- `data/rescue-mining.json` — compact rescue/mining algorithm reference
-- `data/contracts.json` — verified and partially verified contract identity index
-- `data/contract-surfaces.json` — compact routing index for contract roles and reviewed surfaces
-- `data/mooncat-svg-internals.json` — compact reviewed MoonCatSVGs behavior
-- `data/ipfs-cids.json` — source-observed IPFS artifact references and limitations
-- `data/api-endpoints.json` — compact OpenAPI-derived endpoint manifest
-- `data/api-examples.json` — checked and manifest-derived request examples
-- `data/project-links.json` — project navigation links with verification status
-- `data/link-index.json` — preserved research and navigation links
-- `data/protocol-constants.json` — first imported contract-derived protocol constants
-- `data/task-recipes.json` — agent workflow sequencing, guardrails, and stop conditions
-- `data/kb-gap-index.json` — current compact KB gap and routing audit
-- `llms.txt` — compact entrypoint list for LLMs and crawlers
-- `AGENTS.md` — instructions for LLM/code agents
-- `examples/rescue-mining.js` — wallet-free normal MoonCat seed-search example
-- `examples/rescue-mining-widget/` — embeddable wallet-free rescue-mining widget example
+- `data/architecture-decisions.json` and `docs/architecture-decisions.md` — pinned development-environment ADR inventory and intent boundaries
+- `data/chainstation-surfaces.json` and `docs/chainstation-surfaces.md` — pinned ChainStation implementation/data surface audit
+- `docs/glossary.md`, `docs/rescue-history.md`, `docs/rescue-mining.md`, and `docs/api-notes.md` — recurring terms, rescue history, mining, and API notes
+- `data/mooncat-types.json`, `data/special-cats.json`, `data/color-hues.json`, and `data/trait-index.json` — category, hue, and trait metadata scaffolds
+- `data/character-cats.json`, `data/character-cat-index.json`, `data/rescue-ranges.json`, `data/rescue-buckets.json`, and `data/rescue-mining.json` — curated classifications, ranges, buckets, and algorithm notes
+- `data/identifier-conventions.json`, `data/contracts.json`, `data/mooncat-svg-internals.json`, and `data/protocol-constants.json` — identifier, contract, SVG, and protocol metadata
+- `data/ipfs-cids.json`, `data/api-endpoints.json`, `data/api-examples.json`, `data/project-links.json`, and `data/link-index.json` — artifact, API, navigation, and preserved research indexes
+- `data/task-recipes.json` and `data/kb-gap-index.json` — workflow guardrails and current routing/gap audit
+- `examples/rescue-mining.js` and `examples/rescue-mining-widget/` — wallet-free rescue-mining examples
 
 Repository conventions:
 
@@ -82,6 +65,16 @@ For coding-agent route/pack changes, also run `python scripts/generate-agent-con
 For Genesis population or member-mapping changes, run `python scripts/validate-genesis-cats.py` before the general checks.
 
 For contract ABI/event registry changes, run `python scripts/extract-contract-abis.py --check` and `python scripts/validate-contract-registry.py`.
+
+For full-population index changes or refresh checks, run:
+
+```sh
+python scripts/generate-mooncat-population.py --check
+python scripts/validate-mooncat-population.py
+python scripts/diff-mooncat-population.py --check
+```
+
+These population, ABI, manifest, and audit checks are deterministic and zero-network; they validate local generated artifacts and provenance boundaries rather than live chain state.
 
 For the repo-wide zero-network integrity workflow, run:
 

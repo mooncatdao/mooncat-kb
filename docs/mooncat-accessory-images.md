@@ -8,7 +8,7 @@ Compact source review complete for accessory composition and PNG materialization
 
 MoonCatAccessoryImages is the on-chain contract linked from the official MoonCatRescue `Chained to the Future` log page. The reviewed Etherscan source is verified as an exact match for `MoonCatAccessoryImages` at `0x91CF36c92fEb5c11D3F5fe3e8b9e212f7472Ec14`, compiled with Solidity `v0.8.1+commit.df193b15`, optimization enabled with 200 runs, under GNU AGPLv3.
 
-This page documents the contract role and compact internals only. It does not import Solidity source, ABI JSON, bytecode, accessory arrays, placement tables, palette values, PNG bytes, generated SVGs, or per-cat outputs.
+This page documents the contract role and compact internals only. It does not duplicate full ABI JSON; exact reviewed ABI artifacts are maintained under `data/abi-registry/` and routed through `docs/contract-abi-event-registry.md`. It also does not import Solidity source, bytecode, accessory arrays, placement tables, palette values, PNG bytes, generated SVGs, or per-cat outputs.
 
 ## Role
 

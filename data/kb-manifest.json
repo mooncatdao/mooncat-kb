@@ -293,8 +293,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 7162,
-      "sha256": "c07e2df04b7c41253a06343951418f93d133f38eaf6c973e622066a1455d6dee",
+      "sizeBytes": 6197,
+      "sha256": "d5b7b3e3d2e8e0145894e4560d1c5ac07e81cda8f02bace28040d1c91ba54594",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -547,7 +547,7 @@
         "generated"
       ],
       "sizeBytes": 95269,
-      "sha256": "7ec87d2c8de346cd9b05c6d7f4454e62343a0b48564fa6b8f0560b3783e15b71",
+      "sha256": "4a8c65d05607e0301aaf68842dfda1648ab8a5bdaf5eb3b08bb40d9304036971",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -881,8 +881,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 20613,
-      "sha256": "bc28b2d6667a46c7ab449f7dbc947f01c4658a4ae5b0109456bd60dbcf3c4322",
+      "sizeBytes": 20965,
+      "sha256": "4a0d60763764434e268a411d60a979a20b08f2307985dcfac6e4a9b17a38db4d",
       "agentRoutes": [
         "look-up-contract-abi",
         "plan-contract-event-indexer",
@@ -986,8 +986,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 10549,
-      "sha256": "5fad5460b242449aa4b717fb8d5f35822696da9b7415f7a0a7d2d0a5b2c2d76e",
+      "sizeBytes": 10623,
+      "sha256": "6da72b4845d0dd714b3671517e95ee106b682aaba6a744bc26e08387af448565",
       "agentRoutes": [
         "plan-contract-event-indexer"
       ],
@@ -1013,8 +1013,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 45363,
-      "sha256": "30dea68e180fa1c03d630586aa2490b3169a0b68605876221b082547041ace75",
+      "sizeBytes": 45383,
+      "sha256": "0b9e55fbdcfdb5f12f518e9513ec691dbfaf468184fc1b1098d1d8b6924b425a",
       "agentRoutes": [
         "plan-contract-event-indexer",
         "query-contract-events"
@@ -2737,8 +2737,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2948,
-      "sha256": "eae49ed36eca82d0526d08769a32c401a15058c5fa030108bcc319d1c35238d8",
+      "sizeBytes": 3230,
+      "sha256": "d35d479d6744f7d4d3ef111bde8256a4799052dbe4435692d78f05f0c1377c0a",
       "agentRoutes": [
         "classify-mooncat-colors"
       ],
@@ -2806,8 +2806,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6196,
-      "sha256": "77ca4c67263b092154c1be895cc38b1db1567ef4696d05a83544361ee459cb28",
+      "sizeBytes": 6511,
+      "sha256": "849e833e8af8bc4d13dd1fdbd410e41d098afec33bddd4278369ad2831c54df4",
       "agentRoutes": [
         "look-up-contract-abi",
         "plan-contract-event-indexer",
@@ -2976,8 +2976,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 10870,
-      "sha256": "82560b43aab2c9751b483a5f25e848655c579c45a117eb38b009b6111f60e5ea",
+      "sizeBytes": 11249,
+      "sha256": "a7afcc2943d1d3e80a5eb266b207d0dd23d2d53e22ad844634506ffb3821f939",
       "agentRoutes": [
         "identify-mooncat-ids",
         "verify-identifier-conversions"
@@ -3149,8 +3149,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5583,
-      "sha256": "d16ea4e2f377df4dd55fb99ee487478e40ebc46c35b55a38f0679aaa84471e24",
+      "sizeBytes": 5744,
+      "sha256": "ea92d41589e102f58c26a322ec4ecc0354f651045938c6f8c59318080c0ee91d",
       "agentRoutes": [
         "look-up-contracts",
         "render-images",
@@ -3255,8 +3255,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3814,
-      "sha256": "c18ad56650482e4f0adfe1caa158b743d59a8c6da6ba154f81b576862c0bd354",
+      "sizeBytes": 3975,
+      "sha256": "4045cbd66b9c6f8a9e4cb6ba5f801da8c66c48db01cecbff0c9dc3b46e47e786",
       "agentRoutes": [
         "look-up-contracts",
         "render-images"
@@ -3450,8 +3450,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 7112,
-      "sha256": "fec13ea71ac8a6bb5bffc3a590c1e111e21dbc8c937e495b32fab0dc1b97e543",
+      "sizeBytes": 8182,
+      "sha256": "cde66b6288328a3dba123f25266997dab7a58b0e84ea11fcb3958642c9905c5d",
       "agentRoutes": [
         "check-source-provenance",
         "find-ipfs-and-artifact-urls",
@@ -3499,8 +3499,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 10519,
-      "sha256": "63130fbbaba99704df0e4c3e29c791a1efcd8c0203d73d2519c4deedb5e40357",
+      "sizeBytes": 10725,
+      "sha256": "e2d9d5fc2fb682732d348a1e51a4236e2ed081f9b14491ffbf28e6c0999821c7",
       "agentRoutes": [
         "fetch-traits",
         "review-trait-schema-strategy"
@@ -3823,8 +3823,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 40907,
-      "sha256": "687a566a96536ec9e043cbf5404e5e0211e58710ac3e3bea32ed089c7c52ca03",
+      "sizeBytes": 41337,
+      "sha256": "7b70226ecfbbc0d9bbc6cc0df0ab6353ec75006b25c6c9429cca96f72a9868c9",
       "agentRoutes": [
         "look-up-contract-abi"
       ],
@@ -4200,8 +4200,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 18978,
-      "sha256": "d3a376494b7f4e893ae1d8a26aeca39b5c7fef305a4fcc40f45a1fe7a5cd4389",
+      "sizeBytes": 20153,
+      "sha256": "370fc2573b2c50e195dfd1603e064b131af485a3682bfd544196def0cb5e10d2",
       "agentRoutes": [
         "look-up-contract-abi",
         "query-contract-events"

@@ -657,7 +657,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 48631,
+        "estimatedByteCount": 48913,
         "files": [
           {
             "path": "data/color-classification.json",
@@ -665,7 +665,7 @@
           },
           {
             "path": "docs/color-classification.md",
-            "bytes": 2948
+            "bytes": 3230
           },
           {
             "path": "data/color-hues.json",
@@ -904,7 +904,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 43215,
+        "estimatedByteCount": 43376,
         "files": [
           {
             "path": "data/mooncat-accessories-internals.json",
@@ -920,7 +920,7 @@
           },
           {
             "path": "docs/mooncat-accessory-images.md",
-            "bytes": 5583
+            "bytes": 5744
           }
         ],
         "softFileLimit": 7,
@@ -2309,15 +2309,15 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 95430,
+        "estimatedByteCount": 96097,
         "files": [
           {
             "path": "data/contract-registry.json",
-            "bytes": 20613
+            "bytes": 20965
           },
           {
             "path": "docs/contract-abi-event-registry.md",
-            "bytes": 6196
+            "bytes": 6511
           },
           {
             "path": "data/abi-registry/mooncatAccessories.json",
@@ -2401,15 +2401,15 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 64823,
+        "estimatedByteCount": 65158,
         "files": [
           {
             "path": "data/event-registry.json",
-            "bytes": 45363
+            "bytes": 45383
           },
           {
             "path": "docs/contract-abi-event-registry.md",
-            "bytes": 6196
+            "bytes": 6511
           },
           {
             "path": "scripts/query-contract-events.py",
@@ -2497,23 +2497,23 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 88546,
+        "estimatedByteCount": 89307,
         "files": [
           {
             "path": "data/event-indexer-recipes.json",
-            "bytes": 10549
+            "bytes": 10623
           },
           {
             "path": "data/event-registry.json",
-            "bytes": 45363
+            "bytes": 45383
           },
           {
             "path": "docs/contract-abi-event-registry.md",
-            "bytes": 6196
+            "bytes": 6511
           },
           {
             "path": "data/contract-registry.json",
-            "bytes": 20613
+            "bytes": 20965
           },
           {
             "path": "data/older-wrapper-internals.json",

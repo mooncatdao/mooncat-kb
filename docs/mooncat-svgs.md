@@ -8,7 +8,7 @@ Compact source review complete for base MoonCat SVG materialization.
 
 MoonCatSVGs is the on-chain SVG image-generation contract linked from the official MoonCatRescue `Chained to the Future` log page. The reviewed Etherscan source is verified as an exact match for `MoonCatSVGs` at `0xB39C61fe6281324A23e079464f7E697F8Ba6968f`, compiled with Solidity `v0.8.1+commit.df193b15`, optimization enabled with 200 runs, under GNU AGPLv3.
 
-This page documents the contract role and compact internals only. It does not import Solidity source, ABI JSON, bytecode, coordinate constants, pattern arrays, generated SVGs, or per-cat outputs.
+This page documents the contract role and compact internals only. It does not duplicate full ABI JSON; exact reviewed ABI artifacts are maintained under `data/abi-registry/` and routed through `docs/contract-abi-event-registry.md`. It also does not import Solidity source, bytecode, coordinate constants, pattern arrays, generated SVGs, or per-cat outputs.
 
 ## Role
 
