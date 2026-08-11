@@ -1362,6 +1362,44 @@
       "notes": "Reviewed read-only in the approved sibling checkout at the recorded commit. data/events.jsonl is the canonical finalized event history; finalized current-name artifacts are derived from it. Pending and *-live artifacts are provisional and not canonical. The review does not prove a newer revision, deployed workflow, or live chain state; observed metadata counts are revision/date-bound rather than timeless facts."
     },
     {
+      "id": "mooncat-kb-name-index-pinned-snapshot",
+      "label": "MoonCat KB pinned finalized name-index inputs",
+      "type": "local-upstream-snapshot",
+      "path": "references/upstream/name-index/SNAPSHOT.json",
+      "trustLevel": "pinned-community-maintained-source",
+      "status": "pinned-finalized-inputs",
+      "supports": [
+        "reproducible finalized name enrichment",
+        "exact source revision and local artifact hashes",
+        "zero-network population generation"
+      ],
+      "relatedSources": [
+        "mooncatdao-name-index"
+      ],
+      "notes": "Pins only CC0-1.0 current-names.json and metadata.json from name-index commit 5d3b265613e987e4ca2c32e2afd7edf3178a146a. It excludes events.jsonl, pending/provisional/live files, reports, webhook state, and network refresh behavior."
+    },
+    {
+      "id": "mooncat-kb-population-index",
+      "label": "MoonCat KB generated full-population index",
+      "type": "local-derived",
+      "path": "data/mooncat-population/manifest.json",
+      "trustLevel": "generated-source-attributed-view",
+      "status": "generated-full-population-index",
+      "supports": [
+        "25,440-row per-cat lookup",
+        "source-attributed static classifications",
+        "pinned finalized naming enrichment",
+        "zero-network local filtering and validation"
+      ],
+      "relatedSources": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js",
+        "mooncatrescue-mooncatparser-js",
+        "mooncat-kb-name-index-pinned-snapshot"
+      ],
+      "notes": "Generated joined view rather than an independent source of truth. Community character categories and derived colors retain their noncanonical/derived boundaries; live ownership, accessories, markets, and provisional naming are excluded."
+    },
+    {
       "id": "midnightlightning-discord-color-blurb-2024-01-06",
       "label": "MidnightLightning Discord color explanation, 2024-01-06",
       "type": "user-supplied-transcript",

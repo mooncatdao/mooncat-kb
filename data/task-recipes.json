@@ -32,7 +32,9 @@
     "data/mooncat-accessory-images-internals.json",
     "docs/mooncat-accessory-images.md",
     "data/name-index-integration.json",
-    "docs/name-index-integration.md"
+    "docs/name-index-integration.md",
+    "data/mooncat-population/manifest.json",
+    "docs/mooncat-population-index.md"
   ],
   "defaults": {
     "loadFirst": [
@@ -532,6 +534,44 @@
       "stopConditions": [
         "Stop if a required registered source snapshot is missing or its format no longer passes generation checks.",
         "Stop if generator output changes unexpectedly; inspect hashes, selection metadata, and mismatch details before replacing the artifact."
+      ]
+    },
+    {
+      "key": "query-mooncat-population",
+      "purpose": "Query, validate, or refresh the complete generated population without loading raw source tables or crossing provenance/live-state boundaries.",
+      "loadOrder": [
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md"
+      ],
+      "optionalFiles": [
+        "scripts/query-mooncats.py",
+        "scripts/generate-mooncat-population.py",
+        "scripts/validate-mooncat-population.py",
+        "scripts/diff-mooncat-population.py",
+        "scripts/import-name-index-snapshot.py",
+        "data/trait-index.json",
+        "data/sources.json"
+      ],
+      "steps": [
+        "Use scripts/query-mooncats.py for exact identifiers or filters; do not load shards into agent context unless a bounded row must be inspected.",
+        "Read manifest fieldProvenance before interpreting Genesis, color, rescue bucket, character-category, or finalized-name fields.",
+        "Run the generator --check and independent validator before relying on a changed committed population.",
+        "For a deliberate local name refresh, import the minimal finalized snapshot, generate a candidate, review the diff, and reject any finalized nonblank name mutation.",
+        "Use the validation report for explicit LibMoonCat/source mismatch evidence rather than normalizing compared values."
+      ],
+      "outputs": [
+        "bounded per-cat result or complete filtered count",
+        "field-group provenance and freshness boundary",
+        "determinism/validation/diff status when maintaining artifacts"
+      ],
+      "guardrails": [
+        "Do not treat community character categories as canonical protocol traits or derived colors as on-chain/RGB/palette/rarity proof.",
+        "Do not derive rescueOrder arithmetically from catId.",
+        "Do not add ownership, accessories, market data, live chain state, or provisional names to the generated view."
+      ],
+      "stopConditions": [
+        "Stop if a query requires live or newer-than-pinned state outside the manifest.",
+        "Stop and investigate if identity, membership, source hash, parser, or finalized-name invariants fail."
       ]
     },
     {

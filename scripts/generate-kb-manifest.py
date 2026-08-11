@@ -67,6 +67,19 @@ GENERATED_ARTIFACTS = {
     },
 }
 
+POPULATION_GENERATED_ARTIFACT = {
+    "generatorCommand": "python scripts/generate-mooncat-population.py",
+    "checkCommand": "python scripts/generate-mooncat-population.py --check",
+    "validatorCommands": ["python scripts/validate-mooncat-population.py"],
+}
+
+POPULATION_UTILITY_ROLES = {
+    "scripts/diff-mooncat-population.py": ("validator", ["validation", "agent-workflow"]),
+    "scripts/import-name-index-snapshot.py": ("generator", ["validation", "agent-workflow"]),
+    "scripts/mooncat_population_lib.py": ("generator", ["validation", "agent-workflow"]),
+    "scripts/query-mooncats.py": ("example", ["mooncat-knowledge", "agent-workflow"]),
+}
+
 VALIDATOR_COMMANDS = {
     "data/architecture-decisions.json": ["python scripts/validate-architecture-decisions.py"],
     "data/chainstation-surfaces.json": ["python scripts/validate-chainstation-surfaces.py"],
@@ -157,6 +170,20 @@ def contains_source_reference(value: Any) -> bool:
     return False
 
 
+def generated_artifact_config(relative_path: str) -> dict[str, Any] | None:
+    if relative_path in GENERATED_ARTIFACTS:
+        return GENERATED_ARTIFACTS[relative_path]
+    if relative_path in {
+        "data/mooncat-population/manifest.json",
+        "data/mooncat-population/validation-report.json",
+    } or (
+        relative_path.startswith("data/mooncat-population/shards/")
+        and relative_path.endswith(".json")
+    ):
+        return POPULATION_GENERATED_ARTIFACT
+    return None
+
+
 def file_classification(relative_path: str) -> tuple[str, list[str], str, list[str]]:
     """Classify by the documented path table; unknown maintained files raise."""
     if relative_path in {"README.md", "AGENTS.md", "llms.txt", "CONTRIBUTING.md"}:
@@ -172,7 +199,7 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
         return "source-index", ["provenance", "sources"], "curated", ["curated"]
     if relative_path in {"data/agent-index.json", "data/task-recipes.json", "data/kb-gap-index.json", "data/agent-query-cases.json", "data/factual-retrieval-cases.json", "data/agent-coding-patterns.json"}:
         return "workflow-data", ["agent-workflow", "routing"], "curated", ["curated"]
-    if relative_path in GENERATED_ARTIFACTS:
+    if generated_artifact_config(relative_path) is not None:
         return "workflow-data" if relative_path == "data/agent-context-packs.json" else "canonical-data", ["generated-data", "mooncat-knowledge"], "generated", ["generated"]
     if relative_path.startswith("data/") and relative_path.endswith(".json"):
         topic = "provenance" if "source" in relative_path or "upstream" in relative_path else "mooncat-knowledge"
@@ -183,6 +210,9 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
         return "validator", ["validation", "agent-workflow"], "curated", ["curated", "script"]
     if relative_path == "scripts/audit-kb.py":
         return "validator", ["validation", "integrity"], "curated", ["curated", "script"]
+    if relative_path in POPULATION_UTILITY_ROLES:
+        role, topics = POPULATION_UTILITY_ROLES[relative_path]
+        return role, topics, "curated", ["curated", "script"]
     if relative_path == "examples/rescue-mining.js" or relative_path.startswith("examples/rescue-mining-widget/"):
         return "example", ["rescue-mining", "example"], "curated", ["curated", "example"]
     raise ValueError(f"no explicit manifest classification rule for maintained file: {relative_path}")
@@ -216,9 +246,9 @@ def build_manifest() -> dict[str, Any]:
             "sha256": digest,
             "agentRoutes": routes.get(relative, []),
             "taskRecipes": recipes.get(relative, []),
-            "generatorCommand": GENERATED_ARTIFACTS.get(relative, {}).get("generatorCommand"),
-            "checkCommand": GENERATED_ARTIFACTS.get(relative, {}).get("checkCommand"),
-            "validatorCommands": GENERATED_ARTIFACTS.get(relative, {}).get("validatorCommands", VALIDATOR_COMMANDS.get(relative, [])),
+            "generatorCommand": (generated_artifact_config(relative) or {}).get("generatorCommand"),
+            "checkCommand": (generated_artifact_config(relative) or {}).get("checkCommand"),
+            "validatorCommands": (generated_artifact_config(relative) or {}).get("validatorCommands", VALIDATOR_COMMANDS.get(relative, [])),
             "sourceBackedStatus": source_status,
             "directAgentLoadRecommended": relative in routes and any(
                 relative in task.get("primaryFiles", [])

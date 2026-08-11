@@ -4,6 +4,11 @@
 
 `data/mooncat-visual-traits.sample.json` is a deterministic 64-row prototype, not a complete MoonCat trait table. It is keyed by the 0x-prefixed bytes5 `catId`; `rescueOrder` is a secondary lookup value copied from the reviewed row and checked through array position plus LibMoonCat lookups. It is never calculated arithmetically from `catId`.
 
+The full population is now implemented separately at
+`data/mooncat-population/manifest.json`. The sample remains unchanged as a
+compact representative fixture; see `docs/mooncat-population-index.md` for the
+25,440-row schema, query CLI, pinned naming enrichment, and exhaustive checks.
+
 Generate and validate it with:
 
 ```sh
@@ -54,20 +59,14 @@ The generated `colorClassification` object is a separate, versioned human-facing
 
 The dedicated validator checks row count, unique and formatted bytes5 IDs, unique in-range rescue orders, required types and enums, pale/Genesis edge coverage, all identifier round trips, parser output, sourceRef resolution, and mismatch-link/count consistency. Generator `--check` rebuilds the complete artifact in memory and compares exact bytes, including input hashes.
 
-## Scaling to the Full Population
+## Full-Population Relationship
 
-A full 25,440-row artifact should remain generated rather than hand-edited. Before scaling:
+The scaled artifact is generated rather than hand-edited, uses fixed
+rescue-order shards, records exact input hashes and the pinned finalized
+name-index revision, checks every identifier and parser render, and preserves
+all LibMoonCat/source disagreements in a separate validation report. The sample
+continues to provide fast representative coverage without becoming a second
+population source.
 
-- decide whether the file size and review cost justify one JSON file, deterministic shards, or a build-only artifact
-- pin or record upstream snapshot revisions/retrieval dates in addition to hashes
-- run identifier uniqueness, rescue-order alignment, enum, provenance, and cross-source mismatch checks across every row
-- preserve mismatch values from both sources; do not normalize until the schema names the normalization and retains originals
-- separate visual traits from names, accessories, ownership, markets, and other data with different update cadences
-- if finalized names become a generated enrichment, consume only a pinned/local
-  MoonCatDAO name-index finalized artifact; record its revision and metadata,
-  regenerate deliberately when new finalized names appear, treat a changed
-  finalized nonblank name as an invariant violation, and exclude provisional/live
-  overlays
-- define an update policy that regenerates, validates, summarizes row/mismatch changes, and requires deliberate review before replacement
-
-The current prototype does not establish freshness against a live API, RPC, marketplace, or chain state.
+Neither generated artifact establishes freshness against live APIs, RPC,
+ownership, accessories, marketplaces, or chain state.

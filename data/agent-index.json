@@ -172,8 +172,28 @@
         "data/sources.json"
       ],
       "notes": [
-        "Machine-readable per-cat traits are limited to the generated 64-row representative sample in data/.",
-        "Do not treat the sample as full-population coverage or import the full upstream trait table without a focused generated-data pass."
+        "Use query-mooncat-population for complete static per-cat lookup/filtering across all 25,440 rows.",
+        "Retain the 64-row sample only as a lightweight representative fixture; live API/ownership/accessory/market state remains outside the generated population."
+      ]
+    },
+    {
+      "key": "query-mooncat-population",
+      "description": "Look up or filter the complete generated 25,440-MoonCat population while preserving source trust, naming freshness, and excluded live-state boundaries.",
+      "primaryFiles": [
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md"
+      ],
+      "optionalFiles": [
+        "scripts/query-mooncats.py",
+        "scripts/validate-mooncat-population.py",
+        "data/trait-index.json",
+        "data/sources.json"
+      ],
+      "notes": [
+        "Use scripts/query-mooncats.py for exact catId/rescueOrder lookup and multi-field filters without loading raw sources or every shard into agent context.",
+        "Treat color labels as derived display metadata, rescue buckets as canonical-derived, and character categories as community-curated noncanonical classifications.",
+        "Finalized names are pinned monotonic enrichment at the manifest revision; provisional/live naming and newer chain state are excluded.",
+        "Use the validation report through the manifest for exhaustive mismatch counts; do not silently normalize LibMoonCat/source disagreements."
       ]
     },
     {

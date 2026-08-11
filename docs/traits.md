@@ -1,22 +1,22 @@
 # Trait Data Strategy
 
-Machine-readable trait data now includes a bounded generated prototype at `data/mooncat-visual-traits.sample.json`. The full trait dataset remains only a local upstream reference snapshot at `references/upstream/mooncatrescue/mooncat_traits.json`.
+Machine-readable trait data now includes a deterministic sharded full-population lookup at `data/mooncat-population/manifest.json`. The bounded `data/mooncat-visual-traits.sample.json` remains a lightweight representative fixture, and the underlying full trait source remains a local upstream reference snapshot at `references/upstream/mooncatrescue/mooncat_traits.json`.
 
 This page documents what was observed in that snapshot, which resources can support future trait work, and what should happen before any normalized trait data is promoted into curated KB files.
 
 ## Current Status
 
-Curated model decision implemented as a deterministic 64-row representative prototype. Full-population per-cat trait data is not imported.
+The curated model decision is implemented as a deterministic 25,440-row generated joined view with exhaustive source comparisons. The unchanged 64-row representative artifact remains available for lightweight fixture use.
 
-See `docs/generated-trait-data.md` for sample selection, source priority, mismatch reporting, generation, validation, and scaling guidance.
+See `docs/mooncat-population-index.md` for full-population schema, provenance, querying, refresh, and exhaustive validation. See `docs/generated-trait-data.md` for the retained compact fixture.
 
 `mooncat_traits.json` is a reference input under `docs/reference-policy.md`, not a curated KB dataset. It may be used as evidence for schema and validation planning, but future imports should promote only deliberate, normalized outputs into `data/`.
 
 ## Curated Trait Model Decision
 
-The bounded curated prototype was created through a focused generated-data pass. The KB should not hand-copy or directly promote the full upstream `mooncat_traits.json` table into `data/`.
+The full-population lookup is generated through a focused data pipeline. The KB does not hand-copy or directly promote the upstream table as canonical data; each row remains a source-attributed joined view with a pinned input manifest and mismatch report.
 
-The prototype uses `catId` in the 0x-prefixed bytes5 MoonCat ID form as its primary key. `rescueOrder` is a required secondary lookup/index field sourced from the validated row and checked through array-backed and LibMoonCat lookup methods according to `data/identifier-conventions.json`.
+Both generated artifacts use `catId` in the 0x-prefixed bytes5 MoonCat ID form as the primary key. `rescueOrder` is a required secondary lookup/index field sourced from the validated row and checked exhaustively through array-backed and LibMoonCat lookup methods according to `data/identifier-conventions.json`.
 
 Allowed fields for the first visual-trait artifact:
 
@@ -52,13 +52,13 @@ Validation for any future generated artifact should check JSON syntax, one row p
 
 The bounded prototype's `colorClassification` object is derived display metadata for search, filtering, and labels. It is generated from `data/color-classification.json`, follows reviewed ADR-shifted integer hue intervals, and handles source-backed Genesis black/white sentinels before circular hue bucketing. It does not alter raw hue fields or prove palettes, RGB values, rendering, rarity, or canonical on-chain trait vocabulary. See `docs/color-classification.md`.
 
-Open questions before a full import:
+Decisions retained for the full-population view:
 
-- whether a future artifact should include all 25,440 cats or remain a smaller generated lookup optimized for common KB tasks
-- whether a full generated artifact should be committed directly, sharded, or produced only at build time
-- whether visual traits should be versioned separately from API/name/accessory fields
-- what freshness policy should apply if current API or ChainStation-maintained trait artifacts diverge from the local upstream snapshot
-- whether any consumer needs rescueOrder-primary shape despite bytes5 `catId` being the preferred primary key
+- all 25,440 cats are committed as 26 fixed 1,000-rescue-order shards (the final shard has 440 rows)
+- verbose provenance, parser checks, and mismatch evidence remain artifact-level rather than repeated per row
+- finalized names use an exact pinned local CC0 snapshot and retain revision-bound monotonic freshness
+- current API, ownership, accessory, marketplace, and live-chain fields remain excluded
+- bytes5 `catId` remains primary while `rescueOrder` is an explicit lookup-backed secondary key
 
 ## Observed Snapshot Shape
 

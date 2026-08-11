@@ -14,6 +14,7 @@ Start here:
 - `data/architecture-decisions.json` and `docs/architecture-decisions.md` — 18-record pinned dev-environment ADR inventory and design-intent boundaries
 - `data/chainstation-surfaces.json` and `docs/chainstation-surfaces.md` — compact pinned ChainStation implementation/data surface audit with source-versus-live-state boundaries
 - `data/genesis-cats.json` and `docs/genesis-cats.md` — source-backed Genesis population, released-member, adoption, payment-bug, and vote reconstruction with current-state limits
+- `data/mooncat-population/manifest.json` and `docs/mooncat-population-index.md` — deterministic 25,440-row sharded lookup with exhaustive validation, pinned finalized names, and a zero-network query CLI
 - `docs/overview.md` — high-level context
 - `docs/source-map.md` — where to find canonical or supporting sources
 - `docs/glossary.md` — short definitions for recurring terms

@@ -24,6 +24,12 @@ This KB has bounded source-backed contract, identifier, trait, and naming
 subsystems; it remains incomplete for live chain state, complete event
 histories, broad metadata imports, and unreviewed source surfaces.
 
+For complete static per-cat lookup and filtering, start with
+[`docs/mooncat-population-index.md`](mooncat-population-index.md) and its
+generated manifest. It covers all 25,440 MoonCats with source-attributed traits,
+classifications, memberships, and pinned finalized names while excluding live
+ownership, accessories, markets, and provisional state.
+
 For the reviewed accessory subsystem, start with [`docs/mooncat-accessory-system.md`](mooncat-accessory-system.md), then follow the separate lifecycle and rendering reviews for exact source behavior. Current accessory state and exact generated output remain outside the checked-in overview.
 
 For original MoonCat naming semantics, start with

@@ -1,7 +1,7 @@
 {
-  "version": 2,
-  "updated": "2026-07-17",
-  "status": "compact-provenance-manifest-with-pinned-adr-and-chainstation-corpora",
+  "version": 3,
+  "updated": "2026-08-11",
+  "status": "compact-provenance-manifest-with-pinned-name-index-inputs",
   "scope": "Important checked-in upstream/reference inputs and derived review artifacts. This manifest pins local content hashes and records origin evidence without refreshing vendored files or claiming unresolved upstream lineage. The dev-environment ADR directory is a deliberate pinned exception with per-file inventory metadata.",
   "validator": "scripts/validate-upstream-snapshots.py",
   "enums": {
@@ -437,6 +437,53 @@
       "limitations": [
         "This is a compact derived review, not a vendored copy of the website source.",
         "Current chain state, rescue availability, and live website freshness are outside scope."
+      ]
+    },
+    {
+      "key": "mooncatdao-name-index-finalized-inputs",
+      "localPath": "references/upstream/name-index/SNAPSHOT.json",
+      "contentRole": "upstream-reference",
+      "localSha256": "c8a785e58229a6653fd7c3817f095aba8ebac7e434f6fa6966657fd6f6a54b83",
+      "localBytes": 1565,
+      "localHistory": {
+        "commit": null,
+        "evidence": "Created by the deliberate local zero-network import in this population-index pass; local history is not upstream revision evidence."
+      },
+      "upstream": {
+        "project": "MoonCatDAO name-index",
+        "repository": "https://github.com/mooncatdao/name-index",
+        "path": "data/current-names.json and data/metadata.json",
+        "revisionEvidence": {
+          "status": "pinned-local-review",
+          "value": "5d3b265613e987e4ca2c32e2afd7edf3178a146a",
+          "evidence": "The explicit local import resolved the sibling checkout HEAD, validated package identity/license and finalized artifact shapes, and recorded exact hashes in SNAPSHOT.json."
+        }
+      },
+      "retrievalOrVerification": {
+        "status": "derived-from-pinned-review",
+        "date": "2026-08-11",
+        "evidence": "scripts/import-name-index-snapshot.py copied only the two finalized inputs from the explicit local checkout and performed no network access."
+      },
+      "copyStatus": "exact-copy",
+      "license": {
+        "status": "observed-in-package-metadata",
+        "evidence": "The pinned source package.json identifies @mooncatdao/name-index and declares CC0-1.0."
+      },
+      "provenanceConfidence": "high",
+      "freshnessStatus": "pinned-revision",
+      "sourceRefs": [
+        "mooncatdao-name-index",
+        "mooncat-kb-name-index-pinned-snapshot"
+      ],
+      "dependentFiles": [
+        "data/mooncat-population/manifest.json",
+        "data/mooncat-population/validation-report.json",
+        "scripts/generate-mooncat-population.py",
+        "scripts/validate-mooncat-population.py"
+      ],
+      "limitations": [
+        "Only current-names.json and metadata.json are copied; canonical event history and provisional/live artifacts are deliberately excluded.",
+        "The snapshot is pinned and does not claim freshness beyond the recorded revision or live chain state."
       ]
     }
   ]

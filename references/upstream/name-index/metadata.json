@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "chainId": 1,
+  "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+  "namingStartBlock": 4140409,
+  "moonCatCount": 25440,
+  "eventCount": 23236,
+  "blankEventCount": 22003,
+  "removedEventCount": 0,
+  "namedCatCount": 1233,
+  "source": "data/events.jsonl"
+}

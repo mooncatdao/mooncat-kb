@@ -10,7 +10,7 @@
     "script": "scripts/generate-agent-context-packs.py",
     "command": "python scripts/generate-agent-context-packs.py",
     "networkDependency": "none",
-    "caseCount": 25,
+    "caseCount": 26,
     "sizePolicy": {
       "softFileLimit": 7,
       "softEstimatedByteLimit": 200000,
@@ -416,81 +416,187 @@
     {
       "caseId": "bounded-visual-trait-lookup",
       "category": "traits",
-      "taskSummary": "Use the generated visual-trait sample in a local feature without treating it as the full population.",
-      "route": "generate-visual-trait-sample",
-      "recipe": null,
+      "taskSummary": "Look up and filter any MoonCat by source-backed identity, traits, classifications, memberships, and pinned finalized name without loading raw source tables.",
+      "route": "query-mooncat-population",
+      "recipe": "query-mooncat-population",
       "primaryFiles": [
-        "data/mooncat-visual-traits.sample.json",
-        "docs/generated-trait-data.md"
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md"
       ],
       "additionalRequiredFiles": [],
       "explicitOptionalFiles": [
-        "data/trait-index.json",
-        "data/identifier-conventions.json"
+        "scripts/query-mooncats.py"
       ],
       "filesToLoad": [
-        "data/mooncat-visual-traits.sample.json",
-        "docs/generated-trait-data.md",
-        "data/trait-index.json",
-        "data/identifier-conventions.json"
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md",
+        "scripts/query-mooncats.py"
       ],
       "terminology": [
         "catIdBytes5",
         "rescueOrder",
-        "visualTraits"
+        "fixed rescue-order shard",
+        "finalized naming enrichment"
       ],
       "requiredFacts": [
-        "Sample has 64 deterministic representative rows",
-        "raw traits retain explicit mismatch reporting"
+        "The generated index has exactly 25,440 unique rows across 26 fixed shards",
+        "catId is primary and rescueOrder is source/lookup-backed",
+        "name text queries can return duplicate names"
       ],
       "implementationGuardrails": [
-        "Do not treat the sample as complete population coverage."
+        "Do not treat community character categories as canonical protocol traits or derived colors as on-chain/RGB/palette/rarity proof.",
+        "Do not derive rescueOrder arithmetically from catId.",
+        "Do not add ownership, accessories, market data, live chain state, or provisional names to the generated view.",
+        "Character categories are community-curated, colors are derived display metadata, and names are pinned rather than live."
       ],
       "forbiddenClaims": [
-        "missing sample row means nonexistent MoonCat",
-        "sample provides current ownership or accessories"
+        "rescueOrder is arithmetically derived from catId",
+        "population rows prove current ownership or accessory state",
+        "derived colors are on-chain palette or rarity traits"
       ],
       "knownLimitations": [
-        "Do not treat the sample as complete population coverage."
+        "Character categories are community-curated, colors are derived display metadata, and names are pinned rather than live."
       ],
       "stopConditions": [
-        "Stop if the feature needs a complete per-cat lookup or live freshness."
+        "Stop if the feature needs live or newer-than-pinned state excluded by the manifest."
       ],
       "validationCommands": [
-        "python scripts/generate-visual-traits.py --check",
-        "python scripts/validate-visual-traits.py"
+        "python scripts/generate-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
       ],
       "sourceGuidance": [
         {
-          "id": "repo-agent-query-benchmark",
-          "label": "Coding-agent query benchmark and generated context packs",
-          "status": "active"
+          "id": "mooncat-kb-population-index",
+          "label": "MoonCat KB generated full-population index",
+          "status": "generated-full-population-index"
+        },
+        {
+          "id": "mooncatrescue-mooncat-traits-json",
+          "label": "MoonCatRescue mooncat_traits.json reference",
+          "status": "reference-copy"
+        },
+        {
+          "id": "mooncat-kb-name-index-pinned-snapshot",
+          "label": "MoonCat KB pinned finalized name-index inputs",
+          "status": "pinned-finalized-inputs"
         }
       ],
       "sizeMetrics": {
-        "fileCount": 4,
-        "estimatedByteCount": 194664,
+        "fileCount": 3,
+        "estimatedByteCount": 25513,
         "files": [
           {
-            "path": "data/mooncat-visual-traits.sample.json",
-            "bytes": 135327
+            "path": "data/mooncat-population/manifest.json",
+            "bytes": 13668
           },
           {
-            "path": "docs/generated-trait-data.md",
-            "bytes": 5689
+            "path": "docs/mooncat-population-index.md",
+            "bytes": 6097
           },
           {
-            "path": "data/trait-index.json",
-            "bytes": 16363
-          },
-          {
-            "path": "data/identifier-conventions.json",
-            "bytes": 37285
+            "path": "scripts/query-mooncats.py",
+            "bytes": 5748
           }
         ],
         "softFileLimit": 7,
         "softEstimatedByteLimit": 200000,
-        "rationale": "Generated artifact and its limits, no raw upstream table."
+        "rationale": "Load only the compact manifest and schema/query guidance; use the CLI instead of placing 25,440 rows in agent context."
+      }
+    },
+    {
+      "caseId": "population-name-refresh-boundary",
+      "category": "population-provenance",
+      "taskSummary": "Refresh finalized population names from a local name-index checkout and review the candidate without accepting provisional data or mutating an existing finalized name.",
+      "route": "query-mooncat-population",
+      "recipe": "query-mooncat-population",
+      "primaryFiles": [
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md"
+      ],
+      "additionalRequiredFiles": [],
+      "explicitOptionalFiles": [
+        "scripts/import-name-index-snapshot.py",
+        "scripts/diff-mooncat-population.py"
+      ],
+      "filesToLoad": [
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md",
+        "scripts/import-name-index-snapshot.py",
+        "scripts/diff-mooncat-population.py"
+      ],
+      "terminology": [
+        "pinned revision",
+        "monotonic enrichment",
+        "nameRaw",
+        "invariant violation"
+      ],
+      "requiredFacts": [
+        "New finalized names for previously unnamed cats are allowed",
+        "changed or removed finalized nonblank names are fatal",
+        "the snapshot vendors only finalized current-names and metadata inputs"
+      ],
+      "implementationGuardrails": [
+        "Do not treat community character categories as canonical protocol traits or derived colors as on-chain/RGB/palette/rarity proof.",
+        "Do not derive rescueOrder arithmetically from catId.",
+        "Do not add ownership, accessories, market data, live chain state, or provisional names to the generated view.",
+        "The refresh is explicit, local, zero-network, and does not establish live chain state."
+      ],
+      "forbiddenClaims": [
+        "provisional live artifacts may populate canonical rows",
+        "a changed finalized nameRaw is routine",
+        "event history is vendored"
+      ],
+      "knownLimitations": [
+        "The refresh is explicit, local, zero-network, and does not establish live chain state."
+      ],
+      "stopConditions": [
+        "Stop if package/license/finalized shape, source hashes, identifiers, or name immutability validation fails."
+      ],
+      "validationCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatdao-name-index",
+          "label": "MoonCatDAO name-index repository",
+          "status": "reviewed-finalized-naming-artifacts"
+        },
+        {
+          "id": "mooncat-kb-name-index-pinned-snapshot",
+          "label": "MoonCat KB pinned finalized name-index inputs",
+          "status": "pinned-finalized-inputs"
+        },
+        {
+          "id": "mooncat-kb-population-index",
+          "label": "MoonCat KB generated full-population index",
+          "status": "generated-full-population-index"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 4,
+        "estimatedByteCount": 28675,
+        "files": [
+          {
+            "path": "data/mooncat-population/manifest.json",
+            "bytes": 13668
+          },
+          {
+            "path": "docs/mooncat-population-index.md",
+            "bytes": 6097
+          },
+          {
+            "path": "scripts/import-name-index-snapshot.py",
+            "bytes": 5481
+          },
+          {
+            "path": "scripts/diff-mooncat-population.py",
+            "bytes": 3429
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Use the compact manifest and workflow documentation; inspect import/diff scripts only when implementing a deliberate refresh."
       }
     },
     {
@@ -966,23 +1072,23 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 132569,
+        "estimatedByteCount": 138030,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
-            "bytes": 20052
+            "bytes": 22323
           },
           {
             "path": "docs/upstream-snapshots.md",
-            "bytes": 4531
+            "bytes": 5080
           },
           {
             "path": "data/sources.json",
-            "bytes": 64507
+            "bytes": 66339
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 43479
+            "bytes": 44288
           }
         ],
         "softFileLimit": 7,
@@ -1125,7 +1231,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 94182,
+        "estimatedByteCount": 96014,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1137,7 +1243,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 64507
+            "bytes": 66339
           }
         ],
         "softFileLimit": 7,
@@ -1205,7 +1311,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 98974,
+        "estimatedByteCount": 100806,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1217,7 +1323,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 64507
+            "bytes": 66339
           },
           {
             "path": "docs/reference-policy.md",
@@ -1549,7 +1655,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 47477,
+        "estimatedByteCount": 50297,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
@@ -1561,11 +1667,11 @@
           },
           {
             "path": "data/upstream-snapshot-manifest.json",
-            "bytes": 20052
+            "bytes": 22323
           },
           {
             "path": "docs/upstream-snapshots.md",
-            "bytes": 4531
+            "bytes": 5080
           }
         ],
         "softFileLimit": 7,
@@ -1635,11 +1741,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 161014,
+        "estimatedByteCount": 167674,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 34914
+            "bytes": 37263
           },
           {
             "path": "docs/agent-usage.md",
@@ -1647,15 +1753,15 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 26735
+            "bytes": 27947
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 54541
+            "bytes": 56831
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 43479
+            "bytes": 44288
           }
         ],
         "softFileLimit": 7,
@@ -1727,7 +1833,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 81086,
+        "estimatedByteCount": 82918,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -1739,7 +1845,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 64507
+            "bytes": 66339
           }
         ],
         "softFileLimit": 7,
@@ -1920,7 +2026,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 81086,
+        "estimatedByteCount": 82918,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -1932,7 +2038,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 64507
+            "bytes": 66339
           }
         ],
         "softFileLimit": 7,
@@ -2112,7 +2218,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 83443,
+        "estimatedByteCount": 85275,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -2128,7 +2234,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 64507
+            "bytes": 66339
           }
         ],
         "softFileLimit": 7,

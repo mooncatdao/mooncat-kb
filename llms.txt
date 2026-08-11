@@ -20,6 +20,8 @@ Plain-text and Markdown entrypoints:
 - /docs/chainstation-surfaces.md
 - /data/genesis-cats.json
 - /docs/genesis-cats.md
+- /data/mooncat-population/manifest.json
+- /docs/mooncat-population-index.md
 - /data/task-recipes.json
 - /data/kb-gap-index.json
 - /docs/identifier-verification.md

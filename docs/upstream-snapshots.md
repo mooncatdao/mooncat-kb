@@ -6,7 +6,7 @@ Machine-readable manifest: `data/upstream-snapshot-manifest.json`.
 
 The manifest records important checked-in reference inputs and compact derived reviews without refreshing or replacing vendored files. Each entry includes the local path, SHA-256, byte count, local-history evidence, upstream project/path evidence, revision status, copy/adaptation status, license evidence, confidence, freshness status, source references, dependencies, and limitations.
 
-The current inventory covers the trait JSON, LibMoonCat bundle, MoonCat parser, the pinned MoonCatRescue Development Environment ADR directory, a compact pinned ChainStation Web evidence set, the rescue-widget parser and js-sha3 vendor files, the extracted original rescue-contract constants summary, and the derived rescue-mining review. This is an important-input inventory, not an exhaustive listing of every reference, binary, cache, or generated file.
+The current inventory covers the trait JSON, LibMoonCat bundle, MoonCat parser, the pinned MoonCatRescue Development Environment ADR directory, a compact pinned ChainStation Web evidence set, the minimal pinned finalized MoonCatDAO name-index inputs, the rescue-widget parser and js-sha3 vendor files, the extracted original rescue-contract constants summary, and the derived rescue-mining review. This is an important-input inventory, not an exhaustive listing of every reference, binary, cache, or generated file.
 
 ## Evidence Boundaries
 
@@ -19,6 +19,8 @@ The original rescue contract is not vendored here. `data/protocol-constants.json
 The ADR directory is a stronger pinned snapshot: `references/upstream/mooncatrescue-dev-environment-adr/SNAPSHOT.json` records the master commit, retrieval date/method, every copied file's bytes and SHA-256, and the observed license gap. The copied Markdown files remain byte-preserved under that directory; the compact ADR index paraphrases them and does not substitute for their source text.
 
 The ChainStation audit is another pinned but deliberately bounded snapshot: `references/upstream/chainstation-web-audit/SNAPSHOT.json` records the resolved `master` commit, retrieval commands, package-metadata license observation, and 28 exact copied source/configuration files. Its inventory is checked recursively, including every copied evidence file's bytes and SHA-256. It documents one source revision only; it does not prove production deployment, live API/RPC/IPFS/Firebase state, current ownership, or marketplace state.
+
+The name-index snapshot is deliberately smaller: `references/upstream/name-index/SNAPSHOT.json` pins commit `5d3b265613e987e4ca2c32e2afd7edf3178a146a`, the observed CC0-1.0 package license, and exact hashes for finalized `current-names.json` plus `metadata.json`. It was imported from an explicit local checkout with no network access. Canonical event history, pending/provisional/live files, reports, and webhook state are not copied, and the snapshot does not claim newer or live state.
 
 ## Validator
 

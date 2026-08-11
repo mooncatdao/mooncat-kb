@@ -1,7 +1,7 @@
 {
-  "version": 5,
-  "updated": "2026-07-12",
-  "status": "schema-metadata-with-generated-prototype-color-label-policy-and-materialization-fixtures",
+  "version": 6,
+  "updated": "2026-08-11",
+  "status": "schema-metadata-with-full-population-generated-lookup-and-compact-fixture",
   "scope": "Compact field dictionary and validation summary for the local mooncat_traits.json upstream reference snapshot.",
   "sourceRefs": [
     "mooncatrescue-mooncat-traits-json"
@@ -18,6 +18,8 @@
     "data/materialization-parity-results.json",
     "docs/materialization-parity.md",
     "data/mooncat-visual-traits.sample.json",
+    "data/mooncat-population/manifest.json",
+    "docs/mooncat-population-index.md",
     "data/identifier-conventions.json",
     "references/upstream/mooncatrescue/mooncat_traits.json"
   ],
@@ -25,7 +27,7 @@
     "container": "top-level array",
     "rowCount": 25440,
     "rowSemantics": "one observed row per MoonCat in rescueOrder array order",
-    "perCatRowsImported": "64-row representative prototype only",
+    "perCatRowsImported": "25,440-row sharded generated lookup plus a retained 64-row representative fixture",
     "sourceRefs": [
       "mooncatrescue-mooncat-traits-json"
     ]
@@ -361,16 +363,17 @@
     }
   ],
   "curatedTraitModelDecision": {
-    "status": "implemented-as-bounded-generated-prototype",
-    "summary": "A deterministic 64-row representative visual-trait prototype now tests the model with explicit source priority, per-field provenance categories, identifier round trips, and mismatch reporting; full-population import remains undecided.",
+    "status": "implemented-as-full-population-generated-lookup-with-bounded-fixture",
+    "summary": "A deterministic sharded 25,440-row generated lookup now joins source-backed traits, classifications, memberships, and pinned finalized names with exhaustive validation; the unchanged 64-row artifact remains a compact representative fixture.",
     "recommendedStorage": {
-      "kind": "generated-curated-json-prototype",
-      "location": "data/mooncat-visual-traits.sample.json",
+      "kind": "generated-sharded-full-population-view-with-compact-fixture",
+      "location": "data/mooncat-population/manifest.json",
       "importFullUpstreamSnapshot": false,
       "notes": [
         "Keep references/upstream/mooncatrescue/mooncat_traits.json as reference input, not curated KB data.",
-        "Use scripts/generate-visual-traits.py and scripts/validate-visual-traits.py rather than hand-editing per-cat rows.",
-        "See docs/generated-trait-data.md for source priority, selection, mismatch, and scaling decisions."
+        "Use scripts/generate-mooncat-population.py and scripts/validate-mooncat-population.py rather than hand-editing population rows.",
+        "Retain data/mooncat-visual-traits.sample.json as a lightweight representative fixture with its existing generator and validator.",
+        "See docs/mooncat-population-index.md for source priority, sharding, mismatch, refresh, and query decisions."
       ]
     },
     "preferredIdentifierKey": {

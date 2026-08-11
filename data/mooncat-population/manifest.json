@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "status": "generated-full-population-index",
+  "scope": "Deterministic generated joined view for all 25,440 MoonCats; not an independent canonical source or live-state artifact.",
+  "rowCount": 25440,
+  "primaryKey": {
+    "field": "catId",
+    "identifierKind": "mooncatIdBytes5"
+  },
+  "secondaryLookup": {
+    "field": "rescueOrder",
+    "identifierKind": "apiOriginalRescueIndex",
+    "method": "source array and LibMoonCat lookup-backed; never arithmetic"
+  },
+  "layout": {
+    "kind": "fixed-rescue-order-shards",
+    "shardSize": 1000,
+    "shardCount": 26,
+    "shards": [
+      {
+        "path": "data/mooncat-population/shards/00000-00999.json",
+        "startRescueOrder": 0,
+        "endRescueOrder": 999,
+        "rowCount": 1000,
+        "sha256": "2864df7e1fbd2a80864d313c893626569896f98dfc2205a274a16db6139482af",
+        "bytes": 704812
+      },
+      {
+        "path": "data/mooncat-population/shards/01000-01999.json",
+        "startRescueOrder": 1000,
+        "endRescueOrder": 1999,
+        "rowCount": 1000,
+        "sha256": "7fa6c6d332e140b8ebcf4f83cc6fdc560eb3c12c824a85aea0b985e71e72fd0e",
+        "bytes": 635792
+      },
+      {
+        "path": "data/mooncat-population/shards/02000-02999.json",
+        "startRescueOrder": 2000,
+        "endRescueOrder": 2999,
+        "rowCount": 1000,
+        "sha256": "77207739e7e5dd66efa198c61d4f64d80e86301130b28079674d0be16159266d",
+        "bytes": 580695
+      },
+      {
+        "path": "data/mooncat-population/shards/03000-03999.json",
+        "startRescueOrder": 3000,
+        "endRescueOrder": 3999,
+        "rowCount": 1000,
+        "sha256": "d3d28a4ca631f261647a534011c1412141873021dc4c766e96dd2e140be10cdc",
+        "bytes": 597408
+      },
+      {
+        "path": "data/mooncat-population/shards/04000-04999.json",
+        "startRescueOrder": 4000,
+        "endRescueOrder": 4999,
+        "rowCount": 1000,
+        "sha256": "aa282ac56ba6706c41ceb8747f5ecfef95555dadf380fc99467398cc1c1a2a76",
+        "bytes": 570307
+      },
+      {
+        "path": "data/mooncat-population/shards/05000-05999.json",
+        "startRescueOrder": 5000,
+        "endRescueOrder": 5999,
+        "rowCount": 1000,
+        "sha256": "c6df708e641b3502318c431b5fd7a7e76eec1598edaedc3916fadae3a6340a6b",
+        "bytes": 559594
+      },
+      {
+        "path": "data/mooncat-population/shards/06000-06999.json",
+        "startRescueOrder": 6000,
+        "endRescueOrder": 6999,
+        "rowCount": 1000,
+        "sha256": "6c136bc552128d7873181f7dcd3702b77c4b814cc4f909ed2b5cc053760593b0",
+        "bytes": 556572
+      },
+      {
+        "path": "data/mooncat-population/shards/07000-07999.json",
+        "startRescueOrder": 7000,
+        "endRescueOrder": 7999,
+        "rowCount": 1000,
+        "sha256": "0dd6aa03add52b3d6b70e644cd604397051e723755a8ddb61555b22c88b4b019",
+        "bytes": 553682
+      },
+      {
+        "path": "data/mooncat-population/shards/08000-08999.json",
+        "startRescueOrder": 8000,
+        "endRescueOrder": 8999,
+        "rowCount": 1000,
+        "sha256": "9e473e760b1331c33adb9b61de538f4bf4348e4535c72d8be1b6e6294f7da07d",
+        "bytes": 565273
+      },
+      {
+        "path": "data/mooncat-population/shards/09000-09999.json",
+        "startRescueOrder": 9000,
+        "endRescueOrder": 9999,
+        "rowCount": 1000,
+        "sha256": "62559f200a14de96a4dc1288014fc083261233bf305274fb164d254cc8b7d00c",
+        "bytes": 557807
+      },
+      {
+        "path": "data/mooncat-population/shards/10000-10999.json",
+        "startRescueOrder": 10000,
+        "endRescueOrder": 10999,
+        "rowCount": 1000,
+        "sha256": "bd29d2b2d506a84ade53346b105608b05a98a3dfb18ae2e861b318310c4f3b04",
+        "bytes": 550276
+      },
+      {
+        "path": "data/mooncat-population/shards/11000-11999.json",
+        "startRescueOrder": 11000,
+        "endRescueOrder": 11999,
+        "rowCount": 1000,
+        "sha256": "e8522ddf8be3cba7a8ddc33d8b0ba9df5bbeba26405c18ca07608f375d294c96",
+        "bytes": 559519
+      },
+      {
+        "path": "data/mooncat-population/shards/12000-12999.json",
+        "startRescueOrder": 12000,
+        "endRescueOrder": 12999,
+        "rowCount": 1000,
+        "sha256": "271d30acea938ee9288a9811eca7c3adffa5fc176d95ca67b10a1b06b489c496",
+        "bytes": 547446
+      },
+      {
+        "path": "data/mooncat-population/shards/13000-13999.json",
+        "startRescueOrder": 13000,
+        "endRescueOrder": 13999,
+        "rowCount": 1000,
+        "sha256": "9a9094d7ac4f32704cd73eee2f64e134a703ede5e830bb6fc8981bf56e30fabb",
+        "bytes": 548216
+      },
+      {
+        "path": "data/mooncat-population/shards/14000-14999.json",
+        "startRescueOrder": 14000,
+        "endRescueOrder": 14999,
+        "rowCount": 1000,
+        "sha256": "dcc37c24d1e1126adf9ccfbdf5df26f1c0a53930748d5bd5369ace2f4046526a",
+        "bytes": 554313
+      },
+      {
+        "path": "data/mooncat-population/shards/15000-15999.json",
+        "startRescueOrder": 15000,
+        "endRescueOrder": 15999,
+        "rowCount": 1000,
+        "sha256": "0f7bd07c578757f2596d12ca7ad27d3b655c9c568ed89b994d7be040fc8e3ef5",
+        "bytes": 554162
+      },
+      {
+        "path": "data/mooncat-population/shards/16000-16999.json",
+        "startRescueOrder": 16000,
+        "endRescueOrder": 16999,
+        "rowCount": 1000,
+        "sha256": "d97c38abc00dd4adbe4d50615c420149f70ab569bf03e7b98464d1eb196285e1",
+        "bytes": 554482
+      },
+      {
+        "path": "data/mooncat-population/shards/17000-17999.json",
+        "startRescueOrder": 17000,
+        "endRescueOrder": 17999,
+        "rowCount": 1000,
+        "sha256": "9d58b192b3f444fca82ff67ffaad34fe497f45481147ebe3c0ee95019285a3bb",
+        "bytes": 551880
+      },
+      {
+        "path": "data/mooncat-population/shards/18000-18999.json",
+        "startRescueOrder": 18000,
+        "endRescueOrder": 18999,
+        "rowCount": 1000,
+        "sha256": "844572eb6dbf6483d76d2042b7c9712c041085e33ba971a5f942ffe4daf4e7e2",
+        "bytes": 559366
+      },
+      {
+        "path": "data/mooncat-population/shards/19000-19999.json",
+        "startRescueOrder": 19000,
+        "endRescueOrder": 19999,
+        "rowCount": 1000,
+        "sha256": "5a6569ead29aad270f476b481ce881d7d47f29336a3e44e8ecc5033646218b82",
+        "bytes": 543993
+      },
+      {
+        "path": "data/mooncat-population/shards/20000-20999.json",
+        "startRescueOrder": 20000,
+        "endRescueOrder": 20999,
+        "rowCount": 1000,
+        "sha256": "6321c721cd097ac872c9edefd868dbb48c52f44fdb482fd9fb3416c87cdbe765",
+        "bytes": 551732
+      },
+      {
+        "path": "data/mooncat-population/shards/21000-21999.json",
+        "startRescueOrder": 21000,
+        "endRescueOrder": 21999,
+        "rowCount": 1000,
+        "sha256": "85a7c08edbc7d7987502733edf195daa9359c132242232cdfd162379c67cb103",
+        "bytes": 551260
+      },
+      {
+        "path": "data/mooncat-population/shards/22000-22999.json",
+        "startRescueOrder": 22000,
+        "endRescueOrder": 22999,
+        "rowCount": 1000,
+        "sha256": "1bbe4f29dc590af4696e4c847832301cfa3fccaaf1c397fc5baf39686033c837",
+        "bytes": 556234
+      },
+      {
+        "path": "data/mooncat-population/shards/23000-23999.json",
+        "startRescueOrder": 23000,
+        "endRescueOrder": 23999,
+        "rowCount": 1000,
+        "sha256": "eb50a20f7cbb9aeba36c29bdf1badb945657276c5404c09a08aa5b1878df3ab4",
+        "bytes": 548375
+      },
+      {
+        "path": "data/mooncat-population/shards/24000-24999.json",
+        "startRescueOrder": 24000,
+        "endRescueOrder": 24999,
+        "rowCount": 1000,
+        "sha256": "659dd31d731d97d0a0c05b6f290db8b4b72356a9ba4c976fb6e5ea0ee78cb670",
+        "bytes": 554836
+      },
+      {
+        "path": "data/mooncat-population/shards/25000-25439.json",
+        "startRescueOrder": 25000,
+        "endRescueOrder": 25439,
+        "rowCount": 440,
+        "sha256": "4074a742f19a369451176a9bc8b9684ed87bd626a37baecee55c8d58abb7ed5a",
+        "bytes": 247132
+      }
+    ]
+  },
+  "rowSchema": {
+    "fields": [
+      "catId",
+      "rescueOrder",
+      "traits",
+      "genesis",
+      "color",
+      "rescueBuckets",
+      "characterCategories",
+      "name"
+    ],
+    "unnamedRepresentation": "name is null",
+    "compactProvenance": "Field-group provenance is defined in this manifest rather than repeated on rows."
+  },
+  "fieldProvenance": {
+    "identityAndTraits": {
+      "trust": "upstream-reference-selected-and-exhaustively-compared",
+      "sourceRefs": [
+        "mooncatrescue-mooncat-traits-json",
+        "mooncatrescue-libmooncat-limited-js"
+      ]
+    },
+    "genesis": {
+      "trust": "canonical-membership",
+      "sourceRefs": [
+        "mooncatrescue-about-collection",
+        "mooncatrescue-mooncat-traits-json"
+      ]
+    },
+    "color": {
+      "trust": "derived-human-facing-display-policy",
+      "sourceRefs": [
+        "mooncat-color-classification"
+      ],
+      "limitations": "Not an on-chain trait, RGB/hex palette, rarity, or rendering proof."
+    },
+    "rescueBuckets": {
+      "trust": "canonical-derived",
+      "sourceRefs": [
+        "mooncat-rescueorder-by-category"
+      ]
+    },
+    "characterCategories": {
+      "trust": "community-curated-noncanonical",
+      "sourceRefs": [
+        "mooncat-rescueorder-by-category"
+      ]
+    },
+    "name": {
+      "trust": "pinned-finalized-monotonic-enrichment",
+      "sourceRefs": [
+        "mooncatdao-name-index"
+      ],
+      "sourceRevision": "5d3b265613e987e4ca2c32e2afd7edf3178a146a",
+      "limitations": "No blank events, event history, provisional/live state, or freshness beyond the pinned revision."
+    }
+  },
+  "sourceFiles": [
+    {
+      "path": "references/upstream/mooncatrescue/mooncat_traits.json",
+      "sha256": "18dcb262c13e316c61051b59c1944a3265a163aed05ed429f48874caaf38abd8",
+      "bytes": 6615184,
+      "role": "selected identity and visual-trait values"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/libmooncat-limited.js",
+      "sha256": "b4d36703a58ce07c61606518010aad05b0e89dc3d11ce0f33a241a7ab35ac85e",
+      "bytes": 806495,
+      "role": "exhaustive identifier and extended-trait comparison"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/mooncatparser.js",
+      "sha256": "39dffc7894473b631cde4037d9f174844cfc78777134511b6b8ef44105928d59",
+      "bytes": 52238,
+      "role": "exhaustive nonempty renderability check"
+    },
+    {
+      "path": "data/genesis-cats.json",
+      "sha256": "b50841fedb9ab2b571ec9979d8b17c61bb9c628cef826061ada2d32487054bde",
+      "bytes": 11808,
+      "role": "canonical released Genesis membership"
+    },
+    {
+      "path": "data/rescue-buckets.json",
+      "sha256": "57d9b3eec337349d1f314e3b134a8f730528b16deeab8bd6b911a5c6969c7171",
+      "bytes": 58786,
+      "role": "canonical-derived rescue bucket memberships"
+    },
+    {
+      "path": "data/character-cat-index.json",
+      "sha256": "1fefcf92df549724e89f0556330658d456a9720417ada686c0ffa8704c2917a5",
+      "bytes": 13317,
+      "role": "community-curated character memberships"
+    },
+    {
+      "path": "data/color-classification.json",
+      "sha256": "79963fade6364a16e09eecb2bf4e0c161cde768f5c057557affa44e1922c7d68",
+      "bytes": 7818,
+      "role": "versioned derived human-facing color policy"
+    },
+    {
+      "path": "references/upstream/name-index/current-names.json",
+      "sha256": "457d1bc1df5ee17720e44b5cbbc58b9a8d65584d678db0aa2a2e1b3f398653f9",
+      "bytes": 731758,
+      "role": "pinned finalized current-name enrichment"
+    },
+    {
+      "path": "references/upstream/name-index/metadata.json",
+      "sha256": "50ebadfffa1cd12f9e9ec1820c33a5ffca38c735b83ea334ea11718e639e03d6",
+      "bytes": 299,
+      "role": "pinned finalized name-index metadata"
+    },
+    {
+      "path": "references/upstream/name-index/SNAPSHOT.json",
+      "sha256": "c8a785e58229a6653fd7c3817f095aba8ebac7e434f6fa6966657fd6f6a54b83",
+      "bytes": 1565,
+      "role": "pinned name-index snapshot provenance"
+    },
+    {
+      "path": "data/mooncat-names.json",
+      "sha256": "87fb51719a20460d019afeaaff55cf4a8b52046ac4177c63e32f500f94260e70",
+      "bytes": 358832,
+      "role": "historical/source-comparison name reconciliation"
+    }
+  ],
+  "validationReport": {
+    "path": "data/mooncat-population/validation-report.json",
+    "sha256": "386a897b24d77bbae41e7e9a758d6ecdc095921560cedd2e892902c3422fbde6",
+    "bytes": 1023468
+  },
+  "generation": {
+    "script": "scripts/generate-mooncat-population.py",
+    "checkCommand": "python scripts/generate-mooncat-population.py --check",
+    "validator": "python scripts/validate-mooncat-population.py",
+    "networkDependency": "none",
+    "nameSnapshotImport": "python scripts/import-name-index-snapshot.py --source /path/to/name-index"
+  },
+  "counts": {
+    "namedRows": 1233,
+    "unnamedRows": 24207,
+    "genesisRows": 96,
+    "libTraitMismatchCount": 2524,
+    "libTraitMismatchAffectedCatCount": 2511
+  },
+  "generatedDataBytesExcludingManifest": 15438632,
+  "exclusions": [
+    "current ownership or balances",
+    "accessory ownership/wear state",
+    "marketplace, price, sale, or bid data",
+    "live API/RPC/chain state",
+    "provisional/live naming inputs",
+    "complete CatNamed event history"
+  ],
+  "sourceRefs": [
+    "mooncatrescue-mooncat-traits-json",
+    "mooncatrescue-libmooncat-limited-js",
+    "mooncatrescue-mooncatparser-js",
+    "mooncatrescue-about-collection",
+    "mooncat-rescueorder-by-category",
+    "mooncat-color-classification",
+    "mooncatdao-name-index",
+    "mooncat-kb-mooncat-names-snapshot"
+  ]
+}

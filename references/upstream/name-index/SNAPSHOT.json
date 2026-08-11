@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "status": "pinned-finalized-name-index-inputs",
+  "sourceRepository": "https://github.com/mooncatdao/name-index",
+  "sourceRevision": "5d3b265613e987e4ca2c32e2afd7edf3178a146a",
+  "sourceCommitTimestamp": "2026-08-11T11:12:07-06:00",
+  "license": "CC0-1.0",
+  "sourceCheckout": "local-explicit-import; path intentionally not retained",
+  "importCommand": "python scripts/import-name-index-snapshot.py --source /path/to/name-index",
+  "networkDependency": "none",
+  "finalizedOnly": true,
+  "inventory": [
+    {
+      "path": "current-names.json",
+      "sourcePath": "data/current-names.json",
+      "sha256": "457d1bc1df5ee17720e44b5cbbc58b9a8d65584d678db0aa2a2e1b3f398653f9",
+      "bytes": 731758
+    },
+    {
+      "path": "metadata.json",
+      "sourcePath": "data/metadata.json",
+      "sha256": "50ebadfffa1cd12f9e9ec1820c33a5ffca38c735b83ea334ea11718e639e03d6",
+      "bytes": 299
+    }
+  ],
+  "exclusions": [
+    "data/events.jsonl",
+    "data/pending-events.json",
+    "*-live.json",
+    "webhook state",
+    "reports",
+    "provisional data"
+  ],
+  "metadataObservation": {
+    "schemaVersion": 1,
+    "chainId": 1,
+    "contractAddress": "0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6",
+    "namingStartBlock": 4140409,
+    "moonCatCount": 25440,
+    "eventCount": 23236,
+    "blankEventCount": 22003,
+    "removedEventCount": 0,
+    "namedCatCount": 1233,
+    "source": "data/events.jsonl"
+  },
+  "limitations": [
+    "Pinned finalized snapshot only; it does not claim freshness beyond sourceRevision or live chain state."
+  ]
+}
