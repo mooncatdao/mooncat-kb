@@ -78,7 +78,7 @@ ONCHAIN_SYNTHESIS_FORBIDDEN = {
     "configured endpoints are presently available without live verification",
 }
 ONCHAIN_SYNTHESIS_LIMITATIONS = {
-    "The KB lacks full ABIs and Solidity bodies.",
+    "The reviewed contract registry has exact local ABI artifacts for nine address-matched contracts, but full Solidity source bodies are not included in this benchmark case.",
     "The KB lacks bytecode and constructor verification.",
     "The KB lacks storage snapshots.",
     "The KB lacks complete mappings.",

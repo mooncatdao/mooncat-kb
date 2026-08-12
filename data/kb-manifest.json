@@ -547,7 +547,7 @@
         "generated"
       ],
       "sizeBytes": 95269,
-      "sha256": "4a8c65d05607e0301aaf68842dfda1648ab8a5bdaf5eb3b08bb40d9304036971",
+      "sha256": "7300443d8eb3c92ddae6df8cdc553643df44f8cc25b7acf6f9651027c59049ee",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -1042,8 +1042,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 53453,
-      "sha256": "52b9f5fbb68aa2b09c14d5f3422466293ad997c7c638fb9930002ecd7a5fd814",
+      "sizeBytes": 53579,
+      "sha256": "f365e9c0758bc8995c7acd239479d2cae834614ea9e717f086e46f88d118b963",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -1197,8 +1197,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 47818,
-      "sha256": "cc4b63fba1cfcf8a434ffb97af203b7273e00f101b8f5388236ad4cfd0978537",
+      "sizeBytes": 47819,
+      "sha256": "e8c5b38ccc17e2c1bc3bae55205b6d75a8603ab45a7741d24b13bc2f5b2d0ee1",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
@@ -4228,8 +4228,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 16283,
-      "sha256": "2ddd7a39ac83e84ccbe2a0bcb0ae6538dd72b46c592885c8939fbfc5703c75b0",
+      "sizeBytes": 16409,
+      "sha256": "5551fdc8416729ae302ee419b59e9230c885888cd8f98bab07fdf2c2d563933d",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],

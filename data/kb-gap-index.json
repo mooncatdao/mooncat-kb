@@ -127,7 +127,7 @@
         "docs/factual-retrieval-benchmark.md",
         "scripts/validate-factual-retrieval-cases.py"
       ],
-      "notes": "Bounded 34-case synthesis covers contract roles and evidence boundaries; current state remains out of scope."
+      "notes": "The 38-case factual benchmark covers contract-role/evidence synthesis; current state remains out of scope."
     },
     {
       "key": "genesis-history-and-population-reconstruction",
@@ -240,7 +240,7 @@
       "key": "agent-query-benchmark-and-context-packs",
       "status": "resolved-as-deterministic-routing-contracts",
       "files": ["data/agent-query-cases.json", "data/agent-context-packs.json", "data/agent-coding-patterns.json", "docs/agent-usage.md", "scripts/generate-agent-context-packs.py", "scripts/validate-agent-routing.py"],
-      "notes": "Thirteen realistic coding-agent cases now generate minimal route-backed packs with explicit warnings, forbidden claims, stop conditions, commands, and size metrics. The suite validates routing/context contracts and dangerous-conflation coverage without network or subjective model scoring."
+      "notes": "Twenty-nine realistic coding-agent cases now generate minimal route-backed packs with explicit warnings, forbidden claims, stop conditions, commands, and size metrics. The suite validates routing/context contracts and dangerous-conflation coverage without network or subjective model scoring."
     },
     {
       "key": "task-recipes-added",

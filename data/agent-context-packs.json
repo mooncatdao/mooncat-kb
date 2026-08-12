@@ -1072,7 +1072,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 141560,
+        "estimatedByteCount": 141561,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -1088,7 +1088,7 @@
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 47818
+            "bytes": 47819
           }
         ],
         "softFileLimit": 7,
@@ -1741,7 +1741,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 185358,
+        "estimatedByteCount": 185359,
         "files": [
           {
             "path": "data/agent-query-cases.json",
@@ -1761,7 +1761,7 @@
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 47818
+            "bytes": 47819
           }
         ],
         "softFileLimit": 7,

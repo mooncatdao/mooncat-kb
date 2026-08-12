@@ -390,7 +390,7 @@
       },
       "liveVerification": {"required": false, "reason": "The case is limited to checked-in architecture and historical source/address evidence; it does not perform live verification."},
       "expectedLimitations": [
-        "The KB lacks full ABIs and Solidity bodies.",
+        "The reviewed contract registry has exact local ABI artifacts for nine address-matched contracts, but full Solidity source bodies are not included in this benchmark case.",
         "The KB lacks bytecode and constructor verification.",
         "The KB lacks storage snapshots.",
         "The KB lacks complete mappings.",
