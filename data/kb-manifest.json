@@ -188,7 +188,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 167,
+    "maintainedFileCount": 170,
     "excludedFileCount": 74,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -521,8 +521,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 4330,
-      "sha256": "ab15d75a27a20c9b3458e98243e30aedae3714aa985be2486870d575ff747e44",
+      "sizeBytes": 4972,
+      "sha256": "94ba0bbee852460dbc01c3c81413f760297eb8797efcd5194fb2071eb50f8317",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -546,8 +546,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 95269,
-      "sha256": "7300443d8eb3c92ddae6df8cdc553643df44f8cc25b7acf6f9651027c59049ee",
+      "sizeBytes": 100123,
+      "sha256": "d89dc4ea0fbcad9ed4ba470bb27a98a5825719608ff7e49b5c9c474c604d98c8",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -573,8 +573,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 31076,
-      "sha256": "fb3eb3565ee91c9414de9fb2c0968b50cefc45ea3db85d2cb26b719536dd7d1e",
+      "sizeBytes": 31239,
+      "sha256": "8ea764f71f1db96e2c1e34c7856981e301ac245cd370ea55cef7ddd98e24ee58",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -602,8 +602,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 42406,
-      "sha256": "c8d817855170a03847ddab4b729a35b37604018187141ab8dbb6a431013c357b",
+      "sizeBytes": 44702,
+      "sha256": "cf5c9fa50d6ae81d3b1f4eb22924cc2627204878c1be8f86109d5285cd14019e",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "use-agent-context-packs"
@@ -2504,8 +2504,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 62713,
-      "sha256": "1a3754c0193fdda549e42ae37100dcd09737da6a855e436cb6adb224247826b3",
+      "sizeBytes": 62876,
+      "sha256": "4b4f4c9d1f0f4dcd87c6141cb568d71dc1bf8c72bf2bc9ec986b864cf1d0ef88",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -3566,6 +3566,84 @@
       "directAgentLoadRecommended": true
     },
     {
+      "path": "examples/mooncat-profile/README.md",
+      "fileRole": "example",
+      "topics": [
+        "mooncat-profile",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 1999,
+      "sha256": "38572f7670a180119f0c2f5e0ea67d80aad7c63795677efee76d3cf89d1b01bf",
+      "agentRoutes": [
+        "query-mooncat-population"
+      ],
+      "taskRecipes": [
+        "query-mooncat-population"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "examples/mooncat-profile/resolve-mooncat.mjs",
+      "fileRole": "example",
+      "topics": [
+        "mooncat-profile",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 4812,
+      "sha256": "4c53f3a362000bf290bdfdf6f233cc6d4f05a997a54daf8ac89c416bc9a51704",
+      "agentRoutes": [
+        "query-mooncat-population"
+      ],
+      "taskRecipes": [
+        "query-mooncat-population"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "examples/mooncat-profile/resolve-mooncat.test.mjs",
+      "fileRole": "example",
+      "topics": [
+        "mooncat-profile",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 3554,
+      "sha256": "93406b7cf0754ff2ec81607cd31a256b81ecf5cf91ca19ea9270327c0d8ddb03",
+      "agentRoutes": [
+        "query-mooncat-population"
+      ],
+      "taskRecipes": [
+        "query-mooncat-population"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "examples/rescue-mining-widget/README.md",
       "fileRole": "example",
       "topics": [
@@ -3875,8 +3953,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 16493,
-      "sha256": "0fae69209125dd60c3cc18b97de05a421bda130a7092ee8c98adc6df7beb761d",
+      "sizeBytes": 16647,
+      "sha256": "76bb077451035f3527e6ef2ca91c3b586016046e2c7b88d08cd06c26c32a696d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,

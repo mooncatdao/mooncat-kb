@@ -187,7 +187,10 @@
         "scripts/query-mooncats.py",
         "scripts/validate-mooncat-population.py",
         "data/trait-index.json",
-        "data/sources.json"
+        "data/sources.json",
+        "examples/mooncat-profile/README.md",
+        "examples/mooncat-profile/resolve-mooncat.mjs",
+        "examples/mooncat-profile/resolve-mooncat.test.mjs"
       ],
       "notes": [
         "Use scripts/query-mooncats.py for exact catId/rescueOrder lookup and multi-field filters without loading raw sources or every shard into agent context.",

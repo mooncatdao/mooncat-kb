@@ -506,6 +506,23 @@
       "contextIntent": "Load the exact recipe/event/doc trio and only add the WMCR compact internals when mapping behavior needs source-reviewed detail.",
       "protectedBoundary": "wmcr-event-mapping-vs-rescueorder-and-current-state",
       "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "etherscan-mooncats-wrapped"]
+    },
+    {
+      "id": "static-mooncat-profile-resolver",
+      "category": "agent-workflow",
+      "query": "Build or review a zero-network MoonCat profile resolver that accepts only tagged catIdBytes5 or rescueOrder inputs and returns the existing generated row with provenance.",
+      "route": "query-mooncat-population",
+      "requiredFiles": ["data/mooncat-population/manifest.json", "docs/mooncat-population-index.md", "docs/identifier-verification.md"],
+      "optionalFiles": ["examples/mooncat-profile/README.md", "examples/mooncat-profile/resolve-mooncat.mjs", "examples/mooncat-profile/resolve-mooncat.test.mjs"],
+      "terminology": ["catIdBytes5", "rescueOrder", "fixed rescue-order shard", "field provenance", "pinned finalized name"],
+      "requiredFacts": ["The resolver accepts exactly tagged catIdBytes5 and rescueOrder inputs", "the returned row is the existing generated population row rather than a competing profile dataset", "manifest field provenance and excluded live-state boundaries remain attached to the result"],
+      "requiredWarnings": ["Cat ID lookup uses documented bytes5 validation and committed lookup data; it does not derive rescueOrder arithmetically.", "The static view excludes ownership, accessories, markets, live chain state, provisional names, and complete CatNamed history."],
+      "forbiddenClaims": ["a bare or generic tokenId is a MoonCat identifier", "the population row proves current ownership or accessory state", "derived colors or pinned names are live protocol state"],
+      "stopConditions": ["Stop if the request requires RPC/API calls, live state, unsupported identifier semantics, or a new canonical profile dataset."],
+      "validationCommands": ["node --test examples/mooncat-profile/resolve-mooncat.test.mjs", "python scripts/generate-mooncat-population.py --check", "python scripts/validate-mooncat-population.py"],
+      "contextIntent": "Load the existing population manifest, compact index and identifier rules, then use the small resolver example and tests without loading all rows into agent context.",
+      "protectedBoundary": "static-profile-row-vs-generic-token-and-live-state",
+      "sourceRefs": ["mooncat-kb-population-index", "repo-identifier-conversion-fixtures", "mooncat-kb-name-index-pinned-snapshot"]
     }
   ]
 }

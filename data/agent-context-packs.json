@@ -10,7 +10,7 @@
     "script": "scripts/generate-agent-context-packs.py",
     "command": "python scripts/generate-agent-context-packs.py",
     "networkDependency": "none",
-    "caseCount": 29,
+    "caseCount": 30,
     "sizePolicy": {
       "softFileLimit": 7,
       "softEstimatedByteLimit": 200000,
@@ -1741,11 +1741,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 185359,
+        "estimatedByteCount": 187981,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 42406
+            "bytes": 44702
           },
           {
             "path": "docs/agent-usage.md",
@@ -1753,11 +1753,11 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 31076
+            "bytes": 31239
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 62713
+            "bytes": 62876
           },
           {
             "path": "data/kb-gap-index.json",
@@ -2523,6 +2523,119 @@
         "softFileLimit": 7,
         "softEstimatedByteLimit": 200000,
         "rationale": "Load the exact recipe/event/doc trio and only add the WMCR compact internals when mapping behavior needs source-reviewed detail."
+      }
+    },
+    {
+      "caseId": "static-mooncat-profile-resolver",
+      "category": "agent-workflow",
+      "taskSummary": "Build or review a zero-network MoonCat profile resolver that accepts only tagged catIdBytes5 or rescueOrder inputs and returns the existing generated row with provenance.",
+      "route": "query-mooncat-population",
+      "recipe": "query-mooncat-population",
+      "primaryFiles": [
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md"
+      ],
+      "additionalRequiredFiles": [
+        "docs/identifier-verification.md"
+      ],
+      "explicitOptionalFiles": [
+        "examples/mooncat-profile/README.md",
+        "examples/mooncat-profile/resolve-mooncat.mjs",
+        "examples/mooncat-profile/resolve-mooncat.test.mjs"
+      ],
+      "filesToLoad": [
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md",
+        "docs/identifier-verification.md",
+        "examples/mooncat-profile/README.md",
+        "examples/mooncat-profile/resolve-mooncat.mjs",
+        "examples/mooncat-profile/resolve-mooncat.test.mjs"
+      ],
+      "terminology": [
+        "catIdBytes5",
+        "rescueOrder",
+        "fixed rescue-order shard",
+        "field provenance",
+        "pinned finalized name"
+      ],
+      "requiredFacts": [
+        "The resolver accepts exactly tagged catIdBytes5 and rescueOrder inputs",
+        "the returned row is the existing generated population row rather than a competing profile dataset",
+        "manifest field provenance and excluded live-state boundaries remain attached to the result"
+      ],
+      "implementationGuardrails": [
+        "Do not treat community character categories as canonical protocol traits or derived colors as on-chain/RGB/palette/rarity proof.",
+        "Do not derive rescueOrder arithmetically from catId.",
+        "Do not add ownership, accessories, market data, live chain state, or provisional names to the generated view.",
+        "Cat ID lookup uses documented bytes5 validation and committed lookup data; it does not derive rescueOrder arithmetically.",
+        "The static view excludes ownership, accessories, markets, live chain state, provisional names, and complete CatNamed history."
+      ],
+      "forbiddenClaims": [
+        "a bare or generic tokenId is a MoonCat identifier",
+        "the population row proves current ownership or accessory state",
+        "derived colors or pinned names are live protocol state"
+      ],
+      "knownLimitations": [
+        "Cat ID lookup uses documented bytes5 validation and committed lookup data; it does not derive rescueOrder arithmetically.",
+        "The static view excludes ownership, accessories, markets, live chain state, provisional names, and complete CatNamed history."
+      ],
+      "stopConditions": [
+        "Stop if the request requires RPC/API calls, live state, unsupported identifier semantics, or a new canonical profile dataset."
+      ],
+      "validationCommands": [
+        "node --test examples/mooncat-profile/resolve-mooncat.test.mjs",
+        "python scripts/generate-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncat-kb-population-index",
+          "label": "MoonCat KB generated full-population index",
+          "status": "generated-full-population-index"
+        },
+        {
+          "id": "repo-identifier-conversion-fixtures",
+          "label": "Identifier conversion verification fixtures",
+          "status": "active"
+        },
+        {
+          "id": "mooncat-kb-name-index-pinned-snapshot",
+          "label": "MoonCat KB pinned finalized name-index inputs",
+          "status": "pinned-finalized-inputs"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 6,
+        "estimatedByteCount": 34370,
+        "files": [
+          {
+            "path": "data/mooncat-population/manifest.json",
+            "bytes": 13668
+          },
+          {
+            "path": "docs/mooncat-population-index.md",
+            "bytes": 6097
+          },
+          {
+            "path": "docs/identifier-verification.md",
+            "bytes": 4240
+          },
+          {
+            "path": "examples/mooncat-profile/README.md",
+            "bytes": 1999
+          },
+          {
+            "path": "examples/mooncat-profile/resolve-mooncat.mjs",
+            "bytes": 4812
+          },
+          {
+            "path": "examples/mooncat-profile/resolve-mooncat.test.mjs",
+            "bytes": 3554
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Load the existing population manifest, compact index and identifier rules, then use the small resolver example and tests without loading all rows into agent context."
       }
     }
   ]

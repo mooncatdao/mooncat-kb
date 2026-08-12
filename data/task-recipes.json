@@ -550,7 +550,10 @@
         "scripts/diff-mooncat-population.py",
         "scripts/import-name-index-snapshot.py",
         "data/trait-index.json",
-        "data/sources.json"
+        "data/sources.json",
+        "examples/mooncat-profile/README.md",
+        "examples/mooncat-profile/resolve-mooncat.mjs",
+        "examples/mooncat-profile/resolve-mooncat.test.mjs"
       ],
       "steps": [
         "Use scripts/query-mooncats.py for exact identifiers or filters; do not load shards into agent context unless a bounded row must be inspected.",
