@@ -31,13 +31,13 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 51 Required file references checked: 550 sourceRefs checked: 1212 relatedFiles checked: 282 Character/Genesis membership arrays checked: 16 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 51 Required file references checked: 556 sourceRefs checked: 1216 relatedFiles checked: 282 Character/Genesis membership arrays checked: 16 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 30 query cases, 27 categories, 17 protected boundaries, and minimal deterministic packs"
+      "outputSummary": "OK: 31 query cases, 27 categories, 18 protected boundaries, and minimal deterministic packs"
     },
     {
       "command": "python scripts/validate-upstream-snapshots.py",
@@ -97,18 +97,18 @@
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 170 maintained files, 74 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 173 maintained files, 74 explicit exclusions, hashes, routes, and commands validated"
     }
   ],
   "counts": {
     "requiredCommandCount": 16,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 2033,
+    "internalPathsChecked": 2071,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 170,
+    "manifestMaintainedFileCount": 173,
     "manifestExcludedFileCount": 74
   },
   "duplicateIdChecks": {
@@ -130,7 +130,7 @@
       },
       "benchmark-cases": {
         "file": "data/agent-query-cases.json",
-        "count": 30,
+        "count": 31,
         "duplicates": []
       },
       "factual-retrieval-cases": {
@@ -182,7 +182,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 2033,
+    "checked": 2071,
     "errors": [],
     "warnings": []
   },

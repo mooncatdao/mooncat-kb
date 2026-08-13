@@ -188,7 +188,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 170,
+    "maintainedFileCount": 173,
     "excludedFileCount": 74,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -521,8 +521,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 4972,
-      "sha256": "94ba0bbee852460dbc01c3c81413f760297eb8797efcd5194fb2071eb50f8317",
+      "sizeBytes": 5656,
+      "sha256": "6b386ee8a943f1d7963854d1a97023968fb04435b31f668fd5b3e23d521925be",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -546,8 +546,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 100123,
-      "sha256": "d89dc4ea0fbcad9ed4ba470bb27a98a5825719608ff7e49b5c9c474c604d98c8",
+      "sizeBytes": 105095,
+      "sha256": "9b836b4c62ee0073251977b7bed2b43541962d84d346a299dc4dd068feb68b03",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -573,8 +573,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 31239,
-      "sha256": "8ea764f71f1db96e2c1e34c7856981e301ac245cd370ea55cef7ddd98e24ee58",
+      "sizeBytes": 31430,
+      "sha256": "a4cb36104f2e3d7b5c0758a15c79bf982f0de644108fcbf0255863ac4762401d",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -602,8 +602,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 44702,
-      "sha256": "cf5c9fa50d6ae81d3b1f4eb22924cc2627204878c1be8f86109d5285cd14019e",
+      "sizeBytes": 47106,
+      "sha256": "3dd8cd44f771ecae8da09a53e443b912777843626a0248cffac494dfcd82712b",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "use-agent-context-packs"
@@ -2504,8 +2504,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 62876,
-      "sha256": "4b4f4c9d1f0f4dcd87c6141cb568d71dc1bf8c72bf2bc9ec986b864cf1d0ef88",
+      "sizeBytes": 63067,
+      "sha256": "506c56c97228a507247f90a435f27451eeca40da7fdad7bfc8f4fccb4649f5c2",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -3566,6 +3566,84 @@
       "directAgentLoadRecommended": true
     },
     {
+      "path": "examples/mooncat-event-decoder/README.md",
+      "fileRole": "example",
+      "topics": [
+        "mooncat-event-decoder",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 2811,
+      "sha256": "b11ebae4521b2af9ac6911622a4dfbf8cc3d14c971ddaf69a3e0c960cbe8a30c",
+      "agentRoutes": [
+        "query-contract-events"
+      ],
+      "taskRecipes": [
+        "query-contract-events"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "examples/mooncat-event-decoder/decode-mooncat-event.mjs",
+      "fileRole": "example",
+      "topics": [
+        "mooncat-event-decoder",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 11067,
+      "sha256": "ea23a3e45969f6397ba8a4e46e30fcefcba100b1b8a6344973890fea6e14728e",
+      "agentRoutes": [
+        "query-contract-events"
+      ],
+      "taskRecipes": [
+        "query-contract-events"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "examples/mooncat-event-decoder/decode-mooncat-event.test.mjs",
+      "fileRole": "example",
+      "topics": [
+        "mooncat-event-decoder",
+        "example"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "example"
+      ],
+      "sizeBytes": 9602,
+      "sha256": "67b28c45f0227f00ed964548f42f7296dfbe7dc038c08a430bef650e0417529c",
+      "agentRoutes": [
+        "query-contract-events"
+      ],
+      "taskRecipes": [
+        "query-contract-events"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "examples/mooncat-profile/README.md",
       "fileRole": "example",
       "topics": [
@@ -3953,8 +4031,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 16647,
-      "sha256": "76bb077451035f3527e6ef2ca91c3b586016046e2c7b88d08cd06c26c32a696d",
+      "sizeBytes": 16813,
+      "sha256": "c04d6c3b0d535a9392716e431316af592b346417c09d8c4ef7a84860eead8780",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,

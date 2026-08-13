@@ -635,7 +635,10 @@
         "data/contract-registry.json",
         "data/identifier-conventions.json",
         "scripts/query-contract-events.py",
-        "scripts/validate-contract-registry.py"
+        "scripts/validate-contract-registry.py",
+        "examples/mooncat-event-decoder/README.md",
+        "examples/mooncat-event-decoder/decode-mooncat-event.mjs",
+        "examples/mooncat-event-decoder/decode-mooncat-event.test.mjs"
       ],
       "notes": [
         "Use the canonical signature and ordered indexed flags exactly; topic0 is Ethereum Keccak-256, not NIST SHA3-256.",

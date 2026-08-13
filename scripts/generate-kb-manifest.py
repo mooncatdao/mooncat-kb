@@ -250,6 +250,8 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
         return "example", ["rescue-mining", "example"], "curated", ["curated", "example"]
     if relative_path.startswith("examples/mooncat-profile/"):
         return "example", ["mooncat-profile", "example"], "curated", ["curated", "example"]
+    if relative_path.startswith("examples/mooncat-event-decoder/"):
+        return "example", ["mooncat-event-decoder", "example"], "curated", ["curated", "example"]
     raise ValueError(f"no explicit manifest classification rule for maintained file: {relative_path}")
 
 

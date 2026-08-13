@@ -523,6 +523,23 @@
       "contextIntent": "Load the existing population manifest, compact index and identifier rules, then use the small resolver example and tests without loading all rows into agent context.",
       "protectedBoundary": "static-profile-row-vs-generic-token-and-live-state",
       "sourceRefs": ["mooncat-kb-population-index", "repo-identifier-conversion-fixtures", "mooncat-kb-name-index-pinned-snapshot"]
+    },
+    {
+      "id": "supplied-mooncat-event-decoder",
+      "category": "contract-events",
+      "query": "Build or review a zero-network MoonCat event decoder for an already-supplied log using explicit reviewed contract context, exact topic0, ABI parameters, raw values, and identifier annotations.",
+      "route": "query-contract-events",
+      "requiredFiles": ["data/contract-registry.json", "data/event-registry.json", "docs/contract-abi-event-registry.md"],
+      "optionalFiles": ["examples/mooncat-event-decoder/README.md", "examples/mooncat-event-decoder/decode-mooncat-event.mjs", "examples/mooncat-event-decoder/decode-mooncat-event.test.mjs"],
+      "terminology": ["topic0", "canonical event signature", "indexed", "mooncatIdBytes5", "mooncatRescueOrder", "moonCatsWrappedTokenId", "historical evidence"],
+      "requiredFacts": ["The emitting contract key and reviewed address must be explicit and match the supplied log", "event selection uses the exact registry topic0 and ordered indexed/non-indexed ABI parameters", "identifier annotations remain scoped to the emitting contract and raw log values remain inspectable"],
+      "requiredWarnings": ["Decoded events are historical evidence, not current name, owner, wrapping, accessory-wear, market, or storage proof.", "No RPC, API, history scan, reorg pipeline, database, or ChainStation replacement belongs in this decoder."],
+      "forbiddenClaims": ["generic tokenId globally means rescueOrder", "CatNamed proves current consumed name state", "an accessory event reconstructs complete current wear state"],
+      "stopConditions": ["Stop if the contract/address is not reviewed, topic0 is absent or mismatched, the ABI shape is unsupported, or the request requires live logs/current state."],
+      "validationCommands": ["node --test examples/mooncat-event-decoder/*.test.mjs", "python scripts/extract-contract-abis.py --check", "python scripts/validate-contract-registry.py"],
+      "contextIntent": "Load the exact contract/event registry and boundary guide, then use the small supplied-log decoder and tests without introducing a second registry or network surface.",
+      "protectedBoundary": "supplied-event-evidence-vs-current-state-and-global-token-meaning",
+      "sourceRefs": ["mooncatrescue-libmooncat-limited-js", "ponderware-mooncatrescue-sol-raw", "etherscan-mooncats-wrapped", "etherscan-mooncat-accessories"]
     }
   ]
 }

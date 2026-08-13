@@ -1044,7 +1044,10 @@
         "data/contract-registry.json",
         "data/identifier-conventions.json",
         "scripts/query-contract-events.py",
-        "scripts/validate-contract-registry.py"
+        "scripts/validate-contract-registry.py",
+        "examples/mooncat-event-decoder/README.md",
+        "examples/mooncat-event-decoder/decode-mooncat-event.mjs",
+        "examples/mooncat-event-decoder/decode-mooncat-event.test.mjs"
       ],
       "steps": [
         "Filter by contract key/address, event name/signature, identifier kind, or core/adjacent classification.",

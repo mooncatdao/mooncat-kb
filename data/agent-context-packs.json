@@ -10,7 +10,7 @@
     "script": "scripts/generate-agent-context-packs.py",
     "command": "python scripts/generate-agent-context-packs.py",
     "networkDependency": "none",
-    "caseCount": 30,
+    "caseCount": 31,
     "sizePolicy": {
       "softFileLimit": 7,
       "softEstimatedByteLimit": 200000,
@@ -1741,11 +1741,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 187981,
+        "estimatedByteCount": 190767,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 44702
+            "bytes": 47106
           },
           {
             "path": "docs/agent-usage.md",
@@ -1753,11 +1753,11 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 31239
+            "bytes": 31430
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 62876
+            "bytes": 63067
           },
           {
             "path": "data/kb-gap-index.json",
@@ -2636,6 +2636,126 @@
         "softFileLimit": 7,
         "softEstimatedByteLimit": 200000,
         "rationale": "Load the existing population manifest, compact index and identifier rules, then use the small resolver example and tests without loading all rows into agent context."
+      }
+    },
+    {
+      "caseId": "supplied-mooncat-event-decoder",
+      "category": "contract-events",
+      "taskSummary": "Build or review a zero-network MoonCat event decoder for an already-supplied log using explicit reviewed contract context, exact topic0, ABI parameters, raw values, and identifier annotations.",
+      "route": "query-contract-events",
+      "recipe": "query-contract-events",
+      "primaryFiles": [
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md"
+      ],
+      "additionalRequiredFiles": [
+        "data/contract-registry.json"
+      ],
+      "explicitOptionalFiles": [
+        "examples/mooncat-event-decoder/README.md",
+        "examples/mooncat-event-decoder/decode-mooncat-event.mjs",
+        "examples/mooncat-event-decoder/decode-mooncat-event.test.mjs"
+      ],
+      "filesToLoad": [
+        "data/event-registry.json",
+        "docs/contract-abi-event-registry.md",
+        "data/contract-registry.json",
+        "examples/mooncat-event-decoder/README.md",
+        "examples/mooncat-event-decoder/decode-mooncat-event.mjs",
+        "examples/mooncat-event-decoder/decode-mooncat-event.test.mjs"
+      ],
+      "terminology": [
+        "topic0",
+        "canonical event signature",
+        "indexed",
+        "mooncatIdBytes5",
+        "mooncatRescueOrder",
+        "moonCatsWrappedTokenId",
+        "historical evidence"
+      ],
+      "requiredFacts": [
+        "The emitting contract key and reviewed address must be explicit and match the supplied log",
+        "event selection uses the exact registry topic0 and ordered indexed/non-indexed ABI parameters",
+        "identifier annotations remain scoped to the emitting contract and raw log values remain inspectable"
+      ],
+      "implementationGuardrails": [
+        "Never substitute NIST SHA3-256 for Ethereum Keccak-256.",
+        "Do not globally equate generic ERC tokenId with rescueOrder.",
+        "Do not infer current name, owner, offer, accessory, or wrapper state from event presence.",
+        "Decoded events are historical evidence, not current name, owner, wrapping, accessory-wear, market, or storage proof.",
+        "No RPC, API, history scan, reorg pipeline, database, or ChainStation replacement belongs in this decoder."
+      ],
+      "forbiddenClaims": [
+        "generic tokenId globally means rescueOrder",
+        "CatNamed proves current consumed name state",
+        "an accessory event reconstructs complete current wear state"
+      ],
+      "knownLimitations": [
+        "Decoded events are historical evidence, not current name, owner, wrapping, accessory-wear, market, or storage proof.",
+        "No RPC, API, history scan, reorg pipeline, database, or ChainStation replacement belongs in this decoder."
+      ],
+      "stopConditions": [
+        "Stop if the contract/address is not reviewed, topic0 is absent or mismatched, the ABI shape is unsupported, or the request requires live logs/current state."
+      ],
+      "validationCommands": [
+        "node --test examples/mooncat-event-decoder/*.test.mjs",
+        "python scripts/extract-contract-abis.py --check",
+        "python scripts/validate-contract-registry.py"
+      ],
+      "sourceGuidance": [
+        {
+          "id": "mooncatrescue-libmooncat-limited-js",
+          "label": "MoonCatRescue libmooncat-limited.js reference",
+          "status": "reference-copy"
+        },
+        {
+          "id": "ponderware-mooncatrescue-sol-raw",
+          "label": "MoonCatRescue.sol raw source",
+          "status": "verified"
+        },
+        {
+          "id": "etherscan-mooncats-wrapped",
+          "label": "Etherscan Wrapped MoonCatsRescue contract page",
+          "status": "verified"
+        },
+        {
+          "id": "etherscan-mooncat-accessories",
+          "label": "Etherscan MoonCatAccessories contract page",
+          "status": "verified"
+        }
+      ],
+      "sizeMetrics": {
+        "fileCount": 6,
+        "estimatedByteCount": 96339,
+        "files": [
+          {
+            "path": "data/event-registry.json",
+            "bytes": 45383
+          },
+          {
+            "path": "docs/contract-abi-event-registry.md",
+            "bytes": 6511
+          },
+          {
+            "path": "data/contract-registry.json",
+            "bytes": 20965
+          },
+          {
+            "path": "examples/mooncat-event-decoder/README.md",
+            "bytes": 2811
+          },
+          {
+            "path": "examples/mooncat-event-decoder/decode-mooncat-event.mjs",
+            "bytes": 11067
+          },
+          {
+            "path": "examples/mooncat-event-decoder/decode-mooncat-event.test.mjs",
+            "bytes": 9602
+          }
+        ],
+        "softFileLimit": 7,
+        "softEstimatedByteLimit": 200000,
+        "rationale": "Load the exact contract/event registry and boundary guide, then use the small supplied-log decoder and tests without introducing a second registry or network surface."
       }
     }
   ]
