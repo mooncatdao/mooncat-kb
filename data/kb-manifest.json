@@ -205,8 +205,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2846,
-      "sha256": "9c23489a78bfc6c56e372d554e02c970e2e69e9195327f7fe6cc8b2ffc27aa66",
+      "sizeBytes": 5170,
+      "sha256": "cf95662a8595af4cc8c4ad0034c9b0c7c286c04c9c1e227f663e71dc0695f751",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -3915,8 +3915,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 1784,
-      "sha256": "07fcbfed4f175ec353f1698b5bcbd8cc9d9294f731979511a0b107f64cb1de0e",
+      "sizeBytes": 2091,
+      "sha256": "d3084ac0694863e2faa27269334db677359d7233b83753be29e85db53e841bf7",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
