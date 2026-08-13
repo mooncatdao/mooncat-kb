@@ -1,8 +1,8 @@
 {
-  "version": 13,
-  "updated": "2026-08-11",
-  "status": "refreshed-with-contract-abi-event-registry",
-  "scope": "Compact agent-usability gap report for current data files after APIs, provenance, identifier, color, materialization, contract ABI/event, accessory-system, Genesis/character-category, ChainStation, ADR, population, and factual-benchmark reviews, with explicit source, provenance, and live-state limits.",
+  "version": 14,
+  "updated": "2026-08-13",
+  "status": "refreshed-after-executable-conformance-kits-and-human-guide",
+  "scope": "Compact agent-usability gap report for the current repository after APIs, provenance, identifier, color, materialization, contract ABI/event, accessory-system, Genesis/character-category, ChainStation, ADR, population, factual-benchmark, executable-conformance-kit, and human-guide reviews, with explicit source, provenance, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -55,7 +55,7 @@
     "data/trait-index.json"
   ],
   "method": {
-    "summary": "Reviewed requested files, status fields, TODO arrays, limitations, direct data/agent-index.json routing coverage, and current data/*.json inventory.",
+    "summary": "Reviewed current data files, status fields, TODO arrays, limitations, direct data/agent-index.json routing coverage, executable examples, and human/agent discovery entrypoints.",
     "limitations": [
       "This file does not add MoonCat facts or verify upstream freshness.",
       "This file does not modify sourceRefs, import datasets, or resolve listed gaps.",
@@ -240,7 +240,7 @@
       "key": "agent-query-benchmark-and-context-packs",
       "status": "resolved-as-deterministic-routing-contracts",
       "files": ["data/agent-query-cases.json", "data/agent-context-packs.json", "data/agent-coding-patterns.json", "docs/agent-usage.md", "scripts/generate-agent-context-packs.py", "scripts/validate-agent-routing.py"],
-      "notes": "Twenty-nine realistic coding-agent cases now generate minimal route-backed packs with explicit warnings, forbidden claims, stop conditions, commands, and size metrics. The suite validates routing/context contracts and dangerous-conflation coverage without network or subjective model scoring."
+      "notes": "Thirty-one realistic coding-agent cases now generate minimal route-backed packs with explicit warnings, forbidden claims, stop conditions, commands, and size metrics. The suite validates routing/context contracts and dangerous-conflation coverage without network or subjective model scoring."
     },
     {
       "key": "task-recipes-added",
@@ -250,6 +250,24 @@
         "data/agent-index.json"
       ],
       "notes": "Common agent workflows now have load order, outputs, guardrails, and stop conditions, and the recipe file is routed from data/agent-index.json."
+    },
+    {
+      "key": "executable-developer-conformance-kits",
+      "status": "resolved-as-three-bounded-tested-example-families",
+      "files": [
+        "examples/rescue-mining.js",
+        "examples/rescue-mining-widget/README.md",
+        "examples/mooncat-profile/README.md",
+        "examples/mooncat-profile/resolve-mooncat.mjs",
+        "examples/mooncat-profile/resolve-mooncat.test.mjs",
+        "examples/mooncat-event-decoder/README.md",
+        "examples/mooncat-event-decoder/decode-mooncat-event.mjs",
+        "examples/mooncat-event-decoder/decode-mooncat-event.test.mjs",
+        "data/agent-coding-patterns.json",
+        "data/agent-index.json",
+        "data/task-recipes.json"
+      ],
+      "notes": "Agents and developers now have wallet-free rescue-mining examples plus two dependency-free zero-network ESM conformance kits: a tagged static profile resolver over the existing population index and a supplied-log decoder over the existing contract/event registries. These examples add tested usage patterns without creating a second canonical dataset, fetching live state, scanning history, submitting transactions, or generalizing identifier meanings."
     },
     {
       "key": "rescue-bucket-method-documentation",
@@ -317,12 +335,15 @@
     },
     {
       "key": "trait-curated-model-decision",
-      "status": "resolved-as-model-decision-and-bounded-prototype",
+      "status": "resolved-as-full-population-generated-model-with-bounded-fixture",
       "files": [
         "data/trait-index.json",
-        "docs/traits.md"
+        "docs/traits.md",
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md",
+        "data/mooncat-visual-traits.sample.json"
       ],
-      "notes": "The curated model decision is implemented as a 64-row generated visual-trait prototype keyed by bytes5 catId with rescueOrder as a source-backed secondary lookup field. The full trait table, frequencies, names, and accessory details remain unimported."
+      "notes": "The curated model decision now has a generated 25,440-row population index keyed by bytes5 catId with rescueOrder as a source-backed secondary lookup field, plus the retained 64-row fixture for lightweight tests. Names are pinned finalized enrichment; frequencies, live ownership/accessory state, markets, and provisional names remain outside the model."
     },
     {
       "key": "chainstation-implementation-surface-audit",
@@ -630,13 +651,13 @@
     },
     {
       "file": "data/kb-gap-index.json",
-      "currentStatus": "refreshed-audit-report",
+      "currentStatus": "refreshed-current-repository-usability-report",
       "routedFromAgentIndex": true,
       "gapTypes": [
         "audit-report-staleness-risk"
       ],
-      "agentUsabilityImpact": "Useful as an audit report and now directly discoverable from data/agent-index.json, but it can become stale after source or data passes.",
-      "nextDataPass": "Refresh this gap index after future substantial data/source imports."
+      "agentUsabilityImpact": "Useful for current file gaps, usability impact, bounded next passes, and resolved capability history; directly discoverable through review-kb-gaps and explained in the human guide. It can become stale after substantial source, data, routing, or executable-pattern passes.",
+      "nextDataPass": "Refresh this gap index after future substantial data/source imports or agent-usable capability changes, preserving genuinely historical resolved statements."
     },
     {
       "file": "data/libmooncat-surfaces.json",
@@ -845,6 +866,11 @@
       "file": "data/task-recipes.json",
       "status": "compact-workflow-index",
       "note": "Provides workflow sequencing and guardrails for common agent tasks."
+    },
+    {
+      "file": "examples/mooncat-profile/ and examples/mooncat-event-decoder/",
+      "status": "bounded-tested-zero-network-conformance-kits",
+      "note": "Provide executable profile lookup and supplied-event decoding patterns while reusing existing canonical/generated registries and preserving identifier, provenance, and current-state boundaries."
     }
   ],
   "recommendedNextPasses": [

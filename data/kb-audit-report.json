@@ -31,7 +31,7 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 51 Required file references checked: 556 sourceRefs checked: 1216 relatedFiles checked: 282 Character/Genesis membership arrays checked: 16 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 51 Required file references checked: 559 sourceRefs checked: 1216 relatedFiles checked: 282 Character/Genesis membership arrays checked: 16 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
@@ -97,18 +97,18 @@
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 173 maintained files, 74 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 174 maintained files, 74 explicit exclusions, hashes, routes, and commands validated"
     }
   ],
   "counts": {
     "requiredCommandCount": 16,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 2071,
+    "internalPathsChecked": 2094,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 173,
+    "manifestMaintainedFileCount": 174,
     "manifestExcludedFileCount": 74
   },
   "duplicateIdChecks": {
@@ -140,7 +140,7 @@
       },
       "gap-records": {
         "file": "data/kb-gap-index.json",
-        "count": 31,
+        "count": 32,
         "duplicates": []
       },
       "identifier-fixtures": {
@@ -182,7 +182,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 2071,
+    "checked": 2094,
     "errors": [],
     "warnings": []
   },

@@ -1,76 +1,60 @@
 # MoonCat Knowledge Base
 
-Plain-text and Markdown entrypoints:
+Human orientation:
 
+- /docs/mooncat-kb-guide.md
 - /README.md
+- /docs/overview.md
+- /CONTRIBUTING.md
+
+Agent workflow:
+
 - /AGENTS.md
 - /data/agent-index.json
-- /data/agent-query-cases.json
-- /data/factual-retrieval-cases.json
+- /data/task-recipes.json
 - /data/agent-context-packs.json
 - /data/agent-coding-patterns.json
 - /docs/agent-usage.md
-- /docs/factual-retrieval-benchmark.md
-- /data/kb-manifest.json
-- /data/kb-audit-report.json
-- /docs/kb-integrity.md
-- /data/architecture-decisions.json
-- /docs/architecture-decisions.md
-- /data/chainstation-surfaces.json
-- /docs/chainstation-surfaces.md
-- /data/genesis-cats.json
-- /docs/genesis-cats.md
+- /data/kb-gap-index.json
+
+Primary capability entrypoints:
+
 - /data/mooncat-population/manifest.json
 - /docs/mooncat-population-index.md
-- /data/task-recipes.json
-- /data/kb-gap-index.json
-- /docs/identifier-verification.md
-- /docs/color-classification.md
-- /docs/materialization-parity.md
-- /data/upstream-snapshot-manifest.json
-- /data/mooncat-accessories-internals.json
-- /data/mooncat-accessory-images-internals.json
-- /docs/overview.md
-- /docs/source-map.md
-- /docs/glossary.md
-- /docs/mooncat-types.md
-- /docs/color-math.md
-- /docs/traits-and-ids.md
 - /docs/identifier-conventions.md
-- /docs/contracts.md
+- /docs/identifier-verification.md
+- /data/name-index-integration.json
+- /docs/name-index-integration.md
 - /data/contract-registry.json
 - /data/event-registry.json
 - /data/event-indexer-recipes.json
 - /docs/contract-abi-event-registry.md
-- /docs/rescue-history.md
-- /docs/api-notes.md
+- /docs/source-map.md
 - /data/sources.json
-- /data/mooncat-types.json
-- /data/character-cats.json
-- /data/character-cat-index.json
-- /data/special-cats.json
-- /scripts/validate-genesis-cats.py
-- /data/color-hues.json
-- /data/trait-index.json
-- /data/identifier-conventions.json
-- /data/rescue-ranges.json
-- /data/rescue-buckets.json
-- /data/contracts.json
-- /data/ipfs-cids.json
-- /data/api-endpoints.json
-- /data/project-links.json
-- /data/link-index.json
-- /data/protocol-constants.json
+- /docs/reference-policy.md
+
+Executable examples:
+
+- /examples/rescue-mining.js
+- /examples/rescue-mining-widget/README.md
+- /examples/mooncat-profile/README.md
+- /examples/mooncat-event-decoder/README.md
+
+Benchmarks and integrity:
+
+- /data/agent-query-cases.json
+- /data/factual-retrieval-cases.json
+- /docs/factual-retrieval-benchmark.md
+- /data/kb-manifest.json
+- /data/kb-audit-report.json
+- /docs/kb-integrity.md
 
 Notes:
 
-- For task-specific agent context, load /data/agent-index.json before broader docs or data files.
-- For covered coding tasks, load the matching generated pack from /data/agent-context-packs.json; then inspect only the referenced underlying files.
-- For factual-retrieval benchmark work, load /data/factual-retrieval-cases.json and follow its case-specific provenance and live-verification boundaries; it is separate from coding-route benchmark scoring.
-- For repo-wide integrity work, load /data/kb-manifest.json and /docs/kb-integrity.md, then run the documented zero-network audit commands.
-- For architecture-decision questions, use /data/architecture-decisions.json before broader implementation sources; it indexes the pinned 18-record dev-environment corpus and preserves intent-versus-evidence limits.
-- For Genesis population, identifier, vote, or adoption-payment questions, use /data/genesis-cats.json and preserve its distinction between contract derivation, historical outcome, and current-state limits.
-- For exact ABI/event/indexer questions, use /data/contract-registry.json and /data/event-registry.json; keep the eight core contracts separate from adjacent WMCR/CatNamer and do not treat event history as current state.
-- Use /data/ for exact canonical or curated data.
+- Select the narrowest route in /data/agent-index.json before loading broader files.
+- Generated context packs reference evidence; they do not replace the underlying files.
+- Use /data/ for exact canonical, curated, or generated artifacts and read each file's status and provenance.
 - Use /docs/ for explanations and reasoning.
-- Incomplete information is marked explicitly and should not be filled by guesswork.
+- Treat /references/ as upstream evidence, not curated KB data by default.
+- Preserve contract-scoped identifier meanings and static/revision/live-state boundaries.
+- Stop rather than guess when a claim needs missing provenance, unsupported conversion, or current verification.

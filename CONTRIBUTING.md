@@ -1,194 +1,200 @@
 # Contributing to MoonCat KB
 
-Thanks for helping improve the MoonCat Knowledge Base. This repo is intended to be useful to both people and LLM/code agents, so contributions should be clear, source-backed, and easy to validate.
+MoonCat KB welcomes small, source-backed improvements that make MoonCat
+knowledge easier and safer for people, tools, and coding agents to use. Read
+[`docs/mooncat-kb-guide.md`](docs/mooncat-kb-guide.md) for the repository's
+capabilities and evidence model before proposing a broad change.
 
-This guide is especially for contributors who use LLMs such as ChatGPT, Codex, Claude, Gemini, Cursor, Cline, or other coding/research agents.
+## Start with the repository workflow
 
-## Start here
-
-Before making changes, ask your LLM or agent to read:
+Before editing, read:
 
 ```text
 AGENTS.md
-README.md
 data/agent-index.json
 data/task-recipes.json
 ```
 
-For planning or gap work, also read:
+Choose the narrowest route in `data/agent-index.json`. Load its primary files
+first and optional files only when the task needs them. If a matching generated
+pack exists in `data/agent-context-packs.json`, treat its warnings, forbidden
+claims, and stop conditions as implementation constraints. Check
+`data/agent-coding-patterns.json` for an existing tested pattern before adding a
+new one.
 
-```text
-data/kb-gap-index.json
-```
-
-For provenance or source-sensitive changes, also read:
-
-```text
-data/sources.json
-docs/reference-policy.md
-```
+For source-sensitive changes, also read `data/sources.json` and
+`docs/reference-policy.md`. For gap planning, use the `review-kb-gaps` route and
+`data/kb-gap-index.json`.
 
 ## Repository model
 
-Use the repo this way:
+- `data/` holds compact canonical, curated, community-curated, workflow, and
+  generated artifacts. Read each file's status, scope, source references, and
+  limitations.
+- `docs/` holds explanations, reasoning, and provenance boundaries without
+  duplicating large exact datasets.
+- `references/` holds upstream evidence. It is not curated KB data by default.
+- `examples/` holds narrow executable patterns, not application frameworks or
+  live services.
+- `scripts/` owns generators, queries, validators, and the zero-network audit.
+- `AGENTS.md` defines repository-wide agent rules.
 
-- `data/` is for compact machine-readable facts, indexes, manifests, and curated data.
-- `docs/` is for explanations, reasoning, source notes, and human-readable context.
-- `references/` is for upstream/reference material and should not be treated as curated KB data by default.
-- `AGENTS.md` contains agent behavior rules.
-- `data/agent-index.json` tells agents which files to load for common tasks.
-- `data/task-recipes.json` gives workflow sequences, guardrails, and stop conditions.
+Keep README as a concise entrypoint and the human guide as the main orientation
+document. Domain facts belong in the relevant data/docs pair.
 
-The README should remain a map, not the canonical home for every fact.
+## Finding a useful contribution
 
-## Good LLM workflow
+Start with a real user or agent limitation, not a desire to add more files.
+`data/kb-gap-index.json` records:
 
-A safe LLM-assisted contribution usually looks like this:
+- `fileGaps` for current artifact-level limits;
+- `gapTypes` for the kind of risk or incompleteness;
+- `agentUsabilityImpact` for the work the current artifact enables or blocks;
+- `nextDataPass` for a bounded improvement path; and
+- `recommendedNextPasses` for cross-file priorities.
 
-1. Identify the exact knowledge area: identifiers, traits, colors, contracts, APIs, sources, rescue buckets, links, or rendering.
-2. Load the relevant route from `data/agent-index.json`.
-3. Load the matching workflow from `data/task-recipes.json` if the task crosses multiple files.
-4. Inspect existing files before editing.
-5. Make a small, scoped change.
-6. Preserve uncertainty and limitations.
-7. Validate JSON and repo references.
-8. Review the diff manually before committing.
+A useful contribution commonly fixes one of these:
 
-Avoid asking an LLM to "improve the KB" without file boundaries. Prefer narrow tasks such as:
+- missing knowledge supported by an appropriate primary or bounded source;
+- weak source, revision, freshness, license, or derivation evidence;
+- poor discovery through an existing route or recipe;
+- a repeated developer task without a tested usage pattern;
+- unsafe identifier, contract, provenance, or static-versus-live conflation;
+- missing focused validation for a maintained artifact; or
+- a repeated workflow without guardrails and stop conditions.
 
-```text
-Update data/contract-surfaces.json with a compact reviewed summary of one contract surface. Do not import ABI/source blobs. Preserve unresolved questions.
-```
-
-or:
-
-```text
-Add source-backed notes for one project link. Update only data/project-links.json and data/sources.json if needed. Do not promote navigation links into canonical facts without trust notes.
-```
+Do not treat a gap note as evidence for a MoonCat fact. Follow its referenced
+files and source requirements. Prefer a small pass that closes one usability
+problem over a broad import whose trust and maintenance model are unclear.
 
 ## Source and provenance expectations
 
-Do not add non-obvious facts without a source or method.
+Do not add non-obvious facts without a source or documented method. Register a
+new source in `data/sources.json` before relying on it in curated data. Prefer
+primary sources for protocol behavior, contracts, APIs, metadata, and history.
+Mark community-curated, partial, historical, generated, or unverified material
+explicitly.
 
-Use `data/sources.json` for curated source references. If a fact depends on a source that is not registered yet, either:
+If sources conflict, document the conflict and their trust levels instead of
+choosing silently. Generated output must name its checked-in inputs and
+repeatable generation/validation path. Reference snapshots must retain their
+upstream identity and must not be edited into normalized “truth.”
 
-- add a focused source entry with trust and limitation notes, or
-- leave the fact out and mark the gap instead.
+## Preserve important boundaries
 
-Prefer primary sources for protocol, contract, API, and historical claims. Good source types include official MoonCatRescue pages, verified contract/source pages, maintained project repositories, official API specs, and clearly attributable maintainer explanations.
+Do not:
 
-Community sources can be useful, but mark them as community-curated or interpretive when appropriate.
+- invent MoonCat IDs, names, traits, addresses, hashes, CIDs, URLs, dates,
+  mappings, or source claims;
+- equate bytes5 Cat IDs, rescue order, generic/ERC token IDs, WMCR token IDs,
+  accessory IDs, record indexes, palette indexes, or addresses without exact
+  scoped evidence;
+- present pinned or generated evidence as current chain/API/market state;
+- infer current owner, name, offer, wrapping, or accessory wear from event
+  presence;
+- import full source, ABI, OpenAPI, response, image, SVG, or per-cat blobs into
+  compact files without an explicitly scoped generated-data pass;
+- remove uncertainty markers merely to make an artifact look complete; or
+- reformat unrelated files.
 
-## What not to do
-
-Do not ask an LLM to:
-
-- invent MoonCat IDs, cat names, contract addresses, CIDs, URLs, dates, traits, token IDs, or source claims
-- treat rescue-order indexes, bytes5 `catId`s, ERC-721 token IDs, OpenSea IDs, local array indexes, accessory IDs, and Ethereum addresses as interchangeable
-- import full upstream datasets unless a focused generated-data pass explicitly allows it
-- copy full contract source, ABI JSON, OpenAPI specs, API response bodies, generated images, SVG arrays, or large per-cat mappings into compact KB files
-- silently resolve conflicting sources
-- remove uncertainty markers such as `partial`, `incomplete`, `needs-verification`, `community-curated`, or `reference-only`
-- reformat unrelated files
-
-## Data-file rules
+## File conventions
 
 For JSON in `data/`:
 
-- use 2-space indentation
-- keep files human-readable
-- keep source references resolvable through `data/sources.json`
-- add `relatedFiles` when another file materially explains or constrains the data
-- avoid giant single-line arrays
-- do not mix exact curated data with loose notes unless the file already uses that structure
+- use two-space indentation and readable structures;
+- keep every `sourceRef` resolvable through `data/sources.json`;
+- use `relatedFiles` when another artifact materially constrains the data;
+- update `status`, `scope`, `limitations`, and `todos` when the change affects
+  them; and
+- do not mix exact data with loose notes unless the existing schema does so.
 
-If a file has `status`, `scope`, `limitations`, or `todos`, update those fields when your change affects them.
+For Markdown:
 
-## Markdown rules
+- preserve stable headings where practical;
+- point to canonical data rather than copying large inventories;
+- state source, freshness, uncertainty, and current-state limits plainly; and
+- keep route-loaded docs focused enough for an agent to use safely.
 
-For Markdown in `docs/`:
+New maintained path families may require an explicit classification in
+`scripts/generate-kb-manifest.py`. Do not hide a maintained artifact in an
+exclusion simply to make the manifest pass.
 
-- preserve stable headings where possible
-- use links or file references to canonical data rather than duplicating large data
-- keep explanations source-aware
-- state limitations plainly
-- prefer short sections that agents can route to and summarize
+## Validation by change type
 
-## Common validation commands
-
-Run these from the repo root when possible:
+Always run:
 
 ```sh
 python scripts/validate-kb.py
 git diff --check
 ```
 
-For changed JSON files, also run:
+Then use the checks appropriate to the change:
 
-```sh
-python -m json.tool data/example-file.json >/dev/null
-```
+| Change | Required validation |
+| --- | --- |
+| Curated JSON | `python -m json.tool <file>` plus its focused validator, when one exists |
+| Generated artifact or its inputs | Owning generator `--check` and focused validator; regenerate only through the owning generator |
+| Identifier data | `python scripts/validate-identifier-conversions.py` and any affected domain validator |
+| Population data | Population generator `--check`, population validator, and diff check |
+| Contract/ABI/event data | ABI extractor `--check` and contract-registry validator |
+| Executable example | Its documented focused test command plus the validators for the data/registry it consumes |
+| Route, recipe, benchmark context, or routed doc | Generate/check context packs and run `validate-agent-routing.py` |
+| Maintained file, path classification, route, or recipe | Generate/check the KB manifest and run `validate-kb-manifest.py` |
+| Repo-wide/integrity change | `python scripts/audit-kb.py` after dependent generated artifacts are current |
 
-Replace `data/example-file.json` with each JSON file you changed.
+The dependency order matters: focused artifact first, then context packs when
+routing inputs changed, then manifest, then audit. A stale generated file is a
+failed change, not a reason to weaken a check.
 
-## Suggested pull request checklist
+## Agent-assisted contribution pattern
 
-Before opening a PR, confirm:
-
-- [ ] The change is scoped to a clear knowledge area.
-- [ ] Existing routing and recipe files were checked when relevant.
-- [ ] New or changed facts are source-backed or explicitly marked as unresolved.
-- [ ] No large upstream dataset, generated output, ABI, source blob, or API body was imported accidentally.
-- [ ] Identifier boundaries are preserved.
-- [ ] `python scripts/validate-kb.py` passes.
-- [ ] Changed JSON files parse with `python -m json.tool`.
-- [ ] `git diff --check` passes.
-- [ ] The diff was manually reviewed after LLM edits.
-
-## Example LLM prompt template
+A useful agent prompt is narrow and explicit:
 
 ```text
-You are editing mooncat-kb, a compact MoonCat technical knowledge base.
+You are editing MoonCat KB.
 
 Objective:
-<one narrow task>
+<one bounded improvement>
 
 Inspect first:
 - AGENTS.md
-- README.md
 - data/agent-index.json
 - data/task-recipes.json
 - <task-specific files>
 
 Allowed paths:
-- <specific files the agent may edit>
+- <exact paths>
 
-Forbidden:
-- Do not invent MoonCat facts, IDs, addresses, CIDs, URLs, dates, source claims, or exact mappings.
-- Do not import large upstream data, ABI/source blobs, OpenAPI specs, API response bodies, generated images, or per-cat tables unless explicitly allowed.
-- Do not reformat unrelated files.
-
-Acceptance criteria:
-- Existing limitations are preserved or tightened.
-- New claims are source-backed or marked unresolved.
-- JSON remains valid and human-readable.
-- Related gap/routing files are updated only if the task changes them.
+Boundaries:
+- Do not invent facts or identifier mappings.
+- Preserve source, revision, uncertainty, and static-versus-live limits.
+- Do not edit unrelated files.
 
 Validation:
+- <focused validator>
 - python scripts/validate-kb.py
-- python -m json.tool <changed-json-file> >/dev/null
 - git diff --check
 
-Report:
-- files changed
-- facts or guidance added
-- limitations preserved
-- validation results
-- follow-up gaps
+Report changed files, evidence, limitations, validation, and remaining gaps.
 ```
 
-## When in doubt
+Avoid asking an agent to “improve the whole KB.” Review the diff manually and
+confirm that the result did not broaden the task, silently normalize a
+conflict, or turn an unknown into a claim.
 
-Prefer a smaller contribution that preserves uncertainty over a larger contribution that appears complete but is not well sourced.
+## Pull request checklist
 
-It is acceptable to add a gap, limitation, or model decision instead of adding data immediately.
+- [ ] The change addresses a clear user/agent need or documented gap.
+- [ ] Existing routes, recipes, patterns, and evidence were inspected first.
+- [ ] New facts are source-backed or explicitly unresolved.
+- [ ] Identifier and historical/current-state boundaries are preserved.
+- [ ] No large upstream or generated blob was imported accidentally.
+- [ ] Focused generators, validators, and executable tests pass.
+- [ ] Context packs are current if routed inputs changed.
+- [ ] The maintained-file manifest is current.
+- [ ] The repo-wide audit passes when required.
+- [ ] JSON parsing, `validate-kb.py`, and `git diff --check` pass.
+- [ ] The final diff was reviewed for unrelated changes.
+
+When evidence is incomplete, a precise gap or limitation is a valid and useful
+contribution.

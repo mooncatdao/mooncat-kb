@@ -1,17 +1,42 @@
-# Coding-Agent Context Packs
+# Coding-agent workflow
 
-Start with `data/agent-index.json`, choose the narrowest task route, then load the generated pack in `data/agent-context-packs.json` whose `caseId` matches the work. A pack lists local files to load in priority order, explicit terminology, required facts and warnings, forbidden claims, stop conditions, validation commands, and file/byte size metrics.
+For the full human explanation and prompt examples, see
+[`mooncat-kb-guide.md`](mooncat-kb-guide.md). This file is the concise operating
+sequence for coding agents.
 
-Packs are generated from `data/agent-query-cases.json`, `data/agent-index.json`, `data/task-recipes.json`, and `data/sources.json`. They contain references and guardrails only; they never inline source files, upstream snapshots, or a universal full-KB prompt.
+1. Read `AGENTS.md`.
+2. Select the narrowest task in `data/agent-index.json` and load its primary
+   files first.
+3. Use the matching `data/task-recipes.json` entry when the work needs ordered
+   steps, outputs, guardrails, or stop conditions.
+4. For a covered coding task, load the generated
+   `data/agent-context-packs.json` record whose `caseId` matches the task. Load
+   only its listed files; the pack references evidence rather than replacing it.
+5. Check `data/agent-coding-patterns.json` for an existing tested example or
+   validator before creating a new implementation pattern.
+6. Preserve warnings, forbidden claims, identifier scope, provenance limits,
+   and stop conditions. Stop when the answer needs missing evidence,
+   unsupported conversion, unreviewed source, or live/current state.
+7. Make a small scoped change and run the task-specific validation commands.
 
-Use optional files only when the case explicitly names them. If a needed claim is absent, the case's stop condition wins: preserve the uncertainty, identify the missing source or current-state dependency, and do not invent a conversion, palette, ownership state, accessory wear state, or renderer result.
+Context packs are generated from query cases, routes, recipes, and registered
+sources. They contain no source snapshots, model calls, universal full-KB
+prompt, or subjective answer score. The factual-retrieval benchmark is a
+separate provenance constraint suite.
 
-Before implementing, run the pack's validation commands. After changing routing or a benchmark case, run:
+After changing a routed file, route, recipe, benchmark case, or context policy:
 
 ```text
+python scripts/generate-agent-context-packs.py
 python scripts/generate-agent-context-packs.py --check
 python scripts/validate-agent-routing.py
+python scripts/generate-kb-manifest.py
+python scripts/generate-kb-manifest.py --check
+python scripts/validate-kb-manifest.py
 python scripts/validate-kb.py
+python scripts/audit-kb.py
 ```
 
-The benchmark checks routing/context contracts only. It does not call an LLM or network service and does not score subjective model-answer quality.
+Use a focused validator before this sequence when a domain artifact changes.
+Generated packs, the manifest, and the audit report should be regenerated only
+when their inputs changed.

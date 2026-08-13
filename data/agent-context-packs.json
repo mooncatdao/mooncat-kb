@@ -1072,7 +1072,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 141561,
+        "estimatedByteCount": 143706,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -1088,7 +1088,7 @@
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 47819
+            "bytes": 49964
           }
         ],
         "softFileLimit": 7,
@@ -1741,7 +1741,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 190767,
+        "estimatedByteCount": 193599,
         "files": [
           {
             "path": "data/agent-query-cases.json",
@@ -1749,19 +1749,19 @@
           },
           {
             "path": "docs/agent-usage.md",
-            "bytes": 1345
+            "bytes": 1940
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 31430
+            "bytes": 31494
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 63067
+            "bytes": 63095
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 47819
+            "bytes": 49964
           }
         ],
         "softFileLimit": 7,

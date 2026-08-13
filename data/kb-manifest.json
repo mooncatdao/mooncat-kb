@@ -188,7 +188,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 173,
+    "maintainedFileCount": 174,
     "excludedFileCount": 74,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -227,8 +227,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6813,
-      "sha256": "d85d8f6a117ad1e773e856a66ba44e2e853b55e0ba12f99fc83b9e9a33867509",
+      "sizeBytes": 8217,
+      "sha256": "2b1ed1709c96fae903c8ac6a4ea45e214440a55d215ff215e7c6f5456383932d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -293,8 +293,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6197,
-      "sha256": "d5b7b3e3d2e8e0145894e4560d1c5ac07e81cda8f02bace28040d1c91ba54594",
+      "sizeBytes": 4069,
+      "sha256": "c05b96c0f2aaa1b71da0e0655b5136060325689bc8b23b53198aae39c47e4902",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -547,7 +547,7 @@
         "generated"
       ],
       "sizeBytes": 105095,
-      "sha256": "9b836b4c62ee0073251977b7bed2b43541962d84d346a299dc4dd068feb68b03",
+      "sha256": "ed57a493cccad7e884021de3840658c204ad2e26c1837515425a48c36bc4b553",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -573,8 +573,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 31430,
-      "sha256": "a4cb36104f2e3d7b5c0758a15c79bf982f0de644108fcbf0255863ac4762401d",
+      "sizeBytes": 31494,
+      "sha256": "aa62bafe10610f0a15f18bf65e1b288f21f952c6b2fb546a31425f70236fe7d9",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1197,8 +1197,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 47819,
-      "sha256": "e8c5b38ccc17e2c1bc3bae55205b6d75a8603ab45a7741d24b13bc2f5b2d0ee1",
+      "sizeBytes": 49964,
+      "sha256": "4d4f13a25f20a757f4b3a7073569f3be626e806cc6e35f0279db40e55ea36480",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
@@ -2504,8 +2504,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 63067,
-      "sha256": "506c56c97228a507247f90a435f27451eeca40da7fdad7bfc8f4fccb4649f5c2",
+      "sizeBytes": 63095,
+      "sha256": "bdc3a96192d439d4cf435e11b6c47530492d5b5383be20ec6c50f5de44df424b",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -2595,8 +2595,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 1345,
-      "sha256": "e041475a7bb9aa37b815252265417be7ec1b5eb4649dd60db734c25ad0521d1c",
+      "sizeBytes": 1940,
+      "sha256": "828622db04fba9c4a90b41976f0c41ea63716ddf4aee2eb42ed5161d748d273f",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -3193,6 +3193,32 @@
       "directAgentLoadRecommended": true
     },
     {
+      "path": "docs/mooncat-kb-guide.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 11896,
+      "sha256": "6c7fd1125481cb54304cb477a24a2ada1048af302ca104e713d62ff76de487d4",
+      "agentRoutes": [
+        "review-kb-gaps",
+        "use-agent-context-packs"
+      ],
+      "taskRecipes": [
+        "use-agent-context-packs"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "docs/mooncat-naming.md",
       "fileRole": "documentation",
       "topics": [
@@ -3353,8 +3379,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2454,
-      "sha256": "8f475bade010ad6baf665afec26128e342a47a06ca88f0832aaea473dfa99a9e",
+      "sizeBytes": 4179,
+      "sha256": "88388e7af00fdc7761ffc5ff25ccb95e37b5dc1d7e5ef1f9189d64311cca6044",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -3889,8 +3915,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3203,
-      "sha256": "acab15aefa8ffb9919dab369ef42642caf533e765e5bf49b7d90e3742404f237",
+      "sizeBytes": 1784,
+      "sha256": "07fcbfed4f175ec353f1698b5bcbd8cc9d9294f731979511a0b107f64cb1de0e",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
