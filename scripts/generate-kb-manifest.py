@@ -88,11 +88,21 @@ POPULATION_GENERATED_ARTIFACT = {
     "validatorCommands": ["python scripts/validate-mooncat-population.py"],
 }
 
+RENDER_GENERATED_ARTIFACT = {
+    "generatorCommand": "python scripts/generate-mooncat-renders.py",
+    "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+    "validatorCommands": ["python scripts/validate-mooncat-renders.py"],
+}
+
 POPULATION_UTILITY_ROLES = {
     "scripts/diff-mooncat-population.py": ("validator", ["validation", "agent-workflow"]),
     "scripts/import-name-index-snapshot.py": ("generator", ["validation", "agent-workflow"]),
     "scripts/mooncat_population_lib.py": ("generator", ["validation", "agent-workflow"]),
     "scripts/query-mooncats.py": ("example", ["mooncat-knowledge", "agent-workflow"]),
+}
+
+RENDER_UTILITY_ROLES = {
+    "scripts/mooncat_render_lib.py": ("generator", ["validation", "agent-workflow"]),
 }
 
 ABI_GENERATED_ARTIFACT = {
@@ -210,6 +220,11 @@ def generated_artifact_config(relative_path: str) -> dict[str, Any] | None:
         and relative_path.endswith(".json")
     ):
         return POPULATION_GENERATED_ARTIFACT
+    if relative_path == "data/mooncat-renders/manifest.json" or (
+        relative_path.startswith("data/mooncat-renders/shards/")
+        and relative_path.endswith(".json")
+    ):
+        return RENDER_GENERATED_ARTIFACT
     return None
 
 
@@ -246,6 +261,9 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
     if relative_path in POPULATION_UTILITY_ROLES:
         role, topics = POPULATION_UTILITY_ROLES[relative_path]
         return role, topics, "curated", ["curated", "script"]
+    if relative_path in RENDER_UTILITY_ROLES:
+        role, topics = RENDER_UTILITY_ROLES[relative_path]
+        return role, topics, "curated", ["curated", "script"]
     if relative_path == "examples/rescue-mining.js" or relative_path.startswith("examples/rescue-mining-widget/"):
         return "example", ["rescue-mining", "example"], "curated", ["curated", "example"]
     if relative_path.startswith("examples/mooncat-profile/"):
@@ -260,6 +278,11 @@ def generated_artifact_registry() -> list[dict[str, Any]]:
     for relative_path, _ in iter_repo_files():
         if relative_path.startswith("data/abi-registry/") and relative_path.endswith(".json"):
             registered[relative_path] = ABI_GENERATED_ARTIFACT
+        elif relative_path == "data/mooncat-renders/manifest.json" or (
+            relative_path.startswith("data/mooncat-renders/shards/")
+            and relative_path.endswith(".json")
+        ):
+            registered[relative_path] = RENDER_GENERATED_ARTIFACT
     return [{"path": path, **metadata} for path, metadata in sorted(registered.items())]
 
 

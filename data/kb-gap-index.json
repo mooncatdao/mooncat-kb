@@ -1,8 +1,8 @@
 {
-  "version": 14,
-  "updated": "2026-08-13",
-  "status": "refreshed-after-executable-conformance-kits-and-human-guide",
-  "scope": "Compact agent-usability gap report for the current repository after APIs, provenance, identifier, color, materialization, contract ABI/event, accessory-system, Genesis/character-category, ChainStation, ADR, population, factual-benchmark, executable-conformance-kit, and human-guide reviews, with explicit source, provenance, and live-state limits.",
+  "version": 15,
+  "updated": "2026-08-14",
+  "status": "refreshed-after-full-population-parser-render-artifact",
+  "scope": "Agent-usability gap report after current source, routing, population, conformance, and full parser-render reviews, with provenance, licensing, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -40,6 +40,7 @@
     "data/name-index-integration.json",
     "data/mooncat-visual-traits.sample.json",
     "data/mooncat-population/manifest.json",
+    "data/mooncat-renders/manifest.json",
     "data/upstream-snapshot-manifest.json",
     "data/older-wrapper-internals.json",
     "data/mooncat-svg-internals.json",
@@ -87,7 +88,7 @@
       "data/factual-retrieval-cases.json is directly routed by data/agent-index.json through review-factual-retrieval-benchmark.",
       "data/contract-registry.json is directly routed through look-up-contract-abi, query-contract-events, and plan-contract-event-indexer.",
       "data/event-registry.json and data/event-indexer-recipes.json are directly routed through exact event query and indexer-planning tasks.",
-      "Current route candidates are directly discoverable from data/agent-index.json."
+      "All route candidates, including separately routed mooncat-renders, are now directly discoverable."
     ]
   },
   "resolvedOrPartiallyResolvedGaps": [
@@ -225,16 +226,16 @@
     },
     {
       "key": "materialization-parity-fixture-harness",
-      "status": "resolved-as-bounded-parser-trait-and-documented-contract-parity",
+      "status": "resolved-as-bounded-parity-plus-full-population-parser-render-data",
       "files": [
         "data/materialization-parity-cases.json",
         "data/materialization-parity-results.json",
-        "data/materialization-internals.json",
         "docs/materialization-parity.md",
-        "scripts/generate-materialization-parity.py",
-        "scripts/validate-materialization-parity.py"
+        "data/mooncat-renders/manifest.json",
+        "docs/mooncat-renders.md",
+        "scripts/validate-mooncat-renders.py"
       ],
-      "notes": "Eight fixed fixtures now verify explicit rescueOrder/catIdBytes5 identity, source-trait parity, and deterministic parser structure while retaining five documented trait differences. Per-cat MoonCatColors palette output, exact SVG serialization, and accessory composition remain explicitly unavailable, documented-only, or deferred rather than inferred."
+      "notes": "Eight fixed fixtures retain bounded identity, trait, and parser-structure parity. The separate render artifact adds exact parser-derived palettes and X-major cells for all 25,440 IDs. MoonCatColors/on-chain palette parity, exact SVG serialization, accessories, live state, and licensing conclusions remain unavailable or excluded. Exhaustive checks cover every decoded row, full regeneration, parser equality and transpose-sensitive X/Y orientation."
     },
     {
       "key": "agent-query-benchmark-and-context-packs",
@@ -759,7 +760,7 @@
         "derivation-scope-limited"
       ],
       "agentUsabilityImpact": "Useful for source-derived constants, but not enough to infer rescue ranges, category membership, or parser behavior beyond recorded constants.",
-      "nextDataPass": "Verify parser source and MD5 workflow before deriving image-generation or trait data."
+      "nextDataPass": "Use the render manifest for parser cells; separately verify MD5 or on-chain SVG evidence."
     },
     {
       "file": "data/rescue-buckets.json",
@@ -844,8 +845,8 @@
   "notableNonGaps": [
     {
       "file": "data/mooncat-population/manifest.json",
-      "status": "generated-full-population-index",
-      "note": "All 25,440 MoonCats are queryable through fixed deterministic shards with exhaustive zero-network checks and source-attributed trust boundaries."
+      "status": "generated-full-population-indexes",
+      "note": "All 25,440 MoonCats have separate deterministic lookup and parser-render shards, with source, on-chain SVG, accessory, live-state, and licensing limits. Render data remains separately scoped."
     },
     {
       "file": "data/agent-index.json",

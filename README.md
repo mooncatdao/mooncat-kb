@@ -15,6 +15,10 @@ improve.
 - Complete static lookup: `data/mooncat-population/manifest.json` describes a
   validated 25,440-row sharded index with pinned finalized names and explicit
   live-state exclusions.
+- Complete static renders: `data/mooncat-renders/manifest.json` describes
+  compact parser-derived palettes and X-major unit cells for all 25,440 cats,
+  suitable for deterministic downstream SVG reconstruction without stored
+  image files or network access.
 - Identifier safety: `docs/identifier-conventions.md` and
   `docs/identifier-verification.md` keep bytes5 Cat IDs, rescue order, contract
   token IDs, wrapper IDs, accessory IDs, and local indexes distinct.
@@ -69,6 +73,8 @@ documentation changes, finish with:
 ```sh
 python scripts/generate-agent-context-packs.py --check
 python scripts/validate-agent-routing.py
+python scripts/generate-mooncat-renders.py --check
+python scripts/validate-mooncat-renders.py
 python scripts/generate-kb-manifest.py --check
 python scripts/validate-kb-manifest.py
 python scripts/audit-kb.py
@@ -89,3 +95,8 @@ otherwise noted. Attribution is not required, but appreciated.
 Reference files under `references/` and vendored files under
 `examples/**/vendor/` may have upstream licenses or terms and are not
 automatically relicensed under CC0.
+
+`data/mooncat-renders/manifest.json` and `docs/mooncat-renders.md` preserve the
+unresolved licensing boundary for the parser snapshot and parser-derived
+visual output; this repository does not make a licensing determination for
+either.

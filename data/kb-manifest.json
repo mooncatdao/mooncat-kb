@@ -179,6 +179,222 @@
       ]
     },
     {
+      "path": "data/mooncat-renders/manifest.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/00000-00999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/01000-01999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/02000-02999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/03000-03999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/04000-04999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/05000-05999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/06000-06999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/07000-07999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/08000-08999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/09000-09999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/10000-10999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/11000-11999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/12000-12999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/13000-13999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/14000-14999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/15000-15999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/16000-16999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/17000-17999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/18000-18999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/19000-19999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/20000-20999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/21000-21999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/22000-22999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/23000-23999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/24000-24999.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-renders/shards/25000-25439.json",
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ]
+    },
+    {
       "path": "data/mooncat-visual-traits.sample.json",
       "generatorCommand": "python scripts/generate-visual-traits.py",
       "checkCommand": "python scripts/generate-visual-traits.py --check",
@@ -188,7 +404,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 174,
+    "maintainedFileCount": 205,
     "excludedFileCount": 74,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -249,8 +465,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 7078,
-      "sha256": "04de6e9a75c7775f04fcf0e69a98f2f91f94a0c6d27977cc2af18918b62e4782",
+      "sizeBytes": 6873,
+      "sha256": "9e14993a62e2b4acc778b1a6ac0ec19d89e9946b4a6b3f6922cc0c4649ee6e23",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -293,8 +509,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4069,
-      "sha256": "c05b96c0f2aaa1b71da0e0655b5136060325689bc8b23b53198aae39c47e4902",
+      "sizeBytes": 4659,
+      "sha256": "995ea0ae6ae83accfa6642fa6602fa6dbcc39600c697325e39f7c249d52722b7",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -574,7 +790,7 @@
         "curated"
       ],
       "sizeBytes": 31494,
-      "sha256": "aa62bafe10610f0a15f18bf65e1b288f21f952c6b2fb546a31425f70236fe7d9",
+      "sha256": "115dae08f9c87fe18dc61f2fd97a4ad6790b9aa0c9eaff3fc74bc427ca33432d",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1198,7 +1414,7 @@
         "curated"
       ],
       "sizeBytes": 49964,
-      "sha256": "4d4f13a25f20a757f4b3a7073569f3be626e806cc6e35f0279db40e55ea36480",
+      "sha256": "941293e40cdd54d65d7485847a8e0eed670a846168294448e6338929e4f94d40",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
@@ -2138,6 +2354,631 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "data/mooncat-renders/manifest.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 12327,
+      "sha256": "2989840652cbd41b7521a7391cad3921c03a2b67756717a1dd7ae4d714a08d2a",
+      "agentRoutes": [
+        "render-static-mooncat"
+      ],
+      "taskRecipes": [
+        "decode-static-mooncat-render"
+      ],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "contains-source-reference",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/mooncat-renders/shards/00000-00999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 499446,
+      "sha256": "85f4e5b03080194ec655782c85825a650441732ee80d34053b598d7ed3a8dfde",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/01000-01999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 499057,
+      "sha256": "38adf9f63421df1e33a4a26dcbb61809e6d60ba1d7b8f7fa3e86f95f3db36db7",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/02000-02999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 500916,
+      "sha256": "50495516c541470f71768043b93613240292572905f8136cea4a5ccf315e7e66",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/03000-03999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 501021,
+      "sha256": "ff6ed2a1385ed20173bb7282c87be2a7272cf43a7294e45f2861ba7b295f9bd9",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/04000-04999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 501898,
+      "sha256": "e40937ec2c7c4e7410c21631ad43b178f494840830671f0043eb2b44e43f8cbe",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/05000-05999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 501872,
+      "sha256": "8b10a895eee6d66c0d6b268c41c6eed0f16dc93532060c4bcba7d5e7d60de2c5",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/06000-06999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 500185,
+      "sha256": "089abbeea113443568ba6c1a52f94dc306db85286221d72f672e20149a9feb27",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/07000-07999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 503071,
+      "sha256": "8a09394adb9022f9ce45a35ded9d9511b566b1eb6bb263f011536b286e382f7c",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/08000-08999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 501474,
+      "sha256": "9bfd3b69025a1f57440e9739c3c74fe0a6349942db26106ba85b0f87111fe9e0",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/09000-09999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502530,
+      "sha256": "d41b666deba33985fce3b8570db7c1c8f76febcac39b8851b7479dca21425e3a",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/10000-10999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 500841,
+      "sha256": "32c9e8a6e2583fb12c4bae8ba04aabad1e73942f94ee642ada51d24c8ec8bf07",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/11000-11999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502429,
+      "sha256": "13cac866467202c4edc87519e171f891f25b417d7c9ef148b69bfe12075898f4",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/12000-12999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 500879,
+      "sha256": "0a04ae6f4d4b9f891b0465cbe0f803947c45403723550b3b6e5cfdad419431a1",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/13000-13999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502984,
+      "sha256": "1c8e9fe4deb265a1d40ea28df75688082b16096bdd17aeb85ef59ba7490aa44b",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/14000-14999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502457,
+      "sha256": "28467bff33a3cb0ccbbbb9ac7c1b603d7e29ebce744dfcd9f2826350ca08e1b2",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/15000-15999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 504193,
+      "sha256": "e77cf5fb9d60bb4ea8a1c62dce93b160c14332171a7f2a429edecaa79a7765b2",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/16000-16999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502523,
+      "sha256": "4230e6202ac574b4ab3954c8678789b2088db4615ec957d2291c10fa81dad861",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/17000-17999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 501048,
+      "sha256": "45eaa2bd4d2a4cdbe2893bf4e445f1874e0d4de5184763f21cb6599ccc7c7143",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/18000-18999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502166,
+      "sha256": "2819476821822f275bfcf3c0d1bc4c9ddd818c32f52f9f1a9eef434f03f2c4fc",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/19000-19999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 504649,
+      "sha256": "5b5f77733b9989a68ede5a8f2c19adff9b45250f36723fc218c217785b7c5a6e",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/20000-20999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502483,
+      "sha256": "866c857efd1aca6bb3c6f5b23d3716f968dd61b7bad4f7d036fae72950422042",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/21000-21999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502084,
+      "sha256": "e4a88839e74878e5d6169209591e24b08f34c0da7504d309666c2afbf0f7ea4d",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/22000-22999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 501766,
+      "sha256": "9479752641ee397f7ba311d4904687179c5969b98593c9784499b06a81555c59",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/23000-23999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502832,
+      "sha256": "7dfedc1a52670ba4060f6fd7e8da9a5361bfdf5f53e3c58fd80a1ce8c31418db",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/24000-24999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 502455,
+      "sha256": "45fb92079d16ceaf53b662dd4898b3e5e574554e70a5955ba55484aae5cb1770",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/mooncat-renders/shards/25000-25439.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 220321,
+      "sha256": "8e2a5b1b43e2764ae3102c627262d3cc718b606475b95c44568a292dacd28bf5",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/generate-mooncat-renders.py",
+      "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-renders.py"
+      ],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "data/mooncat-svg-internals.json",
       "fileRole": "canonical-data",
       "topics": [
@@ -2505,7 +3346,7 @@
         "curated"
       ],
       "sizeBytes": 63095,
-      "sha256": "bdc3a96192d439d4cf435e11b6c47530492d5b5383be20ec6c50f5de44df424b",
+      "sha256": "aec445e897fbefcc8bfccb59a7fbba82cd1977fcf26ad1d2a8f49db34e8b561b",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -3271,6 +4112,31 @@
       "directAgentLoadRecommended": true
     },
     {
+      "path": "docs/mooncat-renders.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 4078,
+      "sha256": "4995f02e0360f6a74b0827276427e5c74bc142f2d2a42deb5d4e155beed00a76",
+      "agentRoutes": [
+        "render-static-mooncat"
+      ],
+      "taskRecipes": [
+        "decode-static-mooncat-render"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
       "path": "docs/mooncat-svgs.md",
       "fileRole": "documentation",
       "topics": [
@@ -3959,8 +4825,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 11439,
-      "sha256": "2b63b599ce2cd34939479adbae16d9f77c717c4ac5b8629c1c48f9efcb66014d",
+      "sizeBytes": 11547,
+      "sha256": "f015d1f221ed7f4f603172473efa26f228408403d610a06cbe0a89478bfe98a6",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4057,8 +4923,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 16813,
-      "sha256": "c04d6c3b0d535a9392716e431316af592b346417c09d8c4ef7a84860eead8780",
+      "sizeBytes": 17833,
+      "sha256": "75a22034dad5193358db7214416231c8da5780f8c931a815c9b5b7a6c05708da",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4144,6 +5010,28 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "scripts/generate-mooncat-renders.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 2266,
+      "sha256": "7398b235d63a5ba0996afad9b8e7d52375b9ea78ca4ec5b9ea896180302b0ddf",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "scripts/generate-visual-traits.py",
       "fileRole": "generator",
       "topics": [
@@ -4208,6 +5096,28 @@
       ],
       "sizeBytes": 32951,
       "sha256": "ad5e16fd69c8182ed1ef5f0bf27e39d9a898998d1882c35e1e7b16bd7f803c10",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/mooncat_render_lib.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 17541,
+      "sha256": "770a9cc719e0555fd959df5144ea55484f0cfcc0a6862d959599cda6e90c2401",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4587,6 +5497,32 @@
       ],
       "taskRecipes": [
         "query-mooncat-population"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-mooncat-renders.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 11295,
+      "sha256": "92ccb765d92ca80465110daa7024ee1090a1800ef3fe8785ddfd50b767bc0363",
+      "agentRoutes": [
+        "render-static-mooncat"
+      ],
+      "taskRecipes": [
+        "decode-static-mooncat-render"
       ],
       "generatorCommand": null,
       "checkCommand": null,

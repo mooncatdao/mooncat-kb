@@ -18,7 +18,7 @@
   "tasks": [
     {
       "key": "review-upstream-snapshot-provenance",
-      "description": "Check local hashes, origin/revision evidence, freshness, licenses, copy status, and dependent files for important checked-in upstream/reference snapshots.",
+      "description": "Check hashes, revision, freshness, licenses, copy status, and dependencies for checked-in reference snapshots.",
       "primaryFiles": [
         "data/upstream-snapshot-manifest.json",
         "docs/upstream-snapshots.md"
@@ -195,7 +195,7 @@
       ],
       "notes": [
         "Use scripts/query-mooncats.py for exact catId/rescueOrder lookup and multi-field filters without loading raw sources or every shard into agent context.",
-        "Treat color labels as derived display metadata, rescue buckets as canonical-derived, and character categories as community-curated noncanonical classifications.",
+        "Treat color labels as derived metadata, rescue buckets as canonical-derived, and character categories as community-curated.",
         "Finalized names are pinned monotonic enrichment at the manifest revision; provisional/live naming and newer chain state are excluded.",
         "Use the validation report through the manifest for exhaustive mismatch counts; do not silently normalize LibMoonCat/source disagreements."
       ]
@@ -263,6 +263,20 @@
       "notes": [
         "Endpoint image response types and query parameters live in data/api-endpoints.json.",
         "Parser, library, or on-chain SVG behavior should be checked through optional context before making implementation claims."
+      ]
+    },
+    {
+      "key": "render-static-mooncat",
+      "description": "Decode static parser renders.",
+      "primaryFiles": [
+        "data/mooncat-renders/manifest.json",
+        "docs/mooncat-renders.md"
+      ],
+      "optionalFiles": [
+        "scripts/validate-mooncat-renders.py"
+      ],
+      "notes": [
+        "Select shard/order; verify bytes5 Cat ID; decode exactly width * height palette indexes from packed high/low nibbles in X-major order (cells)."
       ]
     },
     {
@@ -399,7 +413,7 @@
       "notes": [
         "Use this route for searchSeed, seed candidate generation, keccak valid-hash checks, catId derivation, and rescueCat transaction-boundary context.",
         "The snippet and widget are wallet-free and network-free; do not add private-key, provider, account, gas, or transaction-submission code.",
-        "The widget renders found catIds with mooncatparser.js, but do not infer traits, ownership, rescue-order membership, current availability, or chain state from rescue mining alone."
+        "The widget renders found catIds with mooncatparser.js; rescue mining does not prove traits, ownership, membership, availability, or chain state."
       ]
     },
     {
@@ -425,7 +439,7 @@
     },
     {
       "key": "review-mooncat-accessory-system",
-      "description": "Start with the thin MoonCat accessory-system overview, then follow the separate lifecycle and rendering reviews for exact behavior, identifier boundaries, and evidence limits.",
+      "description": "Start with the MoonCat accessory overview, then follow lifecycle and rendering reviews for behavior and evidence limits.",
       "primaryFiles": [
         "data/mooncat-accessory-system.json",
         "docs/mooncat-accessory-system.md"
@@ -484,7 +498,7 @@
     },
     {
       "key": "trace-chainstation-implementation",
-      "description": "Trace a reviewed ChainStation Web behavior from route or UI surface through selected local data, helper, API, wallet, renderer, or configuration evidence without treating the pinned source as live state.",
+      "description": "Trace reviewed ChainStation Web behavior through selected local data, helper, API, wallet, renderer, or configuration evidence.",
       "primaryFiles": [
         "data/chainstation-surfaces.json",
         "docs/chainstation-surfaces.md"
@@ -524,7 +538,7 @@
     },
     {
       "key": "trace-genesis-cats",
-      "description": "Trace a bounded Genesis MoonCat history question from contract formula and release groups through released rescue-order membership and the March 2021 historical evidence.",
+      "description": "Trace Genesis MoonCat history from contract formula, release groups, rescue membership, and March 2021 evidence.",
       "primaryFiles": [
         "data/genesis-cats.json",
         "docs/genesis-cats.md"
@@ -537,8 +551,8 @@
       ],
       "notes": [
         "Keep contract-derived IDs, released membership, historical vote accounts, and live/current state as separate evidence classes.",
-        "Use the six released groups for exact mapping; do not turn the remaining 160 derivable indices into claimed tokens, rescue-order entries, adoptions, or owners.",
-        "The official outcome supports permanent locking, while the technical locking mechanism remains unresolved without direct post-vote evidence."
+        "Use six released groups for mapping; do not turn the remaining 160 derivable indices into tokens, rescue entries, adoptions, or owners.",
+        "The outcome supports permanent locking; the technical mechanism remains unresolved without direct post-vote evidence."
       ]
     },
     {
@@ -583,7 +597,7 @@
         "Use finalized data/events.jsonl as canonical finalized CatNamed history; finalized current-name artifacts are derived from it.",
         "Use the historical data/mooncat-names.json snapshot only for its deterministic source-comparison boundary, not as the preferred maintained finalized source.",
         "Do not treat pending or *-live artifacts as canonical state, and do not embed them in a canonical population artifact.",
-        "A changed finalized nonblank name is an invariant violation requiring investigation; blank events remain in history but do not populate current-name state.",
+        "A changed finalized nonblank name is an invariant violation; blank events remain history but do not populate current-name state.",
         "Stop only when a request requires a newer-than-reviewed revision or live state; protocol semantics still route to review-mooncat-naming."
       ]
     },
@@ -621,7 +635,7 @@
       ],
       "notes": [
         "Follow abiArtifact.path only when abiStatus is exact-local-abi-extracted and verify its recorded hash/provenance.",
-        "All eight core contracts and adjacent WMCR have exact local ABI artifacts; CatNamer remains semantic-only without a complete ABI claim.",
+        "Eight core contracts and adjacent WMCR have exact local ABIs; CatNamer remains semantic-only without a complete ABI claim.",
         "ABI availability does not establish deployed bytecode equivalence, deployment block, current state, or event-history completeness."
       ]
     },
@@ -644,12 +658,12 @@
       "notes": [
         "Use the canonical signature and ordered indexed flags exactly; topic0 is Ethereum Keccak-256, not NIST SHA3-256.",
         "Keep generic ERC events and their token IDs contract-scoped instead of treating every tokenId as rescueOrder.",
-        "CatNamed event presence does not imply current name state because an all-zero bytes32 may emit without consuming storage."
+        "CatNamed does not imply current name state; an all-zero bytes32 may emit without consuming storage."
       ]
     },
     {
       "key": "plan-contract-event-indexer",
-      "description": "Plan a zero-network MoonCat event indexer using exact local event references, safe identifier interpretation, corroborating reads, and explicit start/finality limits.",
+      "description": "Plan a zero-network MoonCat event indexer using local events, safe identifiers, corroborating reads, and finality limits.",
       "primaryFiles": [
         "data/event-indexer-recipes.json",
         "data/event-registry.json",
@@ -667,7 +681,7 @@
       "notes": [
         "Recipes are guidance over exact events, not live scanners, databases, event datasets, or complete-history claims.",
         "Use only verified start/deployment fields; unknown deployment blocks remain unknown.",
-        "Treat logs as provisional until finality, checkpoint by block plus transactionHash/logIndex identity, and corroborate mutable current state separately."
+        "Treat logs as provisional until finality; checkpoint by block plus transactionHash/logIndex and corroborate mutable state separately."
       ]
     }
   ]

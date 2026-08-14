@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "encodingVersion": 1,
+  "updated": "2026-08-14",
+  "status": "generated-full-population-parser-render-artifact",
+  "scope": "Deterministic parser-derived unit-cell render data for all 25,440 MoonCats; renderer-neutral and zero-network, but not on-chain SVG, accessory, ownership, or live-state evidence.",
+  "rowCount": 25440,
+  "primaryKey": {
+    "field": "catId",
+    "identifierKind": "mooncatIdBytes5"
+  },
+  "secondaryLookup": {
+    "field": "rescueOrder",
+    "identifierKind": "apiOriginalRescueIndex",
+    "method": "source array alignment; never arithmetic Cat ID conversion"
+  },
+  "layout": {
+    "kind": "fixed-rescue-order-shards",
+    "shardSize": 1000,
+    "shardCount": 26,
+    "shards": [
+      {
+        "path": "data/mooncat-renders/shards/00000-00999.json",
+        "startRescueOrder": 0,
+        "endRescueOrder": 999,
+        "rowCount": 1000,
+        "sha256": "85f4e5b03080194ec655782c85825a650441732ee80d34053b598d7ed3a8dfde",
+        "bytes": 499446
+      },
+      {
+        "path": "data/mooncat-renders/shards/01000-01999.json",
+        "startRescueOrder": 1000,
+        "endRescueOrder": 1999,
+        "rowCount": 1000,
+        "sha256": "38adf9f63421df1e33a4a26dcbb61809e6d60ba1d7b8f7fa3e86f95f3db36db7",
+        "bytes": 499057
+      },
+      {
+        "path": "data/mooncat-renders/shards/02000-02999.json",
+        "startRescueOrder": 2000,
+        "endRescueOrder": 2999,
+        "rowCount": 1000,
+        "sha256": "50495516c541470f71768043b93613240292572905f8136cea4a5ccf315e7e66",
+        "bytes": 500916
+      },
+      {
+        "path": "data/mooncat-renders/shards/03000-03999.json",
+        "startRescueOrder": 3000,
+        "endRescueOrder": 3999,
+        "rowCount": 1000,
+        "sha256": "ff6ed2a1385ed20173bb7282c87be2a7272cf43a7294e45f2861ba7b295f9bd9",
+        "bytes": 501021
+      },
+      {
+        "path": "data/mooncat-renders/shards/04000-04999.json",
+        "startRescueOrder": 4000,
+        "endRescueOrder": 4999,
+        "rowCount": 1000,
+        "sha256": "e40937ec2c7c4e7410c21631ad43b178f494840830671f0043eb2b44e43f8cbe",
+        "bytes": 501898
+      },
+      {
+        "path": "data/mooncat-renders/shards/05000-05999.json",
+        "startRescueOrder": 5000,
+        "endRescueOrder": 5999,
+        "rowCount": 1000,
+        "sha256": "8b10a895eee6d66c0d6b268c41c6eed0f16dc93532060c4bcba7d5e7d60de2c5",
+        "bytes": 501872
+      },
+      {
+        "path": "data/mooncat-renders/shards/06000-06999.json",
+        "startRescueOrder": 6000,
+        "endRescueOrder": 6999,
+        "rowCount": 1000,
+        "sha256": "089abbeea113443568ba6c1a52f94dc306db85286221d72f672e20149a9feb27",
+        "bytes": 500185
+      },
+      {
+        "path": "data/mooncat-renders/shards/07000-07999.json",
+        "startRescueOrder": 7000,
+        "endRescueOrder": 7999,
+        "rowCount": 1000,
+        "sha256": "8a09394adb9022f9ce45a35ded9d9511b566b1eb6bb263f011536b286e382f7c",
+        "bytes": 503071
+      },
+      {
+        "path": "data/mooncat-renders/shards/08000-08999.json",
+        "startRescueOrder": 8000,
+        "endRescueOrder": 8999,
+        "rowCount": 1000,
+        "sha256": "9bfd3b69025a1f57440e9739c3c74fe0a6349942db26106ba85b0f87111fe9e0",
+        "bytes": 501474
+      },
+      {
+        "path": "data/mooncat-renders/shards/09000-09999.json",
+        "startRescueOrder": 9000,
+        "endRescueOrder": 9999,
+        "rowCount": 1000,
+        "sha256": "d41b666deba33985fce3b8570db7c1c8f76febcac39b8851b7479dca21425e3a",
+        "bytes": 502530
+      },
+      {
+        "path": "data/mooncat-renders/shards/10000-10999.json",
+        "startRescueOrder": 10000,
+        "endRescueOrder": 10999,
+        "rowCount": 1000,
+        "sha256": "32c9e8a6e2583fb12c4bae8ba04aabad1e73942f94ee642ada51d24c8ec8bf07",
+        "bytes": 500841
+      },
+      {
+        "path": "data/mooncat-renders/shards/11000-11999.json",
+        "startRescueOrder": 11000,
+        "endRescueOrder": 11999,
+        "rowCount": 1000,
+        "sha256": "13cac866467202c4edc87519e171f891f25b417d7c9ef148b69bfe12075898f4",
+        "bytes": 502429
+      },
+      {
+        "path": "data/mooncat-renders/shards/12000-12999.json",
+        "startRescueOrder": 12000,
+        "endRescueOrder": 12999,
+        "rowCount": 1000,
+        "sha256": "0a04ae6f4d4b9f891b0465cbe0f803947c45403723550b3b6e5cfdad419431a1",
+        "bytes": 500879
+      },
+      {
+        "path": "data/mooncat-renders/shards/13000-13999.json",
+        "startRescueOrder": 13000,
+        "endRescueOrder": 13999,
+        "rowCount": 1000,
+        "sha256": "1c8e9fe4deb265a1d40ea28df75688082b16096bdd17aeb85ef59ba7490aa44b",
+        "bytes": 502984
+      },
+      {
+        "path": "data/mooncat-renders/shards/14000-14999.json",
+        "startRescueOrder": 14000,
+        "endRescueOrder": 14999,
+        "rowCount": 1000,
+        "sha256": "28467bff33a3cb0ccbbbb9ac7c1b603d7e29ebce744dfcd9f2826350ca08e1b2",
+        "bytes": 502457
+      },
+      {
+        "path": "data/mooncat-renders/shards/15000-15999.json",
+        "startRescueOrder": 15000,
+        "endRescueOrder": 15999,
+        "rowCount": 1000,
+        "sha256": "e77cf5fb9d60bb4ea8a1c62dce93b160c14332171a7f2a429edecaa79a7765b2",
+        "bytes": 504193
+      },
+      {
+        "path": "data/mooncat-renders/shards/16000-16999.json",
+        "startRescueOrder": 16000,
+        "endRescueOrder": 16999,
+        "rowCount": 1000,
+        "sha256": "4230e6202ac574b4ab3954c8678789b2088db4615ec957d2291c10fa81dad861",
+        "bytes": 502523
+      },
+      {
+        "path": "data/mooncat-renders/shards/17000-17999.json",
+        "startRescueOrder": 17000,
+        "endRescueOrder": 17999,
+        "rowCount": 1000,
+        "sha256": "45eaa2bd4d2a4cdbe2893bf4e445f1874e0d4de5184763f21cb6599ccc7c7143",
+        "bytes": 501048
+      },
+      {
+        "path": "data/mooncat-renders/shards/18000-18999.json",
+        "startRescueOrder": 18000,
+        "endRescueOrder": 18999,
+        "rowCount": 1000,
+        "sha256": "2819476821822f275bfcf3c0d1bc4c9ddd818c32f52f9f1a9eef434f03f2c4fc",
+        "bytes": 502166
+      },
+      {
+        "path": "data/mooncat-renders/shards/19000-19999.json",
+        "startRescueOrder": 19000,
+        "endRescueOrder": 19999,
+        "rowCount": 1000,
+        "sha256": "5b5f77733b9989a68ede5a8f2c19adff9b45250f36723fc218c217785b7c5a6e",
+        "bytes": 504649
+      },
+      {
+        "path": "data/mooncat-renders/shards/20000-20999.json",
+        "startRescueOrder": 20000,
+        "endRescueOrder": 20999,
+        "rowCount": 1000,
+        "sha256": "866c857efd1aca6bb3c6f5b23d3716f968dd61b7bad4f7d036fae72950422042",
+        "bytes": 502483
+      },
+      {
+        "path": "data/mooncat-renders/shards/21000-21999.json",
+        "startRescueOrder": 21000,
+        "endRescueOrder": 21999,
+        "rowCount": 1000,
+        "sha256": "e4a88839e74878e5d6169209591e24b08f34c0da7504d309666c2afbf0f7ea4d",
+        "bytes": 502084
+      },
+      {
+        "path": "data/mooncat-renders/shards/22000-22999.json",
+        "startRescueOrder": 22000,
+        "endRescueOrder": 22999,
+        "rowCount": 1000,
+        "sha256": "9479752641ee397f7ba311d4904687179c5969b98593c9784499b06a81555c59",
+        "bytes": 501766
+      },
+      {
+        "path": "data/mooncat-renders/shards/23000-23999.json",
+        "startRescueOrder": 23000,
+        "endRescueOrder": 23999,
+        "rowCount": 1000,
+        "sha256": "7dfedc1a52670ba4060f6fd7e8da9a5361bfdf5f53e3c58fd80a1ce8c31418db",
+        "bytes": 502832
+      },
+      {
+        "path": "data/mooncat-renders/shards/24000-24999.json",
+        "startRescueOrder": 24000,
+        "endRescueOrder": 24999,
+        "rowCount": 1000,
+        "sha256": "45fb92079d16ceaf53b662dd4898b3e5e574554e70a5955ba55484aae5cb1770",
+        "bytes": 502455
+      },
+      {
+        "path": "data/mooncat-renders/shards/25000-25439.json",
+        "startRescueOrder": 25000,
+        "endRescueOrder": 25439,
+        "rowCount": 440,
+        "sha256": "8e2a5b1b43e2764ae3102c627262d3cc718b606475b95c44568a292dacd28bf5",
+        "bytes": 220321
+      }
+    ]
+  },
+  "rowSchema": {
+    "fields": [
+      "catId",
+      "rescueOrder",
+      "width",
+      "height",
+      "palette",
+      "pixels"
+    ],
+    "logicalDimensions": "width by height unit cells",
+    "palette": "Index 0 is JSON null for a transparent cell; remaining entries are exact parser-returned CSS hex colors in first-encounter order.",
+    "pixels": "Base64 text containing two 4-bit palette indexes per byte."
+  },
+  "coordinateSystem": {
+    "origin": "top-left",
+    "xDirection": "right",
+    "yDirection": "down",
+    "parserOuterIndex": "x/column",
+    "parserInnerIndex": "y/row",
+    "flattenOrder": "x-major; offset = x * height + y",
+    "svgUnitCellMapping": "For each nonzero palette index, emit a 1x1 cell at x=<outer index>, y=<inner index>; do not transpose the matrix."
+  },
+  "encoding": {
+    "id": "palette-index-nibble-base64-v1",
+    "paletteIndexBits": 4,
+    "byteOrder": "first cell in high nibble, second cell in low nibble",
+    "oddCellPadding": "unused final low nibble is zero",
+    "transparentPaletteIndex": 0,
+    "maximumPaletteEntries": 16
+  },
+  "observed": {
+    "dimensions": [
+      {
+        "width": 17,
+        "height": 22,
+        "rowCount": 6711
+      },
+      {
+        "width": 20,
+        "height": 14,
+        "rowCount": 6063
+      },
+      {
+        "width": 20,
+        "height": 21,
+        "rowCount": 6491
+      },
+      {
+        "width": 21,
+        "height": 17,
+        "rowCount": 6175
+      }
+    ],
+    "paletteSizes": [
+      {
+        "paletteEntryCount": 5,
+        "rowCount": 6511
+      },
+      {
+        "paletteEntryCount": 6,
+        "rowCount": 18929
+      }
+    ],
+    "logicalCellCount": 9138249,
+    "nontransparentCellCount": 6378672,
+    "packedPixelBytes": 4572212,
+    "base64PixelCharacters": 6130496
+  },
+  "generatedData": {
+    "shardBytesExcludingManifest": 12767580,
+    "averageShardBytesPerCat": 501.87,
+    "looseImageFileCount": 0
+  },
+  "sourceFiles": [
+    {
+      "path": "references/upstream/mooncatrescue/mooncat_traits.json",
+      "sha256": "18dcb262c13e316c61051b59c1944a3265a163aed05ed429f48874caaf38abd8",
+      "bytes": 6615184,
+      "role": "source-backed bytes5 Cat ID and rescue-order sequence"
+    },
+    {
+      "path": "references/upstream/mooncatrescue/mooncatparser.js",
+      "sha256": "39dffc7894473b631cde4037d9f174844cfc78777134511b6b8ef44105928d59",
+      "bytes": 52238,
+      "role": "exact parser-derived palettes and unit-cell matrices"
+    }
+  ],
+  "sourceRefs": [
+    "mooncatrescue-mooncat-traits-json",
+    "mooncatrescue-mooncatparser-js"
+  ],
+  "generation": {
+    "script": "scripts/generate-mooncat-renders.py",
+    "command": "python scripts/generate-mooncat-renders.py",
+    "checkCommand": "python scripts/generate-mooncat-renders.py --check",
+    "validator": "python scripts/validate-mooncat-renders.py",
+    "networkDependency": "none"
+  },
+  "validation": {
+    "scope": "All rows are decoded and checked for identity, order, dimensions, palette indexes, nonempty output, shard integrity, source hashes, deterministic regeneration, and direct representative parser equality.",
+    "representativeCaseSource": "data/materialization-parity-cases.json",
+    "orientationRequirement": "At least one non-square representative matrix must match parser[x][y] directly and expose an asymmetric x/y witness so a transpose cannot pass."
+  },
+  "intendedConsumers": [
+    "Static local image/profile tools",
+    "mckb-library SVG reconstruction at integer or CSS scale"
+  ],
+  "limitations": [
+    "Parser-derived colors and cells are not proof of current MoonCatSVGs serialization or on-chain palette parity.",
+    "No accessory definitions, worn state, ownership, balances, markets, API responses, or live chain state are included.",
+    "The artifact does not make a licensing determination for mooncatparser.js or parser-derived visual output.",
+    "SVG and other presentation output belong to downstream consumers and are not stored here."
+  ],
+  "license": {
+    "status": "no-parser-or-derived-output-license-determination",
+    "note": "Existing parser snapshot provenance is recorded; no upstream parser or generated visual-output license claim is made."
+  }
+}

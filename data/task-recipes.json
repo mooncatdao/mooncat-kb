@@ -305,6 +305,32 @@
       ]
     },
     {
+      "key": "decode-static-mooncat-render",
+      "purpose": "Decode static MoonCat parser renders.",
+      "loadOrder": [
+        "data/mooncat-renders/manifest.json",
+        "docs/mooncat-renders.md"
+      ],
+      "optionalFiles": [
+        "scripts/validate-mooncat-renders.py"
+      ],
+      "steps": [
+        "Require explicit rescueOrder/bytes5 CatID; select fixed shard and verify both without conversion.",
+        "Base64-decode pixels, read high/low nibbles, map palette, reconstruct matrix[x][y] at x * height + y.",
+        "Preserve X-major SVG/UI; run generator --check and validator."
+      ],
+      "outputs": [
+        "verified shard/identifiers",
+        "palette indexes or unit-cell output"
+      ],
+      "guardrails": [
+        "Parser cells are not on-chain/accessory/ownership/live-state/licensing proof; do not transpose or store SVG/PNG."
+      ],
+      "stopConditions": [
+        "Stop if shard, CatID, sha, len, nibbles, or axis fails or evidence unsupported."
+      ]
+    },
+    {
       "key": "use-api-examples",
       "purpose": "Use checked and manifest-derived examples to construct small API requests without treating examples as complete API documentation.",
       "loadOrder": [
@@ -376,7 +402,7 @@
     },
     {
       "key": "understand-rescue-mining",
-      "purpose": "Explain or reuse the original browser-side normal MoonCat rescue/mining seed search, snippet, or embeddable widget without adding wallet or transaction code.",
+      "purpose": "Explain or reuse browser-side normal MoonCat rescue/mining search without wallet or transaction code.",
       "loadOrder": [
         "data/rescue-mining.json",
         "data/protocol-constants.json",
@@ -398,8 +424,8 @@
         "Use data/rescue-mining.json for the reviewed algorithm, reviewed source paths, snippet path, widget path, and limitations.",
         "Cross-check normal-cat hash and catId rules against data/protocol-constants.json.",
         "Use docs/rescue-mining.md when a human-readable explanation is needed.",
-        "Use examples/rescue-mining.js only as a wallet-free seed-search snippet; it intentionally stops before rescueCat transaction submission.",
-        "Use examples/rescue-mining-widget/ only as an embeddable wallet-free UI example; it renders found catIds with mooncatparser.js but does not add trait, ownership, availability, or chain-state claims.",
+        "Use examples/rescue-mining.js only as a wallet-free seed-search snippet; it stops before rescueCat submission.",
+        "Use the widget only as a wallet-free UI example; it renders catIds but adds no trait, ownership, availability, or chain-state claims.",
         "Load contract files only when the task needs the original contract identity or transaction-boundary context."
       ],
       "outputs": [
@@ -771,7 +797,7 @@
     },
     {
       "key": "trace-chainstation-implementation",
-      "purpose": "Trace a bounded ChainStation implementation surface from UI or route through its selected helper, local data, API/configuration boundary, and any directly relevant ADR without loading the full application snapshot.",
+      "purpose": "Trace a bounded ChainStation surface through selected UI, helper, data, API/config, and ADR evidence.",
       "loadOrder": [
         "data/chainstation-surfaces.json",
         "docs/chainstation-surfaces.md"
@@ -786,10 +812,10 @@
         "data/sources.json"
       ],
       "steps": [
-        "Choose the narrowest stable surface ID in data/chainstation-surfaces.json and read its dataStatus, executionRole, evidence paths, dependencies, and limitations.",
-        "Trace only the named route/UI file through copied helpers, route adapters, configuration, and selected local data; do not load the entire snapshot by default.",
-        "When an ADR is relevant, load its pinned intent record separately and state that it does not establish implementation, deployment, or current behavior.",
-        "Classify the requested value or behavior as local data, generated/configured input, API-derived runtime data, contract-derived runtime data, or UI-only behavior before answering.",
+        "Choose the narrowest stable surface ID and read its status, role, evidence paths, dependencies, and limits.",
+        "Trace only the named route/UI file through helpers, adapters, config, and selected local data.",
+        "Load a relevant ADR separately and state that it does not establish implementation, deployment, or current behavior.",
+        "Classify the value as local, generated/configured, API-derived, contract-derived, or UI-only before answering.",
         "Run the ChainStation and upstream-snapshot validators after changing this audit or its evidence relationships."
       ],
       "outputs": [
@@ -851,7 +877,7 @@
     },
     {
       "key": "trace-genesis-cats",
-      "purpose": "Answer a bounded Genesis population, identifier, release, vote, or payment-mechanics question without promoting historical evidence into current state.",
+      "purpose": "Answer bounded Genesis population, release, vote, or payment questions without promoting history into current state.",
       "loadOrder": [
         "data/genesis-cats.json",
         "docs/genesis-cats.md"
@@ -863,10 +889,10 @@
         "data/sources.json"
       ],
       "steps": [
-        "Classify the question as contract formula, deterministic released-member mapping, historical vote record, payment behavior, or current-state request.",
-        "For a released member, align its Genesis index with the listed group Cat ID and rescue order, then cross-check the existing bucket only when the identifier boundary matters.",
-        "For an unreleased index, report only contract-planned/derivable and permanently-locked-unreleased status; do not invent a rescue order, adoption, token, or owner.",
-        "Separate the pre-vote private-key-destruction proposal from the post-vote official outcome, and preserve the unresolved technical mechanism.",
+        "Classify the question as formula, released mapping, vote record, payment, or current state.",
+        "For a released member, align Genesis index with listed group Cat ID/rescue order and cross-check the bucket when needed.",
+        "For an unreleased index, report only planned/derivable and permanently locked status; do not invent an order, token, or owner.",
+        "Separate the pre-vote key-destruction proposal from the official outcome and preserve the unresolved mechanism.",
         "Run the dedicated Genesis validator, then refresh route/context and manifest checks when this reconstruction changes."
       ],
       "outputs": [
@@ -888,7 +914,7 @@
     },
     {
       "key": "review-mooncat-naming",
-      "purpose": "Answer a bounded original-contract naming question, design a safe event consumer, or regenerate the local naming snapshot without treating static evidence as current chain state.",
+      "purpose": "Answer bounded original-contract naming questions or regenerate the local naming snapshot without treating static evidence as current state.",
       "loadOrder": [
         "data/mooncat-naming.json",
         "docs/mooncat-naming.md"
@@ -904,9 +930,9 @@
         "scripts/validate-mooncat-names.py"
       ],
       "steps": [
-        "Identify whether the question concerns original storage semantics, an event record, snapshot data, display/moderation, CatNamer context, or current live state.",
+        "Classify the question as storage semantics, event, snapshot, display/moderation, CatNamer, or live state.",
     "For events, preserve raw bytes32 first; use transactionHash plus logIndex identity and blockNumber/transactionIndex/logIndex ordering.",
-    "For optional API ingestion, load data/api-endpoints.json and use only its documented GET /events contract, event, mooncat, limit, and start_after request vocabulary; do not infer live availability, complete coverage, ordering, response semantics, or current chain state.",
+        "For optional API ingestion, use only documented GET /events vocabulary; do not infer availability, coverage, ordering, response semantics, or current state.",
         "Classify all-zero name events as no persistent storage effect and do not infer a current name from event presence.",
         "Use a separately documented lookup before enriching bytes5 catId to rescueOrder.",
         "For an authorized snapshot refresh, run the generator and dedicated validator; do not hand-edit records or upstream reference inputs.",
@@ -929,7 +955,7 @@
     },
     {
       "key": "use-maintained-name-index",
-      "purpose": "Answer a revision-bounded maintained finalized naming question or plan a future generated population enrichment without using provisional/live data as canonical.",
+      "purpose": "Answer revision-bounded finalized naming questions or plan population enrichment without using provisional/live data as canonical.",
       "loadOrder": [
         "data/name-index-integration.json",
         "docs/name-index-integration.md"
@@ -945,7 +971,7 @@
         "Select the matching finalized name-index artifact; use data/events.jsonl for canonical finalized history and understand that current-name files are derived from it.",
         "Keep nameRaw, status, and text distinct; interpret namer only as the immediate transaction sender.",
         "Exclude pending and *-live artifacts from canonical output and distinguish the historical mooncat-names.json snapshot from maintained artifacts.",
-        "For a future population build, record the exact name-index revision and finalized metadata/artifact, regenerate deliberately as named population grows, and investigate any changed finalized nonblank name."
+        "For future population enrichment, record the name-index revision, regenerate deliberately, and investigate changed finalized nonblank names."
       ],
       "outputs": [
         "selected finalized artifact and identifier form",
@@ -1073,7 +1099,7 @@
     },
     {
       "key": "plan-contract-event-indexer",
-      "purpose": "Plan a reorg-safe downstream event consumer from exact local events and bounded recipe guidance without implementing network synchronization.",
+      "purpose": "Plan a reorg-safe downstream event consumer from exact local events without implementing network synchronization.",
       "loadOrder": [
         "data/event-indexer-recipes.json",
         "data/event-registry.json",
