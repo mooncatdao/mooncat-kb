@@ -100,9 +100,27 @@
     },
     "releaseMechanism": {
       "function": "addGenesisCatGroup",
+      "signature": "addGenesisCatGroup()",
       "groupSize": 16,
       "operator": "contract owner",
-      "behavior": "Creates the next group of Genesis identifiers and makes them available through adoption offers; this is distinct from normal rescue.",
+      "access": [
+        "onlyOwner",
+        "activeMode"
+      ],
+      "activeModeDefinition": "Modes.Live or Modes.Test",
+      "precondition": "remainingGenesisCats > 0",
+      "behavior": "Creates the next group of Genesis identifiers, inserts them into the shared rescue-order sequence, and makes them available through adoption offers; this is distinct from normal rescue.",
+      "priceFormula": "(17 - (remainingGenesisCats / 16)) * 300000000000000000 wei, evaluated before the 16-member loop",
+      "perCatStateTransition": [
+        "genesisCatIndex = 256 - remainingGenesisCats",
+        "genesisCatId = (bytes5(genesisCatIndex) << 24) | 0xff00000ca7",
+        "append genesisCatId at rescueOrder[rescueIndex] and increment rescueIndex",
+        "increment balanceOf[0x0]",
+        "decrement remainingGenesisCats",
+        "create open AdoptionOffer(true, genesisCatId, owner, price, 0x0)"
+      ],
+      "ownershipBoundary": "addGenesisCatGroup does not assign catOwners[genesisCatId] to the contract owner; the default zero-address owner remains until the adoption transfer assigns the adopter.",
+      "emittedEvent": "GenesisCatsAdded(bytes5[16])",
       "sourceRefs": [
         "ponderware-mooncatrescue-sol-raw",
         "origin-mooncatrescue-info"
