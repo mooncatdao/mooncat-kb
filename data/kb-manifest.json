@@ -735,6 +735,33 @@
         "python scripts/validate-visual-traits.py"
       ],
       "provenancePath": "data/mooncat-visual-traits.sample.json"
+    },
+    {
+      "path": "data/onchain-materialization/checkpoint.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/manifest.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/representative.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
     }
   ],
   "provenanceCoverage": {
@@ -776,9 +803,9 @@
       "sourceBackedEntryCount": 35
     },
     "generatedArtifacts": {
-      "registryEntryCount": 73,
-      "maintainedGeneratedEntryCount": 71,
-      "completeOwnershipEntryCount": 73,
+      "registryEntryCount": 76,
+      "maintainedGeneratedEntryCount": 74,
+      "completeOwnershipEntryCount": 76,
       "dynamicOutputExceptions": [
         "data/kb-audit-report.json"
       ]
@@ -786,7 +813,7 @@
     "boundary": "Coverage records checked-in evidence and deterministic ownership; it does not resolve missing upstream facts or establish live/current state."
   },
   "coverage": {
-    "maintainedFileCount": 206,
+    "maintainedFileCount": 213,
     "excludedFileCount": 74,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -895,8 +922,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5901,
-      "sha256": "10494d0a67ccc654f25c5610232d924e3960980207782a19019bf721cbc53285",
+      "sizeBytes": 6410,
+      "sha256": "7e0592616fdd5bdae98815fac63a568f9073ce68c7ff2433f0fa9b2df208c515",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -1160,7 +1187,7 @@
         "generated"
       ],
       "sizeBytes": 104929,
-      "sha256": "5b651a5df306abfa8371f7e2cd9c383c1a6c55153120970ffc26143ea03f543b",
+      "sha256": "b67a63cdd07f772d153ced06021fb783f7ce0c3940657a3e151883b0c043a655",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -1187,8 +1214,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 32220,
-      "sha256": "d40d8b300a62eb7d35a457faf28a07d91a1646120e93341ad72d5a8b3ebe029c",
+      "sizeBytes": 33987,
+      "sha256": "8f639fbea89189f99db4332d152c2728006a3223c559fa184853287a5c993825",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1511,12 +1538,14 @@
       "agentRoutes": [
         "look-up-contract-abi",
         "plan-contract-event-indexer",
-        "query-contract-events"
+        "query-contract-events",
+        "verify-pinned-onchain-materialization"
       ],
       "taskRecipes": [
         "look-up-contract-abi",
         "plan-contract-event-indexer",
-        "query-contract-events"
+        "query-contract-events",
+        "verify-pinned-onchain-materialization"
       ],
       "generatorCommand": "python scripts/extract-contract-abis.py",
       "checkCommand": "python scripts/extract-contract-abis.py --check",
@@ -1744,6 +1773,7 @@
         "trace-chainstation-implementation",
         "trace-genesis-cats",
         "verify-identifier-conversions",
+        "verify-pinned-onchain-materialization",
         "work-with-rescue-buckets"
       ],
       "taskRecipes": [
@@ -1764,7 +1794,8 @@
         "trace-mooncat-accessory-lifecycle",
         "use-api-examples",
         "use-libmooncat-helper-surfaces",
-        "verify-identifier-conversions"
+        "verify-identifier-conversions",
+        "verify-pinned-onchain-materialization"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -1832,8 +1863,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 55398,
-      "sha256": "03e7e51d1366b1bcf6df7e87bd8f10de9859524bf1ab7ae2ebf40a5a774dfe1c",
+      "sizeBytes": 57791,
+      "sha256": "ccae51cd35fbb8a755af6bc5a003c56893189d230351ee699c6bf4b39d38aa48",
       "agentRoutes": [
         "check-source-provenance",
         "review-factual-retrieval-benchmark",
@@ -1927,13 +1958,15 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 2704,
-      "sha256": "e97f0edb0ff7c9b02331d9fd804dc5afc4e4ac776ef71a7e6f0b7b31ffabac5f",
+      "sizeBytes": 4211,
+      "sha256": "365d0fd84cae7dd69123b181818b029b13aca0d0aac4aa769845bf71543dc88e",
       "agentRoutes": [
-        "verify-materialization-parity"
+        "verify-materialization-parity",
+        "verify-pinned-onchain-materialization"
       ],
       "taskRecipes": [
-        "verify-materialization-parity"
+        "verify-materialization-parity",
+        "verify-pinned-onchain-materialization"
       ],
       "generatorCommand": null,
       "checkCommand": null,
@@ -1979,12 +2012,14 @@
         "generated"
       ],
       "sizeBytes": 34131,
-      "sha256": "4e71e8f152fbe4931ba9ce8f76a0822fc0ba3d586ceaa851c16225abdb62c3d8",
+      "sha256": "c53a0f9818f6812acab6ce2066b7e47207aef2e6faaea265ac3028b2c643a2c6",
       "agentRoutes": [
-        "verify-materialization-parity"
+        "verify-materialization-parity",
+        "verify-pinned-onchain-materialization"
       ],
       "taskRecipes": [
-        "verify-materialization-parity"
+        "verify-materialization-parity",
+        "verify-pinned-onchain-materialization"
       ],
       "generatorCommand": "python scripts/generate-materialization-parity.py",
       "checkCommand": "python scripts/generate-materialization-parity.py --check",
@@ -2153,11 +2188,13 @@
       "sizeBytes": 13762,
       "sha256": "c7b8cfe57abaaaec5972c1070a90b33fe349b31c3a5e18fe96e065142b1a7e14",
       "agentRoutes": [
-        "query-mooncat-population"
+        "query-mooncat-population",
+        "verify-pinned-onchain-materialization"
       ],
       "taskRecipes": [
         "fetch-traits-safely",
-        "query-mooncat-population"
+        "query-mooncat-population",
+        "verify-pinned-onchain-materialization"
       ],
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
@@ -2858,10 +2895,12 @@
       "sizeBytes": 12327,
       "sha256": "2989840652cbd41b7521a7391cad3921c03a2b67756717a1dd7ae4d714a08d2a",
       "agentRoutes": [
-        "render-static-mooncat"
+        "render-static-mooncat",
+        "verify-pinned-onchain-materialization"
       ],
       "taskRecipes": [
-        "decode-static-mooncat-render"
+        "decode-static-mooncat-render",
+        "verify-pinned-onchain-materialization"
       ],
       "generatorCommand": "python scripts/generate-mooncat-renders.py",
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
@@ -3635,6 +3674,82 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "data/onchain-materialization/checkpoint.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 2182,
+      "sha256": "54cab3ae4fc8a817f7b454611619155d7e7cea3440fc6f9516b6b467e7ffed4e",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/manifest.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 25081,
+      "sha256": "8b25f2846a3ee3ffbdc57581f3bd43f782b6baf2dfa1cce25842d883dd83709b",
+      "agentRoutes": [
+        "verify-pinned-onchain-materialization"
+      ],
+      "taskRecipes": [
+        "verify-pinned-onchain-materialization"
+      ],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "data/onchain-materialization/representative.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 732451,
+      "sha256": "9849dc6995e9544a830d259ec4fedcd251200bdc9ac5a2277f711b4855ebc418",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "data/project-links.json",
       "fileRole": "canonical-data",
       "topics": [
@@ -3875,8 +3990,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 64565,
-      "sha256": "c2288505dabeb36753603307b75c7a67103f1c1ac5f8f0b4dd2e091434e7df67",
+      "sizeBytes": 68143,
+      "sha256": "3b6f9dbc1cb133bb0a6c60418269f232f16a461548e127f93a5870b9656937c2",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -4271,8 +4386,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 9081,
-      "sha256": "a0e93fafe2f79c0a866debcbdbb8cb9cd798b6076e233eeb648570063b53a412",
+      "sizeBytes": 10086,
+      "sha256": "38debb0b5acc88071523f138875071e219d0044e64c37875ea336735986a4172",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4421,8 +4536,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6424,
-      "sha256": "1b884ac32b4ade029296c65405f68f3b7633566069e55a1caebdd2ee2f15ec06",
+      "sizeBytes": 7192,
+      "sha256": "fa583cc9c550a64ae63b20e25406e303ff44ee85c758e56911d875ec88eedb06",
       "agentRoutes": [
         "check-source-provenance"
       ],
@@ -4472,10 +4587,11 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3041,
-      "sha256": "a9d56ca27e364224676ee9b8799ca6672ffc8c56bf4240c5e712be082ac70720",
+      "sizeBytes": 3562,
+      "sha256": "e606800a89acdca1d143269de78f226f93963e7a12d42ba45f0f64f7bd699d78",
       "agentRoutes": [
-        "verify-materialization-parity"
+        "verify-materialization-parity",
+        "verify-pinned-onchain-materialization"
       ],
       "taskRecipes": [
         "verify-materialization-parity"
@@ -4498,8 +4614,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 1521,
-      "sha256": "0ba35fc107d30355c2f9704659d0f364797ea5af48a0c97d72d014a28ffa1465",
+      "sizeBytes": 2102,
+      "sha256": "ca665913221809870d1e58912da3ab5c565406b8977ce72aec5b23b176b8bf61",
       "agentRoutes": [
         "verify-materialization-parity"
       ],
@@ -4716,11 +4832,12 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3975,
-      "sha256": "4045cbd66b9c6f8a9e4cb6ba5f801da8c66c48db01cecbff0c9dc3b46e47e786",
+      "sizeBytes": 4493,
+      "sha256": "00a6cb61cf3882b5c5605a53f9aa4fccec88bc648d28df510c2ef73809b03a6c",
       "agentRoutes": [
         "look-up-contracts",
-        "render-images"
+        "render-images",
+        "verify-pinned-onchain-materialization"
       ],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4808,6 +4925,32 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "docs/onchain-materialization.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 8815,
+      "sha256": "4181810157aea11ca153c5ea63c83bcad2c0bf2fc58c149a5b4d016dc4a35cd2",
+      "agentRoutes": [
+        "verify-pinned-onchain-materialization"
+      ],
+      "taskRecipes": [
+        "verify-pinned-onchain-materialization"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
       "path": "docs/overview.md",
       "fileRole": "documentation",
       "topics": [
@@ -4840,8 +4983,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 9091,
-      "sha256": "4e41b65728b4fabcbd60eac81a48651845e04454bd98f9a22b3c9c653163ae33",
+      "sizeBytes": 9764,
+      "sha256": "226244d6ccdc8a9999b161e7fbcc0efa2e41cc9337b0f8b084e0ccf78c52ec8a",
       "agentRoutes": [
         "review-kb-gaps"
       ],
@@ -5403,8 +5546,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2592,
-      "sha256": "5fcf13bf04845e75a6dfdc93c7d980aaf3005a17083c404b3bd10faddabf5fc2",
+      "sizeBytes": 2886,
+      "sha256": "61283528053fbd41596c0391ac92f73eabefc46fad409d2ab2d5c7d04136ee8d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -5449,8 +5592,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 11969,
-      "sha256": "963fe83996d58ac3f552587b09b17a0eba9caa517290bc865952574797b167af",
+      "sizeBytes": 12043,
+      "sha256": "95253f3722cf86b5c45eb43eb878ac95bfd017784bc2ee322ef6bb5b57f15505",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -5551,8 +5694,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 22855,
-      "sha256": "daa69fa85f6e7ce22bbd2125ca1871a203a1951f049bd9a1f9189aa4965aeb9d",
+      "sizeBytes": 24104,
+      "sha256": "ce54b9485ae9391365117f668e12672bedbe8772805719675e716a608ec6256b",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -5756,6 +5899,33 @@
       "sha256": "770a9cc719e0555fd959df5144ea55484f0cfcc0a6862d959599cda6e90c2401",
       "agentRoutes": [],
       "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/onchain_materialization_lib.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "onchain-materialization"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 47135,
+      "sha256": "1b115fcae8b2c59325c4a1e0f7e1ecf91c9c909e006696f0aad73313af30951f",
+      "agentRoutes": [
+        "verify-pinned-onchain-materialization"
+      ],
+      "taskRecipes": [
+        "verify-pinned-onchain-materialization"
+      ],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
@@ -6185,6 +6355,33 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "scripts/validate-onchain-materialization.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 34593,
+      "sha256": "f9025072501396e1b6ccc8970d156611832e32ce4759c700a3da13e3262fc4de",
+      "agentRoutes": [
+        "verify-pinned-onchain-materialization"
+      ],
+      "taskRecipes": [
+        "verify-pinned-onchain-materialization"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "scripts/validate-upstream-snapshots.py",
       "fileRole": "validator",
       "topics": [
@@ -6231,6 +6428,33 @@
       "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/verify-onchain-materialization.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "onchain-materialization"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 53959,
+      "sha256": "bb91887b6ed2d3fdf3c3b8fcffee852884e10d7a67693517b95ac469c964c9df",
+      "agentRoutes": [
+        "verify-pinned-onchain-materialization"
+      ],
+      "taskRecipes": [
+        "verify-pinned-onchain-materialization"
+      ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
     }
   ],
   "excludedFiles": [

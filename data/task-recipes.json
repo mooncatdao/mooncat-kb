@@ -230,6 +230,56 @@
       ]
     },
     {
+      "key": "verify-pinned-onchain-materialization",
+      "purpose": "Create or validate a secret-safe, read-only Ethereum-mainnet materialization snapshot at one exact block while preserving the offline parser baseline.",
+      "loadOrder": [
+        "docs/onchain-materialization.md",
+        "data/onchain-materialization/manifest.json",
+        "data/contract-registry.json",
+        "scripts/verify-onchain-materialization.py"
+      ],
+      "optionalFiles": [
+        "scripts/validate-onchain-materialization.py",
+        "scripts/onchain_materialization_lib.py",
+        "data/materialization-internals.json",
+        "data/materialization-parity-results.json",
+        "data/mooncat-population/manifest.json",
+        "data/mooncat-renders/manifest.json",
+        "data/identifier-conventions.json"
+      ],
+      "steps": [
+        "Run the verifier with --plan first; it must resolve the eight exact registry/ABI relationships and required overload signatures without reading RPC state.",
+        "Supply the endpoint only through the environment-variable name passed to --rpc-env; never print, persist, or paste its value into output.",
+        "Require mainnet chain ID 1, select finalized or the documented conservative fallback, and pin every code/call request to its exact block number before persisting evidence.",
+        "Complete representative base Traits, Colors, explicit/default SVG, pinned owner/glow, and structural comparisons before an optional bounded accessory phase.",
+        "After normalizer/reporting changes, use --resume --refresh-representative to rebuild the identical sample at the checkpoint hash without selecting a new block.",
+        "Count only failed assertions as mismatches; retain parser incomparable and SVG color-subset not-evaluated states in separate validated counters.",
+        "Use --mode full and --resume for ascending sharded identity/trait and color coverage; request --full-svg only when provider/runtime cost is acceptable.",
+        "Run python scripts/validate-onchain-materialization.py after a snapshot exists, then regenerate context packs, the KB manifest, and the audit report."
+      ],
+      "outputs": [
+        "exact chain and block identity",
+        "eight deployed runtime-code length/hash records",
+        "representative overload and local-evidence comparisons",
+        "exact SVG byte hashes and defensible structural comparison",
+        "definite mismatch counts separate from incomparable and not-evaluated counts",
+        "exhaustive per-surface completion and comparison accounting",
+        "bounded accessory status",
+        "source-equivalence and currentness limits"
+      ],
+      "guardrails": [
+        "Do not use a URL argument, persist provider details, submit transactions, sign messages, or use debug/trace methods.",
+        "Do not treat runtime-code hashes as verified-source/compiler equivalence or a pinned block as current forever.",
+        "Do not report representatives as exhaustive coverage or human color labels as contract palettes.",
+        "Do not replace or rewrite the existing zero-network materialization parity artifacts."
+      ],
+      "stopConditions": [
+        "Stop without creating network evidence if the RPC environment variable is absent or chain ID is not 1.",
+        "Stop/resume if the pinned block hash changes, a required core contract has empty code, a required ABI signature is ambiguous, or provider limits interrupt a sweep.",
+        "Skip accessories when base representative verification is not successful."
+      ]
+    },
+    {
       "key": "fetch-traits-safely",
       "purpose": "Plan trait lookups while respecting the current split between API manifests, examples, trait schema metadata, and upstream reference snapshots.",
       "loadOrder": [

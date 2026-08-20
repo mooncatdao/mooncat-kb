@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "status": "completed",
+  "block": {
+    "chainId": 1,
+    "number": 25798234,
+    "numberHex": "0x189a65a",
+    "hash": "0x17116d2e0879e2a3ef5b611090662fb9532e9f6380d4492d6cae93bdefc89218",
+    "timestamp": 1787251799,
+    "timestampUtc": "2026-08-20T18:49:59Z",
+    "selectionMode": "rpc-finalized-tag",
+    "fallbackConfirmations": null,
+    "stateParameterMode": "exact-block-number-with-hash-rechecked-before-and-after"
+  },
+  "configuration": {
+    "shardSize": 1000,
+    "rpcBatchSize": 25,
+    "fullSvgRequested": false,
+    "representativeCount": 48,
+    "mode": "representative",
+    "comparisonAccountingVersion": 2
+  },
+  "surfaces": {
+    "identityTraits": {
+      "status": "not-requested",
+      "nextRescueOrder": 0,
+      "partialRows": [],
+      "shards": [],
+      "mismatchCounts": {},
+      "incomparableCounts": {},
+      "notEvaluatedCounts": {},
+      "comparisonCounts": {
+        "parserStructure": {
+          "passed": 0,
+          "failed": 0,
+          "incomparable": 0
+        },
+        "svgUsedColorsSubsetOfColorsOf": {
+          "passed": 0,
+          "failed": 0,
+          "notEvaluated": 0
+        }
+      }
+    },
+    "colors": {
+      "status": "not-requested",
+      "nextRescueOrder": 0,
+      "partialRows": [],
+      "shards": [],
+      "mismatchCounts": {},
+      "incomparableCounts": {},
+      "notEvaluatedCounts": {},
+      "comparisonCounts": {
+        "parserStructure": {
+          "passed": 0,
+          "failed": 0,
+          "incomparable": 0
+        },
+        "svgUsedColorsSubsetOfColorsOf": {
+          "passed": 0,
+          "failed": 0,
+          "notEvaluated": 0
+        }
+      }
+    },
+    "svgFalse": {
+      "status": "not-requested",
+      "nextRescueOrder": 0,
+      "partialRows": [],
+      "shards": [],
+      "mismatchCounts": {},
+      "incomparableCounts": {},
+      "notEvaluatedCounts": {},
+      "comparisonCounts": {
+        "parserStructure": {
+          "passed": 0,
+          "failed": 0,
+          "incomparable": 0
+        },
+        "svgUsedColorsSubsetOfColorsOf": {
+          "passed": 0,
+          "failed": 0,
+          "notEvaluated": 0
+        }
+      }
+    }
+  }
+}

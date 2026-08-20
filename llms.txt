@@ -30,6 +30,7 @@ Primary capability entrypoints:
 - /data/event-registry.json
 - /data/event-indexer-recipes.json
 - /docs/contract-abi-event-registry.md
+- /docs/onchain-materialization.md
 - /docs/source-map.md
 - /data/sources.json
 - /data/upstream-snapshot-manifest.json
@@ -67,3 +68,4 @@ Notes:
 - Use /data/kb-gap-index.json for planning and gap discovery only; follow its referenced evidence for factual claims.
 - Stop rather than guess when a claim needs missing provenance, unsupported conversion, or current verification.
 - Treat /docs/public-release-readiness.md as the release assessment, not as a new source of MoonCat facts.
+- The validated /data/onchain-materialization/manifest.json is a 48-cat representative snapshot at block 25798234, not exhaustive or current-forever proof; retain its exact block, mismatch/comparison counts, source-equivalence limit, and accessory exclusion.

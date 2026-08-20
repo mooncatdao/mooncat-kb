@@ -10,6 +10,12 @@ MoonCatSVGs is the on-chain SVG image-generation contract linked from the offici
 
 This page documents the contract role and compact internals only. It does not duplicate full ABI JSON; exact reviewed ABI artifacts are maintained under `data/abi-registry/` and routed through `docs/contract-abi-event-registry.md`. It also does not import Solidity source, bytecode, coordinate constants, pattern arrays, generated SVGs, or per-cat outputs.
 
+A separate verifier and snapshot are documented in
+`docs/onchain-materialization.md`. At block `25798234`, both identifier
+overloads returned byte-identical false, true, and default SVG strings for all
+48 representatives. Compact hashes and normalizations are stored; raw SVG
+strings are not.
+
 ## Role
 
 MoonCatSVGs assembles base MoonCat SVG image strings from MoonCat trait and color inputs. The source-confirmed public `imageOf` overloads accept either a bytes5 cat ID or a rescue-order number, with variants for explicit glow behavior.
@@ -52,7 +58,10 @@ Accessory image composition is separate. The MoonCatAccessoryImages contract rem
 
 ## Limitations
 
-- No SVG coordinate data, pattern arrays, or generated SVG output is imported.
-- No per-cat image, trait, color, accessory, ownership, or chain-state result is derived.
-- No exact rendered-output behavior is claimed beyond the reviewed source path.
+- No source coordinate tables, pattern arrays, or raw generated SVG strings are imported.
+- The separate snapshot provides compact block-pinned per-cat output evidence
+  for 48 representatives only; it does not establish current or exhaustive behavior.
+- Tight cell normalization establishes parser-structure parity for those 48
+  explicit-false outputs, while exact serialization claims are limited to
+  identifier-overload equality within each sampled cat and glow mode.
 - Accessory rendering and PNG materialization remain out of scope for this pass.

@@ -1,8 +1,8 @@
 {
-  "version": 17,
+  "version": 19,
   "updated": "2026-08-20",
-  "status": "public-release-provenance-audited-ready-with-enumerated-evidence-boundaries",
-  "scope": "Post-release provenance and agent-usability gap report covering public claims, source/input/derivation roles, upstream revision/retrieval/license residuals, routing/population/conformance/render capabilities, benchmark risk coverage, semantic release gates, and live-state limits.",
+  "status": "public-release-ready-with-validated-pinned-onchain-representative-evidence",
+  "scope": "Post-release provenance and agent-usability gap report covering public claims, source/input/derivation roles, upstream residuals, routing/population/conformance/render capabilities, validated 48-cat pinned-block materialization evidence, its exhaustive/accessory residuals, benchmark risk coverage, semantic release gates, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -18,6 +18,9 @@
     "data/materialization-internals.json",
     "data/materialization-parity-cases.json",
     "data/materialization-parity-results.json",
+    "data/onchain-materialization/manifest.json",
+    "docs/onchain-materialization.md",
+    "docs/fully-on-chain-evidence-readiness.md",
     "data/agent-query-cases.json",
     "data/factual-retrieval-cases.json",
     "data/agent-context-packs.json",
@@ -59,6 +62,9 @@
     "docs/source-map.md",
     "docs/upstream-snapshots.md",
     "scripts/generate-kb-manifest.py",
+    "scripts/onchain_materialization_lib.py",
+    "scripts/verify-onchain-materialization.py",
+    "scripts/validate-onchain-materialization.py",
     "scripts/validate-kb.py",
     "scripts/validate-factual-retrieval-cases.py",
     "scripts/validate-kb-manifest.py",
@@ -278,7 +284,24 @@
         "docs/mooncat-renders.md",
         "scripts/validate-mooncat-renders.py"
       ],
-      "notes": "Eight fixed fixtures retain bounded identity, trait, and parser-structure parity. The separate render artifact adds exact parser-derived palettes and X-major cells for all 25,440 IDs. MoonCatColors/on-chain palette parity, exact SVG serialization, accessories, live state, and licensing conclusions remain unavailable or excluded. Exhaustive checks cover every decoded row, full regeneration, parser equality and transpose-sensitive X/Y orientation."
+      "notes": "Eight fixed fixtures retain bounded zero-network identity, trait, and parser-structure parity. The separate render artifact adds exact parser-derived palettes and X-major cells for all 25,440 IDs. A separately owned pinned snapshot establishes sampled contract behavior for 48 cats at block 25798234 without changing this offline result. Exhaustive offline checks cover every decoded row, full regeneration, parser equality and transpose-sensitive X/Y orientation."
+    },
+    {
+      "key": "pinned-onchain-materialization-workflow",
+      "status": "resolved-as-validated-pinned-representative-with-exhaustive-and-accessory-residuals",
+      "files": [
+        "docs/onchain-materialization.md",
+        "scripts/onchain_materialization_lib.py",
+        "scripts/verify-onchain-materialization.py",
+        "scripts/validate-onchain-materialization.py",
+        "data/onchain-materialization/manifest.json",
+        "data/materialization-internals.json",
+        "data/agent-index.json",
+        "data/task-recipes.json",
+        "scripts/generate-kb-manifest.py",
+        "scripts/audit-kb.py"
+      ],
+      "notes": "The validated snapshot pins mainnet block 25798234/hash 0x17116d2e0879e2a3ef5b611090662fb9532e9f6380d4492d6cae93bdefc89218, records non-empty runtime code for eight core contracts, and reruns the same 48 deterministic cats. All required base checks pass; false/true/default SVG identifier overloads are byte-identical for all 48; explicit-false structural comparison is 48 passed, 0 failed, 0 incomparable; SVG/Colors subset comparison is 48 passed, 0 failed, 0 not evaluated; definite mismatches are 0. The normalizer exactly supports observed orthogonal polygons, integer RGB fills, inherited use cells, reflection, paint order, and a one-cell transparent viewBox border. Exhaustive surfaces and accessories remain not requested at 0; runtime hashes do not prove source/compiler equivalence and the block is not current forever."
     },
     {
       "key": "agent-query-benchmark-and-context-packs",
@@ -494,7 +517,7 @@
         "data/contracts.json",
         "data/sources.json"
       ],
-      "notes": "MoonCatSVGs internals record compact verified semantics for source identity, dependency interfaces, imageOf overload behavior, rescue-order conversion, default glow selection, SVG string assembly, output wrapper properties, and conceptual geometry/pattern surfaces. Its exact local ABI now routes through data/contract-registry.json; full Solidity source, coordinate constants, pattern arrays, generated SVG outputs, per-cat outputs, and accessory image composition remain intentionally unimported."
+      "notes": "MoonCatSVGs internals record compact verified semantics for source identity, dependency interfaces, imageOf overload behavior, rescue-order conversion, default glow selection, SVG string assembly, output wrapper properties, and conceptual geometry/pattern surfaces. Its exact local ABI routes through data/contract-registry.json; the pinned 48-cat snapshot adds compact output hashes and full sampled parser-structure parity at block 25798234. Raw SVG strings, source coordinate tables, exhaustive outputs, current-forever behavior, and accessory composition remain absent."
     },
     {
       "key": "mooncat-accessory-images-internals-review",
@@ -928,6 +951,11 @@
     }
   ],
   "recommendedNextPasses": [
+    {
+      "key": "extend-pinned-onchain-materialization-coverage",
+      "priority": "high",
+      "reason": "The block-25798234 representative snapshot is validated, but exhaustive identity/traits, colors, and non-glow SVG plus bounded accessories remain not requested. Extend only through the checkpointed resumable workflow within provider/runtime limits, preserving exact completion and tri-state comparison counts; do not generalize the 48-cat result."
+    },
     {
       "key": "adr-snapshot-refresh-review",
       "priority": "medium",

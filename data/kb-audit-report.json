@@ -61,7 +61,7 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: . JSON files checked: 51 Required file references checked: 592 sourceRefs checked: 1218 relatedFiles checked: 284 Character/Genesis membership arrays checked: 16 Release semantic invariants checked: 13 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: . JSON files checked: 51 Required file references checked: 622 sourceRefs checked: 1218 relatedFiles checked: 288 Character/Genesis membership arrays checked: 16 Release semantic invariants checked: 13 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
@@ -104,6 +104,12 @@
       "required": true,
       "exitStatus": 0,
       "outputSummary": "OK: 8 fixtures, 8 structural normalizations, 5 intentional trait differences, and explicit unavailable layers"
+    },
+    {
+      "command": "python scripts/validate-onchain-materialization.py --allow-missing",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: pinned mainnet block 25798234 0x17116d2e0879e2a3ef5b611090662fb9532e9f6380d4492d6cae93bdefc89218; 8 runtime-code records, 48 representatives, identity=0, colors=0, svgFalse=0, accessories=0, definite mismatches=0, structural={'passed': 48, 'failed': 0, 'incomparable': 0}, colorSubset={'passed': 48, 'failed': 0, 'notEvaluated': 0}"
     },
     {
       "command": "python scripts/validate-mooncat-population.py",
@@ -151,18 +157,18 @@
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 206 maintained files, 74 explicit exclusions, 73 generated artifacts with provenance ownership; hashes, routes, and commands validated"
+      "outputSummary": "OK: 213 maintained files, 74 explicit exclusions, 76 generated artifacts with provenance ownership; hashes, routes, and commands validated"
     }
   ],
   "counts": {
-    "requiredCommandCount": 25,
+    "requiredCommandCount": 26,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 2494,
+    "internalPathsChecked": 2555,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 206,
+    "manifestMaintainedFileCount": 213,
     "manifestExcludedFileCount": 74
   },
   "duplicateIdChecks": {
@@ -174,12 +180,12 @@
       },
       "agent-routes": {
         "file": "data/agent-index.json",
-        "count": 34,
+        "count": 35,
         "duplicates": []
       },
       "task-recipes": {
         "file": "data/task-recipes.json",
-        "count": 29,
+        "count": 30,
         "duplicates": []
       },
       "benchmark-cases": {
@@ -194,7 +200,7 @@
       },
       "gap-records": {
         "file": "data/kb-gap-index.json",
-        "count": 34,
+        "count": 35,
         "duplicates": []
       },
       "identifier-fixtures": {
@@ -236,7 +242,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 2494,
+    "checked": 2555,
     "errors": [],
     "warnings": []
   },

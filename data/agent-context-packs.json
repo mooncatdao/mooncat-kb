@@ -79,7 +79,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 63367,
+        "estimatedByteCount": 65395,
         "files": [
           {
             "path": "data/materialization-parity-cases.json",
@@ -91,11 +91,11 @@
           },
           {
             "path": "docs/materialization-parity.md",
-            "bytes": 3041
+            "bytes": 3562
           },
           {
             "path": "data/materialization-internals.json",
-            "bytes": 2704
+            "bytes": 4211
           },
           {
             "path": "data/libmooncat-surfaces.json",
@@ -820,7 +820,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 48506,
+        "estimatedByteCount": 50534,
         "files": [
           {
             "path": "data/materialization-parity-cases.json",
@@ -832,11 +832,11 @@
           },
           {
             "path": "docs/materialization-parity.md",
-            "bytes": 3041
+            "bytes": 3562
           },
           {
             "path": "data/materialization-internals.json",
-            "bytes": 2704
+            "bytes": 4211
           }
         ],
         "softFileLimit": 7,
@@ -1072,7 +1072,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 154996,
+        "estimatedByteCount": 157389,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -1088,7 +1088,7 @@
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 55398
+            "bytes": 57791
           }
         ],
         "softFileLimit": 7,
@@ -1739,7 +1739,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 145805,
+        "estimatedByteCount": 151150,
         "files": [
           {
             "path": "data/agent-query-cases.json",
@@ -1751,11 +1751,11 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 32220
+            "bytes": 33987
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 64565
+            "bytes": 68143
           }
         ],
         "softFileLimit": 7,

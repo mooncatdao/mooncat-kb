@@ -109,6 +109,14 @@ git diff --check
 These checks validate local artifacts and provenance boundaries; they do not
 establish live chain, API, marketplace, ownership, accessory, or naming state.
 
+For separately authorized block-pinned Ethereum materialization verification,
+see [`docs/onchain-materialization.md`](docs/onchain-materialization.md). The
+workflow consumes an RPC endpoint only from an environment variable and keeps
+its network-derived evidence separate from the zero-network parity baseline.
+The committed representative snapshot is pinned to mainnet block `25798234`;
+validate it with `python scripts/validate-onchain-materialization.py` and retain
+its 48-cat, historical-state boundary.
+
 ## License
 
 This knowledge base is released under CC0 1.0 Universal (`CC0-1.0`) unless

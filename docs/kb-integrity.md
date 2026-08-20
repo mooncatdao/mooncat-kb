@@ -22,6 +22,10 @@ Generated artifacts remain owned by their existing generators:
 - `data/materialization-parity-results.json` — `scripts/generate-materialization-parity.py --check`
 - `data/mooncat-population/` — `scripts/generate-mooncat-population.py --check`
 - `data/mooncat-renders/` — `scripts/generate-mooncat-renders.py --check`
+- `data/onchain-materialization/` —
+  `scripts/validate-onchain-materialization.py`; its committed representative
+  snapshot is block-pinned, while its network generator is explicit and is
+  never run by the zero-network audit
 - `data/contract-registry.json`, `data/event-registry.json`,
   `data/event-indexer-recipes.json`, and `data/abi-registry/` —
   `scripts/extract-contract-abis.py --check`
@@ -35,6 +39,14 @@ validators; it does not duplicate generation logic. The zero-network audit
 runs each registered domain's established check and validator for the public
 release surface, including names, population, renders, and contract/ABI/event
 artifacts.
+
+The audit runs `scripts/validate-onchain-materialization.py --allow-missing`.
+That command always exercises the dependency-free Ethereum Keccak/ABI helper
+self-tests, validates a committed snapshot fully when present, and reports an
+explicit skip while the documented RPC-derived artifact is absent. Default
+focused validation does not allow a missing snapshot. In this checkout the
+snapshot exists, so the audit validates its hashes, block identity, 48-row
+evidence, and tri-state comparison accounting rather than taking the skip path.
 
 The manifest's `provenanceCoverage` section provides deterministic accounting,
 not a new factual registry. It summarizes registered source paths, important

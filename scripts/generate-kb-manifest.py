@@ -102,6 +102,12 @@ RENDER_GENERATED_ARTIFACT = {
     "validatorCommands": ["python scripts/validate-mooncat-renders.py"],
 }
 
+ONCHAIN_MATERIALIZATION_GENERATED_ARTIFACT = {
+    "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+    "checkCommand": "python scripts/validate-onchain-materialization.py",
+    "validatorCommands": ["python scripts/validate-onchain-materialization.py"],
+}
+
 POPULATION_UTILITY_ROLES = {
     "scripts/diff-mooncat-population.py": ("validator", ["validation", "agent-workflow"]),
     "scripts/import-name-index-snapshot.py": ("generator", ["validation", "agent-workflow"]),
@@ -111,6 +117,11 @@ POPULATION_UTILITY_ROLES = {
 
 RENDER_UTILITY_ROLES = {
     "scripts/mooncat_render_lib.py": ("generator", ["validation", "agent-workflow"]),
+}
+
+ONCHAIN_MATERIALIZATION_UTILITY_ROLES = {
+    "scripts/onchain_materialization_lib.py": ("generator", ["validation", "onchain-materialization"]),
+    "scripts/verify-onchain-materialization.py": ("generator", ["validation", "onchain-materialization"]),
 }
 
 ABI_GENERATED_ARTIFACT = {
@@ -233,6 +244,8 @@ def generated_artifact_config(relative_path: str) -> dict[str, Any] | None:
         and relative_path.endswith(".json")
     ):
         return RENDER_GENERATED_ARTIFACT
+    if relative_path.startswith("data/onchain-materialization/") and relative_path.endswith(".json"):
+        return ONCHAIN_MATERIALIZATION_GENERATED_ARTIFACT
     return None
 
 
@@ -249,6 +262,8 @@ def generated_artifact_provenance_path(relative_path: str) -> str | None:
         return "data/mooncat-population/manifest.json"
     if relative_path.startswith("data/mooncat-renders/"):
         return "data/mooncat-renders/manifest.json"
+    if relative_path.startswith("data/onchain-materialization/"):
+        return "data/onchain-materialization/manifest.json"
     return relative_path
 
 
@@ -288,6 +303,9 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
     if relative_path in RENDER_UTILITY_ROLES:
         role, topics = RENDER_UTILITY_ROLES[relative_path]
         return role, topics, "curated", ["curated", "script"]
+    if relative_path in ONCHAIN_MATERIALIZATION_UTILITY_ROLES:
+        role, topics = ONCHAIN_MATERIALIZATION_UTILITY_ROLES[relative_path]
+        return role, topics, "curated", ["curated", "script"]
     if relative_path == "examples/rescue-mining.js" or relative_path.startswith("examples/rescue-mining-widget/"):
         return "example", ["rescue-mining", "example"], "curated", ["curated", "example"]
     if relative_path.startswith("examples/mooncat-profile/"):
@@ -315,6 +333,8 @@ def generated_artifact_registry() -> list[dict[str, Any]]:
             and relative_path.endswith(".json")
         ):
             registered[relative_path] = RENDER_GENERATED_ARTIFACT
+        elif relative_path.startswith("data/onchain-materialization/") and relative_path.endswith(".json"):
+            registered[relative_path] = ONCHAIN_MATERIALIZATION_GENERATED_ARTIFACT
     return [
         {
             "path": path,

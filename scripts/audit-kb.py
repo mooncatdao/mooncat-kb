@@ -35,6 +35,7 @@ REQUIRED_COMMANDS = [
     "python scripts/validate-color-classification.py",
     "python scripts/validate-visual-traits.py",
     "python scripts/validate-materialization-parity.py",
+    "python scripts/validate-onchain-materialization.py --allow-missing",
     "python scripts/validate-mooncat-population.py",
     "python scripts/validate-mooncat-renders.py",
     "python scripts/validate-contract-registry.py",

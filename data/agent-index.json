@@ -140,6 +140,34 @@
       ]
     },
     {
+      "key": "verify-pinned-onchain-materialization",
+      "description": "Plan, run, resume, or validate block-pinned Ethereum materialization evidence without conflating it with the zero-network parser baseline.",
+      "primaryFiles": [
+        "docs/onchain-materialization.md",
+        "data/onchain-materialization/manifest.json",
+        "data/contract-registry.json",
+        "scripts/verify-onchain-materialization.py"
+      ],
+      "optionalFiles": [
+        "scripts/validate-onchain-materialization.py",
+        "scripts/onchain_materialization_lib.py",
+        "data/materialization-internals.json",
+        "data/materialization-parity-results.json",
+        "data/mooncat-population/manifest.json",
+        "data/mooncat-renders/manifest.json",
+        "data/identifier-conventions.json",
+        "docs/materialization-parity.md",
+        "docs/mooncat-svgs.md"
+      ],
+      "notes": [
+        "Run --plan without an RPC value to validate local ABI surfaces and call estimates.",
+        "A network run requires an endpoint supplied only through the named environment variable and must pin chain ID 1 plus one exact block number/hash.",
+        "The validated manifest is pinned to block 25798234 and covers 48 representatives: 8 runtime-code records, all required base checks, 48 structural passes, 48 SVG/contract-color subset passes, and 0 definite mismatches.",
+        "Use --resume --refresh-representative after comparison-code changes; it must preserve the checkpoint block hash and identical sample orders.",
+        "Keep runtime-code presence, ABI-call behavior, exact SVG equality, structural parser parity, representative/exhaustive coverage, pinned state, source equivalence, and accessories as separate claims."
+      ]
+    },
+    {
       "key": "call-api-endpoints",
       "description": "Find API paths, methods, accepted identifier forms, params, and response kinds.",
       "primaryFiles": [
