@@ -255,6 +255,7 @@
         "After normalizer/reporting changes, use --resume --refresh-representative to rebuild the identical sample at the checkpoint hash without selecting a new block.",
         "Count only failed assertions as mismatches; retain parser incomparable and SVG color-subset not-evaluated states in separate validated counters.",
         "Use --mode full and --resume for ascending sharded identity/trait and color coverage; request --full-svg only when provider/runtime cost is acceptable.",
+        "When reading the completed block-25798234 snapshot, keep the 25,440-row exhaustive surfaces separate from representative-only true/default SVG, pinned-owner/default-glow, and SVG/Colors subset checks.",
         "Run python scripts/validate-onchain-materialization.py after a snapshot exists, then regenerate context packs, the KB manifest, and the audit report."
       ],
       "outputs": [

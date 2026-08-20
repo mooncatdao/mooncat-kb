@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import base64
 import hashlib
+import http.client
 import json
 import math
 import re
@@ -33,6 +34,16 @@ TRANSFORM_FUNCTION = re.compile(r"([A-Za-z]+)\s*\(([^)]*)\)")
 
 class MaterializationError(ValueError):
     """Fatal local input, ABI, RPC, or materialization error."""
+
+
+RETRYABLE_TRANSPORT_EXCEPTIONS = (
+    urllib.error.URLError,
+    TimeoutError,
+    OSError,
+    ValueError,
+    json.JSONDecodeError,
+    http.client.HTTPException,
+)
 
 
 ROUND_CONSTANTS = [
@@ -412,7 +423,7 @@ class JsonRpcClient:
                 retryable = exc.code in {408, 425, 429, 500, 502, 503, 504}
                 if attempt >= self.retries or not retryable:
                     raise MaterializationError(f"RPC HTTP failure status={exc.code}") from None
-            except (urllib.error.URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError):
+            except RETRYABLE_TRANSPORT_EXCEPTIONS:
                 if attempt >= self.retries:
                     raise MaterializationError("RPC transport or JSON response failure") from None
             time.sleep(self.backoff * (2 ** attempt))
@@ -931,6 +942,8 @@ def rgb_triplets(colors: list[int]) -> list[str]:
 
 
 def self_test() -> None:
+    if not isinstance(http.client.IncompleteRead(b"", 1), RETRYABLE_TRANSPORT_EXCEPTIONS):
+        raise MaterializationError("RPC incomplete-response retry classification self-test failed")
     if keccak256(b"").hex() != "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470":
         raise MaterializationError("Ethereum Keccak self-test failed")
     if keccak256(b"transfer(address,uint256)")[:4].hex() != "a9059cbb":

@@ -1,8 +1,8 @@
 {
-  "version": 19,
+  "version": 20,
   "updated": "2026-08-20",
-  "status": "public-release-ready-with-validated-pinned-onchain-representative-evidence",
-  "scope": "Post-release provenance and agent-usability gap report covering public claims, source/input/derivation roles, upstream residuals, routing/population/conformance/render capabilities, validated 48-cat pinned-block materialization evidence, its exhaustive/accessory residuals, benchmark risk coverage, semantic release gates, and live-state limits.",
+  "status": "public-release-ready-with-validated-pinned-onchain-exhaustive-evidence",
+  "scope": "Post-release provenance and agent-usability gap report covering public claims, source/input/derivation roles, upstream residuals, routing/population/conformance/render capabilities, validated representative and three-surface exhaustive pinned-block materialization evidence, its accessory/unrecorded-mode residuals, benchmark risk coverage, semantic release gates, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -284,11 +284,11 @@
         "docs/mooncat-renders.md",
         "scripts/validate-mooncat-renders.py"
       ],
-      "notes": "Eight fixed fixtures retain bounded zero-network identity, trait, and parser-structure parity. The separate render artifact adds exact parser-derived palettes and X-major cells for all 25,440 IDs. A separately owned pinned snapshot establishes sampled contract behavior for 48 cats at block 25798234 without changing this offline result. Exhaustive offline checks cover every decoded row, full regeneration, parser equality and transpose-sensitive X/Y orientation."
+      "notes": "Eight fixed fixtures retain bounded zero-network identity, trait, and parser-structure parity. The separate render artifact adds exact parser-derived palettes and X-major cells for all 25,440 IDs. A separately owned pinned snapshot establishes broader sampled behavior for 48 cats and three exhaustive 25,440-row contract surfaces at block 25798234 without changing this offline result. Exhaustive offline checks cover every decoded row, full regeneration, parser equality and transpose-sensitive X/Y orientation."
     },
     {
       "key": "pinned-onchain-materialization-workflow",
-      "status": "resolved-as-validated-pinned-representative-with-exhaustive-and-accessory-residuals",
+      "status": "resolved-as-validated-pinned-representative-and-three-surface-exhaustive-with-accessory-residual",
       "files": [
         "docs/onchain-materialization.md",
         "scripts/onchain_materialization_lib.py",
@@ -301,7 +301,7 @@
         "scripts/generate-kb-manifest.py",
         "scripts/audit-kb.py"
       ],
-      "notes": "The validated snapshot pins mainnet block 25798234/hash 0x17116d2e0879e2a3ef5b611090662fb9532e9f6380d4492d6cae93bdefc89218, records non-empty runtime code for eight core contracts, and reruns the same 48 deterministic cats. All required base checks pass; false/true/default SVG identifier overloads are byte-identical for all 48; explicit-false structural comparison is 48 passed, 0 failed, 0 incomparable; SVG/Colors subset comparison is 48 passed, 0 failed, 0 not evaluated; definite mismatches are 0. The normalizer exactly supports observed orthogonal polygons, integer RGB fills, inherited use cells, reflection, paint order, and a one-cell transparent viewBox border. Exhaustive surfaces and accessories remain not requested at 0; runtime hashes do not prove source/compiler equivalence and the block is not current forever."
+      "notes": "The validated snapshot pins mainnet block 25798234/hash 0x17116d2e0879e2a3ef5b611090662fb9532e9f6380d4492d6cae93bdefc89218 and records non-empty runtime code for eight core contracts. The retained 48-cat base checks pass, including false/true/default SVG overload equality and 48 SVG/Colors subset passes. Identity/traits, colors/hue/glow, and explicit-false SVG each cover all 25,440 cats in 26 contiguous shards with 0 definite mismatches, 0 incomparable results, and 0 not-evaluated results; exhaustive SVG structure is 25,440 passed and its identifier overloads are byte-identical. Accessories, exhaustive true/default SVG, and exhaustive SVG/Colors subset checks remain absent; runtime hashes do not prove source/compiler equivalence and the block is not current forever."
     },
     {
       "key": "agent-query-benchmark-and-context-packs",
@@ -517,7 +517,7 @@
         "data/contracts.json",
         "data/sources.json"
       ],
-      "notes": "MoonCatSVGs internals record compact verified semantics for source identity, dependency interfaces, imageOf overload behavior, rescue-order conversion, default glow selection, SVG string assembly, output wrapper properties, and conceptual geometry/pattern surfaces. Its exact local ABI routes through data/contract-registry.json; the pinned 48-cat snapshot adds compact output hashes and full sampled parser-structure parity at block 25798234. Raw SVG strings, source coordinate tables, exhaustive outputs, current-forever behavior, and accessory composition remain absent."
+      "notes": "MoonCatSVGs internals record compact verified semantics for source identity, dependency interfaces, imageOf overload behavior, rescue-order conversion, default glow selection, SVG string assembly, output wrapper properties, and conceptual geometry/pattern surfaces. Its exact local ABI routes through data/contract-registry.json; the pinned snapshot adds compact explicit-false output hashes and parser-structure parity for all 25,440 cats plus broader 48-cat glow/default evidence at block 25798234. Raw SVG strings, source coordinate tables, exhaustive true/default outputs, current-forever behavior, and accessory composition remain absent."
     },
     {
       "key": "mooncat-accessory-images-internals-review",
@@ -952,9 +952,9 @@
   ],
   "recommendedNextPasses": [
     {
-      "key": "extend-pinned-onchain-materialization-coverage",
-      "priority": "high",
-      "reason": "The block-25798234 representative snapshot is validated, but exhaustive identity/traits, colors, and non-glow SVG plus bounded accessories remain not requested. Extend only through the checkpointed resumable workflow within provider/runtime limits, preserving exact completion and tri-state comparison counts; do not generalize the 48-cat result."
+      "key": "extend-pinned-onchain-materialization-remaining-modes",
+      "priority": "medium",
+      "reason": "The block-25798234 snapshot now validates exhaustive identity/traits, colors/hue/glow, and explicit-false SVG surfaces. Any future pass should target only separately authorized accessory composition, true/default SVG, or SVG/Colors subset coverage through the checkpointed workflow; do not generalize the pinned block to current state."
     },
     {
       "key": "adr-snapshot-refresh-review",

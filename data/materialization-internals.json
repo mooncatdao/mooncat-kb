@@ -1,8 +1,8 @@
 {
   "version": 1,
   "updated": "2026-08-20",
-  "status": "cross-path-boundary-summary-with-validated-pinned-representative-snapshot",
-  "scope": "Compact cross-path summary for parser, LibMoonCat traits, reviewed on-chain materialization surfaces, and the validated 48-cat snapshot at Ethereum mainnet block 25798234. The snapshot stores compact hashes, normalizations, and contract arrays rather than raw SVG strings; exhaustive and accessory state remain absent.",
+  "status": "cross-path-boundary-summary-with-validated-pinned-exhaustive-snapshot",
+  "scope": "Compact cross-path summary for parser, LibMoonCat traits, reviewed on-chain materialization surfaces, and the validated snapshot at Ethereum mainnet block 25798234. It stores compact hashes, normalizations, and contract arrays rather than raw SVG strings; three per-cat surfaces are exhaustive while accessory and current state remain absent.",
   "sourceRefs": [
     "mooncatrescue-mooncatparser-js",
     "mooncatrescue-libmooncat-limited-js",
@@ -31,13 +31,13 @@
   "paths": {
     "parser": "mooncatparser accepts bytes5-style hex input and returns a nested local pixel/color grid; parity fixtures normalize geometry and color-role counts without treating the grid as canonical palette data.",
     "libmooncat": "LibMoonCat supplies array-backed identifier conversion and extended trait comparison. Its browser image helpers require DOM support and are not executed in the zero-network harness.",
-    "mooncatSVGs": "Reviewed imageOf overloads accept bytes5 or rescueOrder, read MoonCatTraits and MoonCatColors, assemble an SVG string, and use a guarded rescueOrder-to-catId lookup. At block 25798234, compact evidence records byte-identical false/true/default identifier overloads and explicit-false parser-structure parity for 48 deterministic cats.",
+    "mooncatSVGs": "Reviewed imageOf overloads accept bytes5 or rescueOrder, read MoonCatTraits and MoonCatColors, assemble an SVG string, and use a guarded rescueOrder-to-catId lookup. At block 25798234, compact evidence records byte-identical false/true/default identifier overloads for 48 deterministic cats plus byte-identical explicit-false overloads and parser-structure parity for all 25,440 cats.",
     "mooncatAccessoryImages": "Reviewed accessorized image paths accept rescueOrder and compose source-owned records with accessory definitions, palettes, image data, and base SVG helpers. The deterministic inputs needed for an accessory fixture are not checked in.",
-    "pinnedOnchainVerifier": "The dependency-light RPC verifier pinned Ethereum mainnet block 25798234/hash 0x17116d2e0879e2a3ef5b611090662fb9532e9f6380d4492d6cae93bdefc89218, recorded non-empty runtime code for eight core contracts, and validated 48 representative Traits/Colors/SVG/owner paths with zero definite mismatches. Full sweeps and accessories were not requested."
+    "pinnedOnchainVerifier": "The dependency-light RPC verifier pinned Ethereum mainnet block 25798234/hash 0x17116d2e0879e2a3ef5b611090662fb9532e9f6380d4492d6cae93bdefc89218, recorded non-empty runtime code for eight core contracts, retained 48 broader representative paths, and completed 25,440-row identity/traits, colors/hue/glow, and explicit-false SVG surfaces with zero definite mismatches. Accessories were not requested."
   },
   "parityBoundary": {
-    "executable": ["identifier lookup", "selected source-trait comparison", "parser normalization and repeatability", "48-cat pinned Traits/Colors/SVG overload comparison", "48-cat explicit-false SVG/parser structural comparison"],
-    "documentedOnly": ["exhaustive MoonCatSVGs and MoonCatColors parity", "accessory composition"],
+    "executable": ["identifier lookup", "selected source-trait comparison", "parser normalization and repeatability", "48-cat pinned Traits/Colors/SVG/default-owner comparison", "25,440-cat pinned identity/traits and colors/hue/glow comparison", "25,440-cat explicit-false SVG overload and parser structural comparison"],
+    "documentedOnly": ["exhaustive true/default MoonCatSVGs and SVG/Colors subset comparison", "accessory composition"],
     "notExecutable": ["current-forever state", "source/compiler equivalence from runtime hashes"],
     "deferred": ["accessory composition and current worn state"],
     "networkExecutableWhenAuthorized": [
@@ -48,9 +48,9 @@
     ]
   },
   "limitations": [
-    "The 48-cat structural pass is distinct from byte identity: byte equality is established only between equivalent identifier overloads for each sampled glow/default mode.",
+    "The structural passes are distinct from byte identity: byte equality is established between equivalent identifier overloads for all explicit-false rows and for each sampled true/default mode.",
     "Human-facing color labels do not establish palette values or orientation.",
     "Current ownership, acclimation/glow state, accessory ownership, and worn configuration are outside the fixture harness.",
-    "The snapshot is representative and block-bounded; it does not establish 25,440-cat coverage, current state, accessory composition, or source/compiler equivalence."
+    "The snapshot is exhaustive only for its three recorded block-bounded surfaces; it does not establish current state, accessory composition, exhaustive true/default SVG or SVG/Colors subset behavior, or source/compiler equivalence."
   ]
 }

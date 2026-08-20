@@ -9,12 +9,13 @@ an unqualified answer that MoonCats are fully on-chain now, that every
 historical deployment still matches the reviewed source, or that current
 ownership, administration, availability, or content state is established.
 
-`docs/onchain-materialization.md` documents a separate validated representative
-snapshot at mainnet block `25798234`. It establishes runtime-code presence for
-eight core addresses and sampled Traits/Colors/SVG behavior for 48 cats at that
-block, including exact overload equality and parser-structure parity. It does
-not make the architecture benchmark exhaustive or current-forever, so the
-qualified verdict remains unchanged.
+`docs/onchain-materialization.md` documents a separate validated snapshot at
+mainnet block `25798234`. It establishes runtime-code presence for eight core
+addresses, broader sampled behavior for 48 cats, and exhaustive
+identity/traits, colors/hue/glow, and explicit-false SVG behavior for all
+25,440 cats at that block. It does not make the architecture benchmark
+current-forever or cover accessories and every SVG mode, so the qualified
+verdict remains unchanged.
 
 The implemented case is
 `synthesis-fully-on-chain-materialization-path` in
@@ -31,7 +32,7 @@ The evidence roles must remain separate:
 | ADR/design intent | data/architecture-decisions.json, docs/architecture-decisions.md, and the pinned ADR records 0007, 0008, 0009, and 0012 | documented architecture direction for blockchain state, library structure, Ethereum interfaces, and token metadata | implementation completion, selected deployed contracts, deployment, or live state |
 | Source implementation | data/contracts.json, docs/contracts.md, data/contract-surfaces.json, data/materialization-internals.json, the compact contract-internals reviews, and the separately routed exact ABI registry | reviewed function roles, exact local interfaces for nine address-matched contracts, and source-described relationships among rescue, wrapper, traits, colors, SVG, and accessory surfaces | complete Solidity source bodies, complete mappings, exact on-chain generated outputs, or bytecode equivalence |
 | Historical deployment evidence | contract records with Ethereum-mainnet addresses, verified-source status, registered Etherscan references, and the official Chained to the Future log source reference | that an exact address/source relationship was recorded and reviewed at the stated check dates | current activity or source/compiler equivalence |
-| Pinned RPC behavior | data/onchain-materialization/manifest.json and its compact representative evidence | non-empty runtime code at eight registered addresses plus exact sampled ABI outputs, SVG hashes, and parser comparisons at block 25798234 | other blocks, all 25,440 cats, source/compiler equivalence, accessories, or current-forever state |
+| Pinned RPC behavior | data/onchain-materialization/manifest.json and its compact representative/exhaustive evidence | non-empty runtime code at eight registered addresses; exhaustive identity/traits, colors/hue/glow, explicit-false SVG overload, and parser-structure results at block 25798234; broader 48-cat sampled checks | other blocks, source/compiler equivalence, accessories, exhaustive true/default SVG or SVG/Colors subset checks, or current-forever state |
 | Live/current chain state | no continuously refreshed current-state snapshot | none beyond the historical pinned block | current code, admin/owner state, proxy configuration, storage, ownership, supply, endpoint availability, IPFS/Firebase content, or transaction behavior |
 
 Direct source statements, deterministic derivations, and reviewer inference
@@ -47,9 +48,9 @@ inference.
 | MoonCatRescue | original rescue-order lookup, owner/cat identity foundation, Genesis formula and supply constants | data/contracts.json, docs/contracts.md, data/protocol-constants.json, registered historical source references | source and recorded mainnet address do not prove current storage, ownership, or bytecode |
 | MoonCatAcclimator | ERC-721/ERC-998 wrapper path from original MoonCats; reviewed token identity uses rescue order within this exact contract | data/contracts.json and data/contract-surfaces.json | exact source/address review is historical; current wrapper state and approvals require live evidence |
 | MoonCatReference | on-chain documentation/reference registry for materialization contracts | data/contracts.json and data/contract-surfaces.json | stored documentation records and current registry contents are not imported |
-| MoonCatTraits | compact and human-readable trait lookup, including rescue-order helpers | data/contracts.json, data/contract-surfaces.json, data/materialization-internals.json, and the separate pinned snapshot | exhaustive mappings and current outputs beyond the pinned sample are absent |
-| MoonCatColors | RGB, hue, palette, glow, and accessory-color helper surface | data/contracts.json, data/contract-surfaces.json, data/materialization-internals.json, and the separate pinned snapshot | exhaustive palette outputs, override values, and current storage are absent |
-| MoonCatSVGs | source-reviewed SVG assembly from trait and color inputs, with cat ID and rescue-order entrypoints | data/contracts.json, data/contract-surfaces.json, data/mooncat-svg-internals.json, and the separate pinned snapshot | sampled hashes/structure do not import source coordinate tables or prove exhaustive/current behavior |
+| MoonCatTraits | compact and human-readable trait lookup, including rescue-order helpers | data/contracts.json, data/contract-surfaces.json, data/materialization-internals.json, and the separate pinned snapshot | current outputs beyond the pinned block are absent |
+| MoonCatColors | RGB, hue, palette, glow, and accessory-color helper surface | data/contracts.json, data/contract-surfaces.json, data/materialization-internals.json, and the separate pinned snapshot | accessory overrides and current storage are absent; exhaustive SVG/Colors subset comparison was not recorded |
+| MoonCatSVGs | source-reviewed SVG assembly from trait and color inputs, with cat ID and rescue-order entrypoints | data/contracts.json, data/contract-surfaces.json, data/mooncat-svg-internals.json, and the separate pinned snapshot | compact exhaustive explicit-false hashes/structure do not import source coordinate tables or prove true/default/accessory/current behavior |
 | MoonCatAccessories | definitions, assignment, rescue-order-keyed owned records, and mutable wear state | data/contracts.json, data/contract-surfaces.json, data/mooncat-accessories-internals.json | taxonomy, records, approvals, managers, supply, and current worn state are absent |
 | MoonCatAccessoryImages | accessory composition and PNG/SVG helper path using the other materialization surfaces | data/contracts.json, data/contract-surfaces.json, data/mooncat-accessory-images-internals.json | accessory data, image bytes, palettes, and rendered results are absent |
 
@@ -126,9 +127,10 @@ outputs, current admin or ownership reads, or current endpoint/content checks.
 
 The registered source index is `data/sources.json`; `docs/contracts.md` and the
 compact data surfaces fill the relevant local roles. The separate pinned
-manifest is completed and zero-network validated, but it is representative
-deployed-output evidence at one historical block rather than a live/current or
-exhaustive result.
+manifest is completed and zero-network validated. It is exhaustive for its
+identity/traits, colors/hue/glow, and explicit-false SVG surfaces at one
+historical block, but remains neither live/current nor exhaustive for every
+materialization mode.
 
 The following evidence remains missing or requires a separately authorized
 pass:
@@ -136,7 +138,8 @@ pass:
 - current deployment and proxy/implementation state for each address;
 - current owner/admin/approval/storage and ownership reads;
 - source-to-deployed-bytecode equivalence at a pinned block;
-- exhaustive contract output or transaction-level materialization checks;
+- exhaustive true/default SVG, SVG/Colors subset, accessory composition, or
+  transaction-level materialization checks;
 - current API, RPC, IPFS, Firebase, hosting, and frontend availability;
 - complete mappings and generated asset outputs.
 
@@ -144,6 +147,6 @@ pass:
 
 The `fully-on-chain-architecture-synthesis` benchmark gap is covered by the
 implemented and validated bounded case. The pinned snapshot additionally
-closes a 48-cat, one-block runtime/output comparison, but current deployment,
-source equivalence, exhaustive output, accessory state, and content
-availability remain separate evidence gaps.
+closes three 25,440-cat, one-block surfaces plus broader 48-cat comparisons,
+but current deployment, source equivalence, unrecorded SVG/accessory modes, and
+content availability remain separate evidence gaps.

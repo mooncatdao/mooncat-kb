@@ -68,4 +68,4 @@ Notes:
 - Use /data/kb-gap-index.json for planning and gap discovery only; follow its referenced evidence for factual claims.
 - Stop rather than guess when a claim needs missing provenance, unsupported conversion, or current verification.
 - Treat /docs/public-release-readiness.md as the release assessment, not as a new source of MoonCat facts.
-- The validated /data/onchain-materialization/manifest.json is a 48-cat representative snapshot at block 25798234, not exhaustive or current-forever proof; retain its exact block, mismatch/comparison counts, source-equivalence limit, and accessory exclusion.
+- The validated /data/onchain-materialization/manifest.json retains 48-cat representative checks plus exhaustive identity/traits, colors/hue/glow, and explicit-false SVG surfaces for all 25,440 cats at block 25798234; retain exact per-surface counts, distinguish the representative-only SVG/Colors subset check, and preserve source-equivalence, accessory, and currentness limits.

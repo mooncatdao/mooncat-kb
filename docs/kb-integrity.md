@@ -24,8 +24,8 @@ Generated artifacts remain owned by their existing generators:
 - `data/mooncat-renders/` — `scripts/generate-mooncat-renders.py --check`
 - `data/onchain-materialization/` —
   `scripts/validate-onchain-materialization.py`; its committed representative
-  snapshot is block-pinned, while its network generator is explicit and is
-  never run by the zero-network audit
+  and 78-shard exhaustive snapshot is block-pinned, while its network generator
+  is explicit and is never run by the zero-network audit
 - `data/contract-registry.json`, `data/event-registry.json`,
   `data/event-indexer-recipes.json`, and `data/abi-registry/` —
   `scripts/extract-contract-abis.py --check`

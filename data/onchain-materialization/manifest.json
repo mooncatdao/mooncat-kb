@@ -20,7 +20,7 @@
   },
   "generation": {
     "script": "scripts/verify-onchain-materialization.py",
-    "resumeCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode representative --resume --representative-count 48 --rpc-batch-size 25 --shard-size 1000",
+    "resumeCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full --resume --representative-count 48 --rpc-batch-size 25 --shard-size 1000 --full-svg",
     "representativeRefreshCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode representative --resume --refresh-representative --representative-count 48 --rpc-batch-size 25 --shard-size 1000",
     "networkDependency": "explicit-user-supplied-ethereum-json-rpc",
     "ordering": "ascending rescueOrder",
@@ -158,9 +158,9 @@
   },
   "exhaustive": {
     "identityTraits": {
-      "status": "not-requested",
-      "completedCount": 0,
-      "targetCount": 0,
+      "status": "completed",
+      "completedCount": 25440,
+      "targetCount": 25440,
       "definiteMismatchCount": 0,
       "mismatchCounts": {},
       "incomparableCounts": {},
@@ -177,12 +177,247 @@
           "notEvaluated": 0
         }
       },
-      "shards": []
+      "shards": [
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/00000-00999.json",
+          "sha256": "52f95735031d6f772fb71605a114e34699f87003c2fded2de3102fc7d7f3737b",
+          "bytes": 447029,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 0,
+          "endRescueOrder": 999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/01000-01999.json",
+          "sha256": "660a0340d9902da37f11097dcc05c6cb46f596ee19b90e680ab4b296c6d9c137",
+          "bytes": 448155,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 1000,
+          "endRescueOrder": 1999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/02000-02999.json",
+          "sha256": "c73334e62efbea3993794914f92015d54332c63883d5103ac55c66f9d2771943",
+          "bytes": 448107,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 2000,
+          "endRescueOrder": 2999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/03000-03999.json",
+          "sha256": "ff2350dd0a9ebf5d0e9d0cceb603f1547708f6bf975a024b9da21a35c85a0135",
+          "bytes": 448157,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 3000,
+          "endRescueOrder": 3999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/04000-04999.json",
+          "sha256": "2bb8b458c6676592f29442137ed68fee1c46b703c3f7b8679937fb174611a84e",
+          "bytes": 448141,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 4000,
+          "endRescueOrder": 4999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/05000-05999.json",
+          "sha256": "2e814e8d26e732d913d62b748203704b9ec60fb1da73d83a129761017492d2f1",
+          "bytes": 448123,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 5000,
+          "endRescueOrder": 5999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/06000-06999.json",
+          "sha256": "92c85e155028d5eb668f88d4e5dceaf19cd6fa13cfb10e211e9c64de971b79ec",
+          "bytes": 448173,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 6000,
+          "endRescueOrder": 6999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/07000-07999.json",
+          "sha256": "34aea9c9a9c9dac093831c566ef2f57420037ba542ee2d04f336554632a023a2",
+          "bytes": 448207,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 7000,
+          "endRescueOrder": 7999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/08000-08999.json",
+          "sha256": "f4c9e8ed4ab36c8d8016f6cd0352404980e08127b194e382ce55af202cd997e2",
+          "bytes": 448173,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 8000,
+          "endRescueOrder": 8999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/09000-09999.json",
+          "sha256": "10ba8271b70887d9e4fe2bfb3f4659423e11243515fc405dd3aba80ed69a8bc0",
+          "bytes": 448143,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 9000,
+          "endRescueOrder": 9999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/10000-10999.json",
+          "sha256": "387a3a5de01d946f002bfac110e93bdb64a4d4cde5f85c0a90137eb8468ca0fe",
+          "bytes": 449177,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 10000,
+          "endRescueOrder": 10999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/11000-11999.json",
+          "sha256": "25c88a1617cc7da478d5f92b20e5594497caa330ee334085492c9e82b10444f5",
+          "bytes": 449177,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 11000,
+          "endRescueOrder": 11999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/12000-12999.json",
+          "sha256": "9c84e3b97039c6b7a587baa7eff13359bd192fbec7e9106797b92dcf8decea59",
+          "bytes": 449129,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 12000,
+          "endRescueOrder": 12999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/13000-13999.json",
+          "sha256": "9d3d3dbc5158e7109ce6e50d4baedcaf5715db65c9e5b26a6749b589cca78b67",
+          "bytes": 449211,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 13000,
+          "endRescueOrder": 13999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/14000-14999.json",
+          "sha256": "f709a59421a9fdfc312af6a20d3b9077e049b81d924bb62cfc508d803022c2a3",
+          "bytes": 449149,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 14000,
+          "endRescueOrder": 14999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/15000-15999.json",
+          "sha256": "cb4d26f5b529a34aba1a566ea0c9baaadcdb3000380550bf2a599d705d019c2e",
+          "bytes": 449179,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 15000,
+          "endRescueOrder": 15999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/16000-16999.json",
+          "sha256": "d078d8939c831fbf6a9217c4fa080a60dfb419c7b9593444a8011d38ce0eb238",
+          "bytes": 449055,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 16000,
+          "endRescueOrder": 16999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/17000-17999.json",
+          "sha256": "97795d0af6ec03112a80f7adea379f962523d4c0236b8f28f4bde5fc4145b34c",
+          "bytes": 449119,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 17000,
+          "endRescueOrder": 17999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/18000-18999.json",
+          "sha256": "c44137943424800da3f4b8fda9b4866cf538ad612b49d28f4d9a638c23e7fe0f",
+          "bytes": 449155,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 18000,
+          "endRescueOrder": 18999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/19000-19999.json",
+          "sha256": "ab0602aad3b667bbcc138c3d1bb8dca27e86ad8fae2a3571cd38261878dcaa20",
+          "bytes": 449183,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 19000,
+          "endRescueOrder": 19999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/20000-20999.json",
+          "sha256": "d10352786572d43cad6ca6f61ec91dc1a084bd8ceddd19e5070d0eb68bfb50b3",
+          "bytes": 449203,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 20000,
+          "endRescueOrder": 20999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/21000-21999.json",
+          "sha256": "4c582ac59f422020b84a4f1619fc17e4269fe650bc081584ec21a75ceb779d32",
+          "bytes": 449173,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 21000,
+          "endRescueOrder": 21999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/22000-22999.json",
+          "sha256": "c86cac8bf2fcf2300cb5ba44c60f9657aaed482ce7b0e203f51dd1c08cf03acb",
+          "bytes": 449179,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 22000,
+          "endRescueOrder": 22999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/23000-23999.json",
+          "sha256": "6e07f18a311dc7ed640b2537f2e96af15ecfe4e0013515fcbf08063780fbf563",
+          "bytes": 449149,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 23000,
+          "endRescueOrder": 23999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/24000-24999.json",
+          "sha256": "a2e95e975458b78b22800fb4b33b11af4c2ed2c2a57a71763cbaf9a9ed159711",
+          "bytes": 449157,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 24000,
+          "endRescueOrder": 24999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/identity-traits/25000-25439.json",
+          "sha256": "98b38286ac65e7af3d75c42829207ea6645ce8f852d750a0c891e1464329489d",
+          "bytes": 197713,
+          "role": "pinned-block exhaustive identityTraits evidence",
+          "startRescueOrder": 25000,
+          "endRescueOrder": 25439,
+          "rowCount": 440
+        }
+      ]
     },
     "colors": {
-      "status": "not-requested",
-      "completedCount": 0,
-      "targetCount": 0,
+      "status": "completed",
+      "completedCount": 25440,
+      "targetCount": 25440,
       "definiteMismatchCount": 0,
       "mismatchCounts": {},
       "incomparableCounts": {},
@@ -199,19 +434,254 @@
           "notEvaluated": 0
         }
       },
-      "shards": []
+      "shards": [
+        {
+          "path": "data/onchain-materialization/shards/colors/00000-00999.json",
+          "sha256": "7ed35d6dd749af5bf913f020276b09a37aff852422b6810002a5959ddfbf3a64",
+          "bytes": 1102151,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 0,
+          "endRescueOrder": 999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/01000-01999.json",
+          "sha256": "467cb43765830df0ee1b3e33817d7a8d1f741909a19a009f17d0137d6c83e3fa",
+          "bytes": 1103321,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 1000,
+          "endRescueOrder": 1999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/02000-02999.json",
+          "sha256": "23f18dbcf0700499a9ca3da121fcb9712d95fef96bd90edca82913092f02f9ef",
+          "bytes": 1103047,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 2000,
+          "endRescueOrder": 2999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/03000-03999.json",
+          "sha256": "036686c8dd366bfd9010212c29f94ff57f0f971fbb70fe08e2521cb0343facd2",
+          "bytes": 1102769,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 3000,
+          "endRescueOrder": 3999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/04000-04999.json",
+          "sha256": "03ccfaf2b44bcb7d18cc6fbe6de8fc7dd41df6150b2be09539fb08472f18be42",
+          "bytes": 1103155,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 4000,
+          "endRescueOrder": 4999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/05000-05999.json",
+          "sha256": "c969e81a7ab49ed821fd03e6fd74ca2c6d4732c2c24be941d16aaff1ab2e3f51",
+          "bytes": 1102717,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 5000,
+          "endRescueOrder": 5999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/06000-06999.json",
+          "sha256": "9d92481c813aec43af806821d8cff1056db90de84152407869538b6a49be7964",
+          "bytes": 1102929,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 6000,
+          "endRescueOrder": 6999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/07000-07999.json",
+          "sha256": "41fb0a7c3db1aa05031e11e287f882b59b3c2fa63f50af68891b5601c7f38913",
+          "bytes": 1102751,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 7000,
+          "endRescueOrder": 7999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/08000-08999.json",
+          "sha256": "913811c881090c1f34c8786a73f78def6dee99181295c8ed93eaf2c5d16f1206",
+          "bytes": 1103035,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 8000,
+          "endRescueOrder": 8999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/09000-09999.json",
+          "sha256": "3cdc1aefea4614f876131880864139dd5900e6907000ca51ad084d8a20e70e48",
+          "bytes": 1102829,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 9000,
+          "endRescueOrder": 9999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/10000-10999.json",
+          "sha256": "177cc9ef7f0f28d09171ea49820432d5b5acf611c947ef1525e943903e30b1c6",
+          "bytes": 1103821,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 10000,
+          "endRescueOrder": 10999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/11000-11999.json",
+          "sha256": "83aef321f8ab7f1c5f7497d23262ea75ca1ea45b2e083a6e03a231ff9e0e4979",
+          "bytes": 1104139,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 11000,
+          "endRescueOrder": 11999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/12000-12999.json",
+          "sha256": "ce48fa33df0a889d4d2fb1d5087386b19fa9d88df77cbc668facbfe3336f6ed4",
+          "bytes": 1103941,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 12000,
+          "endRescueOrder": 12999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/13000-13999.json",
+          "sha256": "b6c4f77bd2f93215a688d2c78d80c298fbb39654de0e635ff8a78f660f1f0505",
+          "bytes": 1103841,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 13000,
+          "endRescueOrder": 13999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/14000-14999.json",
+          "sha256": "5f4e5b9d09800415d9b4010c021a67a9f4e3c5c448da5d0f001548926dad905c",
+          "bytes": 1103857,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 14000,
+          "endRescueOrder": 14999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/15000-15999.json",
+          "sha256": "cf5aaa5d3e2d3c51149a2915442ccc92530ee3c4080846761f5a5db789451b1a",
+          "bytes": 1104059,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 15000,
+          "endRescueOrder": 15999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/16000-16999.json",
+          "sha256": "fae26fe9ed50632e423b9c22b4cd7d868bc011c025e3395cc73ec606878af584",
+          "bytes": 1103761,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 16000,
+          "endRescueOrder": 16999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/17000-17999.json",
+          "sha256": "4622d9bd1c8cffd6bf32ed4a917cb456586cd418225d91a15b97b67cd2665347",
+          "bytes": 1104025,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 17000,
+          "endRescueOrder": 17999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/18000-18999.json",
+          "sha256": "72218861c408735810d8d05c604a91ef43a4a43b956ab1a2778d28ff39868690",
+          "bytes": 1104041,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 18000,
+          "endRescueOrder": 18999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/19000-19999.json",
+          "sha256": "82efb4b87416cd80bfece297ed21f1e5bc206d6d3a1b76754a3ce35c6c6f99a0",
+          "bytes": 1103757,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 19000,
+          "endRescueOrder": 19999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/20000-20999.json",
+          "sha256": "a5d943c7c9079d08ed100e968121d39fd2c81efc91c097fadbf4bdef7ea206bc",
+          "bytes": 1104079,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 20000,
+          "endRescueOrder": 20999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/21000-21999.json",
+          "sha256": "9419f9d92580a2fb77b81b9cb6f922deeef87a6ef9bf56a15fc21c1ab63c72ff",
+          "bytes": 1103989,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 21000,
+          "endRescueOrder": 21999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/22000-22999.json",
+          "sha256": "0c67256306fb499c8b447f56279f06634561fea7070b17ff531f4f8ad5dff24b",
+          "bytes": 1103893,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 22000,
+          "endRescueOrder": 22999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/23000-23999.json",
+          "sha256": "3e94256c0f1aefde8c1c11f64e0dd6f2d8b3e2c5d3e6af5114b7a1895bd939fd",
+          "bytes": 1103925,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 23000,
+          "endRescueOrder": 23999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/24000-24999.json",
+          "sha256": "7cc3733bc18b81b22e1e2d5a49a69c3eda48c89453ea4071a6b18f616ebeb728",
+          "bytes": 1103879,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 24000,
+          "endRescueOrder": 24999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/colors/25000-25439.json",
+          "sha256": "9e6fe093ef0ec38d293efb0aea47002f7f0da4de947de81d0f992379b68241db",
+          "bytes": 485793,
+          "role": "pinned-block exhaustive colors evidence",
+          "startRescueOrder": 25000,
+          "endRescueOrder": 25439,
+          "rowCount": 440
+        }
+      ]
     },
     "svgFalse": {
-      "status": "not-requested",
-      "completedCount": 0,
-      "targetCount": 0,
+      "status": "completed",
+      "completedCount": 25440,
+      "targetCount": 25440,
       "definiteMismatchCount": 0,
       "mismatchCounts": {},
       "incomparableCounts": {},
       "notEvaluatedCounts": {},
       "comparisonCounts": {
         "parserStructure": {
-          "passed": 0,
+          "passed": 25440,
           "failed": 0,
           "incomparable": 0
         },
@@ -221,7 +691,242 @@
           "notEvaluated": 0
         }
       },
-      "shards": []
+      "shards": [
+        {
+          "path": "data/onchain-materialization/shards/svg-false/00000-00999.json",
+          "sha256": "aa4cc5d3aa3d558f3b08369a5e1ec73ca1dff399484888c5a133b1c51673b863",
+          "bytes": 3858983,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 0,
+          "endRescueOrder": 999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/01000-01999.json",
+          "sha256": "92f20a134fb119db07f646ad0738c0e9a4ef1e1bc5626ba1a4267515c9a1e6ff",
+          "bytes": 3859863,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 1000,
+          "endRescueOrder": 1999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/02000-02999.json",
+          "sha256": "1b47eb997135d866a28a7ae0e7326ac6216771a098d04d232583aadb33f303fc",
+          "bytes": 3860233,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 2000,
+          "endRescueOrder": 2999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/03000-03999.json",
+          "sha256": "b7c986a68e2ae8fba693bb44368cb683b4ea010b8fbf538cbc6a538df6eccccd",
+          "bytes": 3860729,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 3000,
+          "endRescueOrder": 3999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/04000-04999.json",
+          "sha256": "c6de79871110fc72b9c2fd4607acacf407186e5541fbcf480553faf71f81ec47",
+          "bytes": 3863947,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 4000,
+          "endRescueOrder": 4999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/05000-05999.json",
+          "sha256": "3cac05d9553f099892e543da0036534b86256bc4242c7676d6108214db244335",
+          "bytes": 3862919,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 5000,
+          "endRescueOrder": 5999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/06000-06999.json",
+          "sha256": "3db3418ac21ec6dee48bda89b0aae48c3c1bc6ca3807429c296df844667388bb",
+          "bytes": 3863065,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 6000,
+          "endRescueOrder": 6999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/07000-07999.json",
+          "sha256": "199b338416be6f7af885142bea137699e7e1f9025416c9b9da28135cc5cfce6f",
+          "bytes": 3861777,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 7000,
+          "endRescueOrder": 7999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/08000-08999.json",
+          "sha256": "7081b6c9392c8947dde11197820f8cf84a862cf1c0370a15bb342efb86516992",
+          "bytes": 3862613,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 8000,
+          "endRescueOrder": 8999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/09000-09999.json",
+          "sha256": "1def2e4485781aa8fd31506200aa6c0a0824e4f07309ef72531d69de2b94e2ce",
+          "bytes": 3863271,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 9000,
+          "endRescueOrder": 9999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/10000-10999.json",
+          "sha256": "6f23efd61e6d63dc65d7e004beed1633d624a0b507bfded1d2f347d8c5f97506",
+          "bytes": 3861605,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 10000,
+          "endRescueOrder": 10999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/11000-11999.json",
+          "sha256": "8d83dd33516d51fb0ebb6f65627095ecd8198c30729ce62cdd5450afb01a3be5",
+          "bytes": 3861483,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 11000,
+          "endRescueOrder": 11999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/12000-12999.json",
+          "sha256": "67604d05201d3275eace22c41a68403f1dbddbfdf5dfbea8e65fa255067ed082",
+          "bytes": 3863555,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 12000,
+          "endRescueOrder": 12999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/13000-13999.json",
+          "sha256": "1352c01e406dbcb39eddbdd6ce1f30b8ba5d053dc53fffa1d7f86decfa06436e",
+          "bytes": 3863901,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 13000,
+          "endRescueOrder": 13999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/14000-14999.json",
+          "sha256": "5a32a2f473596ce6f9a80719052d4c04d146cb3955453fe035bf086fbc48bf85",
+          "bytes": 3861261,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 14000,
+          "endRescueOrder": 14999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/15000-15999.json",
+          "sha256": "4bedd1976293b6a7583d5ee224f49de222ef91fc1e0ccd33193b3f5808bd7db8",
+          "bytes": 3862955,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 15000,
+          "endRescueOrder": 15999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/16000-16999.json",
+          "sha256": "22ce55ca86318750bc875a47fb8477d7780e7e94c23483ec663e6ea99867e74a",
+          "bytes": 3860241,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 16000,
+          "endRescueOrder": 16999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/17000-17999.json",
+          "sha256": "9a69dd462ce35bfbfa047a4d3b10dc561c4ea938b3b1c55e4f103652a6f2a425",
+          "bytes": 3860801,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 17000,
+          "endRescueOrder": 17999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/18000-18999.json",
+          "sha256": "89f6929a856a2eae7f514d0db2ae480916f278a2060cb10d20da5db57e067cb6",
+          "bytes": 3860975,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 18000,
+          "endRescueOrder": 18999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/19000-19999.json",
+          "sha256": "3e52ab71aba4a526e3112bedba46b6b120d9828457cf15eaafe54b6fb8bf9f69",
+          "bytes": 3864683,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 19000,
+          "endRescueOrder": 19999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/20000-20999.json",
+          "sha256": "8c74eb981ce44b77b8f187b0957c5ce8bbb1d56eab588968c6e33a354dd3de0b",
+          "bytes": 3862643,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 20000,
+          "endRescueOrder": 20999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/21000-21999.json",
+          "sha256": "364d7772b3a6731aba3a51b28d866d00646fc62c30c4e15a8078bf0fbb4063fe",
+          "bytes": 3863333,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 21000,
+          "endRescueOrder": 21999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/22000-22999.json",
+          "sha256": "cf1ccd370915170dbb6d290e0b6fe814d8fbc3ed4273bc7f63b0defd17504728",
+          "bytes": 3862273,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 22000,
+          "endRescueOrder": 22999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/23000-23999.json",
+          "sha256": "b03447542f7e3d5d4250597239d8e0a3cc5115ca41b8f15a9e21f1ebe58e60f4",
+          "bytes": 3863045,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 23000,
+          "endRescueOrder": 23999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/24000-24999.json",
+          "sha256": "f46c03178b21a74553ce302ca931a8f1b20345717c4badf6dbc9a9b3ab1c33e5",
+          "bytes": 3863511,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 24000,
+          "endRescueOrder": 24999,
+          "rowCount": 1000
+        },
+        {
+          "path": "data/onchain-materialization/shards/svg-false/25000-25439.json",
+          "sha256": "58661fe111ee60da8895da4cd28b0847f7931e051dfc9e7fa89d6c744139b935",
+          "bytes": 1699113,
+          "role": "pinned-block exhaustive svgFalse evidence",
+          "startRescueOrder": 25000,
+          "endRescueOrder": 25439,
+          "rowCount": 440
+        }
+      ]
     }
   },
   "accessories": {
@@ -245,7 +950,7 @@
     },
     {
       "path": "data/materialization-parity-results.json",
-      "sha256": "c53a0f9818f6812acab6ce2066b7e47207aef2e6faaea265ac3028b2c643a2c6",
+      "sha256": "fab4673d16954bee27faefee55da845d2d27e2cd4261ce5d4b1b5ff8df7da759",
       "bytes": 34131,
       "role": "existing zero-network parity baseline"
     },
@@ -269,8 +974,8 @@
     },
     {
       "path": "scripts/onchain_materialization_lib.py",
-      "sha256": "1b115fcae8b2c59325c4a1e0f7e1ecf91c9c909e006696f0aad73313af30951f",
-      "bytes": 47135,
+      "sha256": "1cff6bfb252166c4a41770921e96edd9f33916b5a3385d24b8c125359c1e77f9",
+      "bytes": 47465,
       "role": "ABI, RPC, hashing, and SVG normalization implementation"
     },
     {
@@ -643,9 +1348,711 @@
     },
     {
       "path": "data/onchain-materialization/checkpoint.json",
-      "sha256": "54cab3ae4fc8a817f7b454611619155d7e7cea3440fc6f9516b6b467e7ffed4e",
-      "bytes": 2182,
+      "sha256": "bde7b683cdea2b1498d5438fe674bb3a3feae66075dfaef8b9ca88de4963d14b",
+      "bytes": 32147,
       "role": "resumable pinned-block scan state"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/00000-00999.json",
+      "sha256": "52f95735031d6f772fb71605a114e34699f87003c2fded2de3102fc7d7f3737b",
+      "bytes": 447029,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 0,
+      "endRescueOrder": 999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/01000-01999.json",
+      "sha256": "660a0340d9902da37f11097dcc05c6cb46f596ee19b90e680ab4b296c6d9c137",
+      "bytes": 448155,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 1000,
+      "endRescueOrder": 1999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/02000-02999.json",
+      "sha256": "c73334e62efbea3993794914f92015d54332c63883d5103ac55c66f9d2771943",
+      "bytes": 448107,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 2000,
+      "endRescueOrder": 2999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/03000-03999.json",
+      "sha256": "ff2350dd0a9ebf5d0e9d0cceb603f1547708f6bf975a024b9da21a35c85a0135",
+      "bytes": 448157,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 3000,
+      "endRescueOrder": 3999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/04000-04999.json",
+      "sha256": "2bb8b458c6676592f29442137ed68fee1c46b703c3f7b8679937fb174611a84e",
+      "bytes": 448141,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 4000,
+      "endRescueOrder": 4999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/05000-05999.json",
+      "sha256": "2e814e8d26e732d913d62b748203704b9ec60fb1da73d83a129761017492d2f1",
+      "bytes": 448123,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 5000,
+      "endRescueOrder": 5999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/06000-06999.json",
+      "sha256": "92c85e155028d5eb668f88d4e5dceaf19cd6fa13cfb10e211e9c64de971b79ec",
+      "bytes": 448173,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 6000,
+      "endRescueOrder": 6999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/07000-07999.json",
+      "sha256": "34aea9c9a9c9dac093831c566ef2f57420037ba542ee2d04f336554632a023a2",
+      "bytes": 448207,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 7000,
+      "endRescueOrder": 7999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/08000-08999.json",
+      "sha256": "f4c9e8ed4ab36c8d8016f6cd0352404980e08127b194e382ce55af202cd997e2",
+      "bytes": 448173,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 8000,
+      "endRescueOrder": 8999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/09000-09999.json",
+      "sha256": "10ba8271b70887d9e4fe2bfb3f4659423e11243515fc405dd3aba80ed69a8bc0",
+      "bytes": 448143,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 9000,
+      "endRescueOrder": 9999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/10000-10999.json",
+      "sha256": "387a3a5de01d946f002bfac110e93bdb64a4d4cde5f85c0a90137eb8468ca0fe",
+      "bytes": 449177,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 10000,
+      "endRescueOrder": 10999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/11000-11999.json",
+      "sha256": "25c88a1617cc7da478d5f92b20e5594497caa330ee334085492c9e82b10444f5",
+      "bytes": 449177,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 11000,
+      "endRescueOrder": 11999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/12000-12999.json",
+      "sha256": "9c84e3b97039c6b7a587baa7eff13359bd192fbec7e9106797b92dcf8decea59",
+      "bytes": 449129,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 12000,
+      "endRescueOrder": 12999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/13000-13999.json",
+      "sha256": "9d3d3dbc5158e7109ce6e50d4baedcaf5715db65c9e5b26a6749b589cca78b67",
+      "bytes": 449211,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 13000,
+      "endRescueOrder": 13999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/14000-14999.json",
+      "sha256": "f709a59421a9fdfc312af6a20d3b9077e049b81d924bb62cfc508d803022c2a3",
+      "bytes": 449149,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 14000,
+      "endRescueOrder": 14999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/15000-15999.json",
+      "sha256": "cb4d26f5b529a34aba1a566ea0c9baaadcdb3000380550bf2a599d705d019c2e",
+      "bytes": 449179,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 15000,
+      "endRescueOrder": 15999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/16000-16999.json",
+      "sha256": "d078d8939c831fbf6a9217c4fa080a60dfb419c7b9593444a8011d38ce0eb238",
+      "bytes": 449055,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 16000,
+      "endRescueOrder": 16999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/17000-17999.json",
+      "sha256": "97795d0af6ec03112a80f7adea379f962523d4c0236b8f28f4bde5fc4145b34c",
+      "bytes": 449119,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 17000,
+      "endRescueOrder": 17999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/18000-18999.json",
+      "sha256": "c44137943424800da3f4b8fda9b4866cf538ad612b49d28f4d9a638c23e7fe0f",
+      "bytes": 449155,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 18000,
+      "endRescueOrder": 18999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/19000-19999.json",
+      "sha256": "ab0602aad3b667bbcc138c3d1bb8dca27e86ad8fae2a3571cd38261878dcaa20",
+      "bytes": 449183,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 19000,
+      "endRescueOrder": 19999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/20000-20999.json",
+      "sha256": "d10352786572d43cad6ca6f61ec91dc1a084bd8ceddd19e5070d0eb68bfb50b3",
+      "bytes": 449203,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 20000,
+      "endRescueOrder": 20999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/21000-21999.json",
+      "sha256": "4c582ac59f422020b84a4f1619fc17e4269fe650bc081584ec21a75ceb779d32",
+      "bytes": 449173,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 21000,
+      "endRescueOrder": 21999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/22000-22999.json",
+      "sha256": "c86cac8bf2fcf2300cb5ba44c60f9657aaed482ce7b0e203f51dd1c08cf03acb",
+      "bytes": 449179,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 22000,
+      "endRescueOrder": 22999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/23000-23999.json",
+      "sha256": "6e07f18a311dc7ed640b2537f2e96af15ecfe4e0013515fcbf08063780fbf563",
+      "bytes": 449149,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 23000,
+      "endRescueOrder": 23999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/24000-24999.json",
+      "sha256": "a2e95e975458b78b22800fb4b33b11af4c2ed2c2a57a71763cbaf9a9ed159711",
+      "bytes": 449157,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 24000,
+      "endRescueOrder": 24999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/25000-25439.json",
+      "sha256": "98b38286ac65e7af3d75c42829207ea6645ce8f852d750a0c891e1464329489d",
+      "bytes": 197713,
+      "role": "pinned-block exhaustive identityTraits evidence",
+      "startRescueOrder": 25000,
+      "endRescueOrder": 25439,
+      "rowCount": 440
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/00000-00999.json",
+      "sha256": "7ed35d6dd749af5bf913f020276b09a37aff852422b6810002a5959ddfbf3a64",
+      "bytes": 1102151,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 0,
+      "endRescueOrder": 999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/01000-01999.json",
+      "sha256": "467cb43765830df0ee1b3e33817d7a8d1f741909a19a009f17d0137d6c83e3fa",
+      "bytes": 1103321,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 1000,
+      "endRescueOrder": 1999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/02000-02999.json",
+      "sha256": "23f18dbcf0700499a9ca3da121fcb9712d95fef96bd90edca82913092f02f9ef",
+      "bytes": 1103047,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 2000,
+      "endRescueOrder": 2999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/03000-03999.json",
+      "sha256": "036686c8dd366bfd9010212c29f94ff57f0f971fbb70fe08e2521cb0343facd2",
+      "bytes": 1102769,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 3000,
+      "endRescueOrder": 3999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/04000-04999.json",
+      "sha256": "03ccfaf2b44bcb7d18cc6fbe6de8fc7dd41df6150b2be09539fb08472f18be42",
+      "bytes": 1103155,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 4000,
+      "endRescueOrder": 4999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/05000-05999.json",
+      "sha256": "c969e81a7ab49ed821fd03e6fd74ca2c6d4732c2c24be941d16aaff1ab2e3f51",
+      "bytes": 1102717,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 5000,
+      "endRescueOrder": 5999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/06000-06999.json",
+      "sha256": "9d92481c813aec43af806821d8cff1056db90de84152407869538b6a49be7964",
+      "bytes": 1102929,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 6000,
+      "endRescueOrder": 6999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/07000-07999.json",
+      "sha256": "41fb0a7c3db1aa05031e11e287f882b59b3c2fa63f50af68891b5601c7f38913",
+      "bytes": 1102751,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 7000,
+      "endRescueOrder": 7999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/08000-08999.json",
+      "sha256": "913811c881090c1f34c8786a73f78def6dee99181295c8ed93eaf2c5d16f1206",
+      "bytes": 1103035,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 8000,
+      "endRescueOrder": 8999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/09000-09999.json",
+      "sha256": "3cdc1aefea4614f876131880864139dd5900e6907000ca51ad084d8a20e70e48",
+      "bytes": 1102829,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 9000,
+      "endRescueOrder": 9999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/10000-10999.json",
+      "sha256": "177cc9ef7f0f28d09171ea49820432d5b5acf611c947ef1525e943903e30b1c6",
+      "bytes": 1103821,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 10000,
+      "endRescueOrder": 10999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/11000-11999.json",
+      "sha256": "83aef321f8ab7f1c5f7497d23262ea75ca1ea45b2e083a6e03a231ff9e0e4979",
+      "bytes": 1104139,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 11000,
+      "endRescueOrder": 11999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/12000-12999.json",
+      "sha256": "ce48fa33df0a889d4d2fb1d5087386b19fa9d88df77cbc668facbfe3336f6ed4",
+      "bytes": 1103941,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 12000,
+      "endRescueOrder": 12999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/13000-13999.json",
+      "sha256": "b6c4f77bd2f93215a688d2c78d80c298fbb39654de0e635ff8a78f660f1f0505",
+      "bytes": 1103841,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 13000,
+      "endRescueOrder": 13999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/14000-14999.json",
+      "sha256": "5f4e5b9d09800415d9b4010c021a67a9f4e3c5c448da5d0f001548926dad905c",
+      "bytes": 1103857,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 14000,
+      "endRescueOrder": 14999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/15000-15999.json",
+      "sha256": "cf5aaa5d3e2d3c51149a2915442ccc92530ee3c4080846761f5a5db789451b1a",
+      "bytes": 1104059,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 15000,
+      "endRescueOrder": 15999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/16000-16999.json",
+      "sha256": "fae26fe9ed50632e423b9c22b4cd7d868bc011c025e3395cc73ec606878af584",
+      "bytes": 1103761,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 16000,
+      "endRescueOrder": 16999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/17000-17999.json",
+      "sha256": "4622d9bd1c8cffd6bf32ed4a917cb456586cd418225d91a15b97b67cd2665347",
+      "bytes": 1104025,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 17000,
+      "endRescueOrder": 17999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/18000-18999.json",
+      "sha256": "72218861c408735810d8d05c604a91ef43a4a43b956ab1a2778d28ff39868690",
+      "bytes": 1104041,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 18000,
+      "endRescueOrder": 18999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/19000-19999.json",
+      "sha256": "82efb4b87416cd80bfece297ed21f1e5bc206d6d3a1b76754a3ce35c6c6f99a0",
+      "bytes": 1103757,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 19000,
+      "endRescueOrder": 19999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/20000-20999.json",
+      "sha256": "a5d943c7c9079d08ed100e968121d39fd2c81efc91c097fadbf4bdef7ea206bc",
+      "bytes": 1104079,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 20000,
+      "endRescueOrder": 20999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/21000-21999.json",
+      "sha256": "9419f9d92580a2fb77b81b9cb6f922deeef87a6ef9bf56a15fc21c1ab63c72ff",
+      "bytes": 1103989,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 21000,
+      "endRescueOrder": 21999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/22000-22999.json",
+      "sha256": "0c67256306fb499c8b447f56279f06634561fea7070b17ff531f4f8ad5dff24b",
+      "bytes": 1103893,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 22000,
+      "endRescueOrder": 22999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/23000-23999.json",
+      "sha256": "3e94256c0f1aefde8c1c11f64e0dd6f2d8b3e2c5d3e6af5114b7a1895bd939fd",
+      "bytes": 1103925,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 23000,
+      "endRescueOrder": 23999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/24000-24999.json",
+      "sha256": "7cc3733bc18b81b22e1e2d5a49a69c3eda48c89453ea4071a6b18f616ebeb728",
+      "bytes": 1103879,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 24000,
+      "endRescueOrder": 24999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/25000-25439.json",
+      "sha256": "9e6fe093ef0ec38d293efb0aea47002f7f0da4de947de81d0f992379b68241db",
+      "bytes": 485793,
+      "role": "pinned-block exhaustive colors evidence",
+      "startRescueOrder": 25000,
+      "endRescueOrder": 25439,
+      "rowCount": 440
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/00000-00999.json",
+      "sha256": "aa4cc5d3aa3d558f3b08369a5e1ec73ca1dff399484888c5a133b1c51673b863",
+      "bytes": 3858983,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 0,
+      "endRescueOrder": 999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/01000-01999.json",
+      "sha256": "92f20a134fb119db07f646ad0738c0e9a4ef1e1bc5626ba1a4267515c9a1e6ff",
+      "bytes": 3859863,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 1000,
+      "endRescueOrder": 1999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/02000-02999.json",
+      "sha256": "1b47eb997135d866a28a7ae0e7326ac6216771a098d04d232583aadb33f303fc",
+      "bytes": 3860233,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 2000,
+      "endRescueOrder": 2999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/03000-03999.json",
+      "sha256": "b7c986a68e2ae8fba693bb44368cb683b4ea010b8fbf538cbc6a538df6eccccd",
+      "bytes": 3860729,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 3000,
+      "endRescueOrder": 3999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/04000-04999.json",
+      "sha256": "c6de79871110fc72b9c2fd4607acacf407186e5541fbcf480553faf71f81ec47",
+      "bytes": 3863947,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 4000,
+      "endRescueOrder": 4999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/05000-05999.json",
+      "sha256": "3cac05d9553f099892e543da0036534b86256bc4242c7676d6108214db244335",
+      "bytes": 3862919,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 5000,
+      "endRescueOrder": 5999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/06000-06999.json",
+      "sha256": "3db3418ac21ec6dee48bda89b0aae48c3c1bc6ca3807429c296df844667388bb",
+      "bytes": 3863065,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 6000,
+      "endRescueOrder": 6999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/07000-07999.json",
+      "sha256": "199b338416be6f7af885142bea137699e7e1f9025416c9b9da28135cc5cfce6f",
+      "bytes": 3861777,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 7000,
+      "endRescueOrder": 7999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/08000-08999.json",
+      "sha256": "7081b6c9392c8947dde11197820f8cf84a862cf1c0370a15bb342efb86516992",
+      "bytes": 3862613,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 8000,
+      "endRescueOrder": 8999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/09000-09999.json",
+      "sha256": "1def2e4485781aa8fd31506200aa6c0a0824e4f07309ef72531d69de2b94e2ce",
+      "bytes": 3863271,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 9000,
+      "endRescueOrder": 9999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/10000-10999.json",
+      "sha256": "6f23efd61e6d63dc65d7e004beed1633d624a0b507bfded1d2f347d8c5f97506",
+      "bytes": 3861605,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 10000,
+      "endRescueOrder": 10999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/11000-11999.json",
+      "sha256": "8d83dd33516d51fb0ebb6f65627095ecd8198c30729ce62cdd5450afb01a3be5",
+      "bytes": 3861483,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 11000,
+      "endRescueOrder": 11999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/12000-12999.json",
+      "sha256": "67604d05201d3275eace22c41a68403f1dbddbfdf5dfbea8e65fa255067ed082",
+      "bytes": 3863555,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 12000,
+      "endRescueOrder": 12999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/13000-13999.json",
+      "sha256": "1352c01e406dbcb39eddbdd6ce1f30b8ba5d053dc53fffa1d7f86decfa06436e",
+      "bytes": 3863901,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 13000,
+      "endRescueOrder": 13999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/14000-14999.json",
+      "sha256": "5a32a2f473596ce6f9a80719052d4c04d146cb3955453fe035bf086fbc48bf85",
+      "bytes": 3861261,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 14000,
+      "endRescueOrder": 14999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/15000-15999.json",
+      "sha256": "4bedd1976293b6a7583d5ee224f49de222ef91fc1e0ccd33193b3f5808bd7db8",
+      "bytes": 3862955,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 15000,
+      "endRescueOrder": 15999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/16000-16999.json",
+      "sha256": "22ce55ca86318750bc875a47fb8477d7780e7e94c23483ec663e6ea99867e74a",
+      "bytes": 3860241,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 16000,
+      "endRescueOrder": 16999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/17000-17999.json",
+      "sha256": "9a69dd462ce35bfbfa047a4d3b10dc561c4ea938b3b1c55e4f103652a6f2a425",
+      "bytes": 3860801,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 17000,
+      "endRescueOrder": 17999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/18000-18999.json",
+      "sha256": "89f6929a856a2eae7f514d0db2ae480916f278a2060cb10d20da5db57e067cb6",
+      "bytes": 3860975,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 18000,
+      "endRescueOrder": 18999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/19000-19999.json",
+      "sha256": "3e52ab71aba4a526e3112bedba46b6b120d9828457cf15eaafe54b6fb8bf9f69",
+      "bytes": 3864683,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 19000,
+      "endRescueOrder": 19999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/20000-20999.json",
+      "sha256": "8c74eb981ce44b77b8f187b0957c5ce8bbb1d56eab588968c6e33a354dd3de0b",
+      "bytes": 3862643,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 20000,
+      "endRescueOrder": 20999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/21000-21999.json",
+      "sha256": "364d7772b3a6731aba3a51b28d866d00646fc62c30c4e15a8078bf0fbb4063fe",
+      "bytes": 3863333,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 21000,
+      "endRescueOrder": 21999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/22000-22999.json",
+      "sha256": "cf1ccd370915170dbb6d290e0b6fe814d8fbc3ed4273bc7f63b0defd17504728",
+      "bytes": 3862273,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 22000,
+      "endRescueOrder": 22999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/23000-23999.json",
+      "sha256": "b03447542f7e3d5d4250597239d8e0a3cc5115ca41b8f15a9e21f1ebe58e60f4",
+      "bytes": 3863045,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 23000,
+      "endRescueOrder": 23999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/24000-24999.json",
+      "sha256": "f46c03178b21a74553ce302ca931a8f1b20345717c4badf6dbc9a9b3ab1c33e5",
+      "bytes": 3863511,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 24000,
+      "endRescueOrder": 24999,
+      "rowCount": 1000
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/25000-25439.json",
+      "sha256": "58661fe111ee60da8895da4cd28b0847f7931e051dfc9e7fa89d6c744139b935",
+      "bytes": 1699113,
+      "role": "pinned-block exhaustive svgFalse evidence",
+      "startRescueOrder": 25000,
+      "endRescueOrder": 25439,
+      "rowCount": 440
     }
   ],
   "boundaries": [

@@ -7,9 +7,10 @@
 The set covers first and last rescue, black and white Genesis, pale and non-pale cats, both facing directions, all four poses, a rescue-year boundary, and the existing Genesis sentinel plus `skyblue`/`skyBlue` mismatch edges.
 
 This offline result is not replaced by the separate RPC workflow in
-`docs/onchain-materialization.md`. The latter now owns a separate 48-cat
-network-derived snapshot at block `25798234`; its exact block, contract-output,
-and parser-comparison claims do not change this timeless zero-network fixture.
+`docs/onchain-materialization.md`. The latter now owns separate network-derived
+representative and exhaustive evidence at block `25798234`; its exact block,
+contract-output, and parser-comparison claims do not change this timeless
+zero-network fixture.
 
 ## Parity Levels
 
@@ -36,5 +37,5 @@ The generator invokes only checked-in Node/Python inputs. The validator checks s
 Fixture success does not establish full-population parity, exact renderer equivalence, canonical palette values, RGB/hex values, normal/inverted palette orientation, current ownership, acclimation/glow state, or currently worn accessories. It is a small source-bound cross-check, not a live materialization service.
 
 Use the pinned snapshot's own manifest and zero-network validator for deployed
-behavior. Do not copy its 48-cat, block-bounded claims back into this timeless
-local fixture result or present them as exhaustive coverage.
+behavior. Do not copy its block-bounded representative or exhaustive claims
+back into this timeless local fixture result.

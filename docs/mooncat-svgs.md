@@ -13,8 +13,9 @@ This page documents the contract role and compact internals only. It does not du
 A separate verifier and snapshot are documented in
 `docs/onchain-materialization.md`. At block `25798234`, both identifier
 overloads returned byte-identical false, true, and default SVG strings for all
-48 representatives. Compact hashes and normalizations are stored; raw SVG
-strings are not.
+48 representatives. The exhaustive explicit-false surface additionally has
+byte-identical identifier overloads and parser-structure passes for all 25,440
+cats. Compact hashes and normalizations are stored; raw SVG strings are not.
 
 ## Role
 
@@ -59,9 +60,11 @@ Accessory image composition is separate. The MoonCatAccessoryImages contract rem
 ## Limitations
 
 - No source coordinate tables, pattern arrays, or raw generated SVG strings are imported.
-- The separate snapshot provides compact block-pinned per-cat output evidence
-  for 48 representatives only; it does not establish current or exhaustive behavior.
-- Tight cell normalization establishes parser-structure parity for those 48
-  explicit-false outputs, while exact serialization claims are limited to
-  identifier-overload equality within each sampled cat and glow mode.
+- The separate snapshot provides compact block-pinned explicit-false output
+  evidence for all 25,440 cats plus broader glow/default evidence for 48
+  representatives; it does not establish current behavior.
+- Tight cell normalization establishes parser-structure parity for all 25,440
+  explicit-false outputs. Exact serialization establishes identifier-overload
+  equality for that exhaustive false surface and for each representative glow
+  mode; it does not compare outputs across different glow modes.
 - Accessory rendering and PNG materialization remain out of scope for this pass.

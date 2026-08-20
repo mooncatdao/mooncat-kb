@@ -2,20 +2,23 @@
 
 ## Status
 
-This checkout contains a validated 48-cat representative snapshot at Ethereum
-mainnet finalized block `25798234`, hash
+This checkout contains a validated exhaustive snapshot at Ethereum mainnet
+finalized block `25798234`, hash
 `0x17116d2e0879e2a3ef5b611090662fb9532e9f6380d4492d6cae93bdefc89218`,
 timestamp `2026-08-20T18:49:59Z`. It records non-empty runtime code for all eight
 core contracts and block-pinned Traits, Colors, SVG, and original-owner calls.
 Existing `data/materialization-parity-results.json` remains the separate
 zero-network baseline.
 
-All 48 required base comparisons passed. Definite mismatches are `0`;
-parser-structure results are 48 passed, 0 failed, 0 incomparable; SVG-used-color
-subset results are 48 passed, 0 failed, 0 not evaluated. Exhaustive and
-accessory surfaces were not requested and remain at 0. These are
-representative, historical block-bounded results, not current-forever or
-25,440-cat proof.
+All 48 required representative base comparisons passed. The exhaustive
+identity/traits, colors/hue/glow, and explicit-glow-false SVG surfaces each
+cover rescue orders `0..25439` in 26 contiguous shards. Each surface has 0
+definite mismatches, 0 incomparable results, and 0 not-evaluated results. The
+SVG surface has 25,440 parser-structure passes and exact bytes5/rescue-order
+overload equality for all 25,440 cats. The exhaustive run does not perform the
+SVG/Colors subset comparison; that result remains the representative 48
+passed, 0 failed, 0 not evaluated. Accessories were not requested. All results
+remain historical and block-bounded, not current-forever evidence.
 
 ## Safety and block selection
 
@@ -57,16 +60,16 @@ python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode re
 ```
 
 The full identity/trait and color sweep, with the optional full non-glow SVG
-surface, is:
+surface used for this snapshot, is:
 
 ```text
-python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full --full-svg --accessories
+python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full --full-svg
 ```
 
 Resume the exact checkpointed block with:
 
 ```text
-python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full --full-svg --accessories --resume
+python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full --full-svg --resume
 ```
 
 After normalizer or reporting-code changes, rebuild only the identical
@@ -138,11 +141,21 @@ and cannot be mislabeled as mismatches.
 
 Full mode uses ascending rescue order, bounded JSON-RPC batches, retry/backoff,
 atomic JSON writes, fixed-size shards, and a checkpoint containing the exact
-block and next rescue order. It attempts:
+block and next rescue order. The completed snapshot records:
 
 - 76,320 identity/trait calls for all 25,440 cats;
 - 152,640 color/hue/glow calls for all 25,440 cats; and
 - when `--full-svg` is selected, 50,880 explicit-false SVG calls.
+
+The resulting 279,840 per-cat `eth_call`s cover all three surfaces. Each has
+`completedCount=targetCount=25440` and 26 shards: 25 shards of 1,000 rows plus a
+final 440-row shard. Identity/traits and colors/hue/glow have no comparison
+states beyond their Boolean assertions and have zero definite mismatches. The
+explicit-false SVG surface has 25,440 structural passes, 0 failures, 0
+incomparables, exact identifier-overload equality for every row, and zero
+definite mismatches. SVG color-subset counts are all zero on this surface
+because that cross-contract comparison is not part of its compact exhaustive
+row schema; the representative result owns the 48 SVG/Colors subset passes.
 
 Successful or partial network evidence is written under
 `data/onchain-materialization/`. Its manifest owns the block, eight runtime-code
@@ -175,8 +188,11 @@ accessory evidence without using the network. The audit's `--allow-missing`
 mode still performs full validation whenever this committed manifest exists;
 default validation fails if it is absent.
 
-This snapshot establishes deployed runtime presence and sampled ABI-call
-behavior only at its exact block. Runtime-code hash presence does not establish
-verified-source/compiler equivalence. A pinned block is not current forever,
-and the 48 representative results are not exhaustive proof. Accessory
-composition and all exhaustive surfaces remain unresolved in this snapshot.
+This snapshot establishes deployed runtime presence and exhaustive ABI-call
+behavior for the three recorded per-cat surfaces only at its exact block. The
+48-row evidence separately covers default/true SVG behavior, pinned owner/glow
+conditions, and SVG/Colors subset checks that were not repeated exhaustively.
+Runtime-code hash presence does not establish verified-source/compiler
+equivalence, and a pinned block is not current forever. Accessory composition,
+current state, exhaustive true/default SVG modes, and exhaustive SVG/Colors
+subset comparison remain outside this snapshot.

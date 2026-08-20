@@ -762,6 +762,708 @@
         "python scripts/validate-onchain-materialization.py"
       ],
       "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/00000-00999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/01000-01999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/02000-02999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/03000-03999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/04000-04999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/05000-05999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/06000-06999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/07000-07999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/08000-08999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/09000-09999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/10000-10999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/11000-11999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/12000-12999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/13000-13999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/14000-14999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/15000-15999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/16000-16999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/17000-17999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/18000-18999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/19000-19999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/20000-20999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/21000-21999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/22000-22999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/23000-23999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/24000-24999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/25000-25439.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/00000-00999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/01000-01999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/02000-02999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/03000-03999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/04000-04999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/05000-05999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/06000-06999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/07000-07999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/08000-08999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/09000-09999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/10000-10999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/11000-11999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/12000-12999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/13000-13999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/14000-14999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/15000-15999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/16000-16999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/17000-17999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/18000-18999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/19000-19999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/20000-20999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/21000-21999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/22000-22999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/23000-23999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/24000-24999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/25000-25439.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/00000-00999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/01000-01999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/02000-02999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/03000-03999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/04000-04999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/05000-05999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/06000-06999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/07000-07999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/08000-08999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/09000-09999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/10000-10999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/11000-11999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/12000-12999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/13000-13999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/14000-14999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/15000-15999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/16000-16999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/17000-17999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/18000-18999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/19000-19999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/20000-20999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/21000-21999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/22000-22999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/23000-23999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/24000-24999.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/25000-25439.json",
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json"
     }
   ],
   "provenanceCoverage": {
@@ -803,9 +1505,9 @@
       "sourceBackedEntryCount": 35
     },
     "generatedArtifacts": {
-      "registryEntryCount": 76,
-      "maintainedGeneratedEntryCount": 74,
-      "completeOwnershipEntryCount": 76,
+      "registryEntryCount": 154,
+      "maintainedGeneratedEntryCount": 152,
+      "completeOwnershipEntryCount": 154,
       "dynamicOutputExceptions": [
         "data/kb-audit-report.json"
       ]
@@ -813,7 +1515,7 @@
     "boundary": "Coverage records checked-in evidence and deterministic ownership; it does not resolve missing upstream facts or establish live/current state."
   },
   "coverage": {
-    "maintainedFileCount": 213,
+    "maintainedFileCount": 291,
     "excludedFileCount": 74,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -922,8 +1624,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6410,
-      "sha256": "7e0592616fdd5bdae98815fac63a568f9073ce68c7ff2433f0fa9b2df208c515",
+      "sizeBytes": 6575,
+      "sha256": "58eeb713a1f9d25fd8e031c5c88d035e725b2b7e6ef8be7c5551b1d1f51bf03d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -1187,7 +1889,7 @@
         "generated"
       ],
       "sizeBytes": 104929,
-      "sha256": "b67a63cdd07f772d153ced06021fb783f7ce0c3940657a3e151883b0c043a655",
+      "sha256": "2f607c4dbfc9e014a2046ce7833f6d72cfb33df92f89ed60f717a297656ce268",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -1214,8 +1916,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 33987,
-      "sha256": "8f639fbea89189f99db4332d152c2728006a3223c559fa184853287a5c993825",
+      "sizeBytes": 34030,
+      "sha256": "bffa3d867e0023aca90f7ddc694d871d276f01d9a681aff96f40650756cb3250",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1863,8 +2565,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 57791,
-      "sha256": "ccae51cd35fbb8a755af6bc5a003c56893189d230351ee699c6bf4b39d38aa48",
+      "sizeBytes": 57905,
+      "sha256": "ba786a43e7390950f02812f7c5afce867d4faf3de61f6a25e309989b922bb6e3",
       "agentRoutes": [
         "check-source-provenance",
         "review-factual-retrieval-benchmark",
@@ -1958,8 +2660,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 4211,
-      "sha256": "365d0fd84cae7dd69123b181818b029b13aca0d0aac4aa769845bf71543dc88e",
+      "sizeBytes": 4537,
+      "sha256": "f64dcf37f1bb12aae8715758b321a817deaff56af1d7bc82d3f910306e3b91f7",
       "agentRoutes": [
         "verify-materialization-parity",
         "verify-pinned-onchain-materialization"
@@ -2012,7 +2714,7 @@
         "generated"
       ],
       "sizeBytes": 34131,
-      "sha256": "c53a0f9818f6812acab6ce2066b7e47207aef2e6faaea265ac3028b2c643a2c6",
+      "sha256": "fab4673d16954bee27faefee55da845d2d27e2cd4261ce5d4b1b5ff8df7da759",
       "agentRoutes": [
         "verify-materialization-parity",
         "verify-pinned-onchain-materialization"
@@ -3684,8 +4386,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 2182,
-      "sha256": "54cab3ae4fc8a817f7b454611619155d7e7cea3440fc6f9516b6b467e7ffed4e",
+      "sizeBytes": 32147,
+      "sha256": "bde7b683cdea2b1498d5438fe674bb3a3feae66075dfaef8b9ca88de4963d14b",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
@@ -3708,8 +4410,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 25081,
-      "sha256": "8b25f2846a3ee3ffbdc57581f3bd43f782b6baf2dfa1cce25842d883dd83709b",
+      "sizeBytes": 82217,
+      "sha256": "20cf2c722c6b265da64295c1b5f90a95f09e94dcf5656cddd0eb816c80eb5d1d",
       "agentRoutes": [
         "verify-pinned-onchain-materialization"
       ],
@@ -3738,6 +4440,1878 @@
       ],
       "sizeBytes": 732451,
       "sha256": "9849dc6995e9544a830d259ec4fedcd251200bdc9ac5a2277f711b4855ebc418",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/00000-00999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1102151,
+      "sha256": "7ed35d6dd749af5bf913f020276b09a37aff852422b6810002a5959ddfbf3a64",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/01000-01999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103321,
+      "sha256": "467cb43765830df0ee1b3e33817d7a8d1f741909a19a009f17d0137d6c83e3fa",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/02000-02999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103047,
+      "sha256": "23f18dbcf0700499a9ca3da121fcb9712d95fef96bd90edca82913092f02f9ef",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/03000-03999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1102769,
+      "sha256": "036686c8dd366bfd9010212c29f94ff57f0f971fbb70fe08e2521cb0343facd2",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/04000-04999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103155,
+      "sha256": "03ccfaf2b44bcb7d18cc6fbe6de8fc7dd41df6150b2be09539fb08472f18be42",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/05000-05999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1102717,
+      "sha256": "c969e81a7ab49ed821fd03e6fd74ca2c6d4732c2c24be941d16aaff1ab2e3f51",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/06000-06999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1102929,
+      "sha256": "9d92481c813aec43af806821d8cff1056db90de84152407869538b6a49be7964",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/07000-07999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1102751,
+      "sha256": "41fb0a7c3db1aa05031e11e287f882b59b3c2fa63f50af68891b5601c7f38913",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/08000-08999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103035,
+      "sha256": "913811c881090c1f34c8786a73f78def6dee99181295c8ed93eaf2c5d16f1206",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/09000-09999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1102829,
+      "sha256": "3cdc1aefea4614f876131880864139dd5900e6907000ca51ad084d8a20e70e48",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/10000-10999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103821,
+      "sha256": "177cc9ef7f0f28d09171ea49820432d5b5acf611c947ef1525e943903e30b1c6",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/11000-11999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1104139,
+      "sha256": "83aef321f8ab7f1c5f7497d23262ea75ca1ea45b2e083a6e03a231ff9e0e4979",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/12000-12999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103941,
+      "sha256": "ce48fa33df0a889d4d2fb1d5087386b19fa9d88df77cbc668facbfe3336f6ed4",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/13000-13999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103841,
+      "sha256": "b6c4f77bd2f93215a688d2c78d80c298fbb39654de0e635ff8a78f660f1f0505",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/14000-14999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103857,
+      "sha256": "5f4e5b9d09800415d9b4010c021a67a9f4e3c5c448da5d0f001548926dad905c",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/15000-15999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1104059,
+      "sha256": "cf5aaa5d3e2d3c51149a2915442ccc92530ee3c4080846761f5a5db789451b1a",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/16000-16999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103761,
+      "sha256": "fae26fe9ed50632e423b9c22b4cd7d868bc011c025e3395cc73ec606878af584",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/17000-17999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1104025,
+      "sha256": "4622d9bd1c8cffd6bf32ed4a917cb456586cd418225d91a15b97b67cd2665347",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/18000-18999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1104041,
+      "sha256": "72218861c408735810d8d05c604a91ef43a4a43b956ab1a2778d28ff39868690",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/19000-19999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103757,
+      "sha256": "82efb4b87416cd80bfece297ed21f1e5bc206d6d3a1b76754a3ce35c6c6f99a0",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/20000-20999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1104079,
+      "sha256": "a5d943c7c9079d08ed100e968121d39fd2c81efc91c097fadbf4bdef7ea206bc",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/21000-21999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103989,
+      "sha256": "9419f9d92580a2fb77b81b9cb6f922deeef87a6ef9bf56a15fc21c1ab63c72ff",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/22000-22999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103893,
+      "sha256": "0c67256306fb499c8b447f56279f06634561fea7070b17ff531f4f8ad5dff24b",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/23000-23999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103925,
+      "sha256": "3e94256c0f1aefde8c1c11f64e0dd6f2d8b3e2c5d3e6af5114b7a1895bd939fd",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/24000-24999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1103879,
+      "sha256": "7cc3733bc18b81b22e1e2d5a49a69c3eda48c89453ea4071a6b18f616ebeb728",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/colors/25000-25439.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 485793,
+      "sha256": "9e6fe093ef0ec38d293efb0aea47002f7f0da4de947de81d0f992379b68241db",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/00000-00999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 447029,
+      "sha256": "52f95735031d6f772fb71605a114e34699f87003c2fded2de3102fc7d7f3737b",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/01000-01999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 448155,
+      "sha256": "660a0340d9902da37f11097dcc05c6cb46f596ee19b90e680ab4b296c6d9c137",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/02000-02999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 448107,
+      "sha256": "c73334e62efbea3993794914f92015d54332c63883d5103ac55c66f9d2771943",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/03000-03999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 448157,
+      "sha256": "ff2350dd0a9ebf5d0e9d0cceb603f1547708f6bf975a024b9da21a35c85a0135",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/04000-04999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 448141,
+      "sha256": "2bb8b458c6676592f29442137ed68fee1c46b703c3f7b8679937fb174611a84e",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/05000-05999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 448123,
+      "sha256": "2e814e8d26e732d913d62b748203704b9ec60fb1da73d83a129761017492d2f1",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/06000-06999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 448173,
+      "sha256": "92c85e155028d5eb668f88d4e5dceaf19cd6fa13cfb10e211e9c64de971b79ec",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/07000-07999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 448207,
+      "sha256": "34aea9c9a9c9dac093831c566ef2f57420037ba542ee2d04f336554632a023a2",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/08000-08999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 448173,
+      "sha256": "f4c9e8ed4ab36c8d8016f6cd0352404980e08127b194e382ce55af202cd997e2",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/09000-09999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 448143,
+      "sha256": "10ba8271b70887d9e4fe2bfb3f4659423e11243515fc405dd3aba80ed69a8bc0",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/10000-10999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449177,
+      "sha256": "387a3a5de01d946f002bfac110e93bdb64a4d4cde5f85c0a90137eb8468ca0fe",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/11000-11999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449177,
+      "sha256": "25c88a1617cc7da478d5f92b20e5594497caa330ee334085492c9e82b10444f5",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/12000-12999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449129,
+      "sha256": "9c84e3b97039c6b7a587baa7eff13359bd192fbec7e9106797b92dcf8decea59",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/13000-13999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449211,
+      "sha256": "9d3d3dbc5158e7109ce6e50d4baedcaf5715db65c9e5b26a6749b589cca78b67",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/14000-14999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449149,
+      "sha256": "f709a59421a9fdfc312af6a20d3b9077e049b81d924bb62cfc508d803022c2a3",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/15000-15999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449179,
+      "sha256": "cb4d26f5b529a34aba1a566ea0c9baaadcdb3000380550bf2a599d705d019c2e",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/16000-16999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449055,
+      "sha256": "d078d8939c831fbf6a9217c4fa080a60dfb419c7b9593444a8011d38ce0eb238",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/17000-17999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449119,
+      "sha256": "97795d0af6ec03112a80f7adea379f962523d4c0236b8f28f4bde5fc4145b34c",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/18000-18999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449155,
+      "sha256": "c44137943424800da3f4b8fda9b4866cf538ad612b49d28f4d9a638c23e7fe0f",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/19000-19999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449183,
+      "sha256": "ab0602aad3b667bbcc138c3d1bb8dca27e86ad8fae2a3571cd38261878dcaa20",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/20000-20999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449203,
+      "sha256": "d10352786572d43cad6ca6f61ec91dc1a084bd8ceddd19e5070d0eb68bfb50b3",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/21000-21999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449173,
+      "sha256": "4c582ac59f422020b84a4f1619fc17e4269fe650bc081584ec21a75ceb779d32",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/22000-22999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449179,
+      "sha256": "c86cac8bf2fcf2300cb5ba44c60f9657aaed482ce7b0e203f51dd1c08cf03acb",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/23000-23999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449149,
+      "sha256": "6e07f18a311dc7ed640b2537f2e96af15ecfe4e0013515fcbf08063780fbf563",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/24000-24999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 449157,
+      "sha256": "a2e95e975458b78b22800fb4b33b11af4c2ed2c2a57a71763cbaf9a9ed159711",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/identity-traits/25000-25439.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 197713,
+      "sha256": "98b38286ac65e7af3d75c42829207ea6645ce8f852d750a0c891e1464329489d",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/00000-00999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3858983,
+      "sha256": "aa4cc5d3aa3d558f3b08369a5e1ec73ca1dff399484888c5a133b1c51673b863",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/01000-01999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3859863,
+      "sha256": "92f20a134fb119db07f646ad0738c0e9a4ef1e1bc5626ba1a4267515c9a1e6ff",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/02000-02999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3860233,
+      "sha256": "1b47eb997135d866a28a7ae0e7326ac6216771a098d04d232583aadb33f303fc",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/03000-03999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3860729,
+      "sha256": "b7c986a68e2ae8fba693bb44368cb683b4ea010b8fbf538cbc6a538df6eccccd",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/04000-04999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3863947,
+      "sha256": "c6de79871110fc72b9c2fd4607acacf407186e5541fbcf480553faf71f81ec47",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/05000-05999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3862919,
+      "sha256": "3cac05d9553f099892e543da0036534b86256bc4242c7676d6108214db244335",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/06000-06999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3863065,
+      "sha256": "3db3418ac21ec6dee48bda89b0aae48c3c1bc6ca3807429c296df844667388bb",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/07000-07999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3861777,
+      "sha256": "199b338416be6f7af885142bea137699e7e1f9025416c9b9da28135cc5cfce6f",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/08000-08999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3862613,
+      "sha256": "7081b6c9392c8947dde11197820f8cf84a862cf1c0370a15bb342efb86516992",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/09000-09999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3863271,
+      "sha256": "1def2e4485781aa8fd31506200aa6c0a0824e4f07309ef72531d69de2b94e2ce",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/10000-10999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3861605,
+      "sha256": "6f23efd61e6d63dc65d7e004beed1633d624a0b507bfded1d2f347d8c5f97506",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/11000-11999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3861483,
+      "sha256": "8d83dd33516d51fb0ebb6f65627095ecd8198c30729ce62cdd5450afb01a3be5",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/12000-12999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3863555,
+      "sha256": "67604d05201d3275eace22c41a68403f1dbddbfdf5dfbea8e65fa255067ed082",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/13000-13999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3863901,
+      "sha256": "1352c01e406dbcb39eddbdd6ce1f30b8ba5d053dc53fffa1d7f86decfa06436e",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/14000-14999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3861261,
+      "sha256": "5a32a2f473596ce6f9a80719052d4c04d146cb3955453fe035bf086fbc48bf85",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/15000-15999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3862955,
+      "sha256": "4bedd1976293b6a7583d5ee224f49de222ef91fc1e0ccd33193b3f5808bd7db8",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/16000-16999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3860241,
+      "sha256": "22ce55ca86318750bc875a47fb8477d7780e7e94c23483ec663e6ea99867e74a",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/17000-17999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3860801,
+      "sha256": "9a69dd462ce35bfbfa047a4d3b10dc561c4ea938b3b1c55e4f103652a6f2a425",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/18000-18999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3860975,
+      "sha256": "89f6929a856a2eae7f514d0db2ae480916f278a2060cb10d20da5db57e067cb6",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/19000-19999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3864683,
+      "sha256": "3e52ab71aba4a526e3112bedba46b6b120d9828457cf15eaafe54b6fb8bf9f69",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/20000-20999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3862643,
+      "sha256": "8c74eb981ce44b77b8f187b0957c5ce8bbb1d56eab588968c6e33a354dd3de0b",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/21000-21999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3863333,
+      "sha256": "364d7772b3a6731aba3a51b28d866d00646fc62c30c4e15a8078bf0fbb4063fe",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/22000-22999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3862273,
+      "sha256": "cf1ccd370915170dbb6d290e0b6fe814d8fbc3ed4273bc7f63b0defd17504728",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/23000-23999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3863045,
+      "sha256": "b03447542f7e3d5d4250597239d8e0a3cc5115ca41b8f15a9e21f1ebe58e60f4",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/24000-24999.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 3863511,
+      "sha256": "f46c03178b21a74553ce302ca931a8f1b20345717c4badf6dbc9a9b3ab1c33e5",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
+      "checkCommand": "python scripts/validate-onchain-materialization.py",
+      "validatorCommands": [
+        "python scripts/validate-onchain-materialization.py"
+      ],
+      "provenancePath": "data/onchain-materialization/manifest.json",
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "data/onchain-materialization/shards/svg-false/25000-25439.json",
+      "fileRole": "canonical-data",
+      "topics": [
+        "generated-data",
+        "mooncat-knowledge"
+      ],
+      "curationMode": "generated",
+      "statuses": [
+        "generated"
+      ],
+      "sizeBytes": 1699113,
+      "sha256": "58661fe111ee60da8895da4cd28b0847f7931e051dfc9e7fa89d6c744139b935",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": "python scripts/verify-onchain-materialization.py --rpc-env ETH_RPC_URL --mode full",
@@ -3990,8 +6564,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 68143,
-      "sha256": "3b6f9dbc1cb133bb0a6c60418269f232f16a461548e127f93a5870b9656937c2",
+      "sizeBytes": 68355,
+      "sha256": "2c68aef1a9b87188f51eb6f676b7dc2fdf35b7271e1eb602b8218e00946fa691",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -4386,8 +6960,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 10086,
-      "sha256": "38debb0b5acc88071523f138875071e219d0044e64c37875ea336735986a4172",
+      "sizeBytes": 10426,
+      "sha256": "c355c71c84fa38d5f0ccd089871f2399813fb1511bde5e2870c5a836a9e66b23",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4536,8 +7110,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 7192,
-      "sha256": "fa583cc9c550a64ae63b20e25406e303ff44ee85c758e56911d875ec88eedb06",
+      "sizeBytes": 7216,
+      "sha256": "ef530d194d958a767357334bea067fd397b1469c1737feac3f986d3d0582c157",
       "agentRoutes": [
         "check-source-provenance"
       ],
@@ -4587,8 +7161,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3562,
-      "sha256": "e606800a89acdca1d143269de78f226f93963e7a12d42ba45f0f64f7bd699d78",
+      "sizeBytes": 3565,
+      "sha256": "8d5ce82c70280fb36719af78d69cb998e71466ff9ee1c6b2d53a4793087985bc",
       "agentRoutes": [
         "verify-materialization-parity",
         "verify-pinned-onchain-materialization"
@@ -4614,8 +7188,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2102,
-      "sha256": "ca665913221809870d1e58912da3ab5c565406b8977ce72aec5b23b176b8bf61",
+      "sizeBytes": 2209,
+      "sha256": "13e1f00d1736b430de43f7847a1b4bdae599b9d57c32ec799c964a61fce7d280",
       "agentRoutes": [
         "verify-materialization-parity"
       ],
@@ -4832,8 +7406,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4493,
-      "sha256": "00a6cb61cf3882b5c5605a53f9aa4fccec88bc648d28df510c2ef73809b03a6c",
+      "sizeBytes": 4757,
+      "sha256": "8debcd44bd1173ef4c7848a64b8633520316173c075cf4808a38296425923d70",
       "agentRoutes": [
         "look-up-contracts",
         "render-images",
@@ -4935,8 +7509,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 8815,
-      "sha256": "4181810157aea11ca153c5ea63c83bcad2c0bf2fc58c149a5b4d016dc4a35cd2",
+      "sizeBytes": 10007,
+      "sha256": "0732fd7a712b9ad88b4d015fee7e3f22c7fafd6d2aa95055b9aede88089114d5",
       "agentRoutes": [
         "verify-pinned-onchain-materialization"
       ],
@@ -4983,8 +7557,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 9764,
-      "sha256": "226244d6ccdc8a9999b161e7fbcc0efa2e41cc9337b0f8b084e0ccf78c52ec8a",
+      "sizeBytes": 9833,
+      "sha256": "a41ab4ef61a9ec0423d0cfac5698a0a9b270f4cc5da23f4eb9a5a852713d35f8",
       "agentRoutes": [
         "review-kb-gaps"
       ],
@@ -5546,8 +8120,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2886,
-      "sha256": "61283528053fbd41596c0391ac92f73eabefc46fad409d2ab2d5c7d04136ee8d",
+      "sizeBytes": 3007,
+      "sha256": "a09e4c116604bde8adb706edf6aeb63c7dfe5087bda3574392f7c1752c2c9a48",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -5918,8 +8492,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 47135,
-      "sha256": "1b115fcae8b2c59325c4a1e0f7e1ecf91c9c909e006696f0aad73313af30951f",
+      "sizeBytes": 47465,
+      "sha256": "1cff6bfb252166c4a41770921e96edd9f33916b5a3385d24b8c125359c1e77f9",
       "agentRoutes": [
         "verify-pinned-onchain-materialization"
       ],

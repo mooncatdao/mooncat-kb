@@ -113,9 +113,11 @@ For separately authorized block-pinned Ethereum materialization verification,
 see [`docs/onchain-materialization.md`](docs/onchain-materialization.md). The
 workflow consumes an RPC endpoint only from an environment variable and keeps
 its network-derived evidence separate from the zero-network parity baseline.
-The committed representative snapshot is pinned to mainnet block `25798234`;
-validate it with `python scripts/validate-onchain-materialization.py` and retain
-its 48-cat, historical-state boundary.
+The committed snapshot is pinned to mainnet block `25798234`; validate it with
+`python scripts/validate-onchain-materialization.py`. It retains broader
+48-cat representative evidence plus exhaustive identity/traits,
+colors/hue/glow, and explicit-false SVG results for all 25,440 cats. Treat it
+as historical block evidence, not current state or accessory proof.
 
 ## License
 

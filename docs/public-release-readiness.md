@@ -134,8 +134,8 @@ work:
   and content availability;
 - the final technical mechanism used to lock the 160 unreleased Genesis Cats;
 - a complete inventory of additional historical or unofficial wrappers;
-- exhaustive on-chain SVG/palette output parity, accessory composition, and
-  present “fully-on-chain” retrievability beyond the pinned representative block;
+- exhaustive true/default SVG modes, SVG/Colors subset comparison, accessory
+  composition, and present “fully-on-chain” retrievability beyond the pinned block;
 - exact upstream revision evidence for five important inputs, retrieval or
   verification dates for five, and license evidence for seven, as enumerated
   in `data/upstream-snapshot-manifest.json`;
@@ -143,14 +143,15 @@ work:
   human-facing color labels; and
 - freshness beyond each recorded source revision or generated input hash.
 
-The repository now contains a validated representative snapshot at mainnet
-block `25798234`. It records non-empty runtime code for all eight core
-addresses, successful required base checks for 48 cats, byte-identical
-identifier overloads for false/true/default SVG output, 48 parser-structure
-passes, 48 SVG/contract-color subset passes, and 0 definite mismatches. This
-closes only that exact historical sample: exhaustive surfaces and accessories
-were not requested, runtime hashes do not prove source/compiler equivalence,
-and the block is not current forever.
+The repository now contains a validated representative and exhaustive snapshot
+at mainnet block `25798234`. It records non-empty runtime code for all eight
+core addresses, successful broader base checks for 48 cats, and complete
+25,440-row identity/traits, colors/hue/glow, and explicit-false SVG surfaces.
+All three exhaustive surfaces have 0 definite mismatches; SVG overload equality
+and parser structure pass for all 25,440 rows. The SVG/contract-color subset
+result remains 48 representative passes. Accessories, current state,
+source/compiler equivalence, and exhaustive true/default SVG modes remain
+outside the evidence.
 
 `references/` remains upstream evidence rather than curated truth. Its files,
 and vendored example dependencies, retain their recorded upstream or unresolved
