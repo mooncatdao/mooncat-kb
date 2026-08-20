@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-03",
+  "updated": "2026-08-19",
   "status": "partially-verified-method-timestamps-verified",
   "bucketData": "data/rescue-buckets.json",
   "provenance": {
@@ -58,7 +58,7 @@
   "todos": [
     "Verify rescue-order cutoff numbers or event context separately before treating the Discord FAQ ranges as fully canonical-onchain derivations.",
     "Define early-rescue ranges separately by rescue order, block, timestamp, or community convention where needed beyond existing bucket arrays.",
-    "Define any conversion from rescue-order-index to catId/token-facing identifiers before downstream use.",
+    "Use the verified array-backed rescue-order-to-catId lookup and preserve contract scope before any token-facing downstream use.",
     "Keep materialized bucket arrays in data/rescue-buckets.json rather than duplicating them here."
   ],
   "bucketDataStatus": "canonical-derived-method-timestamps-verified",

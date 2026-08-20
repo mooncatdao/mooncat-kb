@@ -41,6 +41,11 @@ EXCLUDED_PREFIXES = {
 }
 
 GENERATED_ARTIFACTS = {
+    "data/mooncat-names.json": {
+        "generatorCommand": "python scripts/generate-mooncat-names.py",
+        "checkCommand": "python scripts/generate-mooncat-names.py --check",
+        "validatorCommands": ["python scripts/validate-mooncat-names.py"],
+    },
     "data/contract-registry.json": {
         "generatorCommand": "python scripts/extract-contract-abis.py",
         "checkCommand": "python scripts/extract-contract-abis.py --check",
@@ -85,7 +90,10 @@ GENERATED_ARTIFACTS = {
 POPULATION_GENERATED_ARTIFACT = {
     "generatorCommand": "python scripts/generate-mooncat-population.py",
     "checkCommand": "python scripts/generate-mooncat-population.py --check",
-    "validatorCommands": ["python scripts/validate-mooncat-population.py"],
+    "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py",
+    ],
 }
 
 RENDER_GENERATED_ARTIFACT = {
@@ -278,6 +286,14 @@ def generated_artifact_registry() -> list[dict[str, Any]]:
     for relative_path, _ in iter_repo_files():
         if relative_path.startswith("data/abi-registry/") and relative_path.endswith(".json"):
             registered[relative_path] = ABI_GENERATED_ARTIFACT
+        elif relative_path in {
+            "data/mooncat-population/manifest.json",
+            "data/mooncat-population/validation-report.json",
+        } or (
+            relative_path.startswith("data/mooncat-population/shards/")
+            and relative_path.endswith(".json")
+        ):
+            registered[relative_path] = POPULATION_GENERATED_ARTIFACT
         elif relative_path == "data/mooncat-renders/manifest.json" or (
             relative_path.startswith("data/mooncat-renders/shards/")
             and relative_path.endswith(".json")

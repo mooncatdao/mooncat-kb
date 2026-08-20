@@ -11,13 +11,17 @@ Canonical or curated membership belongs in JSON, not prose:
 
 ## Genesis Cats
 
-Status: partially verified.
+Status: source-backed reconstruction for released collection members.
 
-The contract source verifies the Genesis supply cap and generation pattern, but this repository does not yet materialize the exact Genesis Cat ID list.
+`data/genesis-cats.json` materializes the exact 96 released Genesis Cat IDs and
+their aligned rescue orders. It also records the 256 planned indices and the
+160 locked/unreleased range without pretending that the unreleased formula
+outputs are tokens, rescue-order members, adoptions, or owners.
 
 Related files:
 
 - `data/protocol-constants.json`
+- `data/genesis-cats.json`
 - `data/special-cats.json`
 - `data/rescue-buckets.json`
 
@@ -68,4 +72,7 @@ Special categories may include protocol-defined, historical, or community-curate
 
 ## Notes
 
-“rescue-order-index” values are not interchangeable with catId/tokenId unless explicitly converted. The derivation method for rescue buckets still needs to be documented before downstream tools rely on the local artifact as reproducible.
+“rescue-order-index” values are not interchangeable with catId/tokenId unless
+explicitly converted. Rescue-bucket methods are documented in
+`data/rescue-buckets.json`; downstream consumers must still use the identifier
+conventions and the checked lookup rather than numeric coincidence.

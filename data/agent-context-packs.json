@@ -987,7 +987,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 73408,
+        "estimatedByteCount": 73498,
         "files": [
           {
             "path": "data/contract-surfaces.json",
@@ -1003,7 +1003,7 @@
           },
           {
             "path": "docs/contracts.md",
-            "bytes": 11281
+            "bytes": 11371
           },
           {
             "path": "data/mooncat-svg-internals.json",
@@ -1072,7 +1072,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 143706,
+        "estimatedByteCount": 146308,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -1084,11 +1084,11 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 66339
+            "bytes": 66427
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 49964
+            "bytes": 52478
           }
         ],
         "softFileLimit": 7,
@@ -1231,7 +1231,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 96014,
+        "estimatedByteCount": 96102,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1243,7 +1243,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 66339
+            "bytes": 66427
           }
         ],
         "softFileLimit": 7,
@@ -1311,7 +1311,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 100806,
+        "estimatedByteCount": 101367,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1323,11 +1323,11 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 66339
+            "bytes": 66427
           },
           {
             "path": "docs/reference-policy.md",
-            "bytes": 4792
+            "bytes": 5265
           }
         ],
         "softFileLimit": 7,
@@ -1741,7 +1741,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 193599,
+        "estimatedByteCount": 196531,
         "files": [
           {
             "path": "data/agent-query-cases.json",
@@ -1753,15 +1753,15 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 31494
+            "bytes": 31577
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 63095
+            "bytes": 63430
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 49964
+            "bytes": 52478
           }
         ],
         "softFileLimit": 7,
@@ -1833,19 +1833,19 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 82918,
+        "estimatedByteCount": 86780,
         "files": [
           {
             "path": "data/genesis-cats.json",
-            "bytes": 11808
+            "bytes": 12866
           },
           {
             "path": "docs/genesis-cats.md",
-            "bytes": 4771
+            "bytes": 7487
           },
           {
             "path": "data/sources.json",
-            "bytes": 66339
+            "bytes": 66427
           }
         ],
         "softFileLimit": 7,
@@ -1923,15 +1923,15 @@
       ],
       "sizeMetrics": {
         "fileCount": 5,
-        "estimatedByteCount": 115007,
+        "estimatedByteCount": 118781,
         "files": [
           {
             "path": "data/genesis-cats.json",
-            "bytes": 11808
+            "bytes": 12866
           },
           {
             "path": "docs/genesis-cats.md",
-            "bytes": 4771
+            "bytes": 7487
           },
           {
             "path": "data/rescue-buckets.json",
@@ -2026,19 +2026,19 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 82918,
+        "estimatedByteCount": 86780,
         "files": [
           {
             "path": "data/genesis-cats.json",
-            "bytes": 11808
+            "bytes": 12866
           },
           {
             "path": "docs/genesis-cats.md",
-            "bytes": 4771
+            "bytes": 7487
           },
           {
             "path": "data/sources.json",
-            "bytes": 66339
+            "bytes": 66427
           }
         ],
         "softFileLimit": 7,
@@ -2130,15 +2130,15 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 18896,
+        "estimatedByteCount": 19287,
         "files": [
           {
             "path": "data/name-index-integration.json",
-            "bytes": 6411
+            "bytes": 6523
           },
           {
             "path": "docs/name-index-integration.md",
-            "bytes": 4136
+            "bytes": 4415
           },
           {
             "path": "data/mooncat-naming.json",
@@ -2218,15 +2218,15 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 85275,
+        "estimatedByteCount": 89137,
         "files": [
           {
             "path": "data/genesis-cats.json",
-            "bytes": 11808
+            "bytes": 12866
           },
           {
             "path": "docs/genesis-cats.md",
-            "bytes": 4771
+            "bytes": 7487
           },
           {
             "path": "data/protocol-constants.json",
@@ -2234,7 +2234,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 66339
+            "bytes": 66427
           }
         ],
         "softFileLimit": 7,

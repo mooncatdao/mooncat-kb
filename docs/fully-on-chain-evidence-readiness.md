@@ -2,15 +2,18 @@
 
 ## Verdict
 
-**Ready with explicit limitations.** The repository can support one narrowly
-scoped future cross-source synthesis case about the documented on-chain
+**Covered with explicit limitations.** The repository supports a narrowly
+scoped cross-source synthesis case about the documented on-chain
 materialization path and the roles of its reviewed contracts. It cannot support
 an unqualified answer that MoonCats are fully on-chain now, that every
 historical deployment still matches the reviewed source, or that current
 ownership, administration, availability, or content state is established.
 
-This audit does not add a factual-retrieval case. The benchmark remains at 33
-cases, and the fully-on-chain architecture synthesis gap remains open.
+The implemented case is
+`synthesis-fully-on-chain-materialization-path` in
+`data/factual-retrieval-cases.json`. Its required concepts, evidence classes,
+forbidden claims, and expected limitations are enforced by
+`scripts/validate-factual-retrieval-cases.py`.
 
 ## Evidence layers
 
@@ -19,9 +22,9 @@ The evidence roles must remain separate:
 | Layer | Existing repository support | What it can establish | What it cannot establish |
 | --- | --- | --- | --- |
 | ADR/design intent | data/architecture-decisions.json, docs/architecture-decisions.md, and the pinned ADR records 0007, 0008, 0009, and 0012 | documented architecture direction for blockchain state, library structure, Ethereum interfaces, and token metadata | implementation completion, selected deployed contracts, deployment, or live state |
-| Source implementation | data/contracts.json, docs/contracts.md, data/contract-surfaces.json, data/materialization-internals.json, and the compact contract-internals reviews | reviewed function roles and source-described relationships among rescue, wrapper, traits, colors, SVG, and accessory surfaces | complete source/ABI bodies, complete mappings, generated outputs, or bytecode equivalence |
+| Source implementation | data/contracts.json, docs/contracts.md, data/contract-surfaces.json, data/materialization-internals.json, the compact contract-internals reviews, and the separately routed exact ABI registry | reviewed function roles, exact local interfaces for nine address-matched contracts, and source-described relationships among rescue, wrapper, traits, colors, SVG, and accessory surfaces | complete Solidity source bodies, complete mappings, exact on-chain generated outputs, or bytecode equivalence |
 | Historical deployment evidence | contract records with Ethereum-mainnet addresses, verified-source status, registered Etherscan references, and the official Chained to the Future log source reference | that an exact address/source relationship was recorded and reviewed at the stated check dates | that the deployment is still active, unchanged, or equivalent to current bytecode |
-| Live/current chain state | no checked-in live query result or current-state snapshot in this audit | none | current code, admin/owner state, proxy configuration, storage, ownership, supply, endpoint availability, IPFS/Firebase content, or transaction behavior |
+| Live/current chain state | no checked-in live query result or current-state snapshot | none | current code, admin/owner state, proxy configuration, storage, ownership, supply, endpoint availability, IPFS/Firebase content, or transaction behavior |
 
 Direct source statements, deterministic derivations, and reviewer inference
 must also stay separate. For example, the contract summaries directly state
@@ -31,32 +34,32 @@ inference.
 
 ## Relevant contracts and mechanisms
 
-| Contract or mechanism | Role in a future synthesis | Strongest local evidence | Boundary |
+| Contract or mechanism | Role in the bounded synthesis | Strongest local evidence | Boundary |
 | --- | --- | --- | --- |
 | MoonCatRescue | original rescue-order lookup, owner/cat identity foundation, Genesis formula and supply constants | data/contracts.json, docs/contracts.md, data/protocol-constants.json, registered historical source references | source and recorded mainnet address do not prove current storage, ownership, or bytecode |
 | MoonCatAcclimator | ERC-721/ERC-998 wrapper path from original MoonCats; reviewed token identity uses rescue order within this exact contract | data/contracts.json and data/contract-surfaces.json | exact source/address review is historical; current wrapper state and approvals require live evidence |
 | MoonCatReference | on-chain documentation/reference registry for materialization contracts | data/contracts.json and data/contract-surfaces.json | stored documentation records and current registry contents are not imported |
 | MoonCatTraits | compact and human-readable trait lookup, including rescue-order helpers | data/contracts.json, data/contract-surfaces.json, data/materialization-internals.json | full trait tables, mappings, and current outputs are absent |
 | MoonCatColors | RGB, hue, palette, glow, and accessory-color helper surface | data/contracts.json, data/contract-surfaces.json, data/materialization-internals.json | palette values, override values, and current storage are absent |
-| MoonCatSVGs | source-reviewed SVG assembly from trait and color inputs, with cat ID and rescue-order entrypoints | data/contracts.json, data/contract-surfaces.json, data/mooncat-svg-internals.json | coordinate data and rendered output are absent; source review is not deployed-output proof |
+| MoonCatSVGs | source-reviewed SVG assembly from trait and color inputs, with cat ID and rescue-order entrypoints | data/contracts.json, data/contract-surfaces.json, data/mooncat-svg-internals.json | exact contract coordinate data and outputs are absent from this synthesis; the separate parser-derived render artifact is not deployed-output proof |
 | MoonCatAccessories | definitions, assignment, rescue-order-keyed owned records, and mutable wear state | data/contracts.json, data/contract-surfaces.json, data/mooncat-accessories-internals.json | taxonomy, records, approvals, managers, supply, and current worn state are absent |
 | MoonCatAccessoryImages | accessory composition and PNG/SVG helper path using the other materialization surfaces | data/contracts.json, data/contract-surfaces.json, data/mooncat-accessory-images-internals.json | accessory data, image bytes, palettes, and rendered results are absent |
 
 The historical MoonCatsWrapped wrapper is not part of the narrowest core
-materialization path. Include it only if a future question explicitly compares
+materialization path. Include it only when a question explicitly compares
 wrapper identity; its mapping-backed token IDs must not be generalized to the
 Acclimated contract.
 
-## Proposed future case
+## Implemented benchmark case
 
-Recommended question:
+In compact form, the benchmark asks:
 
 > Which reviewed contracts and source-described mechanisms form the MoonCat
 > on-chain materialization path, and what does each evidence layer establish
 > about that path?
 
 This wording is supportable because it asks for a source-bounded architecture
-synthesis. It should not ask whether the path is currently live, whether all
+synthesis. It does not ask whether the path is currently live, whether all
 outputs are presently retrievable, or whether source and deployed bytecode are
 identical.
 
@@ -69,7 +72,7 @@ identical.
 5. data/contract-surfaces.json
 6. data/materialization-internals.json
 
-No optional files are recommended for the first case. Add
+The implemented case has no optional files. Load
 data/mooncat-svg-internals.json, data/mooncat-accessories-internals.json, or
 data/mooncat-accessory-images-internals.json only when the question requires
 that contract’s detailed mechanism. Do not load the full references tree or
@@ -77,7 +80,7 @@ the upstream source snapshots as generic background.
 
 ### Required provenance boundaries
 
-The future case must require the answer to distinguish:
+The case requires the answer to distinguish:
 
 - ADR/design intent from source implementation;
 - source implementation from historical deployed-address/source evidence;
@@ -90,7 +93,7 @@ The future case must require the answer to distinguish:
 
 ### Forbidden claims
 
-The future case must forbid claims that:
+The case forbids claims that:
 
 - the ADRs prove implementation or deployment;
 - a verified source page proves current bytecode equivalence or active deployment;
@@ -105,20 +108,17 @@ The future case must forbid claims that:
 ### Expected limitations
 
 The expected answer should state that the KB has compact role/function
-summaries and historical source/address evidence, but does not contain full
-ABIs, Solidity bodies, bytecode, constructor arguments, storage snapshots,
-complete trait/accessory/palette mappings, generated outputs, current admin or
-ownership reads, or current endpoint/content checks.
+summaries, historical source/address evidence, and exact local ABI artifacts
+for nine address-matched contracts. The six-file benchmark context does not
+include full Solidity bodies, bytecode, constructor arguments, storage
+snapshots, complete trait/accessory/palette mappings, exact on-chain generated
+outputs, current admin or ownership reads, or current endpoint/content checks.
 
-## Concrete missing evidence
+## Missing evidence
 
-The requested paths docs/on-chain.md, data/source-registry.json, and
-references/research-notes/onchain-contracts/ are absent in this checkout.
-The registered source index is data/sources.json, and docs/contracts.md plus
-the compact data surfaces currently fill the relevant local roles. Their
-absence does not block the bounded case, but it means the future case should
-cite the existing files directly rather than imply a dedicated on-chain
-research bundle exists.
+The registered source index is `data/sources.json`; `docs/contracts.md` and the
+compact data surfaces fill the relevant local roles. Do not imply that a
+separate on-chain research bundle or live state snapshot exists.
 
 The following evidence remains missing or requires a separately authorized
 pass:
@@ -132,7 +132,7 @@ pass:
 
 ## Gap decision
 
-Keep fully-on-chain-architecture-synthesis open. The evidence is sufficient to
-design a carefully bounded future benchmark case, but not to mark the
-architecture synthesis gap covered until that case is added and validated with
-these boundaries intact.
+The `fully-on-chain-architecture-synthesis` benchmark gap is covered by the
+implemented and validated bounded case. Current deployment, bytecode, state,
+content availability, and exact contract-output questions remain separate
+evidence gaps; closing the benchmark gap does not close those domains.

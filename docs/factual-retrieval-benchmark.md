@@ -16,9 +16,9 @@ or network harness.
 
 ## Schema and classes
 
-The dataset defines its closed enums and contains 38 cases: ten direct
-lookup, ten cross-source synthesis, ten provenance-boundary, and eight
-live-verification-stop cases:
+The dataset defines its closed enums and contains 64 cases: 16 each for direct
+lookup, cross-source synthesis, provenance-boundary, and
+live-verification-stop:
 
 - `direct-lookup`: retrieve a bounded fact or KB policy from its owning file.
 - `cross-source-synthesis`: combine narrow sources while retaining their
@@ -41,6 +41,15 @@ current deployment, output availability, or present fully-on-chain status.
 The naming cases separately cover original-contract write guards and the
 boundary between `CatNamed` history, all-zero event effects, current storage,
 display decoding, and the checked-in snapshot.
+
+Public-release coverage also includes the complete static population and its
+field-level trust, rescue ranges, released-versus-unreleased Genesis mechanics,
+Genesis payment wording, pinned finalized-name freshness, contract identity
+versus live deployment, ABI event shape versus observed history, historical
+wrapper scope, community character categories, accessory definition/wear
+state, current rescue availability, current materialization output, and IPFS
+payload availability. These cases preserve the no-gold-prose design: expanding
+risk coverage does not create a parallel fact database.
 
 ## Running a review
 

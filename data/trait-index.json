@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "updated": "2026-08-11",
+  "updated": "2026-08-19",
   "status": "schema-metadata-with-full-population-generated-lookup-and-compact-fixture",
   "scope": "Compact field dictionary and validation summary for the local mooncat_traits.json upstream reference snapshot.",
   "sourceRefs": [
@@ -477,23 +477,23 @@
       "Keep aggregate reports separate unless the pass explicitly creates derived summaries."
     ],
     "openQuestions": [
-      "Whether a future artifact should include all 25,440 cats or retain a smaller generated lookup optimized for common KB tasks.",
-      "Whether a full generated artifact should be committed directly, sharded, or produced only at build time.",
-      "Whether visual trait fields should be versioned separately from API/name/accessory-related fields.",
+      "Whether a separately curated canonical trait dictionary or frequency model is needed beyond the generated joined lookup.",
+      "Whether visual trait fields need a revision policy separate from pinned name enrichment and excluded live accessory state.",
       "What freshness policy should apply if current API or ChainStation-maintained trait artifacts diverge from the local upstream snapshot.",
-      "Whether any consumer needs rescueOrder-primary shape despite bytes5 catId being the preferred primary key."
+      "Whether a concrete consumer needs additional generated indexes without duplicating the catId-primary population source."
     ]
   },
   "limitations": [
-    "This file is schema and validation metadata, not the full 25,440-row trait dataset.",
-    "Only 64 representative per-cat rows are imported; names, accessory details, and frequency tables remain excluded.",
+    "This file is schema and validation metadata, not the full 25,440-row generated population index.",
+    "The separate 64-row visual fixture is bounded; complete static lookup is provided by data/mooncat-population/manifest.json and its shards.",
+    "Names in the generated population are pinned finalized enrichment; accessory details and frequency tables remain excluded.",
     "Observed value sets describe the checked local reference snapshot and are not independently claimed as a canonical trait dictionary.",
     "The local snapshot copied or retrieved date is not recorded in the reference README.",
     "Freshness of API, ChainStation, name, and accessory-related data is not resolved here."
   ],
   "todos": [
-    "Decide whether names and accessory-related fields need separate provenance or update cadence before any curated import.",
-    "If needed, create a separate generated validation report with aggregate counts and a reproducible command.",
-    "Decide whether the bounded prototype should ever scale to a full generated population artifact."
+    "Keep finalized-name provenance and refresh cadence separate from static trait-source provenance in the generated population.",
+    "Define a canonical trait dictionary or frequency model only through a separately scoped source/model review.",
+    "Add accessory-related fields only through a separately scoped current-state or deterministic-materialization pass."
   ]
 }

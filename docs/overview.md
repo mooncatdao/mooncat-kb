@@ -9,6 +9,9 @@ For the goal-oriented human introduction, start with
 [`mooncat-kb-guide.md`](mooncat-kb-guide.md). This overview describes the
 repository architecture and scope without duplicating that guide.
 
+The public-release candidate assessment and its evidence-backed exceptions are
+in [`public-release-readiness.md`](public-release-readiness.md).
+
 ## Architecture
 
 - `data/` contains compact canonical, curated, community-curated, workflow, and

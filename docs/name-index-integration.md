@@ -61,18 +61,22 @@ Original protocol/storage semantics remain in
 replace original-contract evidence for `nameCat`, `catNames`, or byte-level
 semantic questions.
 
-## Future full-population index
+## Full-population index integration
 
-A future generated 25,440-cat artifact may embed finalized nonblank name-index
-data directly as a source-attributed monotonic enrichment. Each build must
+The generated 25,440-cat population index embeds finalized nonblank name-index
+data directly as a source-attributed monotonic enrichment. Its manifest records
+the exact repository revision and pinned finalized inputs. Each rebuild must
 record the exact repository revision and finalized metadata/artifact it used,
 then be deliberately regenerated when newly finalized names appear. It may use
 a pinned local name-index checkout or copied CC0 finalized artifact, so the
 generation path does not require live network access.
 
-That future artifact must exclude provisional/live name-index data and must
-fail for investigation rather than accept a mutation to a previously finalized
-nonblank name.
+The population generator excludes provisional/live name-index data and fails
+for investigation rather than accepting a mutation to a previously finalized
+nonblank name. See
+[`docs/mooncat-population-index.md`](mooncat-population-index.md) and
+`data/mooncat-population/manifest.json` for the implemented field provenance,
+pinned revision, counts, and exclusions.
 
 ## Freshness boundary
 

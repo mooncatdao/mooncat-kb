@@ -80,7 +80,9 @@
     "violationHandling": "A changed finalized nonblank name for an already-named cat is an invariant-violation or data-corruption signal requiring investigation, not a normal refresh."
   },
   "fullPopulationIndexGuidance": {
-    "eligibleInput": "Finalized nonblank name-index data may be incorporated directly as source-attributed monotonic enrichment in a future generated 25440-cat population index.",
+    "implementationStatus": "implemented-in-generated-population-index",
+    "artifact": "data/mooncat-population/manifest.json",
+    "eligibleInput": "Finalized nonblank name-index data is incorporated as source-attributed monotonic enrichment in the generated 25440-cat population index.",
     "generationRequirements": [
       "Record the exact name-index repository revision and finalized metadata/artifact used.",
       "Regenerate deliberately when the finalized named population grows; do not silently present an older enrichment as current.",

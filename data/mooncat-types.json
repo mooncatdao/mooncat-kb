@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-24",
+  "updated": "2026-08-19",
   "status": "partially-verified",
   "provenance": {
     "sources": [
@@ -60,8 +60,8 @@
   },
   "todos": [
     "Confirm/document the index convention used by data/character-cat-index.json before downstream UI/tool use.",
-    "Document the derivation method for data/rescue-buckets.json before downstream UI/tool use.",
-    "Define conversion from rescue-order-index to catId/token-facing identifiers before using bucket values outside rescue-order context.",
+    "Use the documented data/rescue-buckets.json methods and identifier conventions before downstream UI/tool use.",
+    "Use the verified array-backed rescue-order-to-catId lookup before using bucket values outside rescue-order context; apply token-facing equivalence only within its reviewed contract.",
     "Keep community-curated categories separate from official protocol traits."
   ]
 }

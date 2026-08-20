@@ -125,7 +125,7 @@ remain in history but do not create current-name records.
 See [`docs/name-index-integration.md`](name-index-integration.md) and
 [`data/name-index-integration.json`](../data/name-index-integration.json) for
 artifact selection, provisional/live exclusion, revision-bound freshness, and
-future full-population-index guidance. Original protocol semantics in this
+implemented full-population-index guidance. Original protocol semantics in this
 document remain the source for `nameCat`/`catNames` behavior.
 
 ## CatNamer boundary

@@ -4,6 +4,9 @@ MoonCat KB welcomes small, source-backed improvements that make MoonCat
 knowledge easier and safer for people, tools, and coding agents to use. Read
 [`docs/mooncat-kb-guide.md`](docs/mooncat-kb-guide.md) for the repository's
 capabilities and evidence model before proposing a broad change.
+Review [`docs/public-release-readiness.md`](docs/public-release-readiness.md)
+when a change affects public claims, release gates, or an accepted evidence
+boundary.
 
 ## Start with the repository workflow
 
@@ -139,6 +142,7 @@ Then use the checks appropriate to the change:
 | Contract/ABI/event data | ABI extractor `--check` and contract-registry validator |
 | Executable example | Its documented focused test command plus the validators for the data/registry it consumes |
 | Route, recipe, benchmark context, or routed doc | Generate/check context packs and run `validate-agent-routing.py` |
+| Factual-retrieval benchmark | `python scripts/validate-factual-retrieval-cases.py`, then context-pack/routing checks when routed inputs changed |
 | Maintained file, path classification, route, or recipe | Generate/check the KB manifest and run `validate-kb-manifest.py` |
 | Repo-wide/integrity change | `python scripts/audit-kb.py` after dependent generated artifacts are current |
 
@@ -195,6 +199,8 @@ conflict, or turn an unknown into a claim.
 - [ ] The repo-wide audit passes when required.
 - [ ] JSON parsing, `validate-kb.py`, and `git diff --check` pass.
 - [ ] The final diff was reviewed for unrelated changes.
+- [ ] Public-facing counts, capability claims, and static/current wording still
+      agree with their owning data and `docs/public-release-readiness.md`.
 
 When evidence is incomplete, a precise gap or limitation is a valid and useful
 contribution.

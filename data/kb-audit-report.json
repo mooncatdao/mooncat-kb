@@ -10,6 +10,12 @@
       "outputSummary": "OK: data/agent-context-packs.json is deterministic and current"
     },
     {
+      "command": "python scripts/generate-mooncat-names.py --check",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: data/mooncat-names.json is deterministic and current"
+    },
+    {
       "command": "python scripts/generate-visual-traits.py --check",
       "required": true,
       "exitStatus": 0,
@@ -22,6 +28,30 @@
       "outputSummary": "OK: data/materialization-parity-results.json is deterministic and current"
     },
     {
+      "command": "python scripts/generate-mooncat-population.py --check",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 26 shards plus manifest/report are deterministic and current"
+    },
+    {
+      "command": "python scripts/diff-mooncat-population.py --check",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "Changed rows: 0 Newly named: 0 Changes by field group: {} Changed inputs: [] Mismatch count: 2524 -> 2524"
+    },
+    {
+      "command": "python scripts/generate-mooncat-renders.py --check",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 26 render shards plus manifest are deterministic and current"
+    },
+    {
+      "command": "python scripts/extract-contract-abis.py --check",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 9 exact ABI artifacts and contract/event/recipe registries are deterministic and current"
+    },
+    {
       "command": "python scripts/generate-kb-manifest.py --check",
       "required": true,
       "exitStatus": 0,
@@ -31,13 +61,19 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: /home/sevorg/Projects/mckb JSON files checked: 51 Required file references checked: 559 sourceRefs checked: 1216 relatedFiles checked: 282 Character/Genesis membership arrays checked: 16 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: . JSON files checked: 51 Required file references checked: 573 sourceRefs checked: 1216 relatedFiles checked: 282 Character/Genesis membership arrays checked: 16 Release semantic invariants checked: 13 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
       "required": true,
       "exitStatus": 0,
       "outputSummary": "OK: 31 query cases, 27 categories, 18 protected boundaries, and minimal deterministic packs"
+    },
+    {
+      "command": "python scripts/validate-mooncat-names.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 1,225 naming rows, 1,207 parsed strings, 18 markers, raw-byte and source checks passed"
     },
     {
       "command": "python scripts/validate-upstream-snapshots.py",
@@ -70,6 +106,24 @@
       "outputSummary": "OK: 8 fixtures, 8 structural normalizations, 5 intentional trait differences, and explicit unavailable layers"
     },
     {
+      "command": "python scripts/validate-mooncat-population.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 25,440 rows, 25,440 ID round trips, 25,440 parser renders, 96 Genesis, 1233 finalized names, 2524 explicit LibMoonCat trait mismatches"
+    },
+    {
+      "command": "python scripts/validate-mooncat-renders.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 25,440 exact parser renders across 26 shards; 9,138,249 decoded cells; 8 direct parser fixtures; orientation witness 0x00d658d50b@0,6; 12,767,580 shard bytes"
+    },
+    {
+      "command": "python scripts/validate-contract-registry.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": "OK: 10 contracts (9 exact ABI, 1 semantic-only), 32 events (20 MoonCat-specific, 12 generic), 5 recipes, exact ABI alignment, overloads, identifier kinds, and Ethereum Keccak topic0 values validated"
+    },
+    {
       "command": "python scripts/validate-architecture-decisions.py",
       "required": true,
       "exitStatus": 0,
@@ -91,24 +145,24 @@
       "command": "python scripts/validate-factual-retrieval-cases.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "Factual retrieval benchmark validation passed: 38 cases; direct-lookup=10, cross-source-synthesis=10, provenance-boundary=10, live-verification-stop=8"
+      "outputSummary": "Factual retrieval benchmark validation passed: 64 cases; direct-lookup=16, cross-source-synthesis=16, provenance-boundary=16, live-verification-stop=16"
     },
     {
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 174 maintained files, 74 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 206 maintained files, 74 explicit exclusions, hashes, routes, and commands validated"
     }
   ],
   "counts": {
-    "requiredCommandCount": 16,
+    "requiredCommandCount": 25,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 2094,
+    "internalPathsChecked": 2299,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 174,
+    "manifestMaintainedFileCount": 206,
     "manifestExcludedFileCount": 74
   },
   "duplicateIdChecks": {
@@ -120,12 +174,12 @@
       },
       "agent-routes": {
         "file": "data/agent-index.json",
-        "count": 33,
+        "count": 34,
         "duplicates": []
       },
       "task-recipes": {
         "file": "data/task-recipes.json",
-        "count": 28,
+        "count": 29,
         "duplicates": []
       },
       "benchmark-cases": {
@@ -135,12 +189,12 @@
       },
       "factual-retrieval-cases": {
         "file": "data/factual-retrieval-cases.json",
-        "count": 38,
+        "count": 64,
         "duplicates": []
       },
       "gap-records": {
         "file": "data/kb-gap-index.json",
-        "count": 32,
+        "count": 33,
         "duplicates": []
       },
       "identifier-fixtures": {
@@ -182,7 +236,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 2094,
+    "checked": 2299,
     "errors": [],
     "warnings": []
   },

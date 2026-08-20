@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-11",
+  "updated": "2026-08-19",
   "status": "incomplete",
   "sources": [
     {
@@ -79,7 +79,7 @@
         "future trait data promotion options"
       ],
       "status": "active",
-      "notes": "Local strategy document for mooncat_traits.json review and future curated trait-data work. It does not import or canonicalize the full trait dataset."
+      "notes": "Local strategy document for mooncat_traits.json review and the generated full-population model. It does not promote the upstream snapshot into a standalone canonical trait dictionary."
     },
     {
       "id": "repo-color-math-doc",
@@ -459,7 +459,7 @@
         "catId field",
         "array-backed identifier conversion evidence"
       ],
-      "notes": "Local upstream reference copy. Validated as JSON and structurally checked as 25,440 rows ordered by rescueOrder with unique catId values; this dataset is not imported into curated KB data."
+      "notes": "Local upstream reference copy. Validated as JSON and structurally checked as 25,440 rows ordered by rescueOrder with unique catId values; it is a registered input to the source-attributed generated population, not standalone curated KB truth."
     },
     {
       "id": "mooncatrescue-mooncatparser-js",

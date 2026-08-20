@@ -21,13 +21,13 @@ The token ID is allocated from a private counter whose default first value is ze
 - `_catIDToTokenID(bytes5)` maps a bytes5 cat ID to a wrapper `uint256 tokenID`.
 - `_tokenIDToCatID(uint256)` maps a wrapper token ID back to a bytes5 cat ID.
 
-This is a mapping-backed wrapper identifier, not a bytes5 encoding. The source contains no `rescueOrder` field, function, or conversion. It therefore does not establish that WMCR token IDs equal rescue order, API original rescue indexes, local rescue-order indexes, current Acclimated ERC-721 token IDs, or marketplace URL IDs.
+This is a mapping-backed wrapper identifier, not a bytes5 encoding. The source contains no `rescueOrder` field, function, or conversion. It therefore does not establish that WMCR token IDs equal rescue order, API original rescue indexes, local rescue-order indexes, reviewed MoonCatAcclimator ERC-721 token IDs, or marketplace URL IDs.
 
 `unwrap(tokenID)` uses the reverse mapping, checks the ERC-721 owner, returns the mapped cat through `MoonCatsRescue.giveCat`, burns the wrapper token, and emits the source-defined event. The source uses zero as the “unassigned” mapping sentinel even though the counter begins at token ID zero, so re-wrap behavior around token ID zero is left as a source-level lifecycle caveat rather than generalized behavior.
 
 ## Comparison With Acclimated
 
-The current Acclimated MoonCats contract is a separate wrapper. Its reviewed source documents token ID as rescue order. That rule is scoped to the Acclimated contract and does not apply to WMCR.
+The reviewed MoonCatAcclimator contract is a separate wrapper. Its source documents token ID as rescue order. That rule is scoped to the exact Acclimator contract and does not apply to WMCR.
 
 To relate a WMCR token ID to a bytes5 cat ID, use the exact WMCR mapping getter or source-defined wrap/unwrap event context. If a rescue-order/API index is then needed, perform the separately documented bytes5-to-rescue-order lookup. There is no direct WMCR tokenID-to-rescueOrder conversion documented here.
 
@@ -36,7 +36,7 @@ To relate a WMCR token ID to a bytes5 cat ID, use the exact WMCR mapping getter 
 - bytes5 cat ID: direct input to WMCR `wrap` and the mapping's cat-side key.
 - WMCR token ID: sequential/mapping-backed ERC-721 identifier for this exact contract.
 - rescue order/API original rescue index: not used by the reviewed WMCR source.
-- current Acclimated ERC-721 token ID: a separate contract-scoped identifier documented as rescue order.
+- reviewed MoonCatAcclimator ERC-721 token ID: a separate contract-scoped identifier documented as rescue order.
 - OpenSea URL ID: marketplace-facing value that must be scoped to the collection contract; no WMCR conversion is asserted here.
 - local rescue-order index: not a WMCR token ID without an independently verified mapping path.
 

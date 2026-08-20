@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-25",
+  "updated": "2026-08-19",
   "status": "compact-workflow-index",
   "scope": "Agent-facing workflow recipes for sequencing common MoonCat KB tasks by loading existing data files. This file routes and orders work; it does not add endpoint, contract, trait, color, identifier, source, or per-cat facts.",
   "sourceRefs": [],
@@ -236,12 +236,16 @@
         "data/trait-index.json"
       ],
       "optionalFiles": [
+        "data/mooncat-population/manifest.json",
+        "docs/mooncat-population-index.md",
+        "scripts/query-mooncats.py",
         "data/api-examples.json",
         "data/libmooncat-surfaces.json",
         "data/color-hues.json",
         "data/sources.json"
       ],
       "steps": [
+        "For complete checked-in static per-cat lookup, route to data/mooncat-population/manifest.json and scripts/query-mooncats.py before considering a live API.",
         "Choose the identifier form with data/identifier-conventions.json before building the request or helper call.",
         "Use data/api-endpoints.json to find accepted forms, params, response kind, and endpoint limitations.",
         "Use data/api-examples.json only for example construction or known checked request shape.",
@@ -260,7 +264,7 @@
         "Do not treat example responses as stored canonical data; examples do not replace endpoint manifests or OpenAPI specs."
       ],
       "stopConditions": [
-        "Stop if the requested per-cat trait answer requires data that is not present in curated KB files and live/API/source inspection is out of scope.",
+        "Stop if the requested per-cat trait answer is absent from registered generated/curated KB files and live/API/source inspection is out of scope.",
         "Stop if the identifier form cannot be verified for the target endpoint or helper."
       ]
     },
@@ -971,7 +975,7 @@
         "Select the matching finalized name-index artifact; use data/events.jsonl for canonical finalized history and understand that current-name files are derived from it.",
         "Keep nameRaw, status, and text distinct; interpret namer only as the immediate transaction sender.",
         "Exclude pending and *-live artifacts from canonical output and distinguish the historical mooncat-names.json snapshot from maintained artifacts.",
-        "For future population enrichment, record the name-index revision, regenerate deliberately, and investigate changed finalized nonblank names."
+        "For population enrichment, use the implemented generated population path, record the name-index revision, regenerate deliberately, and investigate changed finalized nonblank names."
       ],
       "outputs": [
         "selected finalized artifact and identifier form",

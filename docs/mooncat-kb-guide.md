@@ -12,6 +12,10 @@ contains routing, validation, and gap-review machinery for contributors and AI
 coding agents. It is not a live MoonCat service, blockchain indexer, wallet,
 marketplace, or substitute for current chain verification.
 
+The current public-release assessment is **ready with accepted evidence
+boundaries**. The audit findings and repeatable release gates are recorded in
+[`public-release-readiness.md`](public-release-readiness.md).
+
 ## Choose a goal
 
 | Goal | Start here | What you get |
@@ -42,6 +46,16 @@ Use `scripts/query-mooncats.py` for bounded lookup and filtering. Use the
 profile resolver described below when JavaScript code needs one explicit
 `catIdBytes5` or `rescueOrder` lookup. Neither surface supplies current owners,
 accessories, prices, provisional names, or other live state.
+
+For example:
+
+```sh
+python scripts/query-mooncats.py --rescue-order 100 --json --provenance
+python scripts/query-mooncats.py --cat-id 0x00d658d50b --json --provenance
+```
+
+The first command treats `100` as rescue order; the second treats its input as
+a bytes5 Cat ID. The CLI does not reinterpret an untagged generic token ID.
 
 ### Identifier-safe integrations
 

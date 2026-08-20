@@ -305,8 +305,8 @@
     },
     {
       "path": "data/genesis-cats.json",
-      "sha256": "b50841fedb9ab2b571ec9979d8b17c61bb9c628cef826061ada2d32487054bde",
-      "bytes": 11808,
+      "sha256": "659730d52bff6eaf2af72cf6cdb9d2d5ace336142c56a06dec173f4859212bcf",
+      "bytes": 12866,
       "role": "canonical released Genesis membership"
     },
     {

@@ -16,7 +16,7 @@ collection contains 25,344 ordinary Rescue Cats and 96 Genesis Cats:
 ```
 
 The 96 were the six released groups of 16. Their exact Genesis-index, bytes5
-Cat ID, and rescue-order relationships are stored once in the new dataset as
+Cat ID, and rescue-order relationships are stored once in the canonical reconstruction as
 aligned arrays. The validator compares them with the existing Genesis
 rescue-order bucket, the checked-in trait reference, and the contract formula.
 

@@ -14,15 +14,27 @@ Roles and curation modes are closed enums recorded in the manifest. Classificati
 
 The maintained inventory covers regular repository files except the explicit policy exclusions: `.git`, `.chatgpt` run artifacts, local agent/editor/cache/dependency directories, the local `codex-handoff.md` session artifact, upstream/reference snapshots, vendored example dependencies, and the two recursive/generated audit outputs. `data/kb-manifest.json` is excluded because a hash of itself would not stabilize; `data/kb-audit-report.json` is excluded because command durations are dynamic. These exclusions are policy entries, not orphaned KB content.
 
-Known generated artifacts remain owned by their existing generators:
+Generated artifacts remain owned by their existing generators:
 
 - `data/agent-context-packs.json` — `scripts/generate-agent-context-packs.py --check`
+- `data/mooncat-names.json` — `scripts/generate-mooncat-names.py --check`
 - `data/mooncat-visual-traits.sample.json` — `scripts/generate-visual-traits.py --check`
 - `data/materialization-parity-results.json` — `scripts/generate-materialization-parity.py --check`
+- `data/mooncat-population/` — `scripts/generate-mooncat-population.py --check`
+- `data/mooncat-renders/` — `scripts/generate-mooncat-renders.py --check`
+- `data/contract-registry.json`, `data/event-registry.json`,
+  `data/event-indexer-recipes.json`, and `data/abi-registry/` —
+  `scripts/extract-contract-abis.py --check`
+- `data/kb-manifest.json` — `scripts/generate-kb-manifest.py --check`
+- `data/kb-audit-report.json` — `scripts/audit-kb.py`
 
 Curated indexes with focused validators are also registered in manifest entry metadata. `data/architecture-decisions.json` is checked by `scripts/validate-architecture-decisions.py`; its ADR records remain source summaries rather than generated domain data. `data/factual-retrieval-cases.json` is checked by `scripts/validate-factual-retrieval-cases.py`; it is a deterministic provenance-boundary benchmark, separate from coding-route validation in `data/agent-query-cases.json`.
 
-The manifest generator registers those relationships and their focused validators; it does not duplicate generation logic.
+The manifest generator registers those relationships and their focused
+validators; it does not duplicate generation logic. The zero-network audit
+runs each registered domain's established check and validator for the public
+release surface, including names, population, renders, and contract/ABI/event
+artifacts.
 
 ## Validation and warning policy
 

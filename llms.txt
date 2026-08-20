@@ -5,6 +5,7 @@ Human orientation:
 - /docs/mooncat-kb-guide.md
 - /README.md
 - /docs/overview.md
+- /docs/public-release-readiness.md
 - /CONTRIBUTING.md
 
 Agent workflow:
@@ -61,3 +62,4 @@ Notes:
 - Preserve contract-scoped identifier meanings and static/revision/live-state boundaries.
 - Use /data/kb-gap-index.json for planning and gap discovery only; follow its referenced evidence for factual claims.
 - Stop rather than guess when a claim needs missing provenance, unsupported conversion, or current verification.
+- Treat /docs/public-release-readiness.md as the release assessment, not as a new source of MoonCat facts.

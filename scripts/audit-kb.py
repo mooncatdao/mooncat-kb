@@ -19,18 +19,25 @@ MAX_OUTPUT_CHARS = 400
 
 REQUIRED_COMMANDS = [
     "python scripts/generate-agent-context-packs.py --check",
+    "python scripts/generate-mooncat-names.py --check",
     "python scripts/generate-visual-traits.py --check",
     "python scripts/generate-materialization-parity.py --check",
+    "python scripts/generate-mooncat-population.py --check",
+    "python scripts/diff-mooncat-population.py --check",
     "python scripts/generate-mooncat-renders.py --check",
+    "python scripts/extract-contract-abis.py --check",
     "python scripts/generate-kb-manifest.py --check",
     "python scripts/validate-kb.py",
     "python scripts/validate-agent-routing.py",
+    "python scripts/validate-mooncat-names.py",
     "python scripts/validate-upstream-snapshots.py",
     "python scripts/validate-identifier-conversions.py",
     "python scripts/validate-color-classification.py",
     "python scripts/validate-visual-traits.py",
     "python scripts/validate-materialization-parity.py",
+    "python scripts/validate-mooncat-population.py",
     "python scripts/validate-mooncat-renders.py",
+    "python scripts/validate-contract-registry.py",
     "python scripts/validate-architecture-decisions.py",
     "python scripts/validate-chainstation-surfaces.py",
     "python scripts/validate-genesis-cats.py",
@@ -70,6 +77,7 @@ PII_CONTEXT_EXEMPTIONS = {
 
 def concise_output(stdout: str, stderr: str) -> str:
     text = " ".join(line.strip() for line in (stdout + "\n" + stderr).splitlines() if line.strip())
+    text = text.replace(str(ROOT), ".")
     return text[:MAX_OUTPUT_CHARS] + ("…" if len(text) > MAX_OUTPUT_CHARS else "")
 
 

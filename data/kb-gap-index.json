@@ -1,8 +1,8 @@
 {
-  "version": 15,
-  "updated": "2026-08-14",
-  "status": "refreshed-after-full-population-parser-render-artifact",
-  "scope": "Agent-usability gap report after current source, routing, population, conformance, and full parser-render reviews, with provenance, licensing, and live-state limits.",
+  "version": 16,
+  "updated": "2026-08-19",
+  "status": "public-release-candidate-audited-ready-with-accepted-boundaries",
+  "scope": "Post-release-readiness agent-usability gap report covering public claims, source/routing/population/conformance/render capabilities, benchmark risk coverage, semantic release gates, provenance, licensing, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -53,13 +53,17 @@
     "data/sources.json",
     "data/special-cats.json",
     "data/task-recipes.json",
-    "data/trait-index.json"
+    "data/trait-index.json",
+    "docs/public-release-readiness.md",
+    "scripts/validate-kb.py",
+    "scripts/validate-factual-retrieval-cases.py"
   ],
   "method": {
-    "summary": "Reviewed current data files, status fields, TODO arrays, limitations, direct data/agent-index.json routing coverage, executable examples, and human/agent discovery entrypoints.",
+    "summary": "Adversarially cross-checked repeated public claims against owning data, status/TODO/limitation fields, direct routing, generated artifacts, executable examples, source/license boundaries, factual benchmark risks, and human/agent entrypoints.",
     "limitations": [
       "This file does not add MoonCat facts or verify upstream freshness.",
-      "This file does not modify sourceRefs, import datasets, or resolve listed gaps.",
+      "The audit corrected resolvable local contradictions and provenance wording but did not import new upstream datasets or invent source lineage.",
+      "No browser, network, RPC, API, marketplace, deployment, IPFS, or other current-state verification was performed.",
       "Routing coverage is checked against direct data/agent-index.json references in primaryFiles and optionalFiles."
     ]
   },
@@ -93,6 +97,20 @@
   },
   "resolvedOrPartiallyResolvedGaps": [
     {
+      "key": "public-release-candidate-evidence-readiness",
+      "status": "resolved-as-ready-with-accepted-evidence-boundaries",
+      "files": [
+        "docs/public-release-readiness.md",
+        "README.md",
+        "docs/mooncat-kb-guide.md",
+        "data/factual-retrieval-cases.json",
+        "scripts/validate-factual-retrieval-cases.py",
+        "scripts/validate-kb.py",
+        "data/kb-gap-index.json"
+      ],
+      "notes": "The public-release audit corrected stale fully-on-chain, naming, trait/identifier, Genesis/type, and rescue-history claims; tightened reviewed-contract versus current-state language; expanded the factual benchmark from 38 to 64 balanced cases; and added 13 stable cross-file release invariants. The repository is ready for public v1 with live state, incomplete source lineage/licenses, additional wrappers, exact on-chain output, and other recorded boundaries explicitly accepted rather than silently resolved."
+    },
+    {
       "key": "factual-retrieval-benchmark",
       "status": "resolved-as-deterministic-provenance-aware-constraint-suite",
       "files": [
@@ -102,7 +120,7 @@
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "Thirty-eight cases now exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes. Coverage is 10 direct lookup, 10 cross-source synthesis, 10 provenance boundaries, and 8 live-verification stops; the Genesis, bounded on-chain synthesis, accessory-system, and naming evidence-boundary coverage gaps are covered."
+      "notes": "Sixty-four cases exercise factual retrieval without full gold prose answers, subjective evaluation, network access, or canonical MoonCat fact changes. Coverage is balanced at 16 direct lookup, 16 cross-source synthesis, 16 provenance boundaries, and 16 live-verification stops, including public-release risks around population, Genesis, names, identifiers, contracts/events, wrappers, community categories, accessories, fully-on-chain wording, and current external state."
     },
     {
       "key": "mooncat-naming-system",
@@ -118,7 +136,7 @@
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "The KB now records original-contract naming checks, CatNamed fields and zero-name semantics, raw/display/moderation boundaries, adjacent CatNamer provenance, and a deterministic 1,225-row historical/source-comparison snapshot. The reviewed CC0 MoonCatDAO name-index integration is the preferred revision-bounded source for finalized current names and canonical finalized history; provisional/live overlays remain excluded. Current storage, newer-than-reviewed state, current display counts, and live helper state remain explicit follow-up boundaries."
+      "notes": "The KB records original-contract naming checks, CatNamed fields and zero-name semantics, raw/display/moderation boundaries, adjacent CatNamer provenance, and a deterministic 1,225-row historical/source-comparison snapshot. The reviewed CC0 MoonCatDAO name-index integration supplies pinned finalized enrichment to the implemented 25,440-row population and remains the preferred revision-bounded source for finalized current names and canonical finalized history; provisional/live overlays are excluded. Current storage, newer-than-reviewed state, current display counts, and live helper state remain explicit boundaries."
     },
     {
       "key": "fully-on-chain-architecture-synthesis",
@@ -126,9 +144,10 @@
       "files": [
         "data/factual-retrieval-cases.json",
         "docs/factual-retrieval-benchmark.md",
+        "docs/fully-on-chain-evidence-readiness.md",
         "scripts/validate-factual-retrieval-cases.py"
       ],
-      "notes": "The 38-case factual benchmark covers contract-role/evidence synthesis; current state remains out of scope."
+      "notes": "The 64-case factual benchmark covers bounded contract-role/evidence synthesis and adversarial fully-on-chain wording; current deployment, bytecode, storage, exact output, and content/service availability remain out of scope."
     },
     {
       "key": "genesis-history-and-population-reconstruction",
@@ -636,7 +655,7 @@
         "additional-wrapper-inventory-incomplete",
         "scope-boundary-risk"
       ],
-      "agentUsabilityImpact": "Useful for current identifier warnings, verified lookup-backed bytes5/rescue-order boundaries, current Acclimated token ID boundaries, and the exact MoonCatsWrapped mapping-backed wrapper rule. Additional historical wrapper contracts remain unresolved.",
+      "agentUsabilityImpact": "Useful for verified lookup-backed bytes5/rescue-order boundaries, the exact reviewed MoonCatAcclimator token-ID rule, and the exact MoonCatsWrapped mapping-backed wrapper rule. Additional historical wrapper contracts remain unresolved, and none of these static rules establishes current token state.",
       "nextDataPass": "Identify additional historical or unofficial wrapper addresses only through exact high-confidence sources, then review each contract separately before adding mappings."
     },
     {
@@ -652,12 +671,12 @@
     },
     {
       "file": "data/kb-gap-index.json",
-      "currentStatus": "refreshed-current-repository-usability-report",
+      "currentStatus": "public-release-candidate-audited-usability-report",
       "routedFromAgentIndex": true,
       "gapTypes": [
         "audit-report-staleness-risk"
       ],
-      "agentUsabilityImpact": "Useful for current file gaps, usability impact, bounded next passes, and resolved capability history; directly discoverable through review-kb-gaps and explained in the human guide. It can become stale after substantial source, data, routing, or executable-pattern passes.",
+      "agentUsabilityImpact": "Useful for post-audit file gaps, usability impact, accepted public-release boundaries, bounded next passes, and resolved capability history; directly discoverable through review-kb-gaps and linked from the public readiness report. It can become stale after substantial source, data, routing, or executable-pattern passes.",
       "nextDataPass": "Refresh this gap index after future substantial data/source imports or agent-usable capability changes, preserving genuinely historical resolved statements."
     },
     {
@@ -820,11 +839,10 @@
     },
     {
       "file": "data/task-recipes.json",
-      "currentStatus": "compact-workflow-index",
+      "currentStatus": "validated-compact-workflow-index",
       "routedFromAgentIndex": true,
       "gapTypes": [
-        "new-routing-layer",
-        "sync-risk"
+        "workflow-sync-risk"
       ],
       "agentUsabilityImpact": "Useful for sequencing common tasks, but recipes can drift if underlying data files change without a workflow refresh.",
       "nextDataPass": "Refresh recipes after future curated trait, image, color, API, or source imports change accepted workflows."
@@ -843,6 +861,16 @@
     }
   ],
   "notableNonGaps": [
+    {
+      "file": "docs/public-release-readiness.md",
+      "status": "ready-with-accepted-evidence-boundaries",
+      "note": "Records the zero-network public-v1 assessment, corrected contradictions, 13 cross-file release invariants, 64-case factual benchmark coverage, accepted evidence limits, and repeatable release gates without creating another factual source of truth."
+    },
+    {
+      "file": "data/factual-retrieval-cases.json",
+      "status": "64-case-balanced-public-risk-suite",
+      "note": "Provides 16 cases in each difficulty class and mechanically required coverage for realistic overclaim risks while retaining no prose gold answers or network evaluator."
+    },
     {
       "file": "data/mooncat-population/manifest.json",
       "status": "generated-full-population-indexes",

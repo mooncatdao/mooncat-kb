@@ -80,7 +80,9 @@ Project-link `trustLevel` values are navigation classifications, not canonical-s
 
 ## Data trust levels
 
-- Canonical: on-chain, official parser, official contract docs
+- Canonical within the exact checked scope: direct chain evidence, official
+  parser behavior, and official contract documentation. A canonical source
+  class does not turn historical evidence into current state.
 - Current-maintainer-technical: MoonCatRescue GitLab repositories and maintained technical artifacts, after checking the relevant files
 - Historical-primary: original ponderware parser and contract repositories
 - Strong: ChainStation source and other technical source-code entries explicitly marked with `trustLevel: "strong"`

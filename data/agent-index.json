@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-25",
+  "updated": "2026-08-19",
   "status": "compact-routing-index",
   "purpose": "Map common MoonCat technical tasks to the minimum repo files an agent should load.",
   "defaults": {
@@ -67,6 +67,7 @@
         "data/agent-index.json",
         "data/task-recipes.json",
         "docs/mooncat-kb-guide.md",
+        "docs/public-release-readiness.md",
         "data/sources.json"
       ],
       "notes": [
@@ -352,7 +353,7 @@
         "data/identifier-conventions.json"
       ],
       "notes": [
-        "This task intentionally loads the Markdown strategy because curated machine-readable trait data is incomplete.",
+        "This task intentionally loads the Markdown strategy because the generated population is a joined lookup, not a standalone canonical trait dictionary.",
         "Avoid promoting full upstream mappings without a separate documented import and validation pass."
       ]
     },

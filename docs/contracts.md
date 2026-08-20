@@ -8,7 +8,10 @@ Partially verified.
 
 The original `MoonCatRescue` Solidity source and Ethereum mainnet address are verified.
 
-The current Acclimated MoonCats ERC-721/ERC-998 wrapper address is also verified from registered marketplace/project links and the registered Etherscan source entry in `data/sources.json`.
+The reviewed MoonCatAcclimator ERC-721/ERC-998 wrapper address is verified from
+registered marketplace/project links and the registered Etherscan source entry
+in `data/sources.json`. This is a reviewed address/source identity, not a claim
+about present deployment state.
 
 The historical `MoonCatsWrapped` / `Wrapped MoonCatsRescue` (`WMCR`) wrapper address and verified source are now registered separately. Its token IDs are counter-allocated and mapping-backed; that source does not use rescue order.
 
@@ -90,7 +93,7 @@ See `docs/mooncat-accessories.md` for lifecycle, roles, administration, and iden
 
 ## MoonCatsWrapped Identifier Internals
 
-The verified `MoonCatsWrapped` source accepts a bytes5 `catId` in `wrap`, then assigns a separate ERC-721 token ID from a contract-local counter and stores `_catIDToTokenID` and `_tokenIDToCatID` mappings. `unwrap` uses the reverse mapping to return the cat through the original MoonCatRescue contract. The source contains no `rescueOrder` field or conversion, so WMCR token IDs are not source-confirmed rescue-order values and are not interchangeable with current Acclimated token IDs. See `docs/older-wrapper-contracts.md` and `data/older-wrapper-internals.json`.
+The verified `MoonCatsWrapped` source accepts a bytes5 `catId` in `wrap`, then assigns a separate ERC-721 token ID from a contract-local counter and stores `_catIDToTokenID` and `_tokenIDToCatID` mappings. `unwrap` uses the reverse mapping to return the cat through the original MoonCatRescue contract. The source contains no `rescueOrder` field or conversion, so WMCR token IDs are not source-confirmed rescue-order values and are not interchangeable with reviewed MoonCatAcclimator token IDs. See `docs/older-wrapper-contracts.md` and `data/older-wrapper-internals.json`.
 
 ## Not yet verified here
 

@@ -32,11 +32,11 @@ Local bucket checks and preferred API samples support treating this numeric conv
 
 These values are local membership/index values. They have been verified as aligned with the API `rescueOrder` / original rescue index convention by local bucket checks and preferred API samples.
 
-They are still not themselves bytes5 cat IDs. Use the verified array-backed lookup method before using a local rescue-order index as a cat ID. They are token IDs only for the current Acclimated MoonCats contract, not generic OpenSea IDs or generic contract-call values.
+They are still not themselves bytes5 cat IDs. Use the verified array-backed lookup method before using a local rescue-order index as a cat ID. They are token IDs only under the reviewed MoonCatAcclimator contract rule, not generic OpenSea IDs or generic contract-call values.
 
 ### ERC-721 or Wrapped Token ID
 
-For the current Acclimated MoonCats ERC-721 contract, token-facing IDs are verified as the MoonCat rescue order.
+For the reviewed MoonCatAcclimator ERC-721 contract, token-facing IDs are verified as the MoonCat rescue order.
 
 Evidence:
 
@@ -52,7 +52,7 @@ The exact historical `MoonCatsWrapped` contract at `0x7C40c393DC0f283F318791d746
 
 The wrapper allocates a separate `uint256` token ID from a contract-local counter starting at zero, then stores explicit `_catIDToTokenID` and `_tokenIDToCatID` mappings. `unwrap(tokenID)` uses the reverse mapping to return the bytes5 cat through the original MoonCatRescue contract. The source contains no `rescueOrder` field or conversion.
 
-Therefore, WMCR token IDs are mapping-backed wrapper identifiers, not bytes5 encodings and not source-confirmed rescue-order values. Resolve a WMCR token ID through the exact contract mapping or its source-defined wrap/unwrap event context. If an API original rescue index is needed afterward, use the separately documented bytes5 lookup. Do not apply the current Acclimated tokenId-equals-rescue-order rule to WMCR.
+Therefore, WMCR token IDs are mapping-backed wrapper identifiers, not bytes5 encodings and not source-confirmed rescue-order values. Resolve a WMCR token ID through the exact contract mapping or its source-defined wrap/unwrap event context. If an API original rescue index is needed afterward, use the separately documented bytes5 lookup. Do not apply the reviewed MoonCatAcclimator tokenId-equals-rescue-order rule to WMCR.
 
 ### OpenSea Token ID
 
@@ -64,7 +64,7 @@ Treat this as sampled evidence for the acclimated collection only. Do not assume
 
 The original MoonCatRescue contract address is verified as `0x60cd862c9C687A9dE49aecdC3A99b74A4fc54aB6`.
 
-The current Acclimated MoonCats ERC-721 contract address is verified as `0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69` from registered marketplace/project links and the registered Etherscan source entry in `data/sources.json`.
+The reviewed MoonCatAcclimator ERC-721 contract address is `0xc3f733ca98E0daD0386979Eb96fb1722A1A05E69` in the registered marketplace/project links and Etherscan source entry in `data/sources.json`. This records reviewed identity, not present deployment or state.
 
 ### Ethereum Address
 
@@ -104,7 +104,7 @@ The verified bytes5 lookup evidence is:
 - MoonCatTraits `catIdOf(uint256 rescueOrder)` returns `MCR.rescueOrder(rescueOrder)`
 - MoonCatSVGs rescue-order overloads call `MoonCatRescue.rescueOrder(rescueOrder)` before using the bytes5 cat ID
 
-For current Acclimated MoonCats ERC-721 token IDs, first use the verified current-contract rule that token ID equals rescue order, then use the rescue-order-to-catId lookup method. Do not apply that token-facing conversion to older wrappers or unrelated collections.
+For reviewed MoonCatAcclimator ERC-721 token IDs, first use the contract-scoped rule that token ID equals rescue order, then use the rescue-order-to-catId lookup method. Do not apply that token-facing conversion to older wrappers or unrelated collections.
 
 The reverse bytes5-to-rescueOrder path is verified through array-backed dataset/library lookup and preferred API samples. No on-chain reverse lookup or closed-form reverse formula is documented here. Checked `LibMoonCat.getRescueOrder` calls used `0x`-prefixed cat IDs; normalize input with `parseCatId` before relying on non-prefixed input behavior.
 

@@ -336,6 +336,83 @@ def check_character_genesis_invariant(
     return checked_arrays
 
 
+def check_release_semantic_invariants(
+    repo_root: Path,
+    loaded: dict[Path, Any],
+    reporter: Reporter,
+) -> int:
+    """Cross-check stable public counts and pinned naming evidence."""
+
+    genesis = loaded.get(repo_root / "data" / "genesis-cats.json")
+    protocol = loaded.get(repo_root / "data" / "protocol-constants.json")
+    naming = loaded.get(repo_root / "data" / "name-index-integration.json")
+    if not all(isinstance(value, dict) for value in (genesis, protocol, naming)):
+        reporter.error("release invariants require Genesis, protocol, and naming objects")
+        return 0
+
+    nested: dict[str, Any] = {}
+    for relative in (
+        "data/mooncat-population/manifest.json",
+        "data/mooncat-renders/manifest.json",
+    ):
+        try:
+            nested[relative] = json.loads((repo_root / relative).read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            reporter.error(f"{relative}: could not load for release invariants: {exc}")
+    if len(nested) != 2:
+        return 0
+
+    population = genesis.get("population", {})
+    planned = population.get("plannedGenesis", {}).get("count")
+    released = population.get("releasedGenesis", {}).get("count")
+    locked = population.get("lockedUnreleasedGenesis", {}).get("count")
+    rescue_cats = population.get("finalCollection", {}).get("rescueCats")
+    collection_total = population.get("finalCollection", {}).get("totalCats")
+    group_count = population.get("releasedGenesis", {}).get("derivedReleaseGroupCount")
+    group_size = genesis.get("contract", {}).get("releaseMechanism", {}).get("groupSize")
+    protocol_supply = protocol.get("supply", {})
+    population_manifest = nested["data/mooncat-population/manifest.json"]
+    render_manifest = nested["data/mooncat-renders/manifest.json"]
+
+    checks = [
+        (planned == released + locked if all(isinstance(v, int) for v in (planned, released, locked)) else False,
+         "planned Genesis count must equal released plus locked/unreleased counts"),
+        (released == group_count * group_size if all(isinstance(v, int) for v in (released, group_count, group_size)) else False,
+         "released Genesis count must equal release-group count times group size"),
+        (isinstance(genesis.get("releasedGroups"), list) and len(genesis["releasedGroups"]) == group_count,
+         "releasedGroups length must match the derived release-group count"),
+        (protocol_supply.get("maxGenesisCats") == planned,
+         "protocol Genesis cap must match the planned Genesis count"),
+        (protocol_supply.get("initialRemainingRescueCats") == rescue_cats,
+         "protocol initial normal rescue supply must match final Rescue Cat count"),
+        (collection_total == rescue_cats + released if all(isinstance(v, int) for v in (collection_total, rescue_cats, released)) else False,
+         "final collection total must equal Rescue Cats plus released Genesis Cats"),
+        (population_manifest.get("rowCount") == collection_total,
+         "population manifest row count must match final collection total"),
+        (population_manifest.get("counts", {}).get("genesisRows") == released,
+         "population manifest Genesis rows must match released Genesis count"),
+        (render_manifest.get("rowCount") == collection_total,
+         "render manifest row count must match final collection total"),
+        (naming.get("identifiersAndFields", {}).get("moonCatCount") == collection_total,
+         "name-index MoonCat count must match final collection total"),
+        (population_manifest.get("fieldProvenance", {}).get("name", {}).get("sourceRevision")
+         == naming.get("repository", {}).get("reviewedCommit"),
+         "population name revision must match the reviewed name-index commit"),
+        (population_manifest.get("counts", {}).get("namedRows")
+         == naming.get("observedMetadata", {}).get("namedCatCount"),
+         "population named rows must match reviewed name-index metadata"),
+        (naming.get("fullPopulationIndexGuidance", {}).get("implementationStatus")
+         == "implemented-in-generated-population-index"
+         and naming.get("fullPopulationIndexGuidance", {}).get("artifact")
+         == "data/mooncat-population/manifest.json",
+         "name-index integration must identify the implemented population artifact"),
+    ]
+    for passed, message in checks:
+        if not passed:
+            reporter.error(f"release invariant failed: {message}")
+    return len(checks)
+
+
 def main() -> int:
     repo_root = find_repo_root(Path.cwd())
     reporter = Reporter()
@@ -345,6 +422,7 @@ def main() -> int:
     source_refs_checked = 0
     related_files_checked = 0
     character_genesis_arrays_checked = 0
+    release_semantic_invariants_checked = 0
 
     if not reporter.errors:
         required_paths_checked = check_required_paths(repo_root, loaded, reporter)
@@ -352,6 +430,7 @@ def main() -> int:
         source_refs_checked = check_source_refs(repo_root, loaded, source_ids, reporter)
         related_files_checked = check_related_files(repo_root, loaded, reporter)
         character_genesis_arrays_checked = check_character_genesis_invariant(repo_root, loaded, reporter)
+        release_semantic_invariants_checked = check_release_semantic_invariants(repo_root, loaded, reporter)
 
     print("MoonCat KB validation")
     print(f"Repo root: {repo_root}")
@@ -360,6 +439,7 @@ def main() -> int:
     print(f"sourceRefs checked: {source_refs_checked}")
     print(f"relatedFiles checked: {related_files_checked}")
     print(f"Character/Genesis membership arrays checked: {character_genesis_arrays_checked}")
+    print(f"Release semantic invariants checked: {release_semantic_invariants_checked}")
     print(f"Warnings: {len(reporter.warnings)}")
     print(f"Errors: {len(reporter.errors)}")
 

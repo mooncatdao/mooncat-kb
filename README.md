@@ -10,6 +10,11 @@ what the KB can do, how to use it with people or AI agents, how to distinguish
 static evidence from current information, and how to find useful areas to
 improve.
 
+The public-release candidate is assessed as **ready with accepted evidence
+boundaries**. See
+[`docs/public-release-readiness.md`](docs/public-release-readiness.md) for the
+audited claims, enforced invariants, unresolved limits, and release gates.
+
 ## Main capabilities
 
 - Complete static lookup: `data/mooncat-population/manifest.json` describes a
@@ -44,6 +49,17 @@ improve.
   contract context and the existing event registry, without fetching history
   or inferring current state.
 
+For a direct zero-network lookup, query the generated population rather than
+opening its shards by hand:
+
+```sh
+python scripts/query-mooncats.py --rescue-order 100 --json --provenance
+```
+
+Use `--cat-id 0x...` for a bytes5 Cat ID. Rescue order and Cat ID are distinct
+identifier kinds; the query uses the checked-in lookup and never derives one
+arithmetically from the other.
+
 ## Agent and contributor entrypoints
 
 - `AGENTS.md` — repository rules and required validation workflow
@@ -52,6 +68,8 @@ improve.
 - `data/agent-context-packs.json` — generated minimal coding context
 - `data/agent-coding-patterns.json` — tested implementation/validator pointers
 - `data/kb-gap-index.json` — current usability gaps and recommended next passes
+- [`docs/public-release-readiness.md`](docs/public-release-readiness.md) —
+  public-release assessment, accepted boundaries, and repeatable gates
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution and validation guidance
 
 `data/` holds compact canonical, curated, or generated artifacts; read each

@@ -6,7 +6,7 @@ This policy defines how `mooncat-kb` ranks sources, stores local upstream snapsh
 
 Use the narrowest source that directly supports the claim.
 
-1. Canonical current-maintainer technical sources: MoonCatRescue GitLab, ChainStation source/data artifacts, current MoonCatRescue-maintained code, current API/OpenAPI specs, verified on-chain contract surfaces, and exact contract-source pages. Use these for current technical behavior, source-code facts, API shapes, and maintained data artifacts.
+1. Canonical current-maintainer technical sources: MoonCatRescue GitLab, ChainStation source/data artifacts, MoonCatRescue-maintained code, API/OpenAPI specs, verified contract surfaces, and exact contract-source pages. Use these for revision-scoped maintained technical behavior, source-code facts, API shapes, and maintained data artifacts. “Current-maintainer” identifies source stewardship, not live freshness; deployment, bytecode, storage, endpoint, and newer-revision claims still need their own evidence.
 2. Canonical official project context: `mooncatrescue.com` pages, official project documentation, official project logs, and official developer entrypoints. Use these for project context and official links. Non-technical details, general links, and project-page summaries may become stale more easily than source-code, data, API, or on-chain artifacts; check freshness when date, availability, or current behavior matters.
 3. Historical primary sources: Ponderware repositories and original-contract/parser sources. Use these for original MoonCatRescue contract behavior, original parser behavior, and historically anchored protocol facts.
 4. Community-maintained and community-curated sources: DAO repositories, community sites, Discord-derived notes, dashboards, articles, and character-category references. Use these for community context or curated classifications only when marked with their limits.
@@ -31,6 +31,11 @@ Each snapshot directory should include a README or equivalent note that records:
 - whether the file is raw upstream material, generated output, or manually curated
 
 Reference snapshots should not be edited to normalize data. If normalization is needed, create a separate generated or curated data artifact with its own provenance.
+
+Reference status does not grant a license or transfer the repository's license
+to upstream material. Files under `references/` and vendored example
+dependencies retain their recorded upstream licensing or unresolved-license
+boundaries; cite the applicable snapshot record before reuse or redistribution.
 
 ## Large Files
 

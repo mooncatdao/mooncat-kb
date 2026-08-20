@@ -86,6 +86,22 @@ ONCHAIN_SYNTHESIS_LIMITATIONS = {
     "The KB lacks current admin/ownership reads.",
     "The KB lacks current endpoint/content checks.",
 }
+PUBLIC_RELEASE_REQUIRED_CASES = {
+    "direct-population-index-scope",
+    "direct-contract-registry-identity",
+    "direct-genesis-payment-routing",
+    "direct-finalized-name-snapshot",
+    "direct-character-category-trust",
+    "synthesis-rescue-order-catid-lookup",
+    "synthesis-genesis-release-price-boundary",
+    "boundary-genesis-formula-token-existence",
+    "boundary-fully-on-chain-wording",
+    "boundary-event-shape-not-state",
+    "live-current-finalized-name",
+    "live-current-rescue-availability",
+    "live-current-contract-bytecode-admin",
+    "live-current-materialization-output",
+}
 
 
 def fail(errors: list[str]) -> int:
@@ -241,20 +257,22 @@ def main() -> int:
         return fail([*errors, "cases must be a list"])
     case_count_range = policy.get("caseCountRange")
     expected_case_count = policy.get("expectedCaseCount")
-    if case_count_range != [34, 40] or not 34 <= len(cases) <= 40:
-        errors.append("benchmark must contain 34 through 40 cases with policy range [34, 40]")
-    if expected_case_count != 38 or len(cases) != expected_case_count:
-        errors.append("benchmark must contain exactly 38 cases")
+    if case_count_range != [60, 80] or not 60 <= len(cases) <= 80:
+        errors.append("benchmark must contain 60 through 80 cases with policy range [60, 80]")
+    if expected_case_count != 64 or len(cases) != expected_case_count:
+        errors.append("benchmark must contain exactly 64 cases")
     counts = Counter(case.get("difficultyClass") for case in cases if isinstance(case, dict))
     minimum = policy.get("minimumCasesPerDifficultyClass")
-    if minimum != 8:
-        errors.append("minimumCasesPerDifficultyClass must be 8")
+    if minimum != 16:
+        errors.append("minimumCasesPerDifficultyClass must be 16")
     for difficulty in enums.get("difficultyClasses", []):
-        if counts[difficulty] < 8:
-            errors.append(f"difficulty class {difficulty} has fewer than eight cases")
+        if counts[difficulty] < minimum:
+            errors.append(
+                f"difficulty class {difficulty} has fewer than {minimum} cases"
+            )
     expected_counts = policy.get("expectedDifficultyCounts")
     if not isinstance(expected_counts, dict) or any(counts[difficulty] != expected_counts.get(difficulty) for difficulty in enums.get("difficultyClasses", [])):
-        errors.append("difficulty class counts must remain exactly 10, 10, 10, 8 in enum order")
+        errors.append("difficulty class counts must remain exactly 16 per class")
     categories = {case.get("category") for case in cases if isinstance(case, dict)}
     required_domains = set(policy.get("requiredDomains", []))
     missing_domains = required_domains - categories
@@ -263,6 +281,12 @@ def main() -> int:
     ids = [case.get("id") for case in cases if isinstance(case, dict)]
     if len(ids) != len(set(ids)):
         errors.append("case IDs must be unique")
+    missing_release_cases = PUBLIC_RELEASE_REQUIRED_CASES - set(ids)
+    if missing_release_cases:
+        errors.append(
+            "benchmark is missing required public-release risks: "
+            + ", ".join(sorted(missing_release_cases))
+        )
     questions = [case.get("question", "").strip().lower() for case in cases if isinstance(case, dict)]
     if len(questions) != len(set(questions)):
         errors.append("case questions must be unique")

@@ -179,6 +179,266 @@
       ]
     },
     {
+      "path": "data/mooncat-names.json",
+      "generatorCommand": "python scripts/generate-mooncat-names.py",
+      "checkCommand": "python scripts/generate-mooncat-names.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-names.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/manifest.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/00000-00999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/01000-01999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/02000-02999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/03000-03999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/04000-04999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/05000-05999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/06000-06999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/07000-07999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/08000-08999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/09000-09999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/10000-10999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/11000-11999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/12000-12999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/13000-13999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/14000-14999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/15000-15999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/16000-16999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/17000-17999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/18000-18999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/19000-19999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/20000-20999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/21000-21999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/22000-22999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/23000-23999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/24000-24999.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/shards/25000-25439.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
+      "path": "data/mooncat-population/validation-report.json",
+      "generatorCommand": "python scripts/generate-mooncat-population.py",
+      "checkCommand": "python scripts/generate-mooncat-population.py --check",
+      "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
+        "python scripts/validate-mooncat-population.py"
+      ]
+    },
+    {
       "path": "data/mooncat-renders/manifest.json",
       "generatorCommand": "python scripts/generate-mooncat-renders.py",
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
@@ -404,7 +664,7 @@
     }
   ],
   "coverage": {
-    "maintainedFileCount": 205,
+    "maintainedFileCount": 206,
     "excludedFileCount": 74,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -443,8 +703,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 8217,
-      "sha256": "2b1ed1709c96fae903c8ac6a4ea45e214440a55d215ff215e7c6f5456383932d",
+      "sizeBytes": 8684,
+      "sha256": "ddff2775acaefb32ec2774b38d45413a478388e3a98bdb0e41e4bf735863b47a",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -509,8 +769,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4659,
-      "sha256": "995ea0ae6ae83accfa6642fa6602fa6dbcc39600c697325e39f7c249d52722b7",
+      "sizeBytes": 5432,
+      "sha256": "6322ac0a565ea386ab497ac656223ace5bee1be6574353a58cab0c40b2f2b1c7",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -763,7 +1023,7 @@
         "generated"
       ],
       "sizeBytes": 105095,
-      "sha256": "ed57a493cccad7e884021de3840658c204ad2e26c1837515425a48c36bc4b553",
+      "sha256": "d435713d756fcd75f6ade1c769de8edcb00e268bd314f36a023cbd07233ed263",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -789,8 +1049,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 31494,
-      "sha256": "115dae08f9c87fe18dc61f2fd97a4ad6790b9aa0c9eaff3fc74bc427ca33432d",
+      "sizeBytes": 31577,
+      "sha256": "6e1d6c98b3c0bb2ff7ae4fa434383fbfa7b2db8222d49e24cd37ece8e3dbd0dd",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1258,8 +1518,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 53579,
-      "sha256": "f365e9c0758bc8995c7acd239479d2cae834614ea9e717f086e46f88d118b963",
+      "sizeBytes": 89031,
+      "sha256": "12c3f7b49b65287d45beb6bc9a889c3aaea4f2257d28f3a3648e3e529ab2e183",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -1284,8 +1544,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 11808,
-      "sha256": "b50841fedb9ab2b571ec9979d8b17c61bb9c628cef826061ada2d32487054bde",
+      "sizeBytes": 12866,
+      "sha256": "659730d52bff6eaf2af72cf6cdb9d2d5ace336142c56a06dec173f4859212bcf",
       "agentRoutes": [
         "trace-genesis-cats"
       ],
@@ -1413,8 +1673,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 49964,
-      "sha256": "941293e40cdd54d65d7485847a8e0eed670a846168294448e6338929e4f94d40",
+      "sizeBytes": 52478,
+      "sha256": "26188d2c3b1d089ac02ce13780d325c0bbb326fe90e1fc9d636436e4dfdc8b23",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
@@ -1655,11 +1915,12 @@
       "path": "data/mooncat-names.json",
       "fileRole": "canonical-data",
       "topics": [
+        "generated-data",
         "mooncat-knowledge"
       ],
-      "curationMode": "curated",
+      "curationMode": "generated",
       "statuses": [
-        "curated"
+        "generated"
       ],
       "sizeBytes": 358832,
       "sha256": "87fb51719a20460d019afeaaff55cf4a8b52046ac4177c63e32f500f94260e70",
@@ -1671,9 +1932,11 @@
         "review-mooncat-naming",
         "use-maintained-name-index"
       ],
-      "generatorCommand": null,
-      "checkCommand": null,
-      "validatorCommands": [],
+      "generatorCommand": "python scripts/generate-mooncat-names.py",
+      "checkCommand": "python scripts/generate-mooncat-names.py --check",
+      "validatorCommands": [
+        "python scripts/validate-mooncat-names.py"
+      ],
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": false
     },
@@ -1717,16 +1980,18 @@
         "generated"
       ],
       "sizeBytes": 13668,
-      "sha256": "7aa57891cd86c516eb27925904986e2ef3c8c7954a494dcb1a66360a3a2be8b8",
+      "sha256": "5fdae4160db2715d4f70f50f262f4420c4933791db80fc7b53d24d58c5a33409",
       "agentRoutes": [
         "query-mooncat-population"
       ],
       "taskRecipes": [
+        "fetch-traits-safely",
         "query-mooncat-population"
       ],
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "registered-source",
@@ -1750,6 +2015,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1773,6 +2039,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1796,6 +2063,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1819,6 +2087,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1842,6 +2111,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1865,6 +2135,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1888,6 +2159,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1911,6 +2183,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1934,6 +2207,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1957,6 +2231,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -1980,6 +2255,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2003,6 +2279,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2026,6 +2303,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2049,6 +2327,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2072,6 +2351,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2095,6 +2375,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2118,6 +2399,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2141,6 +2423,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2164,6 +2447,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2187,6 +2471,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2210,6 +2495,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2233,6 +2519,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2256,6 +2543,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2279,6 +2567,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2302,6 +2591,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2325,6 +2615,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -2348,6 +2639,7 @@
       "generatorCommand": "python scripts/generate-mooncat-population.py",
       "checkCommand": "python scripts/generate-mooncat-population.py --check",
       "validatorCommands": [
+        "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
       "sourceBackedStatus": "not-applicable",
@@ -3014,8 +3306,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 2958,
-      "sha256": "a7ba647fa747cf693d8b3c2e5a8ed04f23e99a349852525c9948aa107ab39a5c",
+      "sizeBytes": 3026,
+      "sha256": "6815f17e0322e46be854a6772b559747678ac3ecadbc518619dad2f65186d177",
       "agentRoutes": [
         "classify-mooncat-types",
         "work-with-character-cats"
@@ -3067,8 +3359,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 6411,
-      "sha256": "34e98b5e6074b198a9777240cd80f378d56afbeee121c80af77a8511261430bb",
+      "sizeBytes": 6523,
+      "sha256": "a2a676ad8f0054e8ef0ca6b4291525d18162e576e21d82f8e79beceedd328f02",
       "agentRoutes": [
         "plan-contract-event-indexer",
         "use-maintained-name-index"
@@ -3222,8 +3514,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 4952,
-      "sha256": "c5374b19bfbab166b47ab6c15451c9bacf79ab90a842b885f2d606e1dacfed2d",
+      "sizeBytes": 4976,
+      "sha256": "5cf43a953525f065d01f7b0195523fdb8a5a53049faf6768acc068a21eb1ff0d",
       "agentRoutes": [
         "work-with-rescue-buckets"
       ],
@@ -3247,8 +3539,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 66339,
-      "sha256": "6d80b9ee22fdd120878a99aa4ed807ad48858cf9366b893c0924567618b685e7",
+      "sizeBytes": 66427,
+      "sha256": "a64e495228e7a8491d44f10afbb676b5f1354d58a1d1bf6e339650635361611f",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -3345,8 +3637,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 63095,
-      "sha256": "aec445e897fbefcc8bfccb59a7fbba82cd1977fcf26ad1d2a8f49db34e8b561b",
+      "sizeBytes": 63430,
+      "sha256": "9e9515258b42081d23b622450f9a39751ad82cfd1bf65dccc6ac063205ad3315",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -3371,8 +3663,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 16699,
-      "sha256": "6022b1b53f8bd4e328f136079b7874af97140e2040a92f541d015a165d5799b8",
+      "sizeBytes": 16812,
+      "sha256": "7d17a4efb95c720f115c339c51670d0008f1c61fd59af82b91e4de4aa207ec75",
       "agentRoutes": [
         "fetch-traits",
         "generate-visual-trait-sample",
@@ -3676,8 +3968,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 11281,
-      "sha256": "ac4bb18cb9c3cf8547eeb0d40df607d02a46aff7017e2350d8bd10ad39074657",
+      "sizeBytes": 11371,
+      "sha256": "c0ac5d85c1b39078d1123edb47d5bca6baea06be389b61f7eac2e127398ede71",
       "agentRoutes": [
         "look-up-contracts"
       ],
@@ -3699,8 +3991,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3553,
-      "sha256": "7161599f641bc31564e48625dba490de26b2119b1407f2c8743c87afb6e1d66c",
+      "sizeBytes": 4136,
+      "sha256": "c56a28f8df45cf0a24f47dcf6a35885f5a08ca30c5e9460739aa1678c56d27dd",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -3724,8 +4016,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 8943,
-      "sha256": "420ac420dfc493875fda1a50a03c7128059d5f58e3b3ce127e8197c4f8ae7681",
+      "sizeBytes": 9081,
+      "sha256": "a0e93fafe2f79c0a866debcbdbb8cb9cd798b6076e233eeb648570063b53a412",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -3771,8 +4063,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4771,
-      "sha256": "4dc38b7392edeb1cf89687b083c4050b7b94740bed76819caf3b0b556dd116a6",
+      "sizeBytes": 7487,
+      "sha256": "76640b69ef827c3e2d6ebc9b9210ebade52c1c496318cad1641b80c2b9fb16e1",
       "agentRoutes": [
         "trace-genesis-cats"
       ],
@@ -3817,8 +4109,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 11249,
-      "sha256": "a7afcc2943d1d3e80a5eb266b207d0dd23d2d53e22ad844634506ffb3821f939",
+      "sizeBytes": 11290,
+      "sha256": "1e2d6edac16bebd6ed563ac54790df65096bbe6abf6c2a50d7553bf6d9e6c3f6",
       "agentRoutes": [
         "identify-mooncat-ids",
         "verify-identifier-conversions"
@@ -3868,8 +4160,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4979,
-      "sha256": "68b2dae57cbe29a150896907bbae01d9a19932a371ccc32c7a16df38face3ba9",
+      "sizeBytes": 5696,
+      "sha256": "487819c5b152504d9ff4c6ac7ff153eaf055aaa7d1781eab28c641e6e03f7754",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4044,8 +4336,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 11896,
-      "sha256": "6c7fd1125481cb54304cb477a24a2ada1048af302ca104e713d62ff76de487d4",
+      "sizeBytes": 12437,
+      "sha256": "9d28168495af1ab0fcdfc9e6c204907f7fa37fa1a2beede0b7742ad1105f6ba7",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs"
@@ -4070,8 +4362,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 7281,
-      "sha256": "013d93a2bfa7af032c1e065a319145786cdabb5ac35a001e23b1cd3cf4c408a9",
+      "sizeBytes": 7286,
+      "sha256": "ce8ec0f72ec41f7cc6115bfa87ebd9dcea0ec0f7ea4079f316439ba8f8bb7de7",
       "agentRoutes": [
         "review-mooncat-naming",
         "use-maintained-name-index"
@@ -4103,6 +4395,7 @@
         "query-mooncat-population"
       ],
       "taskRecipes": [
+        "fetch-traits-safely",
         "query-mooncat-population"
       ],
       "generatorCommand": null,
@@ -4171,8 +4464,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2907,
-      "sha256": "40cb02e046d424998d6d2efbed94200d21f1ab2dc441fc7afddd95063c5e72ed",
+      "sizeBytes": 3169,
+      "sha256": "07a2920adc63351775f42d8f4f939ecd3b0571e0a3b38a1d55c4d4c20136a4d6",
       "agentRoutes": [
         "classify-mooncat-types"
       ],
@@ -4194,8 +4487,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4136,
-      "sha256": "74c79d3201c7267b11943c1baa7e26fd0017a4fee485d80d0e4c63e013690f29",
+      "sizeBytes": 4415,
+      "sha256": "c423d9347d50f75108a4e682cfd13948e5aef6b676d1d89046f928d5d79f3552",
       "agentRoutes": [
         "use-maintained-name-index"
       ],
@@ -4219,8 +4512,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3585,
-      "sha256": "169c5cfa9ba60b3141ef74ffaf1af2c04aee1a5217156d1254912c3a07fe09a1",
+      "sizeBytes": 3597,
+      "sha256": "828f1b17602840fe1f2107a8f3d7c5a7110e20db8e3eb6646cd17b59d9926ef5",
       "agentRoutes": [
         "identify-mooncat-ids",
         "look-up-contracts"
@@ -4245,9 +4538,32 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4179,
-      "sha256": "88388e7af00fdc7761ffc5ff25ccb95e37b5dc1d7e5ef1f9189d64311cca6044",
+      "sizeBytes": 4324,
+      "sha256": "f20cf7d42a72cfe18740e41dd941cf8d7d90d78d32434c796c7b05d1e1ee1213",
       "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/public-release-readiness.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 7881,
+      "sha256": "7d4e07c032b072e2bd2e58b1fc1897d5eea446f630f91672d3b114e448a43538",
+      "agentRoutes": [
+        "review-kb-gaps"
+      ],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
@@ -4266,8 +4582,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4792,
-      "sha256": "e1190b8b3eb336668a0bc5944c95108c7f720ffe6d8b0a6d407ef217943adce8",
+      "sizeBytes": 5265,
+      "sha256": "b97a4eb8f498a9eb988fe177583e1bbab93a37762a6feb797d5182eab520b979",
       "agentRoutes": [
         "check-source-provenance",
         "fetch-traits",
@@ -4294,8 +4610,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3339,
-      "sha256": "4e19db4222c25d8b01fac0509c1c7ca277aafd38966a0e337711baaa494d70db",
+      "sizeBytes": 4175,
+      "sha256": "b9e36397082eb2e8b9991599e73cc2bb67f9b80751e3b08840caf8b9bec0716b",
       "agentRoutes": [
         "work-with-rescue-buckets"
       ],
@@ -4342,8 +4658,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 8182,
-      "sha256": "cde66b6288328a3dba123f25266997dab7a58b0e84ea11fcb3958642c9905c5d",
+      "sizeBytes": 8332,
+      "sha256": "f141856931f50da2da83db36a311fd43928387359fc404b53e6cc6c43e84f4f8",
       "agentRoutes": [
         "check-source-provenance",
         "find-ipfs-and-artifact-urls",
@@ -4370,8 +4686,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 1136,
-      "sha256": "4d46094d11973a8a9548bb794a83dc7f96ccf5c5426632cb7ff50b4e438831f3",
+      "sizeBytes": 1789,
+      "sha256": "71d5e51c57ebce5d6d1201032e7927860c7ee38528a6846b7c0fa69d0f89d4d7",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4781,8 +5097,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2091,
-      "sha256": "d3084ac0694863e2faa27269334db677359d7233b83753be29e85db53e841bf7",
+      "sizeBytes": 2234,
+      "sha256": "fbe3d8fc0ff7dc32ee3d169ca2e9bd3dc2960e46151d26d096e04e47e556ec8a",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4825,8 +5141,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 11547,
-      "sha256": "f015d1f221ed7f4f603172473efa26f228408403d610a06cbe0a89478bfe98a6",
+      "sizeBytes": 11969,
+      "sha256": "963fe83996d58ac3f552587b09b17a0eba9caa517290bc865952574797b167af",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -4923,8 +5239,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 17833,
-      "sha256": "75a22034dad5193358db7214416231c8da5780f8c931a815c9b5b7a6c05708da",
+      "sizeBytes": 18535,
+      "sha256": "212aba7f76f55e3c5a2f8562392fbcc6c5bd1889e8b1940d24e5d4be6010189f",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -5172,6 +5488,7 @@
         "query-mooncat-population"
       ],
       "taskRecipes": [
+        "fetch-traits-safely",
         "query-mooncat-population"
       ],
       "generatorCommand": null,
@@ -5320,8 +5637,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 16409,
-      "sha256": "5551fdc8416729ae302ee419b59e9230c885888cd8f98bab07fdf2c2d563933d",
+      "sizeBytes": 17297,
+      "sha256": "83362cc386919b8cd10de3edd5abf35c4c7d46f001da6ea34b00a736798ea217",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -5416,8 +5733,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 14805,
-      "sha256": "0010aa8b3e53ec92757d1a9e56d7d3429af05c51c097d6effc16202c6b68a346",
+      "sizeBytes": 19554,
+      "sha256": "5f8555415aa66a0a3803144a6eb51e58c731e43d41607020219634753fa96b0f",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
