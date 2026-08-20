@@ -4,7 +4,7 @@ Machine-readable manifest: `data/upstream-snapshot-manifest.json`.
 
 ## Purpose and Current Status
 
-The manifest records important checked-in reference inputs and compact derived reviews without refreshing or replacing vendored files. Each entry includes the local path, SHA-256, byte count, local-history evidence, upstream project/path evidence, revision status, copy/adaptation status, license evidence, confidence, freshness status, source references, dependencies, and limitations.
+The manifest records important checked-in reference inputs and compact derived reviews without refreshing or replacing vendored files. Each entry includes the local path, SHA-256, byte count, local-history evidence, upstream project/path evidence, revision status, copy/adaptation status, license evidence, confidence, freshness status, source references, dependencies, and limitations. Six upstream-reference entries also bind their exact local path to a matching `data/sources.json` entry. Metadata bindings mechanically compare already-recorded revision, retrieval-date, license, and inventory values where a snapshot file supplies them.
 
 The current inventory covers the trait JSON, LibMoonCat bundle, MoonCat parser, the pinned MoonCatRescue Development Environment ADR directory, a compact pinned ChainStation Web evidence set, the minimal pinned finalized MoonCatDAO name-index inputs, the rescue-widget parser and js-sha3 vendor files, the extracted original rescue-contract constants summary, and the derived rescue-mining review. This is an important-input inventory, not an exhaustive listing of every reference, binary, cache, or generated file.
 
@@ -20,7 +20,14 @@ The ADR directory is a stronger pinned snapshot: `references/upstream/mooncatres
 
 The ChainStation audit is another pinned but deliberately bounded snapshot: `references/upstream/chainstation-web-audit/SNAPSHOT.json` records the resolved `master` commit, retrieval commands, package-metadata license observation, and 28 exact copied source/configuration files. Its inventory is checked recursively, including every copied evidence file's bytes and SHA-256. It documents one source revision only; it does not prove production deployment, live API/RPC/IPFS/Firebase state, current ownership, or marketplace state.
 
-The name-index snapshot is deliberately smaller: `references/upstream/name-index/SNAPSHOT.json` pins commit `5d3b265613e987e4ca2c32e2afd7edf3178a146a`, the observed CC0-1.0 package license, and exact hashes for finalized `current-names.json` plus `metadata.json`. It was imported from an explicit local checkout with no network access. Canonical event history, pending/provisional/live files, reports, and webhook state are not copied, and the snapshot does not claim newer or live state.
+The name-index snapshot is deliberately smaller: `references/upstream/name-index/SNAPSHOT.json` pins commit `5d3b265613e987e4ca2c32e2afd7edf3178a146a`, the observed CC0-1.0 package license, and exact hashes for finalized `current-names.json` plus `metadata.json`. It was imported from an explicit local checkout with no network access. Its complete two-file inventory is checked against the directory. Canonical event history, pending/provisional/live files, reports, and webhook state are not copied, and the snapshot does not claim newer or live state.
+
+The current residuals are enumerated rather than summarized as generic
+incompleteness: five entries lack an exact upstream revision, five lack a
+retrieval or verification date, and seven entries retain unresolved
+upstream/input license evidence.
+Those unknowns are not inferred from URLs, filenames, adjacent repositories,
+or the KB's CC0 license.
 
 ## Validator
 
@@ -30,7 +37,12 @@ Run the zero-network validator:
 python scripts/validate-upstream-snapshots.py
 ```
 
-It checks schema enums, unique keys, required local paths, byte counts, SHA-256 matches, sourceRef resolution, and explicit limitations for incomplete provenance. A changed reference file fails validation until the manifest is deliberately reviewed and updated.
+It checks schema enums, unique keys and paths, required local paths, byte counts,
+SHA-256 matches, sourceRef resolution, exact source-index path agreement,
+snapshot inventory completeness, recorded metadata bindings, copied-file
+identity, dependent paths, and explicit limitations for incomplete provenance.
+A changed reference file or contradictory registered path fails validation
+until the relationship is deliberately reviewed and updated.
 
 ## Safe Refresh Workflow
 

@@ -32,6 +32,8 @@ Primary capability entrypoints:
 - /docs/contract-abi-event-registry.md
 - /docs/source-map.md
 - /data/sources.json
+- /data/upstream-snapshot-manifest.json
+- /docs/upstream-snapshots.md
 - /docs/reference-policy.md
 
 Executable examples:
@@ -59,6 +61,8 @@ Notes:
 - Use /data/ for exact canonical, curated, or generated artifacts and read each file's status and provenance.
 - Use /docs/ for explanations and reasoning.
 - Treat /references/ as upstream evidence, not curated KB data by default.
+- Trace important inputs through /data/upstream-snapshot-manifest.json and generated outputs through /data/kb-manifest.json; neither is a claim of live state.
+- Keep source-of-fact, source-of-input, deterministic derivation, generated output, and human/community classification distinct.
 - Preserve contract-scoped identifier meanings and static/revision/live-state boundaries.
 - Use /data/kb-gap-index.json for planning and gap discovery only; follow its referenced evidence for factual claims.
 - Stop rather than guess when a claim needs missing provenance, unsupported conversion, or current verification.

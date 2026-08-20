@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "status": "generated-maintained-file-inventory",
+  "version": 2,
+  "status": "generated-maintained-file-and-provenance-inventory",
   "generationPolicy": {
     "network": "none",
     "inventoryBasis": "all regular files under the repository root after explicit exclusion policy",
@@ -49,7 +49,8 @@
     "notes": [
       "Reference snapshots and vendored example dependencies are excluded from maintained curated KB coverage.",
       "The manifest and audit report outputs are excluded to avoid self-referential hashes and dynamic audit durations.",
-      "Agent routes and task recipes are derived from data/agent-index.json and data/task-recipes.json at generation time."
+      "Agent routes and task recipes are derived from data/agent-index.json and data/task-recipes.json at generation time.",
+      "Generated provenance coverage aggregates existing source, snapshot, and ownership metadata; it is not another MoonCat fact registry."
     ]
   },
   "generatedArtifactRegistry": [
@@ -59,7 +60,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/abi-registry/moonCatsWrapped.json",
@@ -67,7 +69,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/abi-registry/mooncatAccessories.json",
@@ -75,7 +78,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/abi-registry/mooncatAccessoryImages.json",
@@ -83,7 +87,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/abi-registry/mooncatColors.json",
@@ -91,7 +96,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/abi-registry/mooncatReference.json",
@@ -99,7 +105,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/abi-registry/mooncatRescue.json",
@@ -107,7 +114,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/abi-registry/mooncatSVGs.json",
@@ -115,7 +123,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/abi-registry/mooncatTraits.json",
@@ -123,7 +132,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/agent-context-packs.json",
@@ -131,7 +141,8 @@
       "checkCommand": "python scripts/generate-agent-context-packs.py --check",
       "validatorCommands": [
         "python scripts/validate-agent-routing.py"
-      ]
+      ],
+      "provenancePath": "data/agent-context-packs.json"
     },
     {
       "path": "data/contract-registry.json",
@@ -139,7 +150,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/event-indexer-recipes.json",
@@ -147,7 +159,8 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/event-registry.json",
@@ -155,12 +168,14 @@
       "checkCommand": "python scripts/extract-contract-abis.py --check",
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
-      ]
+      ],
+      "provenancePath": "data/contract-registry.json"
     },
     {
       "path": "data/kb-audit-report.json",
       "generatorCommand": "python scripts/audit-kb.py",
-      "validatorCommands": []
+      "validatorCommands": [],
+      "provenancePath": "data/kb-audit-report.json"
     },
     {
       "path": "data/kb-manifest.json",
@@ -168,7 +183,8 @@
       "checkCommand": "python scripts/generate-kb-manifest.py --check",
       "validatorCommands": [
         "python scripts/validate-kb-manifest.py"
-      ]
+      ],
+      "provenancePath": "data/kb-manifest.json"
     },
     {
       "path": "data/materialization-parity-results.json",
@@ -176,7 +192,8 @@
       "checkCommand": "python scripts/generate-materialization-parity.py --check",
       "validatorCommands": [
         "python scripts/validate-materialization-parity.py"
-      ]
+      ],
+      "provenancePath": "data/materialization-parity-results.json"
     },
     {
       "path": "data/mooncat-names.json",
@@ -184,7 +201,8 @@
       "checkCommand": "python scripts/generate-mooncat-names.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-names.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-names.json"
     },
     {
       "path": "data/mooncat-population/manifest.json",
@@ -193,7 +211,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/00000-00999.json",
@@ -202,7 +221,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/01000-01999.json",
@@ -211,7 +231,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/02000-02999.json",
@@ -220,7 +241,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/03000-03999.json",
@@ -229,7 +251,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/04000-04999.json",
@@ -238,7 +261,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/05000-05999.json",
@@ -247,7 +271,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/06000-06999.json",
@@ -256,7 +281,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/07000-07999.json",
@@ -265,7 +291,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/08000-08999.json",
@@ -274,7 +301,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/09000-09999.json",
@@ -283,7 +311,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/10000-10999.json",
@@ -292,7 +321,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/11000-11999.json",
@@ -301,7 +331,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/12000-12999.json",
@@ -310,7 +341,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/13000-13999.json",
@@ -319,7 +351,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/14000-14999.json",
@@ -328,7 +361,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/15000-15999.json",
@@ -337,7 +371,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/16000-16999.json",
@@ -346,7 +381,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/17000-17999.json",
@@ -355,7 +391,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/18000-18999.json",
@@ -364,7 +401,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/19000-19999.json",
@@ -373,7 +411,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/20000-20999.json",
@@ -382,7 +421,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/21000-21999.json",
@@ -391,7 +431,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/22000-22999.json",
@@ -400,7 +441,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/23000-23999.json",
@@ -409,7 +451,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/24000-24999.json",
@@ -418,7 +461,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/shards/25000-25439.json",
@@ -427,7 +471,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-population/validation-report.json",
@@ -436,7 +481,8 @@
       "validatorCommands": [
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-population/manifest.json"
     },
     {
       "path": "data/mooncat-renders/manifest.json",
@@ -444,7 +490,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/00000-00999.json",
@@ -452,7 +499,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/01000-01999.json",
@@ -460,7 +508,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/02000-02999.json",
@@ -468,7 +517,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/03000-03999.json",
@@ -476,7 +526,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/04000-04999.json",
@@ -484,7 +535,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/05000-05999.json",
@@ -492,7 +544,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/06000-06999.json",
@@ -500,7 +553,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/07000-07999.json",
@@ -508,7 +562,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/08000-08999.json",
@@ -516,7 +571,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/09000-09999.json",
@@ -524,7 +580,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/10000-10999.json",
@@ -532,7 +589,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/11000-11999.json",
@@ -540,7 +598,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/12000-12999.json",
@@ -548,7 +607,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/13000-13999.json",
@@ -556,7 +616,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/14000-14999.json",
@@ -564,7 +625,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/15000-15999.json",
@@ -572,7 +634,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/16000-16999.json",
@@ -580,7 +643,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/17000-17999.json",
@@ -588,7 +652,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/18000-18999.json",
@@ -596,7 +661,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/19000-19999.json",
@@ -604,7 +670,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/20000-20999.json",
@@ -612,7 +679,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/21000-21999.json",
@@ -620,7 +688,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/22000-22999.json",
@@ -628,7 +697,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/23000-23999.json",
@@ -636,7 +706,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/24000-24999.json",
@@ -644,7 +715,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-renders/shards/25000-25439.json",
@@ -652,7 +724,8 @@
       "checkCommand": "python scripts/generate-mooncat-renders.py --check",
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-renders/manifest.json"
     },
     {
       "path": "data/mooncat-visual-traits.sample.json",
@@ -660,9 +733,58 @@
       "checkCommand": "python scripts/generate-visual-traits.py --check",
       "validatorCommands": [
         "python scripts/validate-visual-traits.py"
-      ]
+      ],
+      "provenancePath": "data/mooncat-visual-traits.sample.json"
     }
   ],
+  "provenanceCoverage": {
+    "sourceIndex": {
+      "status": "maintained-public-artifact-provenance-covered-with-enumerated-reference-gaps",
+      "entryCount": 95,
+      "localPathEntryCount": 25,
+      "missingLocalPaths": []
+    },
+    "importantInputManifest": {
+      "entryCount": 10,
+      "sourcePathLinkedEntryCount": 6,
+      "incompleteRevisionKeys": [
+        "libmooncat-limited-js",
+        "mooncat-traits-json",
+        "mooncatparser-js",
+        "original-rescue-contract-constants-reference",
+        "rescue-mining-widget-mooncatparser-vendor"
+      ],
+      "unknownRetrievalDateKeys": [
+        "libmooncat-limited-js",
+        "mooncat-traits-json",
+        "mooncatparser-js",
+        "original-rescue-contract-constants-reference",
+        "rescue-mining-widget-mooncatparser-vendor"
+      ],
+      "unresolvedLicenseKeys": [
+        "libmooncat-limited-js",
+        "mooncat-traits-json",
+        "mooncatparser-js",
+        "mooncatrescue-dev-environment-adr-corpus",
+        "original-rescue-contract-constants-reference",
+        "rescue-mining-reviewed-source-summary",
+        "rescue-mining-widget-mooncatparser-vendor"
+      ]
+    },
+    "curatedCanonicalData": {
+      "entryCount": 35,
+      "sourceBackedEntryCount": 35
+    },
+    "generatedArtifacts": {
+      "registryEntryCount": 73,
+      "maintainedGeneratedEntryCount": 71,
+      "completeOwnershipEntryCount": 73,
+      "dynamicOutputExceptions": [
+        "data/kb-audit-report.json"
+      ]
+    },
+    "boundary": "Coverage records checked-in evidence and deterministic ownership; it does not resolve missing upstream facts or establish live/current state."
+  },
   "coverage": {
     "maintainedFileCount": 206,
     "excludedFileCount": 74,
@@ -688,6 +810,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": false
     },
@@ -703,13 +826,14 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 8684,
-      "sha256": "ddff2775acaefb32ec2774b38d45413a478388e3a98bdb0e41e4bf735863b47a",
+      "sizeBytes": 9422,
+      "sha256": "1218cf494952c07b51cc0a385ca914a543fafb8e7ecb1687913bd02042733828",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -732,6 +856,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -754,6 +879,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -769,13 +895,14 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5432,
-      "sha256": "6322ac0a565ea386ab497ac656223ace5bee1be6574353a58cab0c40b2f2b1c7",
+      "sizeBytes": 5901,
+      "sha256": "10494d0a67ccc654f25c5610232d924e3960980207782a19019bf721cbc53285",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": false
     },
@@ -799,6 +926,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -822,6 +950,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -845,6 +974,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -868,6 +998,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -891,6 +1022,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -914,6 +1046,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -937,6 +1070,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -960,6 +1094,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -983,6 +1118,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -1008,6 +1144,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -1022,8 +1159,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 105095,
-      "sha256": "d435713d756fcd75f6ade1c769de8edcb00e268bd314f36a023cbd07233ed263",
+      "sizeBytes": 104929,
+      "sha256": "5b651a5df306abfa8371f7e2cd9c383c1a6c55153120970ffc26143ea03f543b",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -1035,6 +1172,7 @@
       "validatorCommands": [
         "python scripts/validate-agent-routing.py"
       ],
+      "provenancePath": "data/agent-context-packs.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -1049,8 +1187,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 31577,
-      "sha256": "6e1d6c98b3c0bb2ff7ae4fa434383fbfa7b2db8222d49e24cd37ece8e3dbd0dd",
+      "sizeBytes": 32220,
+      "sha256": "d40d8b300a62eb7d35a457faf28a07d91a1646120e93341ad72d5a8b3ebe029c",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -1064,6 +1202,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -1078,8 +1217,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 47106,
-      "sha256": "3dd8cd44f771ecae8da09a53e443b912777843626a0248cffac494dfcd82712b",
+      "sizeBytes": 47080,
+      "sha256": "10cb2652b277698e5198e034e16fcebd458508771b5983512ee631e9809f5735",
       "agentRoutes": [
         "review-factual-retrieval-benchmark",
         "use-agent-context-packs"
@@ -1091,6 +1230,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
@@ -1127,6 +1267,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1155,6 +1296,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1183,6 +1325,7 @@
       "validatorCommands": [
         "python scripts/validate-architecture-decisions.py"
       ],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
@@ -1196,8 +1339,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 17299,
-      "sha256": "afc02cd3627a63cc6feb8eec4ab48ba072feb5fd8daa12476e6fb0eedb0f1c98",
+      "sizeBytes": 17352,
+      "sha256": "d52bd4ef2ee556556a75fbbf6870766cc7450cad484738b3d54ead265dbaa77c",
       "agentRoutes": [
         "trace-chainstation-implementation"
       ],
@@ -1209,6 +1352,7 @@
       "validatorCommands": [
         "python scripts/validate-chainstation-surfaces.py"
       ],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1233,6 +1377,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1259,6 +1404,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1284,6 +1430,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
@@ -1316,6 +1463,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1343,6 +1491,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -1374,6 +1523,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1409,6 +1559,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1448,6 +1599,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1475,6 +1627,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -1504,6 +1657,7 @@
       "validatorCommands": [
         "python scripts/validate-contract-registry.py"
       ],
+      "provenancePath": "data/contract-registry.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -1531,6 +1685,7 @@
       "validatorCommands": [
         "python scripts/validate-factual-retrieval-cases.py"
       ],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -1557,6 +1712,7 @@
       "validatorCommands": [
         "python scripts/validate-genesis-cats.py"
       ],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1613,6 +1769,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1637,6 +1794,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
@@ -1659,6 +1817,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1673,9 +1832,10 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 52478,
-      "sha256": "26188d2c3b1d089ac02ce13780d325c0bbb326fe90e1fc9d636436e4dfdc8b23",
+      "sizeBytes": 55398,
+      "sha256": "03e7e51d1366b1bcf6df7e87bd8f10de9859524bf1ab7ae2ebf40a5a774dfe1c",
       "agentRoutes": [
+        "check-source-provenance",
         "review-factual-retrieval-benchmark",
         "review-kb-gaps",
         "review-upstream-snapshot-provenance",
@@ -1691,6 +1851,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -1728,6 +1889,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -1751,6 +1913,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -1775,6 +1938,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -1799,6 +1963,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
@@ -1826,6 +1991,7 @@
       "validatorCommands": [
         "python scripts/validate-materialization-parity.py"
       ],
+      "provenancePath": "data/materialization-parity-results.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1854,6 +2020,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1884,6 +2051,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -1908,6 +2076,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1937,6 +2106,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-names.py"
       ],
+      "provenancePath": "data/mooncat-names.json",
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": false
     },
@@ -1965,6 +2135,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -1979,8 +2150,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 13668,
-      "sha256": "5fdae4160db2715d4f70f50f262f4420c4933791db80fc7b53d24d58c5a33409",
+      "sizeBytes": 13762,
+      "sha256": "c7b8cfe57abaaaec5972c1070a90b33fe349b31c3a5e18fe96e065142b1a7e14",
       "agentRoutes": [
         "query-mooncat-population"
       ],
@@ -1994,6 +2165,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
@@ -2018,6 +2190,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2042,6 +2215,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2066,6 +2240,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2090,6 +2265,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2114,6 +2290,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2138,6 +2315,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2162,6 +2340,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2186,6 +2365,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2210,6 +2390,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2234,6 +2415,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2258,6 +2440,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2282,6 +2465,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2306,6 +2490,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2330,6 +2515,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2354,6 +2540,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2378,6 +2565,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2402,6 +2590,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2426,6 +2615,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2450,6 +2640,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2474,6 +2665,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2498,6 +2690,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2522,6 +2715,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2546,6 +2740,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2570,6 +2765,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2594,6 +2790,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2618,6 +2815,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2642,6 +2840,7 @@
         "python scripts/diff-mooncat-population.py --check",
         "python scripts/validate-mooncat-population.py"
       ],
+      "provenancePath": "data/mooncat-population/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2669,6 +2868,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -2692,6 +2892,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2715,6 +2916,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2738,6 +2940,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2761,6 +2964,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2784,6 +2988,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2807,6 +3012,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2830,6 +3036,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2853,6 +3060,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2876,6 +3084,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2899,6 +3108,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2922,6 +3132,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2945,6 +3156,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2968,6 +3180,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -2991,6 +3204,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3014,6 +3228,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3037,6 +3252,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3060,6 +3276,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3083,6 +3300,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3106,6 +3324,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3129,6 +3348,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3152,6 +3372,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3175,6 +3396,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3198,6 +3420,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3221,6 +3444,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3244,6 +3468,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3267,6 +3492,7 @@
       "validatorCommands": [
         "python scripts/validate-mooncat-renders.py"
       ],
+      "provenancePath": "data/mooncat-renders/manifest.json",
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3293,6 +3519,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -3316,6 +3543,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -3346,6 +3574,7 @@
       "validatorCommands": [
         "python scripts/validate-visual-traits.py"
       ],
+      "provenancePath": "data/mooncat-visual-traits.sample.json",
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
@@ -3372,6 +3601,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -3400,6 +3630,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -3422,6 +3653,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -3451,6 +3683,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -3477,6 +3710,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -3501,6 +3735,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -3525,6 +3760,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": false
     },
@@ -3539,8 +3775,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 66427,
-      "sha256": "a64e495228e7a8491d44f10afbb676b5f1354d58a1d1bf6e339650635361611f",
+      "sizeBytes": 68568,
+      "sha256": "856ec8266cad2a11d457701063cc2e05537008fc46fdf51a2efd3e556fa626f4",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -3601,6 +3837,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -3623,6 +3860,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -3637,8 +3875,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 63430,
-      "sha256": "9e9515258b42081d23b622450f9a39751ad82cfd1bf65dccc6ac063205ad3315",
+      "sizeBytes": 64565,
+      "sha256": "c2288505dabeb36753603307b75c7a67103f1c1ac5f8f0b4dd2e091434e7df67",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -3650,6 +3888,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -3688,6 +3927,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "contains-source-reference",
       "directAgentLoadRecommended": true
     },
@@ -3701,19 +3941,22 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 22323,
-      "sha256": "27f6c2ddddc68cb8bb908794887a972fa343c0f1c2a4f2a96d783b056255e168",
+      "sizeBytes": 25099,
+      "sha256": "e1ddf015027d1d70d3c34b8a22532e2f289b5b4f66054663e69f8d984bfaf7da",
       "agentRoutes": [
+        "check-source-provenance",
         "review-upstream-snapshot-provenance",
         "trace-chainstation-implementation"
       ],
       "taskRecipes": [
+        "check-source-provenance",
         "review-upstream-snapshots",
         "trace-chainstation-implementation"
       ],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
@@ -3739,6 +3982,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -3762,6 +4006,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3789,6 +4034,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -3810,6 +4056,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3831,6 +4078,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3856,6 +4104,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -3881,6 +4130,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -3904,6 +4154,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": false
     },
@@ -3925,6 +4176,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -3954,6 +4206,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -3977,6 +4230,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4002,6 +4256,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4023,6 +4278,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4049,6 +4305,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4074,6 +4331,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4095,6 +4353,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4121,6 +4380,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4146,6 +4406,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4160,13 +4421,18 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5696,
-      "sha256": "487819c5b152504d9ff4c6ac7ff153eaf055aaa7d1781eab28c641e6e03f7754",
-      "agentRoutes": [],
-      "taskRecipes": [],
+      "sizeBytes": 6424,
+      "sha256": "1b884ac32b4ade029296c65405f68f3b7633566069e55a1caebdd2ee2f15ec06",
+      "agentRoutes": [
+        "check-source-provenance"
+      ],
+      "taskRecipes": [
+        "check-source-provenance"
+      ],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4191,6 +4457,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4216,6 +4483,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4241,6 +4509,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4268,6 +4537,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4297,6 +4567,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4322,6 +4593,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4348,6 +4620,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4375,6 +4648,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4401,6 +4675,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4426,6 +4701,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4450,6 +4726,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4473,6 +4750,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4498,6 +4776,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4524,6 +4803,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4545,6 +4825,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4559,8 +4840,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 7881,
-      "sha256": "7d4e07c032b072e2bd2e58b1fc1897d5eea446f630f91672d3b114e448a43538",
+      "sizeBytes": 9091,
+      "sha256": "4e41b65728b4fabcbd60eac81a48651845e04454bd98f9a22b3c9c653163ae33",
       "agentRoutes": [
         "review-kb-gaps"
       ],
@@ -4568,6 +4849,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4582,8 +4864,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5265,
-      "sha256": "b97a4eb8f498a9eb988fe177583e1bbab93a37762a6feb797d5182eab520b979",
+      "sizeBytes": 6684,
+      "sha256": "f8f8aa301b83782132eb326aa827c558642a3cba95f1ea811c1efed38d71dd91",
       "agentRoutes": [
         "check-source-provenance",
         "fetch-traits",
@@ -4591,11 +4873,13 @@
         "review-trait-schema-strategy"
       ],
       "taskRecipes": [
+        "check-source-provenance",
         "locate-architecture-decisions"
       ],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": false
     },
@@ -4619,6 +4903,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4644,6 +4929,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4658,8 +4944,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 8332,
-      "sha256": "f141856931f50da2da83db36a311fd43928387359fc404b53e6cc6c43e84f4f8",
+      "sizeBytes": 9342,
+      "sha256": "11ba47db63f54ba3bdebe214fd8409e273a7db113e1a7ba5e9c2f667e176c7da",
       "agentRoutes": [
         "check-source-provenance",
         "find-ipfs-and-artifact-urls",
@@ -4667,11 +4953,13 @@
         "review-upstream-snapshot-provenance"
       ],
       "taskRecipes": [
+        "check-source-provenance",
         "review-upstream-snapshots"
       ],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": false
     },
@@ -4693,6 +4981,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4717,6 +5006,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "registered-source",
       "directAgentLoadRecommended": true
     },
@@ -4743,6 +5033,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4757,19 +5048,22 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 5080,
-      "sha256": "4a787cfa7bd8ce180d6466f76dc0e2667890f46b97739e6406080f996aea3fd7",
+      "sizeBytes": 5931,
+      "sha256": "50beec45b37c47f10bef5273ab3f9bff9e1513a7d9fb45b4b231d42af9b4a04d",
       "agentRoutes": [
+        "check-source-provenance",
         "review-upstream-snapshot-provenance",
         "trace-chainstation-implementation"
       ],
       "taskRecipes": [
+        "check-source-provenance",
         "review-upstream-snapshots",
         "trace-chainstation-implementation"
       ],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": true
     },
@@ -4796,6 +5090,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4822,6 +5117,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4848,6 +5144,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4874,6 +5171,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4900,6 +5198,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4926,6 +5225,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4952,6 +5252,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -4978,6 +5279,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5004,6 +5306,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5030,6 +5333,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5056,6 +5360,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5082,6 +5387,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5097,13 +5403,14 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 2234,
-      "sha256": "fbe3d8fc0ff7dc32ee3d169ca2e9bd3dc2960e46151d26d096e04e47e556ec8a",
+      "sizeBytes": 2592,
+      "sha256": "5fcf13bf04845e75a6dfdc93c7d980aaf3005a17083c404b3bd10faddabf5fc2",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5126,6 +5433,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5148,6 +5456,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5172,6 +5481,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5198,6 +5508,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5224,6 +5535,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5239,13 +5551,14 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 18535,
-      "sha256": "212aba7f76f55e3c5a2f8562392fbcc6c5bd1889e8b1940d24e5d4be6010189f",
+      "sizeBytes": 22855,
+      "sha256": "daa69fa85f6e7ce22bbd2125ca1871a203a1951f049bd9a1f9189aa4965aeb9d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5272,6 +5585,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5298,6 +5612,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5322,6 +5637,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5344,6 +5660,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5371,6 +5688,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5395,6 +5713,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5410,13 +5729,14 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 32951,
-      "sha256": "ad5e16fd69c8182ed1ef5f0bf27e39d9a898998d1882c35e1e7b16bd7f803c10",
+      "sizeBytes": 33045,
+      "sha256": "5281899a3fbad11c0537ebd5db04b1e5e6563cade8056cdf59d574875be41e1c",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5439,6 +5759,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5467,6 +5788,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5494,6 +5816,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5520,6 +5843,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5546,6 +5870,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5568,6 +5893,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5594,6 +5920,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5622,6 +5949,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5648,6 +5976,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5670,6 +5999,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5696,6 +6026,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5711,13 +6042,14 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 7058,
-      "sha256": "7f3041bf13fe89a7b2cc7060be794f7e7fbdc8532e44e8f1a5dee82868087011",
+      "sizeBytes": 10437,
+      "sha256": "0f4bead4d3b2febc2c67168c086813e6093786ff185cd8a1c63b4e88f61c6810",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5733,13 +6065,14 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 19554,
-      "sha256": "5f8555415aa66a0a3803144a6eb51e58c731e43d41607020219634753fa96b0f",
+      "sizeBytes": 19552,
+      "sha256": "e898c191365edededcbc2c2dcf861c16ec63181781248d0d1cb8febf8624f59d",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5766,6 +6099,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5792,6 +6126,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5818,6 +6153,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5844,6 +6180,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5859,13 +6196,14 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 6142,
-      "sha256": "7a49610260601d12c0bdd46aa2f68d04ff951407e594395886f77f397a4c882d",
+      "sizeBytes": 15818,
+      "sha256": "c3fd724151d7f32bb2ac0be843213ca4cc122cf0586825d357c8d68f180c36a5",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     },
@@ -5890,6 +6228,7 @@
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
+      "provenancePath": null,
       "sourceBackedStatus": "not-applicable",
       "directAgentLoadRecommended": false
     }

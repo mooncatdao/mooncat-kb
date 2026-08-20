@@ -16,6 +16,28 @@ If sources conflict, document the conflict and the source tier instead of silent
 
 MoonCatRescue namespace forks or mirrors of older Ponderware repositories should be recorded as current-maintainer copies or archive entrypoints while preserving the original Ponderware repositories as historical primary sourceRefs.
 
+## Provenance Roles
+
+Source tier and provenance role answer different questions. Keep these roles
+separate when tracing a maintained artifact:
+
+- A **source of fact** directly supports a bounded claim at its recorded
+  revision or historical context.
+- A **source of input** supplies checked-in bytes or records to a deterministic
+  process; input status alone does not make every generated field canonical.
+- A **deterministic derivation** records the script or exact method that turns
+  checked-in inputs into an output.
+- A **generated output** is a reproducible joined view, extract, fixture, or
+  index. It should point back to its inputs and owner, not register itself as an
+  independent upstream fact source.
+- A **human/community classification** is an explicit curated judgment. A
+  deterministic join can reproduce it without upgrading it to protocol fact.
+
+Use `data/sources.json` for source identities and trust limits,
+`data/upstream-snapshot-manifest.json` for important local input lineage, and
+`data/kb-manifest.json` for maintained generated-output ownership. Their roles
+overlap deliberately but they are not competing source registries.
+
 ## Local Upstream Snapshots
 
 Large or exact upstream artifacts may be copied into `references/upstream/` when a future pass needs repeatable local inspection, structural validation, or stable evidence without importing all data into `data/`.
@@ -60,7 +82,13 @@ Promoted data should be small enough and shaped enough to serve KB use cases. If
 
 For JSON changes in `data/`, run `python -m json.tool <file> >/dev/null`. For local JSON reference snapshots used as evidence, validate them before relying on their structure.
 
-For source registrations, check that any new sourceRef IDs are present in `data/sources.json` and that notes describe trust, status, and limitations. For Markdown policy/doc changes, run `git diff --check`.
+For source registrations, check that any new sourceRef IDs are present in
+`data/sources.json` and that notes describe trust, status, and limitations. Run
+`python scripts/validate-upstream-snapshots.py` when an important input path,
+revision, retrieval, or license relationship changes. Generated artifacts must
+retain generator, drift-check, validator, and provenance-owner metadata in
+`data/kb-manifest.json`. For Markdown policy/doc changes, run
+`git diff --check`.
 
 ## Usage Notes
 

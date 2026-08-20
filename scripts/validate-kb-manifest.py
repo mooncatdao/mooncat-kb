@@ -77,10 +77,29 @@ def main() -> int:
 
     route_keys = {item["key"] for item in json.loads((ROOT / "data/agent-index.json").read_text())["tasks"]}
     recipe_keys = {item["key"] for item in json.loads((ROOT / "data/task-recipes.json").read_text())["recipes"]}
-    for artifact in manifest.get("generatedArtifactRegistry", []):
+    artifact_registry = manifest.get("generatedArtifactRegistry", [])
+    if not isinstance(artifact_registry, list) or not artifact_registry:
+        fail("generatedArtifactRegistry is required")
+    artifact_paths = [artifact.get("path") for artifact in artifact_registry if isinstance(artifact, dict)]
+    if len(artifact_paths) != len(artifact_registry) or len(artifact_paths) != len(set(artifact_paths)):
+        fail("generated artifact paths must be unique and non-empty")
+    for artifact in artifact_registry:
         path_label = artifact.get("path")
         if not isinstance(path_label, str) or not path_label:
             fail("generated artifact registration requires a path")
+        if not (ROOT / path_label).is_file():
+            fail(f"{path_label}: registered generated artifact is missing")
+        provenance_path = artifact.get("provenancePath")
+        if not isinstance(provenance_path, str) or not (ROOT / provenance_path).is_file():
+            fail(f"{path_label}: generated artifact requires an existing provenancePath")
+        if not isinstance(artifact.get("generatorCommand"), str):
+            fail(f"{path_label}: generated artifact requires generator ownership")
+        if path_label != "data/kb-audit-report.json" and (
+            not isinstance(artifact.get("checkCommand"), str)
+            or not isinstance(artifact.get("validatorCommands"), list)
+            or not artifact["validatorCommands"]
+        ):
+            fail(f"{path_label}: generated artifact requires check and validator ownership")
         for command in [artifact.get("generatorCommand"), artifact.get("checkCommand"), *artifact.get("validatorCommands", [])]:
             if command is None:
                 continue
@@ -119,6 +138,16 @@ def main() -> int:
             script = command_path(command)
             if script and not (ROOT / script).is_file():
                 fail(f"{path_label}: command references missing script {script}")
+        if entry.get("curationMode") == "generated":
+            if not isinstance(entry.get("generatorCommand"), str) or not isinstance(entry.get("checkCommand"), str):
+                fail(f"{path_label}: maintained generated entry requires generator/check ownership")
+            if not entry.get("validatorCommands"):
+                fail(f"{path_label}: maintained generated entry requires validator ownership")
+            provenance_path = entry.get("provenancePath")
+            if not isinstance(provenance_path, str) or not (ROOT / provenance_path).is_file():
+                fail(f"{path_label}: maintained generated entry requires an existing provenancePath")
+        elif entry.get("provenancePath") is not None:
+            fail(f"{path_label}: non-generated entry must not claim generated provenancePath ownership")
         if entry.get("sourceBackedStatus") not in {"registered-source", "contains-source-reference", "not-applicable"}:
             fail(f"{path_label}: invalid sourceBackedStatus")
         if not isinstance(entry.get("directAgentLoadRecommended"), bool):
@@ -138,7 +167,24 @@ def main() -> int:
         fail("coverage counts do not match entries/exclusions")
     if coverage.get("unclassifiedMaintainedFileCount") != 0:
         fail("unclassified maintained files are not allowed")
-    print(f"OK: {len(entries)} maintained files, {len(exclusions)} explicit exclusions, hashes, routes, and commands validated")
+    generated_entry_paths = {entry["path"] for entry in entries if entry.get("curationMode") == "generated"}
+    expected_artifact_paths = generated_entry_paths | {"data/kb-manifest.json", "data/kb-audit-report.json"}
+    if set(artifact_paths) != expected_artifact_paths:
+        fail("generated artifact registry does not exactly cover maintained and recursive/dynamic outputs")
+    provenance = manifest.get("provenanceCoverage", {})
+    source_coverage = provenance.get("sourceIndex", {})
+    curated_coverage = provenance.get("curatedCanonicalData", {})
+    generated_coverage = provenance.get("generatedArtifacts", {})
+    if source_coverage.get("missingLocalPaths") != []:
+        fail("provenance coverage reports missing registered source paths")
+    if curated_coverage.get("entryCount") != curated_coverage.get("sourceBackedEntryCount"):
+        fail("every curated canonical-data entry must be source-backed")
+    if generated_coverage.get("registryEntryCount") != generated_coverage.get("completeOwnershipEntryCount"):
+        fail("every generated artifact must have complete ownership metadata or an explicit dynamic exception")
+    print(
+        f"OK: {len(entries)} maintained files, {len(exclusions)} explicit exclusions, "
+        f"{len(artifact_registry)} generated artifacts with provenance ownership; hashes, routes, and commands validated"
+    )
     return 0
 
 

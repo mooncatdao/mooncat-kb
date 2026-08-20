@@ -334,7 +334,7 @@
       "query": "Add a new KB coding task and ensure agents can load safe minimal context for it.",
       "route": "use-agent-context-packs",
       "requiredFiles": ["data/agent-query-cases.json", "docs/agent-usage.md"],
-      "optionalFiles": ["data/agent-index.json", "data/task-recipes.json", "data/kb-gap-index.json"],
+      "optionalFiles": ["data/agent-index.json", "data/task-recipes.json"],
       "terminology": ["task route", "context pack", "requiredFiles", "stopConditions"],
       "requiredFacts": ["Packs are generated references rather than copied KB content", "optional files require case-specific justification"],
       "requiredWarnings": ["Do not create a universal full-KB prompt or claim a pack is a complete answer."],

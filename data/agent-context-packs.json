@@ -483,11 +483,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 25513,
+        "estimatedByteCount": 25607,
         "files": [
           {
             "path": "data/mooncat-population/manifest.json",
-            "bytes": 13668
+            "bytes": 13762
           },
           {
             "path": "docs/mooncat-population-index.md",
@@ -575,11 +575,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 28675,
+        "estimatedByteCount": 28769,
         "files": [
           {
             "path": "data/mooncat-population/manifest.json",
-            "bytes": 13668
+            "bytes": 13762
           },
           {
             "path": "docs/mooncat-population-index.md",
@@ -1072,23 +1072,23 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 146308,
+        "estimatedByteCount": 154996,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
-            "bytes": 22323
+            "bytes": 25099
           },
           {
             "path": "docs/upstream-snapshots.md",
-            "bytes": 5080
+            "bytes": 5931
           },
           {
             "path": "data/sources.json",
-            "bytes": 66427
+            "bytes": 68568
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 52478
+            "bytes": 55398
           }
         ],
         "softFileLimit": 7,
@@ -1231,7 +1231,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 96102,
+        "estimatedByteCount": 98243,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1243,7 +1243,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 66427
+            "bytes": 68568
           }
         ],
         "softFileLimit": 7,
@@ -1311,7 +1311,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 101367,
+        "estimatedByteCount": 104927,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1323,11 +1323,11 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 66427
+            "bytes": 68568
           },
           {
             "path": "docs/reference-policy.md",
-            "bytes": 5265
+            "bytes": 6684
           }
         ],
         "softFileLimit": 7,
@@ -1395,11 +1395,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 60179,
+        "estimatedByteCount": 60232,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
-            "bytes": 17299
+            "bytes": 17352
           },
           {
             "path": "docs/chainstation-surfaces.md",
@@ -1482,11 +1482,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 52569,
+        "estimatedByteCount": 52622,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
-            "bytes": 17299
+            "bytes": 17352
           },
           {
             "path": "docs/chainstation-surfaces.md",
@@ -1568,11 +1568,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 86923,
+        "estimatedByteCount": 86976,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
-            "bytes": 17299
+            "bytes": 17352
           },
           {
             "path": "docs/chainstation-surfaces.md",
@@ -1655,11 +1655,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 50297,
+        "estimatedByteCount": 53977,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
-            "bytes": 17299
+            "bytes": 17352
           },
           {
             "path": "docs/chainstation-surfaces.md",
@@ -1667,11 +1667,11 @@
           },
           {
             "path": "data/upstream-snapshot-manifest.json",
-            "bytes": 22323
+            "bytes": 25099
           },
           {
             "path": "docs/upstream-snapshots.md",
-            "bytes": 5080
+            "bytes": 5931
           }
         ],
         "softFileLimit": 7,
@@ -1692,15 +1692,13 @@
       "additionalRequiredFiles": [],
       "explicitOptionalFiles": [
         "data/agent-index.json",
-        "data/task-recipes.json",
-        "data/kb-gap-index.json"
+        "data/task-recipes.json"
       ],
       "filesToLoad": [
         "data/agent-query-cases.json",
         "docs/agent-usage.md",
         "data/agent-index.json",
-        "data/task-recipes.json",
-        "data/kb-gap-index.json"
+        "data/task-recipes.json"
       ],
       "terminology": [
         "task route",
@@ -1740,12 +1738,12 @@
         }
       ],
       "sizeMetrics": {
-        "fileCount": 5,
-        "estimatedByteCount": 196531,
+        "fileCount": 4,
+        "estimatedByteCount": 145805,
         "files": [
           {
             "path": "data/agent-query-cases.json",
-            "bytes": 47106
+            "bytes": 47080
           },
           {
             "path": "docs/agent-usage.md",
@@ -1753,15 +1751,11 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 31577
+            "bytes": 32220
           },
           {
             "path": "data/task-recipes.json",
-            "bytes": 63430
-          },
-          {
-            "path": "data/kb-gap-index.json",
-            "bytes": 52478
+            "bytes": 64565
           }
         ],
         "softFileLimit": 7,
@@ -1833,7 +1827,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 86780,
+        "estimatedByteCount": 88921,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -1845,7 +1839,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 66427
+            "bytes": 68568
           }
         ],
         "softFileLimit": 7,
@@ -2026,7 +2020,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 86780,
+        "estimatedByteCount": 88921,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -2038,7 +2032,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 66427
+            "bytes": 68568
           }
         ],
         "softFileLimit": 7,
@@ -2218,7 +2212,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 89137,
+        "estimatedByteCount": 91278,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -2234,7 +2228,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 66427
+            "bytes": 68568
           }
         ],
         "softFileLimit": 7,
@@ -2606,11 +2600,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 6,
-        "estimatedByteCount": 34370,
+        "estimatedByteCount": 34464,
         "files": [
           {
             "path": "data/mooncat-population/manifest.json",
-            "bytes": 13668
+            "bytes": 13762
           },
           {
             "path": "docs/mooncat-population-index.md",

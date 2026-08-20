@@ -549,7 +549,7 @@ def build_population_artifacts() -> dict[str, bytes]:
             "color": {"trust": "derived-human-facing-display-policy", "sourceRefs": ["mooncat-color-classification"], "limitations": "Not an on-chain trait, RGB/hex palette, rarity, or rendering proof."},
             "rescueBuckets": {"trust": "canonical-derived", "sourceRefs": ["mooncat-rescueorder-by-category"]},
             "characterCategories": {"trust": "community-curated-noncanonical", "sourceRefs": ["mooncat-rescueorder-by-category"]},
-            "name": {"trust": "pinned-finalized-monotonic-enrichment", "sourceRefs": ["mooncatdao-name-index"], "sourceRevision": name_snapshot["sourceRevision"], "limitations": "No blank events, event history, provisional/live state, or freshness beyond the pinned revision."},
+            "name": {"trust": "pinned-finalized-monotonic-enrichment", "sourceRefs": ["mooncatdao-name-index", "mooncat-kb-name-index-pinned-snapshot"], "sourceRevision": name_snapshot["sourceRevision"], "limitations": "No blank events, event history, provisional/live state, or freshness beyond the pinned revision."},
         },
         "sourceFiles": source_files,
         "validationReport": {
@@ -588,6 +588,7 @@ def build_population_artifacts() -> dict[str, bytes]:
             "mooncat-rescueorder-by-category",
             "mooncat-color-classification",
             "mooncatdao-name-index",
+            "mooncat-kb-name-index-pinned-snapshot",
             "mooncat-kb-mooncat-names-snapshot",
         ],
     }

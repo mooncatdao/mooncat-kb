@@ -179,7 +179,7 @@ def check_source_refs(
         if isinstance(value, str):
             checked += 1
             if value not in source_ids:
-                reporter.warning(f"{file_label}: unknown sourceRef at {path}: {value}")
+                reporter.error(f"{file_label}: unknown sourceRef at {path}: {value}")
             return
         reporter.error(f"{file_label}: expected sourceRef string at {path}")
 

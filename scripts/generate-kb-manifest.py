@@ -236,6 +236,22 @@ def generated_artifact_config(relative_path: str) -> dict[str, Any] | None:
     return None
 
 
+def generated_artifact_provenance_path(relative_path: str) -> str | None:
+    if generated_artifact_config(relative_path) is None:
+        return None
+    if relative_path.startswith("data/abi-registry/") or relative_path in {
+        "data/contract-registry.json",
+        "data/event-registry.json",
+        "data/event-indexer-recipes.json",
+    }:
+        return "data/contract-registry.json"
+    if relative_path.startswith("data/mooncat-population/"):
+        return "data/mooncat-population/manifest.json"
+    if relative_path.startswith("data/mooncat-renders/"):
+        return "data/mooncat-renders/manifest.json"
+    return relative_path
+
+
 def file_classification(relative_path: str) -> tuple[str, list[str], str, list[str]]:
     """Classify by the documented path table; unknown maintained files raise."""
     if relative_path in {"README.md", "AGENTS.md", "llms.txt", "CONTRIBUTING.md"}:
@@ -299,7 +315,82 @@ def generated_artifact_registry() -> list[dict[str, Any]]:
             and relative_path.endswith(".json")
         ):
             registered[relative_path] = RENDER_GENERATED_ARTIFACT
-    return [{"path": path, **metadata} for path, metadata in sorted(registered.items())]
+    return [
+        {
+            "path": path,
+            **metadata,
+            "provenancePath": generated_artifact_provenance_path(path),
+        }
+        for path, metadata in sorted(registered.items())
+    ]
+
+
+def provenance_coverage(entries: list[dict[str, Any]], registry: list[dict[str, Any]]) -> dict[str, Any]:
+    sources = load_json("data/sources.json")
+    source_entries = sources.get("sources", [])
+    source_path_entries = [entry for entry in source_entries if isinstance(entry, dict) and isinstance(entry.get("path"), str)]
+    missing_source_paths = sorted(
+        entry["path"] for entry in source_path_entries if not (ROOT / entry["path"]).is_file()
+    )
+    snapshots = load_json("data/upstream-snapshot-manifest.json").get("entries", [])
+    incomplete_revision_statuses = {"unresolved", "repository-only", "comparison-only", "branch-only"}
+    incomplete_revisions = sorted(
+        entry["key"] for entry in snapshots
+        if entry.get("upstream", {}).get("revisionEvidence", {}).get("status") in incomplete_revision_statuses
+    )
+    unknown_retrieval_dates = sorted(
+        entry["key"] for entry in snapshots
+        if entry.get("retrievalOrVerification", {}).get("status") == "snapshot-date-unknown"
+    )
+    unresolved_licenses = sorted(
+        entry["key"] for entry in snapshots
+        if entry.get("license", {}).get("status") == "unresolved"
+    )
+    curated_canonical = [
+        entry for entry in entries
+        if entry["fileRole"] == "canonical-data" and entry["curationMode"] == "curated"
+    ]
+    generated_entries = [entry for entry in entries if entry["curationMode"] == "generated"]
+    dynamic_exceptions = ["data/kb-audit-report.json"]
+    complete_registry_entries = [
+        artifact for artifact in registry
+        if artifact.get("generatorCommand")
+        and artifact.get("provenancePath")
+        and (
+            artifact["path"] in dynamic_exceptions
+            or (artifact.get("checkCommand") and artifact.get("validatorCommands"))
+        )
+    ]
+    return {
+        "sourceIndex": {
+            "status": sources.get("status"),
+            "entryCount": len(source_entries),
+            "localPathEntryCount": len(source_path_entries),
+            "missingLocalPaths": missing_source_paths,
+        },
+        "importantInputManifest": {
+            "entryCount": len(snapshots),
+            "sourcePathLinkedEntryCount": sum(
+                isinstance(entry.get("localPathSourceRef"), str) for entry in snapshots
+            ),
+            "incompleteRevisionKeys": incomplete_revisions,
+            "unknownRetrievalDateKeys": unknown_retrieval_dates,
+            "unresolvedLicenseKeys": unresolved_licenses,
+        },
+        "curatedCanonicalData": {
+            "entryCount": len(curated_canonical),
+            "sourceBackedEntryCount": sum(
+                entry["sourceBackedStatus"] != "not-applicable" for entry in curated_canonical
+            ),
+        },
+        "generatedArtifacts": {
+            "registryEntryCount": len(registry),
+            "maintainedGeneratedEntryCount": len(generated_entries),
+            "completeOwnershipEntryCount": len(complete_registry_entries),
+            "dynamicOutputExceptions": dynamic_exceptions,
+        },
+        "boundary": "Coverage records checked-in evidence and deterministic ownership; it does not resolve missing upstream facts or establish live/current state.",
+    }
 
 
 def build_manifest() -> dict[str, Any]:
@@ -333,6 +424,7 @@ def build_manifest() -> dict[str, Any]:
             "generatorCommand": (generated_artifact_config(relative) or {}).get("generatorCommand"),
             "checkCommand": (generated_artifact_config(relative) or {}).get("checkCommand"),
             "validatorCommands": (generated_artifact_config(relative) or {}).get("validatorCommands", VALIDATOR_COMMANDS.get(relative, [])),
+            "provenancePath": generated_artifact_provenance_path(relative),
             "sourceBackedStatus": source_status,
             "directAgentLoadRecommended": relative in routes and any(
                 relative in task.get("primaryFiles", [])
@@ -340,9 +432,10 @@ def build_manifest() -> dict[str, Any]:
             ),
         }
         entries.append(entry)
+    registry = generated_artifact_registry()
     return {
-        "version": 1,
-        "status": "generated-maintained-file-inventory",
+        "version": 2,
+        "status": "generated-maintained-file-and-provenance-inventory",
         "generationPolicy": {
             "network": "none",
             "inventoryBasis": "all regular files under the repository root after explicit exclusion policy",
@@ -356,9 +449,11 @@ def build_manifest() -> dict[str, Any]:
                 "Reference snapshots and vendored example dependencies are excluded from maintained curated KB coverage.",
                 "The manifest and audit report outputs are excluded to avoid self-referential hashes and dynamic audit durations.",
                 "Agent routes and task recipes are derived from data/agent-index.json and data/task-recipes.json at generation time.",
+                "Generated provenance coverage aggregates existing source, snapshot, and ownership metadata; it is not another MoonCat fact registry.",
             ],
         },
-        "generatedArtifactRegistry": generated_artifact_registry(),
+        "generatedArtifactRegistry": registry,
+        "provenanceCoverage": provenance_coverage(entries, registry),
         "coverage": {
             "maintainedFileCount": len(entries),
             "excludedFileCount": len(exclusions),

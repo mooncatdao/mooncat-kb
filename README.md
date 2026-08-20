@@ -15,6 +15,12 @@ boundaries**. See
 [`docs/public-release-readiness.md`](docs/public-release-readiness.md) for the
 audited claims, enforced invariants, unresolved limits, and release gates.
 
+For “where did this come from?”, start with `data/sources.json` for curated
+source identities, `data/upstream-snapshot-manifest.json` for important local
+input revisions and license limits, and `data/kb-manifest.json` for generated
+artifact ownership. Generated joins and classifications remain derivations;
+they do not become independent primary sources or evidence of live state.
+
 ## Main capabilities
 
 - Complete static lookup: `data/mooncat-population/manifest.json` describes a
@@ -68,6 +74,7 @@ arithmetically from the other.
 - `data/agent-context-packs.json` — generated minimal coding context
 - `data/agent-coding-patterns.json` — tested implementation/validator pointers
 - `data/kb-gap-index.json` — current usability gaps and recommended next passes
+- `data/kb-manifest.json` — maintained-file and generated-provenance accounting
 - [`docs/public-release-readiness.md`](docs/public-release-readiness.md) —
   public-release assessment, accepted boundaries, and repeatable gates
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution and validation guidance

@@ -83,6 +83,16 @@ choosing silently. Generated output must name its checked-in inputs and
 repeatable generation/validation path. Reference snapshots must retain their
 upstream identity and must not be edited into normalized “truth.”
 
+Keep provenance roles explicit: a source-of-fact supports a bounded claim; a
+source-of-input supplies bytes or records; a deterministic derivation owns a
+transformation; a generated output is a reproducible view; and a
+human/community classification remains curated judgment. Use
+`data/upstream-snapshot-manifest.json` for important input hashes, revisions,
+retrieval status, licenses, and dependent files. Use `data/kb-manifest.json`
+for generated-artifact generator/check/validator ownership. Never fill an
+unknown revision, retrieval date, origin, or license from naming similarity or
+the surrounding repository license.
+
 ## Preserve important boundaries
 
 Do not:
@@ -136,6 +146,7 @@ Then use the checks appropriate to the change:
 | Change | Required validation |
 | --- | --- |
 | Curated JSON | `python -m json.tool <file>` plus its focused validator, when one exists |
+| Source or important-input provenance | `python scripts/validate-upstream-snapshots.py` plus `validate-kb.py` |
 | Generated artifact or its inputs | Owning generator `--check` and focused validator; regenerate only through the owning generator |
 | Identifier data | `python scripts/validate-identifier-conversions.py` and any affected domain validator |
 | Population data | Population generator `--check`, population validator, and diff check |

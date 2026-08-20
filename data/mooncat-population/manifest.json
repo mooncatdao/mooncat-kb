@@ -278,7 +278,8 @@
     "name": {
       "trust": "pinned-finalized-monotonic-enrichment",
       "sourceRefs": [
-        "mooncatdao-name-index"
+        "mooncatdao-name-index",
+        "mooncat-kb-name-index-pinned-snapshot"
       ],
       "sourceRevision": "5d3b265613e987e4ca2c32e2afd7edf3178a146a",
       "limitations": "No blank events, event history, provisional/live state, or freshness beyond the pinned revision."
@@ -388,6 +389,7 @@
     "mooncat-rescueorder-by-category",
     "mooncat-color-classification",
     "mooncatdao-name-index",
+    "mooncat-kb-name-index-pinned-snapshot",
     "mooncat-kb-mooncat-names-snapshot"
   ]
 }

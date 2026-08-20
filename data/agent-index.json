@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-08-20",
   "status": "compact-routing-index",
   "purpose": "Map common MoonCat technical tasks to the minimum repo files an agent should load.",
   "defaults": {
@@ -325,19 +325,26 @@
     },
     {
       "key": "check-source-provenance",
-      "description": "Find curated sourceRefs, trust notes, and reference handling policy.",
+      "description": "Trace a curated fact, important checked-in input, or generated artifact through its source, revision, license boundary, and deterministic owner.",
       "primaryFiles": [
-        "data/sources.json"
+        "data/sources.json",
+        "data/upstream-snapshot-manifest.json",
+        "data/kb-manifest.json"
       ],
       "optionalFiles": [
         "docs/reference-policy.md",
         "docs/source-map.md",
+        "docs/upstream-snapshots.md",
+        "docs/kb-integrity.md",
         "docs/upstream-repositories.md",
-        "data/link-index.json"
+        "data/link-index.json",
+        "data/kb-gap-index.json"
       ],
       "notes": [
+        "Keep source-of-fact, source-of-input, deterministic derivation, generated output, and human/community classification roles distinct.",
+        "Use provenanceCoverage in data/kb-manifest.json for accounting, then follow the owning source, snapshot, generator, or focused validator for evidence.",
         "Add or update source entries only in a source-focused pass.",
-        "If sources conflict, document the conflict instead of choosing silently."
+        "If sources conflict or revision, retrieval, or license evidence is missing, preserve the precise boundary instead of choosing or inferring silently."
       ]
     },
     {

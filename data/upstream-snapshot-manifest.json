@@ -1,8 +1,8 @@
 {
-  "version": 3,
-  "updated": "2026-08-11",
-  "status": "compact-provenance-manifest-with-pinned-name-index-inputs",
-  "scope": "Important checked-in upstream/reference inputs and derived review artifacts. This manifest pins local content hashes and records origin evidence without refreshing vendored files or claiming unresolved upstream lineage. The dev-environment ADR directory is a deliberate pinned exception with per-file inventory metadata.",
+  "version": 4,
+  "updated": "2026-08-20",
+  "status": "validated-important-input-lineage-with-enumerated-residuals",
+  "scope": "Important checked-in upstream/reference inputs, vendored dependencies, source summaries, and derived reviews used by maintained public artifacts. This manifest pins local content hashes, binds available snapshot revisions/inventories to checked-in metadata, and records unresolved lineage without refreshing evidence files or claiming live freshness.",
   "validator": "scripts/validate-upstream-snapshots.py",
   "enums": {
     "contentRoles": [
@@ -31,6 +31,23 @@
       "historical-intentional",
       "derived-from-pinned-review",
       "not-applicable"
+    ],
+    "revisionEvidenceStatuses": [
+      "pinned-archive-review",
+      "pinned-local-review",
+      "repository-only",
+      "comparison-only",
+      "branch-only",
+      "unresolved"
+    ],
+    "retrievalOrVerificationStatuses": [
+      "derived-from-pinned-review",
+      "snapshot-date-unknown"
+    ],
+    "licenseStatuses": [
+      "observed-in-package-metadata",
+      "verified-header",
+      "unresolved"
     ]
   },
   "entries": [
@@ -38,6 +55,7 @@
       "key": "mooncatrescue-dev-environment-adr-corpus",
       "localPath": "references/upstream/mooncatrescue-dev-environment-adr/SNAPSHOT.json",
       "contentRole": "upstream-reference",
+      "localPathSourceRef": "mooncatrescue-dev-environment-adr-corpus",
       "localSha256": "b15889208d25f2a43c2fe8de0488e5f33bb22b302c8666c5de2c132bf208a139",
       "localBytes": 4403,
       "localHistory": {"commit": null, "evidence": "Created by this deliberate snapshot acquisition; local history is not upstream revision evidence."},
@@ -45,6 +63,7 @@
       "retrievalOrVerification": {"status": "derived-from-pinned-review", "date": "2026-07-17", "evidence": "SNAPSHOT.json records the exact retrieval commands, branch, commit, inventory, per-file hashes, and byte sizes."},
       "copyStatus": "exact-copy",
       "snapshotInventory": {"directory": "references/upstream/mooncatrescue-dev-environment-adr", "metadataField": "inventory", "decisionRole": "decision"},
+      "snapshotMetadataBindings": {"revisionField": "resolvedCommit", "retrievalDateField": "retrievedDate"},
       "license": {"status": "unresolved", "evidence": "No LICENSE, COPYING, or NOTICE file was observed among tracked files in the resolved shallow checkout; package examples are not license proof."},
       "provenanceConfidence": "high",
       "freshnessStatus": "pinned-revision",
@@ -56,6 +75,7 @@
       "key": "mooncat-traits-json",
       "localPath": "references/upstream/mooncatrescue/mooncat_traits.json",
       "contentRole": "upstream-reference",
+      "localPathSourceRef": "mooncatrescue-mooncat-traits-json",
       "localSha256": "18dcb262c13e316c61051b59c1944a3265a163aed05ed429f48874caaf38abd8",
       "localBytes": 6615184,
       "localHistory": {
@@ -92,7 +112,16 @@
         "data/trait-index.json",
         "docs/traits.md",
         "docs/generated-trait-data.md",
-        "scripts/generate-visual-traits.py"
+        "scripts/generate-visual-traits.py",
+        "data/mooncat-visual-traits.sample.json",
+        "scripts/generate-mooncat-names.py",
+        "data/mooncat-names.json",
+        "scripts/generate-mooncat-population.py",
+        "data/mooncat-population/manifest.json",
+        "scripts/generate-mooncat-renders.py",
+        "data/mooncat-renders/manifest.json",
+        "scripts/generate-materialization-parity.py",
+        "data/materialization-parity-results.json"
       ],
       "limitations": [
         "Origin repository, upstream revision, retrieval date, and license remain unresolved.",
@@ -103,6 +132,7 @@
       "key": "libmooncat-limited-js",
       "localPath": "references/upstream/mooncatrescue/libmooncat-limited.js",
       "contentRole": "upstream-reference",
+      "localPathSourceRef": "mooncatrescue-libmooncat-limited-js",
       "localSha256": "b4d36703a58ce07c61606518010aad05b0e89dc3d11ce0f33a241a7ab35ac85e",
       "localBytes": 806495,
       "localHistory": {
@@ -141,7 +171,14 @@
         "data/identifier-conventions.json",
         "data/trait-index.json",
         "data/mooncat-accessories-internals.json",
-        "scripts/generate-visual-traits.py"
+        "scripts/generate-visual-traits.py",
+        "data/mooncat-visual-traits.sample.json",
+        "scripts/generate-mooncat-population.py",
+        "data/mooncat-population/manifest.json",
+        "scripts/generate-materialization-parity.py",
+        "data/materialization-parity-results.json",
+        "scripts/extract-contract-abis.py",
+        "data/contract-registry.json"
       ],
       "limitations": [
         "Exact upstream commit/tag, retrieval date, and license remain unresolved.",
@@ -152,6 +189,7 @@
       "key": "mooncatparser-js",
       "localPath": "references/upstream/mooncatrescue/mooncatparser.js",
       "contentRole": "upstream-reference",
+      "localPathSourceRef": "mooncatrescue-mooncatparser-js",
       "localSha256": "39dffc7894473b631cde4037d9f174844cfc78777134511b6b8ef44105928d59",
       "localBytes": 52238,
       "localHistory": {
@@ -190,6 +228,14 @@
         "data/rescue-mining.json",
         "docs/rescue-mining.md",
         "docs/generated-trait-data.md",
+        "scripts/generate-visual-traits.py",
+        "data/mooncat-visual-traits.sample.json",
+        "scripts/generate-mooncat-population.py",
+        "data/mooncat-population/manifest.json",
+        "scripts/generate-mooncat-renders.py",
+        "data/mooncat-renders/manifest.json",
+        "scripts/generate-materialization-parity.py",
+        "data/materialization-parity-results.json",
         "examples/rescue-mining-widget/vendor/mooncatparser.js"
       ],
       "limitations": [
@@ -201,6 +247,7 @@
       "key": "rescue-mining-widget-mooncatparser-vendor",
       "localPath": "examples/rescue-mining-widget/vendor/mooncatparser.js",
       "contentRole": "vendored-dependency",
+      "copyOfEntry": "mooncatparser-js",
       "localSha256": "39dffc7894473b631cde4037d9f174844cfc78777134511b6b8ef44105928d59",
       "localBytes": 52238,
       "localHistory": {
@@ -272,6 +319,7 @@
       "copyStatus": "exact-copy",
       "license": {
         "status": "verified-header",
+        "value": "MIT",
         "evidence": "The preserved js-sha3 header identifies version 0.6.1 by Chen, Yi-Cyuan under MIT."
       },
       "provenanceConfidence": "high",
@@ -341,6 +389,7 @@
       "key": "chainstation-web-implementation-audit",
       "localPath": "references/upstream/chainstation-web-audit/SNAPSHOT.json",
       "contentRole": "upstream-reference",
+      "localPathSourceRef": "chainstation-web-pinned-snapshot",
       "localSha256": "1e2b6a7794bc012dd30c4c36ffa653e02a36b922ce57e36ef8ff56c863f223f1",
       "localBytes": 7839,
       "localHistory": {
@@ -368,14 +417,21 @@
         "metadataField": "inventory",
         "inventoryMode": "all-files"
       },
+      "snapshotMetadataBindings": {
+        "revisionField": "resolvedCommit",
+        "retrievalDateField": "retrievalDate",
+        "licenseValueField": "license.value"
+      },
       "license": {
         "status": "observed-in-package-metadata",
+        "value": "AGPL-3.0",
         "evidence": "The exact copied package.json declares AGPL-3.0; no separate upstream license-file review is claimed."
       },
       "provenanceConfidence": "high",
       "freshnessStatus": "pinned-revision",
       "sourceRefs": [
-        "chainstation-source"
+        "chainstation-source",
+        "chainstation-web-pinned-snapshot"
       ],
       "dependentFiles": [
         "data/chainstation-surfaces.json",
@@ -443,6 +499,7 @@
       "key": "mooncatdao-name-index-finalized-inputs",
       "localPath": "references/upstream/name-index/SNAPSHOT.json",
       "contentRole": "upstream-reference",
+      "localPathSourceRef": "mooncat-kb-name-index-pinned-snapshot",
       "localSha256": "c8a785e58229a6653fd7c3817f095aba8ebac7e434f6fa6966657fd6f6a54b83",
       "localBytes": 1565,
       "localHistory": {
@@ -465,8 +522,18 @@
         "evidence": "scripts/import-name-index-snapshot.py copied only the two finalized inputs from the explicit local checkout and performed no network access."
       },
       "copyStatus": "exact-copy",
+      "snapshotInventory": {
+        "directory": "references/upstream/name-index",
+        "metadataField": "inventory",
+        "inventoryMode": "all-files-except-metadata"
+      },
+      "snapshotMetadataBindings": {
+        "revisionField": "sourceRevision",
+        "licenseValueField": "license"
+      },
       "license": {
         "status": "observed-in-package-metadata",
+        "value": "CC0-1.0",
         "evidence": "The pinned source package.json identifies @mooncatdao/name-index and declares CC0-1.0."
       },
       "provenanceConfidence": "high",

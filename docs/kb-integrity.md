@@ -8,7 +8,7 @@ The audit writes `data/kb-audit-report.json` with compact command status/output 
 
 ## Maintained-file manifest
 
-`python scripts/generate-kb-manifest.py` writes `data/kb-manifest.json`; `--check` detects drift. Each maintained entry records its path, role, topics, curation mode, statuses, bytes, SHA-256, routes, recipes, generated-artifact commands where applicable, source-backed status, and direct-agent-load guidance.
+`python scripts/generate-kb-manifest.py` writes `data/kb-manifest.json`; `--check` detects drift. Each maintained entry records its path, role, topics, curation mode, statuses, bytes, SHA-256, routes, recipes, generated-artifact commands where applicable, generated provenance owner, source-backed status, and direct-agent-load guidance.
 
 Roles and curation modes are closed enums recorded in the manifest. Classification is an explicit path table in the generator; an unmatched maintained file is a generation failure, rather than a guessed category. Routes and recipe references are derived directly from `data/agent-index.json` and `data/task-recipes.json`.
 
@@ -36,6 +36,15 @@ runs each registered domain's established check and validator for the public
 release surface, including names, population, renders, and contract/ABI/event
 artifacts.
 
+The manifest's `provenanceCoverage` section provides deterministic accounting,
+not a new factual registry. It summarizes registered source paths, important
+input path bindings and exact unresolved revision/retrieval/license keys,
+source-backed curated canonical files, and generated-artifact ownership. Each
+generated artifact has a `provenancePath` pointing to its existing owning
+manifest or registry. The manifest validator requires complete
+generator/check/validator ownership for maintained generated outputs, with the
+dynamic audit report recorded as the sole explicit check-command exception.
+
 ## Validation and warning policy
 
 Run these after changing integrity policy, routes, recipes, generated-artifact registration, or maintained files:
@@ -46,7 +55,7 @@ python scripts/validate-kb-manifest.py
 python scripts/audit-kb.py
 ```
 
-The manifest validator checks deterministic output, complete classification coverage, explicit exclusions, path uniqueness, hashes and sizes, enum values, derived route/recipe references, and registered command paths. The audit also checks duplicate IDs inside registered namespaces only; the same ID in unrelated collections is not a duplicate.
+The manifest validator checks deterministic output, complete classification coverage, explicit exclusions, path uniqueness, hashes and sizes, enum values, derived route/recipe references, registered command paths, existing provenance owners, complete generated-artifact registration, and aggregate provenance counts. The audit also checks duplicate IDs inside registered namespaces only; the same ID in unrelated collections is not a duplicate.
 
 Internal link checks are intentionally bounded to `README.md`, `AGENTS.md`, `llms.txt`, `docs/*.md`, and repo-relative paths in `data/*.json`. They do not validate external URLs or parse Markdown semantically. Missing ordinary internal targets are errors; legacy local-source `path` records are warnings because they can describe unavailable historical context rather than a loadable route.
 

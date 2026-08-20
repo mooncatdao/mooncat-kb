@@ -61,7 +61,7 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: . JSON files checked: 51 Required file references checked: 573 sourceRefs checked: 1216 relatedFiles checked: 282 Character/Genesis membership arrays checked: 16 Release semantic invariants checked: 13 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: . JSON files checked: 51 Required file references checked: 592 sourceRefs checked: 1218 relatedFiles checked: 284 Character/Genesis membership arrays checked: 16 Release semantic invariants checked: 13 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
@@ -79,7 +79,7 @@
       "command": "python scripts/validate-upstream-snapshots.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 10 snapshot entries, hashes and provenance references validated"
+      "outputSummary": "OK: 10 provenance entries, 6 source-path links, 7 metadata bindings; residual revisions=5, retrieval dates=5, licenses=7"
     },
     {
       "command": "python scripts/validate-identifier-conversions.py",
@@ -151,14 +151,14 @@
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 206 maintained files, 74 explicit exclusions, hashes, routes, and commands validated"
+      "outputSummary": "OK: 206 maintained files, 74 explicit exclusions, 73 generated artifacts with provenance ownership; hashes, routes, and commands validated"
     }
   ],
   "counts": {
     "requiredCommandCount": 25,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 2299,
+    "internalPathsChecked": 2494,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
@@ -169,7 +169,7 @@
     "collections": {
       "sources": {
         "file": "data/sources.json",
-        "count": 94,
+        "count": 95,
         "duplicates": []
       },
       "agent-routes": {
@@ -194,7 +194,7 @@
       },
       "gap-records": {
         "file": "data/kb-gap-index.json",
-        "count": 33,
+        "count": 34,
         "duplicates": []
       },
       "identifier-fixtures": {
@@ -236,7 +236,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 2299,
+    "checked": 2494,
     "errors": [],
     "warnings": []
   },

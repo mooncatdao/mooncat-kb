@@ -86,6 +86,26 @@ color, materialization, routing, manifest, and audit validators continue to own
 their deeper domain invariants. The release pass did not duplicate those
 checks as prose-only assertions.
 
+## Provenance completion
+
+The follow-up zero-network provenance pass traced the maintained public surface
+across five distinct roles: source-of-fact, checked-in source-of-input,
+deterministic derivation, generated output, and human/community
+classification. It corrected stale input-use notes, registered the exact local
+ChainStation snapshot relationship, made the population's pinned name-snapshot
+input explicit, and added stable checks for sourceRef resolution, overlapping
+source/snapshot paths, pinned metadata and inventories, dependent paths, and
+generated-artifact ownership.
+
+`data/kb-manifest.json` now gives aggregate provenance accounting and a
+`provenancePath` for every registered generated output. That summary is derived
+from existing owners; it is not a duplicate fact database. The exact remaining
+important-input gaps are five incomplete upstream revisions, five unknown
+retrieval or verification dates, and seven entries with unresolved upstream/input
+license evidence. These unknowns
+remain disclosed and were not filled from filenames, URLs, nearby repositories,
+or this repository's CC0 license.
+
 ## Factual benchmark coverage
 
 The factual-retrieval benchmark expanded from 38 to 64 cases. It now has 16
@@ -116,8 +136,9 @@ work:
 - a complete inventory of additional historical or unofficial wrappers;
 - exact on-chain SVG/palette/accessory output parity and present
   “fully-on-chain” retrievability;
-- complete upstream lineage, retrieval-date, and license evidence for every
-  preserved reference snapshot;
+- exact upstream revision evidence for five important inputs, retrieval or
+  verification dates for five, and license evidence for seven, as enumerated
+  in `data/upstream-snapshot-manifest.json`;
 - canonical protocol status for community character categories and derived
   human-facing color labels; and
 - freshness beyond each recorded source revision or generated input hash.

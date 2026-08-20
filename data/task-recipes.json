@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-08-20",
   "status": "compact-workflow-index",
   "scope": "Agent-facing workflow recipes for sequencing common MoonCat KB tasks by loading existing data files. This file routes and orders work; it does not add endpoint, contract, trait, color, identifier, source, or per-cat facts.",
   "sourceRefs": [],
@@ -20,6 +20,8 @@
     "data/contracts.json",
     "data/older-wrapper-internals.json",
     "data/sources.json",
+    "data/upstream-snapshot-manifest.json",
+    "data/kb-manifest.json",
     "data/kb-gap-index.json",
     "data/architecture-decisions.json",
     "docs/architecture-decisions.md",
@@ -842,13 +844,19 @@
     },
     {
       "key": "check-source-provenance",
-      "purpose": "Confirm whether a fact, URL, local reference, or external artifact is backed by the curated source index and current gap notes.",
+      "purpose": "Trace a maintained fact, important checked-in input, or generated output through its source role, revision/license boundary, and deterministic ownership without treating generated data as a new primary source.",
       "loadOrder": [
         "data/sources.json",
-        "data/agent-index.json",
+        "data/upstream-snapshot-manifest.json",
+        "data/kb-manifest.json",
         "data/kb-gap-index.json"
       ],
       "optionalFiles": [
+        "docs/source-map.md",
+        "docs/reference-policy.md",
+        "docs/upstream-snapshots.md",
+        "docs/kb-integrity.md",
+        "data/agent-index.json",
         "data/api-endpoints.json",
         "data/contracts.json",
         "data/contract-surfaces.json",
@@ -858,19 +866,25 @@
       ],
       "steps": [
         "Look up the relevant sourceRef in data/sources.json before relying on a non-obvious fact.",
-        "Use data/agent-index.json to find which compact file should carry the fact.",
-        "Check data/kb-gap-index.json for known placeholders, stale files, incomplete areas, or unrouted useful files.",
+        "For a checked-in reference input, match its local path and sourceRef to data/upstream-snapshot-manifest.json and retain its exact revision, retrieval, freshness, and license status.",
+        "For a generated output, use data/kb-manifest.json to find its generator, check, validators, and provenancePath, then inspect that owning metadata rather than citing the output as an independent source.",
+        "Use data/agent-index.json to find the compact fact owner and distinguish deterministic derivation from community or human classification.",
+        "Check data/kb-gap-index.json for precise unresolved upstream revision, retrieval-date, license, or live-state boundaries.",
         "Load optional domain files only when the provenance question is about that domain.",
         "If sources conflict or are missing, preserve the conflict or gap instead of silently choosing."
       ],
       "outputs": [
         "sourceRef status",
+        "source or derivation role",
+        "revision and license boundary",
+        "generator/check/validator owner when generated",
         "trust or limitation note",
         "owning KB file",
         "gap or follow-up if unresolved"
       ],
       "guardrails": [
         "Do not add or promote sourceRefs in this recipe file.",
+        "Do not treat deterministic generation, a local hash, or current-maintainer classification as proof of upstream freshness or live state.",
         "Do not promote preserved navigation links into canonical provenance without a source-focused pass.",
         "Do not rely on an external reference that is not registered unless the current task explicitly permits source registration."
       ],

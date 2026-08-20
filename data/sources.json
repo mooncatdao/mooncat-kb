@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated": "2026-08-19",
-  "status": "incomplete",
+  "updated": "2026-08-20",
+  "status": "maintained-public-artifact-provenance-covered-with-enumerated-reference-gaps",
   "sources": [
     {
       "id": "upstream-snapshot-manifest",
@@ -14,9 +14,10 @@
         "local reference snapshot hashes",
         "upstream origin and revision evidence boundaries",
         "copy/adaptation and freshness status",
-        "dependency mapping and deliberate refresh workflow"
+        "dependency mapping and deliberate refresh workflow",
+        "machine-checked source-index path alignment"
       ],
-      "notes": "Machine-readable provenance manifest for important checked-in references and derived reviews. It does not replace vendored files, perform network checks, or resolve lineage that local evidence does not support. Validate with scripts/validate-upstream-snapshots.py."
+      "notes": "Machine-readable provenance manifest for important checked-in references and derived reviews. It validates local hashes, source-path registrations, pinned metadata bindings, important consumers, and explicit residual revision/retrieval/license gaps. It does not replace vendored files, perform network checks, or resolve lineage that checked-in evidence does not support."
     },
     {
       "id": "repo-readme",
@@ -192,6 +193,24 @@
         "ecosystem contract interactions"
       ],
       "notes": "Verified GitLab repository for the ChainStation web application. A compact source audit pins master commit 5df03ab465d46f59f3e4d4a05e4e85fc90abdc0a on 2026-07-17; it does not establish current deployment or live external state."
+    },
+    {
+      "id": "chainstation-web-pinned-snapshot",
+      "label": "MoonCat KB pinned ChainStation Web evidence snapshot",
+      "type": "local-upstream-snapshot",
+      "path": "references/upstream/chainstation-web-audit/SNAPSHOT.json",
+      "trustLevel": "pinned-current-maintainer-technical-source",
+      "status": "pinned-selected-file-inputs",
+      "supports": [
+        "exact reviewed ChainStation revision",
+        "selected-file inventory hashes and sizes",
+        "zero-network implementation-surface validation",
+        "package-metadata license observation"
+      ],
+      "relatedSources": [
+        "chainstation-source"
+      ],
+      "notes": "Pins 28 selected exact files from ChainStation Web commit 5df03ab465d46f59f3e4d4a05e4e85fc90abdc0a, retrieved 2026-07-17. The snapshot is bounded source evidence, not a full repository copy or proof of current deployment, runtime configuration, external responses, or live state."
     },
     {
       "id": "libmooncat",
@@ -442,9 +461,11 @@
         "LibMoonCat browser bundle",
         "array-backed rescue order to catId lookup",
         "array-backed catId to rescue order lookup",
-        "MoonCat trait helper surfaces"
+        "MoonCat trait helper surfaces",
+        "exhaustive generated-population comparison input",
+        "exact local ABI extraction input"
       ],
-      "notes": "Local upstream reference copy. Checked exports include getMoonCatIdByRescueIndex, getCatId, getRescueOrder, parseCatId, and typed getTraits helpers. The embedded mapping supports lookup behavior; do not copy the full mapping into curated KB data without a focused generated-data pass."
+      "notes": "Local upstream reference copy used by the visual fixture, full-population comparison, identifier fixtures, materialization parity, and ABI/event extraction. Checked exports include getMoonCatIdByRescueIndex, getCatId, getRescueOrder, parseCatId, and typed getTraits helpers. Its exact upstream revision, retrieval date, and license remain unresolved in data/upstream-snapshot-manifest.json."
     },
     {
       "id": "mooncatrescue-mooncat-traits-json",
@@ -457,9 +478,10 @@
         "25,440-row MoonCat trait dataset",
         "rescueOrder field",
         "catId field",
-        "array-backed identifier conversion evidence"
+        "array-backed identifier conversion evidence",
+        "generated names, population, render, visual-fixture, and materialization inputs"
       ],
-      "notes": "Local upstream reference copy. Validated as JSON and structurally checked as 25,440 rows ordered by rescueOrder with unique catId values; it is a registered input to the source-attributed generated population, not standalone curated KB truth."
+      "notes": "Local upstream reference copy. Validated as 25,440 rescueOrder-aligned rows with unique catId values and used as a registered input by the generated names, population, renders, visual fixture, and materialization checks. It is not standalone curated KB truth; origin revision, retrieval date, and license remain unresolved."
     },
     {
       "id": "mooncatrescue-mooncatparser-js",
@@ -470,9 +492,11 @@
       "status": "reference-copy",
       "supports": [
         "bytes5 catId parsing input",
-        "MoonCat image parsing behavior"
+        "MoonCat image parsing behavior",
+        "exhaustive parser-derived static render input",
+        "population renderability and materialization checks"
       ],
-      "notes": "Local upstream reference copy. Reviewed only for bytes5 catId parser input context in this pass; do not derive trait mappings from it without a separate review."
+      "notes": "Local upstream reference copy used for parser-derived static renders plus bounded population, visual-fixture, materialization, and rescue-mining checks. It supplies parser behavior, not canonical trait mappings or on-chain SVG parity. Exact upstream revision, retrieval date, and license remain unresolved."
     },
     {
       "id": "ponderware-github",
@@ -1397,7 +1421,7 @@
         "mooncatrescue-mooncatparser-js",
         "mooncat-kb-name-index-pinned-snapshot"
       ],
-      "notes": "Generated joined view rather than an independent source of truth. Community character categories and derived colors retain their noncanonical/derived boundaries; live ownership, accessories, markets, and provisional naming are excluded."
+      "notes": "Generated by scripts/generate-mooncat-population.py as a joined view rather than an independent source of truth. Its manifest pins every checked-in input path/hash and the finalized name-index revision; community character categories and derived colors retain their noncanonical/derived boundaries, while live ownership, accessories, markets, and provisional naming are excluded."
     },
     {
       "id": "midnightlightning-discord-color-blurb-2024-01-06",
@@ -1417,7 +1441,7 @@
     }
   ],
   "todos": [
-    "Extract exact contract addresses, CIDs, API endpoints, IDs, and trait mappings only in focused follow-up passes.",
-    "Add derived data entries only after documenting the generating source or method."
+    "Keep unresolved upstream revision, retrieval-date, and license evidence explicit in data/upstream-snapshot-manifest.json until direct evidence is available.",
+    "Register future facts or derived artifacts only in focused passes that record their source-of-fact or source-of-input, deterministic method, revision/freshness boundary, and applicable license evidence."
   ]
 }

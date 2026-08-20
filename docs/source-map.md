@@ -6,6 +6,20 @@ Canonical source entries live in `data/sources.json`.
 
 Detailed source-tier, local upstream snapshot, and promotion rules live in `docs/reference-policy.md`.
 
+For a complete provenance trace, use the registries by role:
+
+- `data/sources.json` identifies curated sources and states what each can and
+  cannot support.
+- `data/upstream-snapshot-manifest.json` binds important checked-in inputs to
+  exact local paths, hashes, known revision/retrieval/license evidence, and
+  dependent files.
+- `data/kb-manifest.json` records which script, drift check, focused validators,
+  and provenance metadata own each maintained generated artifact.
+
+These structures distinguish source-of-fact, source-of-input, deterministic
+derivation, generated output, and community/human classification. A generated
+artifact may join several roles and must preserve each input's trust boundary.
+
 ## Source Categories
 
 - `primary`: original project, contract, metadata, or protocol source.
@@ -99,6 +113,11 @@ The following are maintained KB artifacts rather than upstream primary sources:
 
 - Full MoonCat population index: `data/mooncat-population/manifest.json`, its sharded rows and validation report, and `docs/mooncat-population-index.md`. This is a deterministic joined view generated from registered upstream snapshots, curated membership data, finalized name-index inputs, and local display/classification policy. It is not a standalone canonical source, live chain state, or proof of current ownership, accessories, markets, or API freshness.
 - Contract and event registry: `data/contract-registry.json`, `data/event-registry.json`, `data/event-indexer-recipes.json`, `data/abi-registry/`, and `docs/contract-abi-event-registry.md`. These are deterministic local extracts and bounded semantic annotations from reviewed address-bound contract evidence. They document exact local ABI/event artifacts and indexing guidance, but do not prove deployed bytecode equivalence, complete event history, current state, or live RPC behavior.
+
+`data/kb-manifest.json` provides the aggregate accounting for maintained
+generated artifacts. Its `provenanceCoverage` summary is derived from the
+source index, important-input manifest, maintained-file classifications, and
+generated-artifact registry; it is not another source of MoonCat facts.
 
 ## Adding a Source
 

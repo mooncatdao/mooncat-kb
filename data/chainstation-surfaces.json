@@ -1,10 +1,11 @@
 {
   "version": 1,
-  "updated": "2026-07-17",
+  "updated": "2026-08-20",
   "status": "compact-pinned-chainstation-implementation-audit",
   "scope": "A compact index of selected ChainStation Web implementation and data surfaces observed at one pinned source revision. It distinguishes source code, configuration, local generated data, external APIs, and possible runtime behavior without claiming live deployment or state.",
   "sourceRef": "chainstation-source",
   "snapshot": {
+    "sourceRef": "chainstation-web-pinned-snapshot",
     "metadataPath": "references/upstream/chainstation-web-audit/SNAPSHOT.json",
     "repository": "https://gitlab.com/mooncatrescue/chainstation-web.git",
     "branch": "master",

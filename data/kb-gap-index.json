@@ -1,8 +1,8 @@
 {
-  "version": 16,
-  "updated": "2026-08-19",
-  "status": "public-release-candidate-audited-ready-with-accepted-boundaries",
-  "scope": "Post-release-readiness agent-usability gap report covering public claims, source/routing/population/conformance/render capabilities, benchmark risk coverage, semantic release gates, provenance, licensing, and live-state limits.",
+  "version": 17,
+  "updated": "2026-08-20",
+  "status": "public-release-provenance-audited-ready-with-enumerated-evidence-boundaries",
+  "scope": "Post-release provenance and agent-usability gap report covering public claims, source/input/derivation roles, upstream revision/retrieval/license residuals, routing/population/conformance/render capabilities, benchmark risk coverage, semantic release gates, and live-state limits.",
   "sourceFiles": [
     "data/agent-index.json",
     "data/architecture-decisions.json",
@@ -29,6 +29,7 @@
     "data/event-indexer-recipes.json",
     "data/identifier-conventions.json",
     "data/ipfs-cids.json",
+    "data/kb-manifest.json",
     "data/kb-gap-index.json",
     "data/libmooncat-surfaces.json",
     "data/link-index.json",
@@ -55,11 +56,16 @@
     "data/task-recipes.json",
     "data/trait-index.json",
     "docs/public-release-readiness.md",
+    "docs/source-map.md",
+    "docs/upstream-snapshots.md",
+    "scripts/generate-kb-manifest.py",
     "scripts/validate-kb.py",
-    "scripts/validate-factual-retrieval-cases.py"
+    "scripts/validate-factual-retrieval-cases.py",
+    "scripts/validate-kb-manifest.py",
+    "scripts/validate-upstream-snapshots.py"
   ],
   "method": {
-    "summary": "Adversarially cross-checked repeated public claims against owning data, status/TODO/limitation fields, direct routing, generated artifacts, executable examples, source/license boundaries, factual benchmark risks, and human/agent entrypoints.",
+    "summary": "Adversarially cross-checked repeated public claims and maintained artifacts against owning data, source roles, important checked-in input lineage, generator/check/validator ownership, status/TODO/limitation fields, direct routing, source/license boundaries, factual benchmark risks, and human/agent entrypoints.",
     "limitations": [
       "This file does not add MoonCat facts or verify upstream freshness.",
       "The audit corrected resolvable local contradictions and provenance wording but did not import new upstream datasets or invent source lineage.",
@@ -108,7 +114,25 @@
         "scripts/validate-kb.py",
         "data/kb-gap-index.json"
       ],
-      "notes": "The public-release audit corrected stale fully-on-chain, naming, trait/identifier, Genesis/type, and rescue-history claims; tightened reviewed-contract versus current-state language; expanded the factual benchmark from 38 to 64 balanced cases; and added 13 stable cross-file release invariants. The repository is ready for public v1 with live state, incomplete source lineage/licenses, additional wrappers, exact on-chain output, and other recorded boundaries explicitly accepted rather than silently resolved."
+      "notes": "The public-release audit corrected stale fully-on-chain, naming, trait/identifier, Genesis/type, and rescue-history claims; tightened reviewed-contract versus current-state language; expanded the factual benchmark from 38 to 64 balanced cases; and added 13 stable cross-file release invariants. The repository is ready for public v1 with live state, enumerated upstream revision/retrieval/license residuals, additional wrappers, exact on-chain output, and other recorded boundaries explicitly accepted rather than silently resolved."
+    },
+    {
+      "key": "public-release-source-and-derivation-provenance",
+      "status": "resolved-for-maintained-public-artifacts-with-enumerated-upstream-residuals",
+      "files": [
+        "data/sources.json",
+        "data/upstream-snapshot-manifest.json",
+        "data/kb-manifest.json",
+        "scripts/validate-upstream-snapshots.py",
+        "scripts/generate-kb-manifest.py",
+        "scripts/validate-kb-manifest.py",
+        "scripts/validate-kb.py",
+        "docs/source-map.md",
+        "docs/reference-policy.md",
+        "docs/upstream-snapshots.md",
+        "docs/kb-integrity.md"
+      ],
+      "notes": "The maintained public surface now distinguishes source-of-fact, source-of-input, deterministic derivation, generated output, and human/community classification. Important local reference paths are cross-bound to the source index where applicable, pinned metadata/inventories are mechanically checked, generated outputs have explicit ownership and provenance paths, and stale source notes reflect implemented use. Five important-input entries still lack exact upstream revision evidence, five lack retrieval or verification dates, and seven entries retain unresolved upstream/input license evidence; those exact residuals remain explicit and do not block static public use."
     },
     {
       "key": "factual-retrieval-benchmark",
@@ -383,7 +407,7 @@
     },
     {
       "key": "upstream-snapshot-provenance-manifest",
-      "status": "resolved-as-local-hash-manifest-with-open-lineage",
+      "status": "resolved-as-validated-important-input-lineage-with-enumerated-residuals",
       "files": [
         "data/upstream-snapshot-manifest.json",
         "scripts/validate-upstream-snapshots.py",
@@ -395,7 +419,7 @@
         "data/agent-index.json",
         "data/task-recipes.json"
       ],
-      "notes": "Important active reference inputs now have local SHA-256/size checks, dependency mappings, copy/adaptation status, revision/date/license evidence, and explicit freshness limitations. The upstream commit/tag and retrieval date remain unresolved for core local reference files where checked-in evidence does not support a stronger claim."
+      "notes": "Ten important active inputs and reviews now have local SHA-256/size checks, dependency mappings, copy/adaptation status, revision/date/license evidence, and explicit freshness limitations. Six upstream-reference paths are cross-bound to matching source entries; recorded pinned metadata and name-snapshot inventory are checked. Exact upstream revision remains incomplete for five entries, retrieval or verification dates for five, and license evidence for seven."
     },
     {
       "key": "mooncat-accessories-internals-review",
@@ -703,15 +727,15 @@
     },
     {
       "file": "data/upstream-snapshot-manifest.json",
-      "currentStatus": "compact-provenance-manifest",
+      "currentStatus": "validated-important-input-lineage-with-enumerated-residuals",
       "routedFromAgentIndex": true,
       "gapTypes": [
         "upstream-lineage-partially-pinned",
         "retrieval-dates-incomplete",
         "license-evidence-incomplete"
       ],
-      "agentUsabilityImpact": "Detects local snapshot drift and distinguishes pinned archive review evidence from unresolved upstream lineage, but does not prove the origin of every local copy.",
-      "nextDataPass": "Only improve individual entries when direct upstream revision, retrieval-date, or license evidence is available; do not invent missing provenance."
+      "agentUsabilityImpact": "Detects local snapshot drift, contradictory registered paths, pinned metadata or inventory mismatch, copy identity, and missing dependencies while distinguishing exact evidence from five incomplete revisions, five unknown retrieval/verification dates, and seven entries with unresolved upstream/input license evidence.",
+      "nextDataPass": "Only improve the enumerated residual entries when direct upstream revision, retrieval-date, or license evidence is available; do not infer missing provenance from filenames, URLs, adjacent repositories, or this repository's license."
     },
     {
       "file": "data/mooncat-visual-traits.sample.json",
@@ -817,14 +841,15 @@
     },
     {
       "file": "data/sources.json",
-      "currentStatus": "incomplete",
+      "currentStatus": "maintained-public-artifact-provenance-covered-with-enumerated-reference-gaps",
       "routedFromAgentIndex": true,
       "gapTypes": [
-        "incomplete",
-        "source-method-gaps"
+        "unresolved-upstream-revision",
+        "unknown-retrieval-date",
+        "unresolved-reference-license"
       ],
-      "agentUsabilityImpact": "Core source index is usable, but source/method entries for derived data and future exact values remain incomplete.",
-      "nextDataPass": "Add derived data entries only after documenting the generating source or method."
+      "agentUsabilityImpact": "The curated source index covers maintained public factual inputs, every registered local source path exists, and generated methods are owned through existing artifact manifests and data/kb-manifest.json rather than duplicate source entries. Important-input residuals are enumerated in data/upstream-snapshot-manifest.json instead of represented as generic source-method incompleteness.",
+      "nextDataPass": "Add a source only when a future fact or input actually needs it. Improve the five incomplete revisions, five unknown retrieval or verification dates, and seven entries with unresolved upstream/input license evidence only from direct evidence."
     },
     {
       "file": "data/special-cats.json",
@@ -914,9 +939,9 @@
       "reason": "The exact MoonCatsWrapped contract is reviewed, but the KB does not claim a complete inventory of historical or unofficial MoonCat wrappers. Any additional wrapper requires its own exact address and source review before adding mappings."
     },
     {
-      "key": "source-method-completion",
-      "priority": "medium",
-      "reason": "data/sources.json remains incomplete for some future exact values and derived-data methods."
+      "key": "unresolved-upstream-evidence-acquisition",
+      "priority": "low",
+      "reason": "Maintained public artifact provenance is covered locally, but five important inputs lack exact upstream revision evidence, five lack retrieval or verification dates, and seven retain unresolved licenses. Improve only individual entries when direct external evidence is separately authorized; no generic source-method completion pass remains."
     },
     {
       "key": "ipfs-payload-availability-check",
