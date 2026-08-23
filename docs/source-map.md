@@ -86,7 +86,10 @@ Project-link `trustLevel` values are navigation classifications, not canonical-s
 - Dune Rare Mooncat Dashboard: `dune-rare-mooncat`
 - Discord posts
 - DAO discussions
-- CatMoon implementation notes
+- Application implementation reference index: `docs/apps/README.md`
+- CatMoon implementation reference set: `docs/apps/catmoon/`
+- Stasis implementation reference set: `docs/apps/stasis/`
+- Shared application implementation patterns: `docs/apps/shared-implementation-patterns.md`
 - HOF website implementation notes
 - MoonCat DAO website implementation notes
 - Reddit technical posts

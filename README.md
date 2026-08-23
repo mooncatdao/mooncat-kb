@@ -38,6 +38,9 @@ they do not become independent primary sources or evidence of live state.
   exact local ABI/event shapes, topic0 values, and scoped semantics.
 - Naming, traits, rendering, and accessories: `docs/source-map.md` routes to
   focused source-backed subsystem docs and data.
+- Application implementation references: [`docs/apps/README.md`](docs/apps/README.md)
+  routes to bounded CatMoon and Stasis architecture, rendering, interaction,
+  provenance, and validation notes.
 - Agent workflow and integrity: `data/agent-index.json`,
   `data/task-recipes.json`, generated context packs, and the manifest/audit
   pipeline provide narrow context, guardrails, and repeatable checks.

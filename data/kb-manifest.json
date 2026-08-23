@@ -1469,7 +1469,7 @@
   "provenanceCoverage": {
     "sourceIndex": {
       "status": "maintained-public-artifact-provenance-covered-with-enumerated-reference-gaps",
-      "entryCount": 95,
+      "entryCount": 97,
       "localPathEntryCount": 25,
       "missingLocalPaths": []
     },
@@ -1515,7 +1515,7 @@
     "boundary": "Coverage records checked-in evidence and deterministic ownership; it does not resolve missing upstream facts or establish live/current state."
   },
   "coverage": {
-    "maintainedFileCount": 291,
+    "maintainedFileCount": 305,
     "excludedFileCount": 74,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -1624,8 +1624,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 6575,
-      "sha256": "58eeb713a1f9d25fd8e031c5c88d035e725b2b7e6ef8be7c5551b1d1f51bf03d",
+      "sizeBytes": 6774,
+      "sha256": "fc02e83e953f44892220b6f7f1981d95556b37d7b8ca25dd146a4103fe54b441",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -1888,8 +1888,8 @@
       "statuses": [
         "generated"
       ],
-      "sizeBytes": 104929,
-      "sha256": "2f607c4dbfc9e014a2046ce7833f6d72cfb33df92f89ed60f717a297656ce268",
+      "sizeBytes": 104930,
+      "sha256": "6a14f1d03450abbbafea2d2ef6d30c6bfb8ace37460b366a10a1eb6333ce4a2c",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -1916,8 +1916,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 34030,
-      "sha256": "bffa3d867e0023aca90f7ddc694d871d276f01d9a681aff96f40650756cb3250",
+      "sizeBytes": 35361,
+      "sha256": "712e008f6ba2f70fb2a9305ac4d79139ba07a43fdb854a1489a6361084691ddc",
       "agentRoutes": [
         "review-kb-gaps",
         "use-agent-context-packs",
@@ -6464,8 +6464,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 68568,
-      "sha256": "856ec8266cad2a11d457701063cc2e05537008fc46fdf51a2efd3e556fa626f4",
+      "sizeBytes": 70478,
+      "sha256": "0bca3829a264848f7ff7c3af6a1dd533d99e3eb6756a9e039cf3dac3dbf10740",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -6479,6 +6479,7 @@
         "look-up-contracts",
         "query-mooncat-population",
         "render-images",
+        "review-application-implementation",
         "review-kb-gaps",
         "review-mooncat-accessory-lifecycle",
         "review-mooncat-accessory-system",
@@ -6690,6 +6691,342 @@
       "sha256": "177504185d524173269aecb5ef0fc26267b77fac764069e66add6578621e291e",
       "agentRoutes": [
         "call-api-endpoints"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/README.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2694,
+      "sha256": "975816c4762f881901da034fe1b7d10a9158fe012db114dd6af64c289769d6e3",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": true
+    },
+    {
+      "path": "docs/apps/catmoon/architecture.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 3273,
+      "sha256": "33655bea4ea75c6a95238648684326f94661f0af30c5f1c02d601aa297291796",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/catmoon/decisions-and-failures.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 3009,
+      "sha256": "8a83cda23ab43c37958f2009ea3a0ab59908b2e5ace57aec2687ee2a81bd1196",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/catmoon/domain-rules.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2823,
+      "sha256": "ebe2d6818f95c8a1909eca0d0fa338d305a23265f1e2578f7706a8ee03dc31ef",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/catmoon/interaction-patterns.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2917,
+      "sha256": "63a4a64f56a71442341c94d85f6f008d492c7b77874b0235af1cab1bafae4dd1",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/catmoon/overview.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2435,
+      "sha256": "8def2576d7db3c7ff783d8d677108e75ae6858e43e4c02602d36e1323a3b45e2",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/catmoon/validation.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 1654,
+      "sha256": "f880fd862f5a1ebb883038e9d3763d86935f93846607c28482e60a5acf6cc748",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/shared-implementation-patterns.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2874,
+      "sha256": "578132544004a30a4230dfab76b88dde6868f83ce62a3db692b060a2fc6c18c9",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/stasis/architecture.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2150,
+      "sha256": "7f0782d4d453eba3d3d839132dce369ec9e13d7c1394de37df2767eaaf6326ed",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/stasis/data-contracts.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2329,
+      "sha256": "1fdb740bb48dc241f29b4b1dff21c815f54fee421d0f1e5c078981866dde7a9d",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/stasis/overview.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2106,
+      "sha256": "5edc133af9c20af167e2df9730f01bfdce29b56efdfe4d7de41869c5da976617",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/stasis/rendering.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2146,
+      "sha256": "91e8bcfbacc77a488313b87d79002a15739f37d843dd2e61c8353f2543f7b6ca",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/stasis/validation.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 1199,
+      "sha256": "b7f4c502e8c2fe10dae2e5bfa550a18a05e3c3f63c9b87a70c6b8f6a5eb0e6da",
+      "agentRoutes": [
+        "review-application-implementation"
+      ],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "docs/apps/stasis/visual-rationale.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2399,
+      "sha256": "b4ea69b05637ca184153dc81da1d7de795209f2dd820bfd8ef678cf58a4cbca5",
+      "agentRoutes": [
+        "review-application-implementation"
       ],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -7661,12 +7998,13 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 9342,
-      "sha256": "11ba47db63f54ba3bdebe214fd8409e273a7db113e1a7ba5e9c2f667e176c7da",
+      "sizeBytes": 9591,
+      "sha256": "4d03010b8f9d3d140f6e345450d5ceb002d50720193a9f1a3e84d8cd462f435f",
       "agentRoutes": [
         "check-source-provenance",
         "find-ipfs-and-artifact-urls",
         "look-up-contracts",
+        "review-application-implementation",
         "review-upstream-snapshot-provenance"
       ],
       "taskRecipes": [
@@ -8120,8 +8458,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3007,
-      "sha256": "a09e4c116604bde8adb706edf6aeb63c7dfe5087bda3574392f7c1752c2c9a48",
+      "sizeBytes": 3030,
+      "sha256": "a5c9feb76625155d1881410b951bcf20b75ab236ffa372ef1ae57e46f1dc8d3f",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,

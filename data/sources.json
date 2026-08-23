@@ -566,6 +566,41 @@
       "notes": "Verified GitHub URL provided by the user. Treat repository contents according to their own provenance before deriving canonical data."
     },
     {
+      "id": "zibzub-catmoon-repository",
+      "label": "zibzub CatMoon repository",
+      "type": "source-code",
+      "url": "https://github.com/zibzub/catmoon",
+      "trustLevel": "community-maintained",
+      "status": "reviewed-local-checkout",
+      "supports": [
+        "CatMoon application architecture",
+        "Three.js rendering and atlas usage",
+        "filter and wallet overlay implementation",
+        "rescue URL and detail-card interaction patterns",
+        "MoonCat name synchronization workflow"
+      ],
+      "reviewedCommit": "4acf66a54081a9f70a378e87b26e65eba2922cfb",
+      "reviewedAt": "2026-08-22",
+      "notes": "Reviewed from a clean local checkout at the recorded commit. This source supports bounded application implementation notes only; it does not establish protocol facts, current ownership, deployment state, live API behavior, or current chain state. The URL was derived from the checkout's git remote and was not live-checked in this pass."
+    },
+    {
+      "id": "zibzub-stasis-repository",
+      "label": "zibzub Stasis repository",
+      "type": "source-code",
+      "url": "https://github.com/zibzub/stasis",
+      "trustLevel": "community-maintained",
+      "status": "reviewed-local-checkout",
+      "supports": [
+        "Stasis application architecture",
+        "pinned-data presentation pipeline",
+        "Canvas chunking and inspection patterns",
+        "static visualization provenance and limitation language"
+      ],
+      "reviewedCommit": "192562fd7087aadc08e0a30d1f571b7db39684e4",
+      "reviewedAt": "2026-08-22",
+      "notes": "Reviewed from a clean local checkout at the recorded commit. This source supports bounded application implementation notes only; the generated dormancy snapshot retains its own pinned inputs and limitations. The URL was derived from the checkout's git remote and was not live-checked in this pass."
+    },
+    {
       "id": "rate-my-mooncat",
       "label": "Rate My Mooncat",
       "type": "community",

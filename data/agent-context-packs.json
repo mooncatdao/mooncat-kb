@@ -1072,7 +1072,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 157503,
+        "estimatedByteCount": 159413,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
@@ -1084,7 +1084,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 68568
+            "bytes": 70478
           },
           {
             "path": "data/kb-gap-index.json",
@@ -1231,7 +1231,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 98243,
+        "estimatedByteCount": 100153,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1243,7 +1243,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 68568
+            "bytes": 70478
           }
         ],
         "softFileLimit": 7,
@@ -1311,7 +1311,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 104927,
+        "estimatedByteCount": 106837,
         "files": [
           {
             "path": "data/architecture-decisions.json",
@@ -1323,7 +1323,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 68568
+            "bytes": 70478
           },
           {
             "path": "docs/reference-policy.md",
@@ -1739,7 +1739,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 151405,
+        "estimatedByteCount": 152736,
         "files": [
           {
             "path": "data/agent-query-cases.json",
@@ -1751,7 +1751,7 @@
           },
           {
             "path": "data/agent-index.json",
-            "bytes": 34030
+            "bytes": 35361
           },
           {
             "path": "data/task-recipes.json",
@@ -1827,7 +1827,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 88921,
+        "estimatedByteCount": 90831,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -1839,7 +1839,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 68568
+            "bytes": 70478
           }
         ],
         "softFileLimit": 7,
@@ -2020,7 +2020,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 88921,
+        "estimatedByteCount": 90831,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -2032,7 +2032,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 68568
+            "bytes": 70478
           }
         ],
         "softFileLimit": 7,
@@ -2212,7 +2212,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 91278,
+        "estimatedByteCount": 93188,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -2228,7 +2228,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 68568
+            "bytes": 70478
           }
         ],
         "softFileLimit": 7,

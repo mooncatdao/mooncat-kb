@@ -555,6 +555,35 @@
       ]
     },
     {
+      "key": "review-application-implementation",
+      "description": "Trace bounded CatMoon or Stasis implementation behavior through the canonical application reference notes and their registered source revisions.",
+      "primaryFiles": [
+        "docs/apps/README.md"
+      ],
+      "optionalFiles": [
+        "docs/apps/catmoon/overview.md",
+        "docs/apps/catmoon/architecture.md",
+        "docs/apps/catmoon/domain-rules.md",
+        "docs/apps/catmoon/interaction-patterns.md",
+        "docs/apps/catmoon/decisions-and-failures.md",
+        "docs/apps/catmoon/validation.md",
+        "docs/apps/stasis/overview.md",
+        "docs/apps/stasis/architecture.md",
+        "docs/apps/stasis/rendering.md",
+        "docs/apps/stasis/data-contracts.md",
+        "docs/apps/stasis/visual-rationale.md",
+        "docs/apps/stasis/validation.md",
+        "docs/apps/shared-implementation-patterns.md",
+        "data/sources.json",
+        "docs/source-map.md"
+      ],
+      "notes": [
+        "Choose only the app-specific pages needed for the question after reading the index.",
+        "Preserve pinned commit, generated-snapshot, source-of-input, and live-state boundaries.",
+        "Do not treat application source as canonical protocol, current ownership, deployment, API, RPC, or browser evidence."
+      ]
+    },
+    {
       "key": "find-ipfs-and-artifact-urls",
       "description": "Find curated CID placeholders, project links, and preserved navigation links.",
       "primaryFiles": [

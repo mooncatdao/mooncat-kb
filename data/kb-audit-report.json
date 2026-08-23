@@ -61,7 +61,7 @@
       "command": "python scripts/validate-kb.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "MoonCat KB validation Repo root: . JSON files checked: 51 Required file references checked: 622 sourceRefs checked: 1218 relatedFiles checked: 288 Character/Genesis membership arrays checked: 16 Release semantic invariants checked: 13 Warnings: 0 Errors: 0"
+      "outputSummary": "MoonCat KB validation Repo root: . JSON files checked: 51 Required file references checked: 638 sourceRefs checked: 1218 relatedFiles checked: 288 Character/Genesis membership arrays checked: 16 Release semantic invariants checked: 13 Warnings: 0 Errors: 0"
     },
     {
       "command": "python scripts/validate-agent-routing.py",
@@ -157,30 +157,30 @@
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 291 maintained files, 74 explicit exclusions, 154 generated artifacts with provenance ownership; hashes, routes, and commands validated"
+      "outputSummary": "OK: 305 maintained files, 74 explicit exclusions, 154 generated artifacts with provenance ownership; hashes, routes, and commands validated"
     }
   ],
   "counts": {
     "requiredCommandCount": 26,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 2867,
+    "internalPathsChecked": 2898,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 291,
+    "manifestMaintainedFileCount": 305,
     "manifestExcludedFileCount": 74
   },
   "duplicateIdChecks": {
     "collections": {
       "sources": {
         "file": "data/sources.json",
-        "count": 95,
+        "count": 97,
         "duplicates": []
       },
       "agent-routes": {
         "file": "data/agent-index.json",
-        "count": 35,
+        "count": 36,
         "duplicates": []
       },
       "task-recipes": {
@@ -242,7 +242,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 2867,
+    "checked": 2898,
     "errors": [],
     "warnings": []
   },
