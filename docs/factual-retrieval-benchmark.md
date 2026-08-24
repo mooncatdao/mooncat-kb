@@ -16,9 +16,11 @@ or network harness.
 
 ## Schema and classes
 
-The dataset defines its closed enums and contains 64 cases: 16 each for direct
+The dataset defines its closed enums and 64 coverage cases: 16 each for direct
 lookup, cross-source synthesis, provenance-boundary, and
-live-verification-stop:
+live-verification-stop. This is a count of defined benchmark cases, not a 64/64
+score of model answers; this repository does not maintain a scored model
+baseline:
 
 - `direct-lookup`: retrieve a bounded fact or KB policy from its owning file.
 - `cross-source-synthesis`: combine narrow sources while retaining their
@@ -62,9 +64,11 @@ risk coverage does not create a parallel fact database.
 4. Record any missing source, unclear boundary, or unrouted compact data file
    as a KB gap rather than guessing a result.
 
-Run `python scripts/validate-factual-retrieval-cases.py` to check the dataset's
-structure, coverage, references, and static-boundary policy. This is an
-offline dataset validator, not an LLM-quality score or an answer evaluator.
+Run `python scripts/validate-factual-retrieval-cases.py` to validate the
+benchmark's case definitions, structure, coverage, references, and
+static/live-boundary policy. Its passing 64-case message means that those
+defined coverage cases pass these contract checks; it is not a 64/64 answer
+accuracy result, LLM-quality score, or answer evaluation.
 
 ## What it does not score
 

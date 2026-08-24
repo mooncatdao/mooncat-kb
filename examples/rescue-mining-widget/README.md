@@ -1,7 +1,14 @@
 # Rescue Mining Widget Example
 
 Plain embeddable MoonCat normal rescue-mining widget. It recreates the original
-scanner page flow in a self-contained, wallet-free form:
+scanner page flow in a self-contained, wallet-free form. It performs CPU-intensive
+local Keccak candidate scanning only after the user starts it; it does not mine
+cryptocurrency or contact a mining pool, and includes no wallet, provider,
+transaction submission, background worker, or persistent process. If a started
+scan is left open in a background tab, it may continue until stopped or a candidate
+is found, subject to normal browser throttling. Antivirus products may classify
+browser hashing demos heuristically, so the 50 ms inter-batch delay and intensity
+1 default are intentionally conservative.
 
 ```html
 <link rel="stylesheet" href="rescue-mining-widget.css">
@@ -49,6 +56,9 @@ query parameters without changing the default:
 ```text
 index.html?difficultyPrefix=0&autostart=1
 ```
+
+The page is manual-start by default. `autostart=1` is retained only as an
+explicit local/testing query option.
 
 The example vendors the original site's `public/js/sha3.min.js` at
 `vendor/sha3.min.js`. The vendored file identifies js-sha3 0.6.1 by Chen,
@@ -120,7 +130,9 @@ styling with CSS and canvas.
 
 - Does not call `rescueCat`.
 - Does not submit transactions.
+- Does not mine cryptocurrency or contact a mining pool.
 - Does not use a wallet, provider, account, private key, or gas settings.
+- Does not use a background worker or persistent process; after a user starts scanning, an open background tab may continue until stopped or a candidate is found, subject to browser throttling.
 - Does not claim a found cat is currently rescuable on-chain.
 - Does not import a rescued-cat dataset.
 - Renders the found `catId` with mooncatparser.js, but does not infer traits,

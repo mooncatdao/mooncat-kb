@@ -294,7 +294,11 @@ def main() -> int:
         validate_case(case, data, errors)
     if errors:
         return fail(errors)
-    print(f"Factual retrieval benchmark validation passed: {len(cases)} cases; " + ", ".join(f"{key}={counts[key]}" for key in enums["difficultyClasses"]))
+    print(
+        f"Factual retrieval benchmark case-definition validation passed: {len(cases)} defined coverage cases; "
+        "validated structure, coverage, references, and static/live boundaries; "
+        + ", ".join(f"{key}={counts[key]}" for key in enums["difficultyClasses"])
+    )
     return 0
 
 

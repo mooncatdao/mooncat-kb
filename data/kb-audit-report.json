@@ -151,13 +151,13 @@
       "command": "python scripts/validate-factual-retrieval-cases.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "Factual retrieval benchmark validation passed: 64 cases; direct-lookup=16, cross-source-synthesis=16, provenance-boundary=16, live-verification-stop=16"
+      "outputSummary": "Factual retrieval benchmark case-definition validation passed: 64 defined coverage cases; validated structure, coverage, references, and static/live boundaries; direct-lookup=16, cross-source-synthesis=16, provenance-boundary=16, live-verification-stop=16"
     },
     {
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 305 maintained files, 74 explicit exclusions, 154 generated artifacts with provenance ownership; hashes, routes, and commands validated"
+      "outputSummary": "OK: 305 maintained files, 75 explicit exclusions, 154 generated artifacts with provenance ownership; hashes, routes, and commands validated"
     }
   ],
   "counts": {
@@ -169,7 +169,7 @@
     "warningCount": 0,
     "errorCount": 0,
     "manifestMaintainedFileCount": 305,
-    "manifestExcludedFileCount": 74
+    "manifestExcludedFileCount": 75
   },
   "duplicateIdChecks": {
     "collections": {

@@ -33,7 +33,7 @@
     var settings = Object.assign({
       searchSeed: ORIGINAL_SEARCH_SEED,
       batchSize: 180,
-      tickDelay: 0,
+      tickDelay: 50,
       difficultyPrefix: ORIGINAL_DIFFICULTY_PREFIX,
       knownRescuedCatIds: null,
       keccak256: null,
@@ -236,7 +236,7 @@
       '      <button class="mcr-miner__button mcr-miner__button--ok" data-mcr-start>Scan for Cats</button>',
       '    </div>',
       '    <p class="mcr-miner__notice" data-mcr-difficulty-summary></p>',
-      '    <p class="mcr-miner__notice">Wallet-free demo. No chain-state check is performed.</p>',
+      '    <p class="mcr-miner__notice">Local CPU-intensive Keccak hashing demo: normally, scanning starts only after you click the button. This does not mine cryptocurrency or contact a mining pool, and it includes no wallet, provider, transaction submission, background worker, or persistent process. If a started scan is left open in a background tab, it may continue until stopped or a candidate is found, subject to normal browser throttling. Antivirus products may classify browser hashing demos heuristically; the 50 ms delay and intensity 1 default are intentionally conservative.</p>',
       '  </div>',
       '  <div class="mcr-miner__stage" data-mcr-stage="mine" aria-hidden="true">',
       '    <div class="mcr-miner__panel"><div data-mcr-status>Scanning for adorable mooncats...</div></div>',
@@ -283,7 +283,7 @@
       var option = document.createElement("option");
       option.value = String(i);
       option.textContent = "Scan intensity " + i;
-      if (i === Math.max(1, maxIntensity - 1)) {
+      if (i === 1) {
         option.selected = true;
       }
       select.appendChild(option);

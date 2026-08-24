@@ -108,9 +108,12 @@ or this repository's CC0 license.
 
 ## Factual benchmark coverage
 
-The factual-retrieval benchmark expanded from 38 to 64 cases. It now has 16
-cases in each class: direct lookup, cross-source synthesis,
-provenance-boundary, and live-verification stop.
+The factual-retrieval benchmark expanded from 38 to 64 defined coverage cases.
+It now has 16 cases in each class: direct lookup, cross-source synthesis,
+provenance-boundary, and live-verification stop. This is not a 64/64 score of
+model answers: the validator checks case definitions, structure, coverage,
+references, provenance constraints, and static/live boundaries only, and no
+full model baseline is maintained.
 
 New adversarial coverage includes complete population scope, Day 1/Day 2/Week
 1 rescue boundaries, released versus formula-only Genesis identifiers,

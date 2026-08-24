@@ -1516,7 +1516,7 @@
   },
   "coverage": {
     "maintainedFileCount": 305,
-    "excludedFileCount": 74,
+    "excludedFileCount": 75,
     "unclassifiedMaintainedFileCount": 0
   },
   "entries": [
@@ -7271,8 +7271,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4136,
-      "sha256": "c56a28f8df45cf0a24f47dcf6a35885f5a08ca30c5e9460739aa1678c56d27dd",
+      "sizeBytes": 4395,
+      "sha256": "51d7be3642b650482bf1dab91b34af377e1af1374fdc8de3c306f142ab01f488",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -7894,8 +7894,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 9833,
-      "sha256": "a41ab4ef61a9ec0423d0cfac5698a0a9b270f4cc5da23f4eb9a5a852713d35f8",
+      "sizeBytes": 10065,
+      "sha256": "90efcff6a1a8294ce9f1fc51cdf72f6062501571c35586001b601673177bde0e",
       "agentRoutes": [
         "review-kb-gaps"
       ],
@@ -8296,8 +8296,8 @@
         "curated",
         "example"
       ],
-      "sizeBytes": 4885,
-      "sha256": "039fee8f707feb788ae82712f10a7143dfd11dc3c3d44ccc47810be4872cdaba",
+      "sizeBytes": 5796,
+      "sha256": "7811ee1651b0bc10e3e795b14ab1ad9e14c436eccac33745500cdab5aa89e896",
       "agentRoutes": [
         "understand-rescue-mining"
       ],
@@ -8404,8 +8404,8 @@
         "curated",
         "example"
       ],
-      "sizeBytes": 21707,
-      "sha256": "d7607d69420423a6e0865d55689f3e88e9c6e5fe1111a3fa09a4487e8bda2f6d",
+      "sizeBytes": 22176,
+      "sha256": "2d022334218a6e3d0b2bef5d35b6d363e5689429d05165ae897f4c23d1bae0c6",
       "agentRoutes": [
         "understand-rescue-mining"
       ],
@@ -9047,8 +9047,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 17297,
-      "sha256": "83362cc386919b8cd10de3edd5abf35c4c7d46f001da6ea34b00a736798ea217",
+      "sizeBytes": 17434,
+      "sha256": "1710a2231740a97e998ff88de95ddf0255e300b9699746744969c0043422bdae",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -9370,6 +9370,10 @@
     }
   ],
   "excludedFiles": [
+    {
+      "path": ".gitignore",
+      "reason": "local-hidden-workflow-artifact"
+    },
     {
       "path": "codex-handoff.md",
       "reason": "local-agent-session-handoff"
