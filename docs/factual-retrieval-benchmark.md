@@ -70,6 +70,77 @@ static/live-boundary policy. Its passing 64-case message means that those
 defined coverage cases pass these contract checks; it is not a 64/64 answer
 accuracy result, LLM-quality score, or answer evaluation.
 
+## Empirical baseline harness
+
+The empirical harness measures required-files-only sufficiency for one named
+model and configuration. It intentionally excludes every case's
+`optionalFiles` in this first baseline methodology, matching the isolation
+used by the earlier pilots. Preparation is local and deterministic for the
+same benchmark, source checkout, CLI values, and optional fixed
+`--generated-at` timestamp; it does not invoke a model. Each run also stores
+the exact `benchmark-snapshot.json` used for preparation. Run metadata pins
+that snapshot's SHA-256 and the preparation-time SHA-256 for every copied
+required file, so a completed run remains historically self-contained after
+the current KB changes.
+
+Prepare an in-progress run under the ignored local run root:
+
+```sh
+python scripts/prepare-factual-retrieval-baseline.py \
+  --run-dir .factual-retrieval-runs/2026-09-01-model-name \
+  --run-id 2026-09-01-model-name \
+  --run-date 2026-09-01 \
+  --model 'exact model name/version' \
+  --provider-client 'provider and client label' \
+  --reasoning-level 'high' \
+  --network-tool-policy 'none'
+```
+
+The command creates exactly one `answer-bundles/<case-id>/` directory per
+case. Run the answer model with that case directory as its entire accessible
+root. It contains only the generic instruction, the visible question, and
+copies of `requiredFiles` under `required-files/`, preserving repository
+paths. Do not give the answer model the run root, another case directory,
+`run-metadata.json`, or anything under `reviewers/`.
+
+The separate `reviewers/<case-id>/hidden-rubric.json` holds
+`requiredConcepts`, `provenanceRequirements`, `forbiddenClaims`,
+`expectedLimitations`, `expectedAnswerMode`, `liveVerification`, and
+`reviewerNotes`. After an answer exists, preserve it verbatim as
+`reviewers/<case-id>/answer.md`, record free-form findings in
+`reviewer-findings.md`, and complete `grade.json`. The grade records concept
+and limitation coverage, provenance distinctions, forbidden-claim violations,
+live-verification behavior, reviewer notes, and the raw answer's SHA-256.
+Reviewers supply these semantic judgments; the validator does not infer them
+from keywords or grade the prose.
+
+Completed grades use `pass`, `partial`, `fail`, or `correct-stop`.
+`correct-stop` is reserved for a `live-verification-stop` answer that correctly
+refuses unsupported current-state inference while satisfying the other rubric
+dimensions. Validate and summarize only after all 64 answers and grades are
+complete:
+
+```sh
+python scripts/validate-factual-retrieval-baseline.py \
+  --run-dir .factual-retrieval-runs/2026-09-01-model-name
+python scripts/summarize-factual-retrieval-baseline.py \
+  --run-dir .factual-retrieval-runs/2026-09-01-model-name
+```
+
+The summary preserves the run date, exact model/configuration, source commit,
+benchmark hash, isolation policy, totals, all four class breakdowns, and
+case-level outcomes. Normal validation and summary regeneration use only the
+run-local benchmark snapshot and recorded required-file hashes; they do not
+require today's benchmark or source files to match. To inspect present-day
+differences separately, run the validator with `--report-current-drift`. That
+report is informational and never changes archival validity. The result is
+empirical and model/version-specific. It therefore stays outside
+`scripts/audit-kb.py`: the deterministic integrity audit checks
+the benchmark contract and local KB structure, not nondeterministic model
+quality or reviewer conclusions. Finalized reports are published only through
+an explicit reviewed change under `docs/benchmark-baselines/`; raw and
+incomplete runs remain ignored local artifacts.
+
 ## What it does not score
 
 The benchmark does not measure prose style, tool use, model quality, semantic

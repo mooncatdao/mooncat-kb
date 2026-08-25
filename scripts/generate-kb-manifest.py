@@ -136,6 +136,12 @@ CONTRACT_REGISTRY_UTILITY_ROLES = {
     "scripts/validate-contract-registry.py": ("validator", ["validation", "agent-workflow"]),
 }
 
+FACTUAL_BASELINE_UTILITY_ROLES = {
+    "scripts/prepare-factual-retrieval-baseline.py": ("generator", ["validation", "agent-workflow"]),
+    "scripts/summarize-factual-retrieval-baseline.py": ("generator", ["validation", "agent-workflow"]),
+    "scripts/validate-factual-retrieval-baseline.py": ("validator", ["validation", "agent-workflow"]),
+}
+
 VALIDATOR_COMMANDS = {
     "data/architecture-decisions.json": ["python scripts/validate-architecture-decisions.py"],
     "data/chainstation-surfaces.json": ["python scripts/validate-chainstation-surfaces.py"],
@@ -290,6 +296,9 @@ def file_classification(relative_path: str) -> tuple[str, list[str], str, list[s
         return "canonical-data", [topic], "curated", ["curated"]
     if relative_path in CONTRACT_REGISTRY_UTILITY_ROLES:
         role, topics = CONTRACT_REGISTRY_UTILITY_ROLES[relative_path]
+        return role, topics, "curated", ["curated", "script"]
+    if relative_path in FACTUAL_BASELINE_UTILITY_ROLES:
+        role, topics = FACTUAL_BASELINE_UTILITY_ROLES[relative_path]
         return role, topics, "curated", ["curated", "script"]
     if relative_path.startswith("scripts/generate-") and relative_path.endswith(".py"):
         return "generator", ["validation", "agent-workflow"], "curated", ["curated", "script"]

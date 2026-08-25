@@ -157,19 +157,19 @@
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 305 maintained files, 75 explicit exclusions, 154 generated artifacts with provenance ownership; hashes, routes, and commands validated"
+      "outputSummary": "OK: 309 maintained files, 76 explicit exclusions, 154 generated artifacts with provenance ownership; hashes, routes, and commands validated"
     }
   ],
   "counts": {
     "requiredCommandCount": 26,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 2898,
+    "internalPathsChecked": 2902,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 305,
-    "manifestExcludedFileCount": 75
+    "manifestMaintainedFileCount": 309,
+    "manifestExcludedFileCount": 76
   },
   "duplicateIdChecks": {
     "collections": {
@@ -242,7 +242,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 2898,
+    "checked": 2902,
     "errors": [],
     "warnings": []
   },

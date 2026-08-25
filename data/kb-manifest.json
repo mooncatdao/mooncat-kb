@@ -1515,8 +1515,8 @@
     "boundary": "Coverage records checked-in evidence and deterministic ownership; it does not resolve missing upstream facts or establish live/current state."
   },
   "coverage": {
-    "maintainedFileCount": 305,
-    "excludedFileCount": 75,
+    "maintainedFileCount": 309,
+    "excludedFileCount": 76,
     "unclassifiedMaintainedFileCount": 0
   },
   "entries": [
@@ -7065,6 +7065,28 @@
       "directAgentLoadRecommended": true
     },
     {
+      "path": "docs/benchmark-baselines/README.md",
+      "fileRole": "documentation",
+      "topics": [
+        "mooncat-knowledge"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "doc"
+      ],
+      "sizeBytes": 2086,
+      "sha256": "c1a6f71bfbaedc2707491dec4f4cdfc53c8b448b77816b2dff98c9976340177f",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "docs/benchmark-pilots/2026-07-25-antigravity-six-case-control-follow-up.md",
       "fileRole": "documentation",
       "topics": [
@@ -7271,8 +7293,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 4395,
-      "sha256": "51d7be3642b650482bf1dab91b34af377e1af1374fdc8de3c306f142ab01f488",
+      "sizeBytes": 8080,
+      "sha256": "27558f8133c67263779883cda9d37a202b79716448833c108301d8d0b15ca896",
       "agentRoutes": [
         "review-factual-retrieval-benchmark"
       ],
@@ -8606,8 +8628,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 24104,
-      "sha256": "ce54b9485ae9391365117f668e12672bedbe8772805719675e716a608ec6256b",
+      "sizeBytes": 24638,
+      "sha256": "3318de7905759709955bb6afe59e03f0f1cbdaaf7bee263ec0058f8c0ee65b47",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -8846,6 +8868,29 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "scripts/prepare-factual-retrieval-baseline.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 11398,
+      "sha256": "e4900e3dbcb1e90be25025043e035dbbf2751ea66ea7af644420f3fdda9bfe27",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "scripts/query-contract-events.py",
       "fileRole": "example",
       "topics": [
@@ -8895,6 +8940,29 @@
         "fetch-traits-safely",
         "query-mooncat-population"
       ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/summarize-factual-retrieval-baseline.py",
+      "fileRole": "generator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 8739,
+      "sha256": "5e90375b8397bf3082f685264d65b4554e515741237a69dfe37d6658d86741b5",
+      "agentRoutes": [],
+      "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
@@ -9028,6 +9096,29 @@
         "look-up-contract-abi",
         "query-contract-events"
       ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-factual-retrieval-baseline.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 26505,
+      "sha256": "4793c969eee7afa81be407eb7512ad21d4f66b3c267d412829a893e8344f2302",
+      "agentRoutes": [],
+      "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],
@@ -9370,6 +9461,10 @@
     }
   ],
   "excludedFiles": [
+    {
+      "path": ".github/workflows/notify-library.yml",
+      "reason": "local-hidden-workflow-artifact"
+    },
     {
       "path": ".gitignore",
       "reason": "local-hidden-workflow-artifact"
