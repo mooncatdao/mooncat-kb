@@ -1,0 +1,29 @@
+name: Notify MoonCat KB Library
+
+"on":
+  push:
+    branches:
+      - main
+
+permissions: {}
+
+jobs:
+  notify-library:
+    name: Dispatch kb-updated event
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch repository event
+        env:
+          MCKB_LIBRARY_DISPATCH_TOKEN: ${{ secrets.MCKB_LIBRARY_DISPATCH_TOKEN }}
+        run: >-
+          curl
+          --fail-with-body
+          --silent
+          --show-error
+          --request POST
+          --url https://api.github.com/repos/mooncatdao/mooncat-kb-library/dispatches
+          --header "Accept: application/vnd.github+json"
+          --header "Authorization: Bearer ${MCKB_LIBRARY_DISPATCH_TOKEN}"
+          --header "X-GitHub-Api-Version: 2022-11-28"
+          --header "Content-Type: application/json"
+          --data '{"event_type":"kb-updated"}'
