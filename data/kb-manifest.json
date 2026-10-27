@@ -1516,8 +1516,8 @@
     "boundary": "Coverage records checked-in evidence and deterministic ownership; it does not resolve missing upstream facts or establish live/current state."
   },
   "coverage": {
-    "maintainedFileCount": 310,
-    "excludedFileCount": 76,
+    "maintainedFileCount": 311,
+    "excludedFileCount": 79,
     "unclassifiedMaintainedFileCount": 0
   },
   "entries": [
@@ -1890,7 +1890,7 @@
         "generated"
       ],
       "sizeBytes": 104930,
-      "sha256": "6a14f1d03450abbbafea2d2ef6d30c6bfb8ace37460b366a10a1eb6333ce4a2c",
+      "sha256": "815580d35b19fb0dbe2390ddadda1cd50a7d2614262afd8bff1ee71aba4641b5",
       "agentRoutes": [
         "use-agent-context-packs"
       ],
@@ -2040,8 +2040,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 26520,
-      "sha256": "0af87c31854ccc58d0099b9332fca9cd33163702fb1b357acfab141cd7c288f2",
+      "sizeBytes": 27272,
+      "sha256": "793f258f0fadea0ddfc4e2e942b1d8065cdb62b3650b55dc2b666e3b6cf21e8f",
       "agentRoutes": [
         "locate-architecture-decisions",
         "trace-chainstation-implementation"
@@ -2566,8 +2566,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 57905,
-      "sha256": "ba786a43e7390950f02812f7c5afce867d4faf3de61f6a25e309989b922bb6e3",
+      "sizeBytes": 57971,
+      "sha256": "5a52453cf70a8b7c504c46b4ca2190c6a317ee0be083ece31ef82d420e6c3b2c",
       "agentRoutes": [
         "check-source-provenance",
         "review-factual-retrieval-benchmark",
@@ -6465,8 +6465,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 70478,
-      "sha256": "0bca3829a264848f7ff7c3af6a1dd533d99e3eb6756a9e039cf3dac3dbf10740",
+      "sizeBytes": 70632,
+      "sha256": "d97c5c14d0038ab54051e23f1ccc4fb79976a834c75263df1312263065ed628d",
       "agentRoutes": [
         "call-api-endpoints",
         "check-source-provenance",
@@ -6632,8 +6632,8 @@
       "statuses": [
         "curated"
       ],
-      "sizeBytes": 25099,
-      "sha256": "e1ddf015027d1d70d3c34b8a22532e2f289b5b4f66054663e69f8d984bfaf7da",
+      "sizeBytes": 25600,
+      "sha256": "49a3276d96c7da5862cf6b628bf0aee3b32628e64c6c9fc2faa4766d93e200b9",
       "agentRoutes": [
         "check-source-provenance",
         "review-upstream-snapshot-provenance",
@@ -7048,8 +7048,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 3155,
-      "sha256": "c7f7875530ac6e998ffaec41fe103716a9d194029734d0462406d56fa051cd1a",
+      "sizeBytes": 4777,
+      "sha256": "7d595ef37acb269b3fa9d975c32af32eaf110506af41d5f07268e90db4315dbd",
       "agentRoutes": [
         "locate-architecture-decisions",
         "trace-chainstation-implementation"
@@ -8527,8 +8527,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 12100,
-      "sha256": "c0e456856d19ce0ce113d9c307a1d2813bffbc043a83e63fc0e0891fecfe926b",
+      "sizeBytes": 12157,
+      "sha256": "65ff805176851260de393c5565c80bfb54f7c21cc3f136381a20d4679aed64b1",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -8972,6 +8972,29 @@
       "directAgentLoadRecommended": false
     },
     {
+      "path": "scripts/validate-adr-snapshot-inventory.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 7555,
+      "sha256": "2816233d36927602397b09c489b0f73615bd0fae57a3bd259716e39d9c8e1686",
+      "agentRoutes": [],
+      "taskRecipes": [],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
       "path": "scripts/validate-agent-routing.py",
       "fileRole": "validator",
       "topics": [
@@ -9010,8 +9033,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 10097,
-      "sha256": "d7cb9b499338925082e63d574b4efe11e7b1552f8a783c731998385d5d7d3ead",
+      "sizeBytes": 11585,
+      "sha256": "8f7cfbdeb6965a8eaf5265bb39cddd9d780eb70e6728e03512077e88fdba6aa5",
       "agentRoutes": [
         "locate-architecture-decisions"
       ],
@@ -9486,6 +9509,10 @@
   ],
   "excludedFiles": [
     {
+      "path": ".gitattributes",
+      "reason": "local-hidden-workflow-artifact"
+    },
+    {
       "path": ".github/workflows/notify-library.yml",
       "reason": "local-hidden-workflow-artifact"
     },
@@ -9775,6 +9802,14 @@
     },
     {
       "path": "references/upstream/mooncatrescue-dev-environment-adr/SNAPSHOT.json",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/accessory-palette.png",
+      "reason": "reference-snapshot-not-curated-kb-content"
+    },
+    {
+      "path": "references/upstream/mooncatrescue-dev-environment-adr/dither-patterns.png",
       "reason": "reference-snapshot-not-curated-kb-content"
     },
     {

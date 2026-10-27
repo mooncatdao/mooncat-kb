@@ -41,6 +41,7 @@ REQUIRED_COMMANDS = [
     "python scripts/validate-mooncat-renders.py",
     "python scripts/validate-contract-registry.py",
     "python scripts/validate-architecture-decisions.py",
+    "python scripts/validate-adr-snapshot-inventory.py",
     "python scripts/validate-chainstation-surfaces.py",
     "python scripts/validate-genesis-cats.py",
     "python scripts/validate-factual-retrieval-cases.py",

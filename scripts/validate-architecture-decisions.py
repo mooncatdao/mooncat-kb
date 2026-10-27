@@ -47,12 +47,26 @@ def main() -> int:
     metadata = json.loads((ROOT / metadata_path).read_text(encoding="utf-8"))
     if snapshot.get("resolvedCommit") != metadata.get("resolvedCommit") or snapshot.get("adrDirectory") != metadata.get("adrDirectory"):
         fail("index snapshot does not match snapshot metadata")
-    inventory = {item["path"]: item for item in metadata.get("inventory", []) if isinstance(item, dict)}
+    inventory_rows = metadata.get("inventory", [])
+    inventory = {item["path"]: item for item in inventory_rows if isinstance(item, dict)}
+    if len(inventory) != len(inventory_rows):
+        fail("snapshot inventory paths must be unique")
     snapshot_dir = ROOT / "references/upstream/mooncatrescue-dev-environment-adr"
-    snapshot_markdown = {path.name for path in snapshot_dir.glob("*.md")}
-    if snapshot_markdown != set(inventory):
-        fail("snapshot metadata inventory must list every and only copied Markdown file")
+    snapshot_files = {
+        path.relative_to(snapshot_dir).as_posix()
+        for path in snapshot_dir.rglob("*") if path.is_file() and path != ROOT / metadata_path
+    }
+    if snapshot_files != set(inventory):
+        fail("snapshot metadata inventory must list every and only copied evidence file")
     for path, item in inventory.items():
+        expected_role = (
+            "template" if path == "0000-TEMPLATE.md" else
+            "directory-readme" if path == "README.md" else
+            "decision" if re.fullmatch(r"\d{4}-[a-z0-9-]+\.md", path) else
+            "supporting-image" if path.endswith(".png") else None
+        )
+        if expected_role is None or item.get("role") != expected_role:
+            fail(f"snapshot inventory role mismatch: {path}")
         local = snapshot_dir / path
         actual_hash, actual_size = digest_and_size(local) if local.is_file() else (None, None)
         if actual_hash != item.get("sha256") or actual_size != item.get("bytes"):
@@ -109,6 +123,12 @@ def main() -> int:
         for key in ("decisionStatus", "decisionDateStatus", "supersessionStatus", "confidence", "evidenceStatus"):
             if decision.get(key) not in enums[key]:
                 fail(f"{identifier}: invalid {key}")
+        if source["kind"] == "local-reference-path":
+            text = (ROOT / source["localPath"]).read_text(encoding="utf-8")
+            status_section = re.search(r"(?ms)^## Status\s*\n(.*?)(?=^## |\Z)", text)
+            stated_status = re.sub(r"<!--.*?-->", "", status_section.group(1), flags=re.S).strip().lower() if status_section else "unknown"
+            if decision["decisionStatus"] != stated_status:
+                fail(f"{identifier}: decisionStatus does not match source ADR")
         date = decision.get("decisionDate")
         if date is not None and (not isinstance(date, str) or not DATE_PATTERN.fullmatch(date)):
             fail(f"{identifier}: decisionDate must be null or YYYY-MM-DD")
@@ -152,6 +172,10 @@ def main() -> int:
         fail("every snapshot decision file must be indexed exactly once with no extra records")
     if metadata.get("counts", {}).get("decisionFileCount") != len(snapshot_decision_files):
         fail("snapshot decisionFileCount does not match inventory")
+    if metadata.get("counts", {}).get("inventoryFileCount") != len(inventory):
+        fail("snapshot inventoryFileCount does not match inventory")
+    if metadata.get("counts", {}).get("nonDecisionFileCount") != len(inventory) - len(snapshot_decision_files):
+        fail("snapshot nonDecisionFileCount does not match inventory")
     for decision in decisions:
         identifier = decision["id"]
         for target in decision["supersedes"]:

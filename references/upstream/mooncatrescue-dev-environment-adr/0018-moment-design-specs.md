@@ -1,5 +1,5 @@
 # 0018 - MoonCat​Moment Design Specifications
-**Updated:** <!-- DD Mon YYYY --> 14 Mar 2026
+**Updated:** <!-- DD Mon YYYY --> 24 Jun 2026
 
 ## Status
 <!-- Proposed | Accepted | Rejected | Deprecated | Superseded -->
@@ -14,6 +14,14 @@ The modern “social post” feed image is 1200 pixels wide, but then varies bet
 ## Decision
 <!-- What is the change that we’re actually proposing or doing. -->
 Target a general layout of 1200x630 pixels to fit the social media standard, yet be round pixel values. But to make the background match the pixel-art aesthetics of MoonCats, the backdrops should be initially designed as 200x106 pixel art.
+
+For consistent appearance across different Moments, transitions between colors (gradients) should be treated in similar styles. An example of the dithering patterns that should be used:
+
+![Dither Examples](./dither-patterns.png)
+
+To visually match the MoonCat imagery that will be laid on those backdrops, matching the colors used for MoonCat Accessories is suggested as a starting point:
+
+![Accessory colors](./accessory-palette.png)
 
 To arrange MoonCats into that backdrop, it should be scaled up 600% to 1200x630 making each background-art pixel a 6-pixel square. With this scale, MoonCats can be rendered with Accessories (which use half-pixels) without quality loss.
 

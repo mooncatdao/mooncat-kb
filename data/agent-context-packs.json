@@ -1072,11 +1072,11 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 159413,
+        "estimatedByteCount": 160134,
         "files": [
           {
             "path": "data/upstream-snapshot-manifest.json",
-            "bytes": 25099
+            "bytes": 25600
           },
           {
             "path": "docs/upstream-snapshots.md",
@@ -1084,11 +1084,11 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 70478
+            "bytes": 70632
           },
           {
             "path": "data/kb-gap-index.json",
-            "bytes": 57905
+            "bytes": 57971
           }
         ],
         "softFileLimit": 7,
@@ -1154,15 +1154,15 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 57702,
+        "estimatedByteCount": 60076,
         "files": [
           {
             "path": "data/architecture-decisions.json",
-            "bytes": 26520
+            "bytes": 27272
           },
           {
             "path": "docs/architecture-decisions.md",
-            "bytes": 3155
+            "bytes": 4777
           },
           {
             "path": "data/color-source-inventory.json",
@@ -1231,19 +1231,19 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 100153,
+        "estimatedByteCount": 102681,
         "files": [
           {
             "path": "data/architecture-decisions.json",
-            "bytes": 26520
+            "bytes": 27272
           },
           {
             "path": "docs/architecture-decisions.md",
-            "bytes": 3155
+            "bytes": 4777
           },
           {
             "path": "data/sources.json",
-            "bytes": 70478
+            "bytes": 70632
           }
         ],
         "softFileLimit": 7,
@@ -1311,19 +1311,19 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 106837,
+        "estimatedByteCount": 109365,
         "files": [
           {
             "path": "data/architecture-decisions.json",
-            "bytes": 26520
+            "bytes": 27272
           },
           {
             "path": "docs/architecture-decisions.md",
-            "bytes": 3155
+            "bytes": 4777
           },
           {
             "path": "data/sources.json",
-            "bytes": 70478
+            "bytes": 70632
           },
           {
             "path": "docs/reference-policy.md",
@@ -1482,7 +1482,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 52622,
+        "estimatedByteCount": 54996,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
@@ -1494,11 +1494,11 @@
           },
           {
             "path": "data/architecture-decisions.json",
-            "bytes": 26520
+            "bytes": 27272
           },
           {
             "path": "docs/architecture-decisions.md",
-            "bytes": 3155
+            "bytes": 4777
           }
         ],
         "softFileLimit": 7,
@@ -1655,7 +1655,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 53977,
+        "estimatedByteCount": 54478,
         "files": [
           {
             "path": "data/chainstation-surfaces.json",
@@ -1667,7 +1667,7 @@
           },
           {
             "path": "data/upstream-snapshot-manifest.json",
-            "bytes": 25099
+            "bytes": 25600
           },
           {
             "path": "docs/upstream-snapshots.md",
@@ -1827,7 +1827,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 90831,
+        "estimatedByteCount": 90985,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -1839,7 +1839,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 70478
+            "bytes": 70632
           }
         ],
         "softFileLimit": 7,
@@ -2020,7 +2020,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 3,
-        "estimatedByteCount": 90831,
+        "estimatedByteCount": 90985,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -2032,7 +2032,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 70478
+            "bytes": 70632
           }
         ],
         "softFileLimit": 7,
@@ -2212,7 +2212,7 @@
       ],
       "sizeMetrics": {
         "fileCount": 4,
-        "estimatedByteCount": 93188,
+        "estimatedByteCount": 93342,
         "files": [
           {
             "path": "data/genesis-cats.json",
@@ -2228,7 +2228,7 @@
           },
           {
             "path": "data/sources.json",
-            "bytes": 70478
+            "bytes": 70632
           }
         ],
         "softFileLimit": 7,

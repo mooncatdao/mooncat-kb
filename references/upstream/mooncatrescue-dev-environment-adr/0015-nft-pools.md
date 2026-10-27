@@ -1,5 +1,5 @@
 # 0015 - NFT Pools
-**Updated:** <!-- DD Mon YYYY --> 5 May 2025
+**Updated:** <!-- DD Mon YYYY --> 22 July 2026
 
 ## Status
 <!-- Proposed | Accepted | Rejected | Deprecated | Superseded -->
@@ -27,7 +27,7 @@ This platform has a farming/rewards infrastructure, which uses Uniswap v2 liquid
 ### NFTX
 Created by a team with the same name as the product, and has gone through three different major versions. The MoonCatRescue project has "vaults" (pools) in the v2 and v3 infrastructures.
 
-The NFTX team has shifted their focus away from the vault web UIs, in favor of its new platform [ƒlayer](https://x.com/flayerApp), which is located on the Base sidechain. ƒlayer itself might also become a candidate for use in the future, but it's too early to tell at the moment.
+The NFTX team decided to shift their focus away from the vault web UIs, in favor of its new platform [ƒlayer](https://x.com/flayerApp), which is located on the Base sidechain. ƒlayer itself might also become a candidate for use in the future, but it's too early to tell at the moment. In December 2025, they [announced](https://x.com/NFTX_/status/2003059462748205538) that the web UIs for v2 and v3 of their infrastructure would be discontinued at the end of January 2026. But then in June 2026 they [announced](https://x.com/NFTX_/status/2071956819312840993) that they're working on a new (v4) version of their infrastructure.
 
 - [Documentation](https://docs.nftx.io/)
 - [Marketplace Integration guide](https://docs.nftx.io/integrations/marketplace-integration)
@@ -72,14 +72,18 @@ The sudoswap platform creates NFT pools not on a per-collection basis, but per-l
 
 ## Decision
 <!-- What is the change that we’re actually proposing or doing. -->
-The NFTX v3 platform is the preferred base to build upon. Interfaces built into the MoonCat Chainstation web interfaces should encourage visitors to interact with that platform by default. Interfaces for other pools may be integrated too, but those should have an emphasis on helping the user identify if they have existing positions on those platforms and transition them away from those other pools to NFTX v3.
+Await the NFTX v4 platform, and then evaluate if it should become the primary interaction point.
 
-The sudoswap infrastructure includes the ability to create [Dutch auctions](https://docs.sudoswap.xyz/user-guide/creating-an-auction/) for any ERC20 token, so could be used instead of the automatic Dutch auction set on NFTX v3 pools or any other pool's ERC20 token.
+In the interim, the ChainStation web application has already created an interface to the NFTX v2 pools, via an "Adopt right now" button on the home page, and a more-advanced [adoption wizard](https://mooncatrescue.com/adopt-a-mooncat) that uses the `0x98968f0747E0A261532cAcC0BE296375F5c08398` ERC20 token behind-the scenes.
+
+The sudoswap infrastructure includes the ability to create [Dutch auctions](https://docs.sudoswap.xyz/user-guide/creating-an-auction/) for any ERC20 token, so could be used instead of the automatic Dutch auction planned for NFTX v4 pools or any other pool's ERC20 token.
 
 For a user wishing to adopt a MoonCat, searching across all pools should be done, to help the visitor find the true lowest adoption price at the time.
 
 ## Consequences
 <!-- Outcomes, both positive and negative -->
-The NFTX team shifting its focus to other projects means integrating the NFTX vaults into ChainStation becomes a higher priority (rather than just linking visitors to the NFTX UI), but that was a desired goal anyway. It means there is no "fallback" option if the ChainStation interfaces break, but it gives more control over interacting with the vaults directly alongside MoonCat project lore.
+The NFTX team shifting its focus to other projects means integrating the NFTX vaults directly into the ChainStation application (interacting with the smart contracts directly, rather than just linking visitors to the NFTX UI) becomes a higher priority, but that was a desired goal anyway. It means there is no "fallback" option if the ChainStation interfaces break, but it gives more control over interacting with the vaults directly alongside MoonCat project lore.
 
 The NFTX v3 infrastructure is a bit more complicated to manage, due to there being both single-sided and paired liquidity options, plus needing to use the NFTX AMM for best liquidity means making your own swap UI too (rather than just redirecting the user to Uniswap's web UI, because it [cannot find a NFTX route](https://app.uniswap.org/swap?chain=mainnet&inputCurrency=NATIVE&outputCurrency=0xd4fe01ce79c84c68f9307d415b8f392d140c242c&value=.05)).
+
+Once the NFTX v4 infrastructure has been finalized, it should be investigated if the NFTX team plans to create bridges to easily convert from v2 and v3 to v4, or if project-specific bridges should be created. Using tools like limit orders on [CoW Swap](https://swap.cow.fi/) might make that easy without needing to create custom smart contracts for the owning team helping facilitate swapping between vault tokens.

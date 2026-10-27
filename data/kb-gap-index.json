@@ -959,7 +959,7 @@
     {
       "key": "adr-snapshot-refresh-review",
       "priority": "medium",
-      "reason": "The ADR index is complete only for pinned dev-environment commit d6a604e1a37fb5646d7e5059c0858bd15f9b7b83. Refresh only through a deliberate source/revision/license review; do not infer missing numbers, current-master content, or implementation completion."
+      "reason": "The ADR index is complete only for pinned dev-environment commit 9930b11e10bf60f3af785a40ae2193fa4281d718. ADR 0015/0018 and their two supporting images were reviewed for this pin; any later refresh still requires deliberate source/revision/license review. Do not infer current-master content or implementation completion."
     },
     {
       "key": "additional-historical-wrapper-inventory",

@@ -4,20 +4,23 @@
   "repository": "https://gitlab.com/mooncatrescue/dev-environment.git",
   "projectWebUrl": "https://gitlab.com/mooncatrescue/dev-environment",
   "branch": "master",
-  "resolvedCommit": "d6a604e1a37fb5646d7e5059c0858bd15f9b7b83",
+  "resolvedCommit": "9930b11e10bf60f3af785a40ae2193fa4281d718",
   "adrDirectory": "adr",
-  "retrievedDate": "2026-07-17",
+  "retrievedDate": "2026-10-27",
   "retrievalMethod": {
-    "method": "git-ls-remote-plus-temporary-shallow-clone",
+    "method": "exact-commit-shallow-fetch-and-git-show",
     "commands": [
-      "git ls-remote https://gitlab.com/mooncatrescue/dev-environment.git refs/heads/master",
-      "git clone --depth 1 --branch master https://gitlab.com/mooncatrescue/dev-environment.git <temporary-directory>"
+      "git ls-remote --symref https://gitlab.com/mooncatrescue/dev-environment.git HEAD refs/heads/master",
+      "git init --bare <run-directory>/upstream.git",
+      "git -C <run-directory>/upstream.git fetch --depth=1 https://gitlab.com/mooncatrescue/dev-environment.git 9930b11e10bf60f3af785a40ae2193fa4281d718",
+      "git -C <run-directory>/upstream.git ls-tree -r --name-only 9930b11e10bf60f3af785a40ae2193fa4281d718 adr",
+      "git -C <run-directory>/upstream.git show 9930b11e10bf60f3af785a40ae2193fa4281d718:adr/<inventory-path>"
     ],
-    "copyBoundary": "Only adr/*.md was copied byte-for-byte from the resolved temporary checkout; no other dev-environment files or Git metadata are included."
+    "copyBoundary": "All 20 adr/*.md files plus accessory-palette.png and dither-patterns.png are byte-identical to the exact reviewed commit. Only the two changed Markdown files and two new supporting images were written; unchanged files were retained. No other upstream files or Git metadata are included."
   },
   "license": {
     "status": "not-observed-in-shallow-checkout",
-    "evidence": "A tracked-file search in the resolved shallow checkout found no LICENSE, COPYING, or NOTICE file. References to AGPL-3.0 in example package metadata are not treated as repository license evidence."
+    "evidence": "No tracked LICENSE, COPYING, or NOTICE file was observed at the exact reviewed commit; example-package license declarations are not repository license evidence. The user confirmed redistribution permission on 2026-10-27 specifically for accessory-palette.png and dither-patterns.png. This is not a CC0 declaration or permission for unrelated upstream assets; general upstream licensing remains unresolved."
   },
   "inventory": [
     {"path": "0000-TEMPLATE.md", "role": "template", "bytes": 382, "sha256": "7163fc46453a4621b81348cc0a5caf2f740f4d8ce782e50970a1e75e3a5bfc38"},
@@ -35,15 +38,17 @@
     {"path": "0012-generic-token-metadata.md", "role": "decision", "bytes": 3841, "sha256": "b11f5314edf0783a09f69c6a9994ae21442cb808bdb6a11cc67552252dcb7e47"},
     {"path": "0013-tagging.md", "role": "decision", "bytes": 13848, "sha256": "a0beb79dddac84fcb49c3b562bc9379104b5c71567b3373370e4690bc6fab816"},
     {"path": "0014-wagmi-types.md", "role": "decision", "bytes": 7947, "sha256": "5aefe46a298b4f96729f5fa21185bacb6f91bd976375184cca910a9e2a735662"},
-    {"path": "0015-nft-pools.md", "role": "decision", "bytes": 10312, "sha256": "90d896c62c2b17ef7da49643c92e37e1e3590d391ec04020962a127597eaa170"},
+    {"path": "0015-nft-pools.md", "role": "decision", "bytes": 11169, "sha256": "4d68bd8f0619847145f78d0c53e8244eb4f8600f436726d2866b6bd89cc5810e"},
     {"path": "0016-user-galleries.md", "role": "decision", "bytes": 6468, "sha256": "43debfa2772e626400fffc53a3da90079432c8eed4571e0b9158196e57b57553"},
     {"path": "0017-mooncat-color-math.md", "role": "decision", "bytes": 7293, "sha256": "6c78b31dbdcb1b46f06710fabbe2b9950bab7bc9ce81fc717c04ec15278f9e49"},
-    {"path": "0018-moment-design-specs.md", "role": "decision", "bytes": 2874, "sha256": "f04512b38380759da768cf13ba113dc2039a061c1502c67c32e83e944aaebd08"},
-    {"path": "README.md", "role": "directory-readme", "bytes": 4209, "sha256": "660b9a92a2f2697281627bbe43e76600a2a86b4aba8cef3b8f7f698e41300301"}
+    {"path": "0018-moment-design-specs.md", "role": "decision", "bytes": 3310, "sha256": "cf203af707b8e71f696e1185319df22e6af5da7315021531d13bb5dd34a26737"},
+    {"path": "README.md", "role": "directory-readme", "bytes": 4209, "sha256": "660b9a92a2f2697281627bbe43e76600a2a86b4aba8cef3b8f7f698e41300301"},
+    {"path": "accessory-palette.png", "role": "supporting-image", "bytes": 15342, "sha256": "13a248bf576cfc77e6799affe6e31a2cbdbaf5e6ed2508fbe33cf47ead99ae29"},
+    {"path": "dither-patterns.png", "role": "supporting-image", "bytes": 304, "sha256": "9bd4bce10be9cc81daf64ee55c9a1ad78519e877c40ad85f606a393fddf725f7"}
   ],
   "counts": {
-    "inventoryFileCount": 20,
+    "inventoryFileCount": 22,
     "decisionFileCount": 18,
-    "nonDecisionFileCount": 2
+    "nonDecisionFileCount": 4
   }
 }
