@@ -32,6 +32,7 @@ EXCLUDED_PREFIXES = {
     ".chatgpt/": "local-generated-run-artifact",
     ".agents/": "local-agent-workflow-artifact",
     ".codex/": "local-agent-workflow-artifact",
+    ".factual-retrieval-runs/": "local-generated-benchmark-output",
     "references/": "reference-snapshot-not-curated-kb-content",
     "examples/rescue-mining-widget/vendor/": "vendored-example-dependency",
     "node_modules/": "dependency-directory",
@@ -175,7 +176,7 @@ def exclusion_reason(relative_path: str) -> str | None:
 
 def record_exclusion(relative_path: str) -> bool:
     """Keep the generated list stable while policy still excludes volatile caches."""
-    volatile_prefixes = (".git/", ".chatgpt/", ".agents/", ".codex/", "__pycache__/")
+    volatile_prefixes = (".git/", ".chatgpt/", ".agents/", ".codex/", ".factual-retrieval-runs/", "__pycache__/")
     return not relative_path.endswith(".pyc") and "/__pycache__/" not in relative_path and not relative_path.startswith(volatile_prefixes)
 
 

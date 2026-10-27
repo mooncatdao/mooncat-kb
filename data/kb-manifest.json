@@ -39,6 +39,7 @@
       ".chatgpt/": "local-generated-run-artifact",
       ".agents/": "local-agent-workflow-artifact",
       ".codex/": "local-agent-workflow-artifact",
+      ".factual-retrieval-runs/": "local-generated-benchmark-output",
       "references/": "reference-snapshot-not-curated-kb-content",
       "examples/rescue-mining-widget/vendor/": "vendored-example-dependency",
       "node_modules/": "dependency-directory",
@@ -1515,7 +1516,7 @@
     "boundary": "Coverage records checked-in evidence and deterministic ownership; it does not resolve missing upstream facts or establish live/current state."
   },
   "coverage": {
-    "maintainedFileCount": 309,
+    "maintainedFileCount": 310,
     "excludedFileCount": 76,
     "unclassifiedMaintainedFileCount": 0
   },
@@ -7469,8 +7470,8 @@
         "curated",
         "doc"
       ],
-      "sizeBytes": 7216,
-      "sha256": "ef530d194d958a767357334bea067fd397b1469c1737feac3f986d3d0582c157",
+      "sizeBytes": 7617,
+      "sha256": "b090d78c58abe5bdf1bdd3e3e1512452bace5150386c96bd436432a9ee6f1688",
       "agentRoutes": [
         "check-source-provenance"
       ],
@@ -8526,8 +8527,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 12043,
-      "sha256": "95253f3722cf86b5c45eb43eb878ac95bfd017784bc2ee322ef6bb5b57f15505",
+      "sizeBytes": 12100,
+      "sha256": "c0e456856d19ce0ce113d9c307a1d2813bffbc043a83e63fc0e0891fecfe926b",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -8628,8 +8629,8 @@
         "curated",
         "script"
       ],
-      "sizeBytes": 24638,
-      "sha256": "3318de7905759709955bb6afe59e03f0f1cbdaaf7bee263ec0058f8c0ee65b47",
+      "sizeBytes": 24734,
+      "sha256": "c18da2f4cb5b48f600935a6caf48b12f58eecfb9433704861397a56c6254f185",
       "agentRoutes": [],
       "taskRecipes": [],
       "generatorCommand": null,
@@ -9196,6 +9197,29 @@
       "taskRecipes": [
         "verify-identifier-conversions"
       ],
+      "generatorCommand": null,
+      "checkCommand": null,
+      "validatorCommands": [],
+      "provenancePath": null,
+      "sourceBackedStatus": "not-applicable",
+      "directAgentLoadRecommended": false
+    },
+    {
+      "path": "scripts/validate-kb-manifest-exclusions.py",
+      "fileRole": "validator",
+      "topics": [
+        "validation",
+        "agent-workflow"
+      ],
+      "curationMode": "curated",
+      "statuses": [
+        "curated",
+        "script"
+      ],
+      "sizeBytes": 4202,
+      "sha256": "17cfedfcca83868f497ab8af13a7d93f41ed8ed1e7ae516df20fc948fb3b34b7",
+      "agentRoutes": [],
+      "taskRecipes": [],
       "generatorCommand": null,
       "checkCommand": null,
       "validatorCommands": [],

@@ -4,6 +4,12 @@
   "scope": "zero-network orchestration of registered local validators, generators, manifest checks, bounded duplicate IDs, internal paths, and warning-only PII scan",
   "commands": [
     {
+      "command": "python scripts/validate-kb-manifest-exclusions.py",
+      "required": true,
+      "exitStatus": 0,
+      "outputSummary": ".... ---------------------------------------------------------------------- Ran 4 tests in 0.022s OK"
+    },
+    {
       "command": "python scripts/generate-agent-context-packs.py --check",
       "required": true,
       "exitStatus": 0,
@@ -157,18 +163,18 @@
       "command": "python scripts/validate-kb-manifest.py",
       "required": true,
       "exitStatus": 0,
-      "outputSummary": "OK: 309 maintained files, 76 explicit exclusions, 154 generated artifacts with provenance ownership; hashes, routes, and commands validated"
+      "outputSummary": "OK: 310 maintained files, 76 explicit exclusions, 154 generated artifacts with provenance ownership; hashes, routes, and commands validated"
     }
   ],
   "counts": {
-    "requiredCommandCount": 26,
+    "requiredCommandCount": 27,
     "failedRequiredCommandCount": 0,
     "duplicateNamespaceCount": 13,
-    "internalPathsChecked": 2902,
+    "internalPathsChecked": 2903,
     "piiWarningCount": 0,
     "warningCount": 0,
     "errorCount": 0,
-    "manifestMaintainedFileCount": 309,
+    "manifestMaintainedFileCount": 310,
     "manifestExcludedFileCount": 76
   },
   "duplicateIdChecks": {
@@ -242,7 +248,7 @@
     "errors": []
   },
   "internalPathChecks": {
-    "checked": 2902,
+    "checked": 2903,
     "errors": [],
     "warnings": []
   },

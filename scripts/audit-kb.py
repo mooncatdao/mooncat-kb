@@ -18,6 +18,7 @@ MANIFEST_PATH = ROOT / "data/kb-manifest.json"
 MAX_OUTPUT_CHARS = 400
 
 REQUIRED_COMMANDS = [
+    "python scripts/validate-kb-manifest-exclusions.py",
     "python scripts/generate-agent-context-packs.py --check",
     "python scripts/generate-mooncat-names.py --check",
     "python scripts/generate-visual-traits.py --check",

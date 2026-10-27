@@ -10,6 +10,12 @@ The audit writes `data/kb-audit-report.json` with compact command status/output 
 
 `python scripts/generate-kb-manifest.py` writes `data/kb-manifest.json`; `--check` detects drift. Each maintained entry records its path, role, topics, curation mode, statuses, bytes, SHA-256, routes, recipes, generated-artifact commands where applicable, generated provenance owner, source-backed status, and direct-agent-load guidance.
 
+Local benchmark outputs under `.factual-retrieval-runs/` are volatile, like
+`.chatgpt/` run artifacts: neither their content nor individual paths enter the
+maintained manifest. Maintained files still require classification and hash/size
+checks. Run `python scripts/validate-kb-manifest-exclusions.py` for isolated
+regressions covering new benchmark runs, maintained-file drift, and unexpected files.
+
 Roles and curation modes are closed enums recorded in the manifest. Classification is an explicit path table in the generator; an unmatched maintained file is a generation failure, rather than a guessed category. Routes and recipe references are derived directly from `data/agent-index.json` and `data/task-recipes.json`.
 
 The maintained inventory covers regular repository files except the explicit policy exclusions: `.git`, `.chatgpt` run artifacts, local agent/editor/cache/dependency directories, the local `codex-handoff.md` session artifact, upstream/reference snapshots, vendored example dependencies, and the two recursive/generated audit outputs. `data/kb-manifest.json` is excluded because a hash of itself would not stabilize; `data/kb-audit-report.json` is excluded because command durations are dynamic. These exclusions are policy entries, not orphaned KB content.
